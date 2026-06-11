@@ -1,6 +1,6 @@
 # Fork Public Evidence
 
-Public evidence, technical disclosure, and canonical publication materials for Fork’s work on reconstructive fidelity in AI-assisted workflows.
+Public evidence, technical disclosure, and canonical publication materials for Forkâ€™s work on reconstructive fidelity in AI-assisted workflows.
 
 ## Canonical white paper
 
@@ -57,7 +57,7 @@ Then run:
 
 ```powershell
 cd technical-disclosure
-python .erify_public_disclosure.py
+python .\verify_public_disclosure.py
 ```
 
 ## Release assets
@@ -72,6 +72,6 @@ and through the tagged GitHub Release.
 
 ## Copyright
 
-Copyright © 2026 Ryan Feller. All rights reserved.
+Copyright Â© 2026 Ryan Feller. All rights reserved.
 
-Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork’s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
+Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Forkâ€™s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
