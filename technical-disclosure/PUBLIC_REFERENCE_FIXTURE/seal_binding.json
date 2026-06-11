@@ -1,0 +1,30 @@
+{
+  "_fork_artifact_class": "SEAL_BINDING",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "packet_id": "PKT-PUBLIC-001",
+  "seal_produced_timestamp": "2025-11-14T10:23:02Z",
+  "seal_method": "HMAC-SHA-256",
+  "seal_input": "manifest_digest",
+  "manifest_digest_sealed": "f09e56bd940b60fb24547e6bb83dd770800edd8998fea69fc16af020430453c6",
+  "hmac_key_identifier": "FORK_PUBLIC_DISCLOSURE_V0_1_1_NON_SECRET_TEST_KEY",
+  "hmac_key_value": "FORK_PUBLIC_DISCLOSURE_V0_1_1_NON_SECRET_TEST_KEY",
+  "hmac_key_encoding": "UTF-8 bytes of the key string above",
+  "seal_value": "8080048366d1513ab0f0b22b465028e0487976876f8c082ea0c8624c5fa8f48b",
+  "key_confidentiality": "NOT_CLAIMED",
+  "signer_identity": "NOT_ESTABLISHED",
+  "non_repudiation": "NOT_ESTABLISHED",
+  "purpose": "DETERMINISTIC_PUBLIC_RECOMPUTATION_OF_THE_DECLARED_BINDING_METHOD",
+  "recomputation_instructions": {
+    "step_1": "Obtain the manifest_digest value from packet_manifest.json",
+    "step_2": "Encode the manifest digest string as UTF-8 bytes",
+    "step_3": "Encode the key string 'FORK_PUBLIC_DISCLOSURE_V0_1_1_NON_SECRET_TEST_KEY' as UTF-8 bytes",
+    "step_4": "Compute HMAC-SHA-256 with key=step_3_bytes, message=step_2_bytes",
+    "step_5": "Express result as lowercase hex string",
+    "step_6": "Compare with seal_value above; any difference indicates the sealed manifest digest has changed"
+  },
+  "_fork_seal_note": "This HMAC binds the manifest digest to a declared key. The key is publicly disclosed and carries no confidentiality claim. The seal establishes whether the manifest digest as sealed matches the manifest digest as independently recomputed. It does not establish signer identity, non-repudiation, or institutional authority.",
+  "_fork_interpretation_authority": "VERIFIER_RECOMPUTES_FROM_PUBLISHED_KEY_AND_DIGEST",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z"
+}

@@ -1,0 +1,29 @@
+{
+  "_fork_artifact_class": "HUMAN_REVIEW_RECORD",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "_fork_source_truth": "NOT_CLAIMED",
+  "_fork_production_data": "NONE",
+  "review_id": "HR-PUBLIC-001",
+  "reviewed_by": "AUTHORIZED_HUMAN_REVIEWER",
+  "reviewer_role": "SENIOR_RISK_ANALYST",
+  "reviewer_authority": "DECLARED_BY_INSTITUTION",
+  "review_timestamp": "2025-11-14T10:17:08Z",
+  "ai_output_referenced": "AO-PUBLIC-001",
+  "source_assertion_referenced": "SA-PUBLIC-001",
+  "review_record": {
+    "reviewer_action": "REVIEW_COMPLETED",
+    "reviewer_disposition": "ACCEPTED_AI_RECOMMENDATION",
+    "reviewer_notes": "Source score confirmed against internal reference. AI escalation recommendation accepted. Routing to institutional disposition.",
+    "reviewer_modifications_to_ai_output": "NONE",
+    "policy_version_applied": "RISK_REVIEW_POLICY_v2.3",
+    "open_questions_at_review_time": [
+      "SOURCE_SYSTEM_CALCULATION_METHODOLOGY_NOT_CONFIRMED"
+    ]
+  },
+  "_fork_authority_note": "Fork records that this human review event occurred and preserves the reviewer's declared disposition. Fork does not establish that the review satisfied any applicable policy, that the reviewer's judgment was correct, or that the review constitutes a sufficient institutional finding. Those determinations require separate institutional authority.",
+  "_fork_review_activity_vs_judgment_note": "REVIEW_ACTIVITY_RECORDED: TRUE. POLICY_SATISFACTION_DETERMINED_BY_FORK: FALSE.",
+  "_fork_interpretation_authority": "INSTITUTION_OR_AUTHORIZED_COMPLIANCE_FUNCTION",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z"
+}

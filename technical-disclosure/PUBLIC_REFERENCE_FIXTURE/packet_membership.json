@@ -1,0 +1,57 @@
+{
+  "_fork_artifact_class": "PACKET_MEMBERSHIP",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "packet_id": "PKT-PUBLIC-001",
+  "packet_version": "1.0",
+  "declared_membership_timestamp": "2025-11-14T10:23:00Z",
+  "declared_members": [
+    {
+      "member_id": "SA-PUBLIC-001",
+      "artifact_class": "SOURCE_ASSERTION",
+      "filename": "source_assertion.json",
+      "member_role": "WORKFLOW_INPUT"
+    },
+    {
+      "member_id": "AO-PUBLIC-001",
+      "artifact_class": "AI_OUTPUT",
+      "filename": "ai_output.json",
+      "member_role": "WORKFLOW_AI_STEP"
+    },
+    {
+      "member_id": "HR-PUBLIC-001",
+      "artifact_class": "HUMAN_REVIEW_RECORD",
+      "filename": "human_review.json",
+      "member_role": "WORKFLOW_HUMAN_REVIEW_STEP"
+    },
+    {
+      "member_id": "ID-PUBLIC-001",
+      "artifact_class": "INSTITUTIONAL_DISPOSITION",
+      "filename": "institutional_disposition.json",
+      "member_role": "WORKFLOW_OUTCOME"
+    }
+  ],
+  "membership_count_declared": 4,
+  "_fork_membership_note": "This record declares the exact eligible workflow members of the packet. Control-plane artifacts are present in the fixture directory but are explicitly excluded by membership_eligibility_rule. Fork does not silently add or remove eligible workflow members. A reviewer can independently enumerate eligible artifacts and compare them with this declaration.",
+  "_fork_completeness_claim": "NOT_CLAIMED. This packet boundary covers observed workflow event artifacts. It does not claim to be a complete record of all activity that may have occurred in connection with the referenced synthetic subject.",
+  "_fork_interpretation_authority": "VERIFIER_RECOMPUTES_FROM_THIS_RECORD",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z",
+  "membership_eligibility_rule": {
+    "rule_status": "EXPLICIT",
+    "included_artifact_classes": [
+      "SOURCE_ASSERTION",
+      "AI_OUTPUT",
+      "HUMAN_REVIEW_RECORD",
+      "INSTITUTIONAL_DISPOSITION"
+    ],
+    "excluded_control_artifact_classes": [
+      "PACKET_MEMBERSHIP",
+      "PACKET_MANIFEST",
+      "SEAL_BINDING",
+      "TIMESTAMP_ANCHOR"
+    ],
+    "enumeration_method": "Scan PUBLIC_REFERENCE_FIXTURE/*.json, classify by _fork_artifact_class, compare all eligible workflow artifacts against declared_members.",
+    "undeclared_eligible_member_policy": "FAIL"
+  }
+}

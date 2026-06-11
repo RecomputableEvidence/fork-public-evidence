@@ -1,0 +1,174 @@
+{
+  "_fork_artifact_class": "VERIFICATION_RESULT",
+  "_fork_verification_result_class": "SELECTED_PUBLIC_VERIFICATION_RESULT",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "verification_run_id": "VR-PUBLIC-001-v0.1.1",
+  "packet_id": "PKT-PUBLIC-001",
+  "verification_timestamp": "2026-06-11T18:49:54Z",
+  "public_disclosure_build_time": "2026-06-11T18:49:54Z",
+  "verification_method_declared": "Fork Public Gate Set v0.1.1 / verify_public_disclosure.py",
+  "gate_results": [
+    {
+      "gate_id": "GATE_PUBLIC_001",
+      "gate_name": "DECLARED_PACKET_MEMBERSHIP",
+      "result": "PASS",
+      "result_reason": "All declared eligible workflow members are present; declared count matches; member IDs and filenames are unique; no undeclared eligible workflow artifacts were observed. Control-plane artifacts are explicitly excluded by the membership eligibility rule.",
+      "verified_from": "packet_membership.json + artifact-class enumeration",
+      "membership_eligibility_rule": "EXPLICIT",
+      "included_artifact_classes": [
+        "SOURCE_ASSERTION",
+        "AI_OUTPUT",
+        "HUMAN_REVIEW_RECORD",
+        "INSTITUTIONAL_DISPOSITION"
+      ],
+      "excluded_control_artifact_classes": [
+        "PACKET_MEMBERSHIP",
+        "PACKET_MANIFEST",
+        "SEAL_BINDING",
+        "TIMESTAMP_ANCHOR"
+      ]
+    },
+    {
+      "gate_id": "GATE_PUBLIC_002",
+      "gate_name": "MEMBER_DIGESTS",
+      "result": "PASS",
+      "result_reason": "SHA-256 digest independently recomputed for each declared member and matched packet_manifest.json.",
+      "member_digest_check": {
+        "source_assertion.json": {
+          "recorded": "a509d4103ce5866f214a51c247634f42c65c03c51f12eb165981c14e0a5d1042",
+          "recomputed": "a509d4103ce5866f214a51c247634f42c65c03c51f12eb165981c14e0a5d1042",
+          "match": true
+        },
+        "ai_output.json": {
+          "recorded": "b8b001225d7cc9b730716fdd5106c8b4af98b0aa229c30a989011d73b4fa858c",
+          "recomputed": "b8b001225d7cc9b730716fdd5106c8b4af98b0aa229c30a989011d73b4fa858c",
+          "match": true
+        },
+        "human_review.json": {
+          "recorded": "a5c3d07b56f4b5c5be6d0b649e91cda8be4f3861f871d6c7a72da1da2d85ee25",
+          "recomputed": "a5c3d07b56f4b5c5be6d0b649e91cda8be4f3861f871d6c7a72da1da2d85ee25",
+          "match": true
+        },
+        "institutional_disposition.json": {
+          "recorded": "0970cd867dc40db56fec066d826d951f228c195043b1c8ae6e8c38c7468913e9",
+          "recomputed": "0970cd867dc40db56fec066d826d951f228c195043b1c8ae6e8c38c7468913e9",
+          "match": true
+        }
+      }
+    },
+    {
+      "gate_id": "GATE_PUBLIC_003",
+      "gate_name": "MANIFEST_DIGEST",
+      "result": "PASS",
+      "result_reason": "Canonical manifest digest independently recomputed using the declared canonical fields and method.",
+      "manifest_digest_recorded": "f09e56bd940b60fb24547e6bb83dd770800edd8998fea69fc16af020430453c6",
+      "manifest_digest_recomputed": "f09e56bd940b60fb24547e6bb83dd770800edd8998fea69fc16af020430453c6",
+      "match": true
+    },
+    {
+      "gate_id": "GATE_PUBLIC_004",
+      "gate_name": "HMAC_SEAL_BINDING",
+      "result": "PASS",
+      "result_reason": "HMAC-SHA-256 independently recomputed using the public non-secret test key and manifest digest.",
+      "seal_value_recorded": "8080048366d1513ab0f0b22b465028e0487976876f8c082ea0c8624c5fa8f48b",
+      "seal_value_recomputed": "8080048366d1513ab0f0b22b465028e0487976876f8c082ea0c8624c5fa8f48b",
+      "match": true,
+      "hmac_key_used": "FORK_PUBLIC_DISCLOSURE_V0_1_1_NON_SECRET_TEST_KEY",
+      "key_confidentiality": "NOT_CLAIMED"
+    },
+    {
+      "gate_id": "GATE_PUBLIC_005",
+      "gate_name": "PERSISTED_ARTIFACT_RECOMPUTATION",
+      "result": "PASS",
+      "result_reason": "Verification is reproducible from published persisted artifact bytes by verify_public_disclosure.py without invoking construction functions.",
+      "construction_path_independence": "CONFIRMED_FOR_DECLARED_PUBLIC_CHECKS"
+    },
+    {
+      "gate_id": "GATE_PUBLIC_006",
+      "gate_name": "GRANULAR_STATE_PRESERVATION",
+      "result": "PASS",
+      "result_reason": "Gate states are individually represented, addressable, and not aggregated in this static result. Append-only persistence over time is not established by a single static disclosure artifact.",
+      "sub_checks": {
+        "granular_gate_states_present": "PASS",
+        "gate_states_individually_addressable": "PASS",
+        "no_state_aggregation_observed": "PASS",
+        "append_only_persistence": "NOT_CHECKED"
+      }
+    },
+    {
+      "gate_id": "GATE_PUBLIC_007",
+      "gate_name": "NO_AGGREGATE_TRUST_VERDICT",
+      "result": "PASS",
+      "result_reason": "Recursive prohibited-key scanning found no aggregate trust, validity, compliance, admissibility, or legal-sufficiency verdict fields.",
+      "aggregate_verdict_emitted": false,
+      "prohibited_fields_absent": [
+        "PACKET_VALID",
+        "TRUSTED",
+        "COMPLIANT",
+        "ADMISSIBLE",
+        "LEGALLY_SUFFICIENT"
+      ]
+    },
+    {
+      "gate_id": "GATE_PUBLIC_008",
+      "gate_name": "EXPORT_INVENTORY_AND_DIGESTS",
+      "result": "PASS",
+      "result_reason": "SHA256SUMS.txt hashes every ordinary disclosed file except itself and the public disclosure manifest. The public disclosure manifest inventories those files plus SHA256SUMS.txt. Its own identity is anchored only by the detached outer-ZIP SHA-256 receipt.",
+      "ordinary_files_hashed": "PASS",
+      "sha256sums_hashed_by_public_manifest": "PASS",
+      "public_manifest_self_hash": "NOT_INCLUDED_RECURSION_AVOIDED",
+      "outer_zip_detached_receipt": "REQUIRED_AND_PUBLISHED_SEPARATELY"
+    },
+    {
+      "gate_id": "GATE_PUBLIC_009",
+      "gate_name": "SEMANTIC_AUTHORITY_NON_PROMOTION",
+      "result": "PASS",
+      "result_reason": "verify_public_disclosure.py mechanically checked class identity, required authority-boundary fields, prohibited promotion fields, source-truth posture, review-activity boundary, and institution-defined disposition meaning.",
+      "semantic_non_promotion_method": "MECHANICALLY_REPRODUCED_GATE",
+      "authority_distinctions_preserved": {
+        "source_assertion_promoted_to_institutional_finding": false,
+        "ai_output_promoted_to_institutional_decision": false,
+        "review_activity_promoted_to_policy_satisfaction": false,
+        "operative_state_promoted_to_determined_state": false
+      }
+    },
+    {
+      "gate_id": "GATE_PUBLIC_010",
+      "gate_name": "TIMESTAMP_DISCLOSURE_BOUNDARY",
+      "result": "NOT_CHECKED",
+      "result_reason": "Timestamp metadata record presence is confirmed. RFC 3161 request/response bytes are absent; message-imprint, trust-chain, and independent time-of-existence checks are not established by this public bundle.",
+      "sub_checks": {
+        "timestamp_metadata_record_presence": "PASS",
+        "rfc3161_request_response_pair_presence": "NOT_ESTABLISHED",
+        "message_imprint_digest_relationship": "NOT_CHECKED",
+        "certificate_trust_chain_validation": "NOT_CHECKED",
+        "independent_time_of_existence": "NOT_ESTABLISHED"
+      }
+    }
+  ],
+  "verification_summary": {
+    "gates_declared": 10,
+    "gates_pass": 9,
+    "gates_not_checked": 1,
+    "gates_fail": 0,
+    "aggregate_trust_verdict": "NOT_EMITTED",
+    "aggregate_validity_verdict": "NOT_EMITTED",
+    "aggregate_compliance_verdict": "NOT_EMITTED"
+  },
+  "_fork_result_note": "This result establishes only the declared checks reproduced from the published fixture. It does not establish source truth, legal or compliance sufficiency, append-only persistence, independent timestamp validation, third-party verifier independence, live institutional deployment, or production readiness.",
+  "_fork_not_established": [
+    "SOURCE_TRUTH_OR_COMPLETENESS",
+    "PUBLIC_SIGNER_IDENTITY",
+    "NON_REPUDIATION",
+    "LEGAL_ADMISSIBILITY",
+    "COMPLIANCE_OR_ETHICAL_CORRECTNESS",
+    "APPEND_ONLY_PERSISTENCE",
+    "RFC3161_REQUEST_RESPONSE_PAIR_PRESENCE",
+    "INDEPENDENT_TIME_OF_EXISTENCE",
+    "THIRD_PARTY_VERIFIER_INDEPENDENCE",
+    "LIVE_INSTITUTIONAL_DEPLOYMENT",
+    "PRODUCTION_READINESS"
+  ]
+}

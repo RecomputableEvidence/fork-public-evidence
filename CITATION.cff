@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite this repository and the specific tagged release used."
+title: "Reconstructive Fidelity in the Age of AI"
+type: article
+authors:
+  - family-names: "Feller"
+    given-names: "Ryan"
+version: "1.0"
+date-released: "2026-06-11"
+repository-code: "https://github.com/SentinelQuantumAegis/fork-public-evidence"
+url: "https://SentinelQuantumAegis.github.io/fork-public-evidence/"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Feller"
+      given-names: "Ryan"
+  title: "Reconstructive Fidelity in the Age of AI"
+  subtitle: "The Invariant Distance Principle and Why Governance Requires Evidence That Survives Institutional Change"
+  year: 2026
+  version: "1.0"

@@ -1,0 +1,41 @@
+{
+  "_fork_artifact_class": "TIMESTAMP_ANCHOR",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "packet_id": "PKT-PUBLIC-001",
+  "timestamp_anchor_reference": "RFC_3161_TRUSTED_TIMESTAMP",
+  "timestamp_digest_relationship": {
+    "gate": "GATE_PUBLIC_010_TIMESTAMP_DISCLOSURE_BOUNDARY",
+    "check": "TIMESTAMP_MESSAGE_IMPRINT_OR_DIGEST_RELATIONSHIP",
+    "result": "NOT_CHECKED",
+    "note": "The relationship between the timestamp message imprint and the sealed packet digest has not been independently recomputed in this public fixture. A full recomputation would require the complete RFC 3161 response bytes and a declared digest comparison procedure."
+  },
+  "certificate_trust_chain_validation": {
+    "gate": "GATE_PUBLIC_010_TIMESTAMP_DISCLOSURE_BOUNDARY",
+    "check": "CERTIFICATE_TRUST_CHAIN_VALIDATION",
+    "result": "NOT_CHECKED",
+    "note": "Trust-chain validation against a trusted certificate authority was not performed as part of this public disclosure fixture. Internal testing used FreeTSA CA material under controlled conditions; that validation procedure is not reproduced in this public bundle."
+  },
+  "independent_time_of_existence": {
+    "gate": "GATE_PUBLIC_010_TIMESTAMP_DISCLOSURE_BOUNDARY",
+    "check": "INDEPENDENT_TIME_OF_EXISTENCE_ESTABLISHED",
+    "result": "NOT_ESTABLISHED",
+    "note": "An independent time-of-existence claim is not established by this public fixture. NOT_CHECKED trust-chain status means no third-party time-of-existence assertion can be derived from the evidence available in this bundle."
+  },
+  "synthetic_fixture_note": "This is a fixed-time synthetic public reference fixture. The metadata record is present, but an RFC 3161 request/response pair is not included. Message-imprint, trust-chain, and independent time-of-existence claims remain NOT_CHECKED or NOT_ESTABLISHED.",
+  "_fork_interpretation_authority": "AUTHORIZED_REVIEWER_WITH_ACCESS_TO_COMPLETE_TIMESTAMP_ARTIFACTS",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z",
+  "timestamp_metadata_record_presence": {
+    "gate": "GATE_PUBLIC_010_TIMESTAMP_DISCLOSURE_BOUNDARY",
+    "check": "TIMESTAMP_METADATA_RECORD_PRESENCE",
+    "result": "PASS",
+    "note": "This timestamp metadata record is present in the public fixture."
+  },
+  "rfc3161_request_response_pair_presence": {
+    "gate": "GATE_PUBLIC_010_TIMESTAMP_DISCLOSURE_BOUNDARY",
+    "check": "RFC3161_REQUEST_RESPONSE_PAIR_PRESENCE",
+    "result": "NOT_ESTABLISHED",
+    "note": "The public bundle does not include RFC 3161 request (.tsq) and response (.tsr) bytes."
+  }
+}

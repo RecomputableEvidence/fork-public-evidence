@@ -1,0 +1,31 @@
+{
+  "_fork_artifact_class": "INSTITUTIONAL_DISPOSITION",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "_fork_source_truth": "NOT_CLAIMED",
+  "_fork_production_data": "NONE",
+  "disposition_id": "ID-PUBLIC-001",
+  "disposition_recorded_by": "WORKFLOW_SYSTEM",
+  "disposition_authority": "INSTITUTION_ACTING_THROUGH_AUTHORIZED_FUNCTION",
+  "disposition_timestamp": "2025-11-14T10:22:33Z",
+  "human_review_referenced": "HR-PUBLIC-001",
+  "ai_output_referenced": "AO-PUBLIC-001",
+  "source_assertion_referenced": "SA-PUBLIC-001",
+  "content": {
+    "disposition_value": "ESCALATED_AND_ACCEPTED",
+    "disposition_meaning": "INSTITUTION_DEFINED",
+    "disposition_meaning_authority": "INSTITUTION",
+    "routing_outcome": "CASE_ADVANCED_TO_SENIOR_REVIEW_QUEUE",
+    "policy_basis_declared": "RISK_REVIEW_POLICY_v2.3",
+    "policy_satisfaction_determined_by": "INSTITUTION",
+    "open_items_at_disposition": [
+      "SOURCE_CALCULATION_METHOD_NOT_CONFIRMED",
+      "SENIOR_REVIEW_OUTCOME_PENDING"
+    ]
+  },
+  "_fork_authority_note": "Fork records the institutional disposition as declared by the workflow system. The meaning of 'ESCALATED_AND_ACCEPTED' is institution-defined. Fork does not adopt, certify, or extend that meaning. Fork does not establish that this disposition satisfies legal, regulatory, or policy obligations. Those determinations rest with authorized institutional and regulatory actors.",
+  "_fork_operative_vs_determined_state_note": "OPERATIVE_STATE_AS_RECORDED: ESCALATED_AND_ACCEPTED. DETERMINED_STATE_BY_FORK: NOT_APPLICABLE. FORK_DOES_NOT_SILENTLY_PROMOTE_OPERATIVE_STATE_TO_INSTITUTIONAL_FINDING.",
+  "_fork_interpretation_authority": "INSTITUTION_LEGAL_COMPLIANCE_OR_REGULATORY_REVIEWER",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z"
+}
