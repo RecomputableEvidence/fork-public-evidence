@@ -72,6 +72,6 @@ and through the tagged GitHub Release.
 
 ## Copyright
 
-Copyright Â© 2026 Ryan Feller. All rights reserved.
+Copyright © 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Forkâ€™s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
