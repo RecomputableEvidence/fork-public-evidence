@@ -1,0 +1,12 @@
+{
+  "artifact_type": "VERIFICATION_RECEIPT",
+  "artifact_id": "verification_result_binding_unbound_invalid_001",
+  "schema_version": "verification_result_source_v0_1",
+  "verifier_result": "PASS",
+  "declared_checks": [
+    "MANIFEST_RECOMPUTE",
+    "DECLARED_ARTIFACT_SET_PRESENT",
+    "VERIFIER_RESULT_EMITTED"
+  ],
+  "receipt_purpose": "Demonstrate a verifier result before Claim Boundary Binding. This source artifact is intentionally unbound and must not be treated as valid until a claim_boundary block is attached from an approved claim profile."
+}
