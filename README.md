@@ -1,5 +1,8 @@
 # Fork Public Evidence
 
+Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
+
+
 Public evidence, technical disclosure, and canonical publication materials for Forkâ€™s work on reconstructive fidelity in AI-assisted workflows.
 
 ## Canonical white paper

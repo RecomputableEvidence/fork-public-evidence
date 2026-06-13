@@ -75,6 +75,58 @@ It requires a declared replay class, bounded inputs, relevant context, and admis
 
 Preservation and recomputability are related, but they are not equivalent.
 
+## Recomputability Class vs Recomputation Surface
+
+Recomputability Class answers:
+
+```text
+What kind of replay is possible?
+```
+
+Recomputation Surface answers:
+
+```text
+Who performs the replay, and at what boundary?
+```
+
+These are orthogonal dimensions.
+
+A recomputation surface does not determine recomputability class.
+
+A recomputability class does not determine recomputation surface.
+
+They must not be silently merged into a single implementation field.
+
+Examples of recomputation surfaces include:
+
+- Export-Surface recomputation;
+- Packet-Level recomputation;
+- Foreign-Verifier recomputation.
+
+A Foreign-Verifier recomputation may be `STRONG_RECOMPUTATION` if the required deterministic context is sealed, available, and independently rerunnable.
+
+A Foreign-Verifier recomputation may be `BOUNDED_RECOMPUTATION` if it verifies only within declared tolerances, ranges, or probabilistic bounds.
+
+A Packet-Level recomputation may prove packet integrity without proving that an underlying model output is reproducible.
+
+An Export-Surface recomputation may verify preserved export consistency without proving full workflow replay.
+
+### Combination Constraint
+
+Future schemas must explicitly declare which `recomputability_class` and `recomputation_surface` combinations are permitted, refused, or not addressed.
+
+Undefined combinations must not be treated as permitted by default.
+
+A two-field implementation must not imply that every recomputability class is valid on every recomputation surface.
+
+### Foreign-Verifier / NON_RECOMPUTABLE Rule
+
+A Foreign-Verifier surface does not upgrade a `NON_RECOMPUTABLE` artifact into a recomputable result.
+
+A foreign verifier may inspect, preserve, hash-check, or report limitations for a `NON_RECOMPUTABLE` artifact.
+
+It must not issue a replay-dependent governance determination unless the artifact satisfies the required recomputability class.
+
 ## Recomputability Classes
 
 Fork v0.1 defines four recomputability classes:
@@ -354,6 +406,22 @@ Examples:
 - `REFERENTIAL_RECOMPUTATION` does not make a reference set authoritative.
 - `NON_RECOMPUTABLE` does not make an artifact useless; it only limits replay claims.
 
+## Ontological Drift and Category Authorization
+
+Fork's authorization chain is human judgment -> repository artifact -> explicit schema/test/CI enforcement.
+
+It is not model output -> enforcement.
+
+Inference may propose categories.
+
+It may not authorize them.
+
+The use of AI-assisted reasoning in developing this boundary stack does not make model output a governance authority.
+
+Governance categories must be adopted through human-controlled doctrine, committed as repository artifacts, and later enforced only through explicit schemas, tests, and CI.
+
+This contract does not implement a Semantic Inference Boundary.
+
 ## Required Context for Future Enforcement
 
 This v0.1 contract does not yet define executable requirements.
@@ -467,6 +535,12 @@ This contract does not claim:
 17. That recomputation proves identity, authority, or authorization.
 
 18. That recomputation resolves all claim, definition, or provenance boundaries.
+
+19. That this contract addresses provenance tier stability over time, source revocation, reference-set revocation, policy-snapshot supersession, or degradation of recomputability class due to external state becoming unavailable, unverifiable, stale, or disputed.
+
+20. That this contract defines standing, counter-evidence submission, challenge procedures, adjudication workflow, contestability rights, or dispute-resolution authority.
+
+21. That this contract addresses the provenance tier, admissibility, or governance weight of a verifier's own limitation report, assessment report, or non-recomputability determination.
 
 ## Boundary Stack Position
 
