@@ -12,6 +12,7 @@ For a first review, read the artifacts in this order:
 6. **Schemas, examples, tests, and tools** — review the executable evidence constraints in `schemas/`, `examples/`, `tests/`, and `tools/`.
 
 This reading path is intended to prevent two common misreadings: treating Fork as only a theoretical governance paper, or treating the repository as a broad product-readiness claim. Fork's current public posture is narrower: bounded evidence preservation, explicit non-claims, and test-backed controls against specific forms of evidentiary overclaim.
+
 Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
 
 
@@ -22,9 +23,9 @@ Public evidence, technical disclosure, and canonical publication materials for F
 **Reconstructive Fidelity in the Age of AI**  
 *The Invariant Distance Principle and Why Governance Requires Evidence That Survives Institutional Change*
 
-- Canonical article: https://SentinelQuantumAegis.github.io/fork-public-evidence/
-- Repository copy: https://github.com/SentinelQuantumAegis/fork-public-evidence/blob/main/white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md
-- Technical disclosure release: https://github.com/SentinelQuantumAegis/fork-public-evidence/releases/tag/fork-public-disclosure-v0.1.1
+- Canonical article: https://RecomputableEvidence.github.io/fork-public-evidence/
+- Repository copy: https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md
+- Technical disclosure release: https://github.com/RecomputableEvidence/fork-public-evidence/releases/tag/fork-public-disclosure-v0.1.1
 
 ## Public technical disclosure
 
