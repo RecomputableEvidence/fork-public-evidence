@@ -642,10 +642,10 @@ Relevant locations:
 Feller, Ryan. *Fork Public Technical Claims and Boundaries v0.1.1.* Public technical disclosure appendix, selected schemas, deterministic synthetic reference fixture, verification result, recomputation instructions, release receipt, and explicit non-claims for Fork’s recomputable evidence architecture.
 
 Public release:  
-https://github.com/SentinelQuantumAegis/fork-public-evidence/releases/tag/fork-public-disclosure-v0.1.1
+https://github.com/RecomputableEvidence/fork-public-evidence/releases/tag/fork-public-disclosure-v0.1.1
 
 Canonical repository:  
-https://github.com/SentinelQuantumAegis/fork-public-evidence
+https://github.com/RecomputableEvidence/fork-public-evidence
 
 Outer disclosure ZIP SHA-256:
 

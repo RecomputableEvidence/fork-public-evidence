@@ -24,7 +24,7 @@
 
 ## GitHub publication
 
-- [ ] Public repository created at `https://github.com/SentinelQuantumAegis/fork-public-evidence`
+- [ ] Public repository created at `https://github.com/RecomputableEvidence/fork-public-evidence`
 - [ ] Main branch pushed
 - [ ] Tag `fork-public-disclosure-v0.1.1` pushed
 - [ ] GitHub Release created
