@@ -2,14 +2,14 @@
 
 ## Status
 
-**Contract status:** Doctrine-only  
-**Enforcement status:** Not yet enforced by schema, checker, test, or CI  
-**Layer:** Recomputability Class  
+**Contract status:** Partially enforced
+**Enforcement status:** Selected narrow refusal and receipt-binding conditions are now enforced by repository schema, checker, tests, CI, and receipt examples; unmapped sections remain doctrinal.
+**Layer:** Recomputability Class
 **Version:** v0.1
 
-This document defines the initial Fork recomputability doctrine.
+This document defines Fork's initial recomputability doctrine and records later narrow enforcement mappings.
 
-It does not introduce a schema, executable checker, CI gate, verifier result format, or release lock.
+It does not introduce full recomputability-matrix enforcement. Repository tooling enforces only the explicitly mapped conditions identified below.
 
 ## Constitutional Line
 
@@ -140,7 +140,9 @@ NON_RECOMPUTABLE
 
 These classes describe what kind of replay, if any, an artifact may support.
 
-In v0.1, these classes are doctrinal only. They are not yet enforced by repository tooling.
+At publication, these classes were doctrine-level definitions. The repository now enforces selected narrow conditions around recomputability-class escalation and receipt binding.
+
+The class/surface matrix remains otherwise doctrinal unless explicitly mapped to schema, checker, tests, CI, or receipt artifacts.
 
 ## Class 1: STRONG_RECOMPUTATION
 
@@ -461,7 +463,9 @@ RECOMPUTABILITY_SILENT_UPGRADE_DEFECT
 
 These failure classes are reserved doctrinally.
 
-They are not yet emitted by repository tooling under this v0.1 contract.
+`RECOMPUTABILITY_ESCALATION_DEFECT` is now emitted by the Phase 3 recomputability receipt-binding layer when a `NON_RECOMPUTABLE` artifact attempts to satisfy a `STRONG_RECOMPUTATION` gate.
+
+The remaining listed failure classes are not emitted by repository tooling unless separately mapped in a later enforcement phase.
 
 ## Candidate Future Executable Refusal
 
