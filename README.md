@@ -16,7 +16,7 @@ This reading path is intended to prevent two common misreadings: treating Fork a
 Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
 
 
-Public evidence, technical disclosure, and canonical publication materials for Forkâ€™s work on reconstructive fidelity in AI-assisted workflows.
+Public evidence, technical disclosure, and canonical publication materials for Fork’s work on reconstructive fidelity in AI-assisted workflows.
 
 ## Canonical white paper
 
@@ -90,4 +90,4 @@ and through the tagged GitHub Release.
 
 Copyright © 2026 Ryan Feller. All rights reserved.
 
-Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Forkâ€™s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
+Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork’s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
