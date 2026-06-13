@@ -471,9 +471,18 @@ A later enforcement phase may implement the following narrow refusal:
 NON_RECOMPUTABLE artifacts must not satisfy gates that require STRONG_RECOMPUTATION.
 ```
 
-This document does not implement that refusal.
+This repository now implements this single narrow refusal through:
 
-It only defines the doctrine required before such enforcement can be responsibly added.
+- `schemas/recomputability_class_v0_1.schema.json`
+- `tools/check_recomputability_class.py`
+- `examples/recomputability_class/invalid_non_recomputable_satisfies_strong_gate.json`
+- `tests/test_recomputability_class_v0_1.py`
+
+This implementation does not enforce the full recomputability class/surface matrix.
+
+It does not enforce bounded tolerances, referential snapshots, temporal validity, contestability, verifier report provenance, or a Semantic Inference Boundary.
+
+It only rejects the attempted escalation from `NON_RECOMPUTABLE` to `STRONG_RECOMPUTATION`.
 
 ## What This Contract Claims
 

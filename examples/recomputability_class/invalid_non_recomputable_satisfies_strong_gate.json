@@ -1,0 +1,15 @@
+{
+  "contract_version": "recomputability_class_v0_1",
+  "artifact_id": "artifact_non_recomputable_attempted_strong_gate_v0_1",
+  "gate_id": "GATE_REQUIRES_STRONG_RECOMPUTATION",
+  "declared_recomputability_class": "NON_RECOMPUTABLE",
+  "required_recomputability_class": "STRONG_RECOMPUTATION",
+  "recomputation_surface": "FOREIGN_VERIFIER",
+  "claim_boundary": "REPLAY_CLASS_DECLARATION_ONLY",
+  "notes": [
+    "This fixture intentionally attempts to satisfy a STRONG_RECOMPUTATION gate with a NON_RECOMPUTABLE artifact."
+  ],
+  "non_claims": [
+    "This fixture must fail with RECOMPUTABILITY_ESCALATION_DEFECT."
+  ]
+}
