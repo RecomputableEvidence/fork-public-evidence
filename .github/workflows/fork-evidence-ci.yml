@@ -90,3 +90,11 @@ jobs:
             tests/test_line_endings_v0_1.py \
             tests/test_ci_workflow_v0_1.py \
             -q
+      - name: Run Definition Boundary v0.1 checks
+        run: |
+          python tools/check_definition_boundary.py examples/definition_boundary/valid_identity_undefined.json
+          if python tools/check_definition_boundary.py examples/definition_boundary/invalid_identity_overdefinition.json; then
+            echo "Expected invalid Definition Boundary example to fail"
+            exit 1
+          fi
+          python -m pytest tests/test_definition_boundary_v0_1.py -q

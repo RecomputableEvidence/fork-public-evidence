@@ -1,0 +1,20 @@
+{
+  "boundary_type": "IDENTITY_UNDEFINED",
+  "definition_statement": "This record preserves observed account_id, actor_label, and approval_state. Identity remains undefined.",
+  "allowed_definitions": [
+    "observed account_id",
+    "observed actor_label",
+    "observed approval_state",
+    "recorded system user",
+    "source event reports"
+  ],
+  "forbidden_definitions": [
+    "natural person identity",
+    "human presence",
+    "legal identity",
+    "verified identity",
+    "authorized reviewer",
+    "meaningful human review",
+    "actual person performed action"
+  ]
+}
