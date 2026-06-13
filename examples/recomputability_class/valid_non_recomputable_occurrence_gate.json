@@ -1,0 +1,17 @@
+{
+  "contract_version": "recomputability_class_v0_1",
+  "artifact_id": "artifact_observed_only_v0_1",
+  "gate_id": "GATE_ACCEPTS_NON_RECOMPUTABLE_OCCURRENCE_EVIDENCE",
+  "declared_recomputability_class": "NON_RECOMPUTABLE",
+  "required_recomputability_class": "NON_RECOMPUTABLE",
+  "recomputation_surface": "EXPORT_SURFACE",
+  "claim_boundary": "OBSERVED_ARTIFACT_OCCURRENCE_ONLY",
+  "notes": [
+    "This example preserves an observed artifact without claiming replayability."
+  ],
+  "non_claims": [
+    "Does not claim the result can be regenerated.",
+    "Does not claim the result can be independently replayed.",
+    "Does not satisfy STRONG_RECOMPUTATION."
+  ]
+}

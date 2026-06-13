@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/recomputability_class_v0_1.schema.json",
+  "title": "Fork Recomputability Class Declaration v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "artifact_id",
+    "gate_id",
+    "declared_recomputability_class",
+    "required_recomputability_class",
+    "recomputation_surface",
+    "claim_boundary"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "recomputability_class_v0_1"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "declared_recomputability_class": {
+      "type": "string",
+      "enum": [
+        "STRONG_RECOMPUTATION",
+        "BOUNDED_RECOMPUTATION",
+        "REFERENTIAL_RECOMPUTATION",
+        "NON_RECOMPUTABLE"
+      ]
+    },
+    "required_recomputability_class": {
+      "type": "string",
+      "enum": [
+        "STRONG_RECOMPUTATION",
+        "BOUNDED_RECOMPUTATION",
+        "REFERENTIAL_RECOMPUTATION",
+        "NON_RECOMPUTABLE"
+      ]
+    },
+    "recomputation_surface": {
+      "type": "string",
+      "enum": [
+        "EXPORT_SURFACE",
+        "PACKET_LEVEL",
+        "FOREIGN_VERIFIER"
+      ]
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

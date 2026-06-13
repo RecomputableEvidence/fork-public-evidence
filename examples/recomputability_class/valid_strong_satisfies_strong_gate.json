@@ -1,0 +1,18 @@
+{
+  "contract_version": "recomputability_class_v0_1",
+  "artifact_id": "artifact_strong_replay_v0_1",
+  "gate_id": "GATE_REQUIRES_STRONG_RECOMPUTATION",
+  "declared_recomputability_class": "STRONG_RECOMPUTATION",
+  "required_recomputability_class": "STRONG_RECOMPUTATION",
+  "recomputation_surface": "PACKET_LEVEL",
+  "claim_boundary": "REPLAY_CLASS_DECLARATION_ONLY",
+  "notes": [
+    "This example declares that the artifact satisfies a gate requiring STRONG_RECOMPUTATION."
+  ],
+  "non_claims": [
+    "Does not prove substantive correctness.",
+    "Does not prove legal admissibility.",
+    "Does not prove source completeness.",
+    "Does not prove meaningful human review."
+  ]
+}
