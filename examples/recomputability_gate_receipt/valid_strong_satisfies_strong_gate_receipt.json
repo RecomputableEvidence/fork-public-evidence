@@ -1,0 +1,9 @@
+{
+  "artifact_recomputability_class": "STRONG_RECOMPUTATION",
+  "claim_boundary": "No recomputability gate result may be emitted without exposing the class comparison that produced it.",
+  "gate_required_class": "STRONG_RECOMPUTATION",
+  "gate_result": "PASS",
+  "reason_code": "STRONG_RECOMPUTATION_SATISFIES_STRONG_GATE",
+  "receipt_type": "RECOMPUTABILITY_GATE_RECEIPT",
+  "receipt_version": "0.1"
+}

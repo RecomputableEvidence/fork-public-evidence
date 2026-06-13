@@ -1,0 +1,7 @@
+{
+  "claim_boundary": "No recomputability gate result may be emitted without exposing the class comparison that produced it.",
+  "gate_result": "PASS",
+  "reason_code": "BARE_PASS_NOT_ALLOWED",
+  "receipt_type": "RECOMPUTABILITY_GATE_RECEIPT",
+  "receipt_version": "0.1"
+}

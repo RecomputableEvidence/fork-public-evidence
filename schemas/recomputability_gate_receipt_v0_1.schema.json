@@ -1,0 +1,50 @@
+{
+  "$id": "https://fork.example/schemas/recomputability_gate_receipt_v0_1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_recomputability_class": {
+      "enum": [
+        "NON_RECOMPUTABLE",
+        "STRONG_RECOMPUTATION"
+      ]
+    },
+    "claim_boundary": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gate_required_class": {
+      "enum": [
+        "OCCURRENCE_EVIDENCE",
+        "STRONG_RECOMPUTATION"
+      ]
+    },
+    "gate_result": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "receipt_type": {
+      "const": "RECOMPUTABILITY_GATE_RECEIPT"
+    },
+    "receipt_version": {
+      "const": "0.1"
+    }
+  },
+  "required": [
+    "receipt_type",
+    "receipt_version",
+    "artifact_recomputability_class",
+    "gate_required_class",
+    "gate_result",
+    "reason_code",
+    "claim_boundary"
+  ],
+  "title": "Fork Recomputability Gate Receipt v0.1",
+  "type": "object"
+}
