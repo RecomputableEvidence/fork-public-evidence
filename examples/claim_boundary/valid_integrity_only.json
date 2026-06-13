@@ -1,0 +1,39 @@
+{
+  "claim_type": "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY",
+  "claim_statement": "The declared artifact set recomputes against its manifest under the recorded verifier environment, and the verifier emitted bounded PASS, FAIL, or NOT_CHECKED states for the declared checks.",
+  "allowed_inferences": [
+    "The declared artifact set recomputes against its manifest under this environment.",
+    "The verifier evaluated the declared checks defined for this integrity profile.",
+    "PASS, FAIL, and NOT_CHECKED states were emitted only for those declared checks."
+  ],
+  "forbidden_inferences": [
+    "The decision was correct.",
+    "The workflow was complete.",
+    "The source system was complete.",
+    "The action was lawful.",
+    "The output was compliant.",
+    "The human reviewer meaningfully reviewed it.",
+    "The evidence is admissible.",
+    "The model was accurate."
+  ],
+  "not_checked": [
+    "SOURCE_COMPLETENESS",
+    "DECISION_CORRECTNESS",
+    "LEGAL_ADMISSIBILITY",
+    "POLICY_COMPLIANCE",
+    "HUMAN_IDENTITY",
+    "MEANINGFUL_HUMAN_REVIEW",
+    "MODEL_ACCURACY"
+  ],
+  "non_claims": [
+    "SOURCE_COMPLETENESS",
+    "DECISION_CORRECTNESS",
+    "LEGAL_ADMISSIBILITY",
+    "POLICY_COMPLIANCE",
+    "HUMAN_IDENTITY",
+    "MEANINGFUL_HUMAN_REVIEW",
+    "MODEL_ACCURACY",
+    "FAIRNESS_OR_BIAS_OUTCOME",
+    "AUTHORIZATION_VALIDITY"
+  ]
+}
