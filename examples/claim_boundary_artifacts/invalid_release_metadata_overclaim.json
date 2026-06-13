@@ -1,0 +1,34 @@
+{
+  "artifact_type": "RELEASE_METADATA",
+  "artifact_id": "release_claim_boundary_phase_2_overclaim_001",
+  "schema_version": "claim_boundary_artifact_envelope_v0_1",
+  "release_name": "Invalid Claim Boundary Overclaim Example",
+  "claim_boundary": {
+    "claim_type": "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY",
+    "claim_statement": "This release validates a complete and compliant AI-assisted governance workflow.",
+    "allowed_inferences": [
+      "The release proves the workflow was lawful and admissible.",
+      "The release should be treated as enterprise-proven."
+    ],
+    "forbidden_inferences": [
+      "The decision was correct.",
+      "The workflow was complete.",
+      "The source system was complete.",
+      "The action was lawful.",
+      "The output was compliant.",
+      "The evidence is admissible."
+    ],
+    "not_checked": [
+      "SOURCE_COMPLETENESS",
+      "DECISION_CORRECTNESS",
+      "LEGAL_ADMISSIBILITY",
+      "POLICY_COMPLIANCE"
+    ],
+    "non_claims": [
+      "SOURCE_COMPLETENESS",
+      "DECISION_CORRECTNESS",
+      "LEGAL_ADMISSIBILITY",
+      "POLICY_COMPLIANCE"
+    ]
+  }
+}

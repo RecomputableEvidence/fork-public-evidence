@@ -1,0 +1,7 @@
+{
+  "artifact_type": "VERIFICATION_RECEIPT",
+  "artifact_id": "receipt_claim_boundary_phase_2_missing_001",
+  "schema_version": "claim_boundary_artifact_envelope_v0_1",
+  "verifier_result": "PASS",
+  "receipt_purpose": "This artifact is invalid because it declares a verifier result without carrying a claim boundary block."
+}

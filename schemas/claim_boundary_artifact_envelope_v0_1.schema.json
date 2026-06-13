@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.local/schemas/claim_boundary_artifact_envelope_v0_1.schema.json",
+  "title": "Fork Claim Boundary Artifact Envelope v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "claim_boundary"
+  ],
+  "properties": {
+    "artifact_type": {
+      "type": "string",
+      "enum": [
+        "VERIFICATION_RECEIPT",
+        "COHERENCE_RECEIPT",
+        "CONFORMANCE_RECEIPT",
+        "RELEASE_METADATA",
+        "REVIEWER_SUMMARY",
+        "MACHINE_READABLE_EVIDENCE_SUMMARY"
+      ]
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_boundary": {
+      "type": "object"
+    }
+  }
+}
