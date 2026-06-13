@@ -1,0 +1,17 @@
+{
+  "boundary_type": "IDENTITY_UNDEFINED",
+  "definition_statement": "A natural person approved this request and the reviewer was authorized.",
+  "allowed_definitions": [
+    "human approved",
+    "identity verified"
+  ],
+  "forbidden_definitions": [
+    "natural person identity",
+    "human presence",
+    "legal identity",
+    "verified identity",
+    "authorized reviewer",
+    "meaningful human review",
+    "actual person performed action"
+  ]
+}

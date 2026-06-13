@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.local/schemas/definition_boundary_v0_1.schema.json",
+  "title": "Fork Definition Boundary v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "boundary_type",
+    "definition_statement",
+    "allowed_definitions",
+    "forbidden_definitions"
+  ],
+  "properties": {
+    "boundary_type": {
+      "type": "string",
+      "enum": ["IDENTITY_UNDEFINED"]
+    },
+    "definition_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "allowed_definitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "forbidden_definitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
