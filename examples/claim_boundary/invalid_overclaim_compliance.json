@@ -1,0 +1,28 @@
+{
+  "claim_type": "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY",
+  "claim_statement": "The AI-assisted workflow was compliant, lawful, and complete because the declared artifacts passed integrity verification.",
+  "allowed_inferences": [
+    "The output was correct and admissible.",
+    "The workflow should be treated as validated and enterprise-proven."
+  ],
+  "forbidden_inferences": [
+    "The decision was correct.",
+    "The workflow was complete.",
+    "The source system was complete.",
+    "The action was lawful.",
+    "The output was compliant.",
+    "The evidence is admissible."
+  ],
+  "not_checked": [
+    "SOURCE_COMPLETENESS",
+    "DECISION_CORRECTNESS",
+    "LEGAL_ADMISSIBILITY",
+    "POLICY_COMPLIANCE"
+  ],
+  "non_claims": [
+    "SOURCE_COMPLETENESS",
+    "DECISION_CORRECTNESS",
+    "LEGAL_ADMISSIBILITY",
+    "POLICY_COMPLIANCE"
+  ]
+}
