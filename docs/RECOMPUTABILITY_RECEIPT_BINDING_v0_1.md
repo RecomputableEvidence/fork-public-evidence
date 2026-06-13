@@ -59,8 +59,16 @@ Claim boundary:
 
 > NON_RECOMPUTABLE artifacts must not satisfy gates requiring STRONG_RECOMPUTATION.
 
-## Non-Claims
 
+## Gate Result Scope
+
+This receipt type uses a narrower gate-level result model than Fork's broader evidence-preservation posture.
+
+For recomputability gate receipts, `gate_result` is limited to `PASS` or `FAIL` because the receipt records the outcome of a specific class comparison: whether the artifact recomputability class satisfies the gate-required class.
+
+`NOT_CHECKED` remains part of Fork's broader preservation vocabulary for evidence properties or verification surfaces that were not evaluated. It is intentionally not a valid `gate_result` for this receipt type, because an emitted recomputability gate receipt represents a class comparison that was actually performed.
+
+## Non-Claims
 This receipt-binding layer does not add new recomputability classes.
 
 It does not broaden enforcement.
