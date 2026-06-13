@@ -1,2 +1,46 @@
 docs/index.md text eol=lf
 white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md text eol=lf
+
+# BEGIN FORK LINE ENDING CANONICALIZATION v0.1
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.schema.json text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.cff text eol=lf
+*.csv text eol=lf
+*.tsv text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.jsx text eol=lf
+Dockerfile text eol=lf
+Makefile text eol=lf
+LICENSE text eol=lf
+COPYRIGHT text eol=lf
+SHA256SUMS text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.exe binary
+*.dll binary
+*.pyd binary
+*.sqlite binary
+*.db binary
+# END FORK LINE ENDING CANONICALIZATION v0.1
