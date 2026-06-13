@@ -1,0 +1,1 @@
+Case A brief: hosted LLM output preserved for integrity review only.

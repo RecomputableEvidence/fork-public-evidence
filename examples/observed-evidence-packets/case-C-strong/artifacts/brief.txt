@@ -1,0 +1,3 @@
+Case C deterministic brief
+Prompt digest: 16d2386d3af93d6d
+Finding: AI workflow evidence must preserve observed facts, recomputability class, and claim boundaries without inheriting correctness, authority, or legal sufficiency.

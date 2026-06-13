@@ -1,0 +1,408 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputable.example/schemas/observed-evidence-packet.schema.json",
+  "title": "ObservedEvidencePacket",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packet_id",
+    "created_at",
+    "environment",
+    "inputs",
+    "artifacts",
+    "digests_manifest_ref",
+    "recomputability_declarations",
+    "provenance",
+    "claim_boundary",
+    "non_claims"
+  ],
+  "properties": {
+    "packet_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "container_image_ref",
+        "dependencies_manifest_ref",
+        "os"
+      ],
+      "properties": {
+        "container_image_ref": {
+          "type": "string"
+        },
+        "dependencies_manifest_ref": {
+          "type": "string"
+        },
+        "os": {
+          "type": "string"
+        },
+        "env_vars": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_snapshot_ref",
+        "seed_info",
+        "dataset_snapshot"
+      ],
+      "properties": {
+        "prompt_snapshot_ref": {
+          "type": "string"
+        },
+        "seed_info": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "seed": {
+              "type": "integer"
+            },
+            "sampler": {
+              "type": "string"
+            }
+          }
+        },
+        "dataset_snapshot": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source",
+            "commit",
+            "digest"
+          ],
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "commit": {
+              "type": "string"
+            },
+            "digest": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "type",
+          "digest",
+          "size_bytes",
+          "recomputability_class"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "digest": {
+            "type": "string",
+            "pattern": "^sha256:[0-9a-f]{64}$"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recomputability_class": {
+            "type": "string",
+            "enum": [
+              "STRONG_RECOMPUTATION",
+              "NON_RECOMPUTABLE"
+            ]
+          },
+          "recomputability_notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "recomputability_declarations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default_class"
+      ],
+      "properties": {
+        "default_class": {
+          "type": "string",
+          "enum": [
+            "STRONG_RECOMPUTATION",
+            "NON_RECOMPUTABLE"
+          ]
+        },
+        "class_explanations": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "recomputation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "artifact_path",
+              "working_directory",
+              "command",
+              "output_path"
+            ],
+            "properties": {
+              "artifact_path": {
+                "type": "string"
+              },
+              "working_directory": {
+                "type": "string"
+              },
+              "command": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "output_path": {
+                "type": "string"
+              },
+              "dependencies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "digest",
+                    "size_bytes"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string"
+                    },
+                    "digest": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "size_bytes": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "digests_manifest_ref": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "git_commit",
+        "repo"
+      ],
+      "properties": {
+        "git_commit": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        }
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "what_is_claimed",
+        "what_is_not_claimed"
+      ],
+      "properties": {
+        "what_is_claimed": {
+          "type": "string"
+        },
+        "what_is_not_claimed": {
+          "type": "string"
+        }
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gate_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gate_required_class": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gate_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reviewer_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reviewer_assessment"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "completed"
+          ]
+        },
+        "reviewer_assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "integrity",
+            "recomputability_class_verification",
+            "evidence_completeness"
+          ],
+          "properties": {
+            "integrity": {
+              "type": "string",
+              "enum": [
+                "pass",
+                "fail",
+                "not_applicable"
+              ]
+            },
+            "recomputability_class_verification": {
+              "type": "string",
+              "enum": [
+                "confirmed",
+                "disconfirmed",
+                "not_attempted"
+              ]
+            },
+            "evidence_completeness": {
+              "type": "string",
+              "enum": [
+                "complete",
+                "partial",
+                "missing",
+                "not_applicable"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        },
+        "reviewer_id": {
+          "type": "string"
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "NOT_CHECKED": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "inputs_complete": {
+          "type": "boolean"
+        },
+        "dependencies_complete": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "verification_result_ref": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "reviewer_gate"
+        ],
+        "properties": {
+          "reviewer_gate": {
+            "type": "object",
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "const": "completed"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reviewer_gate": {
+            "required": [
+              "reviewed_at",
+              "reviewer_id"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
