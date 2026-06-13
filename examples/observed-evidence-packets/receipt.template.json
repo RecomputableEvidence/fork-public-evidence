@@ -1,0 +1,16 @@
+{
+  "gate_receipts": [
+    {
+      "receipt_ref": "receipts/maintainer-YYYYMMDD.json",
+      "signed_digest_ref": "sha256:REPLACE_WITH_MANIFEST_DIGEST",
+      "signer_id": "maintainer@example.org",
+      "signed_at": "YYYY-MM-DDTHH:MM:SSZ",
+      "signature_type": "detached",
+      "signature_ref": "signatures/maintainer-manifest.sig"
+    }
+  ],
+  "timestamp_anchor": {
+    "type": "rfc3161",
+    "token": "BASE64_OR_HEX_TOKEN"
+  }
+}

@@ -1,0 +1,63 @@
+﻿name: Verify Observed Evidence Packet examples
+
+on:
+  pull_request:
+    paths:
+      - "examples/observed-evidence-packets/**"
+      - "scripts/**"
+      - "schema/**"
+      - ".github/workflows/verify-examples.yml"
+  push:
+    branches:
+      - examples/recomputability-class-suite
+    paths:
+      - "examples/observed-evidence-packets/**"
+      - "scripts/**"
+      - "schema/**"
+      - ".github/workflows/verify-examples.yml"
+
+jobs:
+  verify-examples:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install verifier dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jsonschema==4.19.0
+
+      - name: Verify observed evidence packet examples
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          shopt -s nullglob
+
+          found=0
+          for manifest in examples/observed-evidence-packets/*/manifest.json; do
+            packet_dir="$(dirname "$manifest")"
+            found=1
+
+            echo "Verifying ${packet_dir}"
+
+            bash scripts/generate_sha256sums.sh "$packet_dir"
+            bash scripts/verify_packet.sh "$packet_dir"
+
+            if [ ! -f "${packet_dir}/verification_result.json" ]; then
+              echo "ERROR: verification_result.json was not generated for ${packet_dir}" >&2
+              exit 2
+            fi
+          done
+
+          if [ "$found" -ne 1 ]; then
+            echo "ERROR: no packet directories with manifest.json were found" >&2
+            exit 2
+          fi

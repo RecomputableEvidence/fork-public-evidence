@@ -1,0 +1,90 @@
+{
+  "packet_id": "ep-caseA-hosted-0001",
+  "version": "0.1.0",
+  "created_at": "2026-06-13T19:00:00Z",
+  "environment": {
+    "container_image_ref": "hosted-provider-not-preserved",
+    "dependencies_manifest_ref": "not-available-hosted-runtime",
+    "os": "hosted-runtime-not-preserved",
+    "env_vars": {}
+  },
+  "inputs": {
+    "prompt_snapshot_ref": "provider-prompt-snapshot-not-included",
+    "seed_info": {
+      "seed": 0,
+      "sampler": "hosted-provider"
+    },
+    "dataset_snapshot": {
+      "source": "none",
+      "commit": "not_applicable",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/brief.txt",
+      "type": "text/plain",
+      "digest": "sha256:f026b9edd5366e35cd43d21675f58c4641a5c893475624c8741cbb391084b8ac",
+      "size_bytes": 69,
+      "recomputability_class": "NON_RECOMPUTABLE",
+      "recomputability_notes": "Hosted model output; model weights and runtime are not preserved."
+    },
+    {
+      "path": "artifacts/generation.log",
+      "type": "text/plain",
+      "digest": "sha256:52f6d73f03b68b5f0dd83d1a9421d2a55cd510f782d063a533d1cab5ae7a4d76",
+      "size_bytes": 81,
+      "recomputability_class": "NON_RECOMPUTABLE",
+      "recomputability_notes": "Observed log preserved for integrity; hosted execution is not locally recomputable."
+    }
+  ],
+  "recomputability_declarations": {
+    "default_class": "NON_RECOMPUTABLE",
+    "class_explanations": {
+      "NON_RECOMPUTABLE": "Integrity can be verified, but deterministic recomputation is not claimed."
+    }
+  },
+  "digests_manifest_ref": "SHA256SUMS",
+  "provenance": {
+    "git_commit": "example-only",
+    "repo": "github.com/RecomputableEvidence/fork-public-evidence"
+  },
+  "claim_boundary": {
+    "what_is_claimed": "Preservation and integrity of observed artifacts.",
+    "what_is_not_claimed": "Deterministic recomputation, source truth, legal sufficiency, or correctness of the generated brief."
+  },
+  "non_claims": [
+    "No source truth claim.",
+    "No legal non-repudiation claim.",
+    "No deterministic recomputation claim."
+  ],
+  "gate_policy": {
+    "gate_required_class": [
+      "NON_RECOMPUTABLE"
+    ],
+    "gate_types": [
+      "integrity_only"
+    ]
+  },
+  "reviewer_gate": {
+    "status": "pending",
+    "reviewer_assessment": {
+      "integrity": "not_applicable",
+      "recomputability_class_verification": "not_attempted",
+      "evidence_completeness": "not_applicable",
+      "notes": "Educational pending gate."
+    }
+  },
+  "reason_code": "HOSTED_RUNTIME_NOT_PRESERVED",
+  "NOT_CHECKED": [
+    "cryptographic_signature_verification",
+    "hosted_model_weights",
+    "hosted_runtime_determinism"
+  ],
+  "source_completeness": {
+    "inputs_complete": false,
+    "dependencies_complete": false,
+    "notes": "Hosted runtime and model weights are not preserved."
+  },
+  "verification_result_ref": "verification_result.json"
+}
