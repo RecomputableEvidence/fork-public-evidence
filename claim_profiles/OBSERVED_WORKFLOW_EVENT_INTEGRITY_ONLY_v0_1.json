@@ -1,0 +1,51 @@
+{
+  "profile_id": "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY_v0_1",
+  "profile_version": "0.1",
+  "claim_type": "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY",
+  "claim_scope": "Integrity and execution-of-checks only. This profile does not support claims about correctness, completeness, legal sufficiency, policy compliance, human identity, meaningful review, model quality, fairness outcome, or authorization validity.",
+  "claim_statement": "The declared artifact set recomputes against its manifest under the recorded verifier environment, and the verifier emitted bounded PASS, FAIL, or NOT_CHECKED states for the declared checks.",
+  "allowed_inferences": [
+    "The declared artifact set recomputes against its manifest under this environment.",
+    "The verifier evaluated the declared checks defined for this integrity profile.",
+    "PASS, FAIL, and NOT_CHECKED states were emitted only for those declared checks."
+  ],
+  "forbidden_inferences": [
+    "The decision was correct.",
+    "The workflow was complete.",
+    "The source system was complete.",
+    "The action was lawful.",
+    "The output was compliant.",
+    "The human reviewer meaningfully reviewed it.",
+    "The evidence is admissible.",
+    "The model was accurate.",
+    "The result was fair or unbiased.",
+    "The action was authorized.",
+    "The artifact is a source of truth."
+  ],
+  "not_checked": [
+    "SOURCE_COMPLETENESS",
+    "DECISION_CORRECTNESS",
+    "LEGAL_ADMISSIBILITY",
+    "POLICY_COMPLIANCE",
+    "HUMAN_IDENTITY",
+    "MEANINGFUL_HUMAN_REVIEW",
+    "MODEL_ACCURACY",
+    "FAIRNESS_OR_BIAS_OUTCOME",
+    "AUTHORIZATION_VALIDITY"
+  ],
+  "non_claims": [
+    "SOURCE_COMPLETENESS",
+    "DECISION_CORRECTNESS",
+    "LEGAL_ADMISSIBILITY",
+    "POLICY_COMPLIANCE",
+    "HUMAN_IDENTITY",
+    "MEANINGFUL_HUMAN_REVIEW",
+    "MODEL_ACCURACY",
+    "FAIRNESS_OR_BIAS_OUTCOME",
+    "AUTHORIZATION_VALIDITY"
+  ],
+  "binding_rules": {
+    "existing_claim_boundary_policy": "FAIL_UNLESS_REPLACE_FLAG",
+    "emitted_artifact_must_pass_artifact_checker": true
+  }
+}
