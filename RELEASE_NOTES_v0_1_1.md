@@ -43,4 +43,4 @@ This release does not establish:
 
 ## Canonical article
 
-https://SentinelQuantumAegis.github.io/fork-public-evidence/
+https://RecomputableEvidence.github.io/fork-public-evidence/

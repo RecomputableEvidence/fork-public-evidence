@@ -7,8 +7,8 @@ authors:
     given-names: "Ryan"
 version: "1.0"
 date-released: "2026-06-11"
-repository-code: "https://github.com/SentinelQuantumAegis/fork-public-evidence"
-url: "https://SentinelQuantumAegis.github.io/fork-public-evidence/"
+repository-code: "https://github.com/RecomputableEvidence/fork-public-evidence"
+url: "https://RecomputableEvidence.github.io/fork-public-evidence/"
 preferred-citation:
   type: article
   authors:
