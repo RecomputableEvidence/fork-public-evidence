@@ -98,3 +98,15 @@ jobs:
             exit 1
           fi
           python -m pytest tests/test_definition_boundary_v0_1.py -q
+      - name: Run Provenance Tier v0.1 checks
+        run: |
+          python tools/check_provenance_tier.py examples/provenance_tier/valid_documented_source.json
+          if python tools/check_provenance_tier.py examples/provenance_tier/invalid_generated_satisfies_documented.json; then
+            echo "Expected generated-as-documented provenance example to fail"
+            exit 1
+          fi
+          if python tools/check_provenance_tier.py examples/provenance_tier/invalid_documented_depends_on_generated.json; then
+            echo "Expected documented-depends-on-generated provenance example to fail"
+            exit 1
+          fi
+          python -m pytest tests/test_provenance_tier_v0_1.py -q
