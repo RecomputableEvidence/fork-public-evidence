@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.local/schemas/provenance_tier_v0_1.schema.json",
+  "title": "Fork Provenance Tier v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "declared_provenance_tier",
+    "required_provenance_tier",
+    "dependency_provenance_tiers",
+    "transformation_type",
+    "re_elevation_claimed",
+    "unresolved_reason_code",
+    "attribution"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "declared_provenance_tier": {
+      "type": "string",
+      "enum": [
+        "DOCUMENTED",
+        "ATTRIBUTED",
+        "INTERPRETIVE",
+        "GENERATED",
+        "UNRESOLVED"
+      ]
+    },
+    "required_provenance_tier": {
+      "type": "string",
+      "enum": [
+        "DOCUMENTED",
+        "ATTRIBUTED",
+        "INTERPRETIVE",
+        "GENERATED",
+        "UNRESOLVED"
+      ]
+    },
+    "dependency_provenance_tiers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "DOCUMENTED",
+          "ATTRIBUTED",
+          "INTERPRETIVE",
+          "GENERATED",
+          "UNRESOLVED"
+        ]
+      }
+    },
+    "transformation_type": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "FORMAT_NORMALIZATION",
+        "CANONICALIZATION",
+        "CRYPTOGRAPHIC_VERIFICATION",
+        "SUMMARIZATION",
+        "CLASSIFICATION",
+        "MODEL_EXTRACTION",
+        "SEMANTIC_INFERENCE",
+        "HUMAN_INTERPRETATION"
+      ]
+    },
+    "re_elevation_claimed": {
+      "type": "boolean"
+    },
+    "unresolved_reason_code": {
+      "type": ["string", "null"],
+      "enum": [
+        "UNRESOLVED_MISSING_SOURCE",
+        "UNRESOLVED_AMBIGUOUS_IDENTITY",
+        "UNRESOLVED_NON_RECOMPUTABLE",
+        "UNRESOLVED_CONFLICTING_EVIDENCE",
+        "UNRESOLVED_UNSUPPORTED_TIER",
+        null
+      ]
+    },
+    "attribution": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_identity",
+            "source_reference",
+            "source_timestamp_or_version"
+          ],
+          "properties": {
+            "source_identity": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_timestamp_or_version": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    }
+  }
+}

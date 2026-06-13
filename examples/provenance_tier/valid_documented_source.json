@@ -1,0 +1,10 @@
+{
+  "artifact_id": "artifact.documented.source.v0_6.valid",
+  "declared_provenance_tier": "DOCUMENTED",
+  "required_provenance_tier": "DOCUMENTED",
+  "dependency_provenance_tiers": [],
+  "transformation_type": "NONE",
+  "re_elevation_claimed": false,
+  "unresolved_reason_code": null,
+  "attribution": null
+}

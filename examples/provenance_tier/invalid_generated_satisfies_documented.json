@@ -1,0 +1,10 @@
+{
+  "artifact_id": "artifact.generated.satisfies.documented.invalid",
+  "declared_provenance_tier": "GENERATED",
+  "required_provenance_tier": "DOCUMENTED",
+  "dependency_provenance_tiers": [],
+  "transformation_type": "SEMANTIC_INFERENCE",
+  "re_elevation_claimed": false,
+  "unresolved_reason_code": null,
+  "attribution": null
+}
