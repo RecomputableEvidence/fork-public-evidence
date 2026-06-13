@@ -1,0 +1,9 @@
+{
+  "artifact_recomputability_class": "NON_RECOMPUTABLE",
+  "claim_boundary": "NON_RECOMPUTABLE artifacts must not satisfy gates requiring STRONG_RECOMPUTATION.",
+  "gate_required_class": "STRONG_RECOMPUTATION",
+  "gate_result": "FAIL",
+  "reason_code": "RECOMPUTABILITY_ESCALATION_DEFECT",
+  "receipt_type": "RECOMPUTABILITY_GATE_RECEIPT",
+  "receipt_version": "0.1"
+}

@@ -1,0 +1,9 @@
+{
+  "artifact_recomputability_class": "NON_RECOMPUTABLE",
+  "claim_boundary": "NON_RECOMPUTABLE evidence may support occurrence-level gates but not gates requiring STRONG_RECOMPUTATION.",
+  "gate_required_class": "OCCURRENCE_EVIDENCE",
+  "gate_result": "PASS",
+  "reason_code": "NON_RECOMPUTABLE_SATISFIES_OCCURRENCE_GATE_ONLY",
+  "receipt_type": "RECOMPUTABILITY_GATE_RECEIPT",
+  "receipt_version": "0.1"
+}
