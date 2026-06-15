@@ -23,6 +23,7 @@ This reading path is intended to prevent two common misreadings: treating Fork a
 - [Fork Executive Buyer Packet v0.1](release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/README.md) - executive orientation package for GC/CLO/CCO/CRO, audit leadership, legal operations, governance, risk, compliance, security, and pilot-sponsor review.
 - [Fork Technical Validation Packet v0.1](release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/README.md) - technical validation orientation package for reviewers inspecting Fork's public packet, manifest, checksum, schema, and verification posture.
 - [Fork Pilot Discovery Packet v0.1](release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/README.md) - pilot discovery scaffold for evaluating whether a defined AI-assisted workflow is suitable for bounded, read-only evidence preservation.
+- [Fork Client Discovery Return Packet Template v0.1](release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/README.md) - client-completable return packet for mapping a candidate workflow, source systems, access/export model, evidence artifacts, ownership, and non-claims before any client-specific evidence boundary or sidecar bridge is scoped.
 
 Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
 
