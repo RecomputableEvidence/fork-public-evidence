@@ -122,9 +122,31 @@ def checked_checkbox_lines(section: str) -> List[str]:
 
 
 def normalize_free_text(section: str) -> str:
+    """
+    Return likely client-entered free text from a template section.
+
+    This intentionally ignores template instructions and unresolved
+    placeholders so a blank template is INCOMPLETE rather than BLOCKED.
+    """
     cleaned: List[str] = []
+
+    instruction_prefixes = (
+        "list ",
+        "describe ",
+        "select ",
+        "complete ",
+        "replace ",
+        "return ",
+        "use ",
+        "examples:",
+        "example:",
+        "reason:",
+    )
+
     for line in section.splitlines():
         stripped = line.strip()
+        lowered = stripped.lower()
+
         if not stripped:
             continue
         if stripped.startswith("#"):
@@ -133,7 +155,13 @@ def normalize_free_text(section: str) -> str:
             continue
         if PLACEHOLDER_PATTERN.search(stripped):
             continue
+        if any(lowered.startswith(prefix) for prefix in instruction_prefixes):
+            continue
+        if lowered in {"`[client_to_complete / none]`", "`[client_to_complete / none / unknown]`"}:
+            continue
+
         cleaned.append(stripped)
+
     return "\n".join(cleaned).strip()
 
 
