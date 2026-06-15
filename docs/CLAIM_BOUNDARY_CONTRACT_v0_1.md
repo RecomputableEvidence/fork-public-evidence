@@ -216,3 +216,12 @@ Fork does not:
 - NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework
 - NIST AI RMF 1.0 PDF: https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf
 - ISO/IEC 42001: https://www.iso.org/standard/42001
+## Future Extension: Claim Consumption Events
+
+Claim Boundary Contracts govern creation-time boundaries for governance-related claims. A complementary future primitive, the Claim Consumption Event, may describe how downstream actors rely on a CBC, whether they preserve, narrow, ignore, or expand its boundary, and how such expansions become explicit, attributable, and recomputable rather than silent.
+
+A Claim Consumption Event records when a downstream actor, system, workflow, or institution relies on a Claim Boundary Contract; what parts of the bounded claim were relied on; which non-claims were preserved; whether the original boundary was preserved, narrowed, ignored, or expanded; and whether any expansion produced a new explicit claim with its own Claim Boundary Contract.
+
+Claim boundaries prevent silent ambiguity at creation; claim-consumption friction prevents silent expansion at use.
+
+Fork does not solve incentive pressure by pretending people will stop compressing meaning. It makes that compression explicit. If a downstream actor turns "checked" into "approved," Fork's posture is that the expansion should become a recorded, attributable, recomputable event, not invisible semantic drift.
