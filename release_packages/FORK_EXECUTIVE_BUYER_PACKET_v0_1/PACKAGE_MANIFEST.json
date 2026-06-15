@@ -1,0 +1,73 @@
+{
+  "package_name": "FORK_EXECUTIVE_BUYER_PACKET",
+  "package_version": "v0.1",
+  "package_directory": "release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1",
+  "package_status": "executive_buyer_scaffold",
+  "classification": "public_template",
+  "purpose": "Executive buyer orientation packet for explaining Fork's commercial relevance, institutional fit, and pilot pathway.",
+  "intended_recipients": [
+    "General Counsel",
+    "Chief Legal Officer",
+    "Chief Compliance Officer",
+    "Chief Risk Officer",
+    "audit leadership",
+    "legal operations leadership",
+    "enterprise AI governance sponsor",
+    "governance risk and compliance executive",
+    "security or information governance executive",
+    "executive sponsor evaluating pilot fit"
+  ],
+  "supported_claim": "Fork addresses a reconstructive-fidelity gap in AI-assisted workflows by preserving bounded evidence records for later review.",
+  "non_claim_summary": [
+    "no production deployment claim",
+    "no client-specific readiness claim",
+    "no legal admissibility claim",
+    "no source completeness claim",
+    "no decision correctness claim",
+    "no AI output correctness claim",
+    "no runtime enforcement claim",
+    "no compliance satisfaction claim",
+    "no remediation sufficiency claim",
+    "no reporting sufficiency claim"
+  ],
+  "canonical_public_artifacts": [
+    {
+      "name": "Repository README",
+      "root_relative_path": "README.md"
+    },
+    {
+      "name": "Operational Boundary Map v0.1",
+      "root_relative_path": "docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md"
+    },
+    {
+      "name": "Release Package Ladder v0.1",
+      "root_relative_path": "docs/FORK_RELEASE_PACKAGE_LADDER_v0_1.md"
+    },
+    {
+      "name": "Public Doctrine Packet v0.1",
+      "root_relative_path": "release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1/"
+    },
+    {
+      "name": "Technical Validation Packet v0.1",
+      "root_relative_path": "release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/"
+    },
+    {
+      "name": "Pilot Discovery Packet v0.1",
+      "root_relative_path": "release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/"
+    }
+  ],
+  "package_files": [
+    "README.md",
+    "PACKAGE_MANIFEST.json",
+    "CLAIMS_AND_NON_CLAIMS.md",
+    "EXECUTIVE_BRIEF.md",
+    "BUYER_PROBLEM.md",
+    "USE_CASES.md",
+    "PILOT_OPTIONS.md",
+    "STAKEHOLDER_MAP.md",
+    "QUESTIONS_FOR_BUYERS.md",
+    "RELEASE_NOTES.md",
+    "NEXT_STEPS.md",
+    "SHA256SUMS.txt"
+  ]
+}
