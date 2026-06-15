@@ -18,6 +18,7 @@ This reading path is intended to prevent two common misreadings: treating Fork a
 
 - [Fork Release Package Ladder v0.1](docs/FORK_RELEASE_PACKAGE_LADDER_v0_1.md) - defines bounded package types for public doctrine, executive buyer review, technical validation, pilot discovery, pilot-ready implementation, and client-specific evidence-boundary delivery.
 - [Fork Public Doctrine Packet v0.1](release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1/README.md) - public doctrine orientation package for early reviewers, AI governance/legal/audit/compliance/risk/security readers, and initial category review.
+- [Fork Executive Buyer Packet v0.1](release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/README.md) - executive orientation package for GC/CLO/CCO/CRO, audit leadership, legal operations, governance, risk, compliance, security, and pilot-sponsor review.
 - [Fork Technical Validation Packet v0.1](release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/README.md) - technical validation orientation package for reviewers inspecting Fork's public packet, manifest, checksum, schema, and verification posture.
 - [Fork Pilot Discovery Packet v0.1](release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/README.md) - pilot discovery scaffold for evaluating whether a defined AI-assisted workflow is suitable for bounded, read-only evidence preservation.
 
