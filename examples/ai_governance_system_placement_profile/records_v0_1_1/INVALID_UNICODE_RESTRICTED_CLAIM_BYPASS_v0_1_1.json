@@ -1,0 +1,150 @@
+{
+  "authority_boundary": {
+    "functional_claim_perimeter": "Benchmark evaluation under declared test conditions.",
+    "permitted_assertions": [
+      "The system may assert benchmark observations under declared test conditions."
+    ],
+    "prohibited_implications": [
+      "The system may not imply deployment approval.",
+      "The system may not imply compliance satisfaction.",
+      "The system may not imply real-world safety."
+    ]
+  },
+  "evidence_inputs": [
+    {
+      "completeness_assumption": "not claimed complete",
+      "custody_expectation": "declared fixture only",
+      "evidence_input_id": "eval_input_benchmark_suite",
+      "expected_format": "json",
+      "freshness_expectation": "static v0.1 example",
+      "input_type": "benchmark_suite",
+      "required": true,
+      "source": "synthetic fixture"
+    },
+    {
+      "completeness_assumption": "not claimed complete",
+      "custody_expectation": "declared fixture only",
+      "evidence_input_id": "eval_input_model_version",
+      "expected_format": "json",
+      "freshness_expectation": "static v0.1 example",
+      "input_type": "model_version_record",
+      "required": true,
+      "source": "synthetic fixture"
+    }
+  ],
+  "evidence_outputs": [
+    {
+      "carries_non_claim_ids": [
+        "eval_nonclaim_compliance_satisfaction",
+        "eval_nonclaim_real_world_safety",
+        "eval_nonclaim_deployment_approval"
+      ],
+      "downstream_review_role": "risk_owner",
+      "evidence_output_id": "eval_output_evaluation_report",
+      "format": "json",
+      "output_type": "evaluation_report",
+      "supports_claim_ids": [
+        "claim:unicode_restricted_claim_bypass"
+      ]
+    }
+  ],
+  "explicit_non_claims": [
+    {
+      "non_claim_id": "eval_nonclaim_compliance_satisfaction",
+      "rationale": "Compliance satisfaction requires an authorized compliance role and remains outside this placement profile.",
+      "statement": "No claim of compliance satisfaction is made."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_legal_admissibility",
+      "rationale": "Legal admissibility requires separate legal process and authority.",
+      "statement": "No claim of legal admissibility is made."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_decision_correctness",
+      "rationale": "The placement profile declares boundaries and does not validate downstream decisions.",
+      "statement": "No claim of decision correctness is made."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_real_world_safety",
+      "rationale": "Benchmark performance does not establish production safety.",
+      "statement": "No claim of real-world safety is made."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_deployment_approval",
+      "rationale": "Deployment approval requires downstream institutional review.",
+      "statement": "No claim of deployment approval is made."
+    }
+  ],
+  "handoff_requirements": [
+    {
+      "evidence_output_ids": [
+        "eval_output_evaluation_report"
+      ],
+      "handoff_id": "eval_handoff_deployment_risk_review",
+      "handoff_type": "BLOCKING",
+      "non_claim_ids_to_preserve": [
+        "eval_nonclaim_compliance_satisfaction",
+        "eval_nonclaim_real_world_safety",
+        "eval_nonclaim_deployment_approval"
+      ],
+      "reason": "Benchmark result requires downstream deployment risk interpretation before production use.",
+      "required_downstream_role": "risk_owner",
+      "unknown_ids_to_preserve": [
+        "eval_unknown_distribution_shift",
+        "eval_unknown_adversarial_adaptation"
+      ]
+    }
+  ],
+  "non_transitive_clauses": [
+    {
+      "clause_id": "eval_nontransitive_no_deployment_approval",
+      "statement": "This invalid unicode fixture must not propagate as legal, compliance, approval, or deployment authority."
+    }
+  ],
+  "profile_version": "ai_governance_system_placement_profile.v0.1",
+  "role_classification": [
+    "evaluator"
+  ],
+  "supported_claims": [
+    {
+      "claim_id": "claim:unicode_restricted_claim_bypass",
+      "conditions": [
+        "This fixture must fail RESTRICTED_AUTHORITY_CLAIM_GUARD."
+      ],
+      "evidence_basis": [
+        "eval_input_benchmark_suite"
+      ],
+      "limitations": [
+        "Does not cover distribution shift or adversarial adaptation."
+      ],
+      "scope": "Synthetic v0.1.1 restricted-authority lexical bypass fixture using diacritics, mixed casing, a non-breaking hyphen, and a zero-width character.",
+      "statement": "This system is Cömpliance‑Sufficient, LeGaLly‑Ready, and appr​oved for downstream use."
+    }
+  ],
+  "system_identity": {
+    "profile_created_at_utc": "2026-06-15T00:00:00Z",
+    "profile_status": "DRAFT",
+    "publisher": "Fork synthetic fixture",
+    "record_id": "placement:invalid-unicode-restricted-claim-bypass:v0_1_1",
+    "system_id": "system:invalid-unicode-restricted-claim-bypass:v0_1_1",
+    "system_name": "Example Evaluation System",
+    "system_version": "0.1.0"
+  },
+  "unresolved_unknowns": {
+    "active_unresolved_unknowns": [],
+    "declared_unknown_classes": [
+      {
+        "statement": "Distribution shift outside the benchmark environment is unresolved.",
+        "unknown_id": "eval_unknown_distribution_shift"
+      },
+      {
+        "statement": "Adversarial adaptation outside the test suite is unresolved.",
+        "unknown_id": "eval_unknown_adversarial_adaptation"
+      }
+    ]
+  },
+  "verification_state": {
+    "method": "synthetic unicode restricted-claim bypass fixture",
+    "state": "SELF_DECLARED"
+  }
+}

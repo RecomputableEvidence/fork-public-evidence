@@ -57,3 +57,28 @@ Added:
 - normalized deterministic outputs.
 
 Boundary preserved: this is not semantic validation, legal sufficiency, compliance sufficiency, audit sufficiency, model safety validation, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.
+
+## AI Governance System Placement Profile Checker hardening v0.1.1
+
+Adds a precision hardening patch for the Placement Profile checker line.
+
+Added:
+
+- `tools/check_ai_governance_system_placement_profile_v0_1_1.py`
+- `tests/test_ai_governance_system_placement_profile_checker_v0_1_1.py`
+- `docs/AI_GOVERNANCE_SYSTEM_PLACEMENT_PROFILE_CHECKER_HARDENING_v0_1_1.md`
+- `docs/AI_GOVERNANCE_SYSTEM_PLACEMENT_PROFILE_NORMALIZED_OUTPUT_COMPARISON_GUIDE_v0_1_1.md`
+- `examples/ai_governance_system_placement_profile/records_v0_1_1/INVALID_UNICODE_RESTRICTED_CLAIM_BYPASS_v0_1_1.json`
+- `output/ai_governance_system_placement_profile_checks_v0_1_1/`
+
+Hardening scope:
+
+- parser-boundary fuzz tests;
+- Unicode-aware restricted-claim bypass fixture;
+- explicit exit-code contract: PASS = 0, FAIL = 1, INDETERMINATE = 2;
+- large-record performance smoke test;
+- overclaim-language regression coverage;
+- normalized output comparison guidance;
+- missing schema/path edge-case tests.
+
+Non-claims preserved: no semantic truth validation, legal sufficiency, compliance sufficiency, audit sufficiency, model safety validation, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.

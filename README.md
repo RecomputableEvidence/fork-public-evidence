@@ -222,3 +222,20 @@ Artifacts:
 The checker validates structure, local references, explicit claim/non-claim boundaries, restricted authority leakage, duplicate IDs, declared unresolved unknowns, and normalized outputs.
 
 It does not validate semantic truth, legal sufficiency, compliance sufficiency, audit sufficiency, model safety, runtime behavior, external artifact existence, cross-record graph validity, or institutional authority.
+
+## AI Governance System Placement Profile Checker hardening v0.1.1
+
+The Placement Profile checker line includes a v0.1.1 precision hardening patch.
+
+Artifacts:
+
+- `tools/check_ai_governance_system_placement_profile_v0_1_1.py`
+- `tests/test_ai_governance_system_placement_profile_checker_v0_1_1.py`
+- `docs/AI_GOVERNANCE_SYSTEM_PLACEMENT_PROFILE_CHECKER_HARDENING_v0_1_1.md`
+- `docs/AI_GOVERNANCE_SYSTEM_PLACEMENT_PROFILE_NORMALIZED_OUTPUT_COMPARISON_GUIDE_v0_1_1.md`
+- `examples/ai_governance_system_placement_profile/records_v0_1_1/INVALID_UNICODE_RESTRICTED_CLAIM_BYPASS_v0_1_1.json`
+- `output/ai_governance_system_placement_profile_checks_v0_1_1/`
+
+This patch hardens parser-boundary behavior, Unicode-aware restricted-claim bypass detection, exit-code documentation, performance smoke coverage, overclaim-language regression coverage, normalized output comparison guidance, and missing-schema/path edge cases.
+
+This remains a structural and boundary checker. It is not semantic validation, legal sufficiency, compliance sufficiency, audit sufficiency, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.

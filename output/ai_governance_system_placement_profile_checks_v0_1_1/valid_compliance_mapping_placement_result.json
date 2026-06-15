@@ -1,0 +1,119 @@
+{
+  "checked_at_utc": "2026-06-15T16:35:02Z",
+  "checker_id": "ai_governance_system_placement_profile_checker_v0_1",
+  "checker_version": "0.1",
+  "checks": [
+    {
+      "check_id": "SCHEMA_FILE_PRESENT",
+      "message": "Schema file is present and readable as a file.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "JSON_PARSE",
+      "message": "Record parsed as a top-level JSON object.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "REQUIRED_FIELDS_PRESENT",
+      "message": "All required top-level fields are present.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "PROFILE_VERSION_VALID",
+      "message": "Profile version matches v0.1 contract.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "ROLE_CLASSIFICATION_VALID",
+      "message": "Role classification values are within the allowed v0.1 enum.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "VERIFICATION_STATE_DECLARED",
+      "message": "Verification state is declared using an allowed v0.1 value.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_ARRAYS_PRESENT",
+      "message": "Supported claims and explicit non-claims arrays are present and non-empty.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_DISJOINT",
+      "message": "Supported claims and explicit non-claims are disjoint by normalized statement.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_UNKNOWN_DISJOINT",
+      "message": "Supported claims and unresolved unknowns are disjoint by normalized statement.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NONCLAIM_UNKNOWN_DISJOINT",
+      "message": "Explicit non-claims and unresolved unknowns are disjoint by normalized statement.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "RESTRICTED_AUTHORITY_CLAIM_GUARD",
+      "message": "No restricted authority leakage detected in claim-bearing fields.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNIQUE_IDS",
+      "message": "All collected placement-profile IDs are unique.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "ID_FORMAT_VALID",
+      "message": "All collected IDs match the v0.1 ID pattern.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_EVIDENCE_BASIS_PRESENT",
+      "message": "Every supported claim references declared evidence inputs.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "LOCAL_REFERENCE_INTEGRITY",
+      "message": "All local placement-profile references resolve within the record.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "HANDOFF_ROLE_REFERENCES_VALID",
+      "message": "All declared handoff roles are within the allowed downstream-role enum.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNRESOLVED_UNKNOWNS_STATUS",
+      "message": "No active unresolved unknowns declare indeterminate status.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NON_TRANSITIVE_CLAUSES_PRESENT",
+      "message": "Non-transitive clauses are present.",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "STRUCTURAL_AND_BOUNDARY_VALIDATION_ONLY",
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.14.0"
+  },
+  "non_claims": [
+    "Does not validate semantic truth of claims.",
+    "Does not validate legal sufficiency.",
+    "Does not validate compliance sufficiency.",
+    "Does not validate audit sufficiency.",
+    "Does not validate model safety.",
+    "Does not provide runtime enforcement.",
+    "Does not grant institutional authority.",
+    "Does not verify external artifact existence.",
+    "Does not perform cross-record graph validation."
+  ],
+  "overall_status": "PASS",
+  "record_id": "placement:compliance-mapping-example:v0_1",
+  "record_path": "C:\\N\\fork-public-evidence\\examples\\ai_governance_system_placement_profile\\records_v0_1\\VALID_COMPLIANCE_MAPPING_PLACEMENT_v0_1.json",
+  "schema_path": "C:\\N\\fork-public-evidence\\schemas\\ai_governance_system_placement_profile_v0_1.schema.json",
+  "status_meaning": "Placement profile is structurally valid and boundary-consistent under v0.1 checker scope.",
+  "system_id": "system:compliance-mapping-example:v0_1"
+}
