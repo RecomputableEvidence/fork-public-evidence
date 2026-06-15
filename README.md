@@ -245,3 +245,16 @@ This remains a structural and boundary checker. It is not semantic validation, l
 The v0.2 receipt design addendum clarifies that the primary artifact name is Structural Execution Receipt, with Checker Hash Receipt as technical shorthand. It separates normalized-output hash comparison from full source recompute verification and preserves the hash scope NORMALIZED_CHECKER_OUTPUT_ONLY.
 
 This is a design addendum only. It is not a schema, checker, implementation, runtime feature, or authority expansion.
+
+### AI Governance System Placement Profile Structural Execution Receipts v0.2 implementation
+
+Adds a bounded checker/output extension for Structural Execution Receipt artifacts.
+
+- Adds 	ools/check_ai_governance_system_placement_profile_v0_2.py.
+- Adds --emit-receipt for SHA-256 receipts over normalized checker outputs.
+- Adds --verify-receipt for normalized-output hash comparison.
+- Adds --full-recompute for source profile + schema + checker rerun before receipt comparison.
+- Keeps hash scope limited to NORMALIZED_CHECKER_OUTPUT_ONLY.
+- Uses SHA-256 only.
+- Does not change the Placement Profile schema.
+- Does not validate semantic truth, legal sufficiency, compliance sufficiency, audit sufficiency, model safety, runtime behavior, external artifacts, cross-record graphs, or institutional authority.
