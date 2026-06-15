@@ -1,0 +1,55 @@
+{
+  "package_name": "FORK_PUBLIC_DOCTRINE_PACKET",
+  "package_version": "v0.1",
+  "package_directory": "release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1",
+  "package_status": "public_doctrine_scaffold",
+  "classification": "public",
+  "purpose": "Public orientation packet for Fork doctrine, evidence posture, and boundary discipline.",
+  "intended_recipients": [
+    "public reviewers",
+    "AI governance practitioners",
+    "legal operations reviewers",
+    "audit reviewers",
+    "compliance reviewers",
+    "risk reviewers",
+    "security reviewers",
+    "early technical readers",
+    "potential executive sponsors"
+  ],
+  "supported_claim": "Fork has a public, bounded doctrine and evidence posture for recomputable evidence in AI-assisted workflows.",
+  "non_claim_summary": [
+    "no enterprise production deployment claim",
+    "no legal admissibility claim",
+    "no source completeness claim",
+    "no decision correctness claim",
+    "no runtime enforcement claim",
+    "no compliance satisfaction claim",
+    "no client-specific readiness claim"
+  ],
+  "canonical_public_artifacts": [
+    {
+      "name": "Repository README",
+      "root_relative_path": "README.md"
+    },
+    {
+      "name": "Reading Guide",
+      "root_relative_path": "docs/READING_GUIDE_RECONSTRUCTIVE_FIDELITY_TO_RECOMPUTABLE_EVIDENCE.md"
+    },
+    {
+      "name": "Fork Operational Boundary Map v0.1",
+      "root_relative_path": "docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md"
+    },
+    {
+      "name": "Fork Release Package Ladder v0.1",
+      "root_relative_path": "docs/FORK_RELEASE_PACKAGE_LADDER_v0_1.md"
+    }
+  ],
+  "package_files": [
+    "README.md",
+    "PACKAGE_MANIFEST.json",
+    "CLAIMS_AND_NON_CLAIMS.md",
+    "RELEASE_NOTES.md",
+    "NEXT_STEPS.md",
+    "SHA256SUMS.txt"
+  ]
+}
