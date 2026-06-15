@@ -1,149 +1,218 @@
-# Fork Claim Boundary Contract v0.1
+# Claim Boundary Contract v0.1
 
-Status: INTERNAL_CONSTITUTIONAL_CONTRACT  
-Scope: Fork evidence artifacts, verifier outputs, receipts, reviewer reports, release metadata, and future reconstruction layers.
+Status: Draft v0.1  
+Scope: Evidence-boundary contract for AI-assisted governance records  
+Non-goal: This document does not define governance correctness, legal sufficiency, safety, compliance, or institutional approval.
 
-## 1. Purpose
+## Canonical Fork Positioning
 
-This contract defines the first enforceable Claim Boundary layer for Fork.
+Fork is evidence-boundary infrastructure for AI-assisted governance. It does not decide whether a claim is legally sufficient, safe, compliant, or true. It preserves what was claimed, what was not claimed, what evidence was referenced, what upstream claims were relied on or rejected, and whether the sealed record still structurally verifies later.
 
-Fork preserves recomputable evidence. Claim Boundaries define what that evidence is permitted to establish, what it is not permitted to imply, what was checked, what was not checked, and where later human, legal, causal, or institutional judgment must begin.
+## Canonical Definition
 
-This contract is not buyer-facing marketing copy. It is constitutional architecture.
+A Claim Boundary Contract does not define whether a governance claim is correct. It defines the minimum evidentiary structure required to preserve the claim's scope, exclusions, upstream reliance, known gaps, and verification boundary without allowing downstream systems to silently expand it.
 
-## 2. Definition
+## Scope-Safe Ingestion Language
 
-A claim boundary is an explicit, machine-readable constraint on what a piece of evidence, verifier, receipt, release, or reconstructed state is permitted to establish.
+Fork ingests claim-bearing records from configured governance sources and wraps them in a Claim Boundary Contract when the minimum evidentiary structure is present.
 
-Practical rule:
+## Design Principles
 
-Fork does not only preserve records. It preserves the limits of what those records are allowed to prove.
+### Claim boundaries as an architectural primitive
 
-## 3. Constitutional Invariant
+Governance becomes composable only when claims are bounded objects with explicit scope, support, and limits.
 
-**Every Fork evidence artifact must carry its evidentiary perimeter**: what it proves, what it does not prove, what was checked, what was not checked, and where later human, legal, causal, or institutional judgment must begin.
+### Explicit non-claims
 
-## 4. Supported Claim Type in v0.1
+Every governance record must say what it does not guarantee, to prevent silent expansion into institutional assurance.
 
-The only claim type supported in v0.1 is:
+### Non-transitivity by default
 
-`OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY`
+No governance claim should be treated as transitive across systems unless explicitly declared and scoped.
 
-This claim type allows only integrity and execution-of-checks claims.
+### Runtime enforcement versus evidence architecture
 
-It may assert that:
+Runtime enforcement answers what is allowed right now. Evidence architecture answers what can later be proven about the bounded claims that were made, what evidence supported them, and what remained unresolved.
 
-- The declared artifact set recomputes against its manifest under the recorded verifier environment.
-- The verifier evaluated the declared checks defined for the relevant integrity profile.
-- PASS, FAIL, and NOT_CHECKED states were emitted for those declared checks.
-- The record preserves bounded evidence and explicit non-claims.
+### Recomputable evidence as structural verification
 
-It must not assert or imply that:
+Recomputability checks whether preserved artifacts and structure still match the sealed record and its declared boundary. It does not determine whether the underlying claim was legally correct, safe, compliant, approved, or true.
 
-- The decision was correct.
-- The workflow was complete.
-- The source system was complete.
-- The action was lawful.
-- The output was compliant.
-- The human reviewer meaningfully reviewed it.
-- The evidence is admissible.
-- The model was accurate.
-- The result is fair, unbiased, authorized, validated, enterprise-proven, or a source of truth.
+## CBC v0.1 Required Fields
 
-## 5. PASS / FAIL / NOT_CHECKED Semantics
+### `claim_id`
 
-### PASS
+Unique identifier for this bounded record.
 
-PASS means the evaluated integrity conditions met their declared checks.
+### `claim_type`
 
-PASS does not mean the underlying workflow was complete, lawful, correct, compliant, fair, unbiased, authorized, admissible, or meaningfully reviewed.
+Issuer-defined type of claim, such as an eval result, runtime enforcement event, legal review, or policy mapping.
 
-### FAIL
+Fork does not define the semantics of `claim_type`.
 
-FAIL means the evaluated integrity conditions did not meet their declared checks.
+### `issuer`
 
-FAIL is evidence of a failed check. It is not a comprehensive causal explanation.
+System, team, or institution that made the claim.
 
-### NOT_CHECKED
+### `issuer_semantics_authority`
 
-NOT_CHECKED means the condition was not evaluated.
+Identifies who owns the meaning of `claim_type` and `positive_claims`.
 
-A NOT_CHECKED state cannot be inferred as a pass, soft pass, warning-only state, or implied satisfaction of the unchecked condition.
+Examples:
 
-## 6. Required Claim Boundary Payload Fields
+- `issuer_defined`
+- `legal_department_policy_taxonomy_v2026_06`
+- `model_risk_management_taxonomy_v1`
 
-Every v0.1 claim boundary payload must include:
+This field prevents Fork from being mistaken as the semantic authority over issuer-defined claim vocabulary.
 
-- `claim_type`
-- `claim_statement`
-- `allowed_inferences`
-- `forbidden_inferences`
-- `not_checked`
-- `non_claims`
+### `scope`
 
-For v0.1, all arrays must be present and non-empty.
+What the claim is about.
 
-## 7. Required Non-Claims
+Examples:
 
-Unless a separate claim type and gate explicitly supports them, the following remain outside the integrity-only claim boundary:
+- specific model version
+- workflow
+- dataset
+- tool call
+- policy document
+- review event
+- deployment configuration
 
-- `SOURCE_COMPLETENESS`
-- `DECISION_CORRECTNESS`
-- `LEGAL_ADMISSIBILITY`
-- `POLICY_COMPLIANCE`
-- `HUMAN_IDENTITY`
-- `MEANINGFUL_HUMAN_REVIEW`
-- `MODEL_ACCURACY`
-- `FAIRNESS_OR_BIAS_OUTCOME`
-- `AUTHORIZATION_VALIDITY`
+### `positive_claims`
 
-## 8. Forbidden Claim Expansion
+Explicit assertions the issuer is making within this scope.
 
-Under `OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY`, the following claim-expanding terms are prohibited in `claim_statement` and `allowed_inferences`:
+### `non_claims`
 
-- compliant
-- compliance
-- lawful
-- admissible
-- correct
-- complete
-- authorized
-- unbiased
-- fair
-- validated
-- enterprise-proven
-- source of truth
+Explicit exclusions: what the issuer is not asserting.
 
-These terms are not globally forbidden forever. They are forbidden under this claim type unless a future claim type and supporting gate make them legitimate.
+Examples:
 
-## 9. Release and Receipt Rule
+- no statement about legal sufficiency
+- no statement about regulatory compliance
+- no statement about system-wide safety
+- no statement about completeness of monitoring
+- no statement about production readiness
 
-No receipt, release metadata, or machine-readable evidence summary is valid unless it includes a claim boundary payload that passes `tools/check_claim_boundary.py`.
+### `evidence_refs`
 
-The release process and CI should run the checker against:
+References, hashes, manifests, receipts, or URIs for artifacts that support the claim.
 
-- Coherence receipts
-- Future conformance receipts
-- Machine-readable release metadata
-- Reviewer-facing summaries that declare what a Fork artifact proves
+### `upstream_claims_received`
 
-## 10. Reconstruction / Hypothesis Boundary
+Claims ingested from other systems as context.
 
-Reconstruction layers must distinguish between:
+### `upstream_claims_relied_on`
 
-- What the evidence shows
-- What the evidence failed to show
-- What was not checked
-- What remains unresolved
-- What is hypothesized
-- What requires later legal, causal, institutional, or human judgment
+Subset of upstream claims the issuer actually depended on.
 
-A reconstruction may attach hypotheses to evidence. It may not rewrite the evidentiary substrate or convert sequence coherence into proof of causality.
+### `upstream_claims_rejected`
 
-## 11. v0.1 Enforcement Rule
+Upstream claims explicitly not trusted, overridden, ignored, or treated as insufficient.
 
-For integrity-only claims, any overclaiming term in `claim_statement` or `allowed_inferences` causes a failing Claim Boundary check.
+### `transitivity_policy`
 
-The immediate goal of v0.1 is narrow:
+How, if at all, the positive claim may be inherited downstream.
 
-Make overclaiming fail a test.
+Recommended modes:
+
+- `LOCAL_ONLY`
+- `SCOPED`
+- `CONDITIONAL`
+- `NON_TRANSITIVE`
+
+Default posture: claims are non-transitive unless explicitly declared and scoped.
+
+### `inheritance_policy`
+
+Rules for how this claim's non-claims and exclusions must travel downstream.
+
+The core doctrine is:
+
+- claims do not automatically compose;
+- exclusions must not be silently peeled off;
+- downstream systems may narrow a claim;
+- downstream systems may not drop original exclusions without issuing a new explicit claim.
+
+### `known_gaps`
+
+Known missing evidence, unresolved issues, or limitations.
+
+### `human_or_institutional_decisions_remaining`
+
+Decisions still pending at the human or institutional authority layer.
+
+### `sealed_at`
+
+When and how the CBC was sealed.
+
+### `verification_status`
+
+One of:
+
+- `PASS`
+- `FAIL`
+- `NOT_CHECKED`
+- `PARTIAL`
+
+### `verification_scope`
+
+What `verification_status` actually applies to.
+
+Recommended value for Fork v0.1:
+
+- `RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY`
+
+The pairing is mandatory for safe interpretation:
+
+```text
+verification_status: PASS
+verification_scope: RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY
+```
+
+PASS never means compliant, safe, legally sufficient, true, approved, or production-ready.  
+It only means the sealed CBC and its preserved evidentiary structure verified within the declared scope.
+
+## Relationship to AI Risk Management Frameworks and Standards
+
+The Claim Boundary Contract is designed to support AI risk management and AI governance environments by preserving the evidentiary boundary around governance-related claims. Risk management frameworks and AI management system standards may require organizations to identify, assess, document, monitor, govern, or improve the management of AI-related risks. A Claim Boundary Contract does not replace those frameworks or standards and does not certify that an organization has satisfied them.
+
+Instead, a Claim Boundary Contract provides a bounded evidence structure for preserving what a system, team, or institution claimed; what it did not claim; what evidence it referenced; what upstream claims it relied on or rejected; what gaps remained; and what verification scope applies to the sealed record.
+
+Fork therefore does not assert compliance with any external risk management framework, AI management system standard, law, regulation, or certification regime. Fork provides evidence-boundary infrastructure that may help organizations preserve, inspect, and structurally verify the records they use inside broader governance, risk management, audit, and accountability processes.
+
+Canonical posture:
+
+> Fork is not a risk management framework or AI management system standard. Fork preserves the bounded evidence records that such frameworks and standards increasingly require organizations to produce, inspect, and defend.
+
+## What Fork Does With a CBC
+
+Fork may:
+
+- ingest a claim-bearing record from a configured governance source;
+- wrap that record in a Claim Boundary Contract when minimum evidentiary structure is present;
+- preserve claims, non-claims, evidence references, upstream reliance, known gaps, and remaining institutional decisions;
+- seal the CBC and associated evidence manifests;
+- emit verification results with explicit status and scope;
+- later structurally verify whether the sealed record still matches its preserved evidentiary structure.
+
+## Non-Goals
+
+Fork does not:
+
+- define global governance semantics;
+- determine whether a claim is correct;
+- determine whether a claim is legally sufficient;
+- certify compliance with laws, regulations, standards, or frameworks;
+- determine model safety;
+- determine production readiness;
+- replace policy engines, runtime enforcement systems, legal review, compliance review, or institutional judgment;
+- silently promote local claims into transferable assurances.
+
+## References
+
+- NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework
+- NIST AI RMF 1.0 PDF: https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf
+- ISO/IEC 42001: https://www.iso.org/standard/42001

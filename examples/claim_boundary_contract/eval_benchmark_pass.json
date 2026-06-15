@@ -1,0 +1,124 @@
+{
+  "claim_id": "cbc_eval_benchmark_2026_06_15_001",
+  "claim_type": "eval_result.benchmark_pass",
+  "issuer": {
+    "name": "Configured Evaluation Harness",
+    "type": "configured_governance_source",
+    "system_id": "eval_harness_demo"
+  },
+  "issuer_semantics_authority": {
+    "mode": "issuer_defined",
+    "reference": "eval_harness_demo.claim_taxonomy.v0_1"
+  },
+  "scope": {
+    "object_type": "model_eval_run",
+    "model_ref": "model_candidate_demo",
+    "model_version": "candidate_2026_06_15",
+    "benchmark_id": "benchmark_demo_001",
+    "eval_config_hash": "sha256:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+  },
+  "positive_claims": [
+    {
+      "claim": "benchmark_threshold_met",
+      "statement": "The configured evaluation harness reported that the model candidate met the benchmark threshold under the referenced evaluation configuration.",
+      "issuer_defined_result": "PASSED"
+    }
+  ],
+  "non_claims": [
+    {
+      "category": "deployment_readiness",
+      "statement": "No claim is made that this model is ready for production deployment.",
+      "must_travel_downstream": true
+    },
+    {
+      "category": "legal_sufficiency",
+      "statement": "No claim is made that use of this model is legally sufficient for any workflow.",
+      "must_travel_downstream": true
+    },
+    {
+      "category": "regulatory_compliance",
+      "statement": "No claim is made that the model, deployment, or organization satisfies any regulatory requirement.",
+      "must_travel_downstream": true
+    },
+    {
+      "category": "future_performance",
+      "statement": "No claim is made about future model versions, retrains, distribution shift, or deployment configuration changes.",
+      "must_travel_downstream": true
+    }
+  ],
+  "evidence_refs": [
+    {
+      "ref_id": "eval_config",
+      "artifact_type": "evaluation_configuration",
+      "uri": "evidence/eval_config_demo.json",
+      "sha256": "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+      "relationship": "configuration_for_eval_claim"
+    },
+    {
+      "ref_id": "eval_results",
+      "artifact_type": "evaluation_results",
+      "uri": "evidence/eval_results_demo.json",
+      "sha256": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+      "relationship": "result_basis_for_eval_claim"
+    },
+    {
+      "ref_id": "model_manifest",
+      "artifact_type": "model_manifest",
+      "uri": "evidence/model_manifest_demo.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "relationship": "model_reference_for_eval_claim"
+    }
+  ],
+  "upstream_claims_received": [
+    {
+      "claim_id": "dataset_manifest_001",
+      "issuer": "dataset_registry_demo",
+      "summary": "Dataset manifest was supplied for evaluation context."
+    }
+  ],
+  "upstream_claims_relied_on": [
+    {
+      "claim_id": "dataset_manifest_001",
+      "reason": "Evaluation result depended on the dataset manifest referenced by the configured evaluation harness."
+    }
+  ],
+  "upstream_claims_rejected": [
+    {
+      "claim_id": "deployment_approval_label_001",
+      "reason": "Deployment approval label was not relied on because this CBC only preserves an evaluation result boundary."
+    }
+  ],
+  "transitivity_policy": {
+    "mode": "SCOPED",
+    "statement": "This benchmark-pass claim is transferable only as evidence about the referenced model, benchmark, dataset manifest, and evaluation configuration tuple."
+  },
+  "inheritance_policy": {
+    "non_claims_must_travel": true,
+    "downstream_may_narrow": true,
+    "downstream_may_drop_non_claims_without_new_explicit_claim": false,
+    "statement": "Any downstream use of this benchmark-pass claim must preserve the non-claims about deployment readiness, legal sufficiency, regulatory compliance, and future performance."
+  },
+  "known_gaps": [
+    {
+      "gap": "deployment_context_not_evaluated",
+      "statement": "The evaluation result does not include production deployment context."
+    }
+  ],
+  "human_or_institutional_decisions_remaining": [
+    {
+      "decision": "production_approval",
+      "statement": "A competent institutional authority must separately decide whether this model may be deployed."
+    },
+    {
+      "decision": "legal_and_compliance_review",
+      "statement": "Legal and compliance review remain outside this CBC."
+    }
+  ],
+  "sealed_at": {
+    "timestamp_utc": "2026-06-15T00:00:00Z",
+    "sealing_mechanism": "sha256_manifest",
+    "manifest_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "verification_status": "PASS",
+  "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY"
+}
