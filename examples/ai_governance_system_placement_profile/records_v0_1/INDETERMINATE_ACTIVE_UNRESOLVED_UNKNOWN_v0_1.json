@@ -1,0 +1,161 @@
+{
+  "profile_version": "ai_governance_system_placement_profile.v0.1",
+  "system_identity": {
+    "system_id": "system:evaluation-example:v0_1",
+    "system_name": "Example Evaluation System",
+    "system_version": "0.1.0",
+    "publisher": "Fork synthetic fixture",
+    "record_id": "placement:evaluation-example:v0_1",
+    "profile_created_at_utc": "2026-06-15T00:00:00Z",
+    "profile_status": "DRAFT"
+  },
+  "role_classification": [
+    "evaluator"
+  ],
+  "authority_boundary": {
+    "functional_claim_perimeter": "Benchmark evaluation under declared test conditions.",
+    "permitted_assertions": [
+      "The system may assert benchmark observations under declared test conditions."
+    ],
+    "prohibited_implications": [
+      "The system may not imply deployment approval.",
+      "The system may not imply compliance satisfaction.",
+      "The system may not imply real-world safety."
+    ]
+  },
+  "supported_claims": [
+    {
+      "claim_id": "eval_claim_benchmark_risk_reduction_observed",
+      "statement": "Benchmark risk reduction was observed under declared test conditions.",
+      "scope": "Synthetic benchmark run only.",
+      "evidence_basis": [
+        "eval_input_benchmark_suite",
+        "eval_input_model_version"
+      ],
+      "conditions": [
+        "Applies only to the declared benchmark suite and configuration."
+      ],
+      "limitations": [
+        "Does not cover distribution shift or adversarial adaptation."
+      ]
+    }
+  ],
+  "explicit_non_claims": [
+    {
+      "non_claim_id": "eval_nonclaim_compliance_satisfaction",
+      "statement": "No claim of compliance satisfaction is made.",
+      "rationale": "Compliance satisfaction requires an authorized compliance role and remains outside this placement profile."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_legal_admissibility",
+      "statement": "No claim of legal admissibility is made.",
+      "rationale": "Legal admissibility requires separate legal process and authority."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_decision_correctness",
+      "statement": "No claim of decision correctness is made.",
+      "rationale": "The placement profile declares boundaries and does not validate downstream decisions."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_real_world_safety",
+      "statement": "No claim of real-world safety is made.",
+      "rationale": "Benchmark performance does not establish production safety."
+    },
+    {
+      "non_claim_id": "eval_nonclaim_deployment_approval",
+      "statement": "No claim of deployment approval is made.",
+      "rationale": "Deployment approval requires downstream institutional review."
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "evidence_input_id": "eval_input_benchmark_suite",
+      "input_type": "benchmark_suite",
+      "source": "synthetic fixture",
+      "expected_format": "json",
+      "custody_expectation": "declared fixture only",
+      "freshness_expectation": "static v0.1 example",
+      "completeness_assumption": "not claimed complete",
+      "required": true
+    },
+    {
+      "evidence_input_id": "eval_input_model_version",
+      "input_type": "model_version_record",
+      "source": "synthetic fixture",
+      "expected_format": "json",
+      "custody_expectation": "declared fixture only",
+      "freshness_expectation": "static v0.1 example",
+      "completeness_assumption": "not claimed complete",
+      "required": true
+    }
+  ],
+  "evidence_outputs": [
+    {
+      "evidence_output_id": "eval_output_evaluation_report",
+      "output_type": "evaluation_report",
+      "format": "json",
+      "supports_claim_ids": [
+        "eval_claim_benchmark_risk_reduction_observed"
+      ],
+      "carries_non_claim_ids": [
+        "eval_nonclaim_compliance_satisfaction",
+        "eval_nonclaim_real_world_safety",
+        "eval_nonclaim_deployment_approval"
+      ],
+      "downstream_review_role": "risk_owner"
+    }
+  ],
+  "handoff_requirements": [
+    {
+      "handoff_id": "eval_handoff_deployment_risk_review",
+      "required_downstream_role": "risk_owner",
+      "reason": "Benchmark result requires downstream deployment risk interpretation before production use.",
+      "evidence_output_ids": [
+        "eval_output_evaluation_report"
+      ],
+      "non_claim_ids_to_preserve": [
+        "eval_nonclaim_compliance_satisfaction",
+        "eval_nonclaim_real_world_safety",
+        "eval_nonclaim_deployment_approval"
+      ],
+      "unknown_ids_to_preserve": [
+        "eval_unknown_distribution_shift",
+        "eval_unknown_adversarial_adaptation",
+        "eval_active_unknown_missing_real_world_telemetry"
+      ],
+      "handoff_type": "BLOCKING"
+    }
+  ],
+  "unresolved_unknowns": {
+    "declared_unknown_classes": [
+      {
+        "unknown_id": "eval_unknown_distribution_shift",
+        "statement": "Distribution shift outside the benchmark environment is unresolved."
+      },
+      {
+        "unknown_id": "eval_unknown_adversarial_adaptation",
+        "statement": "Adversarial adaptation outside the test suite is unresolved."
+      }
+    ],
+    "active_unresolved_unknowns": [
+      {
+        "unknown_id": "eval_active_unknown_missing_real_world_telemetry",
+        "statement": "Real-world telemetry needed for deployment interpretation is missing.",
+        "severity": "HIGH",
+        "required_resolution_role": "risk_owner"
+      }
+    ]
+  },
+  "verification_state": {
+    "state": "INDETERMINATE",
+    "verification_method": "schema_fixture_not_checked",
+    "verifier": "not_applicable",
+    "checked_at_utc": null
+  },
+  "non_transitive_clauses": [
+    {
+      "clause_id": "eval_nontransitive_no_deployment_approval",
+      "statement": "Evaluation success does not propagate as deployment approval or compliance satisfaction."
+    }
+  ]
+}

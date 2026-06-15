@@ -1,0 +1,158 @@
+{
+  "profile_version": "ai_governance_system_placement_profile.v0.1",
+  "system_identity": {
+    "system_id": "system:compliance-mapping-example:v0_1",
+    "system_name": "Example Compliance Mapping System",
+    "system_version": "0.1.0",
+    "publisher": "Fork synthetic fixture",
+    "record_id": "placement:compliance-mapping-example:v0_1",
+    "profile_created_at_utc": "2026-06-15T00:00:00Z",
+    "profile_status": "DRAFT"
+  },
+  "role_classification": [
+    "compliance_mapper"
+  ],
+  "authority_boundary": {
+    "functional_claim_perimeter": "Mapping declared workflow evidence against specified policy requirements.",
+    "permitted_assertions": [
+      "The system may assert that declared evidence was mapped to specified policy requirements."
+    ],
+    "prohibited_implications": [
+      "The system may not imply compliance satisfaction.",
+      "The system may not imply legal advice.",
+      "The system may not imply audit sufficiency."
+    ]
+  },
+  "supported_claims": [
+    {
+      "claim_id": "compmap_claim_policy_mapping_completed",
+      "statement": "Declared workflow evidence was mapped against specified policy requirements.",
+      "scope": "Specified policy requirement set and declared evidence only.",
+      "evidence_basis": [
+        "compmap_input_policy_requirements",
+        "compmap_input_upstream_evidence"
+      ],
+      "conditions": [
+        "Applies only to declared policy requirements and supplied upstream evidence."
+      ],
+      "limitations": [
+        "Does not establish legal advice, audit sufficiency, or institutional risk acceptance."
+      ]
+    }
+  ],
+  "explicit_non_claims": [
+    {
+      "non_claim_id": "compmap_nonclaim_compliance_satisfaction",
+      "statement": "No claim of compliance satisfaction is made.",
+      "rationale": "Compliance satisfaction requires an authorized compliance role and remains outside this placement profile."
+    },
+    {
+      "non_claim_id": "compmap_nonclaim_legal_admissibility",
+      "statement": "No claim of legal admissibility is made.",
+      "rationale": "Legal admissibility requires separate legal process and authority."
+    },
+    {
+      "non_claim_id": "compmap_nonclaim_decision_correctness",
+      "statement": "No claim of decision correctness is made.",
+      "rationale": "The placement profile declares boundaries and does not validate downstream decisions."
+    },
+    {
+      "non_claim_id": "compmap_nonclaim_legal_advice",
+      "statement": "No claim of legal advice is made.",
+      "rationale": "Legal advice requires an authorized legal reviewer."
+    },
+    {
+      "non_claim_id": "compmap_nonclaim_audit_sufficiency",
+      "statement": "No claim of audit sufficiency is made.",
+      "rationale": "Audit sufficiency requires an authorized audit process."
+    },
+    {
+      "non_claim_id": "compmap_nonclaim_risk_acceptance",
+      "statement": "No claim of institutional risk acceptance is made.",
+      "rationale": "Risk acceptance requires an authorized institutional risk owner."
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "evidence_input_id": "compmap_input_policy_requirements",
+      "input_type": "policy_requirements",
+      "source": "synthetic fixture",
+      "expected_format": "markdown",
+      "custody_expectation": "declared fixture only",
+      "freshness_expectation": "static v0.1 example",
+      "completeness_assumption": "policy completeness not claimed",
+      "required": true
+    },
+    {
+      "evidence_input_id": "compmap_input_upstream_evidence",
+      "input_type": "upstream_governance_evidence",
+      "source": "synthetic fixture",
+      "expected_format": "json",
+      "custody_expectation": "declared fixture only",
+      "freshness_expectation": "static v0.1 example",
+      "completeness_assumption": "upstream evidence completeness not claimed",
+      "required": true
+    }
+  ],
+  "evidence_outputs": [
+    {
+      "evidence_output_id": "compmap_output_compliance_mapping_record",
+      "output_type": "compliance_mapping_record",
+      "format": "json",
+      "supports_claim_ids": [
+        "compmap_claim_policy_mapping_completed"
+      ],
+      "carries_non_claim_ids": [
+        "compmap_nonclaim_compliance_satisfaction",
+        "compmap_nonclaim_legal_advice",
+        "compmap_nonclaim_audit_sufficiency"
+      ],
+      "downstream_review_role": "compliance_officer"
+    }
+  ],
+  "handoff_requirements": [
+    {
+      "handoff_id": "compmap_handoff_compliance_review",
+      "required_downstream_role": "compliance_officer",
+      "reason": "Policy mapping requires authorized compliance review before any compliance conclusion is asserted.",
+      "evidence_output_ids": [
+        "compmap_output_compliance_mapping_record"
+      ],
+      "non_claim_ids_to_preserve": [
+        "compmap_nonclaim_compliance_satisfaction",
+        "compmap_nonclaim_legal_advice",
+        "compmap_nonclaim_audit_sufficiency"
+      ],
+      "unknown_ids_to_preserve": [
+        "compmap_unknown_policy_interpretation",
+        "compmap_unknown_missing_evidence"
+      ],
+      "handoff_type": "BLOCKING"
+    }
+  ],
+  "unresolved_unknowns": {
+    "declared_unknown_classes": [
+      {
+        "unknown_id": "compmap_unknown_policy_interpretation",
+        "statement": "Ambiguous policy interpretation remains unresolved."
+      },
+      {
+        "unknown_id": "compmap_unknown_missing_evidence",
+        "statement": "Missing evidence may prevent closure."
+      }
+    ],
+    "active_unresolved_unknowns": []
+  },
+  "verification_state": {
+    "state": "SELF_DECLARED",
+    "verification_method": "not_checked",
+    "verifier": "not_applicable",
+    "checked_at_utc": null
+  },
+  "non_transitive_clauses": [
+    {
+      "clause_id": "compmap_nontransitive_no_compliance_satisfaction",
+      "statement": "Compliance mapping does not propagate as compliance satisfaction unless an authorized compliance role explicitly asserts that conclusion."
+    }
+  ]
+}

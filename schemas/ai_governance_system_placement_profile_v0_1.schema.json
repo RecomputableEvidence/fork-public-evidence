@@ -1,0 +1,513 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputable.evidence/schemas/ai_governance_system_placement_profile_v0_1.schema.json",
+  "title": "AI Governance Mapping Record: System Placement Profile v0.1",
+  "description": "Minimal structural schema for AI governance system placement, claim perimeters, evidence interfaces, unresolved unknowns, and handoff requirements. It does not evaluate truth, legal sufficiency, compliance sufficiency, audit sufficiency, model safety, runtime behavior, or institutional authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_version",
+    "system_identity",
+    "role_classification",
+    "authority_boundary",
+    "supported_claims",
+    "explicit_non_claims",
+    "evidence_inputs",
+    "evidence_outputs",
+    "handoff_requirements",
+    "unresolved_unknowns",
+    "verification_state"
+  ],
+  "properties": {
+    "profile_version": {
+      "type": "string",
+      "const": "ai_governance_system_placement_profile.v0.1"
+    },
+    "system_identity": {
+      "$ref": "#/$defs/system_identity"
+    },
+    "role_classification": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/role_classification"
+      },
+      "uniqueItems": true
+    },
+    "authority_boundary": {
+      "$ref": "#/$defs/authority_boundary"
+    },
+    "supported_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/supported_claim"
+      }
+    },
+    "explicit_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/explicit_non_claim"
+      }
+    },
+    "evidence_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence_input"
+      }
+    },
+    "evidence_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence_output"
+      }
+    },
+    "handoff_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/handoff_requirement"
+      }
+    },
+    "unresolved_unknowns": {
+      "$ref": "#/$defs/unresolved_unknowns"
+    },
+    "verification_state": {
+      "$ref": "#/$defs/verification_state"
+    },
+    "non_transitive_clauses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/non_transitive_clause"
+      }
+    }
+  },
+  "$defs": {
+    "id_string": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+    },
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "string_array": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/non_empty_string"
+      }
+    },
+    "role_classification": {
+      "type": "string",
+      "enum": [
+        "evaluator",
+        "runtime_monitor",
+        "policy_mapper",
+        "compliance_mapper",
+        "legal_review_support",
+        "audit_support",
+        "human_review_workflow",
+        "risk_scoring_system",
+        "incident_response_system",
+        "evidence_preservation_system",
+        "provenance_system",
+        "escalation_router",
+        "workflow_orchestrator"
+      ]
+    },
+    "downstream_role": {
+      "type": "string",
+      "enum": [
+        "legal_reviewer",
+        "compliance_officer",
+        "audit_reviewer",
+        "risk_owner",
+        "model_governance_owner",
+        "human_decision_authority",
+        "incident_response_lead",
+        "deployment_approver",
+        "policy_owner",
+        "runtime_monitor_owner"
+      ]
+    },
+    "system_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system_id",
+        "system_name",
+        "system_version",
+        "publisher",
+        "record_id",
+        "profile_created_at_utc",
+        "profile_status"
+      ],
+      "properties": {
+        "system_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "system_name": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "system_version": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "publisher": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "record_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "profile_created_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "profile_status": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "ACTIVE",
+            "DEPRECATED"
+          ]
+        }
+      }
+    },
+    "authority_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "functional_claim_perimeter",
+        "permitted_assertions",
+        "prohibited_implications"
+      ],
+      "properties": {
+        "functional_claim_perimeter": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "permitted_assertions": {
+          "$ref": "#/$defs/string_array"
+        },
+        "prohibited_implications": {
+          "$ref": "#/$defs/string_array"
+        }
+      }
+    },
+    "supported_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "statement",
+        "scope",
+        "evidence_basis",
+        "conditions",
+        "limitations"
+      ],
+      "properties": {
+        "claim_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "scope": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "evidence_basis": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id_string"
+          }
+        },
+        "conditions": {
+          "$ref": "#/$defs/string_array"
+        },
+        "limitations": {
+          "$ref": "#/$defs/string_array"
+        }
+      }
+    },
+    "explicit_non_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "non_claim_id",
+        "statement",
+        "rationale"
+      ],
+      "properties": {
+        "non_claim_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "rationale": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      }
+    },
+    "evidence_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_input_id",
+        "input_type",
+        "source",
+        "expected_format",
+        "custody_expectation",
+        "freshness_expectation",
+        "completeness_assumption",
+        "required"
+      ],
+      "properties": {
+        "evidence_input_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "input_type": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "source": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "expected_format": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "custody_expectation": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "freshness_expectation": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "completeness_assumption": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "evidence_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_output_id",
+        "output_type",
+        "format",
+        "supports_claim_ids",
+        "carries_non_claim_ids",
+        "downstream_review_role"
+      ],
+      "properties": {
+        "evidence_output_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "output_type": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "format": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "supports_claim_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id_string"
+          }
+        },
+        "carries_non_claim_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id_string"
+          }
+        },
+        "downstream_review_role": {
+          "$ref": "#/$defs/downstream_role"
+        }
+      }
+    },
+    "handoff_requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "handoff_id",
+        "required_downstream_role",
+        "reason",
+        "evidence_output_ids",
+        "non_claim_ids_to_preserve",
+        "unknown_ids_to_preserve",
+        "handoff_type"
+      ],
+      "properties": {
+        "handoff_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "required_downstream_role": {
+          "$ref": "#/$defs/downstream_role"
+        },
+        "reason": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "evidence_output_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id_string"
+          }
+        },
+        "non_claim_ids_to_preserve": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/id_string"
+          }
+        },
+        "unknown_ids_to_preserve": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id_string"
+          }
+        },
+        "handoff_type": {
+          "type": "string",
+          "enum": [
+            "BLOCKING",
+            "ADVISORY",
+            "INFORMATIONAL"
+          ]
+        }
+      }
+    },
+    "unresolved_unknowns": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declared_unknown_classes",
+        "active_unresolved_unknowns"
+      ],
+      "properties": {
+        "declared_unknown_classes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unknown_item"
+          }
+        },
+        "active_unresolved_unknowns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/active_unknown_item"
+          }
+        }
+      }
+    },
+    "unknown_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unknown_id",
+        "statement"
+      ],
+      "properties": {
+        "unknown_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      }
+    },
+    "active_unknown_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unknown_id",
+        "statement",
+        "severity",
+        "required_resolution_role"
+      ],
+      "properties": {
+        "unknown_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "required_resolution_role": {
+          "$ref": "#/$defs/downstream_role"
+        }
+      }
+    },
+    "verification_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "verification_method",
+        "verifier",
+        "checked_at_utc"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "SELF_DECLARED",
+            "STRUCTURALLY_CHECKED",
+            "EXTERNALLY_REVIEWED",
+            "VERIFIED_AGAINST_SCHEMA",
+            "VERIFIED_AGAINST_CHECKER",
+            "INDETERMINATE",
+            "NOT_CHECKED"
+          ]
+        },
+        "verification_method": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "verifier": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "checked_at_utc": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "non_transitive_clause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clause_id",
+        "statement"
+      ],
+      "properties": {
+        "clause_id": {
+          "$ref": "#/$defs/id_string"
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      }
+    }
+  }
+}

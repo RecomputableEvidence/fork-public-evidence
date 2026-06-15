@@ -27,3 +27,20 @@ Preserved:
 - v0.2, v0.1, and semantic alignment regression coverage.
 
 Non-claims: v0.2.2 is not a policy engine, legal sufficiency checker, compliance checker, audit substitute, decision validator, runtime controller, cross-record DAG compiler, external artifact resolver, or semantic intent engine.
+
+## AI Governance System Placement Profile v0.1 schema and fixtures
+
+Added:
+
+- Minimal JSON Schema for the AI Governance Mapping Record: System Placement Profile v0.1.
+- Three valid synthetic placement fixtures: evaluation, runtime monitoring, and compliance mapping.
+- Six invalid synthetic fixtures for missing required fields, claim/non-claim overlap, restricted claim language, duplicate IDs, invalid role classification, and handoff reference gaps.
+- One indeterminate synthetic fixture for active unresolved unknowns.
+- Fixture-integrity tests using Python standard library only.
+
+Boundary:
+
+- This is not a checker.
+- This is not runtime enforcement.
+- This does not validate semantic truth, compliance, legal sufficiency, audit sufficiency, model safety, or institutional authority.
+
