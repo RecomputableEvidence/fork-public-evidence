@@ -1,0 +1,94 @@
+{
+  "review_id": "checker_doctrine_alignment_review.v0.1",
+  "review_status": "ALIGNED_WITH_LIMITED_V0_1_SCOPE",
+  "review_target": {
+    "commit": "bd9d006abe88c4f91f120cc9468bbe9d6db4396a",
+    "checker": "tools/check_ai_governance_mapping_record_v0_1.py",
+    "schema": "schemas/ai_governance_system_mapping_record_v0_1.schema.json",
+    "primary_doc": "docs/AI_GOVERNANCE_MAPPING_RECORD_SCHEMA_AND_CHECKER_v0_1.md"
+  },
+  "summary": "The v0.1 checker is semantically aligned with Fork doctrine as a bounded, declaration-based claim-boundary checker. It is not a full semantic verifier, compliance checker, legal admissibility checker, audit sufficiency checker, policy engine, runtime controller, or decision validator.",
+  "alignment_checks": [
+    {
+      "id": "ALIGN_001_NON_CLAIMS",
+      "status": "ALIGNED",
+      "doctrine_requirement": "Fork records must preserve explicit non-claims.",
+      "checker_mechanism": "EXPLICIT_NON_CLAIMS_PRESENT and FORK_REQUIRED_NON_CLAIMS",
+      "finding": "Fork canonical non-claims are required for Fork-specific records."
+    },
+    {
+      "id": "ALIGN_002_PROHIBITED_INHERITANCE",
+      "status": "PARTIALLY_ALIGNED",
+      "doctrine_requirement": "A mapping record must not allow silent claim inheritance across boundaries.",
+      "checker_mechanism": "CLAIM_NONCLAIM_DISJOINT and PROHIBITED_CLAIM_INHERITANCE_PRESENT",
+      "finding": "The checker catches exact overlap and requires prohibited inheritance declarations, but does not yet detect paraphrased or implied inheritance."
+    },
+    {
+      "id": "ALIGN_003_INDETERMINATE",
+      "status": "ALIGNED",
+      "doctrine_requirement": "Unresolved dependencies and review-required states must not collapse into PASS.",
+      "checker_mechanism": "INDETERMINATE_SIGNALS and final overall_status calculation",
+      "finding": "The checker emits INDETERMINATE when unresolved, unknown, unavailable, not-checked, or review-required signals are present."
+    },
+    {
+      "id": "ALIGN_004_AUTHORITY_BOUNDARY",
+      "status": "PARTIALLY_ALIGNED",
+      "doctrine_requirement": "Verification must remain separate from authority and evaluation.",
+      "checker_mechanism": "AUTHORITY_NON_AUTHORITIES_PRESENT and RESTRICTED_AUTHORITY_CLAIM_GUARD",
+      "finding": "The checker requires declared non-authorities and guards restricted authority terms, but authority-basis evaluation remains outside scope."
+    },
+    {
+      "id": "ALIGN_005_SAFE_HANDOFFS",
+      "status": "PARTIALLY_ALIGNED",
+      "doctrine_requirement": "Safe handoffs must carry claims, non-claims, unknowns, and re-verification requirements.",
+      "checker_mechanism": "SAFE_HANDOFFS_PRESENT and SAFE_HANDOFF_CONSTRAINTS",
+      "finding": "The checker requires non-empty handoff constraint arrays, but does not yet enforce ID-reference integrity."
+    },
+    {
+      "id": "ALIGN_006_SCHEMA_VALIDATION",
+      "status": "GAP",
+      "doctrine_requirement": "Machine-readable records should be strictly structured.",
+      "checker_mechanism": "Built-in required-field and top-level type checks",
+      "finding": "The schema exists, but the checker does not yet perform full draft 2020-12 JSON Schema validation."
+    },
+    {
+      "id": "ALIGN_007_NO_POLICY_ENGINE",
+      "status": "ALIGNED",
+      "doctrine_requirement": "Fork must not become a policy engine or institutional authority.",
+      "checker_mechanism": "Checker non-claims, authority boundary, and does_not_evaluate declarations",
+      "finding": "The checker preserves boundary structure and does not approve decisions or policies."
+    },
+    {
+      "id": "ALIGN_008_NOT_CLAIMED_DOMAINS",
+      "status": "NOT_CLAIMED",
+      "doctrine_requirement": "Fork must not claim legal, compliance, audit, correctness, completeness, or institutional conclusions.",
+      "checker_mechanism": "Explicit non-claims and documentation boundary",
+      "finding": "These conclusions remain outside the checker scope."
+    }
+  ],
+  "current_gaps": [
+    "Full JSON Schema validation is not yet performed by the checker.",
+    "Claim inheritance detection is still mostly literal/string-based.",
+    "Safe handoff fields are not yet ID-referential.",
+    "Authority basis is declared but not substantively evaluated.",
+    "Declared unknown classes and active unresolved unknowns should be further distinguished."
+  ],
+  "recommended_v0_2": [
+    "Add full schema validation or an explicit equivalent.",
+    "Add ID-reference integrity across safe handoff fields.",
+    "Add a canonical restricted-claim registry.",
+    "Add paraphrased claim inheritance adversarial fixtures.",
+    "Add clearer distinction between declared unknown classes and active unresolved unknowns.",
+    "Add normalized result output for cross-environment reproducibility."
+  ],
+  "non_claims": [
+    "This review does not prove legal admissibility.",
+    "This review does not prove compliance satisfaction.",
+    "This review does not prove audit sufficiency.",
+    "This review does not prove AI output correctness.",
+    "This review does not prove decision correctness.",
+    "This review does not prove source completeness.",
+    "This review does not prove institutional acceptance.",
+    "This review does not prove production completeness."
+  ]
+}

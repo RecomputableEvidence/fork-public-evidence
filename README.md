@@ -140,3 +140,13 @@ Core artifacts:
 * [Mapping record examples](examples/ai_governance_system_mapping/records/)
 
 The checker classifies records as PASS, FAIL, or INDETERMINATE while preserving explicit non-claims, prohibited claim inheritance, unknowns, authority boundaries, and re-verification requirements.
+### Checker Doctrine Alignment Review v0.1
+
+Fork now includes a semantic alignment review for the AI Governance Mapping Record checker.
+
+Core artifacts:
+
+* [Checker Doctrine Alignment Review v0.1](docs/CHECKER_DOCTRINE_ALIGNMENT_REVIEW_v0_1.md)
+* [Machine-readable alignment receipt v0.1](output/semantic_alignment_reviews/CHECKER_DOCTRINE_ALIGNMENT_REVIEW_v0_1.json)
+
+The review concludes that the v0.1 checker is aligned with Fork doctrine as a bounded declaration-based claim-boundary checker, while preserving explicit gaps for v0.2 hardening.
