@@ -1,0 +1,128 @@
+{
+  "record_version": "ai_governance_system_mapping_record.v0.1",
+  "record_status": "INDETERMINATE",
+  "system_id": "INDETERMINATE_MAPPING_RECORD_UNRESOLVED_DEPENDENCY",
+  "system_name": "Indeterminate Mapping Record",
+  "system_owner": "Test",
+  "record_author": "Test",
+  "created_at_utc": "2026-06-15T13:00:00Z",
+  "system_function": "Synthetic indeterminate fixture.",
+  "pipeline_position": "Test fixture.",
+  "input_assumptions": [
+    {
+      "id": "INPUT_001",
+      "statement": "An upstream authority artifact is expected but unresolved."
+    }
+  ],
+  "supported_claims": [
+    {
+      "id": "CLAIM_001",
+      "statement": "The record declares unresolved dependencies rather than collapsing them into certainty."
+    }
+  ],
+  "explicit_non_claims": [
+    {
+      "id": "NON_CLAIM_001",
+      "statement": "The record does not claim downstream authority while dependencies remain unresolved."
+    }
+  ],
+  "emitted_artifacts": [
+    {
+      "id": "ARTIFACT_001",
+      "artifact_type": "mapping_record",
+      "description": "Indeterminate mapping record."
+    }
+  ],
+  "consumable_artifacts": [],
+  "verification_model": {
+    "verification_scope": "Test only.",
+    "verification_method": "Test only.",
+    "does_not_evaluate": [
+      "Any unresolved dependency."
+    ]
+  },
+  "evaluation_boundary": {
+    "syntactic_integrity": "The record can be structurally inspected.",
+    "semantic_validity": "The unresolved dependency prevents full semantic evaluation.",
+    "evaluation_authority": "External reviewer."
+  },
+  "authority_boundary": {
+    "authority_status": "NO_INSTITUTIONAL_AUTHORITY",
+    "authority_basis": "None.",
+    "authority_claims": [],
+    "non_authorities": [
+      "No institutional authority."
+    ],
+    "human_or_institutional_authority_required": true
+  },
+  "dependency_boundary": [
+    {
+      "id": "DEPENDENCY_001",
+      "status": "UNRESOLVED",
+      "statement": "Upstream authority artifact has not been supplied."
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "UNKNOWN_001",
+      "status": "UNKNOWN",
+      "statement": "Unknown whether the upstream authority artifact exists."
+    }
+  ],
+  "failure_states": [
+    {
+      "id": "FAIL_001",
+      "status": "DECLARED",
+      "statement": "Missing authority artifact must not be silently promoted to PASS."
+    }
+  ],
+  "safe_handoffs": [
+    {
+      "id": "HANDOFF_001",
+      "artifact": "mapping_record",
+      "downstream_surface": "review",
+      "allowed_claims": [
+        "The record is structurally present but indeterminate."
+      ],
+      "claims_that_must_not_transfer": [
+        "Authority",
+        "Correctness",
+        "Completeness"
+      ],
+      "non_claims_that_must_travel": [
+        "No authority is claimed."
+      ],
+      "unknowns_that_must_travel": [
+        "Upstream authority artifact unresolved."
+      ],
+      "re_verification_required": [
+        "Resolve dependency and re-run checker."
+      ]
+    }
+  ],
+  "prohibited_claim_inheritance": [
+    {
+      "id": "PROHIBITED_001",
+      "statement": "Indeterminate status must not be inherited as approval."
+    }
+  ],
+  "re_verification_requirements": [
+    {
+      "id": "REVERIFY_001",
+      "statement": "Resolve dependency and re-run checker."
+    }
+  ],
+  "institutional_dependencies": [
+    {
+      "id": "INSTITUTIONAL_DEPENDENCY_001",
+      "status": "REVIEW_REQUIRED",
+      "statement": "Human review required before downstream use."
+    }
+  ],
+  "mapping_summary": "This fixture should produce INDETERMINATE, not PASS and not FAIL.",
+  "declaration": {
+    "claim_boundary_statement": "Unresolved dependency remains bounded.",
+    "non_authority_statement": "No authority is claimed.",
+    "handoff_statement": "Unknowns and unresolved dependency must travel with the record."
+  }
+}

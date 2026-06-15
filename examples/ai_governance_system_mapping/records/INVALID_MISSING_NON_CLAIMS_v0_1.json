@@ -1,0 +1,107 @@
+{
+  "record_version": "ai_governance_system_mapping_record.v0.1",
+  "record_status": "DRAFT",
+  "system_id": "BROKEN_MAPPING_RECORD_MISSING_NON_CLAIMS",
+  "system_name": "Broken Mapping Record",
+  "system_owner": "Test",
+  "record_author": "Test",
+  "created_at_utc": "2026-06-15T13:00:00Z",
+  "system_function": "Synthetic invalid fixture.",
+  "pipeline_position": "Test fixture.",
+  "input_assumptions": [
+    {
+      "id": "INPUT_001",
+      "statement": "Input exists."
+    }
+  ],
+  "supported_claims": [
+    {
+      "id": "CLAIM_001",
+      "statement": "This record intentionally has a supported claim."
+    }
+  ],
+  "explicit_non_claims": [],
+  "emitted_artifacts": [
+    {
+      "id": "ARTIFACT_001",
+      "artifact_type": "test",
+      "description": "Test artifact."
+    }
+  ],
+  "consumable_artifacts": [],
+  "verification_model": {
+    "verification_scope": "Test only.",
+    "verification_method": "Test only.",
+    "does_not_evaluate": [
+      "Anything real."
+    ]
+  },
+  "evaluation_boundary": {
+    "syntactic_integrity": "Test only.",
+    "semantic_validity": "Test only.",
+    "evaluation_authority": "Test only."
+  },
+  "authority_boundary": {
+    "authority_status": "NO_INSTITUTIONAL_AUTHORITY",
+    "authority_basis": "None.",
+    "authority_claims": [],
+    "non_authorities": [
+      "No authority."
+    ],
+    "human_or_institutional_authority_required": true
+  },
+  "dependency_boundary": [],
+  "unknowns": [
+    {
+      "id": "UNKNOWN_001",
+      "status": "DECLARED",
+      "statement": "Unknown exists."
+    }
+  ],
+  "failure_states": [
+    {
+      "id": "FAIL_001",
+      "status": "DECLARED",
+      "statement": "Should fail because explicit_non_claims is empty."
+    }
+  ],
+  "safe_handoffs": [
+    {
+      "id": "HANDOFF_001",
+      "artifact": "test",
+      "downstream_surface": "test",
+      "allowed_claims": [],
+      "claims_that_must_not_transfer": [
+        "Correctness"
+      ],
+      "non_claims_that_must_travel": [
+        "No authority."
+      ],
+      "unknowns_that_must_travel": [
+        "Unknown."
+      ],
+      "re_verification_required": [
+        "Re-check."
+      ]
+    }
+  ],
+  "prohibited_claim_inheritance": [
+    {
+      "id": "PROHIBITED_001",
+      "statement": "Do not inherit correctness."
+    }
+  ],
+  "re_verification_requirements": [
+    {
+      "id": "REVERIFY_001",
+      "statement": "Re-check."
+    }
+  ],
+  "institutional_dependencies": [],
+  "mapping_summary": "Invalid because explicit_non_claims is empty.",
+  "declaration": {
+    "claim_boundary_statement": "Test.",
+    "non_authority_statement": "Test.",
+    "handoff_statement": "Test."
+  }
+}

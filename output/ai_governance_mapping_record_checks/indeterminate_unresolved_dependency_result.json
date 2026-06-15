@@ -1,0 +1,187 @@
+{
+  "checked_at_utc": "2026-06-15T13:24:52.440664+00:00",
+  "checker_name": "check_ai_governance_mapping_record_v0_1",
+  "checker_version": "v0.1",
+  "checks": [
+    {
+      "check_id": "RECORD_FILE_PRESENT",
+      "detail": {
+        "sha256": "b57c830ef34d2aee8c444fa31c86147312ace96447044a55951defa283b18cde",
+        "size_bytes": 3778
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_FILE_PRESENT",
+      "detail": {
+        "sha256": "ea0efaa612e3b79111588e7c5c66f4e9442d5b4e3866d47518e0518f90f24b89",
+        "size_bytes": 9657
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "JSON_PARSE",
+      "detail": "Record parsed as JSON object.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_VERSION_PIN",
+      "detail": "ai_governance_system_mapping_record.v0.1",
+      "status": "PASS"
+    },
+    {
+      "check_id": "REQUIRED_FIELDS_PRESENT",
+      "detail": [
+        "authority_boundary",
+        "consumable_artifacts",
+        "created_at_utc",
+        "declaration",
+        "dependency_boundary",
+        "emitted_artifacts",
+        "evaluation_boundary",
+        "explicit_non_claims",
+        "failure_states",
+        "input_assumptions",
+        "institutional_dependencies",
+        "mapping_summary",
+        "pipeline_position",
+        "prohibited_claim_inheritance",
+        "re_verification_requirements",
+        "record_author",
+        "record_status",
+        "record_version",
+        "safe_handoffs",
+        "supported_claims",
+        "system_function",
+        "system_id",
+        "system_name",
+        "system_owner",
+        "unknowns",
+        "verification_model"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check_id": "FIELD_TYPES",
+      "detail": "All present required fields have expected top-level types.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "EXPLICIT_NON_CLAIMS_PRESENT",
+      "detail": 1,
+      "status": "PASS"
+    },
+    {
+      "check_id": "PROHIBITED_CLAIM_INHERITANCE_PRESENT",
+      "detail": 1,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_DISJOINT",
+      "detail": "No exact statement overlap detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNKNOWNS_PRESENT",
+      "detail": 1,
+      "status": "PASS"
+    },
+    {
+      "check_id": "INDETERMINATE_SIGNALS",
+      "detail": [
+        {
+          "field": "dependency_boundary",
+          "id": "DEPENDENCY_001",
+          "statement": "Upstream authority artifact has not been supplied.",
+          "status": "UNRESOLVED"
+        },
+        {
+          "field": "unknowns",
+          "id": "UNKNOWN_001",
+          "statement": "Unknown whether the upstream authority artifact exists.",
+          "status": "UNKNOWN"
+        },
+        {
+          "field": "institutional_dependencies",
+          "id": "INSTITUTIONAL_DEPENDENCY_001",
+          "statement": "Human review required before downstream use.",
+          "status": "REVIEW_REQUIRED"
+        },
+        {
+          "field": "record_status",
+          "statement": "Record status itself requires indeterminate/review handling.",
+          "status": "INDETERMINATE"
+        }
+      ],
+      "status": "INDETERMINATE"
+    },
+    {
+      "check_id": "AUTHORITY_NON_AUTHORITIES_PRESENT",
+      "detail": 1,
+      "status": "PASS"
+    },
+    {
+      "check_id": "RESTRICTED_AUTHORITY_CLAIM_GUARD",
+      "detail": "No unsupported restricted authority claims detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SAFE_HANDOFFS_PRESENT",
+      "detail": 1,
+      "status": "PASS"
+    },
+    {
+      "check_id": "SAFE_HANDOFF_CONSTRAINTS",
+      "detail": "All safe handoffs carry non-transfer, non-claim, unknown, and re-verification constraints.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FORK_REQUIRED_NON_CLAIMS",
+      "detail": "Not a Fork-specific mapping record.",
+      "status": "PASS"
+    }
+  ],
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.14.0"
+  },
+  "errors": [],
+  "indeterminate_signals": [
+    {
+      "check_id": "INDETERMINATE_SIGNALS",
+      "detail": [
+        {
+          "field": "dependency_boundary",
+          "id": "DEPENDENCY_001",
+          "statement": "Upstream authority artifact has not been supplied.",
+          "status": "UNRESOLVED"
+        },
+        {
+          "field": "unknowns",
+          "id": "UNKNOWN_001",
+          "statement": "Unknown whether the upstream authority artifact exists.",
+          "status": "UNKNOWN"
+        },
+        {
+          "field": "institutional_dependencies",
+          "id": "INSTITUTIONAL_DEPENDENCY_001",
+          "statement": "Human review required before downstream use.",
+          "status": "REVIEW_REQUIRED"
+        },
+        {
+          "field": "record_status",
+          "statement": "Record status itself requires indeterminate/review handling.",
+          "status": "INDETERMINATE"
+        }
+      ]
+    }
+  ],
+  "overall_status": "INDETERMINATE",
+  "record_path": "C:\\N\\fork-public-evidence\\examples\\ai_governance_system_mapping\\records\\INDETERMINATE_UNRESOLVED_DEPENDENCY_v0_1.json",
+  "record_sha256": "b57c830ef34d2aee8c444fa31c86147312ace96447044a55951defa283b18cde",
+  "record_size_bytes": 3778,
+  "schema_path": "C:\\N\\fork-public-evidence\\schemas\\ai_governance_system_mapping_record_v0_1.schema.json",
+  "schema_sha256": "ea0efaa612e3b79111588e7c5c66f4e9442d5b4e3866d47518e0518f90f24b89",
+  "schema_size_bytes": 9657,
+  "warnings": []
+}

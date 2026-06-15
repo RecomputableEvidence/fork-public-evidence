@@ -127,3 +127,16 @@ Core rule:
 Remote verification:
 
 * [Third-Party Remote Mapping Verification v0.1](docs/THIRD_PARTY_REMOTE_MAPPING_VERIFICATION_v0_1.md)
+
+### AI Governance Mapping Record Schema and Checker v0.1
+
+Fork now includes a machine-readable schema and checker for AI Governance System Mapping Records.
+
+Core artifacts:
+
+* [AI Governance Mapping Record Schema and Checker v0.1](docs/AI_GOVERNANCE_MAPPING_RECORD_SCHEMA_AND_CHECKER_v0_1.md)
+* [Mapping record JSON Schema v0.1](schemas/ai_governance_system_mapping_record_v0_1.schema.json)
+* [Mapping record checker v0.1](tools/check_ai_governance_mapping_record_v0_1.py)
+* [Mapping record examples](examples/ai_governance_system_mapping/records/)
+
+The checker classifies records as PASS, FAIL, or INDETERMINATE while preserving explicit non-claims, prohibited claim inheritance, unknowns, authority boundaries, and re-verification requirements.
