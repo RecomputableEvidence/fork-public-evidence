@@ -1,0 +1,193 @@
+{
+  "checker_name": "check_ai_governance_mapping_record_v0_2_1",
+  "checker_version": "v0.2.1",
+  "checks": [
+    {
+      "check_id": "RECORD_FILE_PRESENT",
+      "detail": {
+        "sha256": "a4cf6513a468fb3d2904f4d911daa8e3e6841208adbbe6798c08195d1fbda793",
+        "size_bytes": 9499
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_FILE_PRESENT",
+      "detail": {
+        "sha256": "ef84677b1113a46f08db07219f8be09d2aef2a3f46299f1166850254e0a1f7bd",
+        "size_bytes": 9970
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "JSON_PARSE",
+      "detail": "Record parsed as JSON object.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_VERSION_PIN",
+      "detail": "ai_governance_system_mapping_record.v0.2.1",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_EQUIVALENT_VALIDATION",
+      "detail": "Record satisfies the supported strict JSON Schema subset.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "REQUIRED_FIELDS_PRESENT",
+      "detail": [
+        "active_unresolved_unknowns",
+        "authority_boundary",
+        "consumable_artifacts",
+        "created_at_utc",
+        "declaration",
+        "declared_unknown_classes",
+        "dependency_boundary",
+        "emitted_artifacts",
+        "evaluation_boundary",
+        "explicit_non_claims",
+        "failure_states",
+        "input_assumptions",
+        "institutional_dependencies",
+        "mapping_summary",
+        "pipeline_position",
+        "prohibited_claim_inheritance",
+        "re_verification_requirements",
+        "record_author",
+        "record_status",
+        "record_version",
+        "safe_handoffs",
+        "supported_claims",
+        "system_function",
+        "system_id",
+        "system_name",
+        "system_owner",
+        "verification_model"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check_id": "FIELD_TYPES",
+      "detail": "All present required fields have expected top-level types.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNIQUE_BOUNDARY_ITEM_IDS",
+      "detail": "All declared boundary item IDs are globally unique within the record.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "EXPLICIT_NON_CLAIMS_PRESENT",
+      "detail": 10,
+      "status": "PASS"
+    },
+    {
+      "check_id": "PROHIBITED_CLAIM_INHERITANCE_PRESENT",
+      "detail": 4,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_DISJOINT",
+      "detail": "No exact statement overlap detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "DECLARED_UNKNOWN_CLASSES_PRESENT",
+      "detail": 2,
+      "status": "PASS"
+    },
+    {
+      "check_id": "DECLARED_UNKNOWN_CLASSES_ONLY_DECLARED",
+      "detail": "Declared unknown classes use DECLARED status only.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "INDETERMINATE_SIGNALS",
+      "detail": "No active unresolved dependency, unknown, or review-required signals detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "AUTHORITY_NON_AUTHORITIES_PRESENT",
+      "detail": 5,
+      "status": "PASS"
+    },
+    {
+      "check_id": "RESTRICTED_AUTHORITY_CLAIM_GUARD",
+      "detail": "No unsupported restricted authority claims detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SAFE_HANDOFF_SELF_REFERENCE_GUARD",
+      "detail": [
+        {
+          "field": "re_verification_requirement_ids",
+          "handoff": "SAFE_HANDOFF_001",
+          "self_reference": "SAFE_HANDOFF_001"
+        }
+      ],
+      "status": "FAIL"
+    },
+    {
+      "check_id": "SAFE_HANDOFFS_PRESENT",
+      "detail": 1,
+      "status": "PASS"
+    },
+    {
+      "check_id": "SAFE_HANDOFF_ID_REFERENCE_INTEGRITY",
+      "detail": [
+        {
+          "allowed_refs": [
+            "REVERIFY_001",
+            "REVERIFY_002",
+            "REVERIFY_003"
+          ],
+          "field": "re_verification_requirement_ids",
+          "handoff": "SAFE_HANDOFF_001",
+          "unknown_refs": [
+            "SAFE_HANDOFF_001"
+          ]
+        }
+      ],
+      "status": "FAIL"
+    },
+    {
+      "check_id": "FORK_REQUIRED_NON_CLAIMS",
+      "detail": "Not a Fork-specific mapping record.",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    {
+      "check_id": "SAFE_HANDOFF_SELF_REFERENCE_GUARD",
+      "detail": [
+        {
+          "field": "re_verification_requirement_ids",
+          "handoff": "SAFE_HANDOFF_001",
+          "self_reference": "SAFE_HANDOFF_001"
+        }
+      ]
+    },
+    {
+      "check_id": "SAFE_HANDOFF_ID_REFERENCE_INTEGRITY",
+      "detail": [
+        {
+          "allowed_refs": [
+            "REVERIFY_001",
+            "REVERIFY_002",
+            "REVERIFY_003"
+          ],
+          "field": "re_verification_requirement_ids",
+          "handoff": "SAFE_HANDOFF_001",
+          "unknown_refs": [
+            "SAFE_HANDOFF_001"
+          ]
+        }
+      ]
+    }
+  ],
+  "indeterminate_signals": [],
+  "overall_status": "FAIL",
+  "record_sha256": "a4cf6513a468fb3d2904f4d911daa8e3e6841208adbbe6798c08195d1fbda793",
+  "schema_sha256": "ef84677b1113a46f08db07219f8be09d2aef2a3f46299f1166850254e0a1f7bd",
+  "warnings": []
+}

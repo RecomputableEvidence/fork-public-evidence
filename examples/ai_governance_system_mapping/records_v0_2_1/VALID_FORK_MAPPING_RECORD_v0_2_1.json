@@ -1,0 +1,256 @@
+{
+  "record_version": "ai_governance_system_mapping_record.v0.2.1",
+  "record_status": "SELF_DECLARED",
+  "system_id": "FORK_RECOMPUTABLE_EVIDENCE",
+  "system_name": "Fork",
+  "system_owner": "NGAST / Ryan Feller",
+  "record_author": "Ryan Feller",
+  "created_at_utc": "2026-06-15T15:15:00Z",
+  "system_function": "Fork preserves recomputable evidence boundaries for AI-assisted workflows by sealing declared artifacts, non-claims, unknown classes, and verification results.",
+  "pipeline_position": "Downstream evidence-boundary preservation layer. Fork observes available workflow artifacts and preserves what can later be independently checked.",
+  "input_assumptions": [
+    {
+      "id": "INPUT_ASSUMPTION_001",
+      "statement": "Upstream systems emit or export observable artifacts that Fork may preserve without controlling the source system."
+    },
+    {
+      "id": "INPUT_ASSUMPTION_002",
+      "statement": "Available artifacts may be incomplete, so source completeness must not be inferred."
+    }
+  ],
+  "supported_claims": [
+    {
+      "id": "SUPPORTED_CLAIM_001",
+      "statement": "Fork can preserve declared artifacts in a bounded evidence record."
+    },
+    {
+      "id": "SUPPORTED_CLAIM_002",
+      "statement": "Fork can compute and report cryptographic hashes over preserved files."
+    },
+    {
+      "id": "SUPPORTED_CLAIM_003",
+      "statement": "Fork can report whether a preserved record verifies against its declared evidence boundary."
+    }
+  ],
+  "explicit_non_claims": [
+    {
+      "id": "NON_CLAIM_001",
+      "statement": "Fork does not claim AI output correctness."
+    },
+    {
+      "id": "NON_CLAIM_002",
+      "statement": "Fork does not claim decision correctness."
+    },
+    {
+      "id": "NON_CLAIM_003",
+      "statement": "Fork does not claim source completeness."
+    },
+    {
+      "id": "NON_CLAIM_004",
+      "statement": "Fork does not claim legal admissibility."
+    },
+    {
+      "id": "NON_CLAIM_005",
+      "statement": "Fork does not claim compliance satisfaction."
+    },
+    {
+      "id": "NON_CLAIM_006",
+      "statement": "Fork does not claim audit sufficiency."
+    },
+    {
+      "id": "NON_CLAIM_007",
+      "statement": "Fork does not claim institutional authority."
+    },
+    {
+      "id": "NON_CLAIM_008",
+      "statement": "Fork does not claim runtime control."
+    },
+    {
+      "id": "NON_CLAIM_009",
+      "statement": "Fork does not claim execution permissioning."
+    },
+    {
+      "id": "NON_CLAIM_010",
+      "statement": "Fork does not claim policy authority."
+    }
+  ],
+  "emitted_artifacts": [
+    {
+      "id": "EMITTED_ARTIFACT_001",
+      "artifact_type": "verification_result_json",
+      "description": "Machine-readable verification result with PASS, FAIL, or INDETERMINATE status."
+    },
+    {
+      "id": "EMITTED_ARTIFACT_002",
+      "artifact_type": "normalized_verification_result_json",
+      "description": "Cross-environment normalized result excluding dynamic runtime metadata."
+    },
+    {
+      "id": "EMITTED_ARTIFACT_003",
+      "artifact_type": "sha256_manifest",
+      "description": "SHA-256 file manifest for preserved evidence artifacts."
+    }
+  ],
+  "consumable_artifacts": [
+    {
+      "id": "CONSUMABLE_ARTIFACT_001",
+      "artifact_type": "runtime_receipt",
+      "description": "External runtime or anchoring receipt that may be preserved without inheriting correctness claims."
+    },
+    {
+      "id": "CONSUMABLE_ARTIFACT_002",
+      "artifact_type": "workflow_export",
+      "description": "Available workflow event export or review artifact."
+    }
+  ],
+  "verification_model": {
+    "verification_scope": "Fork verifies declared artifact integrity and evidence-boundary consistency.",
+    "verification_method": "Strict schema-equivalent validation, deterministic file inspection, SHA-256 hashing, ID-reference checking, restricted-claim detection, manifest comparison, and explicit non-claim preservation.",
+    "does_not_evaluate": [
+      "AI model safety",
+      "legal admissibility",
+      "compliance satisfaction",
+      "business decision quality",
+      "semantic truth of source events"
+    ]
+  },
+  "evaluation_boundary": {
+    "syntactic_integrity": "Fork may verify that files, hashes, manifests, required fields, ID references, and declared boundary states are structurally present and consistent.",
+    "semantic_validity": "Semantic evaluation of whether preserved evidence supports a legal, compliance, audit, or safety conclusion belongs to external reviewers.",
+    "evaluation_authority": "External legal, compliance, audit, risk, or institutional reviewers retain evaluation authority."
+  },
+  "authority_boundary": {
+    "authority_status": "NO_INSTITUTIONAL_AUTHORITY",
+    "authority_basis": "Fork is an evidence-boundary preservation system and does not carry institutional decision authority.",
+    "authority_claims": [],
+    "non_authorities": [
+      "Fork does not approve or deny workflows.",
+      "Fork does not determine legal admissibility.",
+      "Fork does not certify compliance.",
+      "Fork does not accept institutional risk.",
+      "Fork does not perform runtime enforcement."
+    ],
+    "human_or_institutional_authority_required": true
+  },
+  "dependency_boundary": [
+    {
+      "id": "DEPENDENCY_001",
+      "status": "DECLARED",
+      "statement": "Fork depends on available upstream artifacts and does not claim artifacts are complete."
+    }
+  ],
+  "declared_unknown_classes": [
+    {
+      "id": "DECLARED_UNKNOWN_CLASS_001",
+      "status": "DECLARED",
+      "statement": "Unknown whether upstream systems emitted every relevant artifact."
+    },
+    {
+      "id": "DECLARED_UNKNOWN_CLASS_002",
+      "status": "DECLARED",
+      "statement": "Unknown whether external reviewers will accept preserved evidence as sufficient."
+    }
+  ],
+  "active_unresolved_unknowns": [],
+  "failure_states": [
+    {
+      "id": "FAILURE_STATE_001",
+      "status": "DECLARED",
+      "statement": "Missing required non-claims must fail mapping-record validation."
+    },
+    {
+      "id": "FAILURE_STATE_002",
+      "status": "DECLARED",
+      "statement": "Unresolved dependencies may produce INDETERMINATE rather than PASS."
+    },
+    {
+      "id": "FAILURE_STATE_003",
+      "status": "DECLARED",
+      "statement": "Unresolved safe-handoff ID references must fail mapping-record validation."
+    }
+  ],
+  "safe_handoffs": [
+    {
+      "id": "SAFE_HANDOFF_001",
+      "artifact": "verification_result_json",
+      "downstream_surface": "Legal, compliance, audit, risk, or external review systems.",
+      "allowed_claim_ids": [
+        "SUPPORTED_CLAIM_001",
+        "SUPPORTED_CLAIM_002",
+        "SUPPORTED_CLAIM_003"
+      ],
+      "claims_that_must_not_transfer_ids": [
+        "PROHIBITED_INHERITANCE_001",
+        "PROHIBITED_INHERITANCE_002",
+        "PROHIBITED_INHERITANCE_003",
+        "PROHIBITED_INHERITANCE_004"
+      ],
+      "non_claim_ids_that_must_travel": [
+        "NON_CLAIM_001",
+        "NON_CLAIM_002",
+        "NON_CLAIM_003",
+        "NON_CLAIM_004",
+        "NON_CLAIM_005",
+        "NON_CLAIM_006",
+        "NON_CLAIM_007",
+        "NON_CLAIM_008",
+        "NON_CLAIM_009",
+        "NON_CLAIM_010"
+      ],
+      "unknown_ids_that_must_travel": [
+        "DECLARED_UNKNOWN_CLASS_001",
+        "DECLARED_UNKNOWN_CLASS_002"
+      ],
+      "re_verification_requirement_ids": [
+        "REVERIFY_001",
+        "REVERIFY_002",
+        "REVERIFY_003"
+      ]
+    }
+  ],
+  "prohibited_claim_inheritance": [
+    {
+      "id": "PROHIBITED_INHERITANCE_001",
+      "statement": "A Fork PASS result must not be inherited as AI output correctness."
+    },
+    {
+      "id": "PROHIBITED_INHERITANCE_002",
+      "statement": "A Fork PASS result must not be inherited as legal admissibility."
+    },
+    {
+      "id": "PROHIBITED_INHERITANCE_003",
+      "statement": "A Fork PASS result must not be inherited as compliance satisfaction."
+    },
+    {
+      "id": "PROHIBITED_INHERITANCE_004",
+      "statement": "A Fork PASS result must not be inherited as source completeness."
+    }
+  ],
+  "re_verification_requirements": [
+    {
+      "id": "REVERIFY_001",
+      "statement": "Any downstream use must verify file hashes and schema version before relying on the record."
+    },
+    {
+      "id": "REVERIFY_002",
+      "statement": "Any downstream legal, compliance, or audit conclusion must be made by the appropriate authority, not inferred from Fork verification."
+    },
+    {
+      "id": "REVERIFY_003",
+      "statement": "Any downstream use must verify safe-handoff ID references before attaching a new claim."
+    }
+  ],
+  "institutional_dependencies": [
+    {
+      "id": "INSTITUTIONAL_DEPENDENCY_001",
+      "status": "DECLARED",
+      "statement": "Legal, compliance, audit, and risk teams remain responsible for evaluating the meaning and sufficiency of preserved evidence."
+    }
+  ],
+  "mapping_summary": "Fork is mapped as a recomputable evidence-boundary layer. It preserves artifacts, ID-linked non-claims, declared unknown classes, and re-verification duties, but does not inherit or create authority, correctness, compliance, audit, or legal conclusions.",
+  "declaration": {
+    "claim_boundary_statement": "Fork verifies declared evidence-boundary integrity only.",
+    "non_authority_statement": "Fork does not possess legal, compliance, audit, policy, execution, or institutional authority.",
+    "handoff_statement": "Fork handoffs must carry ID-referenced non-claims, unknown classes, prohibited inheritance rules, and re-verification requirements."
+  }
+}

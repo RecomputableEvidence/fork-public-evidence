@@ -163,3 +163,16 @@ Core artifacts:
 * [Mapping record v0.2 checks](output/ai_governance_mapping_record_checks_v0_2/)
 
 The v0.2 checker adds schema-equivalent validation, ID-reference integrity across safe handoffs, paraphrased claim-inheritance guards, active unresolved unknown handling, and normalized result output for cross-environment comparison.
+
+### AI Governance Mapping Record Checker Hardening v0.2.1
+
+Fork now includes a precision hardening patch for the AI Governance Mapping Record checker.
+
+Core artifacts:
+
+* [AI Governance Mapping Record Checker Hardening v0.2.1](docs/AI_GOVERNANCE_MAPPING_RECORD_CHECKER_HARDENING_v0_2_1.md)
+* [Mapping record JSON Schema v0.2.1](schemas/ai_governance_system_mapping_record_v0_2_1.schema.json)
+* [Mapping record checker v0.2.1](tools/check_ai_governance_mapping_record_v0_2_1.py)
+* [Mapping record v0.2.1 fixtures](examples/ai_governance_system_mapping/records_v0_2_1/)
+
+v0.2.1 adds duplicate-ID detection, safe-handoff self-reference detection, combined failure-mode coverage, schema version mismatch handling, missing schema behavior, malformed JSON tests, and Unicode-aware lexical restricted-claim matching while preserving Fork's non-claim posture.
