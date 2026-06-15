@@ -24,6 +24,7 @@ This reading path is intended to prevent two common misreadings: treating Fork a
 - [Fork Technical Validation Packet v0.1](release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/README.md) - technical validation orientation package for reviewers inspecting Fork's public packet, manifest, checksum, schema, and verification posture.
 - [Fork Pilot Discovery Packet v0.1](release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/README.md) - pilot discovery scaffold for evaluating whether a defined AI-assisted workflow is suitable for bounded, read-only evidence preservation.
 - [Fork Client Discovery Return Packet Template v0.1](release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/README.md) - client-completable return packet for mapping a candidate workflow, source systems, access/export model, evidence artifacts, ownership, and non-claims before any client-specific evidence boundary or sidecar bridge is scoped.
+- [Fork Client Evidence Boundary Packet Template v0.1](release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/README.md) - Fork-drafted boundary packet template for translating a completed client discovery return into workflow scope, source-system boundaries, evidence artifacts, non-claims, blockers, and candidate sidecar bridge requirements.
 
 Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
 
