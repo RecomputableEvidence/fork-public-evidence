@@ -106,3 +106,20 @@ and through the tagged GitHub Release.
 Copyright © 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork’s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
+
+## AI Governance Mapping System v0.1
+
+Fork now includes an architecture scaffold for placing AI-governance systems before integration or artifact handoff.
+
+The mapping system is not a product claim, standard, legal determination, compliance certification, or adoption claim. It is a doctrine layer for claim-safe AI governance composition.
+
+Core artifacts:
+
+* [AI Governance Mapping System v0.1](docs/AI_GOVERNANCE_MAPPING_SYSTEM_v0_1.md)
+* [Claim Boundary Placement Layer v0.1](docs/CLAIM_BOUNDARY_PLACEMENT_LAYER_v0_1.md)
+* [AI Governance System Mapping Record Template v0.1](docs/AI_GOVERNANCE_SYSTEM_MAPPING_RECORD_TEMPLATE_v0_1.md)
+* [Fork System Mapping Record v0.1](examples/ai_governance_system_mapping/FORK_SYSTEM_MAPPING_RECORD_v0_1.md)
+
+Core rule:
+
+> AI governance cannot be made safe merely by connecting systems. It requires claim-boundary placement before handoff. Otherwise interoperability becomes silent claim inheritance.
