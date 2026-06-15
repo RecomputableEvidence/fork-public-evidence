@@ -1,0 +1,77 @@
+{
+  "package_name": "FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE",
+  "package_version": "v0.1",
+  "package_directory": "release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1",
+  "package_status": "client_discovery_return_template",
+  "classification": "client_completable_template",
+  "purpose": "Structured client-completable discovery return packet for mapping a candidate workflow into a possible Fork client-specific evidence boundary and sidecar bridge specification.",
+  "intended_recipients": [
+    "qualified prospect",
+    "workflow owner",
+    "legal operations lead",
+    "compliance lead",
+    "audit lead",
+    "risk lead",
+    "security reviewer",
+    "GRC owner",
+    "enterprise AI governance lead",
+    "source-system owner",
+    "technical integration counterpart",
+    "executive sponsor",
+    "co-integration partner"
+  ],
+  "supported_claim": "Fork can receive structured client workflow information and evaluate whether a client-specific evidence boundary and sidecar bridge specification can be responsibly scoped.",
+  "non_claim_summary": [
+    "no deployment readiness claim",
+    "no client onboarding claim",
+    "no production integration claim",
+    "no access to client systems claim",
+    "no source completeness claim",
+    "no AI output correctness claim",
+    "no decision correctness claim",
+    "no legal admissibility claim",
+    "no compliance satisfaction claim",
+    "no runtime enforcement claim",
+    "no workflow control claim"
+  ],
+  "canonical_public_artifacts": [
+    {
+      "name": "Repository README",
+      "root_relative_path": "README.md"
+    },
+    {
+      "name": "Fork Release Package Ladder v0.1",
+      "root_relative_path": "docs/FORK_RELEASE_PACKAGE_LADDER_v0_1.md"
+    },
+    {
+      "name": "Fork Release Package Send Guide v0.1",
+      "root_relative_path": "docs/FORK_RELEASE_PACKAGE_SEND_GUIDE_v0_1.md"
+    },
+    {
+      "name": "Fork Discovery Intake Frame v0.1",
+      "root_relative_path": "docs/FORK_DISCOVERY_INTAKE_FRAME_v0_1.md"
+    },
+    {
+      "name": "Fork Pilot Discovery Packet v0.1",
+      "root_relative_path": "release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/"
+    }
+  ],
+  "package_files": [
+    "README.md",
+    "PACKAGE_MANIFEST.json",
+    "CLIENT_WORKFLOW_PROFILE.md",
+    "SOURCE_SYSTEM_INVENTORY.md",
+    "ACCESS_AND_EXPORT_MODEL.md",
+    "AI_ASSISTED_SURFACE.md",
+    "EVIDENCE_ARTIFACT_MAP.md",
+    "STATE_TRANSITION_MAP.md",
+    "SECURITY_AND_DATA_HANDLING_CONSTRAINTS.md",
+    "INSTITUTIONAL_OWNERSHIP_MAP.md",
+    "CLAIMS_AND_NON_CLAIMS_ACKNOWLEDGMENT.md",
+    "CO_INTEGRATION_BOUNDARY.md",
+    "CONFIGURATION_OUTPUT_TARGETS.md",
+    "RELEASE_NOTES.md",
+    "NEXT_STEPS.md",
+    "SHA256SUMS.txt"
+  ]
+}
