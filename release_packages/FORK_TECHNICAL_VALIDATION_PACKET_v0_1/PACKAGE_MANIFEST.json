@@ -1,0 +1,70 @@
+{
+  "package_name": "FORK_TECHNICAL_VALIDATION_PACKET",
+  "package_version": "v0.1",
+  "package_directory": "release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1",
+  "package_status": "technical_validation_scaffold",
+  "classification": "public",
+  "purpose": "Technical validation orientation packet for Fork public evidence mechanics and controlled verification posture.",
+  "intended_recipients": [
+    "CTO",
+    "CISO",
+    "engineering evaluator",
+    "security architect",
+    "technical diligence reviewer",
+    "integration partner",
+    "AI infrastructure lead",
+    "audit technology lead"
+  ],
+  "supported_claim": "Fork has inspectable public technical materials for bounded evidence preservation and verification under controlled repository conditions.",
+  "non_claim_summary": [
+    "no client production deployment claim",
+    "no legal admissibility claim",
+    "no source completeness claim",
+    "no decision correctness claim",
+    "no runtime enforcement claim",
+    "no compliance satisfaction claim",
+    "no full model replay claim",
+    "no complete vendor telemetry claim"
+  ],
+  "canonical_public_artifacts": [
+    {
+      "name": "Repository README",
+      "root_relative_path": "README.md"
+    },
+    {
+      "name": "Operational Boundary Map v0.1",
+      "root_relative_path": "docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md"
+    },
+    {
+      "name": "Release Package Ladder v0.1",
+      "root_relative_path": "docs/FORK_RELEASE_PACKAGE_LADDER_v0_1.md"
+    },
+    {
+      "name": "Schemas",
+      "root_relative_path": "schemas/"
+    },
+    {
+      "name": "Examples",
+      "root_relative_path": "examples/"
+    },
+    {
+      "name": "Tests",
+      "root_relative_path": "tests/"
+    },
+    {
+      "name": "Tools",
+      "root_relative_path": "tools/"
+    }
+  ],
+  "package_files": [
+    "README.md",
+    "PACKAGE_MANIFEST.json",
+    "CLAIMS_AND_NON_CLAIMS.md",
+    "TECHNICAL_VALIDATION_MAP.md",
+    "VERIFICATION_INSTRUCTIONS.md",
+    "EVIDENCE_STATES.md",
+    "RELEASE_NOTES.md",
+    "NEXT_STEPS.md",
+    "SHA256SUMS.txt"
+  ]
+}
