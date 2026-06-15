@@ -3,17 +3,18 @@
 Fork Claim Boundary Checker v0.1
 
 Purpose:
-    Validate a claim boundary payload and reject overclaiming under the
-    OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY claim type.
+Validate a claim boundary payload and reject overclaiming under the
+OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY claim type.
 
 Design:
-    - Uses jsonschema if available.
-    - Falls back to built-in schema-shape checks if jsonschema is not installed.
-    - Enforces v0.1 claim-expansion term rules without external dependencies.
+- Uses jsonschema if available.
+- Falls back to built-in schema-shape checks if jsonschema is not installed.
+- Enforces v0.1 claim-expansion term rules without external dependencies.
+- Exits non-zero whenever any defect is present.
 
 Exit codes:
-    0 = claim boundary passed
-    1 = claim boundary failed
+0 = claim boundary passed
+1 = claim boundary failed
 """
 
 from __future__ import annotations
@@ -27,7 +28,7 @@ from typing import Any
 
 
 SUPPORTED_CLAIM_TYPES = {
-    "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY"
+    "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY",
 }
 
 REQUIRED_FIELDS = [
@@ -71,7 +72,7 @@ def load_json(path: Path) -> Any:
 
 
 def fallback_schema_shape_validation(payload: Any) -> list[str]:
-    errors: list[str] = []
+    defects: list[str] = []
 
     if not isinstance(payload, dict):
         return ["SCHEMA_ERROR: payload must be a JSON object"]
@@ -81,34 +82,35 @@ def fallback_schema_shape_validation(payload: Any) -> list[str]:
 
     missing = sorted(required_keys - payload_keys)
     if missing:
-        errors.append(f"SCHEMA_ERROR: missing required fields: {', '.join(missing)}")
+        defects.append(f"SCHEMA_ERROR: missing required fields: {', '.join(missing)}")
 
     extra = sorted(payload_keys - required_keys)
     if extra:
-        errors.append(f"SCHEMA_ERROR: additional properties are not allowed: {', '.join(extra)}")
+        defects.append(f"SCHEMA_ERROR: additional properties are not allowed: {', '.join(extra)}")
 
     claim_type = payload.get("claim_type")
     if claim_type not in SUPPORTED_CLAIM_TYPES:
-        errors.append(f"SCHEMA_ERROR: unsupported claim_type: {claim_type!r}")
+        defects.append(f"SCHEMA_ERROR: unsupported claim_type: {claim_type!r}")
 
     claim_statement = payload.get("claim_statement")
     if not isinstance(claim_statement, str) or not claim_statement.strip():
-        errors.append("SCHEMA_ERROR: claim_statement must be a non-empty string")
+        defects.append("SCHEMA_ERROR: claim_statement must be a non-empty string")
 
     for field in ARRAY_FIELDS:
         value = payload.get(field)
+
         if not isinstance(value, list):
-            errors.append(f"SCHEMA_ERROR: {field} must be an array")
+            defects.append(f"SCHEMA_ERROR: {field} must be an array")
             continue
 
         if len(value) == 0:
-            errors.append(f"SCHEMA_ERROR: {field} must be non-empty in v0.1")
+            defects.append(f"SCHEMA_ERROR: {field} must be non-empty in v0.1")
 
         for index, item in enumerate(value):
             if not isinstance(item, str) or not item.strip():
-                errors.append(f"SCHEMA_ERROR: {field}[{index}] must be a non-empty string")
+                defects.append(f"SCHEMA_ERROR: {field}[{index}] must be a non-empty string")
 
-    return errors
+    return defects
 
 
 def validate_against_schema(payload: Any, schema_path: Path) -> list[str]:
@@ -123,19 +125,19 @@ def validate_against_schema(payload: Any, schema_path: Path) -> list[str]:
     validator_cls.check_schema(schema)
     validator = validator_cls(schema)
 
-    errors = []
+    defects: list[str] = []
     for error in sorted(validator.iter_errors(payload), key=lambda e: list(e.path)):
         location = ".".join(str(part) for part in error.path)
         if location:
-            errors.append(f"SCHEMA_ERROR: {location}: {error.message}")
+            defects.append(f"SCHEMA_ERROR: {location}: {error.message}")
         else:
-            errors.append(f"SCHEMA_ERROR: {error.message}")
+            defects.append(f"SCHEMA_ERROR: {error.message}")
 
-    return errors
+    return defects
 
 
 def scan_for_overclaims(payload: dict[str, Any]) -> list[str]:
-    errors: list[str] = []
+    defects: list[str] = []
 
     claim_type = payload.get("claim_type")
     if claim_type != "OBSERVED_WORKFLOW_EVENT_INTEGRITY_ONLY":
@@ -156,15 +158,15 @@ def scan_for_overclaims(payload: dict[str, Any]) -> list[str]:
     for location, text in scan_targets:
         for term, pattern in FORBIDDEN_TERM_PATTERNS:
             if re.search(pattern, text, flags=re.IGNORECASE):
-                errors.append(
+                defects.append(
                     f"CLAIM_EXPANSION_DEFECT: {location} contains claim-expanding term {term!r}"
                 )
 
-    return errors
+    return defects
 
 
 def run(payload_path: Path, schema_path: Path) -> int:
-    errors: list[str] = []
+    defects: list[str] = []
 
     try:
         payload = load_json(payload_path)
@@ -173,16 +175,17 @@ def run(payload_path: Path, schema_path: Path) -> int:
         return 1
 
     try:
-        errors.extend(validate_against_schema(payload, schema_path))
+        defects.extend(validate_against_schema(payload, schema_path))
     except Exception as exc:
-        errors.append(f"SCHEMA_VALIDATION_ERROR: {exc}")
+        defects.append(f"SCHEMA_VALIDATION_ERROR: {exc}")
 
-    if not errors and isinstance(payload, dict):
-        errors.extend(scan_for_overclaims(payload))
+    if not defects and isinstance(payload, dict):
+        defects.extend(scan_for_overclaims(payload))
 
-    if errors:
-        for error in errors:
-            print(error, file=sys.stderr)
+    if defects:
+        for defect in defects:
+            print(defect, file=sys.stderr)
+        print(f"CLAIM_BOUNDARY_FAIL: {payload_path} defects={len(defects)}", file=sys.stderr)
         return 1
 
     print(f"CLAIM_BOUNDARY_PASS: {payload_path}")
@@ -194,7 +197,11 @@ def main() -> int:
     parser.add_argument("payload", help="Path to claim boundary JSON payload")
     parser.add_argument(
         "--schema",
-        default=str(Path(__file__).resolve().parents[1] / "schemas" / "claim_boundary_v0_1.schema.json"),
+        default=str(
+            Path(__file__).resolve().parents[1]
+            / "schemas"
+            / "claim_boundary_v0_1.schema.json"
+        ),
         help="Path to claim boundary JSON Schema",
     )
 
