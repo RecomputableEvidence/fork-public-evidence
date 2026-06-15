@@ -46,3 +46,5 @@ SHA256SUMS text eol=lf
 *.sqlite binary
 *.db binary
 # END FORK LINE ENDING CANONICALIZATION v0.1
+release_packages/** text eol=lf
+tools/check_release_package.py text eol=lf
