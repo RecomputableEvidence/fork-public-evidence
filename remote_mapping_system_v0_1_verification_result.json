@@ -1,0 +1,153 @@
+{
+  "actual_subject": "Add AI governance mapping system v0.1",
+  "changed_paths": [
+    "README.md",
+    "docs/AI_GOVERNANCE_MAPPING_SYSTEM_v0_1.md",
+    "docs/AI_GOVERNANCE_SYSTEM_MAPPING_RECORD_TEMPLATE_v0_1.md",
+    "docs/CLAIM_BOUNDARY_PLACEMENT_LAYER_v0_1.md",
+    "examples/ai_governance_system_mapping/FORK_SYSTEM_MAPPING_RECORD_v0_1.md",
+    "examples/ai_governance_system_mapping/GENERIC_PRE_EXECUTION_GOVERNANCE_SYSTEM_MAPPING_RECORD_v0_1.md",
+    "examples/ai_governance_system_mapping/GENERIC_RUNTIME_ANCHORING_SYSTEM_MAPPING_RECORD_v0_1.md",
+    "examples/ai_governance_system_mapping/README.md"
+  ],
+  "checks": [
+    {
+      "check_id": "GIT_AVAILABLE",
+      "detail": "git version 2.52.0.windows.1",
+      "status": "PASS"
+    },
+    {
+      "check_id": "REMOTE_CLONE",
+      "detail": {
+        "repo_url": "https://github.com/RecomputableEvidence/fork-public-evidence.git"
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "COMMIT_CHECKOUT",
+      "detail": {
+        "requested": "9d96961",
+        "resolved": "9d9696102f6964d3d7e07b338e3f13022610a0e4"
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "COMMIT_SUBJECT",
+      "detail": "Add AI governance mapping system v0.1",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CHANGED_FILE_SET_EXACT",
+      "detail": [
+        "README.md",
+        "docs/AI_GOVERNANCE_MAPPING_SYSTEM_v0_1.md",
+        "docs/AI_GOVERNANCE_SYSTEM_MAPPING_RECORD_TEMPLATE_v0_1.md",
+        "docs/CLAIM_BOUNDARY_PLACEMENT_LAYER_v0_1.md",
+        "examples/ai_governance_system_mapping/FORK_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_PRE_EXECUTION_GOVERNANCE_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_RUNTIME_ANCHORING_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/README.md"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check_id": "REQUIRED_FILES_PRESENT",
+      "detail": [
+        "README.md",
+        "docs/AI_GOVERNANCE_MAPPING_SYSTEM_v0_1.md",
+        "docs/AI_GOVERNANCE_SYSTEM_MAPPING_RECORD_TEMPLATE_v0_1.md",
+        "docs/CLAIM_BOUNDARY_PLACEMENT_LAYER_v0_1.md",
+        "examples/ai_governance_system_mapping/FORK_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_PRE_EXECUTION_GOVERNANCE_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_RUNTIME_ANCHORING_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/README.md",
+        "docs/AI_GOVERNANCE_BOUNDARY_MAPPING_PROTOCOL_v0_1.md",
+        "docs/CLAIM_SAFE_INTEROPERABILITY_CONTRACT_v0_1.md"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check_id": "CONTENT_SENTINELS",
+      "detail": [
+        "docs/AI_GOVERNANCE_MAPPING_SYSTEM_v0_1.md",
+        "docs/CLAIM_BOUNDARY_PLACEMENT_LAYER_v0_1.md",
+        "docs/AI_GOVERNANCE_SYSTEM_MAPPING_RECORD_TEMPLATE_v0_1.md",
+        "examples/ai_governance_system_mapping/FORK_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_RUNTIME_ANCHORING_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_PRE_EXECUTION_GOVERNANCE_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/README.md",
+        "README.md"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check_id": "GENERIC_EXAMPLES_NOT_THIRD_PARTY_MAPPINGS",
+      "detail": [
+        "examples/ai_governance_system_mapping/GENERIC_RUNTIME_ANCHORING_SYSTEM_MAPPING_RECORD_v0_1.md",
+        "examples/ai_governance_system_mapping/GENERIC_PRE_EXECUTION_GOVERNANCE_SYSTEM_MAPPING_RECORD_v0_1.md"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "clone_path": null,
+  "expected_subject": "Add AI governance mapping system v0.1",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "23ff917873d0f88481a2d4a3f6084f29dc3b70a086e15c9065110ebc152263b6",
+      "size_bytes": 8069
+    },
+    {
+      "path": "docs/AI_GOVERNANCE_MAPPING_SYSTEM_v0_1.md",
+      "sha256": "be9f7ba32e96e092d715dc2a0612dd03479076c159bde2145a967a14c2274059",
+      "size_bytes": 7773
+    },
+    {
+      "path": "docs/AI_GOVERNANCE_SYSTEM_MAPPING_RECORD_TEMPLATE_v0_1.md",
+      "sha256": "93fb733a2c12c72342eeb9bb47ac6015fd4dcdc08fc9daca24d05efa79c59cfb",
+      "size_bytes": 5145
+    },
+    {
+      "path": "docs/CLAIM_BOUNDARY_PLACEMENT_LAYER_v0_1.md",
+      "sha256": "60d04b6926125ff7fbc7036fdae87c0d0e271f63a98bc4fbf68fd26929ae1551",
+      "size_bytes": 7725
+    },
+    {
+      "path": "examples/ai_governance_system_mapping/FORK_SYSTEM_MAPPING_RECORD_v0_1.md",
+      "sha256": "2086b7e5e022037c6c6f085134ef0ea499dae21e473b7d36c32029415399fccb",
+      "size_bytes": 8338
+    },
+    {
+      "path": "examples/ai_governance_system_mapping/GENERIC_PRE_EXECUTION_GOVERNANCE_SYSTEM_MAPPING_RECORD_v0_1.md",
+      "sha256": "f142370c4db6f637582babac8d4d459ec774df6548258f5819609b2cb3af2c78",
+      "size_bytes": 4307
+    },
+    {
+      "path": "examples/ai_governance_system_mapping/GENERIC_RUNTIME_ANCHORING_SYSTEM_MAPPING_RECORD_v0_1.md",
+      "sha256": "c3709eb67ad3b894a60438414315be75c34e489e0923d06158c8392b5ee0fdcb",
+      "size_bytes": 3557
+    },
+    {
+      "path": "examples/ai_governance_system_mapping/README.md",
+      "sha256": "2fc65eb091be67a5ec3f103717d5b4ae2b73dd0d0dec662cbddd808a95f3fde6",
+      "size_bytes": 845
+    },
+    {
+      "path": "docs/AI_GOVERNANCE_BOUNDARY_MAPPING_PROTOCOL_v0_1.md",
+      "sha256": "afaf44d1ca9762528f355b2e53052302c3b5462710df9cf8ce38d11ec1312bb5",
+      "size_bytes": 18481
+    },
+    {
+      "path": "docs/CLAIM_SAFE_INTEROPERABILITY_CONTRACT_v0_1.md",
+      "sha256": "ca1cebc25940a9f95eb95b0fec6b2ab85a13ca23cf4cf9925c1fdedafda57be9",
+      "size_bytes": 21161
+    }
+  ],
+  "overall_status": "PASS",
+  "repo_url": "https://github.com/RecomputableEvidence/fork-public-evidence.git",
+  "requested_commit": "9d96961",
+  "resolved_commit": "9d9696102f6964d3d7e07b338e3f13022610a0e4",
+  "verified_at_utc": "2026-06-15T12:50:12.155070+00:00",
+  "verifier_name": "verify_remote_mapping_system_v0_1",
+  "verifier_version": "v0.1"
+}

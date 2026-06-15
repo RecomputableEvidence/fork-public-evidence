@@ -123,3 +123,7 @@ Core artifacts:
 Core rule:
 
 > AI governance cannot be made safe merely by connecting systems. It requires claim-boundary placement before handoff. Otherwise interoperability becomes silent claim inheritance.
+
+Remote verification:
+
+* [Third-Party Remote Mapping Verification v0.1](docs/THIRD_PARTY_REMOTE_MAPPING_VERIFICATION_v0_1.md)
