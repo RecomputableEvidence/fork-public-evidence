@@ -239,3 +239,9 @@ Artifacts:
 This patch hardens parser-boundary behavior, Unicode-aware restricted-claim bypass detection, exit-code documentation, performance smoke coverage, overclaim-language regression coverage, normalized output comparison guidance, and missing-schema/path edge cases.
 
 This remains a structural and boundary checker. It is not semantic validation, legal sufficiency, compliance sufficiency, audit sufficiency, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.
+
+### AI Governance System Placement Profile Structural Execution Receipts v0.2 design addendum
+
+The v0.2 receipt design addendum clarifies that the primary artifact name is Structural Execution Receipt, with Checker Hash Receipt as technical shorthand. It separates normalized-output hash comparison from full source recompute verification and preserves the hash scope NORMALIZED_CHECKER_OUTPUT_ONLY.
+
+This is a design addendum only. It is not a schema, checker, implementation, runtime feature, or authority expansion.

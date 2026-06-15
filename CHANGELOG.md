@@ -1,3 +1,12 @@
+﻿
+## AI Governance System Placement Profile Structural Execution Receipts v0.2 design addendum
+
+- Added docs/AI_GOVERNANCE_SYSTEM_PLACEMENT_PROFILE_STRUCTURAL_EXECUTION_RECEIPTS_v0_2_DESIGN_ADDENDUM.md.
+- Clarifies that the primary v0.2 receipt artifact name is Structural Execution Receipt, with Checker Hash Receipt as technical shorthand.
+- Distinguishes normalized-output hash comparison from full source recompute verification.
+- Preserves the hash scope NORMALIZED_CHECKER_OUTPUT_ONLY.
+- Preserves the boundary that receipts do not validate semantic truth, legal sufficiency, compliance sufficiency, audit sufficiency, model safety, runtime behavior, external artifact authenticity, graph validity, or institutional authority.
+- Design addendum only; no schema, checker, runtime, or authority change is introduced.
 # Changelog
 
 <!-- FORK_CHANGELOG_AI_GOVERNANCE_MAPPING_RECORD_V0_2_2 -->
@@ -82,3 +91,4 @@ Hardening scope:
 - missing schema/path edge-case tests.
 
 Non-claims preserved: no semantic truth validation, legal sufficiency, compliance sufficiency, audit sufficiency, model safety validation, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.
+
