@@ -1,0 +1,34 @@
+{
+  "package_name": "FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE",
+  "package_version": "v0.1-synthetic-example",
+  "package_directory": "examples/client_discovery_return/vendor_diligence_synthetic_v0_1",
+  "package_status": "synthetic_completed_example",
+  "classification": "synthetic_non_client_example",
+  "purpose": "Synthetic completed client discovery return packet for an AI-assisted vendor diligence workflow.",
+  "non_claim_summary": [
+    "not a real client packet",
+    "not a deployment claim",
+    "not production evidence",
+    "not legal advice",
+    "not compliance approval"
+  ],
+  "package_files": [
+    "README.md",
+    "PACKAGE_MANIFEST.json",
+    "CLAIMS_AND_NON_CLAIMS.md",
+    "CLIENT_WORKFLOW_PROFILE.md",
+    "SOURCE_SYSTEM_INVENTORY.md",
+    "ACCESS_AND_EXPORT_MODEL.md",
+    "AI_ASSISTED_SURFACE.md",
+    "EVIDENCE_ARTIFACT_MAP.md",
+    "STATE_TRANSITION_MAP.md",
+    "SECURITY_AND_DATA_HANDLING_CONSTRAINTS.md",
+    "INSTITUTIONAL_OWNERSHIP_MAP.md",
+    "CLAIMS_AND_NON_CLAIMS_ACKNOWLEDGMENT.md",
+    "CO_INTEGRATION_BOUNDARY.md",
+    "CONFIGURATION_OUTPUT_TARGETS.md",
+    "RELEASE_NOTES.md",
+    "NEXT_STEPS.md",
+    "SHA256SUMS.txt"
+  ]
+}
