@@ -1,0 +1,202 @@
+{
+  "checked_at_utc": "2026-06-15T14:53:27.181684+00:00",
+  "checker_name": "check_ai_governance_mapping_record_v0_2_2",
+  "checker_version": "v0.2.2",
+  "checks": [
+    {
+      "check_id": "RECORD_FILE_PRESENT",
+      "detail": {
+        "sha256": "bfbf79fa4b29988ee5b31578c5f516717f77972249e76f3118a9e2f59663d4de",
+        "size_bytes": 11716
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_FILE_PRESENT",
+      "detail": {
+        "sha256": "351aef459fa26e4dd0bbd6d029d83001522302a371d7cceff30fd1c0d21f6778",
+        "size_bytes": 10160
+      },
+      "status": "PASS"
+    },
+    {
+      "check_id": "JSON_PARSE",
+      "detail": "Record parsed as JSON object.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_VERSION_PIN",
+      "detail": "ai_governance_system_mapping_record.v0.2.2",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_EQUIVALENT_VALIDATION",
+      "detail": "Record satisfies the supported strict JSON Schema subset.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "REQUIRED_FIELDS_PRESENT",
+      "detail": [
+        "active_unresolved_unknowns",
+        "authority_boundary",
+        "consumable_artifacts",
+        "created_at_utc",
+        "declaration",
+        "declared_unknown_classes",
+        "dependency_boundary",
+        "emitted_artifacts",
+        "evaluation_boundary",
+        "explicit_non_claims",
+        "failure_states",
+        "input_assumptions",
+        "institutional_dependencies",
+        "mapping_summary",
+        "pipeline_position",
+        "prohibited_claim_inheritance",
+        "re_verification_requirements",
+        "record_author",
+        "record_status",
+        "record_version",
+        "safe_handoffs",
+        "supported_claims",
+        "system_function",
+        "system_id",
+        "system_name",
+        "system_owner",
+        "verification_model"
+      ],
+      "status": "PASS"
+    },
+    {
+      "check_id": "FIELD_TYPES",
+      "detail": "All present required fields have expected top-level types.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNIQUE_BOUNDARY_ITEM_IDS",
+      "detail": "All declared boundary item IDs are globally unique within the record.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "EXPLICIT_NON_CLAIMS_PRESENT",
+      "detail": 10,
+      "status": "PASS"
+    },
+    {
+      "check_id": "PROHIBITED_CLAIM_INHERITANCE_PRESENT",
+      "detail": 4,
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_DISJOINT",
+      "detail": "No exact statement overlap detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "DECLARED_UNKNOWN_CLASSES_PRESENT",
+      "detail": 2,
+      "status": "PASS"
+    },
+    {
+      "check_id": "DECLARED_UNKNOWN_CLASSES_ONLY_DECLARED",
+      "detail": "Declared unknown classes use DECLARED status only.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "INDETERMINATE_SIGNALS",
+      "detail": "No active unresolved dependency, unknown, or review-required signals detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "AUTHORITY_NON_AUTHORITIES_PRESENT",
+      "detail": 5,
+      "status": "PASS"
+    },
+    {
+      "check_id": "RESTRICTED_AUTHORITY_CLAIM_GUARD",
+      "detail": "No unsupported restricted authority claims detected.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SAFE_HANDOFF_SELF_REFERENCE_GUARD",
+      "detail": "No safe handoff references itself through its boundary-reference fields.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "LOCAL_HANDOFF_CYCLE_GUARD",
+      "detail": [
+        {
+          "cycles": [
+            [
+              "SAFE_HANDOFF_A",
+              "SAFE_HANDOFF_B",
+              "SAFE_HANDOFF_C",
+              "SAFE_HANDOFF_A"
+            ]
+          ],
+          "error": "local safe-handoff dependency cycle detected"
+        }
+      ],
+      "error_code": "ERR_LOCAL_HANDOFF_CYCLE",
+      "status": "FAIL"
+    },
+    {
+      "check_id": "SAFE_HANDOFFS_PRESENT",
+      "detail": 3,
+      "status": "PASS"
+    },
+    {
+      "check_id": "SAFE_HANDOFF_ID_REFERENCE_INTEGRITY",
+      "detail": "All safe handoff ID references resolve to upstream boundary items.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FORK_REQUIRED_NON_CLAIMS",
+      "detail": [
+        "AI output correctness",
+        "decision correctness",
+        "source completeness",
+        "legal admissibility",
+        "compliance satisfaction",
+        "audit sufficiency",
+        "institutional authority",
+        "runtime control",
+        "execution permissioning",
+        "policy authority"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.14.0"
+  },
+  "errors": [
+    {
+      "check_id": "LOCAL_HANDOFF_CYCLE_GUARD",
+      "detail": [
+        {
+          "cycles": [
+            [
+              "SAFE_HANDOFF_A",
+              "SAFE_HANDOFF_B",
+              "SAFE_HANDOFF_C",
+              "SAFE_HANDOFF_A"
+            ]
+          ],
+          "error": "local safe-handoff dependency cycle detected"
+        }
+      ],
+      "error_code": "ERR_LOCAL_HANDOFF_CYCLE"
+    }
+  ],
+  "indeterminate_signals": [],
+  "overall_status": "FAIL",
+  "record_path": "C:\\N\\fork-public-evidence\\examples\\ai_governance_system_mapping\\records_v0_2_2\\INVALID_LOCAL_HANDOFF_CYCLE_v0_2_2.json",
+  "record_sha256": "bfbf79fa4b29988ee5b31578c5f516717f77972249e76f3118a9e2f59663d4de",
+  "record_size_bytes": 11716,
+  "schema_path": "C:\\N\\fork-public-evidence\\schemas\\ai_governance_system_mapping_record_v0_2_2.schema.json",
+  "schema_sha256": "351aef459fa26e4dd0bbd6d029d83001522302a371d7cceff30fd1c0d21f6778",
+  "schema_size_bytes": 10160,
+  "warnings": []
+}

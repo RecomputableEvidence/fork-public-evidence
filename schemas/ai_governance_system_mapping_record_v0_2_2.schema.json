@@ -1,0 +1,445 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RecomputableEvidence/fork-public-evidence/schemas/ai_governance_system_mapping_record_v0_2_2.schema.json",
+  "title": "AI Governance System Mapping Record v0.2.2",
+  "description": "Hardened machine-readable mapping record for claim-boundary placement before AI-governance artifact handoff.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_version",
+    "record_status",
+    "system_id",
+    "system_name",
+    "system_owner",
+    "record_author",
+    "created_at_utc",
+    "system_function",
+    "pipeline_position",
+    "input_assumptions",
+    "supported_claims",
+    "explicit_non_claims",
+    "emitted_artifacts",
+    "consumable_artifacts",
+    "verification_model",
+    "evaluation_boundary",
+    "authority_boundary",
+    "dependency_boundary",
+    "declared_unknown_classes",
+    "active_unresolved_unknowns",
+    "failure_states",
+    "safe_handoffs",
+    "prohibited_claim_inheritance",
+    "re_verification_requirements",
+    "institutional_dependencies",
+    "mapping_summary",
+    "declaration"
+  ],
+  "properties": {
+    "record_version": {
+      "type": "string",
+      "const": "ai_governance_system_mapping_record.v0.2.2"
+    },
+    "record_status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "SELF_DECLARED",
+        "REVIEWED",
+        "SUPERSEDED",
+        "REVIEW_REQUIRED",
+        "INDETERMINATE"
+      ]
+    },
+    "system_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "system_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "system_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at_utc": {
+      "type": "string",
+      "minLength": 1
+    },
+    "system_function": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pipeline_position": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/named_boundary_item"
+      }
+    },
+    "supported_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/named_boundary_item"
+      }
+    },
+    "explicit_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/named_boundary_item"
+      }
+    },
+    "emitted_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/artifact_item"
+      }
+    },
+    "consumable_artifacts": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/artifact_item"
+      }
+    },
+    "verification_model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verification_scope",
+        "verification_method",
+        "does_not_evaluate"
+      ],
+      "properties": {
+        "verification_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verification_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "does_not_evaluate": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "evaluation_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "syntactic_integrity",
+        "semantic_validity",
+        "evaluation_authority"
+      ],
+      "properties": {
+        "syntactic_integrity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "semantic_validity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evaluation_authority": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "authority_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_status",
+        "authority_basis",
+        "authority_claims",
+        "non_authorities",
+        "human_or_institutional_authority_required"
+      ],
+      "properties": {
+        "authority_status": {
+          "type": "string",
+          "enum": [
+            "NO_INSTITUTIONAL_AUTHORITY",
+            "LIMITED_SYSTEM_AUTHORITY",
+            "EXTERNAL_INSTITUTIONAL_AUTHORITY_REQUIRED",
+            "UNSPECIFIED"
+          ]
+        },
+        "authority_basis": {
+          "type": "string"
+        },
+        "authority_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "non_authorities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "human_or_institutional_authority_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "dependency_boundary": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/status_item"
+      }
+    },
+    "declared_unknown_classes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/status_item"
+      }
+    },
+    "active_unresolved_unknowns": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/status_item"
+      }
+    },
+    "failure_states": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/status_item"
+      }
+    },
+    "safe_handoffs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/safe_handoff_v0_2_2"
+      }
+    },
+    "prohibited_claim_inheritance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/named_boundary_item"
+      }
+    },
+    "re_verification_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/named_boundary_item"
+      }
+    },
+    "institutional_dependencies": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/status_item"
+      }
+    },
+    "mapping_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "declaration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_boundary_statement",
+        "non_authority_statement",
+        "handoff_statement"
+      ],
+      "properties": {
+        "claim_boundary_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "non_authority_statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "handoff_statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "named_boundary_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "statement"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string"
+        }
+      }
+    },
+    "artifact_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "artifact_type",
+        "description"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "status_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "status",
+        "statement"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "DECLARED",
+            "AVAILABLE",
+            "UNRESOLVED",
+            "UNKNOWN",
+            "NOT_CHECKED",
+            "UNAVAILABLE",
+            "REVIEW_REQUIRED"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "safe_handoff_v0_2_2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "artifact",
+        "downstream_surface",
+        "allowed_claim_ids",
+        "claims_that_must_not_transfer_ids",
+        "non_claim_ids_that_must_travel",
+        "unknown_ids_that_must_travel",
+        "re_verification_requirement_ids"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "downstream_surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_claim_ids": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "claims_that_must_not_transfer_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "non_claim_ids_that_must_travel": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "unknown_ids_that_must_travel": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "re_verification_requirement_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "handoff_dependency_ids": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

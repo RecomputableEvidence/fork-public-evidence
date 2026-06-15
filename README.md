@@ -176,3 +176,11 @@ Core artifacts:
 * [Mapping record v0.2.1 fixtures](examples/ai_governance_system_mapping/records_v0_2_1/)
 
 v0.2.1 adds duplicate-ID detection, safe-handoff self-reference detection, combined failure-mode coverage, schema version mismatch handling, missing schema behavior, malformed JSON tests, and Unicode-aware lexical restricted-claim matching while preserving Fork's non-claim posture.
+
+<!-- FORK_AI_GOVERNANCE_MAPPING_RECORD_V0_2_2 -->
+
+## AI Governance Mapping Record checker hardening v0.2.2
+
+Fork v0.2.2 is a final stabilization patch for the AI Governance Mapping Record checker. It adds static error codes, local multi-hop safe-handoff cycle detection inside one record, parser-boundary fixtures, performance smoke coverage, normalized output comparison guidance, and overclaim-language regression coverage.
+
+This remains a bounded evidence-boundary checker. It does not claim legal admissibility, compliance satisfaction, audit sufficiency, AI output correctness, decision correctness, source completeness, runtime control, policy authority, institutional authority, graph-wide cycle immunity, external artifact verification, or semantic intent understanding.
