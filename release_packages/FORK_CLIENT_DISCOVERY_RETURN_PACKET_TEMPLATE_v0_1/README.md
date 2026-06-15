@@ -66,6 +66,7 @@ The candidate workflow is sufficiently described for Fork to evaluate whether a 
 
 - `README.md`
 - `PACKAGE_MANIFEST.json`
+- `CLAIMS_AND_NON_CLAIMS.md`
 - `CLIENT_WORKFLOW_PROFILE.md`
 - `SOURCE_SYSTEM_INVENTORY.md`
 - `ACCESS_AND_EXPORT_MODEL.md`
