@@ -1,4 +1,4 @@
-﻿# Fork Public Evidence
+# Fork Public Evidence
 
 ## Suggested Reading Path
 
@@ -208,3 +208,17 @@ Boundary:
 - no institutional authority;
 - no cross-record graph validation.
 
+## AI Governance System Placement Profile checker v0.1
+
+This checkpoint adds a bounded checker for `AI Governance Mapping Record: System Placement Profile v0.1` records.
+
+Artifacts:
+
+- `tools/check_ai_governance_system_placement_profile_v0_1.py`
+- `tests/test_ai_governance_system_placement_profile_checker_v0_1.py`
+- `docs/AI_GOVERNANCE_SYSTEM_PLACEMENT_PROFILE_CHECKER_v0_1.md`
+- `output/ai_governance_system_placement_profile_checks_v0_1/*.json`
+
+The checker validates structure, local references, explicit claim/non-claim boundaries, restricted authority leakage, duplicate IDs, declared unresolved unknowns, and normalized outputs.
+
+It does not validate semantic truth, legal sufficiency, compliance sufficiency, audit sufficiency, model safety, runtime behavior, external artifact existence, cross-record graph validity, or institutional authority.

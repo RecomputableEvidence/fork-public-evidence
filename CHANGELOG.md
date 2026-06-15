@@ -1,4 +1,4 @@
-﻿# Changelog
+# Changelog
 
 <!-- FORK_CHANGELOG_AI_GOVERNANCE_MAPPING_RECORD_V0_2_2 -->
 
@@ -44,3 +44,16 @@ Boundary:
 - This is not runtime enforcement.
 - This does not validate semantic truth, compliance, legal sufficiency, audit sufficiency, model safety, or institutional authority.
 
+## AI Governance System Placement Profile checker v0.1
+
+Added a bounded checker for the AI Governance Mapping Record: System Placement Profile v0.1 schema/fixture contract.
+
+Added:
+
+- placement profile checker tool;
+- placement profile checker unit tests;
+- checker doctrine/boundary documentation;
+- committed PASS/FAIL/INDETERMINATE result outputs;
+- normalized deterministic outputs.
+
+Boundary preserved: this is not semantic validation, legal sufficiency, compliance sufficiency, audit sufficiency, model safety validation, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.

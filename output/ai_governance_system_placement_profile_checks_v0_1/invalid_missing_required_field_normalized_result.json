@@ -1,0 +1,142 @@
+{
+  "checker_id": "ai_governance_system_placement_profile_checker_v0_1",
+  "checker_version": "0.1",
+  "checks": [
+    {
+      "check_id": "CLAIM_EVIDENCE_BASIS_PRESENT",
+      "message": "Every supported claim references declared evidence inputs.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_ARRAYS_PRESENT",
+      "error_code": "ERR_CLAIM_NONCLAIM_ARRAYS_MISSING",
+      "message": "Supported claims and explicit non-claims arrays must be present and non-empty.",
+      "status": "FAIL"
+    },
+    {
+      "check_id": "CLAIM_NONCLAIM_DISJOINT",
+      "message": "Supported claims and explicit non-claims are disjoint by normalized statement.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CLAIM_UNKNOWN_DISJOINT",
+      "message": "Supported claims and unresolved unknowns are disjoint by normalized statement.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "HANDOFF_ROLE_REFERENCES_VALID",
+      "message": "All declared handoff roles are within the allowed downstream-role enum.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "ID_FORMAT_VALID",
+      "message": "All collected IDs match the v0.1 ID pattern.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "JSON_PARSE",
+      "message": "Record parsed as a top-level JSON object.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "LOCAL_REFERENCE_INTEGRITY",
+      "details": {
+        "gaps": [
+          {
+            "evidence_output_id": "eval_output_evaluation_report",
+            "missing_claim_ids": [],
+            "missing_non_claim_ids": [
+              "eval_nonclaim_compliance_satisfaction",
+              "eval_nonclaim_deployment_approval",
+              "eval_nonclaim_real_world_safety"
+            ]
+          },
+          {
+            "handoff_id": "eval_handoff_deployment_risk_review",
+            "missing_evidence_output_ids": [],
+            "missing_non_claim_ids": [
+              "eval_nonclaim_compliance_satisfaction",
+              "eval_nonclaim_deployment_approval",
+              "eval_nonclaim_real_world_safety"
+            ],
+            "missing_unknown_ids": []
+          }
+        ]
+      },
+      "error_code": "ERR_LOCAL_REFERENCE_GAP",
+      "message": "One or more local ID references do not resolve within the record.",
+      "status": "FAIL"
+    },
+    {
+      "check_id": "NONCLAIM_UNKNOWN_DISJOINT",
+      "message": "Explicit non-claims and unresolved unknowns are disjoint by normalized statement.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NON_TRANSITIVE_CLAUSES_PRESENT",
+      "message": "Non-transitive clauses are present.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "PROFILE_VERSION_VALID",
+      "message": "Profile version matches v0.1 contract.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "REQUIRED_FIELDS_PRESENT",
+      "details": {
+        "missing": [
+          "explicit_non_claims"
+        ]
+      },
+      "error_code": "ERR_REQUIRED_FIELDS_MISSING",
+      "message": "Required top-level fields are missing.",
+      "status": "FAIL"
+    },
+    {
+      "check_id": "RESTRICTED_AUTHORITY_CLAIM_GUARD",
+      "message": "No restricted authority leakage detected in claim-bearing fields.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "ROLE_CLASSIFICATION_VALID",
+      "message": "Role classification values are within the allowed v0.1 enum.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SCHEMA_FILE_PRESENT",
+      "message": "Schema file is present.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNIQUE_IDS",
+      "message": "All collected placement-profile IDs are unique.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "UNRESOLVED_UNKNOWNS_STATUS",
+      "message": "No active unresolved unknowns declare indeterminate status.",
+      "status": "PASS"
+    },
+    {
+      "check_id": "VERIFICATION_STATE_DECLARED",
+      "message": "Verification state is declared using an allowed v0.1 value.",
+      "status": "PASS"
+    }
+  ],
+  "claim_boundary": "STRUCTURAL_AND_BOUNDARY_VALIDATION_ONLY",
+  "non_claims": [
+    "Does not validate semantic truth of claims.",
+    "Does not validate legal sufficiency.",
+    "Does not validate compliance sufficiency.",
+    "Does not validate audit sufficiency.",
+    "Does not validate model safety.",
+    "Does not provide runtime enforcement.",
+    "Does not grant institutional authority.",
+    "Does not verify external artifact existence.",
+    "Does not perform cross-record graph validation."
+  ],
+  "overall_status": "FAIL",
+  "record_id": "placement:evaluation-example:v0_1",
+  "system_id": "system:evaluation-example:v0_1"
+}
