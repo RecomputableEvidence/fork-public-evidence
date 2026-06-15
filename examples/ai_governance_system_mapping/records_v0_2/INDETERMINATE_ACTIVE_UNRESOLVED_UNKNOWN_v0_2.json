@@ -1,0 +1,173 @@
+{
+  "record_version": "ai_governance_system_mapping_record.v0.2",
+  "record_status": "INDETERMINATE",
+  "system_id": "INDETERMINATE_MAPPING_RECORD_ACTIVE_UNRESOLVED_UNKNOWN",
+  "system_name": "Indeterminate Mapping Record With Active Unresolved Unknown",
+  "system_owner": "Test",
+  "record_author": "Test",
+  "created_at_utc": "2026-06-15T14:30:00Z",
+  "system_function": "Synthetic indeterminate fixture for active unresolved unknown separation.",
+  "pipeline_position": "Test fixture.",
+  "input_assumptions": [
+    {
+      "id": "INPUT_ASSUMPTION_001",
+      "statement": "Upstream systems emit or export observable artifacts that Fork may preserve without controlling the source system."
+    },
+    {
+      "id": "INPUT_ASSUMPTION_002",
+      "statement": "Available artifacts may be incomplete, so source completeness must not be inferred."
+    }
+  ],
+  "supported_claims": [
+    {
+      "id": "SUPPORTED_CLAIM_001",
+      "statement": "The record declares unresolved dependencies rather than collapsing them into certainty."
+    }
+  ],
+  "explicit_non_claims": [
+    {
+      "id": "NON_CLAIM_001",
+      "statement": "The record does not claim downstream authority while active unknowns remain unresolved."
+    }
+  ],
+  "emitted_artifacts": [
+    {
+      "id": "EMITTED_ARTIFACT_001",
+      "artifact_type": "verification_result_json",
+      "description": "Machine-readable verification result with PASS, FAIL, or INDETERMINATE status."
+    },
+    {
+      "id": "EMITTED_ARTIFACT_002",
+      "artifact_type": "normalized_verification_result_json",
+      "description": "Cross-environment normalized result excluding dynamic runtime metadata."
+    },
+    {
+      "id": "EMITTED_ARTIFACT_003",
+      "artifact_type": "sha256_manifest",
+      "description": "SHA-256 file manifest for preserved evidence artifacts."
+    }
+  ],
+  "consumable_artifacts": [
+    {
+      "id": "CONSUMABLE_ARTIFACT_001",
+      "artifact_type": "runtime_receipt",
+      "description": "External runtime or anchoring receipt that may be preserved without inheriting correctness claims."
+    },
+    {
+      "id": "CONSUMABLE_ARTIFACT_002",
+      "artifact_type": "workflow_export",
+      "description": "Available workflow event export or review artifact."
+    }
+  ],
+  "verification_model": {
+    "verification_scope": "Fork verifies declared artifact integrity and evidence-boundary consistency.",
+    "verification_method": "Strict schema-equivalent validation, deterministic file inspection, SHA-256 hashing, ID-reference checking, restricted-claim detection, manifest comparison, and explicit non-claim preservation.",
+    "does_not_evaluate": [
+      "AI model safety",
+      "legal admissibility",
+      "compliance satisfaction",
+      "business decision quality",
+      "semantic truth of source events"
+    ]
+  },
+  "evaluation_boundary": {
+    "syntactic_integrity": "Fork may verify that files, hashes, manifests, required fields, ID references, and declared boundary states are structurally present and consistent.",
+    "semantic_validity": "Semantic evaluation of whether preserved evidence supports a legal, compliance, audit, or safety conclusion belongs to external reviewers.",
+    "evaluation_authority": "External legal, compliance, audit, risk, or institutional reviewers retain evaluation authority."
+  },
+  "authority_boundary": {
+    "authority_status": "NO_INSTITUTIONAL_AUTHORITY",
+    "authority_basis": "Fork is an evidence-boundary preservation system and does not carry institutional decision authority.",
+    "authority_claims": [],
+    "non_authorities": [
+      "No institutional authority."
+    ],
+    "human_or_institutional_authority_required": true
+  },
+  "dependency_boundary": [
+    {
+      "id": "DEPENDENCY_001",
+      "status": "UNRESOLVED",
+      "statement": "Upstream authority artifact has not been supplied."
+    }
+  ],
+  "declared_unknown_classes": [
+    {
+      "id": "DECLARED_UNKNOWN_CLASS_001",
+      "status": "DECLARED",
+      "statement": "Unknown class exists: upstream authority artifact may be required."
+    }
+  ],
+  "active_unresolved_unknowns": [
+    {
+      "id": "ACTIVE_UNKNOWN_001",
+      "status": "UNKNOWN",
+      "statement": "Unknown whether the upstream authority artifact exists."
+    }
+  ],
+  "failure_states": [
+    {
+      "id": "FAILURE_STATE_001",
+      "status": "DECLARED",
+      "statement": "Missing required non-claims must fail mapping-record validation."
+    },
+    {
+      "id": "FAILURE_STATE_002",
+      "status": "DECLARED",
+      "statement": "Unresolved dependencies may produce INDETERMINATE rather than PASS."
+    },
+    {
+      "id": "FAILURE_STATE_003",
+      "status": "DECLARED",
+      "statement": "Unresolved safe-handoff ID references must fail mapping-record validation."
+    }
+  ],
+  "safe_handoffs": [
+    {
+      "id": "SAFE_HANDOFF_001",
+      "artifact": "mapping_record",
+      "downstream_surface": "review",
+      "allowed_claim_ids": [
+        "SUPPORTED_CLAIM_001"
+      ],
+      "claims_that_must_not_transfer_ids": [
+        "PROHIBITED_INHERITANCE_001"
+      ],
+      "non_claim_ids_that_must_travel": [
+        "NON_CLAIM_001"
+      ],
+      "unknown_ids_that_must_travel": [
+        "DECLARED_UNKNOWN_CLASS_001",
+        "ACTIVE_UNKNOWN_001"
+      ],
+      "re_verification_requirement_ids": [
+        "REVERIFY_001"
+      ]
+    }
+  ],
+  "prohibited_claim_inheritance": [
+    {
+      "id": "PROHIBITED_INHERITANCE_001",
+      "statement": "Indeterminate status must not be inherited as approval."
+    }
+  ],
+  "re_verification_requirements": [
+    {
+      "id": "REVERIFY_001",
+      "statement": "Resolve the active unresolved unknown and re-run the checker."
+    }
+  ],
+  "institutional_dependencies": [
+    {
+      "id": "INSTITUTIONAL_DEPENDENCY_001",
+      "status": "REVIEW_REQUIRED",
+      "statement": "Human review required before downstream use."
+    }
+  ],
+  "mapping_summary": "This fixture should produce INDETERMINATE, not PASS and not FAIL.",
+  "declaration": {
+    "claim_boundary_statement": "Active unresolved unknown remains bounded.",
+    "non_authority_statement": "No authority is claimed.",
+    "handoff_statement": "Unknowns and unresolved dependency must travel with the record."
+  }
+}
