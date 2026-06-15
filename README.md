@@ -14,6 +14,10 @@ For a first review, read the artifacts in this order:
 
 This reading path is intended to prevent two common misreadings: treating Fork as only a theoretical governance paper, or treating the repository as a broad product-readiness claim. Fork's current public posture is narrower: bounded evidence preservation, explicit non-claims, and test-backed controls against specific forms of evidentiary overclaim.
 
+## Release package planning
+
+- [Fork Release Package Ladder v0.1](docs/FORK_RELEASE_PACKAGE_LADDER_v0_1.md) - defines bounded package types for public doctrine, executive buyer review, technical validation, pilot discovery, pilot-ready implementation, and client-specific evidence-boundary delivery.
+
 Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
 
 
