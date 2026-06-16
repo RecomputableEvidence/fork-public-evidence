@@ -121,7 +121,7 @@
     },
     {
       "non_claim_id": "CCE_NON_CLAIM_EXPANDED_CLAIM_NODE",
-      "statement": "A CCE does not hold an expanded claim. It records the vector of expansion and terminates at a claim-boundary reference."
+      "statement": "This CCE is a downstream consumption edge. It records the direction and destination of expansion and does not become the expanded claim-boundary node."
     }
   ]
 }

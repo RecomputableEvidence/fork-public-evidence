@@ -213,9 +213,29 @@ def relation_errors(instance: dict):
     new_claim_reference = detail.get("new_claim_reference")
     new_claim_ids = set(downstream.get("new_claim_ids", []))
 
+    expansion_fields = [
+        "expansion_reason",
+        "new_claim_reference",
+        "new_claim_boundary_contract_id",
+        "authorizing_party",
+        "additional_evidence_refs",
+    ]
+
     if effect == "EXPANDED":
         if resolution == "NOT_APPLICABLE":
             errors.append("EXPANDED boundary_effect cannot use NOT_APPLICABLE resolution")
+
+        required_expansion_fields = [
+            "expansion_reason",
+            "new_claim_reference",
+            "new_claim_boundary_contract_id",
+            "authorizing_party",
+            "additional_evidence_refs",
+        ]
+        for field in required_expansion_fields:
+            value = detail.get(field)
+            if value is None or value == "" or value == []:
+                errors.append(f"EXPANDED boundary_effect requires {field}")
 
         if not new_claim_boundary_contract_id:
             errors.append("EXPANDED boundary_effect requires new_claim_boundary_contract_id")
@@ -255,11 +275,29 @@ def relation_errors(instance: dict):
         if "expanded_claim" in detail or "expanded_claim_body" in detail:
             errors.append("CCE boundary_effect_detail must not contain expanded claim body")
 
-    elif effect in {"PRESERVED", "NARROWED"}:
+    elif effect == "PRESERVED":
         if resolution != "NOT_APPLICABLE":
-            errors.append(f"{effect} boundary_effect requires NOT_APPLICABLE resolution")
+            errors.append("PRESERVED boundary_effect requires NOT_APPLICABLE resolution")
         if new_claim_ids:
-            errors.append(f"{effect} boundary_effect cannot create downstream new_claim_ids")
+            errors.append("PRESERVED boundary_effect cannot create downstream new_claim_ids")
+
+        forbidden_fields = ["narrowing_reason"] + expansion_fields
+        present = [field for field in forbidden_fields if detail.get(field)]
+        if present:
+            errors.append(f"PRESERVED boundary_effect cannot contain boundary-change fields: {present}")
+
+    elif effect == "NARROWED":
+        if resolution != "NOT_APPLICABLE":
+            errors.append("NARROWED boundary_effect requires NOT_APPLICABLE resolution")
+        if new_claim_ids:
+            errors.append("NARROWED boundary_effect cannot create downstream new_claim_ids")
+        if not detail.get("narrowing_reason"):
+            errors.append("NARROWED boundary_effect requires narrowing_reason")
+
+        present = [field for field in expansion_fields if detail.get(field)]
+        if present:
+            errors.append(f"NARROWED boundary_effect cannot contain expansion fields: {present}")
+
     else:
         errors.append(f"unknown boundary_effect: {effect}")
 
@@ -405,3 +443,69 @@ def test_preserved_edge_requires_not_applicable_resolution():
     schema_errors, rel_errors = validate_cce(instance)
     assert schema_errors == []
     assert any("PRESERVED boundary_effect requires NOT_APPLICABLE" in error for error in rel_errors)
+
+def test_preserved_boundary_cannot_smuggle_expansion_fields():
+    instance = example("preserved_runtime_blocked_tool_call_record.json")
+    instance["boundary_effect_detail"]["new_claim_reference"] = "smuggled_reference"
+    instance["boundary_effect_detail"]["expansion_reason"] = "hidden expansion"
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("PRESERVED boundary_effect cannot contain boundary-change fields" in error for error in rel_errors)
+
+
+def test_preserved_boundary_cannot_smuggle_narrowing_reason():
+    instance = example("preserved_runtime_blocked_tool_call_record.json")
+    instance["boundary_effect_detail"]["narrowing_reason"] = "hidden narrowing"
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("PRESERVED boundary_effect cannot contain boundary-change fields" in error for error in rel_errors)
+
+
+def test_narrowed_boundary_requires_narrowing_reason():
+    instance = example("preserved_runtime_blocked_tool_call_record.json")
+    instance["boundary_effect"] = "NARROWED"
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("NARROWED boundary_effect requires narrowing_reason" in error for error in rel_errors)
+
+
+def test_narrowed_boundary_cannot_contain_expansion_fields():
+    instance = example("preserved_runtime_blocked_tool_call_record.json")
+    instance["boundary_effect"] = "NARROWED"
+    instance["boundary_effect_detail"]["narrowing_reason"] = "Downstream consumer narrows reliance to record-preservation only."
+    instance["boundary_effect_detail"]["new_claim_reference"] = "smuggled_expansion"
+    instance["boundary_effect_detail"]["expansion_reason"] = "hidden expansion"
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("NARROWED boundary_effect cannot contain expansion fields" in error for error in rel_errors)
+
+
+def test_expanded_boundary_requires_expansion_reason():
+    instance = example("edge_eval_benchmark_expansion.json")
+    del instance["boundary_effect_detail"]["expansion_reason"]
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("EXPANDED boundary_effect requires expansion_reason" in error for error in rel_errors)
+
+
+def test_expanded_boundary_requires_authorizing_party():
+    instance = example("edge_eval_benchmark_expansion.json")
+    del instance["boundary_effect_detail"]["authorizing_party"]
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("EXPANDED boundary_effect requires authorizing_party" in error for error in rel_errors)
+
+
+def test_expanded_boundary_requires_additional_evidence_refs():
+    instance = example("edge_eval_benchmark_expansion.json")
+    instance["boundary_effect_detail"]["additional_evidence_refs"] = []
+
+    schema_errors, rel_errors = validate_cce(instance)
+    assert schema_errors == []
+    assert any("EXPANDED boundary_effect requires additional_evidence_refs" in error for error in rel_errors)

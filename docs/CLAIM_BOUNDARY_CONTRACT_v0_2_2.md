@@ -33,7 +33,7 @@ An aggregate statement is not enough for per-non-claim traceability.
 
 Partial verification terms can describe bounded partial inspection states.
 
-They must not be used to imply completeness where none exists.
+They must not be used to assert or suggest completeness where none exists.
 
 A `PASS` verification state remains bounded to the stated verification scope and does not assert truth, safety, compliance, deployment readiness, or institutional authorization.
 

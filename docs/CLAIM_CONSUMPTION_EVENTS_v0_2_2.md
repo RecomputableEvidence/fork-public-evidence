@@ -42,6 +42,16 @@ The CCE records the direction and destination of expansion. It does not assert t
 
 `NOT_APPLICABLE` means no new boundary exists for the edge type. It differs from `NOT_RESOLVED`: no resolution was expected for a preserved or narrowed edge.
 
+## Boundary effect enforcement
+
+`PRESERVED` means the downstream edge preserves the upstream boundary. It must not contain narrowing or expansion fields.
+
+`NARROWED` means the downstream edge intentionally narrows reliance on the upstream boundary. It requires a narrowing reason and must not contain expansion fields.
+
+`EXPANDED` means the downstream edge records movement beyond the upstream boundary. It requires an expansion reason, contextual party, additional evidence references, a new claim-boundary reference, and a new claim-boundary contract ID.
+
+The `authorizing_party` field records the party named by the producer as responsible for the expansion context. It does not mean Fork authorizes, approves, certifies, or validates the expansion.
+
 ## Downstream output typing
 
 The `downstream_output.artifact_type` field is constrained to bounded output types.

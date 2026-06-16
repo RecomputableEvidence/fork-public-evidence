@@ -16,7 +16,7 @@
   "positive_claims": [
     {
       "statement_id": "cbc_v0_2_2_limited_internal_review_eligibility_boundary_positive_statement_001",
-      "statement": "The artifact is eligible for limited internal review routing under the stated internal review process.",
+      "statement": "The artifact is eligible for limited internal review routing under the applicable internal review process.",
       "limited_to": "Limited internal review routing only; not deployment approval, legal sufficiency, compliance sufficiency, general safety, or source truth."
     }
   ],
