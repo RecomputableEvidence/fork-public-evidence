@@ -26,7 +26,7 @@ It clarifies result semantics, corrects one example-artifact description, warns 
 
 4. Added CLI usage warning: exit code `0` is not a deployment gate, compliance approval, legal signoff, runtime authorization, or truth approval.
 
-5. Added schema-only warning: JSON Schema validation is necessary but not sufficient. Conformant v0.3 verification requires the reference relational checks or equivalent behavior.
+5. Added schema-only warning: JSON Schema validation is necessary but not sufficient. Conformant v0.3 verification requires the reference relational checks or documented equivalent behavior that enforces the same required relational checks.
 
 6. Added a closure-state interpretation table.
 

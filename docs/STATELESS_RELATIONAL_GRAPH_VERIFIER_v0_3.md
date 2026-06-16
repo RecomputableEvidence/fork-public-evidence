@@ -70,6 +70,12 @@ The verifier emits:
 | `OPEN_UNRESOLVED_POINTERS` | `INDETERMINATE` | The supplied bundle is structurally coherent, but one or more explicitly unresolved boundary horizons prevent local graph closure. |
 | `INVALID` | `FAIL` | The supplied bundle is structurally broken, contradictory, cyclic, missing required local references, or otherwise invalid. |
 
+## Emitted-result exit-code non-claim
+
+Every verifier result carries a result-level non-claim clarifying that CLI exit code `0` is not a deployment gate, compliance approval, legal signoff, runtime authorization, or source-truth validation.
+
+This warning travels with the JSON output itself; it is not limited to `--help` text.
+
 ## Result states
 
 The verifier emits:

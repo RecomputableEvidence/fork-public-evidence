@@ -168,7 +168,11 @@ def build_result(bundle: dict[str, Any], errors: list[str], warnings: list[str],
             {"non_claim_id": "RGV_RESULT_NON_CLAIM_RUNTIME_ENFORCEMENT", "statement": "This result does not enforce, approve, block, or authorize runtime behavior."},
             {"non_claim_id": "RGV_RESULT_NON_CLAIM_EXTERNAL_POINTER_VALIDATION", "statement": "External pointers are not locally validated unless the referenced artifact is present in the supplied bundle and validated there."},
             {"non_claim_id": "RGV_RESULT_NON_CLAIM_COMPLETE_HISTORY", "statement": "This result does not assert that the bundle contains complete historical lineage."},
-        ],
+                    {
+                "non_claim_id": "RGV_RESULT_NON_CLAIM_EXIT_CODE_APPROVAL",
+                "statement": "CLI exit code 0 only indicates structural / relational graph verification passed within the emitted closure state. It is not deployment approval, compliance certification, legal sufficiency, runtime authorization, or source-truth validation.",
+            },
+],
     }
 
 

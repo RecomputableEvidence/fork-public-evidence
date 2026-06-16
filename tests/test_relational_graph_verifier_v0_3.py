@@ -286,3 +286,31 @@ def test_self_referential_expansion_cycle_fails():
 
     assert result["overall_state"] == "FAIL"
     assert any("cycle detected" in error for error in result["errors"])
+
+def _rgv_publication_repair_result(bundle):
+    if "graph_result" in globals():
+        return graph_result(bundle)
+    if "_rgv_publication_hardening_result" in globals():
+        return _rgv_publication_hardening_result(bundle)
+    return load_tool().validate_bundle(bundle, repo_root=ROOT)
+
+def test_result_non_claims_include_exit_code_non_approval_warning():
+    bundle = example("local_expansion_graph_bundle.json")
+
+    result = _rgv_publication_repair_result(bundle)
+
+    result_non_claims = result.get("result_non_claims", [])
+    by_id = {
+        item.get("non_claim_id"): item.get("statement", "")
+        for item in result_non_claims
+        if isinstance(item, dict)
+    }
+
+    assert "RGV_RESULT_NON_CLAIM_EXIT_CODE_APPROVAL" in by_id
+
+    statement = by_id["RGV_RESULT_NON_CLAIM_EXIT_CODE_APPROVAL"].lower()
+    assert "exit code 0" in statement
+    assert "not deployment approval" in statement
+    assert "compliance certification" in statement
+    assert "runtime authorization" in statement
+    assert "source-truth validation" in statement

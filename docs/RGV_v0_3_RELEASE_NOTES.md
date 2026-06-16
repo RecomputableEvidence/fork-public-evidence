@@ -61,3 +61,12 @@ Schema-only validation is non-conformant for v0.3 graph verification. JSON Schem
 CLI exit code `0` is not a deployment gate, compliance approval, legal signoff, or runtime authorization. Integrators must inspect the JSON result and preserve the result non-claims.
 
 The stateful registry profile must remain strictly optional. The recomputable public verifier must remain operable without a registry, database, network lookup, or live service.
+
+
+## Hardening repair note
+
+The publication-hardening warning about CLI exit code `0` now travels with emitted verifier results through `result_non_claims`.
+
+The unresolved-pointer example was corrected so it no longer describes an unresolved expansion target as locally resolved.
+
+The phrase "or equivalent behavior" was tightened to require documented equivalent behavior that enforces the same required relational checks.
