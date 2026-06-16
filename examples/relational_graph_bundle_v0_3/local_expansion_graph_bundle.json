@@ -1,0 +1,630 @@
+{
+  "record_type": "RELATIONAL_GRAPH_BUNDLE",
+  "graph_bundle_version": "RGV_BUNDLE_v0_3",
+  "graph_id": "rgv_v0_3_local_expansion_graph_bundle",
+  "created_at_utc": "2026-06-16T00:00:00Z",
+  "verification_mode": "STATELESS_BUNDLE_ONLY",
+  "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+  "cbc_records": [
+    {
+      "artifact_id": "examples/claim_boundary_contract_v0_2_2/runtime_blocked_tool_call_record.json",
+      "record": {
+        "record_type": "CLAIM_BOUNDARY_CONTRACT",
+        "cbc_version": "CBC_v0_2_2",
+        "claim_id": "cbc_v0_2_2_runtime_blocked_tool_call_record_boundary",
+        "artifact_name": "Runtime blocked tool-call record boundary",
+        "artifact_type": "RUNTIME_EVENT_RECORD",
+        "timestamp_utc": "2026-06-16T00:00:00Z",
+        "verification_status": "PASS",
+        "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+        "scope": {
+          "object_type": "runtime_event",
+          "identifier": "runtime_blocked_tool_call_record_001",
+          "environment": "PILOT",
+          "description": "A bounded record for a runtime blocked tool-call event."
+        },
+        "positive_claims": [
+          {
+            "statement_id": "cbc_v0_2_2_runtime_blocked_tool_call_record_boundary_positive_statement_001",
+            "statement": "The referenced runtime event record structurally represents that a policy trigger was matched and a tool call was halted.",
+            "limited_to": "Record integrity and claim-boundary structure only; not intent, legality, compliance, policy correctness, or source truth."
+          }
+        ],
+        "non_claims": [
+          {
+            "non_claim_id": "NC_RUNTIME_SOURCE_TRUTH",
+            "statement": "This boundary does not assert that the source event description is true, complete, or legally sufficient.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_TOOL_CALL_MALICIOUS_INTENT",
+            "statement": "This boundary asserts only that the recorded policy trigger was matched and the tool call was structurally halted within the stated verification scope. It does not assert malicious user intent.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_LEGAL_OR_COMPLIANCE_CERTIFICATION",
+            "statement": "This boundary does not constitute legal, contractual, regulatory, or compliance certification.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_POLICY_CORRECTNESS",
+            "statement": "This boundary does not assert that the policy rule, trigger, or intervention was correct.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_POLICY_ASSOCIATION_NOT_CERTIFICATION",
+            "statement": "Association with a policy identifier does not constitute institutional certification of correctness, compliance, or legal sufficiency.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_SOURCE_COMPLETENESS",
+            "statement": "This boundary does not assert that all relevant upstream sources, context, or events were captured.",
+            "must_travel_downstream": true
+          }
+        ],
+        "upstream_claims_received": [],
+        "upstream_claims_relied_on": [],
+        "upstream_claims_rejected": [],
+        "transitivity_policy": {
+          "mode": "NON_TRANSITIVE",
+          "statement": "This claim boundary does not transfer into broader safety, compliance, legal, truth, deployment, or correctness claims without an explicit downstream claim boundary."
+        },
+        "issuer_semantics_authority": {
+          "mode": "issuer_defined",
+          "authority": "Fork public evidence doctrine",
+          "statement": "Issuer-defined terms are bounded by this record and do not create external certification authority."
+        },
+        "sealed_at": {
+          "timestamp_utc": "2026-06-16T00:00:00Z",
+          "sealed_by": {
+            "name": "Fork public evidence generator",
+            "type": "SYSTEM",
+            "system_id": "fork-public-evidence-v0.2.2"
+          },
+          "seal_algorithm": "SHA256",
+          "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "evidence_refs": [
+          {
+            "ref_id": "runtime_blocked_tool_call_record_payload",
+            "uri": "examples/source_records/runtime_blocked_tool_call_record_placeholder.json",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "description": "Placeholder source record for v0.2.2 boundary example."
+          }
+        ],
+        "known_gaps": [
+          {
+            "gap_id": "known_gap_source_completeness",
+            "description": "The boundary does not assert that all upstream context or operational sources were captured.",
+            "effect": "Reviewers should not infer source completeness from structural verification."
+          }
+        ],
+        "human_or_institutional_decisions_remaining": [
+          {
+            "decision_id": "remaining_institutional_interpretation",
+            "description": "Any legal, compliance, deployment, or policy interpretation remains outside this structural boundary.",
+            "responsible_role": "authorized institutional reviewer"
+          }
+        ]
+      }
+    },
+    {
+      "artifact_id": "examples/claim_boundary_contract_v0_2_2/benchmark_execution_record.json",
+      "record": {
+        "record_type": "CLAIM_BOUNDARY_CONTRACT",
+        "cbc_version": "CBC_v0_2_2",
+        "claim_id": "cbc_v0_2_2_benchmark_execution_record_boundary",
+        "artifact_name": "Benchmark execution record boundary",
+        "artifact_type": "BENCHMARK_EXECUTION_RECORD",
+        "timestamp_utc": "2026-06-16T00:00:00Z",
+        "verification_status": "PASS",
+        "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+        "scope": {
+          "object_type": "benchmark_execution_record",
+          "identifier": "benchmark_execution_record_001",
+          "environment": "TEST",
+          "description": "A bounded record for a benchmark execution result."
+        },
+        "positive_claims": [
+          {
+            "statement_id": "cbc_v0_2_2_benchmark_execution_record_boundary_positive_statement_001",
+            "statement": "The referenced benchmark execution record structurally records the recorded metric result within the stated verification scope.",
+            "limited_to": "Record integrity and claim-boundary structure only; not deployment readiness, general safety, legal sufficiency, production performance, or out-of-distribution safety."
+          }
+        ],
+        "non_claims": [
+          {
+            "non_claim_id": "NC_BENCHMARK_EXECUTION_ONLY",
+            "statement": "This boundary asserts only that the benchmark execution record yielded the recorded result within the stated verification scope.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_DEPLOYMENT_READINESS",
+            "statement": "This boundary does not assert deployment readiness.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_GENERAL_SAFETY",
+            "statement": "This boundary does not assert general AI safety or fitness for use.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_OOD_SAFETY",
+            "statement": "This boundary does not assert safety against out-of-distribution conditions or attacks.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_LEGAL_SUFFICIENCY",
+            "statement": "This boundary does not assert legal, contractual, regulatory, or compliance sufficiency.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_PRODUCTION_PERFORMANCE",
+            "statement": "This boundary does not assert production performance, production equivalence, or operational reliability.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_SOURCE_COMPLETENESS",
+            "statement": "This boundary does not assert that all relevant benchmark setup, data, or context were captured.",
+            "must_travel_downstream": true
+          }
+        ],
+        "upstream_claims_received": [],
+        "upstream_claims_relied_on": [],
+        "upstream_claims_rejected": [],
+        "transitivity_policy": {
+          "mode": "NON_TRANSITIVE",
+          "statement": "This claim boundary does not transfer into broader safety, compliance, legal, truth, deployment, or correctness claims without an explicit downstream claim boundary."
+        },
+        "issuer_semantics_authority": {
+          "mode": "issuer_defined",
+          "authority": "Fork public evidence doctrine",
+          "statement": "Issuer-defined terms are bounded by this record and do not create external certification authority."
+        },
+        "sealed_at": {
+          "timestamp_utc": "2026-06-16T00:00:00Z",
+          "sealed_by": {
+            "name": "Fork public evidence generator",
+            "type": "SYSTEM",
+            "system_id": "fork-public-evidence-v0.2.2"
+          },
+          "seal_algorithm": "SHA256",
+          "payload_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "evidence_refs": [
+          {
+            "ref_id": "benchmark_execution_record_payload",
+            "uri": "examples/source_records/benchmark_execution_record_placeholder.json",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "description": "Placeholder source record for v0.2.2 boundary example."
+          }
+        ],
+        "known_gaps": [
+          {
+            "gap_id": "known_gap_source_completeness",
+            "description": "The boundary does not assert that all upstream context or operational sources were captured.",
+            "effect": "Reviewers should not infer source completeness from structural verification."
+          }
+        ],
+        "human_or_institutional_decisions_remaining": [
+          {
+            "decision_id": "remaining_institutional_interpretation",
+            "description": "Any legal, compliance, deployment, or policy interpretation remains outside this structural boundary.",
+            "responsible_role": "authorized institutional reviewer"
+          }
+        ]
+      }
+    },
+    {
+      "artifact_id": "examples/claim_boundary_contract_v0_2_2/limited_internal_review_eligibility_boundary.json",
+      "record": {
+        "record_type": "CLAIM_BOUNDARY_CONTRACT",
+        "cbc_version": "CBC_v0_2_2",
+        "claim_id": "cbc_v0_2_2_limited_internal_review_eligibility_boundary",
+        "artifact_name": "Limited internal-review eligibility boundary",
+        "artifact_type": "DOWNSTREAM_CLAIM_BOUNDARY",
+        "timestamp_utc": "2026-06-16T00:00:00Z",
+        "verification_status": "PASS",
+        "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+        "scope": {
+          "object_type": "review_routing_record",
+          "identifier": "limited_internal_review_eligibility_001",
+          "environment": "REVIEW",
+          "description": "A downstream claim boundary created after explicit CCE expansion."
+        },
+        "positive_claims": [
+          {
+            "statement_id": "cbc_v0_2_2_limited_internal_review_eligibility_boundary_positive_statement_001",
+            "statement": "The artifact is eligible for limited internal review routing under the applicable internal review process.",
+            "limited_to": "Limited internal review routing only; not deployment approval, legal sufficiency, compliance sufficiency, general safety, or source truth."
+          }
+        ],
+        "non_claims": [
+          {
+            "non_claim_id": "NC_LIMITED_REVIEW_NOT_DEPLOYMENT_APPROVAL",
+            "statement": "This boundary asserts limited internal-review eligibility only and does not assert deployment approval.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_BENCHMARK_NON_CLAIMS_PRESERVED",
+            "statement": "The benchmark execution record non-claims remain preserved and are not converted into deployment, safety, legal, or production claims.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_HUMAN_REVIEW_STILL_REQUIRED",
+            "statement": "Human or institutional review remains required before legal, compliance, safety, or deployment conclusions are drawn.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_SOURCE_COMPLETENESS",
+            "statement": "This boundary does not assert that all relevant upstream sources or context were captured.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_BENCHMARK_EXECUTION_ONLY",
+            "statement": "Preserved upstream non-claim remains represented in this downstream CBC so the inherited boundary remains inspectable without relying on an aggregate summary alone.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_DEPLOYMENT_READINESS",
+            "statement": "Preserved upstream non-claim remains represented in this downstream CBC so the inherited boundary remains inspectable without relying on an aggregate summary alone.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_GENERAL_SAFETY",
+            "statement": "Preserved upstream non-claim remains represented in this downstream CBC so the inherited boundary remains inspectable without relying on an aggregate summary alone.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_OOD_SAFETY",
+            "statement": "Preserved upstream non-claim remains represented in this downstream CBC so the inherited boundary remains inspectable without relying on an aggregate summary alone.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_LEGAL_SUFFICIENCY",
+            "statement": "Preserved upstream non-claim remains represented in this downstream CBC so the inherited boundary remains inspectable without relying on an aggregate summary alone.",
+            "must_travel_downstream": true
+          },
+          {
+            "non_claim_id": "NC_PRODUCTION_PERFORMANCE",
+            "statement": "Preserved upstream non-claim remains represented in this downstream CBC so the inherited boundary remains inspectable without relying on an aggregate summary alone.",
+            "must_travel_downstream": true
+          }
+        ],
+        "upstream_claims_received": [
+          {
+            "claim_id": "cbc_v0_2_2_benchmark_execution_record_boundary",
+            "source_artifact_id": "examples/claim_boundary_contract_v0_2_2/benchmark_execution_record.json",
+            "claim_text": "The referenced benchmark execution record structurally records the recorded metric result within the stated verification scope.",
+            "verification_state": "PASS",
+            "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+            "preserved_non_claim_ids": [
+              "NC_BENCHMARK_EXECUTION_ONLY",
+              "NC_DEPLOYMENT_READINESS",
+              "NC_GENERAL_SAFETY",
+              "NC_OOD_SAFETY",
+              "NC_LEGAL_SUFFICIENCY",
+              "NC_PRODUCTION_PERFORMANCE",
+              "NC_SOURCE_COMPLETENESS"
+            ]
+          }
+        ],
+        "upstream_claims_relied_on": [
+          {
+            "claim_id": "cbc_v0_2_2_benchmark_execution_record_boundary",
+            "source_artifact_id": "examples/claim_boundary_contract_v0_2_2/benchmark_execution_record.json",
+            "claim_text": "The referenced benchmark execution record structurally records the recorded metric result within the stated verification scope.",
+            "verification_state": "PASS",
+            "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+            "preserved_non_claim_ids": [
+              "NC_BENCHMARK_EXECUTION_ONLY",
+              "NC_DEPLOYMENT_READINESS",
+              "NC_GENERAL_SAFETY",
+              "NC_OOD_SAFETY",
+              "NC_LEGAL_SUFFICIENCY",
+              "NC_PRODUCTION_PERFORMANCE",
+              "NC_SOURCE_COMPLETENESS"
+            ]
+          }
+        ],
+        "upstream_claims_rejected": [],
+        "transitivity_policy": {
+          "mode": "NON_TRANSITIVE",
+          "statement": "This claim boundary does not transfer into broader safety, compliance, legal, truth, deployment, or correctness claims without an explicit downstream claim boundary."
+        },
+        "issuer_semantics_authority": {
+          "mode": "issuer_defined",
+          "authority": "Fork public evidence doctrine",
+          "statement": "Issuer-defined terms are bounded by this record and do not create external certification authority."
+        },
+        "sealed_at": {
+          "timestamp_utc": "2026-06-16T00:00:00Z",
+          "sealed_by": {
+            "name": "Fork public evidence generator",
+            "type": "SYSTEM",
+            "system_id": "fork-public-evidence-v0.2.2"
+          },
+          "seal_algorithm": "SHA256",
+          "payload_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        },
+        "evidence_refs": [
+          {
+            "ref_id": "limited_internal_review_routing_record",
+            "uri": "examples/source_records/limited_internal_review_routing_record_placeholder.json",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "description": "Placeholder downstream routing record for v0.2.2 boundary example."
+          }
+        ],
+        "known_gaps": [
+          {
+            "gap_id": "known_gap_production_equivalence",
+            "description": "Production equivalence has not been established by the benchmark execution record.",
+            "effect": "The downstream claim is limited to review routing and does not support deployment readiness."
+          }
+        ],
+        "human_or_institutional_decisions_remaining": [
+          {
+            "decision_id": "remaining_institutional_interpretation",
+            "description": "Any legal, compliance, deployment, or policy interpretation remains outside this structural boundary.",
+            "responsible_role": "authorized institutional reviewer"
+          }
+        ]
+      }
+    }
+  ],
+  "cce_records": [
+    {
+      "artifact_id": "examples/claim_consumption_events_v0_2_2/preserved_runtime_blocked_tool_call_record.json",
+      "record": {
+        "record_type": "CLAIM_CONSUMPTION_EVENT",
+        "cce_version": "CCE_v0_2_2",
+        "event_id": "cce_v0_2_2_preserved_runtime_blocked_tool_call_record",
+        "timestamp_utc": "2026-06-16T00:10:00Z",
+        "verification_scope": "CONSUMPTION_RELATIONSHIP_AND_BOUNDARY_PRESERVATION_ONLY",
+        "consumer": {
+          "consumer_id": "fork_evidence_boundary_layer",
+          "consumer_role": "EVIDENCE_LAYER",
+          "system_name": "Fork public evidence harness"
+        },
+        "consumption_context": {
+          "workflow_id": "workflow_runtime_tool_call_review",
+          "action": "Preserve upstream runtime blocked-tool-call claim boundary",
+          "purpose": "Record downstream reliance without converting runtime blocking into legal, safety, intent, or compliance claims.",
+          "environment": "PILOT"
+        },
+        "consumed_claims": [
+          {
+            "claim_id": "cbc_v0_2_2_runtime_blocked_tool_call_record_boundary",
+            "source_artifact_id": "examples/claim_boundary_contract_v0_2_2/runtime_blocked_tool_call_record.json",
+            "source_artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+            "claim_boundary_contract_version": "CBC_v0_2_2",
+            "claim_text": "The referenced runtime event record structurally represents that a policy trigger was matched and a tool call was halted.",
+            "verification_state": "PASS",
+            "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+            "source_non_claim_ids": [
+              "NC_RUNTIME_SOURCE_TRUTH",
+              "NC_TOOL_CALL_MALICIOUS_INTENT",
+              "NC_LEGAL_OR_COMPLIANCE_CERTIFICATION",
+              "NC_POLICY_CORRECTNESS",
+              "NC_POLICY_ASSOCIATION_NOT_CERTIFICATION",
+              "NC_SOURCE_COMPLETENESS"
+            ],
+            "source_assurance": {
+              "assurance_profile": "SOFTWARE_WORKFLOW_LOG",
+              "assurance_limitations": [
+                "Software workflow logs may preserve event structure without asserting source truth.",
+                "A blocked event record does not by itself establish legal, compliance, intent, or policy correctness."
+              ]
+            }
+          }
+        ],
+        "relied_claim_ids": [
+          "cbc_v0_2_2_runtime_blocked_tool_call_record_boundary"
+        ],
+        "rejected_claim_ids": [],
+        "preserved_non_claim_ids": [
+          "NC_RUNTIME_SOURCE_TRUTH",
+          "NC_TOOL_CALL_MALICIOUS_INTENT",
+          "NC_LEGAL_OR_COMPLIANCE_CERTIFICATION",
+          "NC_POLICY_CORRECTNESS",
+          "NC_POLICY_ASSOCIATION_NOT_CERTIFICATION",
+          "NC_SOURCE_COMPLETENESS"
+        ],
+        "boundary_effect": "PRESERVED",
+        "boundary_effect_detail": {
+          "summary": "The downstream record preserves the upstream claim boundary without adding a new claim.",
+          "new_claim_reference_resolution": "NOT_APPLICABLE"
+        },
+        "downstream_output": {
+          "artifact_id": "packet_runtime_tool_call_review_cce_v0_2_2",
+          "artifact_type": "EVIDENCE_PACKET_COMPONENT",
+          "statement": "The upstream claim boundary was consumed for evidentiary preservation only.",
+          "new_claim_ids": []
+        },
+        "unresolved_unknowns": [],
+        "evidence_refs": [
+          {
+            "ref_id": "cbc_runtime_blocked_tool_call_record",
+            "uri": "examples/claim_boundary_contract_v0_2_2/runtime_blocked_tool_call_record.json",
+            "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "description": "CBC v0.2.2 runtime blocked tool-call record consumed by this CCE."
+          }
+        ],
+        "cce_non_claims": [
+          {
+            "non_claim_id": "CCE_NON_CLAIM_SOURCE_TRUTH",
+            "statement": "This CCE record does not assert that any consumed source claim is true."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_LEGAL_OR_REGULATORY_SUFFICIENCY",
+            "statement": "This CCE record does not assert legal, contractual, regulatory, or compliance sufficiency."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_RUNTIME_ENFORCEMENT",
+            "statement": "This CCE record does not enforce, block, approve, authorize, or control runtime behavior."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_SOURCE_COMPLETENESS",
+            "statement": "This CCE record does not assert that all relevant upstream sources or context were captured."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_EXPANDED_CLAIM_NODE",
+            "statement": "This CCE is a downstream consumption edge. It records the direction and destination of expansion and does not become the expanded claim-boundary node."
+          }
+        ]
+      }
+    },
+    {
+      "artifact_id": "examples/claim_consumption_events_v0_2_2/edge_eval_benchmark_expansion.json",
+      "record": {
+        "record_type": "CLAIM_CONSUMPTION_EVENT",
+        "cce_version": "CCE_v0_2_2",
+        "event_id": "cce_v0_2_2_edge_eval_benchmark_expansion",
+        "timestamp_utc": "2026-06-16T00:15:00Z",
+        "verification_scope": "CONSUMPTION_RELATIONSHIP_AND_BOUNDARY_PRESERVATION_ONLY",
+        "consumer": {
+          "consumer_id": "limited_internal_review_gate",
+          "consumer_role": "COMPLIANCE_REVIEWER",
+          "system_name": "Internal AI workflow review process"
+        },
+        "consumption_context": {
+          "workflow_id": "workflow_benchmark_execution_review",
+          "action": "Record edge from benchmark execution boundary to limited internal review boundary",
+          "purpose": "Record explicit expansion from benchmark execution record to limited internal review eligibility without inheriting deployment or safety claims.",
+          "environment": "REVIEW"
+        },
+        "consumed_claims": [
+          {
+            "claim_id": "cbc_v0_2_2_benchmark_execution_record_boundary",
+            "source_artifact_id": "examples/claim_boundary_contract_v0_2_2/benchmark_execution_record.json",
+            "source_artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+            "claim_boundary_contract_version": "CBC_v0_2_2",
+            "claim_text": "The referenced benchmark execution record structurally records the recorded metric result within the stated verification scope.",
+            "verification_state": "PASS",
+            "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+            "source_non_claim_ids": [
+              "NC_BENCHMARK_EXECUTION_ONLY",
+              "NC_DEPLOYMENT_READINESS",
+              "NC_GENERAL_SAFETY",
+              "NC_OOD_SAFETY",
+              "NC_LEGAL_SUFFICIENCY",
+              "NC_PRODUCTION_PERFORMANCE",
+              "NC_SOURCE_COMPLETENESS"
+            ],
+            "source_assurance": {
+              "assurance_profile": "EVALUATION_RESULT",
+              "assurance_limitations": [
+                "A benchmark execution record does not by itself establish deployment readiness.",
+                "Evaluation conditions may not represent production conditions or out-of-distribution behavior."
+              ]
+            }
+          }
+        ],
+        "relied_claim_ids": [
+          "cbc_v0_2_2_benchmark_execution_record_boundary"
+        ],
+        "rejected_claim_ids": [],
+        "preserved_non_claim_ids": [
+          "NC_BENCHMARK_EXECUTION_ONLY",
+          "NC_DEPLOYMENT_READINESS",
+          "NC_GENERAL_SAFETY",
+          "NC_OOD_SAFETY",
+          "NC_LEGAL_SUFFICIENCY",
+          "NC_PRODUCTION_PERFORMANCE",
+          "NC_SOURCE_COMPLETENESS"
+        ],
+        "boundary_effect": "EXPANDED",
+        "boundary_effect_detail": {
+          "summary": "This CCE records the edge of expansion; it does not hold the expanded claim node.",
+          "expansion_reason": "The benchmark execution record is used as one input into limited internal review routing, not as deployment approval.",
+          "new_claim_reference": "examples/claim_boundary_contract_v0_2_2/limited_internal_review_eligibility_boundary.json",
+          "new_claim_boundary_contract_id": "cbc_v0_2_2_limited_internal_review_eligibility_boundary",
+          "new_claim_reference_resolution": "LOCAL_RESOLVED",
+          "authorizing_party": "internal_review_gate_owner",
+          "additional_evidence_refs": [
+            {
+              "ref_id": "limited_review_gate_policy",
+              "uri": "docs/internal_review_gate_policy_placeholder.md",
+              "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+              "description": "Policy reference for limited review routing."
+            }
+          ]
+        },
+        "downstream_output": {
+          "artifact_id": "review_route_benchmark_execution_cce_v0_2_2",
+          "artifact_type": "REVIEW_ROUTING_RECORD",
+          "statement": "The benchmark execution boundary was consumed as an input to a separate downstream CBC for limited internal review eligibility.",
+          "new_claim_ids": [
+            "cbc_v0_2_2_limited_internal_review_eligibility_boundary"
+          ]
+        },
+        "unresolved_unknowns": [
+          {
+            "unknown_id": "unknown_production_equivalence",
+            "related_claim_id": "cbc_v0_2_2_benchmark_execution_record_boundary",
+            "description": "Production equivalence was not established by the consumed benchmark execution boundary.",
+            "effect": "The expansion may support limited review routing but not deployment readiness."
+          }
+        ],
+        "evidence_refs": [
+          {
+            "ref_id": "cbc_benchmark_execution_record",
+            "uri": "examples/claim_boundary_contract_v0_2_2/benchmark_execution_record.json",
+            "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "description": "CBC v0.2.2 benchmark execution record consumed by this CCE."
+          },
+          {
+            "ref_id": "new_cbc_limited_internal_review",
+            "uri": "examples/claim_boundary_contract_v0_2_2/limited_internal_review_eligibility_boundary.json",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "description": "Locally resolved downstream CBC referenced by this expansion edge."
+          }
+        ],
+        "cce_non_claims": [
+          {
+            "non_claim_id": "CCE_NON_CLAIM_SOURCE_TRUTH",
+            "statement": "This CCE record does not assert that any consumed source claim is true."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_LEGAL_OR_REGULATORY_SUFFICIENCY",
+            "statement": "This CCE record does not assert legal, contractual, regulatory, or compliance sufficiency."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_RUNTIME_ENFORCEMENT",
+            "statement": "This CCE record does not enforce, block, approve, authorize, or control runtime behavior."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_SOURCE_COMPLETENESS",
+            "statement": "This CCE record does not assert that all relevant upstream sources or context were captured."
+          },
+          {
+            "non_claim_id": "CCE_NON_CLAIM_EXPANDED_CLAIM_NODE",
+            "statement": "This CCE is a downstream consumption edge. It records the direction and destination of expansion and does not become the expanded claim-boundary node."
+          }
+        ]
+      }
+    }
+  ],
+  "bundle_non_claims": [
+    {
+      "non_claim_id": "RGV_NON_CLAIM_SOURCE_TRUTH",
+      "statement": "This graph bundle does not assert that any CBC or CCE source content is true."
+    },
+    {
+      "non_claim_id": "RGV_NON_CLAIM_LEGAL_OR_COMPLIANCE_SUFFICIENCY",
+      "statement": "This graph bundle does not assert legal, regulatory, contractual, or compliance sufficiency."
+    },
+    {
+      "non_claim_id": "RGV_NON_CLAIM_RUNTIME_ENFORCEMENT",
+      "statement": "This graph bundle does not enforce, approve, block, or authorize runtime behavior."
+    },
+    {
+      "non_claim_id": "RGV_NON_CLAIM_EXTERNAL_POINTER_VALIDATION",
+      "statement": "External pointers are recorded as references only unless the pointed artifact is supplied and structurally validated inside the local bundle."
+    },
+    {
+      "non_claim_id": "RGV_NON_CLAIM_COMPLETE_HISTORY",
+      "statement": "This graph bundle does not assert that all historical CBC or CCE records relevant to a workflow are present."
+    }
+  ]
+}
