@@ -48,3 +48,16 @@ A stateful registry profile may be added later for enterprise lineage lookup.
 That profile should remain optional.
 
 The recomputable public verifier should remain stateless, portable, and bounded.
+
+
+## Publication hardening note
+
+RGV v0.3 uses `PASS`, `INDETERMINATE`, and `FAIL` only for graph-structure verification.
+
+`CLOSED_LOCAL` means self-contained local topology for the supplied bundle. It does not mean complete historical truth, complete workflow history, or complete institutional record coverage.
+
+Schema-only validation is non-conformant for v0.3 graph verification. JSON Schema validates bundle shape. The reference verifier applies required relational checks, including local source resolution, non-claim matching, boundary-effect semantics, pointer-resolution semantics, duplicate detection, and cycle detection.
+
+CLI exit code `0` is not a deployment gate, compliance approval, legal signoff, or runtime authorization. Integrators must inspect the JSON result and preserve the result non-claims.
+
+The stateful registry profile must remain strictly optional. The recomputable public verifier must remain operable without a registry, database, network lookup, or live service.

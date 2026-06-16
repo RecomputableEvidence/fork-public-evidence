@@ -212,3 +212,77 @@ def test_cli_returns_nonzero_for_fail_bundle(tmp_path):
     assert completed.returncode == 1
     result = json.loads(completed.stdout)
     assert result["overall_state"] == "FAIL"
+
+def _rgv_publication_hardening_result(bundle):
+    if "graph_result" in globals():
+        return graph_result(bundle)
+    return load_tool().validate_bundle(bundle, repo_root=ROOT)
+
+def test_duplicate_bundle_non_claim_ids_fail():
+    bundle = example("local_expansion_graph_bundle.json")
+    bundle["bundle_non_claims"].append(copy.deepcopy(bundle["bundle_non_claims"][0]))
+
+    result = _rgv_publication_hardening_result(bundle)
+
+    assert result["overall_state"] == "FAIL"
+    assert any("duplicate bundle non_claim_id" in error for error in result["errors"])
+
+
+def test_duplicate_cce_non_claim_ids_fail():
+    bundle = example("local_expansion_graph_bundle.json")
+    cce = bundle["cce_records"][0]["record"]
+    cce["cce_non_claims"].append(copy.deepcopy(cce["cce_non_claims"][0]))
+
+    result = _rgv_publication_hardening_result(bundle)
+
+    assert result["overall_state"] == "FAIL"
+    assert any("duplicate cce_non_claim_id" in error for error in result["errors"])
+
+
+def test_expanded_boundary_cannot_use_not_applicable_resolution():
+    bundle = example("local_expansion_graph_bundle.json")
+    cce = bundle["cce_records"][1]["record"]
+    cce["boundary_effect_detail"]["new_claim_reference_resolution"] = "NOT_APPLICABLE"
+
+    result = _rgv_publication_hardening_result(bundle)
+
+    assert result["overall_state"] == "FAIL"
+    assert any("EXPANDED boundary_effect cannot use NOT_APPLICABLE" in error for error in result["errors"])
+
+
+def test_local_source_artifact_claim_id_mismatch_fails():
+    bundle = example("local_expansion_graph_bundle.json")
+    cce = bundle["cce_records"][0]["record"]
+
+    original_claim_id = cce["consumed_claims"][0]["claim_id"]
+    alternate_cbc = next(
+        wrapped
+        for wrapped in bundle["cbc_records"]
+        if wrapped["record"]["claim_id"] != original_claim_id
+    )
+
+    cce["consumed_claims"][0]["source_artifact_id"] = alternate_cbc["artifact_id"]
+
+    result = _rgv_publication_hardening_result(bundle)
+
+    assert result["overall_state"] == "FAIL"
+    assert any("consumed source artifact claim_id mismatch" in error for error in result["errors"])
+
+
+def test_self_referential_expansion_cycle_fails():
+    bundle = example("local_expansion_graph_bundle.json")
+    cce = bundle["cce_records"][1]["record"]
+
+    source_claim = cce["consumed_claims"][0]
+    claim_id = source_claim["claim_id"]
+    source_artifact_id = source_claim["source_artifact_id"]
+
+    cce["boundary_effect_detail"]["new_claim_reference_resolution"] = "LOCAL_RESOLVED"
+    cce["boundary_effect_detail"]["new_claim_reference"] = source_artifact_id
+    cce["boundary_effect_detail"]["new_claim_boundary_contract_id"] = claim_id
+    cce["downstream_output"]["new_claim_ids"] = [claim_id]
+
+    result = _rgv_publication_hardening_result(bundle)
+
+    assert result["overall_state"] == "FAIL"
+    assert any("cycle detected" in error for error in result["errors"])

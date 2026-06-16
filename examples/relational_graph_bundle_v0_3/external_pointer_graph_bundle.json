@@ -421,7 +421,7 @@
             "ref_id": "new_cbc_limited_internal_review",
             "uri": "examples/claim_boundary_contract_v0_2_2/limited_internal_review_eligibility_boundary.json",
             "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
-            "description": "Locally resolved downstream CBC referenced by this expansion edge."
+            "description": "Reference to external expansion target CBC. Not locally resolved in this bundle; recorded as EXTERNAL_POINTER."
           }
         ],
         "cce_non_claims": [

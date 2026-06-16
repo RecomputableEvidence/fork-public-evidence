@@ -398,7 +398,7 @@ def validate_bundle(bundle: dict[str, Any], repo_root: Path | None = None) -> di
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Verify a Fork relational graph bundle v0.3.")
+    parser = argparse.ArgumentParser(description="Verify a Fork relational graph bundle v0.3. Exit code 0 means structural / relational graph verification passed within the emitted closure state; it is not a deployment, compliance, legal, runtime, or truth approval.")
     parser.add_argument("bundle", help="Path to relational_graph_bundle_v0_3 JSON file")
     parser.add_argument("--repo-root", default=None, help="Repository root. Defaults to parent of this tool.")
     parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output")
