@@ -1,0 +1,89 @@
+{
+  "record_type": "CLAIM_CONSUMPTION_EVENT",
+  "cce_version": "CCE_v0_2",
+  "event_id": "cce_v0_2_preserved_runtime_blocked_tool_call",
+  "timestamp_utc": "2026-06-15T20:40:00Z",
+  "verification_scope": "CONSUMPTION_RELATIONSHIP_AND_BOUNDARY_PRESERVATION_ONLY",
+  "consumer": {
+    "consumer_id": "fork_evidence_boundary_layer",
+    "consumer_role": "EVIDENCE_LAYER",
+    "system_name": "Fork public evidence harness"
+  },
+  "consumption_context": {
+    "workflow_id": "workflow_runtime_tool_call_review",
+    "action": "Preserve upstream runtime blocked-tool-call claim boundary",
+    "purpose": "Record downstream reliance without converting runtime blocking into a legal, safety, or correctness claim",
+    "environment": "PILOT"
+  },
+  "consumed_claims": [
+    {
+      "claim_id": "cbc_v0_2_runtime_blocked_tool_call_integrity",
+      "source_artifact_id": "examples/claim_boundary_contract_v0_2/runtime_blocked_tool_call.json",
+      "source_artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+      "claim_boundary_contract_version": "CBC_v0_2",
+      "claim_text": "The referenced runtime event record structurally represents a blocked tool-call event within the stated verification scope.",
+      "verification_state": "PASS",
+      "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+      "source_non_claim_ids": [
+        "NC_RUNTIME_TRUTH",
+        "NC_LEGAL_SUFFICIENCY",
+        "NC_POLICY_CORRECTNESS",
+        "NC_SOURCE_COMPLETENESS"
+      ],
+      "source_assurance": {
+        "assurance_profile": "SOFTWARE_WORKFLOW_LOG",
+        "assurance_limitations": [
+          "Software workflow logs may preserve useful event structure without asserting source truth.",
+          "A blocked event record does not by itself establish legal or policy sufficiency."
+        ]
+      }
+    }
+  ],
+  "relied_claim_ids": [
+    "cbc_v0_2_runtime_blocked_tool_call_integrity"
+  ],
+  "rejected_claim_ids": [],
+  "preserved_non_claim_ids": [
+    "NC_RUNTIME_TRUTH",
+    "NC_LEGAL_SUFFICIENCY",
+    "NC_POLICY_CORRECTNESS",
+    "NC_SOURCE_COMPLETENESS"
+  ],
+  "boundary_effect": "PRESERVED",
+  "boundary_effect_detail": {
+    "summary": "The downstream record preserves the upstream claim boundary without adding a new deployment, legal, compliance, truth, or policy-correctness claim."
+  },
+  "downstream_output": {
+    "artifact_id": "packet_runtime_tool_call_review_cce_v0_2",
+    "artifact_type": "EVIDENCE_PACKET_COMPONENT",
+    "statement": "The upstream claim boundary was consumed for evidentiary preservation only.",
+    "new_claim_ids": []
+  },
+  "unresolved_unknowns": [],
+  "evidence_refs": [
+    {
+      "ref_id": "cbc_runtime_blocked_tool_call_example",
+      "uri": "examples/claim_boundary_contract_v0_2/runtime_blocked_tool_call.json",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "description": "CBC v0.2 example consumed by this CCE record."
+    }
+  ],
+  "cce_non_claims": [
+    {
+      "non_claim_id": "CCE_NON_CLAIM_SOURCE_TRUTH",
+      "statement": "This CCE record does not assert that any consumed source claim is true."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_LEGAL_OR_REGULATORY_SUFFICIENCY",
+      "statement": "This CCE record does not assert legal, contractual, regulatory, or compliance sufficiency."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_RUNTIME_ENFORCEMENT",
+      "statement": "This CCE record does not enforce, block, approve, or authorize runtime behavior."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_SOURCE_COMPLETENESS",
+      "statement": "This CCE record does not assert that all relevant upstream sources or context were captured."
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "record_type": "CLAIM_CONSUMPTION_EVENT",
+  "cce_version": "CCE_v0_2",
+  "event_id": "cce_v0_2_expanded_eval_benchmark_pass",
+  "timestamp_utc": "2026-06-15T20:45:00Z",
+  "verification_scope": "CONSUMPTION_RELATIONSHIP_AND_BOUNDARY_PRESERVATION_ONLY",
+  "consumer": {
+    "consumer_id": "limited_internal_review_gate",
+    "consumer_role": "COMPLIANCE_REVIEWER",
+    "system_name": "Internal AI workflow review process"
+  },
+  "consumption_context": {
+    "workflow_id": "workflow_eval_result_review",
+    "action": "Consume benchmark-pass claim for limited internal review routing",
+    "purpose": "Record an explicit downstream expansion from benchmark pass to limited internal review eligibility",
+    "environment": "REVIEW"
+  },
+  "consumed_claims": [
+    {
+      "claim_id": "cbc_v0_2_eval_benchmark_pass_integrity",
+      "source_artifact_id": "examples/claim_boundary_contract_v0_2/eval_benchmark_pass.json",
+      "source_artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+      "claim_boundary_contract_version": "CBC_v0_2",
+      "claim_text": "The referenced evaluation artifact structurally records a benchmark-pass result within the stated verification scope.",
+      "verification_state": "PASS",
+      "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+      "source_non_claim_ids": [
+        "NC_DEPLOYMENT_READINESS",
+        "NC_GENERAL_SAFETY",
+        "NC_LEGAL_SUFFICIENCY",
+        "NC_PRODUCTION_PERFORMANCE"
+      ],
+      "source_assurance": {
+        "assurance_profile": "EVALUATION_RESULT",
+        "assurance_limitations": [
+          "A benchmark pass does not by itself establish deployment readiness.",
+          "Evaluation conditions may not represent production conditions."
+        ]
+      }
+    }
+  ],
+  "relied_claim_ids": [
+    "cbc_v0_2_eval_benchmark_pass_integrity"
+  ],
+  "rejected_claim_ids": [],
+  "preserved_non_claim_ids": [
+    "NC_DEPLOYMENT_READINESS",
+    "NC_GENERAL_SAFETY",
+    "NC_LEGAL_SUFFICIENCY",
+    "NC_PRODUCTION_PERFORMANCE"
+  ],
+  "boundary_effect": "EXPANDED",
+  "boundary_effect_detail": {
+    "summary": "The downstream reviewer adds a limited internal-review eligibility claim while preserving the upstream non-claims.",
+    "expansion_reason": "The benchmark-pass artifact is used only as one input into a limited internal review route, not as deployment approval.",
+    "new_claim_reference": "downstream_claim_limited_internal_review_eligibility",
+    "authorizing_party": "internal_review_gate_owner",
+    "additional_evidence_refs": [
+      {
+        "ref_id": "review_gate_policy",
+        "uri": "docs/internal_review_gate_policy_placeholder.md",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "description": "Policy reference for routing benchmark-pass artifacts to limited internal review."
+      }
+    ]
+  },
+  "downstream_output": {
+    "artifact_id": "review_route_eval_benchmark_pass_cce_v0_2",
+    "artifact_type": "REVIEW_ROUTING_RECORD",
+    "statement": "The consumed benchmark-pass artifact supports routing to limited internal review while preserving deployment and legal non-claims.",
+    "new_claim_ids": [
+      "downstream_claim_limited_internal_review_eligibility"
+    ]
+  },
+  "unresolved_unknowns": [
+    {
+      "unknown_id": "unknown_production_equivalence",
+      "related_claim_id": "cbc_v0_2_eval_benchmark_pass_integrity",
+      "description": "Production equivalence was not established by the consumed benchmark-pass claim.",
+      "effect": "The record may support limited internal review routing but not deployment readiness."
+    }
+  ],
+  "evidence_refs": [
+    {
+      "ref_id": "cbc_eval_benchmark_pass_example",
+      "uri": "examples/claim_boundary_contract_v0_2/eval_benchmark_pass.json",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "description": "CBC v0.2 evaluation benchmark-pass example consumed by this CCE record."
+    },
+    {
+      "ref_id": "review_gate_policy",
+      "uri": "docs/internal_review_gate_policy_placeholder.md",
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "description": "Additional downstream evidence used to justify the explicit expansion."
+    }
+  ],
+  "cce_non_claims": [
+    {
+      "non_claim_id": "CCE_NON_CLAIM_SOURCE_TRUTH",
+      "statement": "This CCE record does not assert that any consumed source claim is true."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_LEGAL_OR_REGULATORY_SUFFICIENCY",
+      "statement": "This CCE record does not assert legal, contractual, regulatory, or compliance sufficiency."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_RUNTIME_ENFORCEMENT",
+      "statement": "This CCE record does not enforce, block, approve, or authorize runtime behavior."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_SOURCE_COMPLETENESS",
+      "statement": "This CCE record does not assert that all relevant upstream sources or context were captured."
+    }
+  ]
+}
