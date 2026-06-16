@@ -1,0 +1,127 @@
+{
+  "claim_id": "cbc_runtime_block_2026_06_15_001",
+  "claim_type": "runtime_enforcement_event.blocked_tool_call",
+  "issuer": {
+    "name": "Configured Runtime Policy Engine",
+    "type": "configured_governance_source",
+    "system_id": "runtime_policy_engine_demo"
+  },
+  "issuer_semantics_authority": {
+    "mode": "issuer_defined",
+    "reference": "runtime_policy_engine_demo.claim_taxonomy.v0_1"
+  },
+  "scope": {
+    "object_type": "tool_call",
+    "workflow_id": "wf_vendor_diligence_demo_001",
+    "event_id": "evt_tool_call_001",
+    "model_ref": "model_ref_demo",
+    "tool_name": "external_vendor_lookup",
+    "tool_parameters_hash": "sha256:0f4b5c6d7e8f90123456789abcdef0123456789abcdef0123456789abcdef01"
+  },
+  "positive_claims": [
+    {
+      "claim": "tool_call_blocked",
+      "statement": "The configured runtime policy engine blocked this specific tool call under the policy snapshot referenced in evidence_refs.",
+      "issuer_defined_result": "BLOCKED"
+    }
+  ],
+  "non_claims": [
+    {
+      "category": "legal_sufficiency",
+      "statement": "No claim is made that the overall workflow was legally sufficient.",
+      "must_travel_downstream": true
+    },
+    {
+      "category": "regulatory_compliance",
+      "statement": "No claim is made that the workflow, model, user, or institution was compliant with any regulatory regime.",
+      "must_travel_downstream": true
+    },
+    {
+      "category": "system_wide_safety",
+      "statement": "No claim is made that the system as a whole was safe.",
+      "must_travel_downstream": true
+    },
+    {
+      "category": "monitoring_completeness",
+      "statement": "No claim is made that all relevant runtime activity was observed.",
+      "must_travel_downstream": true
+    }
+  ],
+  "evidence_refs": [
+    {
+      "ref_id": "policy_snapshot",
+      "artifact_type": "policy_snapshot",
+      "uri": "evidence/policy_snapshot_runtime_demo.json",
+      "sha256": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "relationship": "policy_basis_for_block"
+    },
+    {
+      "ref_id": "tool_call_event",
+      "artifact_type": "observed_event",
+      "uri": "evidence/tool_call_event_001.json",
+      "sha256": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "relationship": "blocked_event_record"
+    },
+    {
+      "ref_id": "packet_manifest",
+      "artifact_type": "manifest",
+      "uri": "manifest.json",
+      "sha256": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      "relationship": "sealed_artifact_manifest"
+    }
+  ],
+  "upstream_claims_received": [
+    {
+      "claim_id": "upstream_identity_assertion_001",
+      "issuer": "identity_provider_demo",
+      "summary": "User identity was asserted by configured identity source."
+    }
+  ],
+  "upstream_claims_relied_on": [
+    {
+      "claim_id": "upstream_identity_assertion_001",
+      "reason": "Runtime policy evaluation depended on the user identity value supplied by the configured identity source."
+    }
+  ],
+  "upstream_claims_rejected": [
+    {
+      "claim_id": "upstream_safety_label_001",
+      "reason": "Safety label was not relied on because it was outside the configured policy scope for this event."
+    }
+  ],
+  "transitivity_policy": {
+    "mode": "LOCAL_ONLY",
+    "statement": "This block claim applies only to the specific tool call, parameters, identity context, and policy snapshot referenced by this CBC."
+  },
+  "inheritance_policy": {
+    "non_claims_must_travel": true,
+    "downstream_may_narrow": true,
+    "downstream_may_drop_non_claims_without_new_explicit_claim": false,
+    "statement": "Any downstream use of this CBC must preserve the listed non-claims unless a new explicit claim is issued by a competent authority."
+  },
+  "known_gaps": [
+    {
+      "gap": "source_completeness_not_claimed",
+      "statement": "Fork does not claim that all relevant source events were captured."
+    }
+  ],
+  "human_or_institutional_decisions_remaining": [
+    {
+      "decision": "legal_review",
+      "statement": "A human or institutional authority must determine whether the broader workflow has legal significance."
+    }
+  ],
+  "sealed_at": {
+    "timestamp_utc": "2026-06-15T00:00:00Z",
+    "sealing_mechanism": "sha256_manifest",
+    "manifest_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "sealed_by": {
+      "name": "Fork CBC v0.2 example sealing process",
+      "type": "example_process",
+      "system_id": "fork-example-cbc-v-0-2"
+    }
+  },
+  "verification_status": "PASS",
+  "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+  "claim_boundary_contract_version": "0.2"
+}

@@ -1,0 +1,360 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.local/schemas/claim_boundary_contract_v0_2.schema.json",
+  "title": "Claim Boundary Contract v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_boundary_contract_version",
+    "claim_id",
+    "claim_type",
+    "issuer",
+    "issuer_semantics_authority",
+    "scope",
+    "positive_claims",
+    "non_claims",
+    "evidence_refs",
+    "upstream_claims_received",
+    "upstream_claims_relied_on",
+    "upstream_claims_rejected",
+    "transitivity_policy",
+    "inheritance_policy",
+    "known_gaps",
+    "human_or_institutional_decisions_remaining",
+    "sealed_at",
+    "verification_status",
+    "verification_scope"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuer": {
+      "$ref": "#/$defs/issuer"
+    },
+    "issuer_semantics_authority": {
+      "$ref": "#/$defs/issuer_semantics_authority"
+    },
+    "scope": {
+      "$ref": "#/$defs/freeform_object"
+    },
+    "positive_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/freeform_object"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/non_claim"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence_ref"
+      }
+    },
+    "upstream_claims_received": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/freeform_object"
+      }
+    },
+    "upstream_claims_relied_on": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/freeform_object"
+      }
+    },
+    "upstream_claims_rejected": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/freeform_object"
+      }
+    },
+    "transitivity_policy": {
+      "$ref": "#/$defs/transitivity_policy"
+    },
+    "inheritance_policy": {
+      "$ref": "#/$defs/inheritance_policy",
+      "properties": {
+        "downstream_may_narrow": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "required": [
+        "downstream_may_narrow"
+      ]
+    },
+    "known_gaps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/freeform_object"
+      }
+    },
+    "human_or_institutional_decisions_remaining": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/freeform_object"
+      }
+    },
+    "sealed_at": {
+      "$ref": "#/$defs/sealed_at"
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_CHECKED",
+        "PARTIAL"
+      ]
+    },
+    "verification_scope": {
+      "type": "string",
+      "enum": [
+        "RECORD_INTEGRITY_ONLY",
+        "BOUNDARY_STRUCTURE_ONLY",
+        "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+        "NOT_CHECKED"
+      ]
+    },
+    "claim_boundary_contract_version": {
+      "type": "string",
+      "enum": [
+        "0.2"
+      ]
+    }
+  },
+  "$defs": {
+    "issuer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_id": {
+          "type": "string"
+        }
+      }
+    },
+    "issuer_semantics_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "reference"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "non_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "statement",
+        "must_travel_downstream"
+      ],
+      "properties": {
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "must_travel_downstream": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "evidence_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref_id",
+        "artifact_type",
+        "uri",
+        "sha256",
+        "relationship"
+      ],
+      "properties": {
+        "ref_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "relationship": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "transitivity_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "statement"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "LOCAL_ONLY",
+            "SCOPED",
+            "CONDITIONAL",
+            "NON_TRANSITIVE"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "inheritance_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "non_claims_must_travel",
+        "downstream_may_narrow",
+        "downstream_may_drop_non_claims_without_new_explicit_claim",
+        "statement"
+      ],
+      "properties": {
+        "non_claims_must_travel": {
+          "type": "boolean",
+          "const": true
+        },
+        "downstream_may_narrow": {
+          "type": "boolean"
+        },
+        "downstream_may_drop_non_claims_without_new_explicit_claim": {
+          "type": "boolean",
+          "const": false
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sealed_at": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp_utc",
+        "sealing_mechanism",
+        "manifest_sha256",
+        "sealed_by"
+      ],
+      "properties": {
+        "timestamp_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sealing_mechanism": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "sealed_by": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "type"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "system_id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "freeform_object": {
+      "type": "object",
+      "minProperties": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "verification_status": {
+            "const": "PASS"
+          }
+        },
+        "required": [
+          "verification_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "verification_scope": {
+            "const": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY"
+          }
+        },
+        "required": [
+          "verification_scope"
+        ]
+      }
+    }
+  ]
+}
