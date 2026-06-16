@@ -1,0 +1,98 @@
+{
+  "record_type": "CLAIM_CONSUMPTION_EVENT",
+  "cce_version": "CCE_v0_2_1",
+  "event_id": "cce_v0_2_1_preserved_runtime_blocked_tool_call_record",
+  "timestamp_utc": "2026-06-16T00:10:00Z",
+  "verification_scope": "CONSUMPTION_RELATIONSHIP_AND_BOUNDARY_PRESERVATION_ONLY",
+  "consumer": {
+    "consumer_id": "fork_evidence_boundary_layer",
+    "consumer_role": "EVIDENCE_LAYER",
+    "system_name": "Fork public evidence harness"
+  },
+  "consumption_context": {
+    "workflow_id": "workflow_runtime_tool_call_review",
+    "action": "Preserve upstream runtime blocked-tool-call claim boundary",
+    "purpose": "Record downstream reliance without converting runtime blocking into legal, safety, intent, or compliance claims.",
+    "environment": "PILOT"
+  },
+  "consumed_claims": [
+    {
+      "claim_id": "cbc_v0_2_1_runtime_blocked_tool_call_record_boundary",
+      "source_artifact_id": "examples/claim_boundary_contract_v0_2_1/runtime_blocked_tool_call_record.json",
+      "source_artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+      "claim_boundary_contract_version": "CBC_v0_2_1",
+      "claim_text": "The referenced runtime event record structurally represents that a policy trigger was matched and a tool call was halted.",
+      "verification_state": "PASS",
+      "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+      "source_non_claim_ids": [
+        "NC_RUNTIME_SOURCE_TRUTH",
+        "NC_TOOL_CALL_MALICIOUS_INTENT",
+        "NC_LEGAL_OR_COMPLIANCE_CERTIFICATION",
+        "NC_POLICY_CORRECTNESS",
+        "NC_POLICY_ASSOCIATION_NOT_CERTIFICATION",
+        "NC_SOURCE_COMPLETENESS"
+      ],
+      "source_assurance": {
+        "assurance_profile": "SOFTWARE_WORKFLOW_LOG",
+        "assurance_limitations": [
+          "Software workflow logs may preserve event structure without asserting source truth.",
+          "A blocked event record does not by itself establish legal, compliance, intent, or policy correctness."
+        ]
+      }
+    }
+  ],
+  "relied_claim_ids": [
+    "cbc_v0_2_1_runtime_blocked_tool_call_record_boundary"
+  ],
+  "rejected_claim_ids": [],
+  "preserved_non_claim_ids": [
+    "NC_RUNTIME_SOURCE_TRUTH",
+    "NC_TOOL_CALL_MALICIOUS_INTENT",
+    "NC_LEGAL_OR_COMPLIANCE_CERTIFICATION",
+    "NC_POLICY_CORRECTNESS",
+    "NC_POLICY_ASSOCIATION_NOT_CERTIFICATION",
+    "NC_SOURCE_COMPLETENESS"
+  ],
+  "boundary_effect": "PRESERVED",
+  "boundary_effect_detail": {
+    "summary": "The downstream record preserves the upstream claim boundary without adding a new claim.",
+    "new_claim_reference_resolution": "NOT_APPLICABLE"
+  },
+  "downstream_output": {
+    "artifact_id": "packet_runtime_tool_call_review_cce_v0_2_1",
+    "artifact_type": "EVIDENCE_PACKET_COMPONENT",
+    "statement": "The upstream claim boundary was consumed for evidentiary preservation only.",
+    "new_claim_ids": []
+  },
+  "unresolved_unknowns": [],
+  "evidence_refs": [
+    {
+      "ref_id": "cbc_runtime_blocked_tool_call_record",
+      "uri": "examples/claim_boundary_contract_v0_2_1/runtime_blocked_tool_call_record.json",
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "description": "CBC v0.2.1 runtime blocked tool-call record consumed by this CCE."
+    }
+  ],
+  "cce_non_claims": [
+    {
+      "non_claim_id": "CCE_NON_CLAIM_SOURCE_TRUTH",
+      "statement": "This CCE record does not assert that any consumed source claim is true."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_LEGAL_OR_REGULATORY_SUFFICIENCY",
+      "statement": "This CCE record does not assert legal, contractual, regulatory, or compliance sufficiency."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_RUNTIME_ENFORCEMENT",
+      "statement": "This CCE record does not enforce, block, approve, authorize, or control runtime behavior."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_SOURCE_COMPLETENESS",
+      "statement": "This CCE record does not assert that all relevant upstream sources or context were captured."
+    },
+    {
+      "non_claim_id": "CCE_NON_CLAIM_EXPANDED_CLAIM_NODE",
+      "statement": "A CCE does not hold an expanded claim. It records the vector of expansion and terminates at a claim-boundary reference."
+    }
+  ]
+}
