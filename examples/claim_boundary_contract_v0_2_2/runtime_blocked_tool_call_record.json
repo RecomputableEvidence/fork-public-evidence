@@ -1,0 +1,99 @@
+{
+  "record_type": "CLAIM_BOUNDARY_CONTRACT",
+  "cbc_version": "CBC_v0_2_2",
+  "claim_id": "cbc_v0_2_2_runtime_blocked_tool_call_record_boundary",
+  "artifact_name": "Runtime blocked tool-call record boundary",
+  "artifact_type": "RUNTIME_EVENT_RECORD",
+  "timestamp_utc": "2026-06-16T00:00:00Z",
+  "verification_status": "PASS",
+  "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+  "scope": {
+    "object_type": "runtime_event",
+    "identifier": "runtime_blocked_tool_call_record_001",
+    "environment": "PILOT",
+    "description": "A bounded record for a runtime blocked tool-call event."
+  },
+  "positive_claims": [
+    {
+      "statement_id": "cbc_v0_2_2_runtime_blocked_tool_call_record_boundary_positive_statement_001",
+      "statement": "The referenced runtime event record structurally represents that a policy trigger was matched and a tool call was halted.",
+      "limited_to": "Record integrity and claim-boundary structure only; not intent, legality, compliance, policy correctness, or source truth."
+    }
+  ],
+  "non_claims": [
+    {
+      "non_claim_id": "NC_RUNTIME_SOURCE_TRUTH",
+      "statement": "This boundary does not assert that the source event description is true, complete, or legally sufficient.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_TOOL_CALL_MALICIOUS_INTENT",
+      "statement": "This boundary asserts only that the recorded policy trigger was matched and the tool call was structurally halted within the stated verification scope. It does not assert malicious user intent.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_LEGAL_OR_COMPLIANCE_CERTIFICATION",
+      "statement": "This boundary does not constitute legal, contractual, regulatory, or compliance certification.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_POLICY_CORRECTNESS",
+      "statement": "This boundary does not assert that the policy rule, trigger, or intervention was correct.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_POLICY_ASSOCIATION_NOT_CERTIFICATION",
+      "statement": "Association with a policy identifier does not constitute institutional certification of correctness, compliance, or legal sufficiency.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_SOURCE_COMPLETENESS",
+      "statement": "This boundary does not assert that all relevant upstream sources, context, or events were captured.",
+      "must_travel_downstream": true
+    }
+  ],
+  "upstream_claims_received": [],
+  "upstream_claims_relied_on": [],
+  "upstream_claims_rejected": [],
+  "transitivity_policy": {
+    "mode": "NON_TRANSITIVE",
+    "statement": "This claim boundary does not transfer into broader safety, compliance, legal, truth, deployment, or correctness claims without an explicit downstream claim boundary."
+  },
+  "issuer_semantics_authority": {
+    "mode": "issuer_defined",
+    "authority": "Fork public evidence doctrine",
+    "statement": "Issuer-defined terms are bounded by this record and do not create external certification authority."
+  },
+  "sealed_at": {
+    "timestamp_utc": "2026-06-16T00:00:00Z",
+    "sealed_by": {
+      "name": "Fork public evidence generator",
+      "type": "SYSTEM",
+      "system_id": "fork-public-evidence-v0.2.2"
+    },
+    "seal_algorithm": "SHA256",
+    "payload_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "evidence_refs": [
+    {
+      "ref_id": "runtime_blocked_tool_call_record_payload",
+      "uri": "examples/source_records/runtime_blocked_tool_call_record_placeholder.json",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "description": "Placeholder source record for v0.2.2 boundary example."
+    }
+  ],
+  "known_gaps": [
+    {
+      "gap_id": "known_gap_source_completeness",
+      "description": "The boundary does not assert that all upstream context or operational sources were captured.",
+      "effect": "Reviewers should not infer source completeness from structural verification."
+    }
+  ],
+  "human_or_institutional_decisions_remaining": [
+    {
+      "decision_id": "remaining_institutional_interpretation",
+      "description": "Any legal, compliance, deployment, or policy interpretation remains outside this structural boundary.",
+      "responsible_role": "authorized institutional reviewer"
+    }
+  ]
+}

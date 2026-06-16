@@ -1,0 +1,425 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/claim_consumption_events_v0_2_2.schema.json",
+  "title": "Claim Consumption Event v0.2.2",
+  "description": "Final precision hardening of CCE v0.2.x. Records downstream claim-consumption edges without becoming a claim-boundary node, validating source truth, authorizing deployment, certifying compliance, or implying local validation of unresolved external pointers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "cce_version",
+    "event_id",
+    "timestamp_utc",
+    "verification_scope",
+    "consumer",
+    "consumption_context",
+    "consumed_claims",
+    "relied_claim_ids",
+    "rejected_claim_ids",
+    "preserved_non_claim_ids",
+    "boundary_effect",
+    "boundary_effect_detail",
+    "downstream_output",
+    "unresolved_unknowns",
+    "evidence_refs",
+    "cce_non_claims"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "CLAIM_CONSUMPTION_EVENT"
+    },
+    "cce_version": {
+      "const": "CCE_v0_2_2"
+    },
+    "event_id": {
+      "$ref": "#/$defs/non_empty_string"
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_scope": {
+      "const": "CONSUMPTION_RELATIONSHIP_AND_BOUNDARY_PRESERVATION_ONLY"
+    },
+    "consumer": {
+      "$ref": "#/$defs/consumer"
+    },
+    "consumption_context": {
+      "$ref": "#/$defs/consumption_context"
+    },
+    "consumed_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/consumed_claim"
+      }
+    },
+    "relied_claim_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/non_empty_string"
+      },
+      "uniqueItems": true
+    },
+    "rejected_claim_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/non_empty_string"
+      },
+      "uniqueItems": true
+    },
+    "preserved_non_claim_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/non_empty_string"
+      },
+      "uniqueItems": true
+    },
+    "boundary_effect": {
+      "type": "string",
+      "enum": [
+        "PRESERVED",
+        "NARROWED",
+        "EXPANDED"
+      ]
+    },
+    "boundary_effect_detail": {
+      "$ref": "#/$defs/boundary_effect_detail"
+    },
+    "downstream_output": {
+      "$ref": "#/$defs/downstream_output"
+    },
+    "unresolved_unknowns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unresolved_unknown"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence_ref"
+      }
+    },
+    "cce_non_claims": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "$ref": "#/$defs/non_claim"
+      },
+      "description": "CCE-level non-claims. v0.2.2 requires five baseline non-claims, including the denial that a CCE becomes the expanded claim node."
+    }
+  },
+  "$defs": {
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[A-Fa-f0-9]{64}$"
+    },
+    "consumer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consumer_id",
+        "consumer_role",
+        "system_name"
+      ],
+      "properties": {
+        "consumer_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "consumer_role": {
+          "type": "string",
+          "enum": [
+            "WORKFLOW_SYSTEM",
+            "POLICY_ENGINE",
+            "HUMAN_REVIEWER",
+            "COMPLIANCE_REVIEWER",
+            "AUDIT_REVIEWER",
+            "RUNTIME_CONTROLLER",
+            "EVIDENCE_LAYER",
+            "OTHER"
+          ]
+        },
+        "system_name": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      }
+    },
+    "consumption_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workflow_id",
+        "action",
+        "purpose",
+        "environment"
+      ],
+      "properties": {
+        "workflow_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "action": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "purpose": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "environment": {
+          "type": "string",
+          "enum": [
+            "DEVELOPMENT",
+            "TEST",
+            "PILOT",
+            "PRODUCTION",
+            "REVIEW"
+          ]
+        }
+      }
+    },
+    "source_assurance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assurance_profile",
+        "assurance_limitations"
+      ],
+      "properties": {
+        "assurance_profile": {
+          "type": "string",
+          "enum": [
+            "SOFTWARE_WORKFLOW_LOG",
+            "POLICY_ENGINE_OUTPUT",
+            "HUMAN_REVIEW_RECORD",
+            "HARDWARE_ANCHORED_RECEIPT",
+            "VENDOR_ARTIFACT",
+            "EVALUATION_RESULT",
+            "OTHER"
+          ]
+        },
+        "assurance_limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        }
+      },
+      "description": "Bounded metadata about how evidence was obtained or represented. Source assurance is not source truth."
+    },
+    "consumed_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "source_artifact_id",
+        "source_artifact_type",
+        "claim_boundary_contract_version",
+        "claim_text",
+        "verification_state",
+        "verification_scope",
+        "source_non_claim_ids",
+        "source_assurance"
+      ],
+      "properties": {
+        "claim_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "source_artifact_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "source_artifact_type": {
+          "type": "string",
+          "enum": [
+            "CLAIM_BOUNDARY_CONTRACT",
+            "EVIDENCE_PACKET",
+            "VERIFICATION_RECEIPT",
+            "EVALUATION_RESULT",
+            "RUNTIME_RECEIPT",
+            "POLICY_RECORD",
+            "HUMAN_REVIEW_RECORD",
+            "VENDOR_ARTIFACT",
+            "OTHER"
+          ]
+        },
+        "claim_boundary_contract_version": {
+          "const": "CBC_v0_2_2"
+        },
+        "claim_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "verification_state": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_CHECKED",
+            "INDETERMINATE"
+          ]
+        },
+        "verification_scope": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "source_non_claim_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          },
+          "uniqueItems": true
+        },
+        "source_assurance": {
+          "$ref": "#/$defs/source_assurance"
+        }
+      }
+    },
+    "boundary_effect_detail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "new_claim_reference_resolution"
+      ],
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "narrowing_reason": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "expansion_reason": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "new_claim_reference": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "new_claim_boundary_contract_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "new_claim_reference_resolution": {
+          "type": "string",
+          "enum": [
+            "LOCAL_RESOLVED",
+            "EXTERNAL_POINTER",
+            "NOT_RESOLVED",
+            "NOT_APPLICABLE"
+          ],
+          "description": "Resolution state for the new claim-boundary reference. LOCAL_RESOLVED means the target CBC was present in the local bundle and structurally validated; EXTERNAL_POINTER means the reference is external and not locally inspected; NOT_RESOLVED means the pointer was not resolved and must be carried as an unresolved unknown; NOT_APPLICABLE means no new boundary reference exists for this edge type."
+        },
+        "authorizing_party": {
+          "$ref": "#/$defs/non_empty_string",
+          "description": "Records the party named by the producer as responsible for the expansion context. This field does not mean Fork authorizes, approves, or certifies the expansion."
+        },
+        "additional_evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_ref"
+          }
+        }
+      }
+    },
+    "downstream_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "statement",
+        "new_claim_ids"
+      ],
+      "properties": {
+        "artifact_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "artifact_type": {
+          "type": "string",
+          "enum": [
+            "EVIDENCE_PACKET_COMPONENT",
+            "REVIEW_ROUTING_RECORD",
+            "BOUNDARY_REFERENCE_RECORD",
+            "CONSUMPTION_RECORD",
+            "OTHER_BOUNDARY_RECORD"
+          ],
+          "description": "Bounded downstream output type. Overclaiming labels such as deployment approval, compliance certification, or legal sufficiency are intentionally excluded."
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "new_claim_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "unresolved_unknown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unknown_id",
+        "description",
+        "effect"
+      ],
+      "properties": {
+        "unknown_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "related_claim_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "description": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "effect": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      }
+    },
+    "evidence_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref_id",
+        "uri",
+        "sha256",
+        "description"
+      ],
+      "properties": {
+        "ref_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "uri": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "description": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      }
+    },
+    "non_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "non_claim_id",
+        "statement"
+      ],
+      "properties": {
+        "non_claim_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "statement": {
+          "$ref": "#/$defs/non_empty_string"
+        }
+      },
+      "description": "A CCE-level non-claim describing the edge's own evidentiary posture. Unlike CBC non-claims, these do not carry must_travel_downstream because the CCE is not a claim-boundary node."
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "record_type": "CLAIM_BOUNDARY_CONTRACT",
+  "cbc_version": "CBC_v0_2_2",
+  "claim_id": "cbc_v0_2_2_benchmark_execution_record_boundary",
+  "artifact_name": "Benchmark execution record boundary",
+  "artifact_type": "BENCHMARK_EXECUTION_RECORD",
+  "timestamp_utc": "2026-06-16T00:00:00Z",
+  "verification_status": "PASS",
+  "verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+  "scope": {
+    "object_type": "benchmark_execution_record",
+    "identifier": "benchmark_execution_record_001",
+    "environment": "TEST",
+    "description": "A bounded record for a benchmark execution result."
+  },
+  "positive_claims": [
+    {
+      "statement_id": "cbc_v0_2_2_benchmark_execution_record_boundary_positive_statement_001",
+      "statement": "The referenced benchmark execution record structurally records the recorded metric result within the stated verification scope.",
+      "limited_to": "Record integrity and claim-boundary structure only; not deployment readiness, general safety, legal sufficiency, production performance, or out-of-distribution safety."
+    }
+  ],
+  "non_claims": [
+    {
+      "non_claim_id": "NC_BENCHMARK_EXECUTION_ONLY",
+      "statement": "This boundary asserts only that the benchmark execution record yielded the recorded result within the stated verification scope.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_DEPLOYMENT_READINESS",
+      "statement": "This boundary does not assert deployment readiness.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_GENERAL_SAFETY",
+      "statement": "This boundary does not assert general AI safety or fitness for use.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_OOD_SAFETY",
+      "statement": "This boundary does not assert safety against out-of-distribution conditions or attacks.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_LEGAL_SUFFICIENCY",
+      "statement": "This boundary does not assert legal, contractual, regulatory, or compliance sufficiency.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_PRODUCTION_PERFORMANCE",
+      "statement": "This boundary does not assert production performance, production equivalence, or operational reliability.",
+      "must_travel_downstream": true
+    },
+    {
+      "non_claim_id": "NC_SOURCE_COMPLETENESS",
+      "statement": "This boundary does not assert that all relevant benchmark setup, data, or context were captured.",
+      "must_travel_downstream": true
+    }
+  ],
+  "upstream_claims_received": [],
+  "upstream_claims_relied_on": [],
+  "upstream_claims_rejected": [],
+  "transitivity_policy": {
+    "mode": "NON_TRANSITIVE",
+    "statement": "This claim boundary does not transfer into broader safety, compliance, legal, truth, deployment, or correctness claims without an explicit downstream claim boundary."
+  },
+  "issuer_semantics_authority": {
+    "mode": "issuer_defined",
+    "authority": "Fork public evidence doctrine",
+    "statement": "Issuer-defined terms are bounded by this record and do not create external certification authority."
+  },
+  "sealed_at": {
+    "timestamp_utc": "2026-06-16T00:00:00Z",
+    "sealed_by": {
+      "name": "Fork public evidence generator",
+      "type": "SYSTEM",
+      "system_id": "fork-public-evidence-v0.2.2"
+    },
+    "seal_algorithm": "SHA256",
+    "payload_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "evidence_refs": [
+    {
+      "ref_id": "benchmark_execution_record_payload",
+      "uri": "examples/source_records/benchmark_execution_record_placeholder.json",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "description": "Placeholder source record for v0.2.2 boundary example."
+    }
+  ],
+  "known_gaps": [
+    {
+      "gap_id": "known_gap_source_completeness",
+      "description": "The boundary does not assert that all upstream context or operational sources were captured.",
+      "effect": "Reviewers should not infer source completeness from structural verification."
+    }
+  ],
+  "human_or_institutional_decisions_remaining": [
+    {
+      "decision_id": "remaining_institutional_interpretation",
+      "description": "Any legal, compliance, deployment, or policy interpretation remains outside this structural boundary.",
+      "responsible_role": "authorized institutional reviewer"
+    }
+  ]
+}
