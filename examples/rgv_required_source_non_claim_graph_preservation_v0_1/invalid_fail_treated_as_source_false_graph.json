@@ -1,0 +1,27 @@
+{
+  "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
+  "graph_id": "INVALID_FAIL_TREATED_AS_SOURCE_FALSE_GRAPH",
+  "nodes": [
+    {
+      "node_id": "RGV_FAIL_001",
+      "record_type": "RGV_VERIFICATION_RESULT",
+      "result": "FAIL",
+      "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY"
+    },
+    {
+      "node_id": "CCE_001",
+      "record_type": "CLAIM_CONSUMPTION_EVENT",
+      "consumes_node_id": "RGV_FAIL_001",
+      "failure_meaning": "SOURCE_FALSE",
+      "boundary_effect": "REJECTED"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_001",
+      "edge_type": "CLAIM_CONSUMPTION",
+      "source_node_id": "RGV_FAIL_001",
+      "target_node_id": "CCE_001"
+    }
+  ]
+}

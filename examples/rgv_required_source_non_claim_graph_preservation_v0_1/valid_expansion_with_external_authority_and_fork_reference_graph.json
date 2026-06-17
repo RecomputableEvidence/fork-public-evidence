@@ -1,0 +1,60 @@
+{
+  "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
+  "graph_id": "VALID_EXPANSION_WITH_EXTERNAL_AUTHORITY_AND_FORK_REFERENCE_GRAPH",
+  "nodes": [
+    {
+      "node_id": "RGV_PASS_001",
+      "record_type": "RGV_VERIFICATION_RESULT",
+      "result": "PASS",
+      "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY"
+    },
+    {
+      "node_id": "CCE_001",
+      "record_type": "CLAIM_CONSUMPTION_EVENT",
+      "consumes_node_id": "RGV_PASS_001",
+      "boundary_effect": "EXPANDED",
+      "new_claim_node_id": "NEW_CLAIM_001",
+      "inferred_claims": [
+        "ADMISSIBILITY_INFERENCE"
+      ],
+      "preserved_non_claims": [
+        "SOURCE_TRUTH_NOT_CLAIMED",
+        "FACTUAL_BASIS_NOT_CONFIRMED",
+        "WHOLENESS_NOT_ASSERTED",
+        "COMPLETENESS_NOT_STATED",
+        "ADMISSIBILITY_NOT_INFERRED",
+        "LAWFULNESS_NOT_IMPLIED"
+      ]
+    },
+    {
+      "node_id": "NEW_CLAIM_001",
+      "record_type": "NEW_CLAIM_NODE",
+      "declared_claims": [
+        "ADMISSIBILITY_INFERENCE"
+      ],
+      "authority_basis": "External legal review outside Fork/RGV structural verification authority.",
+      "evidence_basis": [
+        "RGV_PASS_001",
+        "Separate legal review memo",
+        "Separate procedural record"
+      ],
+      "non_claims": [
+        "DOES_NOT_INHERIT_FORK_RGV_SOURCE_TRUTH_AUTHORITY"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_001",
+      "edge_type": "CLAIM_CONSUMPTION",
+      "source_node_id": "RGV_PASS_001",
+      "target_node_id": "CCE_001"
+    },
+    {
+      "edge_id": "EDGE_002",
+      "edge_type": "NEW_CLAIM_REFERENCE",
+      "source_node_id": "CCE_001",
+      "target_node_id": "NEW_CLAIM_001"
+    }
+  ]
+}

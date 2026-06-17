@@ -33,6 +33,15 @@ If a downstream CCE or graph-composition node consumes an RGV `PASS`, it must pr
 
 Dropping any required source non-claim during downstream consumption is a graph-preservation defect.
 
+## Expansion basis restriction
+
+Fork/RGV PASS may be referenced as structural evidence only.
+
+It cannot be the sole authority basis or sole evidence basis for truth, factual-basis confirmation, wholeness, completeness, admissibility, lawfulness, compliance, safety, correctness, institutional approval, or runtime authorization.
+
+If a new claim node expands beyond Fork/RGV PASS semantics, its authority basis and evidence basis must not be reducible to the Fork/RGV PASS result itself.
+
+A new claim node may reference an RGV PASS as one structural input, but it must also provide external non-Fork authority or evidence for the expanded claim.
 ## Unauthorized inference expansion
 
 A downstream artifact performs an unauthorized inference expansion if it consumes an RGV `PASS` and treats that PASS as establishing:
@@ -60,6 +69,21 @@ A downstream CCE must not treat `FAIL` as source falsity.
 
 `FAIL` means the submitted structure is outside valid Fork/RGV verification semantics. It is not a determination that source material is false, unlawful, inadmissible, incomplete, or factually unsupported.
 
+## Structured metadata alias handling
+
+The checker treats known machine-readable metadata containers as part of the graph-composition surface.
+
+Structured fields such as `metadata`, `extensions`, `custom_downstream_extensions`, `consumption_context`, `legal_assessment`, `factual_status`, `clearance_level`, and `assumed_status` may not be used to contradict the required source non-claim boundary.
+
+Localized display labels may be used for human presentation, but they do not replace, satisfy, weaken, or rename the six canonical v0.1 required source non-claim identifiers.
+
+This checker does not perform NLP over arbitrary human prose. It performs bounded structural alias detection over known machine-readable fields and enum-like values.
+
+## INDETERMINATE and FAIL downstream support
+
+`INDETERMINATE` may not be used as support for source truth, factual-basis confirmation, wholeness, completeness, admissibility, lawfulness, compliance, safety, correctness, institutional approval, or runtime authorization.
+
+`FAIL` may not be interpreted as source falsity, unlawfulness, inadmissibility, incompleteness, or factual unsupportedness.
 ## Checker scope
 
 `tools/check_rgv_required_source_non_claim_graph_preservation_v0_1.py` validates deterministic graph-preservation constraints over supplied local graph artifacts.

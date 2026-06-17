@@ -1,0 +1,37 @@
+{
+  "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
+  "graph_id": "INVALID_METADATA_ALIAS_LEGAL_CLEARANCE_GRAPH",
+  "nodes": [
+    {
+      "node_id": "RGV_PASS_001",
+      "record_type": "RGV_VERIFICATION_RESULT",
+      "result": "PASS",
+      "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY"
+    },
+    {
+      "node_id": "CCE_001",
+      "record_type": "CLAIM_CONSUMPTION_EVENT",
+      "consumes_node_id": "RGV_PASS_001",
+      "boundary_effect": "PRESERVED",
+      "preserved_non_claims": [
+        "SOURCE_TRUTH_NOT_CLAIMED",
+        "FACTUAL_BASIS_NOT_CONFIRMED",
+        "WHOLENESS_NOT_ASSERTED",
+        "COMPLETENESS_NOT_STATED",
+        "ADMISSIBILITY_NOT_INFERRED",
+        "LAWFULNESS_NOT_IMPLIED"
+      ],
+      "custom_downstream_extensions": {
+        "legal_clearance_level": "FULLY_COMPLIANT_BY_FORK_PASS"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_001",
+      "edge_type": "CLAIM_CONSUMPTION",
+      "source_node_id": "RGV_PASS_001",
+      "target_node_id": "CCE_001"
+    }
+  ]
+}
