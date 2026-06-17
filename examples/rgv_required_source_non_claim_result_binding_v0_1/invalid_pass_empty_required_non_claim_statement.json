@@ -1,0 +1,31 @@
+{
+  "record_type": "RGV_VERIFICATION_RESULT",
+  "result": "PASS",
+  "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+  "result_non_claims": [
+    {
+      "non_claim_id": "SOURCE_TRUTH_NOT_CLAIMED",
+      "statement": ""
+    },
+    {
+      "non_claim_id": "FACTUAL_BASIS_NOT_CONFIRMED",
+      "statement": "RGV does not independently confirm factual basis."
+    },
+    {
+      "non_claim_id": "WHOLENESS_NOT_ASSERTED",
+      "statement": "RGV does not assert wholeness."
+    },
+    {
+      "non_claim_id": "COMPLETENESS_NOT_STATED",
+      "statement": "RGV does not state completeness."
+    },
+    {
+      "non_claim_id": "ADMISSIBILITY_NOT_INFERRED",
+      "statement": "RGV does not infer admissibility."
+    },
+    {
+      "non_claim_id": "LAWFULNESS_NOT_IMPLIED",
+      "statement": "RGV does not imply lawfulness."
+    }
+  ]
+}

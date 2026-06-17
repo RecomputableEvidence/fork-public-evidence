@@ -1,0 +1,11 @@
+{
+  "record_type": "RGV_VERIFICATION_RESULT",
+  "result": "FAIL",
+  "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+  "errors": [
+    {
+      "code": "MISSING_REFERENCE",
+      "message": "Example failure result; PASS semantics do not apply."
+    }
+  ]
+}
