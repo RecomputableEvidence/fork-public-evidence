@@ -154,6 +154,36 @@
       "component_type": "DOCUMENT",
       "path": "docs/CONTROLLED_PILOT_ORIENTATION_LEXICON_HARDENING_v0_1_1.md",
       "required": true
+    },
+    {
+      "component_id": "controlled_pilot_synthetic_dry_run_corpus_doc",
+      "component_type": "DOCUMENT",
+      "path": "docs/CONTROLLED_PILOT_SYNTHETIC_DRY_RUN_CORPUS_v0_1.md",
+      "required": true
+    },
+    {
+      "component_id": "controlled_pilot_synthetic_dry_run_corpus_schema",
+      "component_type": "JSON_SCHEMA",
+      "path": "schemas/controlled_pilot_synthetic_dry_run_corpus_v0_1.schema.json",
+      "required": true
+    },
+    {
+      "component_id": "controlled_pilot_synthetic_dry_run_corpus_checker",
+      "component_type": "CHECKER",
+      "path": "tools/check_controlled_pilot_synthetic_corpus.py",
+      "required": true
+    },
+    {
+      "component_id": "controlled_pilot_synthetic_dry_run_corpus_fixtures",
+      "component_type": "FIXTURE_DIRECTORY",
+      "path": "examples/controlled_pilot_synthetic_dry_run_corpus",
+      "required": true
+    },
+    {
+      "component_id": "controlled_pilot_synthetic_dry_run_corpus_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_controlled_pilot_synthetic_dry_run_corpus_v0_1.py",
+      "required": true
     }
   ],
   "readiness_non_claims": [

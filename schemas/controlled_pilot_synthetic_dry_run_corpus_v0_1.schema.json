@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/controlled_pilot_synthetic_dry_run_corpus_v0_1.schema.json",
+  "title": "Controlled Pilot Synthetic Dry-Run Corpus Manifest v0.1",
+  "type": "object",
+  "required": [
+    "record_type",
+    "schema_version",
+    "corpus_id",
+    "corpus_version",
+    "synthetic_data_policy",
+    "jsonl_exports",
+    "corpus_non_claims"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "CONTROLLED_PILOT_SYNTHETIC_DRY_RUN_CORPUS_MANIFEST"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "corpus_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "corpus_version": {
+      "const": "v0.1"
+    },
+    "workflow": {
+      "const": "SYNTHETIC_PRIOR_AUTH_DENIAL_INTERNAL_APPEALS_REVIEW"
+    },
+    "synthetic_data_policy": {
+      "type": "object",
+      "required": [
+        "synthetic_only",
+        "contains_no_phi",
+        "contains_no_pii",
+        "contains_no_real_patients",
+        "contains_no_real_members",
+        "contains_no_real_providers",
+        "contains_no_live_source_system_data",
+        "contains_no_real_authorization_workflows"
+      ],
+      "properties": {
+        "synthetic_only": {
+          "const": true
+        },
+        "contains_no_phi": {
+          "const": true
+        },
+        "contains_no_pii": {
+          "const": true
+        },
+        "contains_no_real_patients": {
+          "const": true
+        },
+        "contains_no_real_members": {
+          "const": true
+        },
+        "contains_no_real_providers": {
+          "const": true
+        },
+        "contains_no_live_source_system_data": {
+          "const": true
+        },
+        "contains_no_real_authorization_workflows": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "jsonl_exports": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "export_id",
+          "path",
+          "workflow",
+          "classes",
+          "expected_record_count"
+        ],
+        "properties": {
+          "export_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "workflow": {
+            "const": "SYNTHETIC_PRIOR_AUTH_DENIAL_INTERNAL_APPEALS_REVIEW"
+          },
+          "classes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "CLASS_A_BOUNDED_PRESERVATION",
+                "CLASS_B_INDETERMINATE_UNRESOLVED_POINTER",
+                "CLASS_C_INVALID_BOUNDARY_EXPANSION"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "expected_record_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "corpus_non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}
