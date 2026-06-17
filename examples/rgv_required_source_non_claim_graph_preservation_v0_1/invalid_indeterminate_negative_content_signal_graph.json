@@ -1,0 +1,28 @@
+{
+  "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
+  "graph_id": "INVALID_INDETERMINATE_NEGATIVE_CONTENT_SIGNAL_GRAPH",
+  "nodes": [
+    {
+      "node_id": "RGV_INDETERMINATE_001",
+      "record_type": "RGV_VERIFICATION_RESULT",
+      "result": "INDETERMINATE",
+      "verification_scope": "OPEN_UNRESOLVED_POINTERS"
+    },
+    {
+      "node_id": "CCE_001",
+      "record_type": "CLAIM_CONSUMPTION_EVENT",
+      "consumes_node_id": "RGV_INDETERMINATE_001",
+      "result_consumption": "INDETERMINATE",
+      "downstream_posture": "DOCUMENTATION_RELIABILITY_LOW",
+      "basis": "VERIFICATION_COULD_NOT_CONFIRM_STRUCTURE"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_001",
+      "edge_type": "CLAIM_CONSUMPTION",
+      "source_node_id": "RGV_INDETERMINATE_001",
+      "target_node_id": "CCE_001"
+    }
+  ]
+}

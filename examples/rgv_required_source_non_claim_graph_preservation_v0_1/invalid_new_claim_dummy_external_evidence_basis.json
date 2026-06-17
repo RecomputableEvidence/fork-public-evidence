@@ -1,6 +1,6 @@
 {
   "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
-  "graph_id": "VALID_EXPANSION_WITH_NEW_CLAIM_NODE_GRAPH",
+  "graph_id": "INVALID_NEW_CLAIM_DUMMY_EXTERNAL_EVIDENCE_BASIS",
   "nodes": [
     {
       "node_id": "RGV_PASS_001",
@@ -15,7 +15,7 @@
       "boundary_effect": "EXPANDED",
       "new_claim_node_id": "NEW_CLAIM_001",
       "inferred_claims": [
-        "ADMISSIBILITY_INFERENCE"
+        "LAWFULNESS_CONFIRMED"
       ],
       "preserved_non_claims": [
         "SOURCE_TRUTH_NOT_CLAIMED",
@@ -29,23 +29,17 @@
     {
       "node_id": "NEW_CLAIM_001",
       "record_type": "NEW_CLAIM_NODE",
-      "claim_id": "DOWNSTREAM_ADMISSIBILITY_OPINION_001",
+      "declared_claims": [
+        "LAWFULNESS_CONFIRMED"
+      ],
       "authority_basis": {
         "authority_id": "EXTERNAL_LEGAL_REVIEW_001",
         "authority_type": "EXTERNAL_LEGAL_REVIEW",
-        "authority_ref": "separate_legal_review_authority_record"
+        "authority_ref": "external_legal_review_authority_record"
       },
       "evidence_basis": [
-        {
-          "artifact_id": "LEGAL_REVIEW_MEMO_001",
-          "artifact_type": "EXTERNAL_LEGAL_REVIEW_MEMO",
-          "artifact_ref": "separate_review_memo"
-        },
-        {
-          "artifact_id": "PROCEDURAL_RECORD_001",
-          "artifact_type": "EXTERNAL_PROCEDURAL_RECORD",
-          "artifact_ref": "separate_procedural_record"
-        }
+        "RGV_PASS_001",
+        "local_file_hash_of_empty_text_document"
       ],
       "non_claims": [
         "DOES_NOT_INHERIT_FORK_RGV_SOURCE_TRUTH_AUTHORITY"
@@ -58,12 +52,6 @@
       "edge_type": "CLAIM_CONSUMPTION",
       "source_node_id": "RGV_PASS_001",
       "target_node_id": "CCE_001"
-    },
-    {
-      "edge_id": "EDGE_002",
-      "edge_type": "NEW_CLAIM_REFERENCE",
-      "source_node_id": "CCE_001",
-      "target_node_id": "NEW_CLAIM_001"
     }
   ]
 }

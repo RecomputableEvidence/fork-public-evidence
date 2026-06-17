@@ -110,6 +110,8 @@ PROHIBITED_SEMANTIC_VALUES = {
     "LAWFUL",
     "LAWFULNESS_IMPLIED",
     "LAWFULNESS_DETERMINATION",
+    "LAWFULNESS_CONFIRMED",
+    "ADMISSIBILITY_ESTABLISHED",
     "LEGALLY_COMPLIANT",
     "REGULATORY_CONFORMING",
     "FULLY_COMPLIANT_BY_FORK_PASS",
@@ -142,6 +144,7 @@ PROHIBITED_ALIAS_FRAGMENTS = {
     "LAWFULNESS",
     "LEGAL_CLEARANCE",
     "LEGAL_COMPLIANCE",
+    "LEGAL_BASIS",
     "COMPLIANT_BY_FORK",
     "FULLY_COMPLIANT",
     "COMPLETE_EVIDENCE",
@@ -149,6 +152,9 @@ PROHIBITED_ALIAS_FRAGMENTS = {
     "APPROVED_BY_FORK",
     "CONFIRMED_BY_FORK",
     "VALIDATED_BY_FORK",
+    "PASS_CONFIRMS",
+    "ADMISSIBILITY_ESTABLISHED",
+    "LAWFULNESS_CONFIRMED",
 }
 
 FREE_TEXT_FIELDS_NOT_SCANNED = {
@@ -189,6 +195,105 @@ FORK_PASS_REFERENCE_TOKENS = {
     "FORK_PASS",
     "RGV_VERIFICATION_RESULT",
 }
+
+
+INDETERMINATE_NEGATIVE_VALUES = {
+    "DOCUMENTATION_RELIABILITY_LOW",
+    "DOCUMENTATION_WEAK",
+    "STRUCTURALLY_SUSPICIOUS",
+    "SUSPICIOUS_CONTENT",
+    "UNRELIABLE_CONTENT",
+    "WEAK_EVIDENCE",
+    "TRUTH_NOT_CONFIRMED",
+    "INCOMPLETE_TRUTH_VERIFICATION",
+    "VERIFICATION_COULD_NOT_CONFIRM_STRUCTURE",
+    "CONTENT_NOT_TRUSTWORTHY",
+}
+
+INDETERMINATE_NEGATIVE_FIELDS = {
+    "downstream_posture",
+    "negative_signal",
+    "content_reliability",
+    "basis",
+    "verification_interpretation",
+    "source_result_interpretation",
+    "result_consumption",
+}
+
+MAX_STRUCTURED_METADATA_DEPTH = 8
+MAX_STRUCTURED_METADATA_VALUES = 512
+MAX_AUTHORITY_CHAIN_DEPTH = 6
+
+ALLOWED_STRUCTURED_FIELDS = {
+    "NODE_ID",
+    "ID",
+    "RECORD_ID",
+    "RECORD_TYPE",
+    "CLAIM_ID",
+    "CLAIM_TYPE",
+    "CONSUMES_NODE_ID",
+    "BOUNDARY_EFFECT",
+    "NEW_CLAIM_NODE_ID",
+    "PRESERVED_NON_CLAIMS",
+    "REQUIRED_SOURCE_NON_CLAIMS",
+    "RESULT_NON_CLAIMS",
+    "NON_CLAIMS",
+    "REQUIRED_SOURCE_NON_CLAIM_BUNDLE",
+    "CLAIM_BOUNDARY",
+    "INFERRED_CLAIMS",
+    "DERIVED_CLAIMS",
+    "EXPANDED_CLAIMS",
+    "NEW_CLAIM_CATEGORIES",
+    "DECLARED_CLAIMS",
+    "CLAIMS",
+    "SUPPORTED_CLAIMS",
+    "SEMANTIC_ASSERTIONS",
+    "AUTHORITY_BASIS",
+    "AUTHORITY_REFS",
+    "AUTHORITY",
+    "EVIDENCE_BASIS",
+    "EVIDENCE_REFS",
+    "EVIDENCE",
+    "RELIANCE",
+    "RELIANCE_MODE",
+    "CONSUMPTION_SEMANTICS",
+    "TREATED_AS",
+    "TREATS_SOURCE_RESULT_AS",
+    "ASSERTED_MEANING",
+    "RESULT_MAPPING",
+    "SOURCE_RESULT_MAPPING",
+    "FAILURE_MEANING",
+    "SOURCE_RESULT_INTERPRETATION",
+    "SUMMARY",
+    "NOTES",
+    "DESCRIPTION",
+    "COMMENT",
+    "COMMENTS",
+    "RATIONALE",
+    "HUMAN_READABLE_SUMMARY",
+}
+
+EXTERNAL_EVIDENCE_REQUIRED_KEYS = {
+    "ARTIFACT_ID",
+    "ARTIFACT_REF",
+    "EXTERNAL_ARTIFACT_REF",
+    "URI",
+    "HASH",
+    "PROVENANCE_REF",
+    "ATTESTATION_ID",
+    "RECORD_ID",
+}
+
+EXTERNAL_AUTHORITY_REQUIRED_KEYS = {
+    "AUTHORITY_ID",
+    "AUTHORITY_REF",
+    "SIGNER_ID",
+    "CREDENTIAL_TYPE",
+    "INSTITUTION_ID",
+    "REVIEWER_ID",
+    "AUTHORITY_TYPE",
+}
+
 
 
 def err(code: str, message: str) -> dict[str, str]:
@@ -291,6 +396,166 @@ def truthy_structural_value(value: Any) -> bool:
     if isinstance(value, (list, dict)):
         return bool(value)
     return bool(value)
+
+
+def json_tree_depth(value: Any, depth: int = 0) -> int:
+    if isinstance(value, dict):
+        if not value:
+            return depth
+        return max(json_tree_depth(child, depth + 1) for child in value.values())
+
+    if isinstance(value, list):
+        if not value:
+            return depth
+        return max(json_tree_depth(child, depth + 1) for child in value)
+
+    return depth
+
+
+def json_tree_value_count(value: Any) -> int:
+    if isinstance(value, dict):
+        return 1 + sum(json_tree_value_count(child) for child in value.values())
+
+    if isinstance(value, list):
+        return 1 + sum(json_tree_value_count(child) for child in value)
+
+    return 1
+
+
+def check_structured_metadata_bounds(value: Any, path: list[str]) -> list[dict[str, str]]:
+    errors: list[dict[str, str]] = []
+
+    depth = json_tree_depth(value)
+    if depth > MAX_STRUCTURED_METADATA_DEPTH:
+        errors.append(
+            err(
+                "STRUCTURED_METADATA_DEPTH_EXCEEDED",
+                f"Structured metadata path {'.'.join(path)} exceeds maximum traversal depth {MAX_STRUCTURED_METADATA_DEPTH}",
+            )
+        )
+
+    count = json_tree_value_count(value)
+    if count > MAX_STRUCTURED_METADATA_VALUES:
+        errors.append(
+            err(
+                "STRUCTURED_METADATA_VALUE_LIMIT_EXCEEDED",
+                f"Structured metadata path {'.'.join(path)} exceeds maximum traversal value count {MAX_STRUCTURED_METADATA_VALUES}",
+            )
+        )
+
+    return errors
+
+
+def carries_prohibited_alias(value: Any) -> bool:
+    if isinstance(value, str):
+        return contains_any_fragment(normalize_token(value), PROHIBITED_ALIAS_FRAGMENTS)
+
+    if isinstance(value, bool):
+        return value
+
+    if isinstance(value, list):
+        return any(carries_prohibited_alias(child) for child in value)
+
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if isinstance(key, str) and contains_any_fragment(normalize_token(key), PROHIBITED_ALIAS_FRAGMENTS):
+                if truthy_structural_value(child):
+                    return True
+            if carries_prohibited_alias(child):
+                return True
+
+    return False
+
+
+def structured_reference_has_required_key(value: dict[str, Any], required_keys: set[str]) -> bool:
+    keys = {normalize_token(key) for key in value.keys() if isinstance(key, str)}
+    return bool(keys & required_keys)
+
+
+def is_structured_external_reference(value: Any, source: dict[str, Any], required_keys: set[str]) -> bool:
+    if not isinstance(value, dict):
+        return False
+
+    if not structured_reference_has_required_key(value, required_keys):
+        return False
+
+    if references_fork_pass(value, source):
+        return False
+
+    return True
+
+
+def has_structured_external_evidence(value: Any, source: dict[str, Any]) -> bool:
+    if is_structured_external_reference(value, source, EXTERNAL_EVIDENCE_REQUIRED_KEYS):
+        return True
+
+    if isinstance(value, list):
+        return any(has_structured_external_evidence(child, source) for child in value)
+
+    if isinstance(value, dict):
+        return any(has_structured_external_evidence(child, source) for child in value.values())
+
+    return False
+
+
+def has_structured_external_authority(value: Any, source: dict[str, Any]) -> bool:
+    if is_structured_external_reference(value, source, EXTERNAL_AUTHORITY_REQUIRED_KEYS):
+        return True
+
+    if isinstance(value, list):
+        return any(has_structured_external_authority(child, source) for child in value)
+
+    if isinstance(value, dict):
+        return any(has_structured_external_authority(child, source) for child in value.values())
+
+    return False
+
+
+def authority_fields_for_node(node: dict[str, Any]) -> list[Any]:
+    values: list[Any] = []
+    for field in ("authority_basis", "authority_refs", "authority"):
+        if field in node:
+            values.append(node[field])
+    return values
+
+
+def authority_chain_references_fork_pass(
+    value: Any,
+    source: dict[str, Any],
+    nodes_by_id: dict[str, dict[str, Any]],
+    visited: set[str] | None = None,
+    depth: int = 0,
+) -> bool:
+    if visited is None:
+        visited = set()
+
+    if depth > MAX_AUTHORITY_CHAIN_DEPTH:
+        return True
+
+    if references_fork_pass(value, source):
+        return True
+
+    normalized_nodes = {normalize_token(key): key for key in nodes_by_id.keys()}
+
+    for ref in iter_reference_strings(value):
+        token = normalize_token(ref)
+        node_key = normalized_nodes.get(token)
+        if node_key is None or node_key in visited:
+            continue
+
+        visited.add(node_key)
+        authority_node = nodes_by_id[node_key]
+        for authority_value in authority_fields_for_node(authority_node):
+            if authority_chain_references_fork_pass(
+                authority_value,
+                source,
+                nodes_by_id,
+                visited,
+                depth + 1,
+            ):
+                return True
+
+    return False
 
 
 def extract_non_claim_ids(record: dict[str, Any]) -> list[str]:
@@ -420,7 +685,10 @@ def find_structured_metadata_aliases(node: dict[str, Any]) -> list[dict[str, str
             continue
 
         if key_token in STRUCTURAL_METADATA_ROOT_FIELDS:
-            errors.extend(scan_structured_metadata(value, [key]))
+            bound_errors = check_structured_metadata_bounds(value, [key])
+            errors.extend(bound_errors)
+            if not bound_errors:
+                errors.extend(scan_structured_metadata(value, [key]))
             continue
 
         if contains_any_fragment(key_token, PROHIBITED_ALIAS_FRAGMENTS) and truthy_structural_value(value):
@@ -428,6 +696,15 @@ def find_structured_metadata_aliases(node: dict[str, Any]) -> list[dict[str, str
                 err(
                     "STRUCTURAL_METADATA_CONTRADICTION",
                     f"Structured field {key} carries a prohibited Fork/RGV inference alias",
+                )
+            )
+            continue
+
+        if key_token not in ALLOWED_STRUCTURED_FIELDS and carries_prohibited_alias(value):
+            errors.append(
+                err(
+                    "UNMODELED_STRUCTURED_ALIAS_FIELD",
+                    f"Unmodeled structured field {key} carries a prohibited Fork/RGV inference alias",
                 )
             )
 
@@ -450,7 +727,7 @@ def has_claim_boundary(value: dict[str, Any]) -> bool:
     return False
 
 
-def has_valid_new_claim_node(node: dict[str, Any], nodes_by_id: dict[str, dict[str, Any]]) -> bool:
+def has_valid_new_claim_node(node: dict[str, Any], nodes_by_id: dict[str, dict[str, Any]], source: dict[str, Any]) -> bool:
     claim = get_new_claim_node(node, nodes_by_id)
     if not isinstance(claim, dict):
         return False
@@ -461,7 +738,13 @@ def has_valid_new_claim_node(node: dict[str, Any], nodes_by_id: dict[str, dict[s
     authority_present = bool(authority) if not isinstance(authority, str) else bool(authority.strip())
     evidence_present = bool(evidence) if not isinstance(evidence, str) else bool(evidence.strip())
 
-    return authority_present and evidence_present and has_claim_boundary(claim)
+    return (
+        authority_present
+        and evidence_present
+        and has_claim_boundary(claim)
+        and has_structured_external_authority(authority, source)
+        and has_structured_external_evidence(evidence, source)
+    )
 
 
 def source_reference_tokens(source: dict[str, Any]) -> set[str]:
@@ -512,11 +795,35 @@ def check_new_claim_shadowing(
             )
         )
 
+    if not references_fork_pass(authority, source) and authority_chain_references_fork_pass(authority, source, nodes_by_id):
+        errors.append(
+            err(
+                "FORK_PASS_ROOT_AUTHORITY_CHAIN",
+                f"New claim node {node_id(claim)} authority chain roots back to RGV PASS {node_id(source)}",
+            )
+        )
+
     if references_only_fork_pass(evidence, source):
         errors.append(
             err(
                 "FORK_PASS_SOLE_EVIDENCE_FOR_PROHIBITED_EXPANSION",
                 f"New claim node {node_id(claim)} uses RGV PASS {node_id(source)} as the sole evidence basis for prohibited expansion",
+            )
+        )
+
+    if not has_structured_external_evidence(evidence, source):
+        errors.append(
+            err(
+                "WEAK_EXTERNAL_EVIDENCE_BASIS",
+                f"New claim node {node_id(claim)} lacks a structured non-Fork external evidence reference for prohibited expansion",
+            )
+        )
+
+    if not has_structured_external_authority(authority, source):
+        errors.append(
+            err(
+                "WEAK_EXTERNAL_AUTHORITY_BASIS",
+                f"New claim node {node_id(claim)} lacks a structured non-Fork external authority reference for prohibited expansion",
             )
         )
 
@@ -563,16 +870,7 @@ def check_pass_consumption_preserves_non_claims(
 
     prohibited_expansion = sorted(expansion_tokens & PROHIBITED_SEMANTIC_VALUES)
 
-    if prohibited_expansion and not has_valid_new_claim_node(target, nodes_by_id):
-        for token in prohibited_expansion:
-            errors.append(
-                err(
-                    "UNAUTHORIZED_INFERENCE_EXPANSION",
-                    f"Downstream node {node_id(target)} expands RGV PASS {node_id(source)} into {token} without a new claim node carrying its own authority, evidence, and non-claim boundary",
-                )
-            )
-
-    if prohibited_expansion and has_valid_new_claim_node(target, nodes_by_id):
+    if prohibited_expansion and claim is not None:
         errors.extend(
             check_new_claim_shadowing(
                 source=source,
@@ -581,6 +879,15 @@ def check_pass_consumption_preserves_non_claims(
                 prohibited_expansion=prohibited_expansion,
             )
         )
+
+    if prohibited_expansion and not has_valid_new_claim_node(target, nodes_by_id, source):
+        for token in prohibited_expansion:
+            errors.append(
+                err(
+                    "UNAUTHORIZED_INFERENCE_EXPANSION",
+                    f"Downstream node {node_id(target)} expands RGV PASS {node_id(source)} into {token} without a new claim node carrying its own structured authority, evidence, and non-claim boundary",
+                )
+            )
 
     return errors
 
@@ -610,6 +917,16 @@ def check_indeterminate_not_treated_as_pass(source: dict[str, Any], target: dict
             err(
                 "INDETERMINATE_USED_AS_PROHIBITED_SUPPORT",
                 f"Downstream node {node_id(target)} uses INDETERMINATE source {node_id(source)} as prohibited support for {token}",
+            )
+        )
+
+    negative_tokens = semantic_tokens_for_fields(target, INDETERMINATE_NEGATIVE_FIELDS)
+    negative = sorted(negative_tokens & INDETERMINATE_NEGATIVE_VALUES)
+    for token in negative:
+        errors.append(
+            err(
+                "INDETERMINATE_USED_AS_NEGATIVE_CONTENT_SIGNAL",
+                f"Downstream node {node_id(target)} treats INDETERMINATE source {node_id(source)} as negative content signal {token}",
             )
         )
 
@@ -779,7 +1096,8 @@ def main(argv: list[str]) -> int:
             "This checker does not verify SOURCE_TRUTH.",
             "This checker does not determine factual basis, wholeness, completeness, admissibility, or lawfulness.",
             "This checker enforces downstream preservation of required source non-claim boundaries when consuming RGV PASS results.",
-            "This checker performs structural alias checks over known machine-readable metadata fields but does not perform NLP.",
+            "This checker performs bounded structural alias checks over known machine-readable metadata fields but does not perform NLP.",
+            "This checker requires structured non-Fork authority and evidence references for prohibited semantic expansion.",
             "This checker does not mutate or reinterpret the v0.4 evidentiary-weight profile contract."
         ],
     }

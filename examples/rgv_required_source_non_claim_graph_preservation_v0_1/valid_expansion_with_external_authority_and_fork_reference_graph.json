@@ -32,11 +32,26 @@
       "declared_claims": [
         "ADMISSIBILITY_INFERENCE"
       ],
-      "authority_basis": "External legal review outside Fork/RGV structural verification authority.",
+      "authority_basis": {
+        "authority_id": "EXTERNAL_LEGAL_REVIEW_001",
+        "authority_type": "EXTERNAL_LEGAL_REVIEW",
+        "authority_ref": "external_legal_review_outside_fork_rgv_authority"
+      },
       "evidence_basis": [
-        "RGV_PASS_001",
-        "Separate legal review memo",
-        "Separate procedural record"
+        {
+          "artifact_id": "RGV_PASS_001",
+          "artifact_type": "FORK_RGV_STRUCTURAL_REFERENCE"
+        },
+        {
+          "artifact_id": "LEGAL_REVIEW_MEMO_001",
+          "artifact_type": "EXTERNAL_LEGAL_REVIEW_MEMO",
+          "artifact_ref": "separate_legal_review_memo"
+        },
+        {
+          "artifact_id": "PROCEDURAL_RECORD_001",
+          "artifact_type": "EXTERNAL_PROCEDURAL_RECORD",
+          "artifact_ref": "separate_procedural_record"
+        }
       ],
       "non_claims": [
         "DOES_NOT_INHERIT_FORK_RGV_SOURCE_TRUTH_AUTHORITY"

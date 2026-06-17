@@ -33,6 +33,15 @@ If a downstream CCE or graph-composition node consumes an RGV `PASS`, it must pr
 
 Dropping any required source non-claim during downstream consumption is a graph-preservation defect.
 
+## Structured expansion basis requirements
+
+For prohibited semantic expansion, a new claim node must carry structured non-Fork authority and evidence references.
+
+A bare string, placeholder, local dummy value, empty object, or non-Fork-looking label is not sufficient to establish a structurally valid external evidence basis.
+
+Fork does not validate the substantive adequacy of external evidence. It only requires that the downstream expansion declare external authority and evidence in a structured, inspectable form.
+
+Structural compliance of an expansion node does not mean Fork endorses the quality, correctness, admissibility, lawfulness, completeness, or sufficiency of the downstream claim.
 ## Expansion basis restriction
 
 Fork/RGV PASS may be referenced as structural evidence only.
@@ -69,6 +78,13 @@ A downstream CCE must not treat `FAIL` as source falsity.
 
 `FAIL` means the submitted structure is outside valid Fork/RGV verification semantics. It is not a determination that source material is false, unlawful, inadmissible, incomplete, or factually unsupported.
 
+## Metadata traversal bounds
+
+Structured metadata containers are recursively inspected within bounded traversal limits.
+
+If a structured metadata container exceeds the permitted traversal depth or value count, the checker fails closed rather than silently accepting the graph.
+
+This is a structural traversal-safety rule. It is not natural-language understanding and does not evaluate arbitrary human prose.
 ## Structured metadata alias handling
 
 The checker treats known machine-readable metadata containers as part of the graph-composition surface.
@@ -79,6 +95,19 @@ Localized display labels may be used for human presentation, but they do not rep
 
 This checker does not perform NLP over arbitrary human prose. It performs bounded structural alias detection over known machine-readable fields and enum-like values.
 
+## Authority chain restriction
+
+A new claim node may not hide Fork/RGV PASS behind an intermediate authority node.
+
+If the authority basis for a prohibited semantic expansion roots back to Fork/RGV PASS, the expansion fails graph-preservation validation.
+
+Fork/RGV PASS may be a structural reference. It may not become the root authority for truth, factual-basis confirmation, wholeness, completeness, admissibility, lawfulness, compliance, safety, correctness, institutional approval, or runtime authorization.
+
+## INDETERMINATE negative-signal restriction
+
+`INDETERMINATE` carries no positive or negative content valence.
+
+It may not be used as PASS, provisional PASS, source-truth support, factual support, or as a negative content signal such as unreliability, falsity, suspiciousness, weak evidence, or incomplete truth verification.
 ## INDETERMINATE and FAIL downstream support
 
 `INDETERMINATE` may not be used as support for source truth, factual-basis confirmation, wholeness, completeness, admissibility, lawfulness, compliance, safety, correctness, institutional approval, or runtime authorization.
