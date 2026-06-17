@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/rgv_receipt_envelope_v0_4.schema.json",
+  "title": "RGV Receipt Envelope v0.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "receipt_version",
+    "receipt_id",
+    "subject_artifact_refs",
+    "signed_digest_ref",
+    "signature_ref",
+    "timestamp_anchor_ref",
+    "receipt_non_claims"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "RGV_RECEIPT_ENVELOPE"
+    },
+    "receipt_version": {
+      "const": "0.4"
+    },
+    "receipt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signer_id": {
+      "type": "string"
+    },
+    "signed_at": {
+      "type": "string"
+    },
+    "subject_artifact_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "artifact_type",
+          "artifact_digest"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_digest": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "signed_digest_ref": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "signature_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signature_state"
+      ],
+      "properties": {
+        "signature_state": {
+          "enum": [
+            "ESTABLISHED",
+            "NOT_ESTABLISHED",
+            "NOT_CHECKED"
+          ]
+        },
+        "signature_artifact_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "timestamp_anchor_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp_anchor_state"
+      ],
+      "properties": {
+        "timestamp_anchor_state": {
+          "enum": [
+            "PASS",
+            "NOT_CHECKED",
+            "NOT_ESTABLISHED"
+          ]
+        },
+        "timestamp_anchor_artifact_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "receipt_non_claims": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+    "record_type":  "RGV_EVIDENTIARY_WEIGHT_PROFILE",
+    "profile_version":  "0.4",
+    "profile_scope":  {
+                          "base_rgv_version":  "RGV_v0_3",
+                          "base_graph_bundle_version":  "relational_graph_bundle_v0_3",
+                          "non_breaking_profile":  true
+                      },
+    "verifier_binding":  {
+                             "verifier_name":  "RGV",
+                             "verifier_version":  "RGV_v0_3",
+                             "verifier_version_in_sealed_scope":  true
+                         },
+    "seal_binding":  {
+                         "seal_scope":  "BUNDLE_AND_RESULT_INDEPENDENT",
+                         "seal_algorithm":  "SHA256",
+                         "declared_method":  "SHA256_OVER_RFC8785_JCS_CANONICAL_JSON",
+                         "bundle_digest":  "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                         "result_digest":  "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                         "signer_identity":  {
+                                                 "state":  "NOT_ESTABLISHED",
+                                                 "basis":  "No qualified signer identity binding is asserted by this profile."
+                                             },
+                         "non_repudiation":  {
+                                                 "state":  "NOT_ESTABLISHED",
+                                                 "basis":  "No non-repudiation claim is asserted by this profile."
+                                             }
+                     },
+    "timestamp_anchor_ref":  {
+                                 "timestamp_anchor_state":  "NOT_ESTABLISHED",
+                                 "anchored_digest_scope":  "NOT_ESTABLISHED"
+                             },
+    "provenance_binding":  {
+                               "tier_order_weakest_to_strongest":  [
+                                                                       "UNRESOLVED",
+                                                                       "GENERATED",
+                                                                       "INTERPRETIVE",
+                                                                       "ATTRIBUTED",
+                                                                       "DOCUMENTED"
+                                                                   ],
+                               "cbc_provenance":  [
+                                                      {
+                                                          "cbc_id":  "CBC_DOCUMENTED_SYSTEM_LOG_001",
+                                                          "declared_provenance_tier":  "DOCUMENTED"
+                                                      },
+                                                      {
+                                                          "cbc_id":  "CBC_INTERPRETIVE_REVIEW_SUMMARY_001",
+                                                          "declared_provenance_tier":  "INTERPRETIVE"
+                                                      }
+                                                  ],
+                               "minimum_provenance_tier":  "INTERPRETIVE",
+                               "minimum_rollup_rule":  "BUNDLE_PROVENANCE_CANNOT_EXCEED_LOWEST_CONFIDENCE_CBC_NODE"
+                           },
+    "profile_non_claims":  [
+                               {
+                                   "non_claim_id":  "RGV_V0_4_PROFILE_NON_CLAIM_LEGAL_SUFFICIENCY",
+                                   "statement":  "This profile does not assert legal sufficiency, admissibility, self-authentication, or business-records status."
+                               },
+                               {
+                                   "non_claim_id":  "RGV_V0_4_PROFILE_NON_CLAIM_FRE_902",
+                                   "statement":  "This profile does not assert satisfaction of FRE 902(13) or FRE 902(14) absent a separate qualified certification."
+                               },
+                               {
+                                   "non_claim_id":  "RGV_V0_4_PROFILE_NON_CLAIM_FRE_803_6",
+                                   "statement":  "This profile does not assert satisfaction of FRE 803(6) business-records requirements."
+                               },
+                               {
+                                   "non_claim_id":  "RGV_V0_4_PROFILE_NON_CLAIM_SIGNATURE",
+                                   "statement":  "Signer identity and non-repudiation remain NOT_ESTABLISHED unless separately established."
+                               },
+                               {
+                                   "non_claim_id":  "RGV_V0_4_PROFILE_NON_CLAIM_CANONICALIZATION_IMPLEMENTATION",
+                                   "statement":  "DECLARED canonicalization profile does not by itself prove independent implementation conformance."
+                               }
+                           ]
+}
