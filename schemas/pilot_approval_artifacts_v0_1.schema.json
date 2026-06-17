@@ -1,0 +1,895 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputable-evidence.example/schemas/pilot_approval_artifacts_v0_1.schema.json",
+  "title": "Fork Pilot Approval Artifact Templates v0.1",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/redaction_scope_artifact"
+    },
+    {
+      "$ref": "#/$defs/pilot_canonicalization_record"
+    },
+    {
+      "$ref": "#/$defs/dry_run_approval_artifact"
+    },
+    {
+      "$ref": "#/$defs/written_orientation_artifact"
+    },
+    {
+      "$ref": "#/$defs/validation_receipt"
+    }
+  ],
+  "$defs": {
+    "artifact_non_claim_set": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+          "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_LEGAL_SUFFICIENCY",
+          "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
+          "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
+          "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_SOURCE_TRUTH"
+          }
+        },
+        {
+          "contains": {
+            "const": "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_LEGAL_SUFFICIENCY"
+          }
+        },
+        {
+          "contains": {
+            "const": "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE"
+          }
+        },
+        {
+          "contains": {
+            "const": "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE"
+          }
+        },
+        {
+          "contains": {
+            "const": "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+          }
+        }
+      ]
+    },
+    "orientation_non_claim_set": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "SOURCE_TRUTH_NOT_CERTIFIED",
+          "MEDICAL_CORRECTNESS_NOT_CERTIFIED",
+          "LEGAL_ADMISSIBILITY_NOT_CERTIFIED",
+          "REGULATORY_COMPLIANCE_NOT_CERTIFIED",
+          "LAWFULNESS_NOT_CERTIFIED",
+          "COMPLETENESS_NOT_CERTIFIED",
+          "CLINICAL_APPROPRIATENESS_NOT_CERTIFIED",
+          "INSTITUTIONAL_APPROVAL_NOT_CERTIFIED",
+          "RUNTIME_AUTHORIZATION_NOT_CERTIFIED",
+          "REVIEWER_JUDGMENT_NOT_CERTIFIED",
+          "UTILIZATION_MANAGEMENT_SUFFICIENCY_NOT_CERTIFIED"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "SOURCE_TRUTH_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "MEDICAL_CORRECTNESS_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "LEGAL_ADMISSIBILITY_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "REGULATORY_COMPLIANCE_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "LAWFULNESS_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "COMPLETENESS_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "CLINICAL_APPROPRIATENESS_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "INSTITUTIONAL_APPROVAL_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "RUNTIME_AUTHORIZATION_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "REVIEWER_JUDGMENT_NOT_CERTIFIED"
+          }
+        },
+        {
+          "contains": {
+            "const": "UTILIZATION_MANAGEMENT_SUFFICIENCY_NOT_CERTIFIED"
+          }
+        }
+      ]
+    },
+    "posture_term_set": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "PASS",
+          "FAIL",
+          "INDETERMINATE"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "PASS"
+          }
+        },
+        {
+          "contains": {
+            "const": "FAIL"
+          }
+        },
+        {
+          "contains": {
+            "const": "INDETERMINATE"
+          }
+        }
+      ]
+    },
+    "approval_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_authority_role_or_title",
+        "approval_authority_department",
+        "individual_name"
+      ],
+      "properties": {
+        "approval_authority_role_or_title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approval_authority_department": {
+          "type": "string",
+          "minLength": 1
+        },
+        "individual_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "effective_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pilot_id",
+        "workflow_scope",
+        "source_system_ids",
+        "effective_from",
+        "effective_until"
+      ],
+      "properties": {
+        "pilot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_system_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "effective_from": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "effective_until": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "redaction_scope_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "artifact_id",
+        "artifact_version",
+        "approval_status",
+        "approval_authority",
+        "approval_date",
+        "effective_scope",
+        "redaction_scope",
+        "redaction_execution",
+        "artifact_non_claims"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "REDACTION_SCOPE_ARTIFACT"
+        },
+        "schema_version": {
+          "const": "0.1"
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approval_status": {
+          "enum": [
+            "DRAFT",
+            "APPROVED",
+            "REJECTED",
+            "SUPERSEDED"
+          ]
+        },
+        "approval_authority": {
+          "$ref": "#/$defs/approval_authority"
+        },
+        "approval_date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "effective_scope": {
+          "$ref": "#/$defs/effective_scope"
+        },
+        "redaction_scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "capture_mode",
+            "fields_may_be_exported",
+            "fields_must_be_removed_masked_excluded_or_reference_only",
+            "redaction_sufficiency_determined_by_institution"
+          ],
+          "properties": {
+            "capture_mode": {
+              "const": "REDACTED_CONTENT"
+            },
+            "fields_may_be_exported": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "fields_must_be_removed_masked_excluded_or_reference_only": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "field_name",
+                  "handling",
+                  "reason"
+                ],
+                "properties": {
+                  "field_name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "handling": {
+                    "enum": [
+                      "REMOVED",
+                      "MASKED",
+                      "EXCLUDED",
+                      "REFERENCE_ONLY"
+                    ]
+                  },
+                  "reason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            },
+            "redaction_sufficiency_determined_by_institution": {
+              "const": true
+            }
+          }
+        },
+        "redaction_execution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "redaction_performed_by",
+            "redaction_process_ref",
+            "fork_does_not_perform_redaction_sufficiency_review"
+          ],
+          "properties": {
+            "redaction_performed_by": {
+              "enum": [
+                "SOURCE_SYSTEM",
+                "INSTITUTIONAL_EXPORT_PROCESS",
+                "OTHER_INSTITUTION_APPROVED_PROCESS"
+              ]
+            },
+            "redaction_process_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "fork_does_not_perform_redaction_sufficiency_review": {
+              "const": true
+            }
+          }
+        },
+        "artifact_non_claims": {
+          "$ref": "#/$defs/artifact_non_claim_set"
+        }
+      }
+    },
+    "pilot_canonicalization_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "artifact_id",
+        "artifact_version",
+        "approval_status",
+        "approval_authority",
+        "approval_date",
+        "effective_scope",
+        "hashing",
+        "canonicalization_or_byte_preservation_procedure",
+        "missing_hash_policy",
+        "artifact_non_claims"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "PILOT_CANONICALIZATION_RECORD"
+        },
+        "schema_version": {
+          "const": "0.1"
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approval_status": {
+          "enum": [
+            "DRAFT",
+            "APPROVED",
+            "REJECTED",
+            "SUPERSEDED"
+          ]
+        },
+        "approval_authority": {
+          "$ref": "#/$defs/approval_authority"
+        },
+        "approval_date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "effective_scope": {
+          "$ref": "#/$defs/effective_scope"
+        },
+        "hashing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "hash_algorithm",
+            "canonicalization_profile_id",
+            "hash_computation_party",
+            "hash_scope_values"
+          ],
+          "properties": {
+            "hash_algorithm": {
+              "const": "SHA-256"
+            },
+            "canonicalization_profile_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hash_computation_party": {
+              "type": "string",
+              "minLength": 1
+            },
+            "hash_scope_values": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "SOURCE_ARTIFACT_REFERENCE_TARGET",
+                  "RAW_EXPORT_RECORD_BYTES",
+                  "CANONICALIZED_EXPORT_RECORD",
+                  "SELECTED_FIELDS_ONLY",
+                  "REDACTED_EXCERPT",
+                  "FREE_TEXT_FIELD",
+                  "SOURCE_SYSTEM_RECORD"
+                ]
+              }
+            }
+          }
+        },
+        "canonicalization_or_byte_preservation_procedure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "procedure_type",
+            "steps",
+            "fork_reference_procedure_used",
+            "institution_approved_record_controls"
+          ],
+          "properties": {
+            "procedure_type": {
+              "enum": [
+                "BYTE_PRESERVATION",
+                "CANONICALIZATION",
+                "INSTITUTION_DEFINED"
+              ]
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "fork_reference_procedure_used": {
+              "type": "boolean"
+            },
+            "institution_approved_record_controls": {
+              "const": true
+            }
+          }
+        },
+        "missing_hash_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "allowed_hash_not_available_reasons",
+            "missing_hash_is_structural_limitation_only"
+          ],
+          "properties": {
+            "allowed_hash_not_available_reasons": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "SOURCE_SYSTEM_DID_NOT_EXPORT_HASHABLE_ARTIFACT",
+                  "SOURCE_REFERENCE_UNRESOLVED",
+                  "ARTIFACT_NOT_AVAILABLE_IN_BATCH",
+                  "HASHING_NOT_APPROVED_FOR_SOURCE",
+                  "CANONICALIZATION_NOT_APPROVED",
+                  "FULL_CONTENT_NOT_AVAILABLE",
+                  "REDACTED_CONTENT_NOT_HASHED",
+                  "OTHER_INSTITUTION_DEFINED_REASON"
+                ]
+              }
+            },
+            "missing_hash_is_structural_limitation_only": {
+              "const": true
+            }
+          }
+        },
+        "artifact_non_claims": {
+          "$ref": "#/$defs/artifact_non_claim_set"
+        }
+      }
+    },
+    "dry_run_approval_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "artifact_id",
+        "artifact_version",
+        "approval_status",
+        "approval_authority",
+        "approval_date",
+        "effective_scope",
+        "dry_run",
+        "reviewers",
+        "checks",
+        "authorization",
+        "artifact_non_claims"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "DRY_RUN_APPROVAL_ARTIFACT"
+        },
+        "schema_version": {
+          "const": "0.1"
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approval_status": {
+          "enum": [
+            "DRAFT",
+            "APPROVED",
+            "REJECTED",
+            "SUPERSEDED"
+          ]
+        },
+        "approval_authority": {
+          "$ref": "#/$defs/approval_authority"
+        },
+        "approval_date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "effective_scope": {
+          "$ref": "#/$defs/effective_scope"
+        },
+        "dry_run": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "dry_run_dataset_or_batch_id",
+            "dry_run_date",
+            "manifest_ref",
+            "records_ref",
+            "validation_receipt_ref",
+            "dry_run_summary_ref"
+          ],
+          "properties": {
+            "dry_run_dataset_or_batch_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dry_run_date": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "manifest_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "records_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "validation_receipt_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dry_run_summary_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "reviewers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "technical_sponsor",
+            "privacy_or_security_sponsor"
+          ],
+          "properties": {
+            "technical_sponsor": {
+              "$ref": "#/$defs/approval_authority"
+            },
+            "privacy_or_security_sponsor": {
+              "$ref": "#/$defs/approval_authority"
+            }
+          }
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "batch_processing_verified",
+            "packet_creation_verified",
+            "hashing_or_hash_limitation_handling_verified",
+            "verification_verified",
+            "access_logging_verified",
+            "free_text_scope_signaling_verified",
+            "review_routing_verified",
+            "no_unapproved_source_content_captured"
+          ],
+          "properties": {
+            "batch_processing_verified": {
+              "const": true
+            },
+            "packet_creation_verified": {
+              "const": true
+            },
+            "hashing_or_hash_limitation_handling_verified": {
+              "const": true
+            },
+            "verification_verified": {
+              "const": true
+            },
+            "access_logging_verified": {
+              "const": true
+            },
+            "free_text_scope_signaling_verified": {
+              "const": true
+            },
+            "review_routing_verified": {
+              "const": true
+            },
+            "no_unapproved_source_content_captured": {
+              "const": true
+            }
+          }
+        },
+        "authorization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "live_ingestion_authorized",
+            "authorization_scope",
+            "dry_run_is_required_gate_only"
+          ],
+          "properties": {
+            "live_ingestion_authorized": {
+              "type": "boolean"
+            },
+            "authorization_scope": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dry_run_is_required_gate_only": {
+              "const": true
+            }
+          }
+        },
+        "artifact_non_claims": {
+          "$ref": "#/$defs/artifact_non_claim_set"
+        }
+      }
+    },
+    "written_orientation_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "artifact_id",
+        "artifact_version",
+        "approval_status",
+        "approval_authority",
+        "approval_date",
+        "effective_scope",
+        "orientation_acknowledgment",
+        "posture_terms_acknowledged",
+        "orientation_non_claims_acknowledged",
+        "artifact_non_claims"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "WRITTEN_ORIENTATION_ARTIFACT"
+        },
+        "schema_version": {
+          "const": "0.1"
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approval_status": {
+          "enum": [
+            "DRAFT",
+            "APPROVED",
+            "REJECTED",
+            "SUPERSEDED"
+          ]
+        },
+        "approval_authority": {
+          "$ref": "#/$defs/approval_authority"
+        },
+        "approval_date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "effective_scope": {
+          "$ref": "#/$defs/effective_scope"
+        },
+        "orientation_acknowledgment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "acknowledgment_method",
+            "stakeholder_acknowledgments",
+            "fork_rgv_postures_structural_only"
+          ],
+          "properties": {
+            "acknowledgment_method": {
+              "enum": [
+                "COUNTERSIGNATURE",
+                "APPROVED_PROCUREMENT_WORKFLOW",
+                "WRITTEN_EMAIL_CONFIRMATION",
+                "INSTITUTION_DEFINED_RECORD"
+              ]
+            },
+            "stakeholder_acknowledgments": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "stakeholder_role_or_title",
+                  "department",
+                  "acknowledgment_ref"
+                ],
+                "properties": {
+                  "stakeholder_role_or_title": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "department": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "acknowledgment_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "fork_rgv_postures_structural_only": {
+              "const": true
+            }
+          }
+        },
+        "posture_terms_acknowledged": {
+          "$ref": "#/$defs/posture_term_set"
+        },
+        "orientation_non_claims_acknowledged": {
+          "$ref": "#/$defs/orientation_non_claim_set"
+        },
+        "artifact_non_claims": {
+          "$ref": "#/$defs/artifact_non_claim_set"
+        }
+      }
+    },
+    "validation_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "checked_path",
+        "validation_result",
+        "artifact_count_received",
+        "artifact_count_valid",
+        "artifact_count_invalid",
+        "artifact_types_present",
+        "required_artifact_types_present",
+        "missing_required_artifact_types",
+        "errors",
+        "receipt_non_claims"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "FORK_PILOT_APPROVAL_ARTIFACT_VALIDATION_RECEIPT"
+        },
+        "schema_version": {
+          "const": "0.1"
+        },
+        "checked_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation_result": {
+          "enum": [
+            "ACCEPTED",
+            "ACCEPTED_WITH_LIMITATIONS",
+            "REJECTED_SCHEMA_INVALID",
+            "REJECTED_REQUIRED_ARTIFACTS_MISSING"
+          ]
+        },
+        "artifact_count_received": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "artifact_count_valid": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "artifact_count_invalid": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "artifact_types_present": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required_artifact_types_present": {
+          "type": "boolean"
+        },
+        "missing_required_artifact_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "receipt_non_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

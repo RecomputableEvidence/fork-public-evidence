@@ -1,0 +1,52 @@
+{
+  "record_type": "REDACTION_SCOPE_ARTIFACT",
+  "schema_version": "0.1",
+  "artifact_id": "redaction_scope_001",
+  "artifact_version": "v0.1",
+  "approval_status": "APPROVED",
+  "approval_date": "2026-06-17",
+  "effective_scope": {
+    "pilot_id": "pilot_prior_auth_appeals_v0_1",
+    "workflow_scope": "Prior authorization denial + internal appeals review",
+    "source_system_ids": [
+      "prior_auth_system"
+    ],
+    "effective_from": "2026-06-17",
+    "effective_until": null
+  },
+  "redaction_scope": {
+    "capture_mode": "REDACTED_CONTENT",
+    "fields_may_be_exported": [
+      "workflow_instance_id",
+      "source_artifact_id",
+      "artifact_hash",
+      "claim_boundary",
+      "required_source_non_claims"
+    ],
+    "fields_must_be_removed_masked_excluded_or_reference_only": [
+      {
+        "field_name": "member_name",
+        "handling": "REMOVED",
+        "reason": "Direct identifier excluded from pilot export."
+      },
+      {
+        "field_name": "clinical_narrative",
+        "handling": "REFERENCE_ONLY",
+        "reason": "Free-text content not evaluated by Fork during controlled pilot."
+      }
+    ],
+    "redaction_sufficiency_determined_by_institution": true
+  },
+  "redaction_execution": {
+    "redaction_performed_by": "INSTITUTIONAL_EXPORT_PROCESS",
+    "redaction_process_ref": "institution_redaction_process_ref_001",
+    "fork_does_not_perform_redaction_sufficiency_review": true
+  },
+  "artifact_non_claims": [
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_LEGAL_SUFFICIENCY",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
+    "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
+    "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+  ]
+}

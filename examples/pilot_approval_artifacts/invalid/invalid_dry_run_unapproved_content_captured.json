@@ -1,0 +1,64 @@
+{
+  "record_type": "DRY_RUN_APPROVAL_ARTIFACT",
+  "schema_version": "0.1",
+  "artifact_id": "dry_run_approval_001",
+  "artifact_version": "v0.1",
+  "approval_status": "APPROVED",
+  "approval_authority": {
+    "approval_authority_role_or_title": "Pilot Sponsor",
+    "approval_authority_department": "Operations",
+    "individual_name": null
+  },
+  "approval_date": "2026-06-17",
+  "effective_scope": {
+    "pilot_id": "pilot_prior_auth_appeals_v0_1",
+    "workflow_scope": "Prior authorization denial + internal appeals review",
+    "source_system_ids": [
+      "prior_auth_system"
+    ],
+    "effective_from": "2026-06-17",
+    "effective_until": null
+  },
+  "dry_run": {
+    "dry_run_dataset_or_batch_id": "batch_synthetic_dry_run_001",
+    "dry_run_date": "2026-06-17",
+    "manifest_ref": "examples/nightly_batch_export/valid/valid_synthetic_dry_run_manifest.json",
+    "records_ref": "aligned_synthetic_records.jsonl",
+    "validation_receipt_ref": "fork_batch_validation_receipt_batch_synthetic_dry_run_001.json",
+    "dry_run_summary_ref": "fork_pilot_dry_run_summary_batch_synthetic_dry_run_001.json"
+  },
+  "reviewers": {
+    "technical_sponsor": {
+      "approval_authority_role_or_title": "Technical Sponsor",
+      "approval_authority_department": "Technology",
+      "individual_name": null
+    },
+    "privacy_or_security_sponsor": {
+      "approval_authority_role_or_title": "Privacy or Security Sponsor",
+      "approval_authority_department": "Privacy or Information Security",
+      "individual_name": null
+    }
+  },
+  "checks": {
+    "batch_processing_verified": true,
+    "packet_creation_verified": true,
+    "hashing_or_hash_limitation_handling_verified": true,
+    "verification_verified": true,
+    "access_logging_verified": true,
+    "free_text_scope_signaling_verified": true,
+    "review_routing_verified": true,
+    "no_unapproved_source_content_captured": false
+  },
+  "authorization": {
+    "live_ingestion_authorized": true,
+    "authorization_scope": "Controlled pilot live ingestion for approved source systems and capture modes only.",
+    "dry_run_is_required_gate_only": true
+  },
+  "artifact_non_claims": [
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_LEGAL_SUFFICIENCY",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
+    "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
+    "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+  ]
+}

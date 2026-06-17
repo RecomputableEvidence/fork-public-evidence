@@ -1,0 +1,63 @@
+{
+  "record_type": "WRITTEN_ORIENTATION_ARTIFACT",
+  "schema_version": "0.1",
+  "artifact_id": "written_orientation_001",
+  "artifact_version": "v0.1",
+  "approval_status": "APPROVED",
+  "approval_authority": {
+    "approval_authority_role_or_title": "General Counsel or Delegate",
+    "approval_authority_department": "Legal",
+    "individual_name": null
+  },
+  "approval_date": "2026-06-17",
+  "effective_scope": {
+    "pilot_id": "pilot_prior_auth_appeals_v0_1",
+    "workflow_scope": "Prior authorization denial + internal appeals review",
+    "source_system_ids": [
+      "prior_auth_system"
+    ],
+    "effective_from": "2026-06-17",
+    "effective_until": null
+  },
+  "orientation_acknowledgment": {
+    "acknowledgment_method": "WRITTEN_EMAIL_CONFIRMATION",
+    "stakeholder_acknowledgments": [
+      {
+        "stakeholder_role_or_title": "General Counsel or Delegate",
+        "department": "Legal",
+        "acknowledgment_ref": "orientation_ack_legal_001"
+      },
+      {
+        "stakeholder_role_or_title": "Compliance Sponsor",
+        "department": "Compliance",
+        "acknowledgment_ref": "orientation_ack_compliance_001"
+      }
+    ],
+    "fork_rgv_postures_structural_only": true
+  },
+  "posture_terms_acknowledged": [
+    "PASS",
+    "FAIL",
+    "INDETERMINATE"
+  ],
+  "orientation_non_claims_acknowledged": [
+    "SOURCE_TRUTH_NOT_CERTIFIED",
+    "MEDICAL_CORRECTNESS_NOT_CERTIFIED",
+    "LEGAL_ADMISSIBILITY_NOT_CERTIFIED",
+    "REGULATORY_COMPLIANCE_NOT_CERTIFIED",
+    "LAWFULNESS_NOT_CERTIFIED",
+    "COMPLETENESS_NOT_CERTIFIED",
+    "CLINICAL_APPROPRIATENESS_NOT_CERTIFIED",
+    "INSTITUTIONAL_APPROVAL_NOT_CERTIFIED",
+    "RUNTIME_AUTHORIZATION_NOT_CERTIFIED",
+    "REVIEWER_JUDGMENT_NOT_CERTIFIED",
+    "UTILIZATION_MANAGEMENT_SUFFICIENCY_NOT_CERTIFIED"
+  ],
+  "artifact_non_claims": [
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_LEGAL_SUFFICIENCY",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
+    "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
+    "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+  ]
+}

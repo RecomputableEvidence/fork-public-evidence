@@ -1,0 +1,57 @@
+{
+  "record_type": "PILOT_CANONICALIZATION_RECORD",
+  "schema_version": "0.1",
+  "artifact_id": "canonicalization_record_001",
+  "artifact_version": "v0.1",
+  "approval_status": "APPROVED",
+  "approval_authority": {
+    "approval_authority_role_or_title": "Information Security Sponsor",
+    "approval_authority_department": "Information Security",
+    "individual_name": null
+  },
+  "approval_date": "2026-06-17",
+  "effective_scope": {
+    "pilot_id": "pilot_prior_auth_appeals_v0_1",
+    "workflow_scope": "Prior authorization denial + internal appeals review",
+    "source_system_ids": [
+      "prior_auth_system"
+    ],
+    "effective_from": "2026-06-17",
+    "effective_until": null
+  },
+  "hashing": {
+    "hash_algorithm": "MD5",
+    "canonicalization_profile_id": "institution_approved_profile_001",
+    "hash_computation_party": "INSTITUTION_EXPORT_PROCESS",
+    "hash_scope_values": [
+      "SOURCE_ARTIFACT_REFERENCE_TARGET",
+      "CANONICALIZED_EXPORT_RECORD"
+    ]
+  },
+  "canonicalization_or_byte_preservation_procedure": {
+    "procedure_type": "CANONICALIZATION",
+    "steps": [
+      "Export approved structural fields from approved source systems.",
+      "Serialize JSON with deterministic key order and UTF-8 encoding.",
+      "Normalize line endings to LF.",
+      "Compute SHA-256 over the canonicalized export record."
+    ],
+    "fork_reference_procedure_used": true,
+    "institution_approved_record_controls": true
+  },
+  "missing_hash_policy": {
+    "allowed_hash_not_available_reasons": [
+      "SOURCE_REFERENCE_UNRESOLVED",
+      "CANONICALIZATION_NOT_APPROVED",
+      "OTHER_INSTITUTION_DEFINED_REASON"
+    ],
+    "missing_hash_is_structural_limitation_only": true
+  },
+  "artifact_non_claims": [
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_LEGAL_SUFFICIENCY",
+    "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
+    "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
+    "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+  ]
+}
