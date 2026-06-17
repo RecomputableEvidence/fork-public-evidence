@@ -1,0 +1,23 @@
+{
+  "record_type": "RGV_VERIFICATION_RESULT",
+  "result": "PASS",
+  "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+  "result_non_claims": [
+    {
+      "non_claim_id": "SOURCE_TRUTH_NOT_EVALUATED",
+      "statement": "Non-canonical replacement id; should not satisfy v0.1 required non-claim semantics."
+    },
+    {
+      "non_claim_id": "UPSTREAM_WHOLENESS_NOT_EVALUATED",
+      "statement": "Non-canonical replacement id; should not satisfy v0.1 required non-claim semantics."
+    },
+    {
+      "non_claim_id": "ADMISSIBILITY_NOT_CLAIMED",
+      "statement": "Non-canonical replacement id; should not satisfy v0.1 required non-claim semantics."
+    },
+    {
+      "non_claim_id": "LAWFULNESS_NOT_EVALUATED",
+      "statement": "Non-canonical replacement id; should not satisfy v0.1 required non-claim semantics."
+    }
+  ]
+}

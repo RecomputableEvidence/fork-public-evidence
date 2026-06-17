@@ -1,0 +1,17 @@
+{
+  "record_type": "RGV_VERIFICATION_RESULT",
+  "result": "FAIL",
+  "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+  "errors": [
+    {
+      "code": "EXAMPLE_FAILURE",
+      "message": "Example failure result with prohibited source-truth assertion."
+    }
+  ],
+  "source_truth_assertions": [
+    {
+      "assertion_id": "SOURCE_TRUTH_CONFIRMED",
+      "statement": "The source material is factually true."
+    }
+  ]
+}

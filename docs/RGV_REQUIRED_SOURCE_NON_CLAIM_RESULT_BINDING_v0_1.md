@@ -54,14 +54,29 @@ An RGV `PASS` result is invalid if it:
 - states completeness;
 - infers admissibility;
 - implies lawfulness;
-- declares a verification scope that includes source truth.
+- declares a erification_scope value that is or contains a source-truth reference.
 
 ## Expansion rule
 
-If a downstream system needs to assert truth, factual basis, wholeness, completeness, admissibility, or lawfulness, it must introduce a new claim node with explicit authority, evidence basis, and its own non-claims.
+If a downstream system needs to assert truth, factual basis, wholeness, completeness, admissibility, or lawfulness, it must introduce a new claim node with its own explicit authority basis, evidence basis, and non-claims.
 
 That new claim node does not inherit RGV structural authority.
 
+## INDETERMINATE posture
+
+`INDETERMINATE` results are not RGV `PASS` results and are not required by this binding to carry the required source non-claim bundle.
+
+Downstream consumers must not treat `INDETERMINATE` as an approximate, pending, partial, or implied `PASS`.
+
+An `INDETERMINATE` result does not authorize source-truth inference, factual-basis confirmation, wholeness assertion, completeness statement, admissibility inference, lawfulness implication, runtime authorization, compliance reliance, or institutional approval.
+
+## Free-text limitation
+
+This binding checker validates structural fields and known prohibited assertion fields.
+
+It does not scan arbitrary free-text fields such as `summary`, `notes`, `description`, or human-authored prose for implied truth assertions.
+
+Implementers are responsible for ensuring free-text content in result records remains consistent with the required source non-claims.
 ## Checker scope
 
 `tools/check_rgv_result_required_source_non_claim_binding_v0_1.py` validates deterministic RGV result-semantics constraints only.

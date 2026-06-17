@@ -13,7 +13,7 @@
     },
     {
       "non_claim_id": "WHOLENESS_NOT_ASSERTED",
-      "statement": "RGV does not assert that the verified graph represents the whole factual, operational, legal, or institutional context."
+      "statement": "RGV does not assert that the graph that passed structural verification represents the whole factual, operational, legal, or institutional context."
     },
     {
       "non_claim_id": "COMPLETENESS_NOT_STATED",
