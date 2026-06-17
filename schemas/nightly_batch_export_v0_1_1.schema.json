@@ -1,0 +1,891 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputable-evidence.example/schemas/nightly_batch_export_v0_1_1.schema.json",
+  "title": "Fork Nightly Batch Export / Append-Only Drop Schema v0.1.1",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/manifest"
+    },
+    {
+      "$ref": "#/$defs/record"
+    },
+    {
+      "$ref": "#/$defs/validation_receipt"
+    }
+  ],
+  "$defs": {
+    "required_source_non_claim_set": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "SOURCE_TRUTH_NOT_CLAIMED",
+          "FACTUAL_BASIS_NOT_CONFIRMED",
+          "WHOLENESS_NOT_ASSERTED",
+          "COMPLETENESS_NOT_STATED",
+          "ADMISSIBILITY_NOT_INFERRED",
+          "LAWFULNESS_NOT_IMPLIED"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "SOURCE_TRUTH_NOT_CLAIMED"
+          }
+        },
+        {
+          "contains": {
+            "const": "FACTUAL_BASIS_NOT_CONFIRMED"
+          }
+        },
+        {
+          "contains": {
+            "const": "WHOLENESS_NOT_ASSERTED"
+          }
+        },
+        {
+          "contains": {
+            "const": "COMPLETENESS_NOT_STATED"
+          }
+        },
+        {
+          "contains": {
+            "const": "ADMISSIBILITY_NOT_INFERRED"
+          }
+        },
+        {
+          "contains": {
+            "const": "LAWFULNESS_NOT_IMPLIED"
+          }
+        }
+      ]
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "batch_id",
+        "pilot_id",
+        "pilot_phase",
+        "export_timestamp",
+        "export_mode",
+        "capture_mode",
+        "deployment_location",
+        "source_systems",
+        "delivery",
+        "approval_artifacts",
+        "hashing",
+        "content_policy",
+        "batch_counts"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "FORK_NIGHTLY_BATCH_MANIFEST"
+        },
+        "schema_version": {
+          "const": "0.1.1"
+        },
+        "batch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pilot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pilot_phase": {
+          "enum": [
+            "SYNTHETIC_DRY_RUN",
+            "REDACTED_DRY_RUN",
+            "LIVE_PILOT",
+            "POST_PILOT_REPLAY"
+          ]
+        },
+        "export_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "export_mode": {
+          "enum": [
+            "NIGHTLY_BATCH_EXPORT",
+            "ONE_TIME_BATCH_EXPORT",
+            "CORRECTIVE_BATCH_EXPORT"
+          ]
+        },
+        "capture_mode": {
+          "enum": [
+            "HASH_REFERENCE_ONLY",
+            "REDACTED_CONTENT",
+            "FULL_CONTENT_EXCEPTION"
+          ]
+        },
+        "deployment_location": {
+          "enum": [
+            "INSTITUTION_CONTROLLED",
+            "FORK_HOSTED_APPROVED_EXCEPTION",
+            "EXTERNALLY_MANAGED_APPROVED_EXCEPTION"
+          ]
+        },
+        "source_systems": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_system"
+          }
+        },
+        "delivery": {
+          "$ref": "#/$defs/delivery"
+        },
+        "approval_artifacts": {
+          "$ref": "#/$defs/approval_artifacts"
+        },
+        "hashing": {
+          "$ref": "#/$defs/hashing_policy"
+        },
+        "content_policy": {
+          "$ref": "#/$defs/content_policy"
+        },
+        "batch_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "record_count"
+          ],
+          "properties": {
+            "record_count": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "batch_id",
+        "record_id",
+        "workflow",
+        "source",
+        "hash",
+        "event",
+        "claim_boundary",
+        "free_text",
+        "relationships",
+        "content_exception"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "FORK_NIGHTLY_BATCH_RECORD"
+        },
+        "schema_version": {
+          "const": "0.1.1"
+        },
+        "batch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow": {
+          "$ref": "#/$defs/workflow"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "event": {
+          "$ref": "#/$defs/event"
+        },
+        "claim_boundary": {
+          "$ref": "#/$defs/claim_boundary"
+        },
+        "free_text": {
+          "$ref": "#/$defs/free_text"
+        },
+        "relationships": {
+          "$ref": "#/$defs/relationships"
+        },
+        "content_exception": {
+          "$ref": "#/$defs/content_exception"
+        }
+      }
+    },
+    "validation_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "batch_id",
+        "processed_timestamp",
+        "batch_result",
+        "record_count_received",
+        "record_count_accepted",
+        "record_count_excluded",
+        "record_count_failed_schema",
+        "record_count_missing_hash",
+        "record_count_unknown_source",
+        "receipt_non_claims",
+        "errors",
+        "limitations"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "FORK_BATCH_VALIDATION_RECEIPT"
+        },
+        "schema_version": {
+          "const": "0.1.1"
+        },
+        "batch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "processed_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "batch_result": {
+          "enum": [
+            "ACCEPTED",
+            "ACCEPTED_WITH_LIMITATIONS",
+            "REJECTED_SCHEMA_INVALID",
+            "REJECTED_UNAPPROVED_SOURCE",
+            "REJECTED_UNAPPROVED_CONTENT",
+            "REJECTED_CANONICALIZATION_MISSING",
+            "REJECTED_DRY_RUN_APPROVAL_MISSING"
+          ]
+        },
+        "record_count_received": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record_count_accepted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record_count_excluded": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record_count_failed_schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record_count_missing_hash": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record_count_unknown_source": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "receipt_non_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "source_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_system_id",
+        "source_system_type",
+        "approved_source"
+      ],
+      "properties": {
+        "source_system_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_system_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_system_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approved_source": {
+          "type": "boolean"
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "delivery_method",
+        "delivery_location_id",
+        "delivery_timestamp"
+      ],
+      "properties": {
+        "delivery_method": {
+          "enum": [
+            "APPEND_ONLY_DROP",
+            "SECURE_FILE_TRANSFER",
+            "OBJECT_STORE_DROP",
+            "INSTITUTION_APPROVED_EXPORT_LOCATION"
+          ]
+        },
+        "delivery_location_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "delivery_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "approval_artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "redaction_scope_artifact_id",
+        "pilot_canonicalization_record_id",
+        "dry_run_approval_artifact_id"
+      ],
+      "properties": {
+        "redaction_scope_artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pilot_canonicalization_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dry_run_approval_artifact_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "hashing_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hash_algorithm",
+        "canonicalization_profile_id",
+        "hash_computation_party"
+      ],
+      "properties": {
+        "hash_algorithm": {
+          "const": "SHA-256"
+        },
+        "canonicalization_profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hash_computation_party": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "content_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_source_content_included",
+        "redacted_content_included",
+        "free_text_evaluated_by_fork",
+        "nlp_scope",
+        "free_text_scope"
+      ],
+      "properties": {
+        "full_source_content_included": {
+          "type": "boolean"
+        },
+        "redacted_content_included": {
+          "type": "boolean"
+        },
+        "free_text_evaluated_by_fork": {
+          "const": false
+        },
+        "nlp_scope": {
+          "const": "NOT_EVALUATED"
+        },
+        "free_text_scope": {
+          "const": "NOT_EVALUATED_FOR_INFERENCE"
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workflow_instance_id",
+        "workflow_type",
+        "workflow_stage"
+      ],
+      "properties": {
+        "workflow_instance_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_stage": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_system_id",
+        "source_record_id",
+        "source_artifact_id",
+        "source_artifact_type",
+        "source_artifact_reference",
+        "source_artifact_timestamp"
+      ],
+      "properties": {
+        "source_system_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_artifact_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_artifact_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_artifact_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "hash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hash_algorithm",
+        "hash_value",
+        "hash_scope",
+        "canonicalization_profile_id",
+        "hash_not_available_reason"
+      ],
+      "properties": {
+        "hash_algorithm": {
+          "const": "SHA-256"
+        },
+        "hash_value": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "hash_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonicalization_profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hash_not_available_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "hash_value": {
+              "type": "string",
+              "pattern": "^[A-Fa-f0-9]{64}$"
+            },
+            "hash_not_available_reason": {
+              "const": null
+            }
+          }
+        },
+        {
+          "properties": {
+            "hash_value": {
+              "const": null
+            },
+            "hash_not_available_reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed_event_type",
+        "event_timestamp",
+        "actor_role",
+        "actor_identifier_mode",
+        "actor_identifier"
+      ],
+      "properties": {
+        "observed_event_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "actor_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor_identifier_mode": {
+          "enum": [
+            "ROLE_ONLY",
+            "PSEUDONYMIZED",
+            "HASHED_IDENTIFIER",
+            "SYSTEM_ONLY",
+            "NOT_EXPORTED"
+          ]
+        },
+        "actor_identifier": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supported_claims",
+        "required_source_non_claims",
+        "verification_scope"
+      ],
+      "properties": {
+        "supported_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/supported_claim"
+          }
+        },
+        "required_source_non_claims": {
+          "$ref": "#/$defs/required_source_non_claim_set"
+        },
+        "verification_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "supported_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "claim_text",
+        "claim_scope"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "free_text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "free_text_present",
+        "free_text_exported",
+        "free_text_reference",
+        "free_text_hash",
+        "nlp_scope",
+        "free_text_scope"
+      ],
+      "properties": {
+        "free_text_present": {
+          "type": "boolean"
+        },
+        "free_text_exported": {
+          "type": "boolean"
+        },
+        "free_text_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "free_text_hash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "nlp_scope": {
+          "const": "NOT_EVALUATED"
+        },
+        "free_text_scope": {
+          "const": "NOT_EVALUATED_FOR_INFERENCE"
+        }
+      }
+    },
+    "relationships": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parent_record_ids",
+        "source_artifact_refs",
+        "downstream_artifact_refs",
+        "claim_consumption_events"
+      ],
+      "properties": {
+        "parent_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_artifact_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downstream_artifact_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claim_consumption_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim_consumption_event"
+          }
+        }
+      }
+    },
+    "claim_consumption_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consumption_event_id",
+        "consumer_artifact_ref",
+        "consumed_record_id",
+        "boundary_effect",
+        "preserved_non_claims",
+        "new_claim_node_ref",
+        "institutional_authority_ref",
+        "evidence_basis_refs"
+      ],
+      "properties": {
+        "consumption_event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consumer_artifact_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consumed_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary_effect": {
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "EXPANDED",
+            "REJECTED",
+            "UNRESOLVED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "preserved_non_claims": {
+          "$ref": "#/$defs/required_source_non_claim_set"
+        },
+        "new_claim_node_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "institutional_authority_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_basis_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "boundary_effect": {
+                "const": "EXPANDED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "new_claim_node_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "institutional_authority_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_basis_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "content_exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_source_content_included",
+        "redacted_content_included",
+        "full_content_exception_id",
+        "redaction_scope_artifact_id"
+      ],
+      "properties": {
+        "full_source_content_included": {
+          "type": "boolean"
+        },
+        "redacted_content_included": {
+          "type": "boolean"
+        },
+        "full_content_exception_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "redaction_scope_artifact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "redacted_content_included": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "redaction_scope_artifact_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "full_source_content_included": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "full_content_exception_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
