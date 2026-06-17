@@ -1,0 +1,31 @@
+{
+  "record_type": "REQUIRED_SOURCE_NON_CLAIM_BUNDLE",
+  "bundle_version": "0.1",
+  "bundle_scope": "FORK_SOURCE_ARTIFACTS_AND_RGV_RESULTS",
+  "required_non_claims": [
+    {
+      "non_claim_id": "SOURCE_TRUTH_NOT_CLAIMED",
+      "statement": ""
+    },
+    {
+      "non_claim_id": "FACTUAL_BASIS_NOT_CONFIRMED",
+      "statement": "Fork does not independently confirm factual basis."
+    },
+    {
+      "non_claim_id": "WHOLENESS_NOT_ASSERTED",
+      "statement": "Fork does not assert wholeness."
+    },
+    {
+      "non_claim_id": "COMPLETENESS_NOT_STATED",
+      "statement": "Fork does not state completeness."
+    },
+    {
+      "non_claim_id": "ADMISSIBILITY_NOT_INFERRED",
+      "statement": "Fork does not infer admissibility."
+    },
+    {
+      "non_claim_id": "LAWFULNESS_NOT_IMPLIED",
+      "statement": "Fork does not imply lawfulness."
+    }
+  ]
+}

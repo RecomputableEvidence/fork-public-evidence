@@ -1,0 +1,27 @@
+{
+  "record_type": "REQUIRED_SOURCE_NON_CLAIM_BUNDLE",
+  "bundle_version": "0.1",
+  "bundle_scope": "FORK_SOURCE_ARTIFACTS_AND_RGV_RESULTS",
+  "required_non_claims": [
+    {
+      "non_claim_id": "FACTUAL_BASIS_NOT_CONFIRMED",
+      "statement": "Fork does not independently confirm the factual basis underlying any source claim, upstream record, external attestation, human statement, model output, system log, or referenced evidence."
+    },
+    {
+      "non_claim_id": "WHOLENESS_NOT_ASSERTED",
+      "statement": "Fork does not assert that the preserved record represents the whole factual, operational, legal, or institutional context."
+    },
+    {
+      "non_claim_id": "COMPLETENESS_NOT_STATED",
+      "statement": "Fork does not state that all relevant evidence, records, sources, reviews, approvals, risks, omissions, or dependencies have been captured."
+    },
+    {
+      "non_claim_id": "ADMISSIBILITY_NOT_INFERRED",
+      "statement": "Fork structural verification does not imply legal admissibility, self-authentication, business-records status, or satisfaction of evidentiary rules."
+    },
+    {
+      "non_claim_id": "LAWFULNESS_NOT_IMPLIED",
+      "statement": "Fork does not imply that any source action, workflow, output, decision, deployment, review, approval, reliance, or downstream use was lawful."
+    }
+  ]
+}
