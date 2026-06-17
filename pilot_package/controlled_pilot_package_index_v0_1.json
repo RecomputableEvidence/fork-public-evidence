@@ -1,0 +1,149 @@
+{
+  "record_type": "FORK_CONTROLLED_PILOT_PACKAGE_INDEX",
+  "schema_version": "0.1",
+  "package_id": "controlled_pilot_package_v0_1",
+  "package_name": "Fork Controlled Pilot Readiness Package",
+  "package_scope": "Prior authorization denial + internal appeals controlled pilot readiness package.",
+  "package_components": [
+    {
+      "component_id": "executive_summary",
+      "component_type": "DOCUMENT",
+      "path": "docs/FORK_CONTROLLED_PILOT_EXECUTIVE_SUMMARY_v0_1_2.md",
+      "required": true
+    },
+    {
+      "component_id": "controlled_pilot_ingestion_framing",
+      "component_type": "DOCUMENT",
+      "path": "docs/CONTROLLED_PILOT_INGESTION_FRAMING_v0_2.md",
+      "required": true
+    },
+    {
+      "component_id": "pilot_data_handling_schedule",
+      "component_type": "DOCUMENT",
+      "path": "docs/PILOT_DATA_HANDLING_SCHEDULE_v0_1_4.md",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_schema_doc",
+      "component_type": "DOCUMENT",
+      "path": "docs/NIGHTLY_BATCH_EXPORT_APPEND_ONLY_DROP_SCHEMA_v0_1_1.md",
+      "required": true
+    },
+    {
+      "component_id": "pilot_dry_run_harness_doc",
+      "component_type": "DOCUMENT",
+      "path": "docs/PILOT_DRY_RUN_HARNESS_v0_1.md",
+      "required": true
+    },
+    {
+      "component_id": "pilot_approval_templates_doc",
+      "component_type": "DOCUMENT",
+      "path": "docs/PILOT_APPROVAL_ARTIFACT_TEMPLATES_v0_1.md",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_schema",
+      "component_type": "JSON_SCHEMA",
+      "path": "schemas/nightly_batch_export_v0_1_1.schema.json",
+      "required": true
+    },
+    {
+      "component_id": "pilot_approval_artifacts_schema",
+      "component_type": "JSON_SCHEMA",
+      "path": "schemas/pilot_approval_artifacts_v0_1.schema.json",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_checker",
+      "component_type": "CHECKER",
+      "path": "tools/check_nightly_batch_export.py",
+      "required": true
+    },
+    {
+      "component_id": "pilot_dry_run_harness",
+      "component_type": "CHECKER",
+      "path": "tools/run_pilot_dry_run.py",
+      "required": true
+    },
+    {
+      "component_id": "pilot_approval_artifact_checker",
+      "component_type": "CHECKER",
+      "path": "tools/check_pilot_approval_artifacts.py",
+      "required": true
+    },
+    {
+      "component_id": "approval_artifact_templates",
+      "component_type": "TEMPLATE_DIRECTORY",
+      "path": "templates/pilot_approval_artifacts",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_valid_fixtures",
+      "component_type": "FIXTURE_DIRECTORY",
+      "path": "examples/nightly_batch_export/valid",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_invalid_fixtures",
+      "component_type": "FIXTURE_DIRECTORY",
+      "path": "examples/nightly_batch_export/invalid",
+      "required": true
+    },
+    {
+      "component_id": "pilot_approval_invalid_fixtures",
+      "component_type": "FIXTURE_DIRECTORY",
+      "path": "examples/pilot_approval_artifacts/invalid",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_schema_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_nightly_batch_export_schema_v0_1_1.py",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_checker_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_nightly_batch_export_checker_v0_1_1.py",
+      "required": true
+    },
+    {
+      "component_id": "nightly_batch_receipt_schema_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_nightly_batch_export_receipt_schema_v0_1_1.py",
+      "required": true
+    },
+    {
+      "component_id": "pilot_dry_run_harness_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_pilot_dry_run_harness_v0_1.py",
+      "required": true
+    },
+    {
+      "component_id": "pilot_approval_schema_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_pilot_approval_artifacts_schema_v0_1.py",
+      "required": true
+    },
+    {
+      "component_id": "pilot_approval_checker_tests",
+      "component_type": "TEST_FILE",
+      "path": "tests/test_pilot_approval_artifacts_checker_v0_1.py",
+      "required": true
+    }
+  ],
+  "readiness_non_claims": [
+    "READINESS_GATE_DOES_NOT_AUTHORIZE_LIVE_INGESTION",
+    "READINESS_GATE_DOES_NOT_CERTIFY_PRODUCTION_READINESS",
+    "READINESS_GATE_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "READINESS_GATE_DOES_NOT_CERTIFY_COMPLETENESS",
+    "READINESS_GATE_DOES_NOT_CERTIFY_LEGAL_ADMISSIBILITY",
+    "READINESS_GATE_DOES_NOT_CERTIFY_LAWFULNESS",
+    "READINESS_GATE_DOES_NOT_CERTIFY_REGULATORY_COMPLIANCE",
+    "READINESS_GATE_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
+    "READINESS_GATE_DOES_NOT_CERTIFY_MEDICAL_CORRECTNESS",
+    "READINESS_GATE_DOES_NOT_CERTIFY_CLINICAL_APPROPRIATENESS",
+    "READINESS_GATE_DOES_NOT_CERTIFY_UTILIZATION_MANAGEMENT_SUFFICIENCY",
+    "READINESS_GATE_DOES_NOT_REPLACE_INSTITUTIONAL_APPROVAL"
+  ]
+}
