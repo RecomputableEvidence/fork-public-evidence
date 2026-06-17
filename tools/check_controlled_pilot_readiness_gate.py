@@ -201,9 +201,9 @@ def build_receipt(
     present_count = sum(1 for c in component_checks if c["status"] == "PRESENT")
     failed_integration = [check for check in checks if check["status"] != "PASS"]
 
-    gate_result = "CONTROLLED_PILOT_PACKAGE_READY"
+    gate_result = "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY"
     if missing_components or failed_integration or errors:
-        gate_result = "CONTROLLED_PILOT_PACKAGE_FAILED"
+        gate_result = "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_INCOMPLETE"
 
     return {
         "record_type": "FORK_CONTROLLED_PILOT_READINESS_RECEIPT",
@@ -219,6 +219,13 @@ def build_receipt(
         "integration_checks": checks,
         "errors": errors,
         "readiness_non_claims": READINESS_NON_CLAIMS,
+        "live_ingestion_authorization": {
+            "authorization_state": "NOT_ASSERTED_BY_FORK",
+            "fork_issued_live_ingestion_authorization": False,
+            "external_institutional_authorization_required": True,
+            "institutional_live_ingestion_authorization_ref": None,
+            "fork_does_not_validate_external_authorization_sufficiency": True,
+        },
     }
 
 
@@ -304,7 +311,7 @@ def main() -> int:
     else:
         sys.stdout.write(output)
 
-    return 0 if receipt["gate_result"] == "CONTROLLED_PILOT_PACKAGE_READY" else 1
+    return 0 if receipt["gate_result"] == "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY" else 1
 
 
 if __name__ == "__main__":

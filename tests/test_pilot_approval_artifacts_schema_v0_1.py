@@ -35,7 +35,7 @@ def assert_invalid(obj: dict) -> None:
 
 def test_all_templates_conform_to_schema() -> None:
     template_paths = sorted(TEMPLATE_DIR.glob("*.json"))
-    assert len(template_paths) == 4
+    assert len(template_paths) == 5
     for template_path in template_paths:
         assert_valid(load_json(template_path))
 
@@ -54,3 +54,19 @@ def test_rejects_dry_run_unapproved_content_captured() -> None:
 
 def test_rejects_orientation_missing_non_claim() -> None:
     assert_invalid(load_json(INVALID_DIR / "invalid_orientation_missing_non_claim.json"))
+
+
+def test_rejects_dry_run_retained_authority_false() -> None:
+    assert_invalid(load_json(INVALID_DIR / "invalid_dry_run_retained_authority_false.json"))
+
+
+def test_rejects_live_authorization_boundary_false() -> None:
+    assert_invalid(load_json(INVALID_DIR / "invalid_live_authorization_boundary_false.json"))
+
+
+def test_rejects_orientation_missing_retained_authority() -> None:
+    assert_invalid(load_json(INVALID_DIR / "invalid_orientation_missing_retained_authority.json"))
+
+
+def test_live_ingestion_external_reference_template_conforms_to_schema() -> None:
+    assert_valid(load_json(TEMPLATE_DIR / "live_ingestion_authorization_external_reference_v0_1.template.json"))

@@ -1,7 +1,7 @@
 {
   "record_type": "WRITTEN_ORIENTATION_ARTIFACT",
   "schema_version": "0.1",
-  "artifact_id": "written_orientation_001",
+  "artifact_id": "invalid_orientation_missing_retained_authority",
   "artifact_version": "v0.1",
   "approval_status": "APPROVED",
   "approval_authority": {
@@ -59,13 +59,5 @@
     "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
     "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
     "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
-  ],
-  "institutional_retained_authority_acknowledgment": {
-    "fork_is_not_decision_authority": true,
-    "institution_retains_clinical_authority": true,
-    "institution_retains_compliance_authority": true,
-    "institution_retains_legal_authority": true,
-    "institution_retains_operational_authority": true,
-    "institution_retains_utilization_management_authority": true
-  }
+  ]
 }

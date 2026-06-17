@@ -104,7 +104,8 @@
         "component_checks",
         "integration_checks",
         "errors",
-        "readiness_non_claims"
+        "readiness_non_claims",
+        "live_ingestion_authorization"
       ],
       "properties": {
         "record_type": {
@@ -123,8 +124,8 @@
         },
         "gate_result": {
           "enum": [
-            "CONTROLLED_PILOT_PACKAGE_READY",
-            "CONTROLLED_PILOT_PACKAGE_FAILED"
+            "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY",
+            "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_INCOMPLETE"
           ]
         },
         "component_count_required": {
@@ -165,6 +166,9 @@
         },
         "readiness_non_claims": {
           "$ref": "#/$defs/readiness_non_claim_set"
+        },
+        "live_ingestion_authorization": {
+          "$ref": "#/$defs/live_ingestion_authorization_boundary"
         }
       }
     },
@@ -329,6 +333,34 @@
           }
         }
       ]
+    },
+    "live_ingestion_authorization_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorization_state",
+        "fork_issued_live_ingestion_authorization",
+        "external_institutional_authorization_required",
+        "institutional_live_ingestion_authorization_ref",
+        "fork_does_not_validate_external_authorization_sufficiency"
+      ],
+      "properties": {
+        "authorization_state": {
+          "const": "NOT_ASSERTED_BY_FORK"
+        },
+        "fork_issued_live_ingestion_authorization": {
+          "const": false
+        },
+        "external_institutional_authorization_required": {
+          "const": true
+        },
+        "institutional_live_ingestion_authorization_ref": {
+          "const": null
+        },
+        "fork_does_not_validate_external_authorization_sufficiency": {
+          "const": true
+        }
+      }
     }
   }
 }

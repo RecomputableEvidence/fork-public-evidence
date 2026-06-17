@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the four named approval artifacts required to support a controlled Fork pilot before live ingestion begins.
+This document defines the five named approval artifacts required to support a controlled Fork pilot before live ingestion begins.
 
 These artifacts complete the controlled pilot paper trail:
 
@@ -76,3 +76,12 @@ Approval artifacts do not certify:
 - replacement of audit trails, legal holds, discovery processes, regulator-facing documentation, appeal processes, or utilization-management processes.
 
 Fork preserves structural evidence boundaries. The institution remains responsible for legal, privacy, security, clinical, compliance, operational, and records-governance determinations.
+
+
+## Seam-hardening artifact
+
+### 5. Live-Ingestion Authorization External Reference
+
+Names the external live-ingestion authorization boundary.
+
+Fork may validate that the boundary is present and that it states Fork cannot issue or validate live-ingestion authorization. Fork does not issue the authorization, validate its legal sufficiency, validate its clinical sufficiency, validate its compliance sufficiency, or determine whether live ingestion should proceed.

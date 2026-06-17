@@ -29,8 +29,8 @@ def test_checker_accepts_complete_template_set() -> None:
     receipt = checker.validate_path(TEMPLATE_DIR, require_complete_set=True)
 
     assert receipt["validation_result"] == "ACCEPTED"
-    assert receipt["artifact_count_received"] == 4
-    assert receipt["artifact_count_valid"] == 4
+    assert receipt["artifact_count_received"] == 5
+    assert receipt["artifact_count_valid"] == 5
     assert receipt["artifact_count_invalid"] == 0
     assert receipt["required_artifact_types_present"] is True
 
@@ -74,3 +74,24 @@ def test_checker_emitted_receipt_conforms_to_schema() -> None:
     errors = list(validator.iter_errors(receipt))
 
     assert errors == []
+
+
+def test_checker_rejects_dry_run_hash_mismatch() -> None:
+    checker = load_checker()
+    receipt = checker.validate_path(INVALID_DIR / "invalid_dry_run_receipt_hash_mismatch.json")
+
+    assert receipt["validation_result"] == "REJECTED_SCHEMA_INVALID"
+    assert receipt["artifact_count_invalid"] == 1
+    assert receipt["errors"][0]["code"] == "DRY_RUN_OUTPUT_BINDING_INVALID"
+
+
+def test_checker_complete_set_requires_live_ingestion_external_reference(tmp_path: Path) -> None:
+    for template_path in TEMPLATE_DIR.glob("*.json"):
+        if "live_ingestion_authorization_external_reference" not in template_path.name:
+            shutil.copy(template_path, tmp_path / template_path.name)
+
+    checker = load_checker()
+    receipt = checker.validate_path(tmp_path, require_complete_set=True)
+
+    assert receipt["validation_result"] == "REJECTED_REQUIRED_ARTIFACTS_MISSING"
+    assert "LIVE_INGESTION_AUTHORIZATION_EXTERNAL_REFERENCE" in receipt["missing_required_artifact_types"]

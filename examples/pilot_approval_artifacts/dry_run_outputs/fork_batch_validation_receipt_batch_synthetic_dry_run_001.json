@@ -1,0 +1,23 @@
+{
+  "record_type": "FORK_BATCH_VALIDATION_RECEIPT",
+  "schema_version": "0.1.1",
+  "batch_id": "batch_synthetic_dry_run_001",
+  "processed_timestamp": "2026-06-17T06:00:00Z",
+  "batch_result": "ACCEPTED",
+  "record_count_received": 1,
+  "record_count_accepted": 1,
+  "record_count_excluded": 0,
+  "record_count_failed_schema": 0,
+  "record_count_missing_hash": 0,
+  "record_count_unknown_source": 0,
+  "receipt_non_claims": [
+    "BATCH_ACCEPTANCE_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "BATCH_ACCEPTANCE_DOES_NOT_CERTIFY_COMPLETENESS",
+    "BATCH_ACCEPTANCE_DOES_NOT_CERTIFY_ADMISSIBILITY",
+    "BATCH_ACCEPTANCE_DOES_NOT_CERTIFY_LAWFULNESS",
+    "BATCH_ACCEPTANCE_DOES_NOT_CERTIFY_COMPLIANCE",
+    "BATCH_ACCEPTANCE_DOES_NOT_CERTIFY_MEDICAL_CORRECTNESS"
+  ],
+  "errors": [],
+  "limitations": []
+}

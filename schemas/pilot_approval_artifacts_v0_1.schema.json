@@ -17,6 +17,9 @@
       "$ref": "#/$defs/written_orientation_artifact"
     },
     {
+      "$ref": "#/$defs/live_ingestion_authorization_external_reference"
+    },
+    {
       "$ref": "#/$defs/validation_receipt"
     }
   ],
@@ -545,7 +548,9 @@
         "reviewers",
         "checks",
         "authorization",
-        "artifact_non_claims"
+        "artifact_non_claims",
+        "dry_run_output_binding",
+        "institutional_retained_authority_acknowledgment"
       ],
       "properties": {
         "record_type": {
@@ -697,6 +702,12 @@
         },
         "artifact_non_claims": {
           "$ref": "#/$defs/artifact_non_claim_set"
+        },
+        "dry_run_output_binding": {
+          "$ref": "#/$defs/dry_run_output_binding"
+        },
+        "institutional_retained_authority_acknowledgment": {
+          "$ref": "#/$defs/retained_authority_acknowledgment"
         }
       }
     },
@@ -715,7 +726,8 @@
         "orientation_acknowledgment",
         "posture_terms_acknowledged",
         "orientation_non_claims_acknowledged",
-        "artifact_non_claims"
+        "artifact_non_claims",
+        "institutional_retained_authority_acknowledgment"
       ],
       "properties": {
         "record_type": {
@@ -807,6 +819,9 @@
         },
         "artifact_non_claims": {
           "$ref": "#/$defs/artifact_non_claim_set"
+        },
+        "institutional_retained_authority_acknowledgment": {
+          "$ref": "#/$defs/retained_authority_acknowledgment"
         }
       }
     },
@@ -888,6 +903,236 @@
             "type": "string",
             "minLength": 1
           }
+        }
+      }
+    },
+    "retained_authority_acknowledgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fork_is_not_decision_authority",
+        "institution_retains_clinical_authority",
+        "institution_retains_compliance_authority",
+        "institution_retains_legal_authority",
+        "institution_retains_operational_authority",
+        "institution_retains_utilization_management_authority"
+      ],
+      "properties": {
+        "fork_is_not_decision_authority": {
+          "const": true
+        },
+        "institution_retains_clinical_authority": {
+          "const": true
+        },
+        "institution_retains_compliance_authority": {
+          "const": true
+        },
+        "institution_retains_legal_authority": {
+          "const": true
+        },
+        "institution_retains_operational_authority": {
+          "const": true
+        },
+        "institution_retains_utilization_management_authority": {
+          "const": true
+        }
+      }
+    },
+    "dry_run_output_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hash_algorithm",
+        "validation_receipt_ref",
+        "validation_receipt_sha256",
+        "dry_run_summary_ref",
+        "dry_run_summary_sha256",
+        "binding_scope",
+        "fork_does_not_certify_external_state_after_hashing"
+      ],
+      "properties": {
+        "hash_algorithm": {
+          "const": "SHA-256"
+        },
+        "validation_receipt_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation_receipt_sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "dry_run_summary_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dry_run_summary_sha256": {
+          "type": "string",
+          "pattern": "^[A-Fa-f0-9]{64}$"
+        },
+        "binding_scope": {
+          "const": "EXACT_DRY_RUN_OUTPUTS"
+        },
+        "fork_does_not_certify_external_state_after_hashing": {
+          "const": true
+        }
+      }
+    },
+    "live_ingestion_boundary_non_claim_set": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "LIVE_INGESTION_AUTHORIZATION_NOT_FORK_ISSUED",
+          "LIVE_INGESTION_AUTHORIZATION_NOT_FORK_VALIDATED",
+          "EXTERNAL_INSTITUTIONAL_AUTHORIZATION_REQUIRED",
+          "FORK_READINESS_DOES_NOT_AUTHORIZE_LIVE_INGESTION",
+          "FORK_DOES_NOT_VALIDATE_LEGAL_CLINICAL_COMPLIANCE_OR_OPERATIONAL_SUFFICIENCY"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "LIVE_INGESTION_AUTHORIZATION_NOT_FORK_ISSUED"
+          }
+        },
+        {
+          "contains": {
+            "const": "LIVE_INGESTION_AUTHORIZATION_NOT_FORK_VALIDATED"
+          }
+        },
+        {
+          "contains": {
+            "const": "EXTERNAL_INSTITUTIONAL_AUTHORIZATION_REQUIRED"
+          }
+        },
+        {
+          "contains": {
+            "const": "FORK_READINESS_DOES_NOT_AUTHORIZE_LIVE_INGESTION"
+          }
+        },
+        {
+          "contains": {
+            "const": "FORK_DOES_NOT_VALIDATE_LEGAL_CLINICAL_COMPLIANCE_OR_OPERATIONAL_SUFFICIENCY"
+          }
+        }
+      ]
+    },
+    "live_ingestion_authorization_external_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "schema_version",
+        "artifact_id",
+        "artifact_version",
+        "reference_status",
+        "boundary",
+        "required_institutional_authority_categories",
+        "live_ingestion_boundary_non_claims",
+        "artifact_non_claims"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "LIVE_INGESTION_AUTHORIZATION_EXTERNAL_REFERENCE"
+        },
+        "schema_version": {
+          "const": "0.1"
+        },
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_status": {
+          "enum": [
+            "EXTERNAL_AUTHORIZATION_REQUIRED",
+            "EXTERNAL_AUTHORIZATION_REFERENCED"
+          ]
+        },
+        "boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "fork_may_not_issue",
+            "external_authorization_required",
+            "institutional_authorization_ref",
+            "fork_does_not_validate_authorization_sufficiency",
+            "fork_readiness_is_not_live_ingestion_authorization"
+          ],
+          "properties": {
+            "fork_may_not_issue": {
+              "const": true
+            },
+            "external_authorization_required": {
+              "const": true
+            },
+            "institutional_authorization_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fork_does_not_validate_authorization_sufficiency": {
+              "const": true
+            },
+            "fork_readiness_is_not_live_ingestion_authorization": {
+              "const": true
+            }
+          }
+        },
+        "required_institutional_authority_categories": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "LEGAL",
+              "COMPLIANCE",
+              "PRIVACY_SECURITY",
+              "OPERATIONAL_OWNER",
+              "CLINICAL_OR_UTILIZATION_MANAGEMENT_IF_APPLICABLE"
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "const": "LEGAL"
+              }
+            },
+            {
+              "contains": {
+                "const": "COMPLIANCE"
+              }
+            },
+            {
+              "contains": {
+                "const": "PRIVACY_SECURITY"
+              }
+            },
+            {
+              "contains": {
+                "const": "OPERATIONAL_OWNER"
+              }
+            },
+            {
+              "contains": {
+                "const": "CLINICAL_OR_UTILIZATION_MANAGEMENT_IF_APPLICABLE"
+              }
+            }
+          ]
+        },
+        "live_ingestion_boundary_non_claims": {
+          "$ref": "#/$defs/live_ingestion_boundary_non_claim_set"
+        },
+        "artifact_non_claims": {
+          "$ref": "#/$defs/artifact_non_claim_set"
         }
       }
     }

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -19,6 +20,7 @@ REQUIRED_ARTIFACT_TYPES = {
     "PILOT_CANONICALIZATION_RECORD",
     "DRY_RUN_APPROVAL_ARTIFACT",
     "WRITTEN_ORIENTATION_ARTIFACT",
+    "LIVE_INGESTION_AUTHORIZATION_EXTERNAL_REFERENCE",
 }
 
 RECEIPT_NON_CLAIMS = [
@@ -38,6 +40,45 @@ def artifact_paths(path: Path) -> list[Path]:
     if path.is_file():
         return [path]
     return sorted(candidate for candidate in path.glob("*.json") if candidate.is_file())
+
+
+
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def dry_run_binding_errors(root: Path, artifact: dict[str, Any]) -> list[str]:
+    if artifact.get("record_type") != "DRY_RUN_APPROVAL_ARTIFACT":
+        return []
+
+    binding = artifact.get("dry_run_output_binding", {})
+    findings: list[str] = []
+
+    pairs = [
+        ("validation_receipt_ref", "validation_receipt_sha256"),
+        ("dry_run_summary_ref", "dry_run_summary_sha256"),
+    ]
+
+    for ref_key, hash_key in pairs:
+        ref_value = binding.get(ref_key)
+        expected_hash = binding.get(hash_key)
+
+        if not isinstance(ref_value, str) or not isinstance(expected_hash, str):
+            findings.append(f"{ref_key}/{hash_key}: dry-run binding is incomplete")
+            continue
+
+        referenced_path = root / ref_value
+        if not referenced_path.exists():
+            findings.append(f"{ref_key}: referenced dry-run output does not exist: {ref_value}")
+            continue
+
+        actual_hash = sha256_file(referenced_path)
+        if actual_hash.lower() != expected_hash.lower():
+            findings.append(
+                f"{hash_key}: expected {expected_hash}, computed {actual_hash} for {ref_value}"
+            )
+
+    return findings
 
 
 def schema_errors(validator: Draft202012Validator, obj: dict[str, Any]) -> list[str]:
@@ -119,6 +160,20 @@ def validate_path(path: Path, require_complete_set: bool = False, schema_path: P
                     "record_type": artifact.get("record_type"),
                     "code": "SCHEMA_INVALID",
                     "messages": artifact_errors,
+                }
+            )
+            continue
+
+        binding_errors = dry_run_binding_errors(root, artifact)
+        if binding_errors:
+            invalid_count += 1
+            errors.append(
+                {
+                    "artifact_path": str(artifact_path),
+                    "artifact_id": artifact.get("artifact_id"),
+                    "record_type": artifact.get("record_type"),
+                    "code": "DRY_RUN_OUTPUT_BINDING_INVALID",
+                    "messages": binding_errors,
                 }
             )
             continue

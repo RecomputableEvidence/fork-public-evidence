@@ -1,0 +1,36 @@
+{
+  "record_type": "FORK_PILOT_DRY_RUN_SUMMARY",
+  "schema_version": "0.1",
+  "batch_id": "batch_synthetic_dry_run_001",
+  "pilot_id": "pilot_prior_auth_appeals_v0_1",
+  "pilot_phase": "SYNTHETIC_DRY_RUN",
+  "export_mode": "ONE_TIME_BATCH_EXPORT",
+  "capture_mode": "HASH_REFERENCE_ONLY",
+  "deployment_location": "INSTITUTION_CONTROLLED",
+  "gate_result": "DRY_RUN_GATE_PASSED",
+  "batch_result": "ACCEPTED",
+  "counts": {
+    "record_count_received": 1,
+    "record_count_accepted": 1,
+    "record_count_excluded": 0,
+    "record_count_failed_schema": 0,
+    "record_count_missing_hash": 0,
+    "record_count_unknown_source": 0
+  },
+  "gate_findings": [],
+  "manual_review_candidates": [],
+  "unapproved_content_findings": [],
+  "receipt_path": "fork_batch_validation_receipt_batch_synthetic_dry_run_001.json",
+  "dry_run_non_claims": [
+    "DRY_RUN_DOES_NOT_AUTHORIZE_LIVE_INGESTION",
+    "DRY_RUN_DOES_NOT_CERTIFY_SOURCE_TRUTH",
+    "DRY_RUN_DOES_NOT_CERTIFY_COMPLETENESS",
+    "DRY_RUN_DOES_NOT_CERTIFY_ADMISSIBILITY",
+    "DRY_RUN_DOES_NOT_CERTIFY_LAWFULNESS",
+    "DRY_RUN_DOES_NOT_CERTIFY_COMPLIANCE",
+    "DRY_RUN_DOES_NOT_CERTIFY_MEDICAL_CORRECTNESS",
+    "DRY_RUN_DOES_NOT_CERTIFY_CLINICAL_APPROPRIATENESS",
+    "DRY_RUN_DOES_NOT_CERTIFY_UTILIZATION_MANAGEMENT_SUFFICIENCY",
+    "DRY_RUN_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
+  ]
+}

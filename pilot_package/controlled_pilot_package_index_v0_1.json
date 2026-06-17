@@ -130,6 +130,12 @@
       "component_type": "TEST_FILE",
       "path": "tests/test_pilot_approval_artifacts_checker_v0_1.py",
       "required": true
+    },
+    {
+      "component_id": "controlled_pilot_seam_hardening_doc",
+      "component_type": "DOCUMENT",
+      "path": "docs/CONTROLLED_PILOT_SEAM_HARDENING_v0_1_1.md",
+      "required": true
     }
   ],
   "readiness_non_claims": [

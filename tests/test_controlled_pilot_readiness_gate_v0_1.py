@@ -42,7 +42,7 @@ def test_readiness_gate_accepts_complete_package() -> None:
     checker = load_checker()
     receipt = checker.validate_readiness(INDEX_PATH)
 
-    assert receipt["gate_result"] == "CONTROLLED_PILOT_PACKAGE_READY"
+    assert receipt["gate_result"] == "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY"
     assert receipt["component_count_missing"] == 0
     assert all(check["status"] == "PRESENT" for check in receipt["component_checks"])
     assert all(check["status"] == "PASS" for check in receipt["integration_checks"])
@@ -67,7 +67,7 @@ def test_readiness_gate_fails_missing_component(tmp_path: Path) -> None:
     checker = load_checker()
     receipt = checker.validate_readiness(bad_index_path)
 
-    assert receipt["gate_result"] == "CONTROLLED_PILOT_PACKAGE_FAILED"
+    assert receipt["gate_result"] == "CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_INCOMPLETE"
     assert receipt["component_count_missing"] == 1
     assert receipt["missing_components"][0]["code"] == "REQUIRED_COMPONENT_MISSING"
 
@@ -91,3 +91,16 @@ def test_readiness_gate_runs_expected_integration_checks() -> None:
     assert "nightly_batch_checker_valid_fixture" in check_ids
     assert "pilot_approval_artifacts_complete_set" in check_ids
     assert "pilot_dry_run_harness_aligned_synthetic_batch" in check_ids
+
+
+def test_readiness_receipt_names_external_live_ingestion_authorization_boundary() -> None:
+    checker = load_checker()
+    receipt = checker.validate_readiness(INDEX_PATH)
+
+    boundary = receipt["live_ingestion_authorization"]
+
+    assert boundary["authorization_state"] == "NOT_ASSERTED_BY_FORK"
+    assert boundary["fork_issued_live_ingestion_authorization"] is False
+    assert boundary["external_institutional_authorization_required"] is True
+    assert boundary["institutional_live_ingestion_authorization_ref"] is None
+    assert boundary["fork_does_not_validate_external_authorization_sufficiency"] is True

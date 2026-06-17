@@ -1,7 +1,7 @@
 {
   "record_type": "DRY_RUN_APPROVAL_ARTIFACT",
   "schema_version": "0.1",
-  "artifact_id": "dry_run_approval_001",
+  "artifact_id": "invalid_dry_run_receipt_hash_mismatch",
   "artifact_version": "v0.1",
   "approval_status": "APPROVED",
   "approval_authority": {
@@ -64,7 +64,7 @@
   "dry_run_output_binding": {
     "hash_algorithm": "SHA-256",
     "validation_receipt_ref": "examples/pilot_approval_artifacts/dry_run_outputs/fork_batch_validation_receipt_batch_synthetic_dry_run_001.json",
-    "validation_receipt_sha256": "e659d309f24cf766b323ab30551463dc2775f0a025b03ffea1f6d71b71582651",
+    "validation_receipt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
     "dry_run_summary_ref": "examples/pilot_approval_artifacts/dry_run_outputs/fork_pilot_dry_run_summary_batch_synthetic_dry_run_001.json",
     "dry_run_summary_sha256": "6a3e55e8de6d3f9bb3a176b8aa536df5db8ed7cecc50a806be77710631570a77",
     "binding_scope": "EXACT_DRY_RUN_OUTPUTS",

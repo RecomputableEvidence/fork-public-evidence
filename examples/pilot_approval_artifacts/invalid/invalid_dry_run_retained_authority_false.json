@@ -1,7 +1,7 @@
 {
   "record_type": "DRY_RUN_APPROVAL_ARTIFACT",
   "schema_version": "0.1",
-  "artifact_id": "dry_run_approval_001",
+  "artifact_id": "invalid_dry_run_retained_authority_false",
   "artifact_version": "v0.1",
   "approval_status": "APPROVED",
   "approval_authority": {
@@ -73,7 +73,7 @@
   "institutional_retained_authority_acknowledgment": {
     "fork_is_not_decision_authority": true,
     "institution_retains_clinical_authority": true,
-    "institution_retains_compliance_authority": true,
+    "institution_retains_compliance_authority": false,
     "institution_retains_legal_authority": true,
     "institution_retains_operational_authority": true,
     "institution_retains_utilization_management_authority": true
