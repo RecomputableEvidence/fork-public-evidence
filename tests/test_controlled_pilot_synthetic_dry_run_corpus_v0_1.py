@@ -125,7 +125,7 @@ def test_invalid_pii_fixture_fails_checker(tmp_path: Path) -> None:
     )
 
     result = subprocess.run(
-        [sys.executable, str(CHECKER), str(temp_manifest.relative_to(ROOT))],
+        [sys.executable, str(CHECKER), str(temp_manifest)],
         cwd=ROOT,
         text=True,
         capture_output=True,
@@ -154,7 +154,7 @@ def test_invalid_class_c_missing_expansion_fails_checker(tmp_path: Path) -> None
     )
 
     result = subprocess.run(
-        [sys.executable, str(CHECKER), str(temp_manifest.relative_to(ROOT))],
+        [sys.executable, str(CHECKER), str(temp_manifest)],
         cwd=ROOT,
         text=True,
         capture_output=True,
