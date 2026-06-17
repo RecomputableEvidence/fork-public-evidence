@@ -59,7 +59,7 @@ I understand that CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY is not live-ingest
 - I understand that `CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY` is not live-ingestion authorization.
 - I understand that Fork does not issue, populate, validate, or certify institutional authorization for live ingestion.
 - I understand that the institution retains legal, compliance, privacy, security, clinical or utilization-management, operational, and production-deployment authority.
-- I understand that Fork outputs may serve as structural evidence during institutional review, but do not constitute or replace institutional approval.
+- I understand that Fork outputs may serve as structural evidence during institutional review but do not constitute or replace institutional approval.
 
 ## Stakeholder signatures
 
