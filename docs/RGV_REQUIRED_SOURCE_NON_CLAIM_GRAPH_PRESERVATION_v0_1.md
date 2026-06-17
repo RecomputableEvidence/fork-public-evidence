@@ -33,6 +33,19 @@ If a downstream CCE or graph-composition node consumes an RGV `PASS`, it must pr
 
 Dropping any required source non-claim during downstream consumption is a graph-preservation defect.
 
+## New claim boundary requirement
+
+A prohibited semantic expansion must use a new claim node with its own non-empty non-claim boundary.
+
+An empty array, empty object, null value, placeholder value, or merely present field does not satisfy the boundary requirement.
+
+The new claim node remains downstream institutional responsibility. Structural acceptance does not imply Fork endorsement of the expanded claim.
+
+## External reference placeholder rejection
+
+Structured non-Fork authority and evidence references must contain meaningful non-placeholder reference values.
+
+Bare strings, empty references, `TBD`, `N/A`, `null`, dummy identifiers, and placeholder-looking values do not satisfy the external authority/evidence requirement for prohibited semantic expansion.
 ## Structured expansion basis requirements
 
 For prohibited semantic expansion, a new claim node must carry structured non-Fork authority and evidence references.
@@ -78,6 +91,30 @@ A downstream CCE must not treat `FAIL` as source falsity.
 
 `FAIL` means the submitted structure is outside valid Fork/RGV verification semantics. It is not a determination that source material is false, unlawful, inadmissible, incomplete, or factually unsupported.
 
+## Failure-class signaling
+
+The checker emits machine-readable failure classes so downstream consumers can distinguish different categories of graph-preservation failure.
+
+Traversal-safety rejection is not the same thing as a detected semantic contradiction.
+
+Representative failure classes include:
+
+- `STRUCTURAL_PRESERVATION_DEFECT`
+- `STRUCTURAL_GRAPH_DEFECT`
+- `SEMANTIC_BOUNDARY_CONTRADICTION`
+- `TRAVERSAL_SAFETY_LIMIT`
+- `AUTHORITY_EVIDENCE_BOUNDARY_DEFECT`
+- `POSTURE_MISUSE`
+
+A traversal-safety failure means the checker refused to silently accept a graph surface it could not safely inspect within bounded traversal limits. It does not mean the source content is false, unlawful, inadmissible, incomplete, or factually unsupported.
+
+## Machine-readable NLP scope
+
+The checker emits `nlp_scope: NOT_EVALUATED` and `free_text_scope: NOT_EVALUATED_FOR_INFERENCE`.
+
+These fields make explicit that arbitrary human prose is outside graph-preservation validation scope.
+
+Fork/RGV graph-preservation PASS does not imply that prose fields were evaluated, approved, interpreted, or found semantically consistent.
 ## Metadata traversal bounds
 
 Structured metadata containers are recursively inspected within bounded traversal limits.
@@ -95,6 +132,13 @@ Localized display labels may be used for human presentation, but they do not rep
 
 This checker does not perform NLP over arbitrary human prose. It performs bounded structural alias detection over known machine-readable fields and enum-like values.
 
+## Authority lineage contamination
+
+If any authority path for a prohibited semantic expansion roots back to Fork/RGV PASS, the expansion fails graph-preservation validation.
+
+A valid external authority sibling does not cleanse a contaminated authority path.
+
+This is a lineage contamination rule: any Fork/RGV PASS authority ancestry inside the authority basis tree is sufficient to reject the prohibited expansion.
 ## Authority chain restriction
 
 A new claim node may not hide Fork/RGV PASS behind an intermediate authority node.

@@ -296,6 +296,81 @@ EXTERNAL_AUTHORITY_REQUIRED_KEYS = {
 
 
 
+PLACEHOLDER_REFERENCE_VALUES = {
+    "",
+    "N_A",
+    "NA",
+    "NONE",
+    "NULL",
+    "TBD",
+    "TODO",
+    "PLACEHOLDER",
+    "DUMMY",
+    "UNKNOWN",
+    "EMPTY",
+    "LOCAL_FILE_HASH_OF_EMPTY_TEXT_DOCUMENT",
+    "URN_NGAST_DUMMY_NULL_VOID_0000",
+}
+
+REFERENCE_VALUE_KEYS = {
+    "ARTIFACT_ID",
+    "ARTIFACT_REF",
+    "EXTERNAL_ARTIFACT_REF",
+    "URI",
+    "URL",
+    "HASH",
+    "PROVENANCE_REF",
+    "ATTESTATION_ID",
+    "RECORD_ID",
+    "AUTHORITY_ID",
+    "AUTHORITY_REF",
+    "SIGNER_ID",
+    "CREDENTIAL_TYPE",
+    "INSTITUTION_ID",
+    "REVIEWER_ID",
+    "AUTHORITY_TYPE",
+    "REF",
+    "ID",
+}
+
+ERROR_FAILURE_CLASS_MAP = {
+    "DROPPED_REQUIRED_SOURCE_NON_CLAIM": "STRUCTURAL_PRESERVATION_DEFECT",
+    "MISSING_NODES": "STRUCTURAL_GRAPH_DEFECT",
+    "MISSING_EDGES": "STRUCTURAL_GRAPH_DEFECT",
+    "INVALID_NODE": "STRUCTURAL_GRAPH_DEFECT",
+    "INVALID_EDGE": "STRUCTURAL_GRAPH_DEFECT",
+    "MISSING_NODE_ID": "STRUCTURAL_GRAPH_DEFECT",
+    "DUPLICATE_NODE_ID": "STRUCTURAL_GRAPH_DEFECT",
+    "MISSING_EDGE_SOURCE": "STRUCTURAL_GRAPH_DEFECT",
+    "MISSING_EDGE_TARGET": "STRUCTURAL_GRAPH_DEFECT",
+    "JSON_PARSE_ERROR": "STRUCTURAL_GRAPH_DEFECT",
+    "GRAPH_NOT_OBJECT": "STRUCTURAL_GRAPH_DEFECT",
+    "STRUCTURED_METADATA_DEPTH_EXCEEDED": "TRAVERSAL_SAFETY_LIMIT",
+    "STRUCTURED_METADATA_VALUE_LIMIT_EXCEEDED": "TRAVERSAL_SAFETY_LIMIT",
+    "STRUCTURAL_METADATA_CONTRADICTION": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "UNMODELED_STRUCTURED_ALIAS_FIELD": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "SOURCE_TRUTH_ASSERTED": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "FACTUAL_BASIS_CONFIRMED": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "WHOLENESS_ASSERTED": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "COMPLETENESS_STATED": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "ADMISSIBILITY_INFERRED": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "LAWFULNESS_IMPLIED": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "PROHIBITED_INHERITANCE": "SEMANTIC_BOUNDARY_CONTRADICTION",
+    "UNAUTHORIZED_INFERENCE_EXPANSION": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "FORK_PASS_USED_AS_EXPANSION_AUTHORITY": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "FORK_PASS_ROOT_AUTHORITY_CHAIN": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "FORK_PASS_SOLE_EVIDENCE_FOR_PROHIBITED_EXPANSION": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "WEAK_EXTERNAL_AUTHORITY_BASIS": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "WEAK_EXTERNAL_EVIDENCE_BASIS": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "EMPTY_NEW_CLAIM_NON_CLAIM_BOUNDARY": "AUTHORITY_EVIDENCE_BOUNDARY_DEFECT",
+    "INDETERMINATE_TREATED_AS_PASS": "POSTURE_MISUSE",
+    "INDETERMINATE_USED_AS_PROHIBITED_SUPPORT": "POSTURE_MISUSE",
+    "INDETERMINATE_USED_AS_NEGATIVE_CONTENT_SIGNAL": "POSTURE_MISUSE",
+    "FAIL_TREATED_AS_LEGAL_OR_FACTUAL_DETERMINATION": "POSTURE_MISUSE",
+}
+
+
+
 def err(code: str, message: str) -> dict[str, str]:
     return {"code": code, "message": message}
 
@@ -468,8 +543,10 @@ def carries_prohibited_alias(value: Any) -> bool:
 
 
 def structured_reference_has_required_key(value: dict[str, Any], required_keys: set[str]) -> bool:
-    keys = {normalize_token(key) for key in value.keys() if isinstance(key, str)}
-    return bool(keys & required_keys)
+    if structured_reference_has_placeholder_value(value):
+        return False
+
+    return structured_reference_has_meaningful_required_value(value, required_keys)
 
 
 def is_structured_external_reference(value: Any, source: dict[str, Any], required_keys: set[str]) -> bool:
@@ -483,6 +560,50 @@ def is_structured_external_reference(value: Any, source: dict[str, Any], require
         return False
 
     return True
+
+
+def is_placeholder_reference_value(value: Any) -> bool:
+    if value is None:
+        return True
+
+    if isinstance(value, str):
+        return normalize_token(value) in PLACEHOLDER_REFERENCE_VALUES
+
+    return False
+
+
+def is_reference_value_key(key: str) -> bool:
+    token = normalize_token(key)
+    return (
+        token in REFERENCE_VALUE_KEYS
+        or token.endswith("_ID")
+        or token.endswith("_REF")
+        or token.endswith("_URI")
+        or token.endswith("_URL")
+        or token.endswith("_HASH")
+    )
+
+
+def structured_reference_has_placeholder_value(value: dict[str, Any]) -> bool:
+    for key, child in value.items():
+        if not isinstance(key, str):
+            continue
+
+        if is_reference_value_key(key) and is_placeholder_reference_value(child):
+            return True
+
+    return False
+
+
+def structured_reference_has_meaningful_required_value(value: dict[str, Any], required_keys: set[str]) -> bool:
+    for key, child in value.items():
+        if not isinstance(key, str):
+            continue
+
+        if normalize_token(key) in required_keys and not is_placeholder_reference_value(child):
+            return True
+
+    return False
 
 
 def has_structured_external_evidence(value: Any, source: dict[str, Any]) -> bool:
@@ -721,9 +842,33 @@ def get_new_claim_node(node: dict[str, Any], nodes_by_id: dict[str, dict[str, An
 
 
 def has_claim_boundary(value: dict[str, Any]) -> bool:
-    for field in ("non_claims", "required_source_non_claims", "required_source_non_claim_bundle", "claim_boundary"):
-        if value.get(field):
-            return True
+    for field in ("non_claims", "required_source_non_claims", "result_non_claims"):
+        items = value.get(field)
+        if isinstance(items, list):
+            for item in items:
+                if isinstance(item, str) and item.strip():
+                    return True
+                if isinstance(item, dict):
+                    ident = item.get("non_claim_id") or item.get("id")
+                    if isinstance(ident, str) and ident.strip():
+                        return True
+
+    bundle = value.get("required_source_non_claim_bundle")
+    if isinstance(bundle, dict):
+        items = bundle.get("required_non_claims")
+        if isinstance(items, list):
+            for item in items:
+                if isinstance(item, str) and item.strip():
+                    return True
+                if isinstance(item, dict):
+                    ident = item.get("non_claim_id") or item.get("id")
+                    if isinstance(ident, str) and ident.strip():
+                        return True
+
+    claim_boundary = value.get("claim_boundary")
+    if isinstance(claim_boundary, dict):
+        return has_claim_boundary(claim_boundary)
+
     return False
 
 
@@ -786,6 +931,14 @@ def check_new_claim_shadowing(
 
     authority = claim.get("authority_basis") or claim.get("authority_refs") or claim.get("authority")
     evidence = claim.get("evidence_basis") or claim.get("evidence_refs") or claim.get("evidence")
+
+    if not has_claim_boundary(claim):
+        errors.append(
+            err(
+                "EMPTY_NEW_CLAIM_NON_CLAIM_BOUNDARY",
+                f"New claim node {node_id(claim)} lacks a non-empty non-claim boundary for prohibited expansion",
+            )
+        )
 
     if references_fork_pass(authority, source):
         errors.append(
@@ -1032,6 +1185,19 @@ def check_graph(graph: dict[str, Any]) -> list[dict[str, str]]:
     return errors
 
 
+def classify_failure_classes(errors: list[dict[str, str]]) -> list[str]:
+    classes: set[str] = set()
+
+    for item in errors:
+        code = item.get("code") if isinstance(item, dict) else None
+        if not isinstance(code, str):
+            continue
+
+        classes.add(ERROR_FAILURE_CLASS_MAP.get(code, "UNCLASSIFIED_GRAPH_PRESERVATION_DEFECT"))
+
+    return sorted(classes)
+
+
 def main(argv: list[str]) -> int:
     if len(argv) != 2:
         print(
@@ -1091,12 +1257,16 @@ def main(argv: list[str]) -> int:
         "checked_graph": str(path),
         "result": result,
         "errors": errors,
+        "failure_classes": classify_failure_classes(errors),
+        "nlp_scope": "NOT_EVALUATED",
+        "free_text_scope": "NOT_EVALUATED_FOR_INFERENCE",
         "required_non_claim_ids": sorted(REQUIRED_NON_CLAIM_IDS),
         "checker_non_claims": [
             "This checker does not verify SOURCE_TRUTH.",
             "This checker does not determine factual basis, wholeness, completeness, admissibility, or lawfulness.",
             "This checker enforces downstream preservation of required source non-claim boundaries when consuming RGV PASS results.",
             "This checker performs bounded structural alias checks over known machine-readable metadata fields but does not perform NLP.",
+            "This checker emits nlp_scope=NOT_EVALUATED because arbitrary human prose is outside graph-preservation validation scope.",
             "This checker requires structured non-Fork authority and evidence references for prohibited semantic expansion.",
             "This checker does not mutate or reinterpret the v0.4 evidentiary-weight profile contract."
         ],

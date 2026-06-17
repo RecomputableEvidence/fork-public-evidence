@@ -1,0 +1,70 @@
+{
+  "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
+  "graph_id": "INVALID_DIAMOND_AUTHORITY_CONTAMINATION_GRAPH",
+  "nodes": [
+    {
+      "node_id": "RGV_PASS_001",
+      "record_type": "RGV_VERIFICATION_RESULT",
+      "result": "PASS",
+      "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY"
+    },
+    {
+      "node_id": "INTERMEDIATE_AUTHORITY_001",
+      "record_type": "AUTHORITY_NODE",
+      "authority_basis": [
+        "RGV_PASS_001"
+      ]
+    },
+    {
+      "node_id": "CCE_001",
+      "record_type": "CLAIM_CONSUMPTION_EVENT",
+      "consumes_node_id": "RGV_PASS_001",
+      "boundary_effect": "EXPANDED",
+      "new_claim_node_id": "NEW_CLAIM_001",
+      "inferred_claims": [
+        "LAWFULNESS_CONFIRMED"
+      ],
+      "preserved_non_claims": [
+        "SOURCE_TRUTH_NOT_CLAIMED",
+        "FACTUAL_BASIS_NOT_CONFIRMED",
+        "WHOLENESS_NOT_ASSERTED",
+        "COMPLETENESS_NOT_STATED",
+        "ADMISSIBILITY_NOT_INFERRED",
+        "LAWFULNESS_NOT_IMPLIED"
+      ]
+    },
+    {
+      "node_id": "NEW_CLAIM_001",
+      "record_type": "NEW_CLAIM_NODE",
+      "declared_claims": [
+        "LAWFULNESS_CONFIRMED"
+      ],
+      "authority_basis": [
+        "INTERMEDIATE_AUTHORITY_001",
+        {
+          "authority_id": "EXTERNAL_LEGAL_REVIEW_001",
+          "authority_type": "EXTERNAL_LEGAL_REVIEW",
+          "authority_ref": "external_legal_review_authority_record"
+        }
+      ],
+      "evidence_basis": [
+        {
+          "artifact_id": "LEGAL_REVIEW_MEMO_001",
+          "artifact_type": "EXTERNAL_LEGAL_REVIEW_MEMO",
+          "artifact_ref": "separate_review_memo"
+        }
+      ],
+      "non_claims": [
+        "DOES_NOT_INHERIT_FORK_RGV_SOURCE_TRUTH_AUTHORITY"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_001",
+      "edge_type": "CLAIM_CONSUMPTION",
+      "source_node_id": "RGV_PASS_001",
+      "target_node_id": "CCE_001"
+    }
+  ]
+}
