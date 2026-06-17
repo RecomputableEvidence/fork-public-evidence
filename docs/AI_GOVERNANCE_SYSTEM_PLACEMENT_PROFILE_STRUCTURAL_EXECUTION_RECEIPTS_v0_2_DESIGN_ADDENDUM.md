@@ -1,4 +1,4 @@
-﻿# AI Governance System Placement Profile Structural Execution Receipts v0.2 Design Addendum
+# AI Governance System Placement Profile Structural Execution Receipts v0.2 Design Addendum
 
 Status: `DESIGN_ADDENDUM_ONLY_NOT_IMPLEMENTED`
 

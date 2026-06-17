@@ -1,4 +1,4 @@
-﻿name: Verify Observed Evidence Packet examples
+name: Verify Observed Evidence Packet examples
 
 on:
   pull_request:

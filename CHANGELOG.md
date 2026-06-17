@@ -1,4 +1,4 @@
-﻿
+
 ## AI Governance System Placement Profile Structural Execution Receipts v0.2 implementation
 
 - Added 	ools/check_ai_governance_system_placement_profile_v0_2.py.

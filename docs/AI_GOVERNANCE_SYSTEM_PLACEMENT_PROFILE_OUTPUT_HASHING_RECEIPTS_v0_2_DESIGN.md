@@ -1,4 +1,4 @@
-﻿# AI Governance System Placement Profile Output Hashing and Verification Receipts v0.2 Design
+# AI Governance System Placement Profile Output Hashing and Verification Receipts v0.2 Design
 
 Status: `DESIGN_ONLY_NOT_IMPLEMENTED`
 
