@@ -52,6 +52,8 @@ Fork must not issue, populate, validate, or be treated as the system of record f
 Each stakeholder should acknowledge:
 
 - I understand that Fork controlled-pilot artifacts preserve structural evidence boundaries only.
+
+I understand that CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY is not live-ingestion authorization.
 - I understand that `CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY` is not live-ingestion authorization.
 - I understand that Fork does not issue, populate, validate, or certify institutional authorization for live ingestion.
 - I understand that the institution retains legal, compliance, privacy, security, clinical or utilization-management, operational, and production-deployment authority.
