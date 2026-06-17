@@ -1,0 +1,46 @@
+{
+  "record_type": "RGV_REQUIRED_SOURCE_NON_CLAIM_GRAPH",
+  "graph_id": "VALID_PRESERVED_NON_CLAIMS_GRAPH",
+  "nodes": [
+    {
+      "node_id": "RGV_PASS_001",
+      "record_type": "RGV_VERIFICATION_RESULT",
+      "result": "PASS",
+      "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+      "required_source_non_claim_bundle": {
+        "record_type": "REQUIRED_SOURCE_NON_CLAIM_BUNDLE",
+        "bundle_version": "0.1",
+        "required_non_claims": [
+          { "non_claim_id": "SOURCE_TRUTH_NOT_CLAIMED", "statement": "RGV does not assert source truth." },
+          { "non_claim_id": "FACTUAL_BASIS_NOT_CONFIRMED", "statement": "RGV does not independently confirm factual basis." },
+          { "non_claim_id": "WHOLENESS_NOT_ASSERTED", "statement": "RGV does not assert wholeness." },
+          { "non_claim_id": "COMPLETENESS_NOT_STATED", "statement": "RGV does not state completeness." },
+          { "non_claim_id": "ADMISSIBILITY_NOT_INFERRED", "statement": "RGV does not infer admissibility." },
+          { "non_claim_id": "LAWFULNESS_NOT_IMPLIED", "statement": "RGV does not imply lawfulness." }
+        ]
+      }
+    },
+    {
+      "node_id": "CCE_001",
+      "record_type": "CLAIM_CONSUMPTION_EVENT",
+      "consumes_node_id": "RGV_PASS_001",
+      "boundary_effect": "PRESERVED",
+      "preserved_non_claims": [
+        "SOURCE_TRUTH_NOT_CLAIMED",
+        "FACTUAL_BASIS_NOT_CONFIRMED",
+        "WHOLENESS_NOT_ASSERTED",
+        "COMPLETENESS_NOT_STATED",
+        "ADMISSIBILITY_NOT_INFERRED",
+        "LAWFULNESS_NOT_IMPLIED"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_001",
+      "edge_type": "CLAIM_CONSUMPTION",
+      "source_node_id": "RGV_PASS_001",
+      "target_node_id": "CCE_001"
+    }
+  ]
+}
