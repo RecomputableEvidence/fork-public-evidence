@@ -20,6 +20,8 @@ Fork does not issue, populate, validate, or certify institutional authorization 
 
 ## How to read Fork readiness
 
+Structural readiness refers only to Fork's schema, hash, receipt, template, package-index, and checker validation. It does not mean workflow readiness, clinical readiness, operational readiness, compliance readiness, production readiness, or live-ingestion authorization.
+
 A Fork readiness result means the controlled-pilot package is structurally coherent within Fork's declared scope.
 
 The current readiness vocabulary is:
@@ -29,7 +31,7 @@ CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY
 CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_INCOMPLETE
 ```
 
-`CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY` means the package passed Fork's structural checks.
+`CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY` means the package passed Fork's structural checks (structural verification only, not operational readiness).
 It does not mean the workflow is legally sufficient, clinically appropriate, HIPAA compliant, operationally approved, production ready, complete, safe, lawful, admissible, or authorized for live ingestion.
 
 ## How to read dry-run approval
@@ -46,7 +48,7 @@ Fork may include or validate a `LIVE_INGESTION_AUTHORIZATION_EXTERNAL_REFERENCE`
 
 This reference names the external institutional authorization boundary.
 
-The presence of this template or reference has zero authorization valence by itself.
+The presence of this template or reference confers zero authorization by its mere existence. It has no legal, operational, clinical, compliance, or live-ingestion authorization effect by itself.
 
 Fork must not issue, populate, validate, or be treated as the system of record for live-ingestion authorization.
 
@@ -114,7 +116,7 @@ A stakeholder acknowledging this memo should confirm:
 - I understand that `CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY` is not live-ingestion authorization.
 - I understand that Fork does not issue, populate, validate, or certify institutional authorization for live ingestion.
 - I understand that the institution retains legal, compliance, privacy, security, clinical or utilization-management, operational, and production-deployment authority.
-- I understand that Fork outputs may support institutional review but do not replace institutional approval.
+- I understand that Fork outputs may serve as structural evidence during institutional review, but do not constitute or replace institutional approval.
 
 ## Memo non-claims
 

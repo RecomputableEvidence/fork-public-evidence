@@ -3,7 +3,6 @@
   "schema_version": "0.1",
   "artifact_id": "written_orientation_001",
   "artifact_version": "v0.1",
-  "approval_status": "APPROVED",
   "approval_authority": {
     "approval_authority_role_or_title": "General Counsel or Delegate",
     "approval_authority_department": "Legal",
@@ -67,5 +66,6 @@
     "institution_retains_legal_authority": true,
     "institution_retains_operational_authority": true,
     "institution_retains_utilization_management_authority": true
-  }
+  },
+  "orientation_acknowledgment_status": "ORIENTATION_ACKNOWLEDGED"
 }

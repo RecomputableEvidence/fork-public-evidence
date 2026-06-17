@@ -3,7 +3,6 @@
   "schema_version": "0.1",
   "artifact_id": "invalid_orientation_missing_retained_authority",
   "artifact_version": "v0.1",
-  "approval_status": "APPROVED",
   "approval_authority": {
     "approval_authority_role_or_title": "General Counsel or Delegate",
     "approval_authority_department": "Legal",
@@ -59,5 +58,6 @@
     "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
     "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
     "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
-  ]
+  ],
+  "orientation_acknowledgment_status": "ORIENTATION_ACKNOWLEDGED"
 }

@@ -148,6 +148,12 @@
       "component_type": "TEMPLATE_DIRECTORY",
       "path": "templates/pilot_orientation",
       "required": true
+    },
+    {
+      "component_id": "controlled_pilot_orientation_lexicon_hardening_doc",
+      "component_type": "DOCUMENT",
+      "path": "docs/CONTROLLED_PILOT_ORIENTATION_LEXICON_HARDENING_v0_1_1.md",
+      "required": true
     }
   ],
   "readiness_non_claims": [

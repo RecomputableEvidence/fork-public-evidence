@@ -3,7 +3,6 @@
   "schema_version": "0.1",
   "artifact_id": "dry_run_approval_001",
   "artifact_version": "v0.1",
-  "approval_status": "APPROVED",
   "approval_authority": {
     "approval_authority_role_or_title": "Pilot Sponsor",
     "approval_authority_department": "Operations",
@@ -60,5 +59,6 @@
     "APPROVAL_ARTIFACT_DOES_NOT_CERTIFY_HIPAA_COMPLIANCE",
     "APPROVAL_ARTIFACT_DOES_NOT_AUTHORIZE_UNSCOPED_CONTENT_CAPTURE",
     "APPROVAL_ARTIFACT_DOES_NOT_CREATE_RUNTIME_AUTHORIZATION"
-  ]
+  ],
+  "dry_run_review_status": "DRY_RUN_REVIEWED"
 }

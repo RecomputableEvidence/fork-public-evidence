@@ -3,7 +3,6 @@
   "schema_version": "0.1",
   "artifact_id": "invalid_dry_run_receipt_hash_mismatch",
   "artifact_version": "v0.1",
-  "approval_status": "APPROVED",
   "approval_authority": {
     "approval_authority_role_or_title": "Pilot Sponsor",
     "approval_authority_department": "Operations",
@@ -77,5 +76,6 @@
     "institution_retains_legal_authority": true,
     "institution_retains_operational_authority": true,
     "institution_retains_utilization_management_authority": true
-  }
+  },
+  "dry_run_review_status": "DRY_RUN_REVIEWED"
 }

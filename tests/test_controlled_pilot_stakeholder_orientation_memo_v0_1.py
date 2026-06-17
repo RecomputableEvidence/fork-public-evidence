@@ -30,7 +30,7 @@ def test_orientation_memo_declares_external_reference_zero_valence() -> None:
     text = MEMO_DOC.read_text(encoding="utf-8")
 
     assert "LIVE_INGESTION_AUTHORIZATION_EXTERNAL_REFERENCE" in text
-    assert "zero authorization valence" in text
+    assert "confers zero authorization by its mere existence" in text
     assert "Fork must not issue, populate, validate, or be treated as the system of record" in text
 
 
@@ -39,7 +39,7 @@ def test_orientation_template_contains_acknowledgment_language() -> None:
 
     assert "I understand that Fork controlled-pilot artifacts preserve structural evidence boundaries only." in text
     assert "I understand that CONTROLLED_PILOT_PACKAGE_STRUCTURALLY_READY is not live-ingestion authorization." in text
-    assert "I understand that Fork outputs may support institutional review but do not replace institutional approval." in text
+    assert "I understand that Fork outputs may serve as structural evidence during institutional review but do not constitute or replace institutional approval." in text
 
 
 def test_package_index_includes_orientation_memo_and_template_directory() -> None:

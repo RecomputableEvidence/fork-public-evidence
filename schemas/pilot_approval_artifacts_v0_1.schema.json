@@ -540,7 +540,6 @@
         "schema_version",
         "artifact_id",
         "artifact_version",
-        "approval_status",
         "approval_authority",
         "approval_date",
         "effective_scope",
@@ -550,7 +549,8 @@
         "authorization",
         "artifact_non_claims",
         "dry_run_output_binding",
-        "institutional_retained_authority_acknowledgment"
+        "institutional_retained_authority_acknowledgment",
+        "dry_run_review_status"
       ],
       "properties": {
         "record_type": {
@@ -566,14 +566,6 @@
         "artifact_version": {
           "type": "string",
           "minLength": 1
-        },
-        "approval_status": {
-          "enum": [
-            "DRAFT",
-            "APPROVED",
-            "REJECTED",
-            "SUPERSEDED"
-          ]
         },
         "approval_authority": {
           "$ref": "#/$defs/approval_authority"
@@ -708,6 +700,9 @@
         },
         "institutional_retained_authority_acknowledgment": {
           "$ref": "#/$defs/retained_authority_acknowledgment"
+        },
+        "dry_run_review_status": {
+          "const": "DRY_RUN_REVIEWED"
         }
       }
     },
@@ -719,7 +714,6 @@
         "schema_version",
         "artifact_id",
         "artifact_version",
-        "approval_status",
         "approval_authority",
         "approval_date",
         "effective_scope",
@@ -727,7 +721,8 @@
         "posture_terms_acknowledged",
         "orientation_non_claims_acknowledged",
         "artifact_non_claims",
-        "institutional_retained_authority_acknowledgment"
+        "institutional_retained_authority_acknowledgment",
+        "orientation_acknowledgment_status"
       ],
       "properties": {
         "record_type": {
@@ -743,14 +738,6 @@
         "artifact_version": {
           "type": "string",
           "minLength": 1
-        },
-        "approval_status": {
-          "enum": [
-            "DRAFT",
-            "APPROVED",
-            "REJECTED",
-            "SUPERSEDED"
-          ]
         },
         "approval_authority": {
           "$ref": "#/$defs/approval_authority"
@@ -822,6 +809,9 @@
         },
         "institutional_retained_authority_acknowledgment": {
           "$ref": "#/$defs/retained_authority_acknowledgment"
+        },
+        "orientation_acknowledgment_status": {
+          "const": "ORIENTATION_ACKNOWLEDGED"
         }
       }
     },
