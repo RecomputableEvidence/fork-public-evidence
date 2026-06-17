@@ -28,6 +28,13 @@ This binding does not modify:
 
 It is a separate result-semantics layer.
 
+## Canonical v0.1 bundle posture
+
+The canonical v0.1 required source non-claim bundle consists of exactly the six required identifiers listed in this document.
+
+A seventh identifier inside `required_source_non_claim_bundle.required_non_claims` is not treated as a compatible extension of the v0.1 bundle.
+
+Additional narrowing non-claims may be introduced in a future bundle version or in a separately declared extension field, but they do not modify the canonical v0.1 bundle.
 ## Required source non-claims on RGV PASS
 
 Every RGV `PASS` result that references source material, upstream records, external attestations, human statements, model outputs, system logs, or referenced evidence must carry the following required non-claim identifiers:
@@ -62,6 +69,13 @@ If a downstream system needs to assert truth, factual basis, wholeness, complete
 
 That new claim node does not inherit RGV structural authority.
 
+## FAIL posture
+
+A binding-checker `FAIL` means the submitted RGV result is outside valid Fork/RGV result semantics.
+
+It does not mean Fork has determined that the source material is false, unlawful, inadmissible, incomplete, or factually unsupported.
+
+When this binding rejects `source_truth_assertions`, Fork is not adjudicating source truth. It is rejecting an assertion category that is outside Fork/RGV structural verification authority.
 ## INDETERMINATE posture
 
 `INDETERMINATE` results are not RGV `PASS` results and are not required by this binding to carry the required source non-claim bundle.
@@ -77,6 +91,11 @@ This binding checker validates structural fields and known prohibited assertion 
 It does not scan arbitrary free-text fields such as `summary`, `notes`, `description`, or human-authored prose for implied truth assertions.
 
 Implementers are responsible for ensuring free-text content in result records remains consistent with the required source non-claims.
+## v0.4 evidentiary-weight profile compatibility
+
+This binding does not read, require, validate, reinterpret, or mutate v0.4 evidentiary-weight profile fields.
+
+A result may fail this binding because its RGV PASS semantics violate required source non-claim constraints. That failure is not an evidentiary-weight determination and does not reopen the v0.4 profile contract.
 ## Checker scope
 
 `tools/check_rgv_result_required_source_non_claim_binding_v0_1.py` validates deterministic RGV result-semantics constraints only.

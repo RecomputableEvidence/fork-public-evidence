@@ -1,0 +1,40 @@
+{
+  "record_type": "RGV_VERIFICATION_RESULT",
+  "result": "PASS",
+  "verification_scope": "RELATIONAL_GRAPH_STRUCTURE_ONLY",
+  "required_source_non_claim_bundle": {
+    "record_type": "REQUIRED_SOURCE_NON_CLAIM_BUNDLE",
+    "bundle_version": "0.1",
+    "bundle_scope": "FORK_SOURCE_ARTIFACTS_AND_RGV_RESULTS",
+    "required_non_claims": [
+      {
+        "non_claim_id": "SOURCE_TRUTH_NOT_CLAIMED",
+        "statement": "RGV does not assert that any source artifact, upstream record, external attestation, human statement, model output, system log, or referenced evidence is factually true."
+      },
+      {
+        "non_claim_id": "FACTUAL_BASIS_NOT_CONFIRMED",
+        "statement": "RGV does not independently confirm the factual basis underlying any source claim, upstream record, external attestation, human statement, model output, system log, or referenced evidence."
+      },
+      {
+        "non_claim_id": "WHOLENESS_NOT_ASSERTED",
+        "statement": "RGV does not assert that the graph that passed structural verification represents the whole factual, operational, legal, or institutional context."
+      },
+      {
+        "non_claim_id": "COMPLETENESS_NOT_STATED",
+        "statement": "RGV does not state that all relevant evidence, records, sources, reviews, approvals, risks, omissions, or dependencies have been captured."
+      },
+      {
+        "non_claim_id": "ADMISSIBILITY_NOT_INFERRED",
+        "statement": "RGV structural verification does not imply legal admissibility, self-authentication, business-records status, or satisfaction of evidentiary rules."
+      },
+      {
+        "non_claim_id": "LAWFULNESS_NOT_IMPLIED",
+        "statement": "RGV does not imply that any source action, workflow, output, decision, deployment, review, approval, reliance, or downstream use was lawful."
+      },
+      {
+        "non_claim_id": "RISK_ACCEPTANCE_NOT_INFERRED",
+        "statement": "This seventh identifier is plausible but not part of the canonical v0.1 required source non-claim bundle."
+      }
+    ]
+  }
+}

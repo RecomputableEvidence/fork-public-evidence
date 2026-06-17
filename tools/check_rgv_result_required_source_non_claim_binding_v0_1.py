@@ -149,6 +149,46 @@ def check_forbidden_assertions(record: dict[str, Any]) -> list[dict[str, str]]:
     return errors
 
 
+def check_nested_required_source_non_claim_bundle_exact_v0_1(record: dict[str, Any]) -> list[dict[str, str]]:
+    errors: list[dict[str, str]] = []
+
+    bundle = record.get("required_source_non_claim_bundle")
+    if not isinstance(bundle, dict):
+        return errors
+
+    bundle_version = bundle.get("bundle_version")
+    if bundle_version != "0.1":
+        errors.append(
+            err(
+                "INVALID_REQUIRED_SOURCE_NON_CLAIM_BUNDLE_VERSION",
+                "required_source_non_claim_bundle.bundle_version must be 0.1 when the nested canonical bundle carrier is used",
+            )
+        )
+
+    bundle_items = bundle.get("required_non_claims")
+    if not isinstance(bundle_items, list):
+        return errors
+
+    ids: list[str] = []
+    for index, item in enumerate(bundle_items):
+        if not isinstance(item, dict):
+            continue
+
+        non_claim_id = item.get("non_claim_id")
+        if is_non_empty(non_claim_id):
+            ids.append(non_claim_id)
+
+    unknown = sorted(set(ids) - REQUIRED_NON_CLAIM_IDS)
+    for non_claim_id in unknown:
+        errors.append(
+            err(
+                "UNKNOWN_REQUIRED_SOURCE_NON_CLAIM_IN_V0_1_BUNDLE",
+                f"{non_claim_id} is not part of the canonical v0.1 required source non-claim bundle",
+            )
+        )
+
+    return errors
+
 def check_required_source_non_claims_for_pass(record: dict[str, Any]) -> list[dict[str, str]]:
     errors: list[dict[str, str]] = []
 
@@ -233,6 +273,7 @@ def check_rgv_result(record: dict[str, Any]) -> list[dict[str, str]]:
         )
 
     errors.extend(check_forbidden_assertions(record))
+    errors.extend(check_nested_required_source_non_claim_bundle_exact_v0_1(record))
     errors.extend(check_required_source_non_claims_for_pass(record))
 
     return errors

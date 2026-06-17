@@ -70,3 +70,14 @@ def test_pass_with_wrong_non_claim_ids_does_not_satisfy_required_v0_1_bundle():
     assert any("COMPLETENESS_NOT_STATED" in e["message"] for e in missing)
     assert any("ADMISSIBILITY_NOT_INFERRED" in e["message"] for e in missing)
     assert any("LAWFULNESS_NOT_IMPLIED" in e["message"] for e in missing)
+
+def test_nested_required_source_non_claim_bundle_rejects_additional_unknown_id():
+    proc = run_binding_checker("invalid_pass_nested_bundle_with_additional_unknown_id.json")
+    assert proc.returncode == 1
+    out = parse_stdout(proc)
+    assert out["result"] == "FAIL"
+    assert any(
+        e["code"] == "UNKNOWN_REQUIRED_SOURCE_NON_CLAIM_IN_V0_1_BUNDLE"
+        and "RISK_ACCEPTANCE_NOT_INFERRED" in e["message"]
+        for e in out["errors"]
+    )
