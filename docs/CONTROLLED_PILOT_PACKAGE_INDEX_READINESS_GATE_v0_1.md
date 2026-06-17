@@ -42,3 +42,9 @@ It does not authorize live ingestion, certify production readiness, certify sour
 ## Readiness non-claims
 
 The readiness receipt preserves non-claims stating that package readiness does not authorize live ingestion, does not certify production readiness, does not certify source truth, and does not replace institutional approval.
+
+## Stakeholder orientation memo
+
+The controlled-pilot package includes a stakeholder orientation memo explaining how legal, compliance, audit, risk, security, clinical, utilization-management, operational, and engineering stakeholders should read Fork controlled-pilot artifacts.
+
+The memo preserves the distinction that controlled-pilot readiness remains inside Fork while live-ingestion authorization remains exclusively with the institution.
