@@ -16,7 +16,10 @@ keeps the v0.1.1 checker runnable in a minimal Python environment.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
+import sys
+import io
 import re
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence, Set, Tuple
@@ -1311,7 +1314,7 @@ def check_invalid_manifest(manifest_path: Path | str = INVALID_MANIFEST) -> Dict
 
 from typing import Any, Dict, List, Optional
 
-OUTPUT_SEMANTICS_VERSION = "0.1.4"
+OUTPUT_SEMANTICS_VERSION = "0.1.5"
 
 DO_NOT_MAP_TO_V014: List[str] = [
     "APPROVAL",
@@ -1629,7 +1632,7 @@ def _v014_call_invalid_manifest(manifest_path: Optional[str] = None) -> Dict[str
     raise RuntimeError("No invalid-manifest checker function found")
 
 
-def main(argv: Optional[List[str]] = None) -> int:
+def _v014_main(argv: Optional[List[str]] = None) -> int:
     import argparse as _argparse
     from pathlib import Path as _Path
 
@@ -1701,6 +1704,577 @@ def main(argv: Optional[List[str]] = None) -> int:
         }
         _v014_print_json(payload, args.pretty)
         return 2
+
+
+# V015_OUTPUT_CONTRACT_WRAPPER_START
+V015_REQUIRED_LIMITATION_TRUE_FLAGS = [
+    "synthetic_corpus_only",
+    "automation_interpretation_required",
+    "does_not_validate_approval",
+    "does_not_validate_truth",
+    "does_not_validate_safety",
+    "does_not_validate_compliance",
+    "does_not_validate_policy_compliance",
+    "does_not_validate_regulatory_compliance",
+    "does_not_validate_legal_sufficiency",
+    "does_not_validate_legal_chain_of_custody",
+    "does_not_validate_legal_reliance",
+    "does_not_validate_admissibility",
+    "does_not_validate_authority",
+    "does_not_validate_evidence_sufficiency",
+    "does_not_validate_medical_correctness",
+    "does_not_validate_operational_authorization",
+    "does_not_validate_production_readiness",
+    "does_not_validate_actual_non_use",
+    "does_not_validate_downstream_execution",
+    "does_not_validate_actual_downstream_execution",
+    "does_not_authorize_production_use",
+    "does_not_observe_undisclosed_downstream_behavior",
+    "legacy_output_disabled",
+]
+
+V015_DO_NOT_MAP_TO = [
+    "APPROVAL",
+    "APPROVED",
+    "TRUTH",
+    "TRUE",
+    "COMPLIANCE",
+    "COMPLIANT",
+    "POLICY_COMPLIANCE",
+    "REGULATORY_COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "LEGAL_CHAIN_OF_CUSTODY",
+    "LEGAL_RELIANCE",
+    "AUTHORITY_VALIDITY",
+    "AUTHORITY_VALID",
+    "AUTHORITY_VALIDATED",
+    "EVIDENCE_SUFFICIENCY",
+    "EVIDENCE_SUFFICIENT",
+    "SAFETY",
+    "SAFE",
+    "MEDICAL_CORRECTNESS",
+    "OPERATIONAL_AUTHORIZATION",
+    "PRODUCTION_READINESS",
+    "PRODUCTION_READY",
+    "PRODUCTION_AUTHORIZATION",
+    "VERIFIED_NON_USE",
+    "ACTUAL_DOWNSTREAM_EXECUTION",
+]
+
+V015_BANNED_PUBLIC_OUTPUT_KEYS = {
+    "ok",
+    "runner_succeeded",
+    "all_invalid_fixtures_rejected",
+    "structurally_conformant",
+    "checker_structurally_conformant",
+}
+
+V015_ALLOWED_RESULT_KINDS = {
+    "STRUCTURAL_BUNDLE_CHECK",
+    "INVALID_FIXTURE_HARNESS",
+    "LEGACY_OUTPUT_DISABLED",
+    "INPUT_ERROR",
+    "RUNNER_ERROR",
+    "OUTPUT_CONTRACT_VIOLATION",
+}
+
+
+def _v015_limitations(scope: str) -> Dict[str, Any]:
+    limitations: Dict[str, Any] = {
+        "limitations_code": "LIMIT_STRUCTURAL_SYNTHETIC_PROTOCOL_ONLY_V0_1_5",
+        "scope": scope,
+        "synthetic_corpus_only": True,
+        "safe_to_automate": False,
+        "automation_interpretation_required": True,
+        "does_not_validate_approval": True,
+        "does_not_validate_truth": True,
+        "does_not_validate_safety": True,
+        "does_not_validate_compliance": True,
+        "does_not_validate_policy_compliance": True,
+        "does_not_validate_regulatory_compliance": True,
+        "does_not_validate_legal_sufficiency": True,
+        "does_not_validate_legal_chain_of_custody": True,
+        "does_not_validate_legal_reliance": True,
+        "does_not_validate_admissibility": True,
+        "does_not_validate_authority": True,
+        "does_not_validate_evidence_sufficiency": True,
+        "does_not_validate_medical_correctness": True,
+        "does_not_validate_operational_authorization": True,
+        "does_not_validate_production_readiness": True,
+        "does_not_validate_actual_non_use": True,
+        "does_not_validate_downstream_execution": True,
+        "does_not_validate_actual_downstream_execution": True,
+        "does_not_authorize_production_use": True,
+        "does_not_observe_undisclosed_downstream_behavior": True,
+        "legacy_output_disabled": True,
+        "do_not_map_to": list(V015_DO_NOT_MAP_TO),
+        "canonical_warning": "STRUCTURAL_PROTOCOL_PASS_IS_NOT_APPROVAL_TRUTH_COMPLIANCE_AUTHORITY_OR_EVIDENCE_SUFFICIENCY",
+    }
+    return limitations
+
+
+def _v015_scrub_legacy_public_keys(value: Any) -> Any:
+    rename = {
+        "runner_succeeded": "command_completed",
+        "structurally_conformant": "structural_protocol_passed",
+        "checker_structurally_conformant": "checker_structural_protocol_passed",
+        "all_invalid_fixtures_rejected": "all_invalid_fixtures_produced_expected_structural_failures",
+    }
+
+    if isinstance(value, dict):
+        cleaned: Dict[str, Any] = {}
+        for key, child in value.items():
+            if key == "ok":
+                continue
+            new_key = rename.get(key, key)
+            cleaned[new_key] = _v015_scrub_legacy_public_keys(child)
+        return cleaned
+
+    if isinstance(value, list):
+        return [_v015_scrub_legacy_public_keys(child) for child in value]
+
+    return value
+
+
+def _v015_finding(
+    check_id: str,
+    scope: str,
+    severity: str,
+    explanation: str,
+    extra: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    finding: Dict[str, Any] = {
+        "check_id": str(check_id) if check_id else "STRUCTURAL_CHECK",
+        "check_version": "0.1.5",
+        "scope": scope,
+        "severity": severity,
+        "explanation": explanation,
+    }
+    if extra:
+        finding.update(_v015_scrub_legacy_public_keys(extra))
+    return finding
+
+
+def _v015_normalize_findings(findings: Any, default_scope: str) -> List[Dict[str, Any]]:
+    if not isinstance(findings, list):
+        return []
+
+    normalized: List[Dict[str, Any]] = []
+    for index, finding in enumerate(findings):
+        if isinstance(finding, dict):
+            cleaned = _v015_scrub_legacy_public_keys(dict(finding))
+            cleaned["check_id"] = str(cleaned.get("check_id") or cleaned.get("code") or f"STRUCTURAL_CHECK_{index + 1}")
+            cleaned["check_version"] = "0.1.5"
+            cleaned["scope"] = str(cleaned.get("scope") or default_scope)
+            cleaned["severity"] = str(cleaned.get("severity") or "STRUCTURAL_FAILURE")
+            cleaned["explanation"] = str(
+                cleaned.get("explanation")
+                or "Structural checker finding only; not approval, truth, compliance, authority, or evidence sufficiency."
+            )
+            normalized.append(cleaned)
+        else:
+            normalized.append(
+                _v015_finding(
+                    check_id=f"STRUCTURAL_CHECK_{index + 1}",
+                    scope=default_scope,
+                    severity="STRUCTURAL_FAILURE",
+                    explanation=str(finding),
+                )
+            )
+    return normalized
+
+
+def _v015_runner(raw_runner: Any, return_code: int) -> Dict[str, Any]:
+    if not isinstance(raw_runner, dict):
+        raw_runner = {}
+
+    runner = _v015_scrub_legacy_public_keys(raw_runner)
+    command_completed = runner.get("command_completed")
+    if not isinstance(command_completed, bool):
+        command_completed = True
+
+    output = {
+        "command_completed": command_completed,
+        "mode": str(runner.get("mode") or "v014_cli_wrapped_by_v015_output_contract"),
+        "runner_outcome": str(
+            runner.get("runner_outcome")
+            or ("completed" if return_code == 0 else "completed_with_nonzero_exit")
+        ),
+    }
+
+    if runner.get("error_type"):
+        output["error_type"] = str(runner["error_type"])
+    if runner.get("message"):
+        output["message"] = str(runner["message"])
+
+    return output
+
+
+def _v015_structural_result(raw_structural: Any) -> Optional[Dict[str, Any]]:
+    if raw_structural is None:
+        return None
+    if not isinstance(raw_structural, dict):
+        raw_structural = {}
+
+    structural = _v015_scrub_legacy_public_keys(raw_structural)
+
+    passed = structural.get("structural_protocol_passed")
+    if not isinstance(passed, bool):
+        passed = False
+
+    errors = structural.get("errors")
+    if not isinstance(errors, list):
+        errors = []
+
+    error_count = structural.get("error_count")
+    if not isinstance(error_count, int):
+        error_count = len(errors)
+
+    return {
+        "structural_protocol_passed": passed,
+        "source": structural.get("source"),
+        "error_count": error_count,
+        "errors": _v015_scrub_legacy_public_keys(errors),
+        "findings": _v015_normalize_findings(
+            structural.get("findings", []),
+            "STRUCTURAL_RESULT_ONLY",
+        ),
+        "limitations": _v015_limitations("STRUCTURAL_RESULT_ONLY"),
+    }
+
+
+def _v015_fixture_result(raw_fixture: Any) -> Dict[str, Any]:
+    if not isinstance(raw_fixture, dict):
+        raw_fixture = {}
+
+    fixture = _v015_scrub_legacy_public_keys(raw_fixture)
+
+    passed = fixture.get("checker_structural_protocol_passed")
+    if not isinstance(passed, bool):
+        passed = False
+
+    actual_error_codes = fixture.get("actual_error_codes")
+    if not isinstance(actual_error_codes, list):
+        actual_error_codes = []
+
+    missing_expected_failures = fixture.get("missing_expected_failures")
+    if not isinstance(missing_expected_failures, list):
+        missing_expected_failures = []
+
+    expected_failures_observed = fixture.get("expected_failures_observed")
+    if not isinstance(expected_failures_observed, bool):
+        expected_failures_observed = not missing_expected_failures
+
+    return {
+        "fixture_file": fixture.get("fixture_file"),
+        "checker_structural_protocol_passed": passed,
+        "expected_failures_observed": expected_failures_observed,
+        "actual_error_codes": [str(code) for code in actual_error_codes],
+        "findings": _v015_normalize_findings(
+            fixture.get("findings", []),
+            "NEGATIVE_TEST_HARNESS_ONLY",
+        ),
+        "missing_expected_failures": _v015_scrub_legacy_public_keys(missing_expected_failures),
+        "limitations": _v015_limitations("INVALID_FIXTURE_RESULT_ONLY"),
+    }
+
+
+def _v015_harness_result(raw_harness: Any) -> Optional[Dict[str, Any]]:
+    if raw_harness is None:
+        return None
+    if not isinstance(raw_harness, dict):
+        raw_harness = {}
+
+    harness = _v015_scrub_legacy_public_keys(raw_harness)
+    fixtures = harness.get("fixture_results")
+    if not isinstance(fixtures, list):
+        fixtures = []
+
+    result = harness.get("all_invalid_fixtures_produced_expected_structural_failures")
+    if not isinstance(result, bool):
+        result = False
+
+    return {
+        "all_invalid_fixtures_produced_expected_structural_failures": result,
+        "does_not_indicate_structural_conformance": True,
+        "manifest": harness.get("manifest"),
+        "fixture_count": int(harness.get("fixture_count") or len(fixtures)),
+        "fixture_results": [_v015_fixture_result(fixture) for fixture in fixtures],
+        "limitations": _v015_limitations("HARNESS_RESULT_ONLY"),
+    }
+
+
+def _v015_has_invalid_json_error(value: Any) -> bool:
+    if isinstance(value, dict):
+        code = str(value.get("code") or value.get("check_id") or value.get("error_code") or "").upper()
+        message = str(value.get("message") or value.get("explanation") or "").upper()
+        if code == "INVALID_JSON" or "INVALID JSON" in message or "JSONDECODEERROR" in message:
+            return True
+        return any(_v015_has_invalid_json_error(child) for child in value.values())
+
+    if isinstance(value, list):
+        return any(_v015_has_invalid_json_error(child) for child in value)
+
+    return False
+
+
+def _v015_exit_code_for_payload(original_return_code: int, payload: Dict[str, Any]) -> int:
+    result_kind = payload.get("result_kind")
+    if result_kind in {"INPUT_ERROR", "RUNNER_ERROR", "OUTPUT_CONTRACT_VIOLATION", "LEGACY_OUTPUT_DISABLED"}:
+        return 2
+    return original_return_code
+
+
+def _v015_error(raw_error: Any, default_scope: str = "ERROR_ONLY") -> Optional[Dict[str, Any]]:
+    if raw_error is None:
+        return None
+    if isinstance(raw_error, dict):
+        findings = raw_error.get("findings", [])
+    else:
+        findings = [_v015_finding("ERROR", default_scope, "ERROR", str(raw_error))]
+    return {"findings": _v015_normalize_findings(findings, default_scope)}
+
+
+def _v015_error_payload(result_kind: str, message: str, check_id: str) -> Dict[str, Any]:
+    if result_kind not in V015_ALLOWED_RESULT_KINDS:
+        result_kind = "RUNNER_ERROR"
+
+    return {
+        "result_kind": result_kind,
+        "output_semantics_version": "0.1.5",
+        "safe_to_automate": False,
+        "automation_interpretation_required": True,
+        "runner": {
+            "command_completed": False,
+            "mode": "v015_output_contract_wrapper",
+            "runner_outcome": "failed_closed",
+        },
+        "structural_result": None,
+        "harness_result": None,
+        "error": {
+            "findings": [
+                _v015_finding(
+                    check_id=check_id,
+                    scope=f"{result_kind}_ONLY",
+                    severity=result_kind,
+                    explanation=message,
+                )
+            ]
+        },
+        "limitations": _v015_limitations(f"{result_kind}_ONLY"),
+    }
+
+
+def _v015_transform_payload(raw_payload: Any, return_code: int) -> Dict[str, Any]:
+    if not isinstance(raw_payload, dict):
+        return _v015_error_payload(
+            "OUTPUT_CONTRACT_VIOLATION",
+            "Legacy runner emitted non-object JSON output.",
+            "NON_OBJECT_OUTPUT",
+        )
+
+    payload = _v015_scrub_legacy_public_keys(raw_payload)
+
+    result_kind = payload.get("result_kind")
+    if result_kind not in V015_ALLOWED_RESULT_KINDS:
+        if payload.get("structural_result") is not None:
+            result_kind = "STRUCTURAL_BUNDLE_CHECK"
+        else:
+            result_kind = "RUNNER_ERROR"
+
+    structural_result = _v015_structural_result(payload.get("structural_result"))
+    harness_result = _v015_harness_result(payload.get("harness_result"))
+
+    if _v015_has_invalid_json_error(payload):
+        return _v015_error_payload(
+            "INPUT_ERROR",
+            "Malformed input was bounded as a machine-readable input error.",
+            "INVALID_JSON_INPUT",
+        )
+
+    if result_kind == "STRUCTURAL_BUNDLE_CHECK":
+        harness_result = None
+    elif result_kind == "INVALID_FIXTURE_HARNESS":
+        structural_result = None
+    else:
+        structural_result = None
+        harness_result = None
+
+    limitation_scope_by_result_kind = {
+        "STRUCTURAL_BUNDLE_CHECK": "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY",
+        "INVALID_FIXTURE_HARNESS": "NEGATIVE_TEST_HARNESS_ONLY",
+        "LEGACY_OUTPUT_DISABLED": "LEGACY_OUTPUT_DISABLED_ONLY",
+        "INPUT_ERROR": "INPUT_ERROR_ONLY",
+        "RUNNER_ERROR": "RUNNER_ERROR_ONLY",
+        "OUTPUT_CONTRACT_VIOLATION": "OUTPUT_CONTRACT_VIOLATION_ONLY",
+    }
+
+    root_limitations = _v015_limitations(
+        limitation_scope_by_result_kind.get(str(result_kind), "OUTPUT_CONTRACT_ONLY")
+    )
+    if result_kind == "INVALID_FIXTURE_HARNESS":
+        root_limitations["does_not_indicate_structural_conformance"] = True
+
+    normalized: Dict[str, Any] = {
+        "result_kind": result_kind,
+        "output_semantics_version": "0.1.5",
+        "safe_to_automate": False,
+        "automation_interpretation_required": True,
+        "runner": _v015_runner(payload.get("runner"), return_code),
+        "structural_result": structural_result,
+        "harness_result": harness_result,
+        "limitations": root_limitations,
+    }
+
+    error = _v015_error(payload.get("error"))
+    if error is not None:
+        normalized["error"] = error
+
+    return normalized
+
+
+def _v015_validate_no_banned_keys(value: Any, path: str = "$") -> None:
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if key in V015_BANNED_PUBLIC_OUTPUT_KEYS:
+                raise RuntimeError(f"Banned legacy public key emitted at {path}.{key}")
+            _v015_validate_no_banned_keys(child, f"{path}.{key}")
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            _v015_validate_no_banned_keys(child, f"{path}[{index}]")
+
+
+def _v015_validate_limitations(limitations: Any) -> None:
+    if not isinstance(limitations, dict):
+        raise RuntimeError("limitations must be object")
+    if limitations.get("limitations_code") != "LIMIT_STRUCTURAL_SYNTHETIC_PROTOCOL_ONLY_V0_1_5":
+        raise RuntimeError("limitations_code mismatch")
+    if limitations.get("safe_to_automate") is not False:
+        raise RuntimeError("safe_to_automate must be false")
+    if limitations.get("automation_interpretation_required") is not True:
+        raise RuntimeError("automation_interpretation_required must be true")
+    for flag in V015_REQUIRED_LIMITATION_TRUE_FLAGS:
+        if limitations.get(flag) is not True:
+            raise RuntimeError(f"required limitation missing or false: {flag}")
+    do_not_map_to = limitations.get("do_not_map_to")
+    if not isinstance(do_not_map_to, list):
+        raise RuntimeError("do_not_map_to must be list")
+    for entry in V015_DO_NOT_MAP_TO:
+        if entry not in do_not_map_to:
+            raise RuntimeError(f"do_not_map_to missing: {entry}")
+
+
+def _v015_validate_payload(payload: Dict[str, Any]) -> None:
+    if not isinstance(payload, dict):
+        raise RuntimeError("payload must be object")
+
+    _v015_validate_no_banned_keys(payload)
+
+    if payload.get("result_kind") not in V015_ALLOWED_RESULT_KINDS:
+        raise RuntimeError("invalid result_kind")
+    if payload.get("output_semantics_version") != "0.1.5":
+        raise RuntimeError("output_semantics_version mismatch")
+    if payload.get("safe_to_automate") is not False:
+        raise RuntimeError("root safe_to_automate must be false")
+    if payload.get("automation_interpretation_required") is not True:
+        raise RuntimeError("root automation_interpretation_required must be true")
+    if not isinstance(payload.get("runner"), dict):
+        raise RuntimeError("runner must be object")
+
+    _v015_validate_limitations(payload.get("limitations"))
+
+    result_kind = payload["result_kind"]
+    if result_kind == "STRUCTURAL_BUNDLE_CHECK":
+        if not isinstance(payload.get("structural_result"), dict):
+            raise RuntimeError("STRUCTURAL_BUNDLE_CHECK requires structural_result")
+        if payload.get("harness_result") is not None:
+            raise RuntimeError("STRUCTURAL_BUNDLE_CHECK must not emit harness_result")
+        _v015_validate_limitations(payload["structural_result"].get("limitations"))
+    elif result_kind == "INVALID_FIXTURE_HARNESS":
+        if payload.get("structural_result") is not None:
+            raise RuntimeError("INVALID_FIXTURE_HARNESS must not emit structural_result")
+        if not isinstance(payload.get("harness_result"), dict):
+            raise RuntimeError("INVALID_FIXTURE_HARNESS requires harness_result")
+        if payload["harness_result"].get("does_not_indicate_structural_conformance") is not True:
+            raise RuntimeError("harness conformance disclaimer missing")
+        _v015_validate_limitations(payload["harness_result"].get("limitations"))
+        for fixture in payload["harness_result"].get("fixture_results", []):
+            _v015_validate_limitations(fixture.get("limitations"))
+    else:
+        if payload.get("structural_result") is not None:
+            raise RuntimeError(f"{result_kind} must not emit structural_result")
+        if payload.get("harness_result") is not None:
+            raise RuntimeError(f"{result_kind} must not emit harness_result")
+
+
+def _v015_wants_pretty(argv: Optional[List[str]]) -> bool:
+    args = list(sys.argv[1:] if argv is None else argv)
+    return "--pretty" in args
+
+
+def _v015_print_payload(payload: Dict[str, Any], argv: Optional[List[str]]) -> None:
+    if _v015_wants_pretty(argv):
+        print(json.dumps(payload, indent=2, sort_keys=True))
+    else:
+        print(json.dumps(payload, sort_keys=True))
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    captured_stdout = io.StringIO()
+
+    try:
+        with contextlib.redirect_stdout(captured_stdout):
+            return_code = _v014_main(list(sys.argv[1:] if argv is None else argv))
+    except SystemExit as exc:
+        code = exc.code
+        return_code = int(code) if isinstance(code, int) else 1
+    except Exception as exc:
+        kind = "INPUT_ERROR" if "JSON" in exc.__class__.__name__.upper() or "DECODE" in exc.__class__.__name__.upper() else "RUNNER_ERROR"
+        payload = _v015_error_payload(
+            kind,
+            f"Bounded checker failure: {exc.__class__.__name__}",
+            exc.__class__.__name__,
+        )
+        _v015_print_payload(payload, argv)
+        return 2
+
+    raw_stdout = captured_stdout.getvalue().strip()
+    if not raw_stdout:
+        payload = _v015_error_payload(
+            "RUNNER_ERROR",
+            "Legacy runner emitted no machine-readable stdout.",
+            "EMPTY_LEGACY_STDOUT",
+        )
+        _v015_print_payload(payload, argv)
+        return 2
+
+    try:
+        raw_payload = json.loads(raw_stdout)
+    except json.JSONDecodeError:
+        payload = _v015_error_payload(
+            "OUTPUT_CONTRACT_VIOLATION",
+            "Legacy runner emitted non-JSON stdout.",
+            "NON_JSON_LEGACY_STDOUT",
+        )
+        _v015_print_payload(payload, argv)
+        return 2
+
+    payload = _v015_transform_payload(raw_payload, return_code)
+
+    try:
+        _v015_validate_payload(payload)
+    except Exception as exc:
+        violation = _v015_error_payload(
+            "OUTPUT_CONTRACT_VIOLATION",
+            f"v0.1.5 output contract validation failed: {exc}",
+            "OUTPUT_CONTRACT_VALIDATION_FAILED",
+        )
+        _v015_print_payload(violation, argv)
+        return 2
+
+    _v015_print_payload(payload, argv)
+    return _v015_exit_code_for_payload(return_code, payload)
+# V015_OUTPUT_CONTRACT_WRAPPER_END
 
 if __name__ == "__main__":
     raise SystemExit(main())

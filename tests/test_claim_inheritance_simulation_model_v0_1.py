@@ -153,10 +153,10 @@ def test_cli_valid_bundle_exits_zero():
 
     assert "ok" not in payload
     assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
-    assert payload["output_semantics_version"] == "0.1.4"
-    assert "runner_succeeded" not in payload["runner"]
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["runner"]["command_completed"] is True
     assert payload["runner"]["mode"] == "single_bundle_check"
-    assert payload["structural_result"]["structurally_conformant"] is True
+    assert payload["structural_result"]["structural_protocol_passed"] is True
     assert payload["structural_result"]["error_count"] == 0
     assert payload["harness_result"] is None
     assert payload["limitations"]["does_not_validate_truth"] is True
@@ -180,9 +180,9 @@ def test_cli_invalid_fixture_exits_nonzero():
 
     assert "ok" not in payload
     assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
-    assert payload["output_semantics_version"] == "0.1.4"
-    assert "runner_succeeded" not in payload["runner"]
-    assert payload["structural_result"]["structurally_conformant"] is False
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["runner"]["command_completed"] is True
+    assert payload["structural_result"]["structural_protocol_passed"] is False
     assert payload["structural_result"]["error_count"] > 0
     assert payload["harness_result"] is None
     assert payload["limitations"]["does_not_validate_truth"] is True
@@ -207,11 +207,11 @@ def test_cli_invalid_manifest_exits_zero_when_expected_failures_match():
 
     assert "ok" not in payload
     assert payload["result_kind"] == "INVALID_FIXTURE_HARNESS"
-    assert payload["output_semantics_version"] == "0.1.4"
-    assert "runner_succeeded" not in payload["runner"]
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["runner"]["command_completed"] is True
     assert payload["runner"]["mode"] == "invalid_fixture_harness"
     assert payload["structural_result"] is None
-    assert "all_invalid_fixtures_rejected" not in payload["harness_result"]
+    assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["does_not_indicate_structural_conformance"] is True
     assert payload["harness_result"]["fixture_count"] == 20
@@ -220,7 +220,7 @@ def test_cli_invalid_manifest_exits_zero_when_expected_failures_match():
 
     fixture_results = payload["harness_result"]["fixture_results"]
     assert fixture_results
-    assert all(item["checker_structurally_conformant"] is False for item in fixture_results)
+    assert all(item["checker_structural_protocol_passed"] is False for item in fixture_results)
     assert all(item["expected_failures_observed"] is True for item in fixture_results)
     assert all("ok" not in item for item in fixture_results)
     assert all("checker_ok" not in item for item in fixture_results)
@@ -312,9 +312,9 @@ def test_cli_valid_bundle_uses_v013_output_semantics():
 
     assert "ok" not in payload
     assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
-    assert payload["output_semantics_version"] == "0.1.4"
-    assert "runner_succeeded" not in payload["runner"]
-    assert payload["structural_result"]["structurally_conformant"] is True
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["runner"]["command_completed"] is True
+    assert payload["structural_result"]["structural_protocol_passed"] is True
     assert payload["harness_result"] is None
     assert payload["limitations"]["scope"] == "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY"
     assert payload["limitations"]["does_not_validate_truth"] is True
@@ -339,8 +339,8 @@ def test_cli_invalid_fixture_uses_v013_structural_failure_semantics():
 
     assert "ok" not in payload
     assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
-    assert "runner_succeeded" not in payload["runner"]
-    assert payload["structural_result"]["structurally_conformant"] is False
+    assert payload["runner"]["command_completed"] is True
+    assert payload["structural_result"]["structural_protocol_passed"] is False
     assert payload["structural_result"]["error_count"] > 0
     assert payload["limitations"]["does_not_validate_truth"] is True
 
@@ -359,10 +359,10 @@ def test_cli_invalid_manifest_separates_harness_success_from_structural_conforma
 
     assert "ok" not in payload
     assert payload["result_kind"] == "INVALID_FIXTURE_HARNESS"
-    assert payload["output_semantics_version"] == "0.1.4"
-    assert "runner_succeeded" not in payload["runner"]
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["runner"]["command_completed"] is True
     assert payload["structural_result"] is None
-    assert "all_invalid_fixtures_rejected" not in payload["harness_result"]
+    assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["does_not_indicate_structural_conformance"] is True
     assert payload["harness_result"]["fixture_count"] == 20
@@ -374,7 +374,7 @@ def test_cli_invalid_manifest_separates_harness_success_from_structural_conforma
     assert all("ok" not in item for item in fixture_results)
     assert all("checker_ok" not in item for item in fixture_results)
     assert all("expected_failures_observed" in item for item in fixture_results)
-    assert all("checker_structurally_conformant" in item for item in fixture_results)
+    assert all("checker_structural_protocol_passed" in item for item in fixture_results)
 
 def test_cli_valid_bundle_carries_v014_output_boundary_lock():
     completed = subprocess.run(
@@ -389,12 +389,12 @@ def test_cli_valid_bundle_carries_v014_output_boundary_lock():
     payload = json.loads(completed.stdout)
 
     assert "ok" not in payload
-    assert payload["output_semantics_version"] == "0.1.4"
+    assert payload["output_semantics_version"] == "0.1.5"
     assert payload["safe_to_automate"] is False
     assert payload["automation_interpretation_required"] is True
     assert payload["runner"]["command_completed"] is True
     assert payload["runner"]["runner_outcome"] == "completed"
-    assert payload["structural_result"]["structurally_conformant"] is True
+    assert payload["structural_result"]["structural_protocol_passed"] is True
     assert payload["structural_result"]["limitations"]["safe_to_automate"] is False
     assert payload["structural_result"]["limitations"]["does_not_validate_approval"] is True
     assert payload["structural_result"]["limitations"]["does_not_validate_actual_non_use"] is True
@@ -415,10 +415,10 @@ def test_cli_invalid_manifest_carries_v014_harness_boundary_lock():
     payload = json.loads(completed.stdout)
 
     assert "ok" not in payload
-    assert payload["output_semantics_version"] == "0.1.4"
+    assert payload["output_semantics_version"] == "0.1.5"
     assert payload["result_kind"] == "INVALID_FIXTURE_HARNESS"
     assert payload["structural_result"] is None
-    assert "all_invalid_fixtures_rejected" not in payload["harness_result"]
+    assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert payload["harness_result"]["does_not_indicate_structural_conformance"] is True
@@ -430,7 +430,7 @@ def test_cli_invalid_manifest_carries_v014_harness_boundary_lock():
     first_fixture = payload["harness_result"]["fixture_results"][0]
     assert first_fixture["limitations"]["scope"] == "INVALID_FIXTURE_RESULT_ONLY"
     assert first_fixture["findings"]
-    assert first_fixture["findings"][0]["check_version"] == "0.1.4"
+    assert first_fixture["findings"][0]["check_version"] == "0.1.5"
     assert first_fixture["findings"][0]["severity"] == "EXPECTED_STRUCTURAL_FAILURE"
 
 
@@ -448,7 +448,7 @@ def test_cli_legacy_output_is_disabled_in_v014():
 
     assert "ok" not in payload
     assert payload["result_kind"] == "LEGACY_OUTPUT_DISABLED"
-    assert payload["output_semantics_version"] == "0.1.4"
+    assert payload["output_semantics_version"] == "0.1.5"
     assert payload["runner"]["runner_outcome"] == "blocked"
     assert payload["structural_result"] is None
     assert payload["limitations"]["legacy_output_disabled"] is True
@@ -467,7 +467,7 @@ def test_cli_v014_removes_ambiguous_compatibility_aliases():
     valid_payload = json.loads(valid.stdout)
 
     assert "ok" not in valid_payload
-    assert "runner_succeeded" not in valid_payload["runner"]
+    assert valid_payload["runner"]["command_completed"] is True
     assert valid_payload["runner"]["command_completed"] is True
     assert valid_payload["structural_result"]["limitations"]["safe_to_automate"] is False
 
@@ -482,8 +482,8 @@ def test_cli_v014_removes_ambiguous_compatibility_aliases():
     harness_payload = json.loads(harness.stdout)
 
     assert "ok" not in harness_payload
-    assert "runner_succeeded" not in harness_payload["runner"]
-    assert "all_invalid_fixtures_rejected" not in harness_payload["harness_result"]
+    assert harness_payload["runner"]["command_completed"] is True
+    assert harness_payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert harness_payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
     assert harness_payload["harness_result"]["limitations"]["safe_to_automate"] is False
 
@@ -498,5 +498,71 @@ def test_cli_v014_removes_ambiguous_compatibility_aliases():
     legacy_payload = json.loads(legacy.stdout)
 
     assert "ok" not in legacy_payload
-    assert "runner_succeeded" not in legacy_payload["runner"]
+    assert legacy_payload["runner"]["command_completed"] is True
     assert legacy_payload["result_kind"] == "LEGACY_OUTPUT_DISABLED"
+
+
+def test_cli_v015_output_contract_wrapper_preserves_main():
+    tool_text = TOOL_PATH.read_text(encoding="utf-8")
+    assert "def _v014_main(" in tool_text
+    assert "def main(" in tool_text
+    assert "V015_OUTPUT_CONTRACT_WRAPPER_START" in tool_text
+
+
+def test_cli_v015_output_contract_removes_legacy_public_keys_recursively():
+    completed = subprocess.run(
+        [sys.executable, str(TOOL_PATH), str(VALID_BUNDLE), "--pretty"],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stdout + completed.stderr
+    payload = json.loads(completed.stdout)
+
+    banned = {
+        "ok",
+        "runner_succeeded",
+        "all_invalid_fixtures_rejected",
+        "structurally_conformant",
+        "checker_structurally_conformant",
+    }
+
+    def walk(value):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                assert key not in banned
+                walk(child)
+        elif isinstance(value, list):
+            for child in value:
+                walk(child)
+
+    walk(payload)
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["structural_result"]["structural_protocol_passed"] is True
+    assert payload["limitations"]["safe_to_automate"] is False
+    assert payload["limitations"]["automation_interpretation_required"] is True
+    assert payload["limitations"]["limitations_code"] == "LIMIT_STRUCTURAL_SYNTHETIC_PROTOCOL_ONLY_V0_1_5"
+    assert "APPROVAL" in payload["limitations"]["do_not_map_to"]
+    assert "COMPLIANCE" in payload["limitations"]["do_not_map_to"]
+    assert "LEGAL_CHAIN_OF_CUSTODY" in payload["limitations"]["do_not_map_to"]
+
+
+def test_cli_v015_invalid_manifest_contract_shape():
+    completed = subprocess.run(
+        [sys.executable, str(TOOL_PATH), "--invalid-manifest", "--pretty"],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stdout + completed.stderr
+    payload = json.loads(completed.stdout)
+    assert payload["output_semantics_version"] == "0.1.5"
+    assert payload["result_kind"] == "INVALID_FIXTURE_HARNESS"
+    assert payload["structural_result"] is None
+    assert payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
+    assert payload["harness_result"]["does_not_indicate_structural_conformance"] is True
+    first_fixture = payload["harness_result"]["fixture_results"][0]
+    assert first_fixture["checker_structural_protocol_passed"] is False
+    assert first_fixture["limitations"]["limitations_code"] == "LIMIT_STRUCTURAL_SYNTHETIC_PROTOCOL_ONLY_V0_1_5"

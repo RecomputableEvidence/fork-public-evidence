@@ -153,3 +153,15 @@ Consumers must use:
 This is an intentional backward-incompatible output-boundary lock. Wrappers relying on generic success-like fields must migrate.
 
 Extracting `structural_result.structurally_conformant` without also validating the adjacent `limitations`, `safe_to_automate=false`, and `do_not_map_to` fields is outside the checker contract.
+
+
+v0.1.5 output-contract lock
+v0.1.5 supersedes v0.1.4 for public checker output consumption without removing the v0.1.4 CLI execution path.
+It adds:
+- dedicated checker-output schema
+- runtime output-contract validation before stdout emission
+- fail-closed output contract violation handling
+- renamed structural protocol field structural_result.structural_protocol_passed
+- renamed fixture field checker_structural_protocol_passed
+- renamed harness field all_invalid_fixtures_produced_expected_structural_failures.
+The older positive or ambiguous public fields are not emitted.

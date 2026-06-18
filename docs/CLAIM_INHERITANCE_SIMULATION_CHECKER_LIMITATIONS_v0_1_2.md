@@ -80,3 +80,13 @@ The checker does not emit `harness_result.all_invalid_fixtures_rejected`.
 Machine consumers must use `runner.command_completed`, `runner.runner_outcome`, and `harness_result.all_invalid_fixtures_produced_expected_structural_failures`.
 
 The removal is intentional because generic success-like aliases can cause downstream systems to collapse structural evidence into approval, truth, compliance, authority validity, evidence sufficiency, safety, legal sufficiency, or production authorization.
+
+
+v0.1.5 output-contract lock
+v0.1.5 is the final output-contract lock before GitHub Release.
+It adds a dedicated checker-output schema, runtime output-contract validation, bounded public output, and fail-closed output contract violation handling.
+The public structural result field is structural_result.structural_protocol_passed.
+The public fixture result field is checker_structural_protocol_passed.
+The public harness result field is all_invalid_fixtures_produced_expected_structural_failures.
+The checker does not emit structurally_conformant, checker_structurally_conformant, runner_succeeded, all_invalid_fixtures_rejected, or top-level ok.
+This does not expand Fork's claim. It remains a structural synthetic protocol checker only.

@@ -1,0 +1,396 @@
+{
+  "$defs": {
+    "error": {
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/finding"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "findings"
+      ],
+      "type": "object"
+    },
+    "finding": {
+      "additionalProperties": true,
+      "properties": {
+        "check_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "check_version": {
+          "const": "0.1.5"
+        },
+        "explanation": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "severity": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "check_id",
+        "check_version",
+        "scope",
+        "severity",
+        "explanation"
+      ],
+      "type": "object"
+    },
+    "fixture_result": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_error_codes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "checker_structural_protocol_passed": {
+          "type": "boolean"
+        },
+        "expected_failures_observed": {
+          "type": "boolean"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/finding"
+          },
+          "type": "array"
+        },
+        "fixture_file": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "limitations": {
+          "$ref": "#/$defs/limitations"
+        },
+        "missing_expected_failures": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "fixture_file",
+        "checker_structural_protocol_passed",
+        "expected_failures_observed",
+        "actual_error_codes",
+        "findings",
+        "missing_expected_failures",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "harness_result": {
+      "additionalProperties": false,
+      "properties": {
+        "all_invalid_fixtures_produced_expected_structural_failures": {
+          "type": "boolean"
+        },
+        "does_not_indicate_structural_conformance": {
+          "const": true
+        },
+        "fixture_count": {
+          "type": "integer"
+        },
+        "fixture_results": {
+          "items": {
+            "$ref": "#/$defs/fixture_result"
+          },
+          "type": "array"
+        },
+        "limitations": {
+          "$ref": "#/$defs/limitations"
+        },
+        "manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "all_invalid_fixtures_produced_expected_structural_failures",
+        "does_not_indicate_structural_conformance",
+        "fixture_count",
+        "fixture_results",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "limitations": {
+      "additionalProperties": false,
+      "properties": {
+        "automation_interpretation_required": {
+          "const": true
+        },
+        "canonical_warning": {
+          "type": "string"
+        },
+        "do_not_map_to": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "does_not_authorize_production_use": {
+          "const": true
+        },
+        "does_not_indicate_structural_conformance": {
+          "const": true
+        },
+        "does_not_observe_undisclosed_downstream_behavior": {
+          "const": true
+        },
+        "does_not_validate_actual_downstream_execution": {
+          "const": true
+        },
+        "does_not_validate_actual_non_use": {
+          "const": true
+        },
+        "does_not_validate_admissibility": {
+          "const": true
+        },
+        "does_not_validate_approval": {
+          "const": true
+        },
+        "does_not_validate_authority": {
+          "const": true
+        },
+        "does_not_validate_compliance": {
+          "const": true
+        },
+        "does_not_validate_downstream_execution": {
+          "const": true
+        },
+        "does_not_validate_evidence_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_legal_chain_of_custody": {
+          "const": true
+        },
+        "does_not_validate_legal_reliance": {
+          "const": true
+        },
+        "does_not_validate_legal_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_medical_correctness": {
+          "const": true
+        },
+        "does_not_validate_operational_authorization": {
+          "const": true
+        },
+        "does_not_validate_policy_compliance": {
+          "const": true
+        },
+        "does_not_validate_production_readiness": {
+          "const": true
+        },
+        "does_not_validate_regulatory_compliance": {
+          "const": true
+        },
+        "does_not_validate_safety": {
+          "const": true
+        },
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "legacy_output_disabled": {
+          "const": true
+        },
+        "limitations_code": {
+          "const": "LIMIT_STRUCTURAL_SYNTHETIC_PROTOCOL_ONLY_V0_1_5"
+        },
+        "safe_to_automate": {
+          "const": false
+        },
+        "scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "synthetic_corpus_only": {
+          "const": true
+        }
+      },
+      "required": [
+        "limitations_code",
+        "scope",
+        "synthetic_corpus_only",
+        "safe_to_automate",
+        "automation_interpretation_required",
+        "does_not_validate_approval",
+        "does_not_validate_truth",
+        "does_not_validate_safety",
+        "does_not_validate_compliance",
+        "does_not_validate_policy_compliance",
+        "does_not_validate_regulatory_compliance",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_legal_chain_of_custody",
+        "does_not_validate_legal_reliance",
+        "does_not_validate_admissibility",
+        "does_not_validate_authority",
+        "does_not_validate_evidence_sufficiency",
+        "does_not_validate_medical_correctness",
+        "does_not_validate_operational_authorization",
+        "does_not_validate_production_readiness",
+        "does_not_validate_actual_non_use",
+        "does_not_validate_downstream_execution",
+        "does_not_validate_actual_downstream_execution",
+        "does_not_authorize_production_use",
+        "does_not_observe_undisclosed_downstream_behavior",
+        "legacy_output_disabled",
+        "do_not_map_to",
+        "canonical_warning"
+      ],
+      "type": "object"
+    },
+    "runner": {
+      "additionalProperties": false,
+      "properties": {
+        "command_completed": {
+          "type": "boolean"
+        },
+        "error_type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "runner_outcome": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "command_completed",
+        "mode",
+        "runner_outcome"
+      ],
+      "type": "object"
+    },
+    "structural_result": {
+      "additionalProperties": false,
+      "properties": {
+        "error_count": {
+          "type": "integer"
+        },
+        "errors": {
+          "type": "array"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/finding"
+          },
+          "type": "array"
+        },
+        "limitations": {
+          "$ref": "#/$defs/limitations"
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "structural_protocol_passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "structural_protocol_passed",
+        "source",
+        "error_count",
+        "errors",
+        "findings",
+        "limitations"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://recomputable-evidence.local/schemas/claim_inheritance_checker_output_v0_1_5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "automation_interpretation_required": {
+      "const": true
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/error"
+        }
+      ]
+    },
+    "harness_result": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/harness_result"
+        }
+      ]
+    },
+    "limitations": {
+      "$ref": "#/$defs/limitations"
+    },
+    "output_semantics_version": {
+      "const": "0.1.5"
+    },
+    "result_kind": {
+      "enum": [
+        "STRUCTURAL_BUNDLE_CHECK",
+        "INVALID_FIXTURE_HARNESS",
+        "LEGACY_OUTPUT_DISABLED",
+        "INPUT_ERROR",
+        "RUNNER_ERROR",
+        "OUTPUT_CONTRACT_VIOLATION"
+      ]
+    },
+    "runner": {
+      "$ref": "#/$defs/runner"
+    },
+    "safe_to_automate": {
+      "const": false
+    },
+    "structural_result": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/structural_result"
+        }
+      ]
+    }
+  },
+  "required": [
+    "result_kind",
+    "output_semantics_version",
+    "safe_to_automate",
+    "automation_interpretation_required",
+    "runner",
+    "structural_result",
+    "harness_result",
+    "limitations"
+  ],
+  "title": "Claim Inheritance Checker Output Contract v0.1.5",
+  "type": "object"
+}
