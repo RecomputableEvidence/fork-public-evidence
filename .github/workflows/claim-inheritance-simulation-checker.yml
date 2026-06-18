@@ -1,0 +1,60 @@
+name: Claim Inheritance Simulation Checker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "tools/check_claim_inheritance_simulation_model.py"
+      - "tests/test_claim_inheritance_simulation_model_v0_1.py"
+      - "schemas/claim_inheritance_simulation_model_v0_1.schema.json"
+      - "schemas/fork_controlled_vocabulary_v0_1.schema.json"
+      - "examples/claim_inheritance_simulation_model/**"
+      - ".github/workflows/claim-inheritance-simulation-checker.yml"
+  pull_request:
+    paths:
+      - "tools/check_claim_inheritance_simulation_model.py"
+      - "tests/test_claim_inheritance_simulation_model_v0_1.py"
+      - "schemas/claim_inheritance_simulation_model_v0_1.schema.json"
+      - "schemas/fork_controlled_vocabulary_v0_1.schema.json"
+      - "examples/claim_inheritance_simulation_model/**"
+      - ".github/workflows/claim-inheritance-simulation-checker.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  claim-inheritance-simulation-checker:
+    name: Claim inheritance simulation checker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Check valid synthetic bundle
+        run: |
+          python tools/check_claim_inheritance_simulation_model.py \
+            examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json \
+            --pretty
+
+      - name: Check invalid fixture manifest
+        run: |
+          python tools/check_claim_inheritance_simulation_model.py \
+            --invalid-manifest \
+            --pretty
+
+      - name: Run claim inheritance checker tests
+        run: |
+          python -m pytest -q tests/test_claim_inheritance_simulation_model_v0_1.py
