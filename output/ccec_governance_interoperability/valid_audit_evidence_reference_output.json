@@ -1,0 +1,77 @@
+{
+  "checker": {
+    "name": "check_ccec_governance_interoperability",
+    "version": "0.1"
+  },
+  "do_not_map_to": [
+    "APPROVAL",
+    "TRUTH",
+    "SAFETY",
+    "COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "INSTITUTIONAL_AUTHORIZATION",
+    "POLICY_SATISFACTION",
+    "RISK_ACCEPTANCE",
+    "AUTHORITY_TRANSFER"
+  ],
+  "errors": [],
+  "input": {
+    "path": "examples\\ccec_governance_interoperability\\valid_audit_evidence_reference.json"
+  },
+  "limitations": {
+    "automation_interpretation_required": true,
+    "bounded_reference_only": true,
+    "does_not_transfer_authority": true,
+    "does_not_validate_approval": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_institutional_authorization": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_policy_satisfaction": true,
+    "does_not_validate_risk_acceptance": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_truth": true,
+    "not_compliance_oracle": true,
+    "not_policy_engine": true,
+    "not_runtime_control": true,
+    "safe_to_automate": false,
+    "synthetic_structural_checker_only": true
+  },
+  "non_claims": {
+    "does_not_accept_risk": true,
+    "does_not_close_unresolved_gaps": true,
+    "does_not_create_approval_status": true,
+    "does_not_create_compliance_status": true,
+    "does_not_create_legal_sufficiency_status": true,
+    "does_not_create_safety_status": true,
+    "does_not_create_truth_status": true,
+    "does_not_transfer_authority": true
+  },
+  "result": {
+    "ok": true,
+    "result_kind": "STRUCTURAL_PASS"
+  },
+  "scope": {
+    "checker_scope": "structural_ccec_governance_interoperability_validation_only",
+    "does_not_validate": [
+      "truth_of_source_ccec",
+      "correctness_of_external_governance_decision",
+      "compliance_of_external_system",
+      "safety_of_external_system",
+      "legal_sufficiency_of_external_decision",
+      "institutional_authority_of_external_owner",
+      "policy_satisfaction",
+      "risk_acceptance"
+    ],
+    "validates": [
+      "json_parseability",
+      "ccec_governance_interoperability_schema_conformance",
+      "permitted_mapping_consistency",
+      "prohibited_mapping_completeness",
+      "forbidden_oracle_target_field_absence",
+      "authority_inheritance_prohibition",
+      "unresolved_gap_preservation",
+      "checker_output_contract_conformance"
+    ]
+  },
+  "warnings": []
+}

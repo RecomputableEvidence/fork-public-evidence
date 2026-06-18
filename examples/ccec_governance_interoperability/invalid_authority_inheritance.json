@@ -1,0 +1,140 @@
+{
+  "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
+  "profile_version": "0.1",
+  "profile_id": "CCEC_INTEROP_INVALID_AUTHORITY_INHERITANCE_001",
+  "source_ccec_ref": {
+    "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
+    "ccec_contract_version": "0.1",
+    "ccec_hash_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "evidence_refs": [
+      "synthetic://claim-consumption-event/valid-preserved-boundary"
+    ]
+  },
+  "external_system": {
+    "system_id": "SYNTHETIC_RISK_REGISTER",
+    "system_type": "RISK_REGISTER",
+    "system_name": "Synthetic Invalid Authority Inheritance Register",
+    "owner_organization": "synthetic controlled pilot"
+  },
+  "integration_context": {
+    "integration_purpose": "reference a bounded CCEC record without converting it into an external status or authority signal",
+    "receiving_workflow_id": "SYNTHETIC_EXTERNAL_GOVERNANCE_WORKFLOW",
+    "target_record_type": "bounded evidence reference"
+  },
+  "permitted_mappings": [
+    "EVIDENCE_REFERENCE",
+    "BOUNDARY_RECORD_REFERENCE",
+    "LOCAL_RELIANCE_RECORD",
+    "NON_CLAIM_REFERENCE",
+    "UNRESOLVED_GAP_REFERENCE",
+    "DECISION_OWNER_REFERENCE",
+    "BOUNDARY_EFFECT_REFERENCE"
+  ],
+  "prohibited_mappings": [
+    "APPROVAL_STATUS",
+    "TRUTH_STATUS",
+    "SAFETY_STATUS",
+    "COMPLIANCE_STATUS",
+    "LEGAL_SUFFICIENCY_STATUS",
+    "INSTITUTIONAL_AUTHORIZATION_STATUS",
+    "POLICY_SATISFACTION_STATUS",
+    "RISK_ACCEPTANCE_STATUS",
+    "AUTHORITY_TRANSFER",
+    "CLAIM_EXPANSION_BY_MAPPING",
+    "AUTOMATED_CONTROL_DECISION"
+  ],
+  "mapping_rules": [
+    {
+      "source_ccec_field": "source_ccec_ref.ccec_id",
+      "external_target_field": "governance_record.evidence_reference_id",
+      "mapping_kind": "EVIDENCE_REFERENCE",
+      "transformation": "REFERENCE_ONLY",
+      "preserves_non_claims": true,
+      "creates_external_status": false
+    },
+    {
+      "source_ccec_field": "preserved_non_claims",
+      "external_target_field": "governance_record.non_claims_reference",
+      "mapping_kind": "NON_CLAIM_REFERENCE",
+      "transformation": "COPY_BOUNDED_LIST",
+      "preserves_non_claims": true,
+      "creates_external_status": false
+    },
+    {
+      "source_ccec_field": "unresolved_gaps",
+      "external_target_field": "governance_record.open_gap_reference",
+      "mapping_kind": "UNRESOLVED_GAP_REFERENCE",
+      "transformation": "COPY_BOUNDED_LIST",
+      "preserves_non_claims": true,
+      "creates_external_status": false
+    },
+    {
+      "source_ccec_field": "local_reliance_decision.decision_owner_ref",
+      "external_target_field": "governance_record.local_owner_reference",
+      "mapping_kind": "DECISION_OWNER_REFERENCE",
+      "transformation": "REFERENCE_ONLY",
+      "preserves_non_claims": true,
+      "creates_external_status": false
+    }
+  ],
+  "preserved_non_claims": [
+    {
+      "non_claim_id": "does_not_create_compliance_status",
+      "non_claim_text": "The external system may reference the CCEC but may not treat it as a compliance status."
+    },
+    {
+      "non_claim_id": "does_not_transfer_authority",
+      "non_claim_text": "The external system may reference the CCEC but may not inherit authority from it."
+    },
+    {
+      "non_claim_id": "does_not_close_unresolved_gaps",
+      "non_claim_text": "The external system may reference unresolved gaps but may not close them by mapping."
+    }
+  ],
+  "unresolved_gaps_handling": {
+    "handling_mode": "PRESERVE_AS_OPEN",
+    "may_close_gaps_by_mapping": false,
+    "external_closure_requires_separate_record": true,
+    "gap_reference_target_field": "governance_record.open_gap_reference"
+  },
+  "local_authority_boundary": {
+    "authority_transfer_prohibited": true,
+    "external_system_must_make_local_decision": true,
+    "local_decision_record_required_before_status_change": true,
+    "external_status_change_basis": "INHERITED_FROM_CCEC",
+    "boundary_statement": "The external system may reference the CCEC only as bounded evidence; any approval-like, compliance-like, safety-like, legal-like, policy-like, risk-like, or authority-like status requires a separate local decision record."
+  },
+  "external_decision_owner": {
+    "owner_id": "OWNER_SYNTHETIC_GOVERNANCE_SYSTEM",
+    "owner_role": "synthetic external governance owner",
+    "accountable_for": "the local external-system decision to reference the CCEC without inheriting authority from it"
+  },
+  "accord_limitations": {
+    "safe_to_automate": false,
+    "automation_interpretation_required": true,
+    "bounded_reference_only": true,
+    "does_not_validate_approval": true,
+    "does_not_validate_truth": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_institutional_authorization": true,
+    "does_not_validate_policy_satisfaction": true,
+    "does_not_validate_risk_acceptance": true,
+    "does_not_transfer_authority": true,
+    "not_runtime_control": true,
+    "not_policy_engine": true,
+    "not_compliance_oracle": true,
+    "do_not_map_to": [
+      "APPROVAL",
+      "TRUTH",
+      "SAFETY",
+      "COMPLIANCE",
+      "LEGAL_SUFFICIENCY",
+      "INSTITUTIONAL_AUTHORIZATION",
+      "POLICY_SATISFACTION",
+      "RISK_ACCEPTANCE",
+      "AUTHORITY_TRANSFER"
+    ]
+  }
+}

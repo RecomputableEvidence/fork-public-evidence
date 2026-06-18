@@ -1,0 +1,449 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/ccec_governance_interoperability_profile_v0_1.schema.json",
+  "title": "CCEC Governance Interoperability Profile v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_type",
+    "profile_version",
+    "profile_id",
+    "source_ccec_ref",
+    "external_system",
+    "integration_context",
+    "permitted_mappings",
+    "prohibited_mappings",
+    "mapping_rules",
+    "preserved_non_claims",
+    "unresolved_gaps_handling",
+    "local_authority_boundary",
+    "external_decision_owner",
+    "accord_limitations"
+  ],
+  "properties": {
+    "profile_type": {
+      "const": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE"
+    },
+    "profile_version": {
+      "const": "0.1"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ccec_ref": {
+      "$ref": "#/definitions/source_ccec_ref"
+    },
+    "external_system": {
+      "$ref": "#/definitions/external_system"
+    },
+    "integration_context": {
+      "$ref": "#/definitions/integration_context"
+    },
+    "permitted_mappings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "EVIDENCE_REFERENCE",
+          "BOUNDARY_RECORD_REFERENCE",
+          "LOCAL_RELIANCE_RECORD",
+          "UNRESOLVED_GAP_REFERENCE",
+          "NON_CLAIM_REFERENCE",
+          "DECISION_OWNER_REFERENCE",
+          "BOUNDARY_EFFECT_REFERENCE",
+          "SOURCE_ARTIFACT_REFERENCE",
+          "RECEIVING_CONTEXT_REFERENCE"
+        ]
+      }
+    },
+    "prohibited_mappings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "APPROVAL_STATUS",
+          "TRUTH_STATUS",
+          "SAFETY_STATUS",
+          "COMPLIANCE_STATUS",
+          "LEGAL_SUFFICIENCY_STATUS",
+          "INSTITUTIONAL_AUTHORIZATION_STATUS",
+          "POLICY_SATISFACTION_STATUS",
+          "RISK_ACCEPTANCE_STATUS",
+          "AUTHORITY_TRANSFER",
+          "CLAIM_EXPANSION_BY_MAPPING",
+          "AUTOMATED_CONTROL_DECISION"
+        ]
+      }
+    },
+    "mapping_rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/mapping_rule"
+      }
+    },
+    "preserved_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/preserved_non_claim"
+      }
+    },
+    "unresolved_gaps_handling": {
+      "$ref": "#/definitions/unresolved_gaps_handling"
+    },
+    "local_authority_boundary": {
+      "$ref": "#/definitions/local_authority_boundary"
+    },
+    "external_decision_owner": {
+      "$ref": "#/definitions/external_decision_owner"
+    },
+    "accord_limitations": {
+      "$ref": "#/definitions/accord_limitations"
+    }
+  },
+  "definitions": {
+    "source_ccec_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ccec_id",
+        "ccec_contract_version",
+        "evidence_refs"
+      ],
+      "properties": {
+        "ccec_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ccec_contract_version": {
+          "const": "0.1"
+        },
+        "ccec_hash_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "external_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system_id",
+        "system_type",
+        "system_name",
+        "owner_organization"
+      ],
+      "properties": {
+        "system_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_type": {
+          "type": "string",
+          "enum": [
+            "GRC_REGISTER",
+            "AUDIT_SYSTEM",
+            "RISK_REGISTER",
+            "POLICY_REGISTER",
+            "LEGAL_REVIEW_QUEUE",
+            "MODEL_GOVERNANCE_SYSTEM",
+            "EVIDENCE_MANAGEMENT_SYSTEM",
+            "VENDOR_RISK_SYSTEM",
+            "INSURANCE_UNDERWRITING_WORKFLOW",
+            "OTHER"
+          ]
+        },
+        "system_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_organization": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "integration_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "integration_purpose",
+        "receiving_workflow_id",
+        "target_record_type"
+      ],
+      "properties": {
+        "integration_purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receiving_workflow_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_record_type": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "mapping_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_ccec_field",
+        "external_target_field",
+        "mapping_kind",
+        "transformation",
+        "preserves_non_claims",
+        "creates_external_status"
+      ],
+      "properties": {
+        "source_ccec_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_target_field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapping_kind": {
+          "type": "string",
+          "enum": [
+            "EVIDENCE_REFERENCE",
+            "BOUNDARY_RECORD_REFERENCE",
+            "LOCAL_RELIANCE_RECORD",
+            "UNRESOLVED_GAP_REFERENCE",
+            "NON_CLAIM_REFERENCE",
+            "DECISION_OWNER_REFERENCE",
+            "BOUNDARY_EFFECT_REFERENCE",
+            "SOURCE_ARTIFACT_REFERENCE",
+            "RECEIVING_CONTEXT_REFERENCE"
+          ]
+        },
+        "transformation": {
+          "type": "string",
+          "enum": [
+            "REFERENCE_ONLY",
+            "COPY_BOUNDED_VALUE",
+            "COPY_BOUNDED_LIST"
+          ]
+        },
+        "preserves_non_claims": {
+          "const": true
+        },
+        "creates_external_status": {
+          "const": false
+        }
+      }
+    },
+    "preserved_non_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "non_claim_id",
+        "non_claim_text"
+      ],
+      "properties": {
+        "non_claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "non_claim_text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "unresolved_gaps_handling": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "handling_mode",
+        "may_close_gaps_by_mapping",
+        "external_closure_requires_separate_record",
+        "gap_reference_target_field"
+      ],
+      "properties": {
+        "handling_mode": {
+          "type": "string",
+          "enum": [
+            "PRESERVE_AS_OPEN",
+            "ROUTE_FOR_REVIEW",
+            "REJECT_IF_OPEN",
+            "INDETERMINATE"
+          ]
+        },
+        "may_close_gaps_by_mapping": {
+          "const": false
+        },
+        "external_closure_requires_separate_record": {
+          "const": true
+        },
+        "gap_reference_target_field": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "local_authority_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_transfer_prohibited",
+        "external_system_must_make_local_decision",
+        "local_decision_record_required_before_status_change",
+        "external_status_change_basis",
+        "boundary_statement"
+      ],
+      "properties": {
+        "authority_transfer_prohibited": {
+          "const": true
+        },
+        "external_system_must_make_local_decision": {
+          "const": true
+        },
+        "local_decision_record_required_before_status_change": {
+          "const": true
+        },
+        "external_status_change_basis": {
+          "type": "string",
+          "enum": [
+            "LOCAL_DECISION_REQUIRED",
+            "REFERENCE_ONLY",
+            "INHERITED_FROM_CCEC",
+            "INDETERMINATE"
+          ]
+        },
+        "boundary_statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "external_decision_owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_id",
+        "owner_role",
+        "accountable_for"
+      ],
+      "properties": {
+        "owner_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accountable_for": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "accord_limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "safe_to_automate",
+        "automation_interpretation_required",
+        "bounded_reference_only",
+        "does_not_validate_approval",
+        "does_not_validate_truth",
+        "does_not_validate_safety",
+        "does_not_validate_compliance",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_institutional_authorization",
+        "does_not_validate_policy_satisfaction",
+        "does_not_validate_risk_acceptance",
+        "does_not_transfer_authority",
+        "not_runtime_control",
+        "not_policy_engine",
+        "not_compliance_oracle",
+        "do_not_map_to"
+      ],
+      "properties": {
+        "safe_to_automate": {
+          "const": false
+        },
+        "automation_interpretation_required": {
+          "const": true
+        },
+        "bounded_reference_only": {
+          "const": true
+        },
+        "does_not_validate_approval": {
+          "const": true
+        },
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "does_not_validate_safety": {
+          "const": true
+        },
+        "does_not_validate_compliance": {
+          "const": true
+        },
+        "does_not_validate_legal_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_institutional_authorization": {
+          "const": true
+        },
+        "does_not_validate_policy_satisfaction": {
+          "const": true
+        },
+        "does_not_validate_risk_acceptance": {
+          "const": true
+        },
+        "does_not_transfer_authority": {
+          "const": true
+        },
+        "not_runtime_control": {
+          "const": true
+        },
+        "not_policy_engine": {
+          "const": true
+        },
+        "not_compliance_oracle": {
+          "const": true
+        },
+        "do_not_map_to": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 9,
+          "items": {
+            "type": "string",
+            "enum": [
+              "APPROVAL",
+              "TRUTH",
+              "SAFETY",
+              "COMPLIANCE",
+              "LEGAL_SUFFICIENCY",
+              "INSTITUTIONAL_AUTHORIZATION",
+              "POLICY_SATISFACTION",
+              "RISK_ACCEPTANCE",
+              "AUTHORITY_TRANSFER"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
