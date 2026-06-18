@@ -1,0 +1,1359 @@
+{
+    "simulation_model_id":  "claim_inheritance_simulation_model_v0_1",
+    "schema_version":  "0.1",
+    "status":  "DRAFT_SIMULATION_SCHEMA",
+    "controlled_vocabulary_schema_ref":  "schemas/fork_controlled_vocabulary_v0_1.schema.json",
+    "controlled_vocabulary_baseline":  "fork-controlled-vocabulary-hardening-v0.1.1",
+    "synthetic_only":  true,
+    "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+    "mandatory_non_claims":  [
+                                 "does_not_claim_truth",
+                                 "does_not_claim_legal_sufficiency",
+                                 "does_not_claim_admissibility",
+                                 "does_not_claim_legal_reliance",
+                                 "does_not_claim_legal_representation",
+                                 "does_not_claim_legal_chain_of_custody",
+                                 "does_not_claim_retention_compliance",
+                                 "does_not_claim_actual_downstream_behavior",
+                                 "does_not_claim_authority",
+                                 "does_not_claim_reference_truth"
+                             ],
+    "simulation_class_coverage":  [
+                                      "SIM_A_BOUNDARY_PRESERVED",
+                                      "SIM_B_BOUNDARY_NARROWED",
+                                      "SIM_C_NON_CLAIM_DROPPED",
+                                      "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+                                      "SIM_E_EXPANSION_WITH_RECORDED_UNRESOLVED_AUTHORITY",
+                                      "SIM_F_POINTER_UNRESOLVED",
+                                      "SIM_G1_SELF_CHARACTERIZATION_PRESERVED_NON_CLAIM_DROPPED",
+                                      "SIM_G2_SELF_CHARACTERIZATION_PRESERVED_EXPANSION_OBSERVED",
+                                      "SIM_G3_SELF_CHARACTERIZATION_NARROWED_EXPANSION_OBSERVED",
+                                      "SIM_H_CASCADING_INHERITANCE",
+                                      "SIM_I_BOUNDARY_REJECTION",
+                                      "SIM_J_SCHEMA_BEHAVIOR_COLLAPSE",
+                                      "SIM_K_MULTI_BEHAVIOR_HANDOFF",
+                                      "SIM_L_STRUCTURALLY_VALID_MISLEADING_SELF_REPORT",
+                                      "SIM_M_AGGREGATE_COLLAPSE"
+                                  ],
+    "aggregate_posture_precedence":  [
+                                         "NO_MAPPING_PRESENT_PRECEDENCE",
+                                         "AGGREGATE_COLLAPSE_PRECEDENCE",
+                                         "INCOMPLETE_MAPPING_PRECEDENCE",
+                                         "UNRESOLVED_REFERENCES_PRECEDENCE",
+                                         "EXPANSION_MAPPING_PRESENT_PRECEDENCE",
+                                         "BOUNDARY_MAPPING_COMPLETE_PRECEDENCE",
+                                         "STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE"
+                                     ],
+    "simulation_cases":  [
+                             {
+                                 "simulation_case_id":  "sim_boundary_preserved_001",
+                                 "simulation_class":  "SIM_A_BOUNDARY_PRESERVED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show a claim boundary preserved without expansion and with non-claims retained.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_001",
+                                                          "claim_text":  "Synthetic observation record exists.",
+                                                          "claim_subject":  "synthetic_subject_001",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_001",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact referenced the upstream claim without expanding it.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_001",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_001",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_PASSED",
+                                                            "recomputation_state":  "RECOMPUTED_MATCH",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_001",
+                                                                       "claim_relationship_state":  "CLAIM_REFERENCED",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth",
+                                                                                                    "does_not_claim_legal_sufficiency"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+                                                                                              {
+                                                                                                  "authority_ref":  "synthetic_authority_ref_001",
+                                                                                                  "authority_ref_kind":  "POLICY_POINTER",
+                                                                                                  "authority_ref_resolution_attempted":  true,
+                                                                                                  "authority_ref_resolution_state":  "AUTHORITY_REF_STRUCTURALLY_REACHABLE"
+                                                                                              }
+                                                                                          ],
+                                                                       "evidence_refs":  [
+                                                                                             {
+                                                                                                 "evidence_ref":  "synthetic_evidence_ref_001",
+                                                                                                 "evidence_ref_kind":  "INTERNAL_RECEIPT_REF",
+                                                                                                 "evidence_ref_resolution_attempted":  true,
+                                                                                                 "evidence_ref_resolution_state":  "EVIDENCE_REF_STRUCTURALLY_REACHABLE"
+                                                                                             }
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "BOUNDARY_PRESERVED",
+                                                                                                   "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
+                                                                                                   "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
+                                                                                                   "BOUNDARY_MAPPING_COMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "BOUNDARY_PRESERVED",
+                                                                      "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
+                                                                      "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
+                                                                      "BOUNDARY_MAPPING_COMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "BOUNDARY_MAPPING_COMPLETE",
+                                 "expected_precedence_trigger":  "BOUNDARY_MAPPING_COMPLETE_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_legal_sufficiency",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_boundary_narrowed_001",
+                                 "simulation_class":  "SIM_B_BOUNDARY_NARROWED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show a downstream claim narrowed from a broader upstream synthetic claim.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_002",
+                                                          "claim_text":  "Synthetic observation record contains a timestamp and source label.",
+                                                          "claim_subject":  "synthetic_subject_002",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_002",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact used only the timestamp portion of the upstream claim.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_002",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_002",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_PASSED",
+                                                            "recomputation_state":  "RECOMPUTED_MATCH",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_002",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_NARROWED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_NARROWED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth",
+                                                                                                    "does_not_claim_legal_sufficiency"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "BOUNDARY_NARROWED",
+                                                                                                   "BOUNDARY_MAPPING_COMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "BOUNDARY_NARROWED",
+                                                                      "BOUNDARY_MAPPING_COMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "BOUNDARY_MAPPING_COMPLETE",
+                                 "expected_precedence_trigger":  "BOUNDARY_MAPPING_COMPLETE_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_legal_sufficiency",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_non_claim_dropped_001",
+                                 "simulation_class":  "SIM_C_NON_CLAIM_DROPPED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show that a claim can travel while an attached non-claim disappears.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_003",
+                                                          "claim_text":  "Synthetic observation record was included in a downstream artifact.",
+                                                          "claim_subject":  "synthetic_subject_003",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_003",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact carried the claim but omitted a non-claim.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_003",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_003",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_003",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "NON_CLAIM_DROPPED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+                                                                                                  "does_not_claim_legal_sufficiency"
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "NON_CLAIM_DROPPED",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "NON_CLAIM_DROPPED",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_legal_sufficiency",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_expansion_without_authority_001",
+                                 "simulation_class":  "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show downstream claim expansion without required authority and evidence references.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_004",
+                                                          "claim_text":  "Synthetic observation record was present.",
+                                                          "claim_subject":  "synthetic_subject_004",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_authority"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_004",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact expanded the upstream claim scope.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_authority"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_004",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_004",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_004",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_EXPANSION_DETECTED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+                                                                                                  "does_not_claim_authority"
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_EXPANSION_DETECTED",
+                                                                                                   "AUTHORITY_REF_MISSING",
+                                                                                                   "EVIDENCE_REF_MISSING",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_EXPANSION_DETECTED",
+                                                                      "AUTHORITY_REF_MISSING",
+                                                                      "EVIDENCE_REF_MISSING",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_authority",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_expansion_unresolved_authority_001",
+                                 "simulation_class":  "SIM_E_EXPANSION_WITH_RECORDED_UNRESOLVED_AUTHORITY",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show downstream claim expansion with recorded references whose resolution was not performed.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_005",
+                                                          "claim_text":  "Synthetic observation record was present.",
+                                                          "claim_subject":  "synthetic_subject_005",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_reference_truth"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_005",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact recorded unresolved references for an expanded claim.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_authority"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_005",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_005",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_005",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_EXPANSION_RECORDED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_EXPANSION_RECORDED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+                                                                                              {
+                                                                                                  "authority_ref":  "synthetic_authority_ref_005",
+                                                                                                  "authority_ref_kind":  "POLICY_POINTER",
+                                                                                                  "authority_ref_resolution_attempted":  false,
+                                                                                                  "authority_ref_resolution_state":  "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED"
+                                                                                              }
+                                                                                          ],
+                                                                       "evidence_refs":  [
+                                                                                             {
+                                                                                                 "evidence_ref":  "synthetic_evidence_ref_005",
+                                                                                                 "evidence_ref_kind":  "INTERNAL_RECEIPT_REF",
+                                                                                                 "evidence_ref_resolution_attempted":  false,
+                                                                                                 "evidence_ref_resolution_state":  "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED"
+                                                                                             }
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "BOUNDARY_EXPANSION_RECORDED",
+                                                                                                   "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+                                                                                                   "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+                                                                                                   "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "BOUNDARY_EXPANSION_RECORDED",
+                                                                      "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+                                                                      "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+                                                                      "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                                                                  ],
+                                 "expected_aggregate_posture":  "MAPPED_WITH_UNRESOLVED_REFERENCES",
+                                 "expected_precedence_trigger":  "UNRESOLVED_REFERENCES_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_authority",
+                                                    "does_not_claim_reference_truth",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_pointer_unresolved_001",
+                                 "simulation_class":  "SIM_F_POINTER_UNRESOLVED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show a claim boundary dependent on a pointer that remains structurally unreachable.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_006",
+                                                          "claim_text":  "Synthetic observation record referenced an external synthetic pointer.",
+                                                          "claim_subject":  "synthetic_subject_006",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_reference_truth"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_006",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact depended on an unresolved pointer.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_reference_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_006",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_006",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_006",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "POINTER_UNRESOLVED",
+                                                                       "validator_observed_boundary_behavior":  "POINTER_UNRESOLVED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+                                                                                              {
+                                                                                                  "authority_ref":  "synthetic_authority_ref_006",
+                                                                                                  "authority_ref_kind":  "POLICY_POINTER",
+                                                                                                  "authority_ref_resolution_attempted":  true,
+                                                                                                  "authority_ref_resolution_state":  "AUTHORITY_REF_RESOLUTION_ATTEMPTED_UNREACHABLE"
+                                                                                              }
+                                                                                          ],
+                                                                       "evidence_refs":  [
+                                                                                             {
+                                                                                                 "evidence_ref":  "synthetic_evidence_ref_006",
+                                                                                                 "evidence_ref_kind":  "INTERNAL_RECEIPT_REF",
+                                                                                                 "evidence_ref_resolution_attempted":  true,
+                                                                                                 "evidence_ref_resolution_state":  "EVIDENCE_REF_RESOLUTION_ATTEMPTED_UNREACHABLE"
+                                                                                             }
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "POINTER_UNRESOLVED",
+                                                                                                   "AUTHORITY_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+                                                                                                   "EVIDENCE_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+                                                                                                   "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "POINTER_UNRESOLVED",
+                                                                      "AUTHORITY_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+                                                                      "EVIDENCE_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+                                                                      "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                                                                  ],
+                                 "expected_aggregate_posture":  "MAPPED_WITH_UNRESOLVED_REFERENCES",
+                                 "expected_precedence_trigger":  "UNRESOLVED_REFERENCES_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_reference_truth",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_self_report_preserved_non_claim_dropped_001",
+                                 "simulation_class":  "SIM_G1_SELF_CHARACTERIZATION_PRESERVED_NON_CLAIM_DROPPED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show mismatch where the consumer declares preservation but non-claim loss is structurally visible.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_007",
+                                                          "claim_text":  "Synthetic observation record included a non-claim boundary.",
+                                                          "claim_subject":  "synthetic_subject_007",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_007",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact declared preservation while dropping a non-claim.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_007",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_007",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_007",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "NON_CLAIM_DROPPED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+                                                                                                  "does_not_claim_legal_sufficiency"
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                                                                   "NON_CLAIM_DROPPED",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                                      "NON_CLAIM_DROPPED",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_legal_sufficiency",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_self_report_preserved_expansion_001",
+                                 "simulation_class":  "SIM_G2_SELF_CHARACTERIZATION_PRESERVED_EXPANSION_OBSERVED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show mismatch where the consumer declares preservation but expansion is structurally visible.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_008",
+                                                          "claim_text":  "Synthetic observation record was present.",
+                                                          "claim_subject":  "synthetic_subject_008",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_authority"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_008",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact declared preservation while expanding claim scope.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_008",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_008",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_008",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_EXPANSION_DETECTED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                                                                   "BOUNDARY_EXPANSION_DETECTED",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                                      "BOUNDARY_EXPANSION_DETECTED",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_authority",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_self_report_narrowed_expansion_001",
+                                 "simulation_class":  "SIM_G3_SELF_CHARACTERIZATION_NARROWED_EXPANSION_OBSERVED",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show mismatch where the consumer declares narrowing but expansion is structurally visible.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_009",
+                                                          "claim_text":  "Synthetic observation record included a bounded event field.",
+                                                          "claim_subject":  "synthetic_subject_009",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_authority"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_009",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact declared narrowing while expanding claim scope.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_009",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_009",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_009",
+                                                                       "claim_relationship_state":  "CLAIM_USED_AS_SUPPORT",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_NARROWED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_EXPANSION_DETECTED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                                                                   "BOUNDARY_EXPANSION_DETECTED",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                                      "BOUNDARY_EXPANSION_DETECTED",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_authority",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_cascading_inheritance_001",
+                                 "simulation_class":  "SIM_H_CASCADING_INHERITANCE",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show multi-hop claim inheritance where boundary changes accumulate across systems.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_010",
+                                                          "claim_text":  "Synthetic observation record was emitted by the first synthetic system.",
+                                                          "claim_subject":  "synthetic_subject_010",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency",
+                                                                             "does_not_claim_authority"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_010",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic claim traveled across multiple systems and accumulated boundary changes.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_actual_downstream_behavior"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_010",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_010 New-Handoff",
+                                                            "record_structural_state":  "synthetic_handoff_011",
+                                                            "recomputation_state":  "synthetic_system_b",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_010",
+                                                                       "claim_relationship_state":  "CLAIM_REFERENCED",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth",
+                                                                                                    "does_not_claim_legal_sufficiency",
+                                                                                                    "does_not_claim_authority"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT BOUNDARY_PRESERVED",
+                                                                                                   "New-BoundaryRecord"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "BOUNDARY_PRESERVED",
+                                                                      "NON_CLAIM_DROPPED",
+                                                                      "BOUNDARY_EXPANSION_RECORDED",
+                                                                      "MAPPING_INCOMPLETE",
+                                                                      "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_legal_sufficiency",
+                                                    "does_not_claim_authority",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_boundary_rejection_001",
+                                 "simulation_class":  "SIM_I_BOUNDARY_REJECTION",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show explicit downstream rejection of an upstream claim boundary.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_011",
+                                                          "claim_text":  "Synthetic observation record was offered to the downstream artifact.",
+                                                          "claim_subject":  "synthetic_subject_011",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_011",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact explicitly rejected the upstream claim as support.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_013",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_013",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_PASSED",
+                                                            "recomputation_state":  "RECOMPUTED_MATCH",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_011",
+                                                                       "claim_relationship_state":  "CLAIM_NON_USAGE_DECLARED",
+                                                                       "consumer_declared_boundary_behavior":  "CLAIM_REJECTED",
+                                                                       "validator_observed_boundary_behavior":  "CLAIM_REJECTED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth",
+                                                                                                    "does_not_claim_legal_sufficiency"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "CLAIM_REJECTED",
+                                                                                                   "BOUNDARY_MAPPING_COMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "CLAIM_REJECTED",
+                                                                      "BOUNDARY_MAPPING_COMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "BOUNDARY_MAPPING_COMPLETE",
+                                 "expected_precedence_trigger":  "BOUNDARY_MAPPING_COMPLETE_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_legal_sufficiency",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_schema_behavior_collapse_001",
+                                 "simulation_class":  "SIM_J_SCHEMA_BEHAVIOR_COLLAPSE",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show representation collapse where distinct per-claim boundary behaviors are reduced to one insufficient field.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_012",
+                                                          "claim_text":  "Synthetic mixed-boundary handoff contained multiple claim behaviors.",
+                                                          "claim_subject":  "synthetic_subject_012",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_legal_sufficiency"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_012",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic adapter collapsed multiple boundary states into one summary.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_actual_downstream_behavior"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_014",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_adapter_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_014",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_012",
+                                                                       "claim_relationship_state":  "CLAIM_RELATIONSHIP_NOT_DECLARED",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
+                                                                       "preserved_non_claims":  [
+
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "INCOMPLETE_MAPPING",
+                                 "expected_precedence_trigger":  "INCOMPLETE_MAPPING_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_multi_behavior_handoff_001",
+                                 "simulation_class":  "SIM_K_MULTI_BEHAVIOR_HANDOFF",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show one handoff containing preserved, narrowed, expanded, rejected, and unresolved claim-boundary records.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_013",
+                                                          "claim_text":  "Synthetic claim one was present.",
+                                                          "claim_subject":  "synthetic_subject_013",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "New-Claim"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_013",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic handoff contained multiple boundary behaviors.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_actual_downstream_behavior"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_015",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_015",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   "System.Collections.Specialized.OrderedDictionary`"
+                                                               ],
+                                 "expected_structural_outcomes":  null,
+                                 "expected_aggregate_posture":  "",
+                                 "expected_precedence_trigger":  "",
+                                 "non_claims":  null,
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_structurally_valid_misleading_self_report_001",
+                                 "simulation_class":  "SIM_L_STRUCTURALLY_VALID_MISLEADING_SELF_REPORT",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show a structurally conformant self-report that does not prove actual undisclosed downstream behavior.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_018",
+                                                          "claim_text":  "Synthetic observation record was self-reported as preserved.",
+                                                          "claim_subject":  "synthetic_subject_018",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_actual_downstream_behavior"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_018",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic downstream artifact self-reported preservation.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_actual_downstream_behavior"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_016",
+                                                            "sender":  "synthetic_system_a",
+                                                            "receiver":  "synthetic_system_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_016",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_PASSED",
+                                                            "recomputation_state":  "RECOMPUTED_MATCH",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_018",
+                                                                       "claim_relationship_state":  "CLAIM_NON_USAGE_DECLARED",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth",
+                                                                                                    "does_not_claim_actual_downstream_behavior"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "BOUNDARY_MAPPING_PRESENT",
+                                                                                                   "STRUCTURAL_CONFORMANCE_CONFIRMED"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "BOUNDARY_MAPPING_PRESENT",
+                                                                      "STRUCTURAL_CONFORMANCE_CONFIRMED"
+                                                                  ],
+                                 "expected_aggregate_posture":  "STRUCTURAL_CONFORMANCE_CONFIRMED",
+                                 "expected_precedence_trigger":  "STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Structurally conformant self-report does not prove actual downstream behavior."
+                                           ]
+                             },
+                             {
+                                 "simulation_case_id":  "sim_aggregate_collapse_001",
+                                 "simulation_class":  "SIM_M_AGGREGATE_COLLAPSE",
+                                 "synthetic_only":  true,
+                                 "domain_process":  "DOMAIN_NEUTRAL_SYNTHETIC",
+                                 "objective":  "Show a reporting layer collapsing incomplete, unresolved, mixed, or expanded states into an overly simple aggregate.",
+                                 "input_claims":  [
+                                                      {
+                                                          "claim_id":  "synthetic_claim_019",
+                                                          "claim_text":  "Synthetic aggregate input contained multiple receipt states.",
+                                                          "claim_subject":  "synthetic_subject_019",
+                                                          "non_claims":  [
+                                                                             "does_not_claim_truth",
+                                                                             "does_not_claim_actual_downstream_behavior"
+                                                                         ]
+                                                      }
+                                                  ],
+                                 "system_assertions":  [
+                                                           {
+                                                               "assertion_id":  "synthetic_assertion_019",
+                                                               "assertion_source":  "SYSTEM_GENERATED",
+                                                               "assertion_text":  "Synthetic report collapsed boundary-relevant receipt distinctions.",
+                                                               "non_claims":  [
+                                                                                  "does_not_claim_truth",
+                                                                                  "does_not_claim_actual_downstream_behavior"
+                                                                              ]
+                                                           }
+                                                       ],
+                                 "handoff_events":  [
+                                                        {
+                                                            "handoff_event_id":  "synthetic_handoff_017",
+                                                            "sender":  "synthetic_report_source_a",
+                                                            "receiver":  "synthetic_dashboard_b",
+                                                            "timestamp":  "2026-01-01T00:00:00Z",
+                                                            "artifact_ref":  "synthetic_artifact_017",
+                                                            "record_structural_state":  "STRUCTURAL_CHECK_NOT_PERFORMED",
+                                                            "recomputation_state":  "RECOMPUTATION_NOT_PERFORMED",
+                                                            "non_claims":  [
+                                                                               "does_not_claim_truth",
+                                                                               "does_not_claim_legal_chain_of_custody",
+                                                                               "does_not_claim_actual_downstream_behavior"
+                                                                           ]
+                                                        }
+                                                    ],
+                                 "aggregate_report":  {
+                                                          "aggregate_report_id":  "synthetic_aggregate_report_001",
+                                                          "receipt_refs":  [
+                                                                               "synthetic_receipt_001",
+                                                                               "synthetic_receipt_002",
+                                                                               "synthetic_receipt_003",
+                                                                               "synthetic_receipt_004"
+                                                                           ],
+                                                          "reported_aggregate_posture":  "BOUNDARY_MAPPING_COMPLETE",
+                                                          "expected_aggregate_posture":  "AGGREGATE_COLLAPSE_DETECTED",
+                                                          "included_structural_outcomes":  [
+                                                                                               "BOUNDARY_MAPPING_COMPLETE"
+                                                                                           ],
+                                                          "omitted_structural_outcomes":  [
+                                                                                              "MAPPED_WITH_UNRESOLVED_REFERENCES",
+                                                                                              "MAPPING_INCOMPLETE",
+                                                                                              "BOUNDARY_EXPANSION_DETECTED"
+                                                                                          ],
+                                                          "aggregate_collapse_detected":  true
+                                                      },
+                                 "boundary_behavior_records":  [
+                                                                   {
+                                                                       "claim_ref":  "synthetic_claim_019",
+                                                                       "claim_relationship_state":  "CLAIM_RELATIONSHIP_NOT_DECLARED",
+                                                                       "consumer_declared_boundary_behavior":  "BOUNDARY_PRESERVED",
+                                                                       "validator_observed_boundary_behavior":  "AGGREGATE_COLLAPSE_DETECTED",
+                                                                       "preserved_non_claims":  [
+                                                                                                    "does_not_claim_truth"
+                                                                                                ],
+                                                                       "dropped_non_claims":  [
+
+                                                                                              ],
+                                                                       "authority_refs":  [
+
+                                                                                          ],
+                                                                       "evidence_refs":  [
+
+                                                                                         ],
+                                                                       "structural_outcomes":  [
+                                                                                                   "AGGREGATE_COLLAPSE_DETECTED",
+                                                                                                   "MAPPING_INCOMPLETE"
+                                                                                               ]
+                                                                   }
+                                                               ],
+                                 "expected_structural_outcomes":  [
+                                                                      "AGGREGATE_COLLAPSE_DETECTED",
+                                                                      "MAPPING_INCOMPLETE"
+                                                                  ],
+                                 "expected_aggregate_posture":  "AGGREGATE_COLLAPSE_DETECTED",
+                                 "expected_precedence_trigger":  "AGGREGATE_COLLAPSE_PRECEDENCE",
+                                 "non_claims":  [
+                                                    "does_not_claim_truth",
+                                                    "does_not_claim_actual_downstream_behavior"
+                                                ],
+                                 "notes":  [
+                                               "Synthetic domain-neutral fixture."
+                                           ]
+                             }
+                         ]
+}
