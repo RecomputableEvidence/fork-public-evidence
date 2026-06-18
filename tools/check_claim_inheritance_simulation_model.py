@@ -1309,42 +1309,205 @@ def check_invalid_manifest(manifest_path: Path | str = INVALID_MANIFEST) -> Dict
     }
 
 
-def main(argv: Sequence[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(
-        description="Check Fork claim inheritance simulation bundles."
+from typing import Any, Dict, List, Optional
+
+OUTPUT_SEMANTICS_VERSION = "0.1.3"
+
+MACHINE_READABLE_LIMITATIONS_V013: Dict[str, Any] = {
+    "limitations_code": "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY",
+    "scope": "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY",
+    "synthetic_corpus_only": True,
+    "does_not_validate_truth": True,
+    "does_not_validate_safety": True,
+    "does_not_validate_compliance": True,
+    "does_not_validate_legal_sufficiency": True,
+    "does_not_validate_admissibility": True,
+    "does_not_validate_authority": True,
+    "does_not_validate_evidence_sufficiency": True,
+    "does_not_validate_medical_correctness": True,
+    "does_not_validate_operational_authorization": True,
+    "does_not_authorize_production_use": True,
+    "does_not_observe_undisclosed_downstream_behavior": True,
+    "canonical_warning": "STRUCTURAL_CONFORMANCE_IS_NOT_APPROVAL_TRUTH_COMPLIANCE_AUTHORITY_OR_EVIDENCE_SUFFICIENCY",
+}
+
+
+def _v013_structural_output_from_legacy(result: Dict[str, Any]) -> Dict[str, Any]:
+    errors = result.get("errors", [])
+    error_count = result.get("error_count", len(errors) if isinstance(errors, list) else 0)
+
+    return {
+        "result_kind": "STRUCTURAL_BUNDLE_CHECK",
+        "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+        "runner": {
+            "runner_succeeded": True,
+            "mode": "single_bundle_check",
+        },
+        "structural_result": {
+            "structurally_conformant": bool(result.get("ok", False)),
+            "source": result.get("source"),
+            "error_count": error_count,
+            "errors": errors,
+        },
+        "harness_result": None,
+        "limitations": MACHINE_READABLE_LIMITATIONS_V013,
+    }
+
+
+def _v013_fixture_result_from_legacy(item: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "fixture_file": item.get("fixture_file"),
+        "checker_structurally_conformant": bool(item.get("checker_ok", False)),
+        "expected_failures_observed": bool(item.get("ok", False)),
+        "actual_error_codes": item.get("actual_error_codes", []),
+        "missing_expected_failures": item.get("missing_expected_failures", []),
+    }
+
+
+def _v013_invalid_manifest_output_from_legacy(result: Dict[str, Any]) -> Dict[str, Any]:
+    fixture_results = [
+        _v013_fixture_result_from_legacy(item)
+        for item in result.get("fixture_results", [])
+        if isinstance(item, dict)
+    ]
+
+    return {
+        "result_kind": "INVALID_FIXTURE_HARNESS",
+        "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+        "runner": {
+            "runner_succeeded": True,
+            "mode": "invalid_fixture_harness",
+        },
+        "structural_result": None,
+        "harness_result": {
+            "all_invalid_fixtures_rejected": bool(result.get("ok", False)),
+            "does_not_indicate_structural_conformance": True,
+            "manifest": result.get("manifest"),
+            "fixture_count": len(fixture_results),
+            "fixture_results": fixture_results,
+        },
+        "limitations": {
+            **MACHINE_READABLE_LIMITATIONS_V013,
+            "scope": "NEGATIVE_TEST_HARNESS_ONLY",
+            "does_not_indicate_structural_conformance": True,
+        },
+    }
+
+
+def _v013_print_json(payload: Dict[str, Any], pretty: bool) -> None:
+    import json as _json
+
+    if pretty:
+        print(_json.dumps(payload, indent=2, sort_keys=True))
+    else:
+        print(_json.dumps(payload, sort_keys=True))
+
+
+def _v013_call_invalid_manifest(manifest_path: Optional[str] = None) -> Dict[str, Any]:
+    candidates = (
+        "check_invalid_manifest",
+        "check_invalid_manifest_path",
+        "run_invalid_manifest",
+        "check_invalid_fixtures_manifest",
+    )
+
+    resolved_manifest_path = manifest_path or globals().get("INVALID_MANIFEST_PATH") or globals().get("INVALID_MANIFEST")
+
+    for name in candidates:
+        fn = globals().get(name)
+        if not callable(fn):
+            continue
+
+        if resolved_manifest_path is not None:
+            try:
+                return fn(resolved_manifest_path)
+            except TypeError:
+                pass
+
+        try:
+            return fn()
+        except TypeError:
+            if resolved_manifest_path is None:
+                raise
+            return fn(resolved_manifest_path)
+
+    raise RuntimeError("No invalid-manifest checker function found")
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    import argparse as _argparse
+    from pathlib import Path as _Path
+
+    parser = _argparse.ArgumentParser(
+        description=(
+            "Fork claim-inheritance simulation structural checker. "
+            "Output semantics v0.1.3 separates runner success from structural conformance."
+        )
     )
     parser.add_argument(
         "bundle",
         nargs="?",
-        default=str(VALID_BUNDLE),
-        help="Path to a claim inheritance simulation bundle.",
+        help="Path to a synthetic claim-inheritance simulation bundle.",
     )
     parser.add_argument(
         "--invalid-manifest",
         action="store_true",
-        help="Check the invalid fixture manifest instead of a single bundle.",
+        help="Run the negative-test harness. Harness success does not mean structural conformance.",
     )
     parser.add_argument(
         "--manifest-path",
-        default=str(INVALID_MANIFEST),
-        help="Path to invalid fixture manifest.",
+        help="Optional invalid fixture manifest path for compatibility with existing test harnesses.",
     )
+    parser.add_argument("--pretty", action="store_true", help="Pretty-print JSON output.")
     parser.add_argument(
-        "--pretty",
+        "--legacy-output",
         action="store_true",
-        help="Pretty-print JSON output.",
+        help="Emit pre-v0.1.3 legacy JSON shape for local compatibility only.",
     )
 
     args = parser.parse_args(argv)
 
-    if args.invalid_manifest:
-        result = check_invalid_manifest(Path(args.manifest_path))
-    else:
-        result = check_bundle_path(Path(args.bundle))
+    try:
+        if args.invalid_manifest:
+            legacy_result = _v013_call_invalid_manifest(args.manifest_path)
 
-    print(json.dumps(result, indent=2 if args.pretty else None, sort_keys=True))
-    return 0 if result["ok"] else 1
+            if args.legacy_output:
+                _v013_print_json(legacy_result, args.pretty)
+                return 0 if bool(legacy_result.get("ok", False)) else 1
 
+            payload = _v013_invalid_manifest_output_from_legacy(legacy_result)
+            _v013_print_json(payload, args.pretty)
+            return 0 if payload["harness_result"]["all_invalid_fixtures_rejected"] else 1
+
+        if not args.bundle:
+            parser.error("bundle path is required unless --invalid-manifest is used")
+
+        legacy_result = check_bundle_path(_Path(args.bundle))
+
+        if args.legacy_output:
+            _v013_print_json(legacy_result, args.pretty)
+            return 0 if bool(legacy_result.get("ok", False)) else 1
+
+        payload = _v013_structural_output_from_legacy(legacy_result)
+        _v013_print_json(payload, args.pretty)
+        return 0 if payload["structural_result"]["structurally_conformant"] else 1
+
+    except Exception as exc:
+        payload = {
+            "result_kind": "RUNNER_ERROR",
+            "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+            "runner": {
+                "runner_succeeded": False,
+                "mode": "runner_error",
+                "error_type": type(exc).__name__,
+                "message": str(exc),
+            },
+            "structural_result": None,
+            "harness_result": None,
+            "limitations": MACHINE_READABLE_LIMITATIONS_V013,
+        }
+        _v013_print_json(payload, args.pretty)
+        return 2
 
 if __name__ == "__main__":
     raise SystemExit(main())

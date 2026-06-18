@@ -55,6 +55,6 @@ jobs:
             --invalid-manifest \
             --pretty
 
-      - name: Run claim inheritance checker tests
+      - name: Run claim inheritance checker tests and output semantics tests
         run: |
           python -m pytest -q tests/test_claim_inheritance_simulation_model_v0_1.py

@@ -150,8 +150,20 @@ def test_cli_valid_bundle_exits_zero():
 
     assert completed.returncode == 0, completed.stdout + completed.stderr
     payload = json.loads(completed.stdout)
-    assert payload["ok"] is True
 
+    assert "ok" not in payload
+    assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
+    assert payload["output_semantics_version"] == "0.1.3"
+    assert payload["runner"]["runner_succeeded"] is True
+    assert payload["runner"]["mode"] == "single_bundle_check"
+    assert payload["structural_result"]["structurally_conformant"] is True
+    assert payload["structural_result"]["error_count"] == 0
+    assert payload["harness_result"] is None
+    assert payload["limitations"]["does_not_validate_truth"] is True
+    assert payload["limitations"]["does_not_validate_compliance"] is True
+    assert payload["limitations"]["does_not_validate_authority"] is True
+    assert payload["limitations"]["does_not_validate_evidence_sufficiency"] is True
+    assert payload["limitations"]["does_not_authorize_production_use"] is True
 
 def test_cli_invalid_fixture_exits_nonzero():
     invalid_fixture = INVALID_DIR / "invalid_expansion_missing_authority_evidence_v0_1.json"
@@ -165,9 +177,15 @@ def test_cli_invalid_fixture_exits_nonzero():
 
     assert completed.returncode == 1
     payload = json.loads(completed.stdout)
-    assert payload["ok"] is False
-    assert "AUTHORITY_REF_MISSING" in {error["code"] for error in payload["errors"]}
 
+    assert "ok" not in payload
+    assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
+    assert payload["output_semantics_version"] == "0.1.3"
+    assert payload["runner"]["runner_succeeded"] is True
+    assert payload["structural_result"]["structurally_conformant"] is False
+    assert payload["structural_result"]["error_count"] > 0
+    assert payload["harness_result"] is None
+    assert payload["limitations"]["does_not_validate_truth"] is True
 
 def test_cli_invalid_manifest_exits_zero_when_expected_failures_match():
     completed = subprocess.run(
@@ -186,7 +204,25 @@ def test_cli_invalid_manifest_exits_zero_when_expected_failures_match():
 
     assert completed.returncode == 0, completed.stdout + completed.stderr
     payload = json.loads(completed.stdout)
-    assert payload["ok"] is True
+
+    assert "ok" not in payload
+    assert payload["result_kind"] == "INVALID_FIXTURE_HARNESS"
+    assert payload["output_semantics_version"] == "0.1.3"
+    assert payload["runner"]["runner_succeeded"] is True
+    assert payload["runner"]["mode"] == "invalid_fixture_harness"
+    assert payload["structural_result"] is None
+    assert payload["harness_result"]["all_invalid_fixtures_rejected"] is True
+    assert payload["harness_result"]["does_not_indicate_structural_conformance"] is True
+    assert payload["harness_result"]["fixture_count"] == 20
+    assert payload["limitations"]["scope"] == "NEGATIVE_TEST_HARNESS_ONLY"
+    assert payload["limitations"]["does_not_indicate_structural_conformance"] is True
+
+    fixture_results = payload["harness_result"]["fixture_results"]
+    assert fixture_results
+    assert all(item["checker_structurally_conformant"] is False for item in fixture_results)
+    assert all(item["expected_failures_observed"] is True for item in fixture_results)
+    assert all("ok" not in item for item in fixture_results)
+    assert all("checker_ok" not in item for item in fixture_results)
 
 def assert_fixture_codes(name, expected, forbidden=()):
     result = checker.check_bundle_path(INVALID_DIR / name)
@@ -201,7 +237,6 @@ def assert_fixture_codes(name, expected, forbidden=()):
         f"{name} produced forbidden collateral errors "
         f"{sorted(set(forbidden).intersection(codes))}; actual={sorted(codes)}"
     )
-
 
 def test_declared_non_usage_with_structural_use_fails_cleanly():
     assert_fixture_codes(
@@ -261,3 +296,80 @@ def test_tbd_placeholder_ref_fixture_fails_cleanly():
             "NON_CLAIM_SILENTLY_OMITTED",
         },
     )
+
+def test_cli_valid_bundle_uses_v013_output_semantics():
+    completed = subprocess.run(
+        [sys.executable, str(TOOL_PATH), str(VALID_BUNDLE), "--pretty"],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert completed.returncode == 0, completed.stdout + completed.stderr
+    payload = json.loads(completed.stdout)
+
+    assert "ok" not in payload
+    assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
+    assert payload["output_semantics_version"] == "0.1.3"
+    assert payload["runner"]["runner_succeeded"] is True
+    assert payload["structural_result"]["structurally_conformant"] is True
+    assert payload["harness_result"] is None
+    assert payload["limitations"]["scope"] == "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY"
+    assert payload["limitations"]["does_not_validate_truth"] is True
+    assert payload["limitations"]["does_not_validate_compliance"] is True
+    assert payload["limitations"]["does_not_validate_authority"] is True
+    assert payload["limitations"]["does_not_validate_evidence_sufficiency"] is True
+    assert payload["limitations"]["does_not_authorize_production_use"] is True
+
+
+def test_cli_invalid_fixture_uses_v013_structural_failure_semantics():
+    invalid_fixture = INVALID_DIR / "invalid_malformed_structural_outcome_token_v0_1.json"
+    completed = subprocess.run(
+        [sys.executable, str(TOOL_PATH), str(invalid_fixture), "--pretty"],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert completed.returncode != 0, completed.stdout + completed.stderr
+    payload = json.loads(completed.stdout)
+
+    assert "ok" not in payload
+    assert payload["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
+    assert payload["runner"]["runner_succeeded"] is True
+    assert payload["structural_result"]["structurally_conformant"] is False
+    assert payload["structural_result"]["error_count"] > 0
+    assert payload["limitations"]["does_not_validate_truth"] is True
+
+
+def test_cli_invalid_manifest_separates_harness_success_from_structural_conformance():
+    completed = subprocess.run(
+        [sys.executable, str(TOOL_PATH), "--invalid-manifest", "--pretty"],
+        cwd=REPO_ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+
+    assert completed.returncode == 0, completed.stdout + completed.stderr
+    payload = json.loads(completed.stdout)
+
+    assert "ok" not in payload
+    assert payload["result_kind"] == "INVALID_FIXTURE_HARNESS"
+    assert payload["output_semantics_version"] == "0.1.3"
+    assert payload["runner"]["runner_succeeded"] is True
+    assert payload["structural_result"] is None
+    assert payload["harness_result"]["all_invalid_fixtures_rejected"] is True
+    assert payload["harness_result"]["does_not_indicate_structural_conformance"] is True
+    assert payload["harness_result"]["fixture_count"] == 20
+    assert payload["limitations"]["scope"] == "NEGATIVE_TEST_HARNESS_ONLY"
+    assert payload["limitations"]["does_not_indicate_structural_conformance"] is True
+
+    fixture_results = payload["harness_result"]["fixture_results"]
+    assert fixture_results
+    assert all("ok" not in item for item in fixture_results)
+    assert all("checker_ok" not in item for item in fixture_results)
+    assert all("expected_failures_observed" in item for item in fixture_results)
+    assert all("checker_structurally_conformant" in item for item in fixture_results)
