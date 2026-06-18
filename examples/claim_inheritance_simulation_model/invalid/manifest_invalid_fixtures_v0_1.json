@@ -1,0 +1,106 @@
+{
+    "manifest_id":  "claim_inheritance_invalid_fixture_manifest_v0_1",
+    "purpose":  "Expected-failure manifest for invalid synthetic claim inheritance simulation fixtures.",
+    "controlled_vocabulary_baseline":  "fork-controlled-vocabulary-hardening-v0.1.1",
+    "simulation_schema_ref":  "schemas/claim_inheritance_simulation_model_v0_1.schema.json",
+    "valid_bundle_ref":  "examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json",
+    "fixture_count":  10,
+    "fixtures":  [
+                     {
+                         "fixture_file":  "invalid_missing_boundary_behavior_record_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "MISSING_BOUNDARY_BEHAVIOR_RECORD",
+                                                   "MAPPING_INCOMPLETE"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_non_claim_silent_drop_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "NON_CLAIM_DROPPED",
+                                                   "MAPPING_INCOMPLETE",
+                                                   "NON_CLAIM_SILENTLY_OMITTED"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_expansion_missing_authority_evidence_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "AUTHORITY_REF_MISSING",
+                                                   "EVIDENCE_REF_MISSING",
+                                                   "MAPPING_INCOMPLETE"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_unresolved_pointer_collapsed_complete_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "POINTER_UNRESOLVED",
+                                                   "MAPPED_WITH_UNRESOLVED_REFERENCES",
+                                                   "AGGREGATE_POSTURE_PRECEDENCE_VIOLATION"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_declared_preserved_observed_expanded_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                   "MAPPING_INCOMPLETE"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_aggregate_collapse_positive_summary_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "AGGREGATE_COLLAPSE_DETECTED",
+                                                   "AGGREGATE_POSTURE_PRECEDENCE_VIOLATION",
+                                                   "MAPPING_INCOMPLETE"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_claim_referenced_treated_as_support_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "CLAIM_REFERENCE_SUPPORT_COLLAPSE",
+                                                   "BOUNDARY_EXPANSION_DETECTED",
+                                                   "MAPPING_INCOMPLETE"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_claim_non_usage_treated_as_verified_non_use_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "CLAIM_NON_USAGE_DECLARED_TREATED_AS_PROVEN_NON_USE",
+                                                   "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+                                                   "MAPPING_INCOMPLETE"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_structurally_reachable_treated_as_authority_valid_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "STRUCTURALLY_REACHABLE_TREATED_AS_AUTHORITY_VALID",
+                                                   "STRUCTURALLY_REACHABLE_TREATED_AS_EVIDENCE_SUFFICIENT"
+                                               ]
+                     },
+                     {
+                         "fixture_file":  "invalid_domain_outcome_token_v0_1.json",
+                         "expected_valid_json":  true,
+                         "expected_checker_result":  "FAIL",
+                         "expected_failures":  [
+                                                   "BANNED_DOMAIN_OUTCOME_TOKEN",
+                                                   "SYNTHETIC_DOMAIN_NEUTRALITY_VIOLATION"
+                                               ]
+                     }
+                 ]
+}
