@@ -905,8 +905,8 @@
                     "authority_refs": [],
                     "evidence_refs": [],
                     "structural_outcomes": [
-                        "BOUNDARY_MAPPING_PRESENT BOUNDARY_PRESERVED",
-                        "New-BoundaryRecord"
+                        "BOUNDARY_MAPPING_PRESENT",
+                        "BOUNDARY_PRESERVED"
                     ]
                 }
             ],

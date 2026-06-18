@@ -215,6 +215,80 @@ EXPANSION_OUTCOMES = {
     "BOUNDARY_EXPANSION_RECORDED",
 }
 
+ALLOWED_CLAIM_RELATIONSHIP_STATES = {
+    "CLAIM_REFERENCED",
+    "CLAIM_USED_AS_SUPPORT",
+    "CLAIM_NON_USAGE_DECLARED",
+    "CLAIM_RELATIONSHIP_NOT_DECLARED",
+}
+
+ALLOWED_BOUNDARY_BEHAVIORS = {
+    "BOUNDARY_PRESERVED",
+    "BOUNDARY_NARROWED",
+    "BOUNDARY_EXPANSION_DETECTED",
+    "BOUNDARY_EXPANSION_RECORDED",
+    "NON_CLAIM_DROPPED",
+    "POINTER_UNRESOLVED",
+    "CLAIM_REJECTED",
+    "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
+    "AGGREGATE_COLLAPSE_DETECTED",
+    "BOUNDARY_MAPPING_PRESENT",
+    "BOUNDARY_MAPPING_COMPLETE",
+    "STRUCTURAL_CONFORMANCE_CONFIRMED",
+}
+
+ALLOWED_STRUCTURAL_OUTCOMES = {
+    "AGGREGATE_COLLAPSE_DETECTED",
+    "AUTHORITY_REF_MISSING",
+    "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+    "AUTHORITY_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+    "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
+    "BOUNDARY_EXPANSION_DETECTED",
+    "BOUNDARY_EXPANSION_RECORDED",
+    "BOUNDARY_MAPPING_COMPLETE",
+    "BOUNDARY_MAPPING_PRESENT",
+    "BOUNDARY_NARROWED",
+    "BOUNDARY_PRESERVED",
+    "CLAIM_REJECTED",
+    "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
+    "EVIDENCE_REF_MISSING",
+    "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+    "EVIDENCE_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+    "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
+    "MAPPED_WITH_UNRESOLVED_REFERENCES",
+    "MAPPING_INCOMPLETE",
+    "NON_CLAIM_DROPPED",
+    "POINTER_UNRESOLVED",
+    "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
+    "STRUCTURAL_CONFORMANCE_CONFIRMED",
+}
+
+ALLOWED_AGGREGATE_POSTURES = {
+    "NO_MAPPING_PRESENT",
+    "AGGREGATE_COLLAPSE_DETECTED",
+    "INCOMPLETE_MAPPING",
+    "MAPPED_WITH_UNRESOLVED_REFERENCES",
+    "EXPANSION_MAPPING_PRESENT",
+    "BOUNDARY_MAPPING_COMPLETE",
+    "STRUCTURAL_CONFORMANCE_CONFIRMED",
+}
+
+ALLOWED_PRECEDENCE_TRIGGERS = set(EXPECTED_PRECEDENCE)
+
+PLACEHOLDER_REF_VALUES = {
+    "tbd",
+    "todo",
+    "placeholder",
+    "placeholder_ref",
+    "pending",
+    "unknown",
+    "n/a",
+    "na",
+    "null",
+    "none",
+    "synthetic_placeholder",
+}
+
 
 def load_json(path: Path) -> Any:
     try:
@@ -248,6 +322,54 @@ def as_list(value: Any) -> List[Any]:
 
 def is_non_blank_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
+
+
+def is_placeholder_ref_value(value: Any) -> bool:
+    if not is_non_blank_string(value):
+        return True
+
+    normalized = str(value).strip().lower()
+    normalized = re.sub(r"[^a-z0-9:/._-]+", "_", normalized)
+
+    if normalized in PLACEHOLDER_REF_VALUES:
+        return True
+
+    if re.fullmatch(r"(tbd|todo|placeholder|pending|unknown|none|null|na)[-_:.0-9a-z]*", normalized):
+        return True
+
+    return False
+
+
+def is_usable_ref_value(value: Any) -> bool:
+    return is_non_blank_string(value) and not is_placeholder_ref_value(value)
+
+
+def check_controlled_value(
+    value: Any,
+    allowed: Set[str],
+    errors: List[Dict[str, str]],
+    path: str,
+    label: str,
+    malformed_code: str = "CONTROLLED_VOCABULARY_VALUE_UNKNOWN",
+) -> None:
+    if not isinstance(value, str) or not value.strip():
+        add_error(errors, malformed_code, path, f"{label} must be a non-empty controlled vocabulary string.")
+        return
+
+    if value not in allowed:
+        if label == "structural_outcome":
+            add_error(
+                errors,
+                "MALFORMED_STRUCTURAL_OUTCOME_TOKEN",
+                path,
+                f"Unrecognized structural outcome token: {value}",
+            )
+        add_error(
+            errors,
+            "CONTROLLED_VOCABULARY_VALUE_UNKNOWN",
+            path,
+            f"{label} is not in the controlled vocabulary: {value}",
+        )
 
 
 def string_values(obj: Any, path: str = "$") -> Iterable[Tuple[str, str]]:
@@ -515,8 +637,10 @@ def check_banned_tokens(bundle: Dict[str, Any], errors: List[Dict[str, str]]) ->
     for path, value in string_values(bundle):
         lower = value.lower()
         for token in BANNED_DOMAIN_TOKENS:
-            pattern = r"(?<![a-z0-9_])" + re.escape(token) + r"(?![a-z0-9_])"
-            if re.search(pattern, lower):
+            normalized = lower.replace("-", "_").replace(" ", "_")
+            normalized_token = token.lower().replace("-", "_").replace(" ", "_")
+            pattern = r"(?<![a-z0-9])" + re.escape(normalized_token) + r"(?![a-z0-9])"
+            if re.search(pattern, normalized):
                 add_error(
                     errors,
                     "BANNED_DOMAIN_OUTCOME_TOKEN",
@@ -553,8 +677,13 @@ def check_refs(
             continue
 
         ref_value = ref.get(ref_key)
-        if not is_non_blank_string(ref_value):
-            add_error(errors, "PLACEHOLDER_REF_DETECTED", f"{ref_path}.{ref_key}", "Reference value is blank or missing.")
+        if not is_usable_ref_value(ref_value):
+            add_error(
+                errors,
+                "PLACEHOLDER_REF_DETECTED",
+                f"{ref_path}.{ref_key}",
+                "Reference value is blank, missing, or placeholder-like.",
+            )
             continue
 
         usable_ref_found = True
@@ -626,6 +755,16 @@ def check_non_claim_accounting(
     accounted = preserved.union(dropped)
     missing = sorted(upstream_non_claims.difference(accounted))
     extra = sorted(accounted.difference(upstream_non_claims))
+    overlap = sorted(preserved.intersection(dropped))
+
+    if overlap:
+        add_error(
+            errors,
+            "NON_CLAIM_PRESERVED_AND_DROPPED_CONTRADICTION",
+            path,
+            "Non-claims cannot be both preserved and dropped: " + ", ".join(overlap),
+        )
+        add_error(errors, "MAPPING_INCOMPLETE", path, "Contradictory non-claim mapping forces incomplete mapping.")
 
     if missing:
         add_error(
@@ -665,6 +804,37 @@ def check_record(
 
     claim_ref = record.get("claim_ref")
     claim = claim_map.get(claim_ref) if isinstance(claim_ref, str) else None
+
+    check_controlled_value(
+        relationship,
+        ALLOWED_CLAIM_RELATIONSHIP_STATES,
+        errors,
+        f"{path}.claim_relationship_state",
+        "claim_relationship_state",
+    )
+    check_controlled_value(
+        declared,
+        ALLOWED_BOUNDARY_BEHAVIORS,
+        errors,
+        f"{path}.consumer_declared_boundary_behavior",
+        "consumer_declared_boundary_behavior",
+    )
+    check_controlled_value(
+        observed,
+        ALLOWED_BOUNDARY_BEHAVIORS,
+        errors,
+        f"{path}.validator_observed_boundary_behavior",
+        "validator_observed_boundary_behavior",
+    )
+
+    for outcome_index, outcome in enumerate(as_list(record.get("structural_outcomes"))):
+        check_controlled_value(
+            outcome,
+            ALLOWED_STRUCTURAL_OUTCOMES,
+            errors,
+            f"{path}.structural_outcomes[{outcome_index}]",
+            "structural_outcome",
+        )
 
     check_non_claim_accounting(claim, record, errors, path)
 
@@ -756,11 +926,11 @@ def check_record(
             add_error(errors, "MAPPING_INCOMPLETE", path, "Reference/support collapse must be incomplete.")
 
         usable_authority = any(
-            isinstance(ref, dict) and is_non_blank_string(ref.get("authority_ref"))
+            isinstance(ref, dict) and is_usable_ref_value(ref.get("authority_ref"))
             for ref in authority_refs
         )
         usable_evidence = any(
-            isinstance(ref, dict) and is_non_blank_string(ref.get("evidence_ref"))
+            isinstance(ref, dict) and is_usable_ref_value(ref.get("evidence_ref"))
             for ref in evidence_refs
         )
 
@@ -830,6 +1000,60 @@ def check_record(
         )
 
 
+def check_declared_non_usage_structural_use(
+    records: List[Any],
+    errors: List[Dict[str, str]],
+    path: str,
+) -> None:
+    records_by_claim: Dict[str, List[Tuple[int, Dict[str, Any]]]] = {}
+
+    for record_index, record in enumerate(records):
+        if not isinstance(record, dict):
+            continue
+        claim_ref = record.get("claim_ref")
+        if not isinstance(claim_ref, str):
+            continue
+        records_by_claim.setdefault(claim_ref, []).append((record_index, record))
+
+    structural_use_observed = {
+        "BOUNDARY_NARROWED",
+        "BOUNDARY_EXPANSION_DETECTED",
+        "BOUNDARY_EXPANSION_RECORDED",
+    }
+
+    for claim_ref, entries in sorted(records_by_claim.items()):
+        has_declared_non_usage = any(
+            record.get("claim_relationship_state") == "CLAIM_NON_USAGE_DECLARED"
+            for _, record in entries
+        )
+
+        if not has_declared_non_usage:
+            continue
+
+        structurally_used_entries = [
+            index
+            for index, record in entries
+            if record.get("claim_relationship_state") == "CLAIM_USED_AS_SUPPORT"
+            or record.get("validator_observed_boundary_behavior") in structural_use_observed
+            or record.get("consumer_declared_boundary_behavior") in structural_use_observed
+        ]
+
+        if structurally_used_entries:
+            add_error(
+                errors,
+                "CLAIM_NON_USAGE_DECLARED_WITH_STRUCTURAL_USE",
+                path,
+                "Claim declares non-usage but also appears in structurally used records: "
+                + claim_ref,
+            )
+            add_error(
+                errors,
+                "MAPPING_INCOMPLETE",
+                path,
+                "Declared non-usage with structural use forces incomplete mapping.",
+            )
+
+
 def check_case(case: Dict[str, Any], index: int, errors: List[Dict[str, str]]) -> None:
     path = f"$.simulation_cases[{index}]"
     simulation_class = str(case.get("simulation_class"))
@@ -895,9 +1119,27 @@ def check_case(case: Dict[str, Any], index: int, errors: List[Dict[str, str]]) -
             f"{path}.boundary_behavior_records[{record_index}]",
         )
 
+    check_declared_non_usage_structural_use(records, errors, path)
+
     outcomes = collect_case_outcomes(case)
     expected_posture = case.get("expected_aggregate_posture")
+    expected_precedence = case.get("expected_precedence_trigger")
     computed_posture = computed_aggregate_posture(case)
+
+    check_controlled_value(
+        expected_posture,
+        ALLOWED_AGGREGATE_POSTURES,
+        errors,
+        f"{path}.expected_aggregate_posture",
+        "expected_aggregate_posture",
+    )
+    check_controlled_value(
+        expected_precedence,
+        ALLOWED_PRECEDENCE_TRIGGERS,
+        errors,
+        f"{path}.expected_precedence_trigger",
+        "expected_precedence_trigger",
+    )
 
     if expected_posture != computed_posture:
         add_error(

@@ -981,15 +981,38 @@
                         "CLAIM_REJECTED",
                         "BOUNDARY_MAPPING_COMPLETE"
                     ]
+                },
+                {
+                    "claim_ref": "synthetic_claim_011",
+                    "claim_relationship_state": "CLAIM_USED_AS_SUPPORT",
+                    "consumer_declared_boundary_behavior": "BOUNDARY_EXPANSION_DETECTED",
+                    "validator_observed_boundary_behavior": "BOUNDARY_EXPANSION_DETECTED",
+                    "preserved_non_claims": [
+                        "does_not_claim_truth",
+                        "does_not_claim_legal_sufficiency"
+                    ],
+                    "dropped_non_claims": [],
+                    "authority_refs": [],
+                    "evidence_refs": [],
+                    "structural_outcomes": [
+                        "BOUNDARY_EXPANSION_DETECTED",
+                        "AUTHORITY_REF_MISSING",
+                        "EVIDENCE_REF_MISSING",
+                        "MAPPING_INCOMPLETE"
+                    ]
                 }
             ],
             "expected_structural_outcomes": [
                 "BOUNDARY_MAPPING_PRESENT",
                 "CLAIM_REJECTED",
-                "BOUNDARY_MAPPING_COMPLETE"
+                "BOUNDARY_MAPPING_COMPLETE",
+                "BOUNDARY_EXPANSION_DETECTED",
+                "AUTHORITY_REF_MISSING",
+                "EVIDENCE_REF_MISSING",
+                "MAPPING_INCOMPLETE"
             ],
-            "expected_aggregate_posture": "BOUNDARY_MAPPING_COMPLETE",
-            "expected_precedence_trigger": "BOUNDARY_MAPPING_COMPLETE_PRECEDENCE",
+            "expected_aggregate_posture": "INCOMPLETE_MAPPING",
+            "expected_precedence_trigger": "INCOMPLETE_MAPPING_PRECEDENCE",
             "non_claims": [
                 "does_not_claim_truth",
                 "does_not_claim_legal_sufficiency",
@@ -1454,6 +1477,5 @@
                 "Synthetic domain-neutral fixture."
             ]
         }
-    ],
-    "unauthorized_schema_field": "synthetic_extra"
+    ]
 }

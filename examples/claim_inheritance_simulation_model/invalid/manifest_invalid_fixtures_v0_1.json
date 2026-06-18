@@ -4,7 +4,7 @@
     "controlled_vocabulary_baseline": "fork-controlled-vocabulary-hardening-v0.1.1",
     "simulation_schema_ref": "schemas/claim_inheritance_simulation_model_v0_1.schema.json",
     "valid_bundle_ref": "examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json",
-    "fixture_count": 16,
+    "fixture_count": 20,
     "fixtures": [
         {
             "fixture_file": "invalid_missing_boundary_behavior_record_v0_1.json",
@@ -157,6 +157,45 @@
             "expected_failures": [
                 "SCHEMA_VALIDATION_FAILED",
                 "MISSING_REQUIRED_FIELD"
+            ]
+        },
+        {
+            "fixture_file": "invalid_declared_non_usage_with_structural_use_v0_1.json",
+            "expected_valid_json": true,
+            "expected_checker_result": "FAIL",
+            "expected_failures": [
+                "CLAIM_NON_USAGE_DECLARED_WITH_STRUCTURAL_USE",
+                "MAPPING_INCOMPLETE"
+            ]
+        },
+        {
+            "fixture_file": "invalid_non_claim_preserved_and_dropped_v0_1.json",
+            "expected_valid_json": true,
+            "expected_checker_result": "FAIL",
+            "expected_failures": [
+                "NON_CLAIM_PRESERVED_AND_DROPPED_CONTRADICTION",
+                "NON_CLAIM_DROPPED",
+                "MAPPING_INCOMPLETE"
+            ]
+        },
+        {
+            "fixture_file": "invalid_malformed_structural_outcome_token_v0_1.json",
+            "expected_valid_json": true,
+            "expected_checker_result": "FAIL",
+            "expected_failures": [
+                "MALFORMED_STRUCTURAL_OUTCOME_TOKEN",
+                "CONTROLLED_VOCABULARY_VALUE_UNKNOWN"
+            ]
+        },
+        {
+            "fixture_file": "invalid_placeholder_ref_tbd_v0_1.json",
+            "expected_valid_json": true,
+            "expected_checker_result": "FAIL",
+            "expected_failures": [
+                "PLACEHOLDER_REF_DETECTED",
+                "AUTHORITY_REF_MISSING",
+                "EVIDENCE_REF_MISSING",
+                "MAPPING_INCOMPLETE"
             ]
         }
     ]

@@ -42,8 +42,8 @@ def test_invalid_manifest_exists_and_lists_fixtures():
     fixtures = manifest["fixtures"]
 
     assert manifest["manifest_id"] == "claim_inheritance_invalid_fixture_manifest_v0_1"
-    assert manifest["fixture_count"] == 16
-    assert len(fixtures) == 16
+    assert manifest["fixture_count"] == 20
+    assert len(fixtures) == 20
 
     for fixture in fixtures:
         path = INVALID_DIR / fixture["fixture_file"]
@@ -187,3 +187,77 @@ def test_cli_invalid_manifest_exits_zero_when_expected_failures_match():
     assert completed.returncode == 0, completed.stdout + completed.stderr
     payload = json.loads(completed.stdout)
     assert payload["ok"] is True
+
+def assert_fixture_codes(name, expected, forbidden=()):
+    result = checker.check_bundle_path(INVALID_DIR / name)
+    codes = error_codes(result)
+
+    assert not result["ok"], f"{name} unexpectedly passed"
+    assert set(expected).issubset(codes), (
+        f"{name} missing expected codes {sorted(set(expected) - codes)}; "
+        f"actual={sorted(codes)}"
+    )
+    assert not set(forbidden).intersection(codes), (
+        f"{name} produced forbidden collateral errors "
+        f"{sorted(set(forbidden).intersection(codes))}; actual={sorted(codes)}"
+    )
+
+
+def test_declared_non_usage_with_structural_use_fails_cleanly():
+    assert_fixture_codes(
+        "invalid_declared_non_usage_with_structural_use_v0_1.json",
+        {
+            "CLAIM_NON_USAGE_DECLARED_WITH_STRUCTURAL_USE",
+            "MAPPING_INCOMPLETE",
+        },
+        forbidden={
+            "SCHEMA_VALIDATION_FAILED",
+            "NON_CLAIM_SILENTLY_OMITTED",
+        },
+    )
+
+
+def test_non_claim_preserved_and_dropped_contradiction_fails_cleanly():
+    assert_fixture_codes(
+        "invalid_non_claim_preserved_and_dropped_v0_1.json",
+        {
+            "NON_CLAIM_PRESERVED_AND_DROPPED_CONTRADICTION",
+            "NON_CLAIM_DROPPED",
+            "MAPPING_INCOMPLETE",
+        },
+        forbidden={
+            "SCHEMA_VALIDATION_FAILED",
+            "NON_CLAIM_SILENTLY_OMITTED",
+        },
+    )
+
+
+def test_malformed_structural_outcome_token_fails_cleanly():
+    assert_fixture_codes(
+        "invalid_malformed_structural_outcome_token_v0_1.json",
+        {
+            "MALFORMED_STRUCTURAL_OUTCOME_TOKEN",
+            "CONTROLLED_VOCABULARY_VALUE_UNKNOWN",
+        },
+        forbidden={
+            "SCHEMA_VALIDATION_FAILED",
+            "MAPPING_INCOMPLETE",
+            "NON_CLAIM_SILENTLY_OMITTED",
+        },
+    )
+
+
+def test_tbd_placeholder_ref_fixture_fails_cleanly():
+    assert_fixture_codes(
+        "invalid_placeholder_ref_tbd_v0_1.json",
+        {
+            "PLACEHOLDER_REF_DETECTED",
+            "AUTHORITY_REF_MISSING",
+            "EVIDENCE_REF_MISSING",
+            "MAPPING_INCOMPLETE",
+        },
+        forbidden={
+            "SCHEMA_VALIDATION_FAILED",
+            "NON_CLAIM_SILENTLY_OMITTED",
+        },
+    )

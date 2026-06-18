@@ -98,7 +98,9 @@
                         "does_not_claim_truth",
                         "does_not_claim_legal_sufficiency"
                     ],
-                    "dropped_non_claims": [],
+                    "dropped_non_claims": [
+                        "does_not_claim_truth"
+                    ],
                     "authority_refs": [
                         {
                             "authority_ref": "synthetic_authority_ref_001",
@@ -1454,6 +1456,5 @@
                 "Synthetic domain-neutral fixture."
             ]
         }
-    ],
-    "unauthorized_schema_field": "synthetic_extra"
+    ]
 }

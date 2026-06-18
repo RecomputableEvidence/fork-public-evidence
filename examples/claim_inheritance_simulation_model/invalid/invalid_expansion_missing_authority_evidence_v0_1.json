@@ -881,8 +881,8 @@
                     "authority_refs": [],
                     "evidence_refs": [],
                     "structural_outcomes": [
-                        "BOUNDARY_MAPPING_PRESENT BOUNDARY_PRESERVED",
-                        "New-BoundaryRecord"
+                        "BOUNDARY_MAPPING_PRESENT",
+                        "BOUNDARY_PRESERVED"
                     ]
                 }
             ],
@@ -1035,7 +1035,10 @@
                     "claim_relationship_state": "CLAIM_RELATIONSHIP_NOT_DECLARED",
                     "consumer_declared_boundary_behavior": "BOUNDARY_PRESERVED",
                     "validator_observed_boundary_behavior": "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
-                    "preserved_non_claims": [],
+                    "preserved_non_claims": [
+                        "does_not_claim_truth",
+                        "does_not_claim_legal_sufficiency"
+                    ],
                     "dropped_non_claims": [],
                     "authority_refs": [],
                     "evidence_refs": [],

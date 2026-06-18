@@ -116,11 +116,8 @@
                         }
                     ],
                     "structural_outcomes": [
-                        "BOUNDARY_MAPPING_PRESENT",
-                        "BOUNDARY_PRESERVED",
-                        "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
-                        "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
-                        "BOUNDARY_MAPPING_COMPLETE"
+                        "BOUNDARY_MAPPING_PRESENT BOUNDARY_PRESERVED",
+                        "New-BoundaryRecord"
                     ]
                 }
             ],
@@ -1454,6 +1451,5 @@
                 "Synthetic domain-neutral fixture."
             ]
         }
-    ],
-    "unauthorized_schema_field": "synthetic_extra"
+    ]
 }
