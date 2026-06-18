@@ -1,0 +1,476 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://fork.recomputableevidence.dev/schemas/claim_inheritance_simulation_model_v0_1.schema.json",
+"title": "Claim Inheritance Simulation Model v0.1",
+"description": "Schema for synthetic claim-boundary inheritance simulation bundles. This schema depends on the hardened Fork controlled vocabulary and defines the structural shape for simulation cases, expected boundary behavior, expected structural outcomes, and aggregate posture expectations. It does not encode or determine truth, legal sufficiency, admissibility, legal chain of custody, legal hold, retention-law compliance, authority validity, safety, compliance, production readiness, legal reliance, legal representation, or actual downstream behavior.",
+"$comment": "This schema is downstream of schemas/fork_controlled_vocabulary_v0_1.schema.json at fork-controlled-vocabulary-hardening-v0.1.1. Simulation classes are synthetic inheritance classes, not risk classes, compliance classes, approval classes, or legal classes.",
+"type": "object",
+"additionalProperties": false,
+"required": [
+"simulation_model_id",
+"schema_version",
+"status",
+"controlled_vocabulary_schema_ref",
+"controlled_vocabulary_baseline",
+"synthetic_only",
+"domain_process",
+"mandatory_non_claims",
+"simulation_class_coverage",
+"aggregate_posture_precedence",
+"simulation_cases"
+],
+"properties": {
+"simulation_model_id": {
+"const": "claim_inheritance_simulation_model_v0_1"
+},
+"schema_version": {
+"const": "0.1"
+},
+"status": {
+"const": "DRAFT_SIMULATION_SCHEMA"
+},
+"controlled_vocabulary_schema_ref": {
+"const": "schemas/fork_controlled_vocabulary_v0_1.schema.json"
+},
+"controlled_vocabulary_baseline": {
+"const": "fork-controlled-vocabulary-hardening-v0.1.1"
+},
+"synthetic_only": {
+"const": true
+},
+"domain_process": {
+"const": "DOMAIN_NEUTRAL_SYNTHETIC"
+},
+"mandatory_non_claims": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/non_claim"
+}
+},
+"simulation_class_coverage": {
+"$ref": "#/$defs/simulation_class_coverage"
+},
+"aggregate_posture_precedence": {
+"$ref": "#/$defs/aggregate_posture_precedence"
+},
+"simulation_cases": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "#/$defs/simulation_case"
+}
+}
+},
+"$defs": {
+"non_empty_string": {
+"type": "string",
+"minLength": 1
+},
+"synthetic_identifier": {
+"type": "string",
+"pattern": "^synthetic_[a-z0-9_]+*[0-9]{3}$"
+},
+"simulation_case_id": {
+"type": "string",
+"pattern": "^sim*[a-z0-9_]+_[0-9]{3}$"
+},
+"simulation_class_coverage": {
+"type": "array",
+"minItems": 15,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/simulation_class"
+},
+"allOf": [
+{
+"contains": {
+"const": "SIM_A_BOUNDARY_PRESERVED"
+}
+},
+{
+"contains": {
+"const": "SIM_B_BOUNDARY_NARROWED"
+}
+},
+{
+"contains": {
+"const": "SIM_C_NON_CLAIM_DROPPED"
+}
+},
+{
+"contains": {
+"const": "SIM_D_EXPANSION_WITHOUT_AUTHORITY"
+}
+},
+{
+"contains": {
+"const": "SIM_E_EXPANSION_WITH_RECORDED_UNRESOLVED_AUTHORITY"
+}
+},
+{
+"contains": {
+"const": "SIM_F_POINTER_UNRESOLVED"
+}
+},
+{
+"contains": {
+"const": "SIM_G1_SELF_CHARACTERIZATION_PRESERVED_NON_CLAIM_DROPPED"
+}
+},
+{
+"contains": {
+"const": "SIM_G2_SELF_CHARACTERIZATION_PRESERVED_EXPANSION_OBSERVED"
+}
+},
+{
+"contains": {
+"const": "SIM_G3_SELF_CHARACTERIZATION_NARROWED_EXPANSION_OBSERVED"
+}
+},
+{
+"contains": {
+"const": "SIM_H_CASCADING_INHERITANCE"
+}
+},
+{
+"contains": {
+"const": "SIM_I_BOUNDARY_REJECTION"
+}
+},
+{
+"contains": {
+"const": "SIM_J_SCHEMA_BEHAVIOR_COLLAPSE"
+}
+},
+{
+"contains": {
+"const": "SIM_K_MULTI_BEHAVIOR_HANDOFF"
+}
+},
+{
+"contains": {
+"const": "SIM_L_STRUCTURALLY_VALID_MISLEADING_SELF_REPORT"
+}
+},
+{
+"contains": {
+"const": "SIM_M_AGGREGATE_COLLAPSE"
+}
+}
+]
+},
+"aggregate_posture_precedence": {
+"type": "array",
+"minItems": 7,
+"maxItems": 7,
+"prefixItems": [
+{
+"const": "NO_MAPPING_PRESENT_PRECEDENCE"
+},
+{
+"const": "AGGREGATE_COLLAPSE_PRECEDENCE"
+},
+{
+"const": "INCOMPLETE_MAPPING_PRECEDENCE"
+},
+{
+"const": "UNRESOLVED_REFERENCES_PRECEDENCE"
+},
+{
+"const": "EXPANSION_MAPPING_PRESENT_PRECEDENCE"
+},
+{
+"const": "BOUNDARY_MAPPING_COMPLETE_PRECEDENCE"
+},
+{
+"const": "STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE"
+}
+],
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/aggregate_posture_precedence_rule"
+}
+},
+"simulation_case": {
+"type": "object",
+"additionalProperties": false,
+"required": [
+"simulation_case_id",
+"simulation_class",
+"synthetic_only",
+"domain_process",
+"objective",
+"input_claims",
+"handoff_events",
+"boundary_behavior_records",
+"expected_structural_outcomes",
+"expected_aggregate_posture",
+"expected_precedence_trigger",
+"non_claims"
+],
+"properties": {
+"simulation_case_id": {
+"$ref": "#/$defs/simulation_case_id"
+},
+"simulation_class": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/simulation_class"
+},
+"synthetic_only": {
+"const": true
+},
+"domain_process": {
+"const": "DOMAIN_NEUTRAL_SYNTHETIC"
+},
+"objective": {
+"$ref": "#/$defs/non_empty_string"
+},
+"input_claims": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/claim"
+}
+},
+"system_assertions": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/system_assertion"
+}
+},
+"handoff_events": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/handoff_event"
+}
+},
+"boundary_behavior_records": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/boundary_behavior_record"
+}
+},
+"aggregate_report": {
+"$ref": "#/$defs/aggregate_report"
+},
+"expected_structural_outcomes": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/structural_outcome"
+}
+},
+"expected_aggregate_posture": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/aggregate_posture"
+},
+"expected_precedence_trigger": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/aggregate_posture_precedence_rule"
+},
+"non_claims": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/non_claim"
+}
+},
+"notes": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "#/$defs/non_empty_string"
+}
+}
+}
+},
+"aggregate_report": {
+"type": "object",
+"additionalProperties": false,
+"required": [
+"aggregate_report_id",
+"receipt_refs",
+"reported_aggregate_posture",
+"expected_aggregate_posture",
+"included_structural_outcomes",
+"omitted_structural_outcomes",
+"aggregate_collapse_detected"
+],
+"properties": {
+"aggregate_report_id": {
+"$ref": "#/$defs/synthetic_identifier"
+},
+"receipt_refs": {
+"type": "array",
+"minItems": 1,
+"uniqueItems": true,
+"items": {
+"$ref": "#/$defs/synthetic_identifier"
+}
+},
+"reported_aggregate_posture": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/aggregate_posture"
+},
+"expected_aggregate_posture": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/aggregate_posture"
+},
+"included_structural_outcomes": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/structural_outcome"
+}
+},
+"omitted_structural_outcomes": {
+"type": "array",
+"uniqueItems": true,
+"items": {
+"$ref": "fork_controlled_vocabulary_v0_1.schema.json#/$defs/structural_outcome"
+}
+},
+"aggregate_collapse_detected": {
+"type": "boolean"
+}
+}
+}
+},
+"examples": [
+{
+"simulation_model_id": "claim_inheritance_simulation_model_v0_1",
+"schema_version": "0.1",
+"status": "DRAFT_SIMULATION_SCHEMA",
+"controlled_vocabulary_schema_ref": "schemas/fork_controlled_vocabulary_v0_1.schema.json",
+"controlled_vocabulary_baseline": "fork-controlled-vocabulary-hardening-v0.1.1",
+"synthetic_only": true,
+"domain_process": "DOMAIN_NEUTRAL_SYNTHETIC",
+"mandatory_non_claims": [
+"does_not_claim_truth",
+"does_not_claim_legal_sufficiency",
+"does_not_claim_admissibility",
+"does_not_claim_legal_reliance",
+"does_not_claim_legal_representation",
+"does_not_claim_legal_chain_of_custody",
+"does_not_claim_retention_compliance",
+"does_not_claim_actual_downstream_behavior"
+],
+"simulation_class_coverage": [
+"SIM_A_BOUNDARY_PRESERVED",
+"SIM_B_BOUNDARY_NARROWED",
+"SIM_C_NON_CLAIM_DROPPED",
+"SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+"SIM_E_EXPANSION_WITH_RECORDED_UNRESOLVED_AUTHORITY",
+"SIM_F_POINTER_UNRESOLVED",
+"SIM_G1_SELF_CHARACTERIZATION_PRESERVED_NON_CLAIM_DROPPED",
+"SIM_G2_SELF_CHARACTERIZATION_PRESERVED_EXPANSION_OBSERVED",
+"SIM_G3_SELF_CHARACTERIZATION_NARROWED_EXPANSION_OBSERVED",
+"SIM_H_CASCADING_INHERITANCE",
+"SIM_I_BOUNDARY_REJECTION",
+"SIM_J_SCHEMA_BEHAVIOR_COLLAPSE",
+"SIM_K_MULTI_BEHAVIOR_HANDOFF",
+"SIM_L_STRUCTURALLY_VALID_MISLEADING_SELF_REPORT",
+"SIM_M_AGGREGATE_COLLAPSE"
+],
+"aggregate_posture_precedence": [
+"NO_MAPPING_PRESENT_PRECEDENCE",
+"AGGREGATE_COLLAPSE_PRECEDENCE",
+"INCOMPLETE_MAPPING_PRECEDENCE",
+"UNRESOLVED_REFERENCES_PRECEDENCE",
+"EXPANSION_MAPPING_PRESENT_PRECEDENCE",
+"BOUNDARY_MAPPING_COMPLETE_PRECEDENCE",
+"STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE"
+],
+"simulation_cases": [
+{
+"simulation_case_id": "sim_expansion_without_authority_001",
+"simulation_class": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+"synthetic_only": true,
+"domain_process": "DOMAIN_NEUTRAL_SYNTHETIC",
+"objective": "Demonstrate that downstream claim expansion without authority and evidence references remains structurally visible and incomplete.",
+"input_claims": [
+{
+"claim_id": "synthetic_claim_001",
+"claim_text": "Synthetic event was observed.",
+"claim_subject": "synthetic_subject_001",
+"non_claims": [
+"does_not_claim_truth",
+"does_not_claim_legal_sufficiency"
+]
+}
+],
+"system_assertions": [
+{
+"assertion_id": "synthetic_assertion_001",
+"assertion_source": "SYSTEM_GENERATED",
+"assertion_text": "Synthetic downstream artifact expanded the upstream claim.",
+"non_claims": [
+"does_not_claim_truth",
+"does_not_claim_authority"
+]
+}
+],
+"handoff_events": [
+{
+"handoff_event_id": "synthetic_handoff_001",
+"sender": "synthetic_system_a",
+"receiver": "synthetic_system_b",
+"timestamp": "2026-01-01T00:00:00Z",
+"artifact_ref": "synthetic_artifact_001",
+"record_structural_state": "STRUCTURAL_CHECK_NOT_PERFORMED",
+"recomputation_state": "RECOMPUTATION_NOT_PERFORMED",
+"non_claims": [
+"does_not_claim_truth",
+"does_not_claim_legal_chain_of_custody"
+]
+}
+],
+"boundary_behavior_records": [
+{
+"claim_ref": "synthetic_claim_001",
+"claim_relationship_state": "CLAIM_USED_AS_SUPPORT",
+"consumer_declared_boundary_behavior": "BOUNDARY_PRESERVED",
+"validator_observed_boundary_behavior": "BOUNDARY_EXPANSION_DETECTED",
+"preserved_non_claims": [
+"does_not_claim_truth"
+],
+"dropped_non_claims": [
+"does_not_claim_legal_sufficiency"
+],
+"authority_refs": [],
+"evidence_refs": [],
+"structural_outcomes": [
+"BOUNDARY_EXPANSION_DETECTED",
+"AUTHORITY_REF_MISSING",
+"EVIDENCE_REF_MISSING",
+"MAPPING_INCOMPLETE"
+]
+}
+],
+"expected_structural_outcomes": [
+"BOUNDARY_EXPANSION_DETECTED",
+"AUTHORITY_REF_MISSING",
+"EVIDENCE_REF_MISSING",
+"MAPPING_INCOMPLETE"
+],
+"expected_aggregate_posture": "INCOMPLETE_MAPPING",
+"expected_precedence_trigger": "INCOMPLETE_MAPPING_PRECEDENCE",
+"non_claims": [
+"does_not_claim_truth",
+"does_not_claim_authority",
+"does_not_claim_legal_sufficiency",
+"does_not_claim_actual_downstream_behavior"
+],
+"notes": [
+"This example is synthetic and domain-neutral."
+]
+}
+]
+}
+]
+}
