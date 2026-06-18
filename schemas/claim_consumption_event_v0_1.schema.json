@@ -1,0 +1,416 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/claim_consumption_event_v0_1.schema.json",
+  "title": "Claim Consumption Event Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_type",
+    "event_version",
+    "event_id",
+    "source_artifact",
+    "consumer_identity",
+    "receiving_context",
+    "relied_claims",
+    "preserved_non_claims",
+    "unresolved_gaps",
+    "boundary_effect",
+    "boundary_effect_reason",
+    "new_claim_reference",
+    "local_reliance_decision",
+    "decision_owner",
+    "limitations"
+  ],
+  "properties": {
+    "event_type": {
+      "const": "CLAIM_CONSUMPTION_EVENT"
+    },
+    "event_version": {
+      "const": "0.1"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_artifact": {
+      "$ref": "#/definitions/source_artifact"
+    },
+    "consumer_identity": {
+      "$ref": "#/definitions/consumer_identity"
+    },
+    "receiving_context": {
+      "$ref": "#/definitions/receiving_context"
+    },
+    "relied_claims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/relied_claim"
+      }
+    },
+    "preserved_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/preserved_non_claim"
+      }
+    },
+    "unresolved_gaps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/unresolved_gap"
+      }
+    },
+    "boundary_effect": {
+      "type": "string",
+      "enum": [
+        "PRESERVED",
+        "NARROWED",
+        "EXPANDED",
+        "REJECTED",
+        "INDETERMINATE"
+      ]
+    },
+    "boundary_effect_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "new_claim_reference": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/new_claim_reference"
+        }
+      ]
+    },
+    "local_reliance_decision": {
+      "$ref": "#/definitions/local_reliance_decision"
+    },
+    "decision_owner": {
+      "$ref": "#/definitions/decision_owner"
+    },
+    "limitations": {
+      "$ref": "#/definitions/limitations"
+    }
+  },
+  "definitions": {
+    "source_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "claim_boundary_contract",
+        "evidence_refs"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_boundary_contract": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_hash_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "consumer_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consumer_id",
+        "consumer_type",
+        "role"
+      ],
+      "properties": {
+        "consumer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consumer_type": {
+          "type": "string",
+          "enum": [
+            "HUMAN_REVIEWER",
+            "SYSTEM",
+            "WORKFLOW",
+            "INSTITUTION",
+            "COMMITTEE",
+            "OTHER"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "organization": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "receiving_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "workflow_id",
+        "workflow_name",
+        "action_under_review",
+        "decision_context"
+      ],
+      "properties": {
+        "workflow_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action_under_review": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_context": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "relied_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "claim_text",
+        "source_evidence_ref"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_evidence_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "preserved_non_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "non_claim_id",
+        "non_claim_text"
+      ],
+      "properties": {
+        "non_claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "non_claim_text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "unresolved_gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gap_id",
+        "gap_text"
+      ],
+      "properties": {
+        "gap_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gap_text": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "new_claim_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_claim_id",
+        "new_claim_text",
+        "expansion_reason",
+        "accountable_owner_ref"
+      ],
+      "properties": {
+        "new_claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "new_claim_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expansion_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accountable_owner_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "local_reliance_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reliance_action",
+        "reliance_scope",
+        "decision_timestamp_utc",
+        "decision_owner_ref"
+      ],
+      "properties": {
+        "reliance_action": {
+          "type": "string",
+          "enum": [
+            "RELIED_ON",
+            "PARTIALLY_RELIED_ON",
+            "DID_NOT_RELY",
+            "ESCALATED",
+            "INDETERMINATE"
+          ]
+        },
+        "reliance_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision_timestamp_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decision_owner_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "decision_owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_id",
+        "owner_role",
+        "accountable_for"
+      ],
+      "properties": {
+        "owner_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accountable_for": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "records_local_reliance_behavior_only",
+        "does_not_validate_approval",
+        "does_not_validate_truth",
+        "does_not_validate_safety",
+        "does_not_validate_compliance",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_institutional_authorization",
+        "does_not_validate_policy_satisfaction",
+        "does_not_validate_risk_acceptance",
+        "not_runtime_control",
+        "not_policy_engine",
+        "not_compliance_oracle",
+        "do_not_map_to"
+      ],
+      "properties": {
+        "records_local_reliance_behavior_only": {
+          "const": true
+        },
+        "does_not_validate_approval": {
+          "const": true
+        },
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "does_not_validate_safety": {
+          "const": true
+        },
+        "does_not_validate_compliance": {
+          "const": true
+        },
+        "does_not_validate_legal_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_institutional_authorization": {
+          "const": true
+        },
+        "does_not_validate_policy_satisfaction": {
+          "const": true
+        },
+        "does_not_validate_risk_acceptance": {
+          "const": true
+        },
+        "not_runtime_control": {
+          "const": true
+        },
+        "not_policy_engine": {
+          "const": true
+        },
+        "not_compliance_oracle": {
+          "const": true
+        },
+        "do_not_map_to": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 8,
+          "items": {
+            "type": "string",
+            "enum": [
+              "APPROVAL",
+              "TRUTH",
+              "SAFETY",
+              "COMPLIANCE",
+              "LEGAL_SUFFICIENCY",
+              "INSTITUTIONAL_AUTHORIZATION",
+              "POLICY_SATISFACTION",
+              "RISK_ACCEPTANCE"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

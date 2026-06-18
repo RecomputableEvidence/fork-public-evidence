@@ -1,0 +1,87 @@
+{
+  "event_type": "CLAIM_CONSUMPTION_EVENT",
+  "event_version": "0.1",
+  "event_id": "CCE_SYNTHETIC_INVALID_SILENT_EXPANSION_001",
+  "source_artifact": {
+    "artifact_id": "CBC_SYNTHETIC_SOURCE_004",
+    "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+    "claim_boundary_contract": "claim-boundary-contract-v0.1",
+    "source_hash_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "evidence_refs": [
+      "synthetic://claim-boundary/cbc_synthetic_source_004"
+    ]
+  },
+  "consumer_identity": {
+    "consumer_id": "SYNTHETIC_RECEIVING_WORKFLOW",
+    "consumer_type": "WORKFLOW",
+    "role": "receiving governance workflow",
+    "organization": "synthetic controlled pilot"
+  },
+  "receiving_context": {
+    "workflow_id": "SYNTHETIC_RECEIVING_REVIEW",
+    "workflow_name": "Synthetic Receiving Review",
+    "action_under_review": "consume a bounded source artifact",
+    "decision_context": "controlled pilot synthetic corpus"
+  },
+  "relied_claims": [
+    {
+      "claim_id": "supported_claim.source_record_integrity",
+      "claim_text": "The source artifact structurally preserves the source record and evidence references.",
+      "source_evidence_ref": "synthetic://claim-boundary/cbc_synthetic_source_004"
+    }
+  ],
+  "preserved_non_claims": [
+    {
+      "non_claim_id": "does_not_claim_truth",
+      "non_claim_text": "The source artifact does not claim that the underlying assertion is true."
+    },
+    {
+      "non_claim_id": "does_not_claim_compliance",
+      "non_claim_text": "The source artifact does not claim compliance with policy, law, or regulation."
+    }
+  ],
+  "unresolved_gaps": [
+    {
+      "gap_id": "unresolved.local_policy_fit",
+      "gap_text": "The receiving workflow must independently determine whether the source record satisfies current local policy requirements."
+    }
+  ],
+  "boundary_effect": "EXPANDED",
+  "boundary_effect_reason": "The receiving workflow treats the source artifact as sufficient for a broader approval-like action.",
+  "new_claim_reference": null,
+  "local_reliance_decision": {
+    "reliance_action": "RELIED_ON",
+    "reliance_scope": "Used as evidence that a bounded source record existed and structurally verified; not used as proof of correctness, compliance, safety, legal sufficiency, or authority.",
+    "decision_timestamp_utc": "2026-06-18T00:00:00Z",
+    "decision_owner_ref": "OWNER_SYNTHETIC_GOVERNANCE_REVIEWER"
+  },
+  "decision_owner": {
+    "owner_id": "OWNER_SYNTHETIC_GOVERNANCE_REVIEWER",
+    "owner_role": "synthetic governance reviewer",
+    "accountable_for": "the local decision to consume the bounded source artifact"
+  },
+  "limitations": {
+    "records_local_reliance_behavior_only": true,
+    "does_not_validate_approval": true,
+    "does_not_validate_truth": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_institutional_authorization": true,
+    "does_not_validate_policy_satisfaction": true,
+    "does_not_validate_risk_acceptance": true,
+    "not_runtime_control": true,
+    "not_policy_engine": true,
+    "not_compliance_oracle": true,
+    "do_not_map_to": [
+      "APPROVAL",
+      "TRUTH",
+      "SAFETY",
+      "COMPLIANCE",
+      "LEGAL_SUFFICIENCY",
+      "INSTITUTIONAL_AUTHORIZATION",
+      "POLICY_SATISFACTION",
+      "RISK_ACCEPTANCE"
+    ]
+  }
+}

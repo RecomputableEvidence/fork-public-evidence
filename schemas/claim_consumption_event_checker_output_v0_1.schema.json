@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/claim_consumption_event_checker_output_v0_1.schema.json",
+  "title": "Claim Consumption Event Checker Output Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "checker",
+    "input",
+    "result",
+    "errors",
+    "warnings",
+    "scope",
+    "limitations",
+    "do_not_map_to",
+    "non_claims"
+  ],
+  "properties": {
+    "checker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "const": "check_claim_consumption_event"
+        },
+        "version": {
+          "const": "0.1"
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ok",
+        "result_kind"
+      ],
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "result_kind": {
+          "type": "string",
+          "enum": [
+            "STRUCTURAL_PASS",
+            "SCHEMA_VALIDATION_FAILED",
+            "CONTRACT_VALIDATION_FAILED",
+            "INPUT_ERROR",
+            "OUTPUT_CONTRACT_VIOLATION"
+          ]
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/finding"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/finding"
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checker_scope",
+        "validates",
+        "does_not_validate"
+      ],
+      "properties": {
+        "checker_scope": {
+          "const": "structural_claim_consumption_event_validation_only"
+        },
+        "validates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "does_not_validate": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "limitations": {
+      "$ref": "#/definitions/limitations"
+    },
+    "do_not_map_to": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 8,
+      "items": {
+        "type": "string",
+        "enum": [
+          "APPROVAL",
+          "TRUTH",
+          "SAFETY",
+          "COMPLIANCE",
+          "LEGAL_SUFFICIENCY",
+          "INSTITUTIONAL_AUTHORIZATION",
+          "POLICY_SATISFACTION",
+          "RISK_ACCEPTANCE"
+        ]
+      }
+    },
+    "non_claims": {
+      "$ref": "#/definitions/non_claims"
+    }
+  },
+  "definitions": {
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    },
+    "limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "records_local_reliance_behavior_only",
+        "synthetic_structural_checker_only",
+        "does_not_validate_approval",
+        "does_not_validate_truth",
+        "does_not_validate_safety",
+        "does_not_validate_compliance",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_institutional_authorization",
+        "does_not_validate_policy_satisfaction",
+        "does_not_validate_risk_acceptance",
+        "not_runtime_control",
+        "not_policy_engine",
+        "not_compliance_oracle"
+      ],
+      "properties": {
+        "records_local_reliance_behavior_only": {
+          "const": true
+        },
+        "synthetic_structural_checker_only": {
+          "const": true
+        },
+        "does_not_validate_approval": {
+          "const": true
+        },
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "does_not_validate_safety": {
+          "const": true
+        },
+        "does_not_validate_compliance": {
+          "const": true
+        },
+        "does_not_validate_legal_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_institutional_authorization": {
+          "const": true
+        },
+        "does_not_validate_policy_satisfaction": {
+          "const": true
+        },
+        "does_not_validate_risk_acceptance": {
+          "const": true
+        },
+        "not_runtime_control": {
+          "const": true
+        },
+        "not_policy_engine": {
+          "const": true
+        },
+        "not_compliance_oracle": {
+          "const": true
+        }
+      }
+    },
+    "non_claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "does_not_approve_reliance",
+        "does_not_validate_correctness",
+        "does_not_validate_truth",
+        "does_not_validate_safety",
+        "does_not_validate_compliance",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_authority",
+        "does_not_validate_policy_fit"
+      ],
+      "properties": {
+        "does_not_approve_reliance": {
+          "const": true
+        },
+        "does_not_validate_correctness": {
+          "const": true
+        },
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "does_not_validate_safety": {
+          "const": true
+        },
+        "does_not_validate_compliance": {
+          "const": true
+        },
+        "does_not_validate_legal_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_authority": {
+          "const": true
+        },
+        "does_not_validate_policy_fit": {
+          "const": true
+        }
+      }
+    }
+  }
+}

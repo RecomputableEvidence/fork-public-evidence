@@ -1,0 +1,74 @@
+{
+  "checker": {
+    "name": "check_claim_consumption_event",
+    "version": "0.1"
+  },
+  "do_not_map_to": [
+    "APPROVAL",
+    "TRUTH",
+    "SAFETY",
+    "COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "INSTITUTIONAL_AUTHORIZATION",
+    "POLICY_SATISFACTION",
+    "RISK_ACCEPTANCE"
+  ],
+  "errors": [],
+  "input": {
+    "path": "examples\\claim_consumption_event\\valid_narrowed_boundary.json"
+  },
+  "limitations": {
+    "does_not_validate_approval": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_institutional_authorization": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_policy_satisfaction": true,
+    "does_not_validate_risk_acceptance": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_truth": true,
+    "not_compliance_oracle": true,
+    "not_policy_engine": true,
+    "not_runtime_control": true,
+    "records_local_reliance_behavior_only": true,
+    "synthetic_structural_checker_only": true
+  },
+  "non_claims": {
+    "does_not_approve_reliance": true,
+    "does_not_validate_authority": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_correctness": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_policy_fit": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_truth": true
+  },
+  "result": {
+    "ok": true,
+    "result_kind": "STRUCTURAL_PASS"
+  },
+  "scope": {
+    "checker_scope": "structural_claim_consumption_event_validation_only",
+    "does_not_validate": [
+      "truth_of_source_claim",
+      "correctness_of_receiving_decision",
+      "safety_of_receiving_decision",
+      "compliance_of_receiving_decision",
+      "legal_sufficiency_of_receiving_decision",
+      "institutional_authority_of_decision_owner",
+      "policy_satisfaction",
+      "risk_acceptance"
+    ],
+    "validates": [
+      "json_parseability",
+      "claim_consumption_event_schema_conformance",
+      "explicit_receiving_boundary_effect",
+      "preserved_non_claim_presence",
+      "local_decision_owner_presence",
+      "explicit_new_claim_reference_for_boundary_expansion",
+      "reliance_action_consistency",
+      "forbidden_oracle_field_absence",
+      "checker_output_contract_conformance"
+    ]
+  },
+  "warnings": []
+}
