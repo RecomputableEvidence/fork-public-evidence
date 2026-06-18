@@ -1454,5 +1454,6 @@
                 "Synthetic domain-neutral fixture."
             ]
         }
-    ]
+    ],
+    "unauthorized_schema_field": "synthetic_extra"
 }

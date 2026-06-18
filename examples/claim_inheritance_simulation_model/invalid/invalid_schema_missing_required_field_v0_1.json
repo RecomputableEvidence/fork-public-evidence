@@ -1,5 +1,4 @@
 {
-    "simulation_model_id": "claim_inheritance_simulation_model_v0_1",
     "schema_version": "0.1",
     "status": "DRAFT_SIMULATION_SCHEMA",
     "controlled_vocabulary_schema_ref": "schemas/fork_controlled_vocabulary_v0_1.schema.json",

@@ -357,26 +357,36 @@
                     "dropped_non_claims": [
                         "does_not_claim_authority"
                     ],
-                    "authority_refs": [],
-                    "evidence_refs": [],
+                    "authority_refs": [
+                        {
+                            "authority_ref": " ",
+                            "authority_ref_kind": "POLICY_POINTER",
+                            "authority_ref_resolution_attempted": true,
+                            "authority_ref_resolution_state": "AUTHORITY_REF_STRUCTURALLY_REACHABLE"
+                        }
+                    ],
+                    "evidence_refs": [
+                        {
+                            "evidence_ref": "",
+                            "evidence_ref_kind": "INTERNAL_RECEIPT_REF",
+                            "evidence_ref_resolution_attempted": true,
+                            "evidence_ref_resolution_state": "EVIDENCE_REF_STRUCTURALLY_REACHABLE"
+                        }
+                    ],
                     "structural_outcomes": [
+                        "BOUNDARY_MAPPING_PRESENT",
                         "BOUNDARY_EXPANSION_DETECTED",
-                        "AUTHORITY_REF_MISSING",
-                        "EVIDENCE_REF_MISSING",
-                        "MAPPING_INCOMPLETE",
-                        "NON_CLAIM_DROPPED"
+                        "STRUCTURAL_CONFORMANCE_CONFIRMED"
                     ]
                 }
             ],
             "expected_structural_outcomes": [
+                "BOUNDARY_MAPPING_PRESENT",
                 "BOUNDARY_EXPANSION_DETECTED",
-                "AUTHORITY_REF_MISSING",
-                "EVIDENCE_REF_MISSING",
-                "MAPPING_INCOMPLETE",
-                "NON_CLAIM_DROPPED"
+                "STRUCTURAL_CONFORMANCE_CONFIRMED"
             ],
-            "expected_aggregate_posture": "INCOMPLETE_MAPPING",
-            "expected_precedence_trigger": "INCOMPLETE_MAPPING_PRECEDENCE",
+            "expected_aggregate_posture": "STRUCTURAL_CONFORMANCE_CONFIRMED",
+            "expected_precedence_trigger": "STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE",
             "non_claims": [
                 "does_not_claim_truth",
                 "does_not_claim_authority",

@@ -58,7 +58,8 @@
                     "claim_subject": "synthetic_subject_001",
                     "non_claims": [
                         "does_not_claim_truth",
-                        "does_not_claim_legal_sufficiency"
+                        "does_not_claim_legal_sufficiency",
+                        "does_not_claim_actual_downstream_behavior"
                     ]
                 }
             ],
@@ -95,8 +96,7 @@
                     "consumer_declared_boundary_behavior": "BOUNDARY_PRESERVED",
                     "validator_observed_boundary_behavior": "BOUNDARY_PRESERVED",
                     "preserved_non_claims": [
-                        "does_not_claim_truth",
-                        "does_not_claim_legal_sufficiency"
+                        "does_not_claim_truth"
                     ],
                     "dropped_non_claims": [],
                     "authority_refs": [

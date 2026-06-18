@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-Fork claim inheritance simulation model checker v0.1.
+Fork claim inheritance simulation model checker v0.1.1.
 
 This checker is intentionally structural. It does not decide truth, safety,
 legal sufficiency, admissibility, compliance, authority validity, retention
 compliance, legal chain of custody, legal reliance, legal representation,
 medical correctness, production readiness, or actual undisclosed downstream
 behavior.
+
+The checker performs dependency-free schema-conformance checks before semantic
+boundary checks. JSON Schema library integration can be added later; this file
+keeps the v0.1.1 checker runnable in a minimal Python environment.
 """
 
 from __future__ import annotations
@@ -14,7 +18,6 @@ from __future__ import annotations
 import argparse
 import json
 import re
-import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence, Set, Tuple
 
@@ -57,15 +60,131 @@ EXPECTED_PRECEDENCE = [
     "STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE",
 ]
 
+TOP_REQUIRED = {
+    "simulation_model_id",
+    "schema_version",
+    "status",
+    "controlled_vocabulary_schema_ref",
+    "controlled_vocabulary_baseline",
+    "synthetic_only",
+    "domain_process",
+    "mandatory_non_claims",
+    "simulation_class_coverage",
+    "aggregate_posture_precedence",
+    "simulation_cases",
+}
+
+TOP_ALLOWED = set(TOP_REQUIRED)
+
+CASE_REQUIRED = {
+    "simulation_case_id",
+    "simulation_class",
+    "synthetic_only",
+    "domain_process",
+    "objective",
+    "input_claims",
+    "handoff_events",
+    "boundary_behavior_records",
+    "expected_structural_outcomes",
+    "expected_aggregate_posture",
+    "expected_precedence_trigger",
+    "non_claims",
+}
+
+CASE_ALLOWED = CASE_REQUIRED.union(
+    {
+        "system_assertions",
+        "aggregate_report",
+        "notes",
+    }
+)
+
+CLAIM_REQUIRED = {
+    "claim_id",
+    "claim_text",
+    "claim_subject",
+    "non_claims",
+}
+
+CLAIM_ALLOWED = set(CLAIM_REQUIRED)
+
+ASSERTION_REQUIRED = {
+    "assertion_id",
+    "assertion_source",
+    "assertion_text",
+    "non_claims",
+}
+
+ASSERTION_ALLOWED = set(ASSERTION_REQUIRED)
+
+HANDOFF_REQUIRED = {
+    "handoff_event_id",
+    "sender",
+    "receiver",
+    "timestamp",
+    "artifact_ref",
+    "record_structural_state",
+    "recomputation_state",
+    "non_claims",
+}
+
+HANDOFF_ALLOWED = set(HANDOFF_REQUIRED)
+
+RECORD_REQUIRED = {
+    "claim_ref",
+    "claim_relationship_state",
+    "consumer_declared_boundary_behavior",
+    "validator_observed_boundary_behavior",
+    "preserved_non_claims",
+    "dropped_non_claims",
+    "authority_refs",
+    "evidence_refs",
+    "structural_outcomes",
+}
+
+RECORD_ALLOWED = set(RECORD_REQUIRED)
+
+AUTHORITY_REF_REQUIRED = {
+    "authority_ref",
+    "authority_ref_kind",
+    "authority_ref_resolution_attempted",
+    "authority_ref_resolution_state",
+}
+
+AUTHORITY_REF_ALLOWED = set(AUTHORITY_REF_REQUIRED)
+
+EVIDENCE_REF_REQUIRED = {
+    "evidence_ref",
+    "evidence_ref_kind",
+    "evidence_ref_resolution_attempted",
+    "evidence_ref_resolution_state",
+}
+
+EVIDENCE_REF_ALLOWED = set(EVIDENCE_REF_REQUIRED)
+
+AGGREGATE_REPORT_REQUIRED = {
+    "aggregate_report_id",
+    "receipt_refs",
+    "reported_aggregate_posture",
+    "expected_aggregate_posture",
+    "included_structural_outcomes",
+    "omitted_structural_outcomes",
+    "aggregate_collapse_detected",
+}
+
+AGGREGATE_REPORT_ALLOWED = set(AGGREGATE_REPORT_REQUIRED)
+
 BANNED_DOMAIN_TOKENS = [
     "approved",
     "authorized",
     "compliant",
     "production_ready",
+    "production-ready",
     "hipaa",
     "legal_sufficient",
     "clinical_necessity",
-    "medically_appropriate",
+    "clinically appropriate",
+    "medically appropriate",
     "legal_approval_granted",
 ]
 
@@ -74,8 +193,12 @@ INCOMPLETE_OUTCOMES = {
     "AUTHORITY_REF_MISSING",
     "EVIDENCE_REF_MISSING",
     "NON_CLAIM_DROPPED",
+    "NON_CLAIM_SILENTLY_OMITTED",
+    "NON_CLAIM_TAMPERING_DETECTED",
     "DECLARED_BEHAVIOR_MISMATCH_DETECTED",
     "SCHEMA_BEHAVIOR_COLLAPSE_DETECTED",
+    "PLACEHOLDER_REF_DETECTED",
+    "RESOLUTION_ATTEMPT_STATE_CONTRADICTION",
 }
 
 UNRESOLVED_OUTCOMES = {
@@ -90,11 +213,6 @@ UNRESOLVED_OUTCOMES = {
 EXPANSION_OUTCOMES = {
     "BOUNDARY_EXPANSION_DETECTED",
     "BOUNDARY_EXPANSION_RECORDED",
-}
-
-POSITIVE_AGGREGATES = {
-    "BOUNDARY_MAPPING_COMPLETE",
-    "STRUCTURAL_CONFORMANCE_CONFIRMED",
 }
 
 
@@ -115,12 +233,21 @@ def add_error(errors: List[Dict[str, str]], code: str, path: str, message: str) 
     )
 
 
+def add_schema_error(errors: List[Dict[str, str]], code: str, path: str, message: str) -> None:
+    add_error(errors, "SCHEMA_VALIDATION_FAILED", path, "Schema conformance failed.")
+    add_error(errors, code, path, message)
+
+
 def as_list(value: Any) -> List[Any]:
     if value is None:
         return []
     if isinstance(value, list):
         return value
     return [value]
+
+
+def is_non_blank_string(value: Any) -> bool:
+    return isinstance(value, str) and bool(value.strip())
 
 
 def string_values(obj: Any, path: str = "$") -> Iterable[Tuple[str, str]]:
@@ -132,6 +259,160 @@ def string_values(obj: Any, path: str = "$") -> Iterable[Tuple[str, str]]:
             yield from string_values(value, f"{path}[{index}]")
     elif isinstance(obj, str):
         yield path, obj
+
+
+def check_object_shape(
+    obj: Any,
+    path: str,
+    required: Set[str],
+    allowed: Set[str],
+    errors: List[Dict[str, str]],
+) -> None:
+    if not isinstance(obj, dict):
+        add_schema_error(errors, "INVALID_FIELD_TYPE", path, "Expected object.")
+        return
+
+    keys = set(obj.keys())
+
+    for field in sorted(required.difference(keys)):
+        add_schema_error(errors, "MISSING_REQUIRED_FIELD", f"{path}.{field}", "Missing required field.")
+
+    for field in sorted(keys.difference(allowed)):
+        add_schema_error(errors, "UNEXPECTED_FIELD", f"{path}.{field}", "Unexpected field is not allowed.")
+
+
+def expect_list(obj: Dict[str, Any], field: str, path: str, errors: List[Dict[str, str]]) -> None:
+    if field in obj and not isinstance(obj.get(field), list):
+        add_schema_error(errors, "INVALID_FIELD_TYPE", f"{path}.{field}", "Expected array.")
+
+
+def expect_bool(obj: Dict[str, Any], field: str, path: str, errors: List[Dict[str, str]]) -> None:
+    if field in obj and not isinstance(obj.get(field), bool):
+        add_schema_error(errors, "INVALID_FIELD_TYPE", f"{path}.{field}", "Expected boolean.")
+
+
+def schema_conformance_check(bundle: Dict[str, Any], errors: List[Dict[str, str]]) -> None:
+    check_object_shape(bundle, "$", TOP_REQUIRED, TOP_ALLOWED, errors)
+    if not isinstance(bundle, dict):
+        return
+
+    for field in [
+        "mandatory_non_claims",
+        "simulation_class_coverage",
+        "aggregate_posture_precedence",
+        "simulation_cases",
+    ]:
+        expect_list(bundle, field, "$", errors)
+
+    expect_bool(bundle, "synthetic_only", "$", errors)
+
+    cases = bundle.get("simulation_cases")
+    if not isinstance(cases, list):
+        return
+
+    for case_index, case in enumerate(cases):
+        case_path = f"$.simulation_cases[{case_index}]"
+        check_object_shape(case, case_path, CASE_REQUIRED, CASE_ALLOWED, errors)
+        if not isinstance(case, dict):
+            continue
+
+        for field in [
+            "input_claims",
+            "handoff_events",
+            "boundary_behavior_records",
+            "expected_structural_outcomes",
+            "non_claims",
+        ]:
+            expect_list(case, field, case_path, errors)
+
+        for optional_list_field in ["system_assertions", "notes"]:
+            expect_list(case, optional_list_field, case_path, errors)
+
+        expect_bool(case, "synthetic_only", case_path, errors)
+
+        claims = case.get("input_claims")
+        if isinstance(claims, list):
+            for claim_index, claim in enumerate(claims):
+                claim_path = f"{case_path}.input_claims[{claim_index}]"
+                check_object_shape(claim, claim_path, CLAIM_REQUIRED, CLAIM_ALLOWED, errors)
+                if isinstance(claim, dict):
+                    expect_list(claim, "non_claims", claim_path, errors)
+
+        assertions = case.get("system_assertions")
+        if isinstance(assertions, list):
+            for assertion_index, assertion in enumerate(assertions):
+                assertion_path = f"{case_path}.system_assertions[{assertion_index}]"
+                check_object_shape(assertion, assertion_path, ASSERTION_REQUIRED, ASSERTION_ALLOWED, errors)
+                if isinstance(assertion, dict):
+                    expect_list(assertion, "non_claims", assertion_path, errors)
+
+        handoffs = case.get("handoff_events")
+        if isinstance(handoffs, list):
+            for handoff_index, handoff in enumerate(handoffs):
+                handoff_path = f"{case_path}.handoff_events[{handoff_index}]"
+                check_object_shape(handoff, handoff_path, HANDOFF_REQUIRED, HANDOFF_ALLOWED, errors)
+                if isinstance(handoff, dict):
+                    expect_list(handoff, "non_claims", handoff_path, errors)
+
+        records = case.get("boundary_behavior_records")
+        if isinstance(records, list):
+            if not records:
+                add_schema_error(
+                    errors,
+                    "MISSING_BOUNDARY_BEHAVIOR_RECORD",
+                    f"{case_path}.boundary_behavior_records",
+                    "boundary_behavior_records must not be empty.",
+                )
+
+            for record_index, record in enumerate(records):
+                record_path = f"{case_path}.boundary_behavior_records[{record_index}]"
+                check_object_shape(record, record_path, RECORD_REQUIRED, RECORD_ALLOWED, errors)
+                if not isinstance(record, dict):
+                    continue
+
+                for field in [
+                    "preserved_non_claims",
+                    "dropped_non_claims",
+                    "authority_refs",
+                    "evidence_refs",
+                    "structural_outcomes",
+                ]:
+                    expect_list(record, field, record_path, errors)
+
+                authority_refs = record.get("authority_refs")
+                if isinstance(authority_refs, list):
+                    for ref_index, ref in enumerate(authority_refs):
+                        ref_path = f"{record_path}.authority_refs[{ref_index}]"
+                        check_object_shape(ref, ref_path, AUTHORITY_REF_REQUIRED, AUTHORITY_REF_ALLOWED, errors)
+                        if isinstance(ref, dict):
+                            expect_bool(ref, "authority_ref_resolution_attempted", ref_path, errors)
+
+                evidence_refs = record.get("evidence_refs")
+                if isinstance(evidence_refs, list):
+                    for ref_index, ref in enumerate(evidence_refs):
+                        ref_path = f"{record_path}.evidence_refs[{ref_index}]"
+                        check_object_shape(ref, ref_path, EVIDENCE_REF_REQUIRED, EVIDENCE_REF_ALLOWED, errors)
+                        if isinstance(ref, dict):
+                            expect_bool(ref, "evidence_ref_resolution_attempted", ref_path, errors)
+
+        aggregate_report = case.get("aggregate_report")
+        if aggregate_report is not None:
+            aggregate_path = f"{case_path}.aggregate_report"
+            check_object_shape(
+                aggregate_report,
+                aggregate_path,
+                AGGREGATE_REPORT_REQUIRED,
+                AGGREGATE_REPORT_ALLOWED,
+                errors,
+            )
+            if isinstance(aggregate_report, dict):
+                for field in [
+                    "receipt_refs",
+                    "included_structural_outcomes",
+                    "omitted_structural_outcomes",
+                ]:
+                    expect_list(aggregate_report, field, aggregate_path, errors)
+                expect_bool(aggregate_report, "aggregate_collapse_detected", aggregate_path, errors)
 
 
 def collect_case_outcomes(case: Dict[str, Any]) -> Set[str]:
@@ -184,24 +465,6 @@ def computed_aggregate_posture(case: Dict[str, Any]) -> str:
 
 
 def check_top_level(bundle: Dict[str, Any], errors: List[Dict[str, str]]) -> None:
-    required = [
-        "simulation_model_id",
-        "schema_version",
-        "status",
-        "controlled_vocabulary_schema_ref",
-        "controlled_vocabulary_baseline",
-        "synthetic_only",
-        "domain_process",
-        "mandatory_non_claims",
-        "simulation_class_coverage",
-        "aggregate_posture_precedence",
-        "simulation_cases",
-    ]
-
-    for field in required:
-        if field not in bundle:
-            add_error(errors, "MISSING_REQUIRED_FIELD", f"$.{field}", "Missing top-level field.")
-
     if bundle.get("simulation_model_id") != "claim_inheritance_simulation_model_v0_1":
         add_error(
             errors,
@@ -268,27 +531,130 @@ def check_banned_tokens(bundle: Dict[str, Any], errors: List[Dict[str, str]]) ->
                 )
 
 
-def check_record(
-    case: Dict[str, Any],
-    simulation_class: str,
+def check_refs(
+    refs: List[Any],
+    ref_key: str,
+    attempted_key: str,
+    state_key: str,
+    structurally_reachable_state: str,
+    recorded_not_performed_state: str,
+    attempted_unreachable_state: str,
+    missing_code: str,
+    errors: List[Dict[str, str]],
+    path: str,
+    require_usable_ref: bool = False,
+) -> bool:
+    usable_ref_found = False
+
+    for index, ref in enumerate(refs):
+        ref_path = f"{path}[{index}]"
+        if not isinstance(ref, dict):
+            add_error(errors, "SCHEMA_VALIDATION_FAILED", ref_path, "Reference entry must be object.")
+            continue
+
+        ref_value = ref.get(ref_key)
+        if not is_non_blank_string(ref_value):
+            add_error(errors, "PLACEHOLDER_REF_DETECTED", f"{ref_path}.{ref_key}", "Reference value is blank or missing.")
+            continue
+
+        usable_ref_found = True
+
+        attempted = ref.get(attempted_key)
+        state = ref.get(state_key)
+
+        if state == structurally_reachable_state and attempted is not True:
+            add_error(
+                errors,
+                "RESOLUTION_ATTEMPT_STATE_CONTRADICTION",
+                f"{ref_path}.{state_key}",
+                "Structurally reachable reference requires resolution_attempted=true.",
+            )
+            add_error(errors, "MAPPING_INCOMPLETE", ref_path, "Resolution-attempt contradiction forces incomplete mapping.")
+
+        if state == recorded_not_performed_state and attempted is not False:
+            add_error(
+                errors,
+                "RESOLUTION_ATTEMPT_STATE_CONTRADICTION",
+                f"{ref_path}.{state_key}",
+                "Recorded-resolution-not-performed requires resolution_attempted=false.",
+            )
+            add_error(errors, "MAPPING_INCOMPLETE", ref_path, "Resolution-attempt contradiction forces incomplete mapping.")
+
+        if state == attempted_unreachable_state and attempted is not True:
+            add_error(
+                errors,
+                "RESOLUTION_ATTEMPT_STATE_CONTRADICTION",
+                f"{ref_path}.{state_key}",
+                "Attempted-unreachable state requires resolution_attempted=true.",
+            )
+            add_error(errors, "MAPPING_INCOMPLETE", ref_path, "Resolution-attempt contradiction forces incomplete mapping.")
+
+    if require_usable_ref and not usable_ref_found:
+        add_error(errors, missing_code, path, "Reference list has no usable non-placeholder reference.")
+        return False
+
+    return usable_ref_found
+
+
+def check_non_claim_accounting(
+    claim: Dict[str, Any] | None,
     record: Dict[str, Any],
     errors: List[Dict[str, str]],
     path: str,
 ) -> None:
-    required = [
-        "claim_ref",
-        "claim_relationship_state",
-        "consumer_declared_boundary_behavior",
-        "validator_observed_boundary_behavior",
-        "preserved_non_claims",
-        "dropped_non_claims",
-        "structural_outcomes",
-    ]
+    if claim is None:
+        return
 
-    for field in required:
-        if field not in record:
-            add_error(errors, "MISSING_REQUIRED_FIELD", f"{path}.{field}", "Missing boundary record field.")
+    upstream_non_claims = {
+        item
+        for item in as_list(claim.get("non_claims"))
+        if isinstance(item, str)
+    }
 
+    preserved = {
+        item
+        for item in as_list(record.get("preserved_non_claims"))
+        if isinstance(item, str)
+    }
+
+    dropped = {
+        item
+        for item in as_list(record.get("dropped_non_claims"))
+        if isinstance(item, str)
+    }
+
+    accounted = preserved.union(dropped)
+    missing = sorted(upstream_non_claims.difference(accounted))
+    extra = sorted(accounted.difference(upstream_non_claims))
+
+    if missing:
+        add_error(
+            errors,
+            "NON_CLAIM_SILENTLY_OMITTED",
+            path,
+            "Upstream non-claims are not fully accounted for in preserved_non_claims or dropped_non_claims: "
+            + ", ".join(missing),
+        )
+        add_error(errors, "MAPPING_INCOMPLETE", path, "Unaccounted upstream non-claims force incomplete mapping.")
+
+    if extra:
+        add_error(
+            errors,
+            "NON_CLAIM_TAMPERING_DETECTED",
+            path,
+            "Boundary record contains non-claims not present on the upstream claim: " + ", ".join(extra),
+        )
+        add_error(errors, "MAPPING_INCOMPLETE", path, "Non-claim mismatch forces incomplete mapping.")
+
+
+def check_record(
+    case: Dict[str, Any],
+    simulation_class: str,
+    claim_map: Dict[str, Dict[str, Any]],
+    record: Dict[str, Any],
+    errors: List[Dict[str, str]],
+    path: str,
+) -> None:
     relationship = record.get("claim_relationship_state")
     declared = record.get("consumer_declared_boundary_behavior")
     observed = record.get("validator_observed_boundary_behavior")
@@ -296,6 +662,11 @@ def check_record(
     dropped_non_claims = as_list(record.get("dropped_non_claims"))
     authority_refs = as_list(record.get("authority_refs"))
     evidence_refs = as_list(record.get("evidence_refs"))
+
+    claim_ref = record.get("claim_ref")
+    claim = claim_map.get(claim_ref) if isinstance(claim_ref, str) else None
+
+    check_non_claim_accounting(claim, record, errors, path)
 
     mismatch_required = simulation_class in {
         "SIM_G1_SELF_CHARACTERIZATION_PRESERVED_NON_CLAIM_DROPPED",
@@ -332,7 +703,40 @@ def check_record(
         if "MAPPING_INCOMPLETE" not in outcomes:
             add_error(errors, "MAPPING_INCOMPLETE", path, "Dropped non-claim must emit MAPPING_INCOMPLETE.")
 
-    if observed == "BOUNDARY_EXPANSION_DETECTED":
+    expansion_detected = observed == "BOUNDARY_EXPANSION_DETECTED"
+    expansion_present = observed in {"BOUNDARY_EXPANSION_DETECTED", "BOUNDARY_EXPANSION_RECORDED"} or bool(
+        outcomes.intersection(EXPANSION_OUTCOMES)
+    )
+
+    check_refs(
+        authority_refs,
+        "authority_ref",
+        "authority_ref_resolution_attempted",
+        "authority_ref_resolution_state",
+        "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
+        "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+        "AUTHORITY_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+        "AUTHORITY_REF_MISSING",
+        errors,
+        f"{path}.authority_refs",
+        require_usable_ref=False,
+    )
+
+    check_refs(
+        evidence_refs,
+        "evidence_ref",
+        "evidence_ref_resolution_attempted",
+        "evidence_ref_resolution_state",
+        "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
+        "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
+        "EVIDENCE_REF_RESOLUTION_ATTEMPTED_UNREACHABLE",
+        "EVIDENCE_REF_MISSING",
+        errors,
+        f"{path}.evidence_refs",
+        require_usable_ref=False,
+    )
+
+    if expansion_detected:
         if "BOUNDARY_EXPANSION_DETECTED" not in outcomes:
             add_error(errors, "BOUNDARY_EXPANSION_DETECTED", path, "Expansion must remain visible.")
 
@@ -351,17 +755,26 @@ def check_record(
             )
             add_error(errors, "MAPPING_INCOMPLETE", path, "Reference/support collapse must be incomplete.")
 
-        if not authority_refs:
-            if "AUTHORITY_REF_MISSING" not in outcomes:
-                add_error(errors, "AUTHORITY_REF_MISSING", path, "Expansion without authority refs must emit AUTHORITY_REF_MISSING.")
-            if "MAPPING_INCOMPLETE" not in outcomes:
-                add_error(errors, "MAPPING_INCOMPLETE", path, "Expansion without authority refs must be incomplete.")
+        usable_authority = any(
+            isinstance(ref, dict) and is_non_blank_string(ref.get("authority_ref"))
+            for ref in authority_refs
+        )
+        usable_evidence = any(
+            isinstance(ref, dict) and is_non_blank_string(ref.get("evidence_ref"))
+            for ref in evidence_refs
+        )
 
-        if not evidence_refs:
-            if "EVIDENCE_REF_MISSING" not in outcomes:
-                add_error(errors, "EVIDENCE_REF_MISSING", path, "Expansion without evidence refs must emit EVIDENCE_REF_MISSING.")
+        if not usable_authority:
+            if "AUTHORITY_REF_MISSING" not in outcomes:
+                add_error(errors, "AUTHORITY_REF_MISSING", path, "Expansion without usable authority refs must emit AUTHORITY_REF_MISSING.")
             if "MAPPING_INCOMPLETE" not in outcomes:
-                add_error(errors, "MAPPING_INCOMPLETE", path, "Expansion without evidence refs must be incomplete.")
+                add_error(errors, "MAPPING_INCOMPLETE", path, "Expansion without usable authority refs must be incomplete.")
+
+        if not usable_evidence:
+            if "EVIDENCE_REF_MISSING" not in outcomes:
+                add_error(errors, "EVIDENCE_REF_MISSING", path, "Expansion without usable evidence refs must emit EVIDENCE_REF_MISSING.")
+            if "MAPPING_INCOMPLETE" not in outcomes:
+                add_error(errors, "MAPPING_INCOMPLETE", path, "Expansion without usable evidence refs must be incomplete.")
 
     if relationship == "CLAIM_NON_USAGE_DECLARED" and observed not in {"BOUNDARY_PRESERVED", "CLAIM_REJECTED"}:
         add_error(
@@ -388,10 +801,6 @@ def check_record(
                 path,
                 "Unresolved pointer must propagate into unresolved aggregate visibility.",
             )
-
-    expansion_present = observed in {"BOUNDARY_EXPANSION_DETECTED", "BOUNDARY_EXPANSION_RECORDED"} or bool(
-        outcomes.intersection(EXPANSION_OUTCOMES)
-    )
 
     authority_reachable = any(
         isinstance(ref, dict)
@@ -423,26 +832,7 @@ def check_record(
 
 def check_case(case: Dict[str, Any], index: int, errors: List[Dict[str, str]]) -> None:
     path = f"$.simulation_cases[{index}]"
-    simulation_class = case.get("simulation_class")
-
-    required = [
-        "simulation_case_id",
-        "simulation_class",
-        "synthetic_only",
-        "domain_process",
-        "objective",
-        "input_claims",
-        "handoff_events",
-        "boundary_behavior_records",
-        "expected_structural_outcomes",
-        "expected_aggregate_posture",
-        "expected_precedence_trigger",
-        "non_claims",
-    ]
-
-    for field in required:
-        if field not in case:
-            add_error(errors, "MISSING_REQUIRED_FIELD", f"{path}.{field}", "Missing simulation case field.")
+    simulation_class = str(case.get("simulation_class"))
 
     if case.get("synthetic_only") is not True:
         add_error(errors, "SYNTHETIC_ONLY_REQUIRED", f"{path}.synthetic_only", "simulation case must be synthetic-only.")
@@ -470,18 +860,19 @@ def check_case(case: Dict[str, Any], index: int, errors: List[Dict[str, str]]) -
         )
         add_error(errors, "MAPPING_INCOMPLETE", path, "Missing boundary behavior records force incomplete mapping.")
 
-    claim_ids = {
-        claim.get("claim_id")
+    claim_map = {
+        claim.get("claim_id"): claim
         for claim in claims
         if isinstance(claim, dict) and isinstance(claim.get("claim_id"), str)
     }
+
     record_claim_refs = {
         record.get("claim_ref")
         for record in records
         if isinstance(record, dict) and isinstance(record.get("claim_ref"), str)
     }
 
-    for claim_id in sorted(claim_ids):
+    for claim_id in sorted(claim_map):
         if claim_id not in record_claim_refs:
             add_error(
                 errors,
@@ -495,7 +886,14 @@ def check_case(case: Dict[str, Any], index: int, errors: List[Dict[str, str]]) -
         if not isinstance(record, dict):
             add_error(errors, "INVALID_BOUNDARY_BEHAVIOR_RECORD", f"{path}.boundary_behavior_records[{record_index}]", "Record must be object.")
             continue
-        check_record(case, str(simulation_class), record, errors, f"{path}.boundary_behavior_records[{record_index}]")
+        check_record(
+            case,
+            simulation_class,
+            claim_map,
+            record,
+            errors,
+            f"{path}.boundary_behavior_records[{record_index}]",
+        )
 
     outcomes = collect_case_outcomes(case)
     expected_posture = case.get("expected_aggregate_posture")
@@ -593,6 +991,7 @@ def check_bundle(bundle: Dict[str, Any], source: str = "<memory>") -> Dict[str, 
             "errors": errors,
         }
 
+    schema_conformance_check(bundle, errors)
     check_top_level(bundle, errors)
     check_banned_tokens(bundle, errors)
 

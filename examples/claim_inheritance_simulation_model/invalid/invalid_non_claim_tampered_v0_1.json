@@ -57,8 +57,7 @@
                     "claim_text": "Synthetic observation record exists.",
                     "claim_subject": "synthetic_subject_001",
                     "non_claims": [
-                        "does_not_claim_truth",
-                        "does_not_claim_legal_sufficiency"
+                        "does_not_claim_safety"
                     ]
                 }
             ],
@@ -95,8 +94,7 @@
                     "consumer_declared_boundary_behavior": "BOUNDARY_PRESERVED",
                     "validator_observed_boundary_behavior": "BOUNDARY_PRESERVED",
                     "preserved_non_claims": [
-                        "does_not_claim_truth",
-                        "does_not_claim_legal_sufficiency"
+                        "does_not_claim_truth"
                     ],
                     "dropped_non_claims": [],
                     "authority_refs": [

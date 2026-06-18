@@ -443,38 +443,38 @@
                     "dropped_non_claims": [],
                     "authority_refs": [
                         {
-                            "authority_ref": "synthetic_authority_ref_005",
+                            "authority_ref": "synthetic_authority_ref_014",
                             "authority_ref_kind": "POLICY_POINTER",
                             "authority_ref_resolution_attempted": false,
-                            "authority_ref_resolution_state": "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED"
+                            "authority_ref_resolution_state": "AUTHORITY_REF_STRUCTURALLY_REACHABLE"
                         }
                     ],
                     "evidence_refs": [
                         {
-                            "evidence_ref": "synthetic_evidence_ref_005",
+                            "evidence_ref": "synthetic_evidence_ref_014",
                             "evidence_ref_kind": "INTERNAL_RECEIPT_REF",
                             "evidence_ref_resolution_attempted": false,
-                            "evidence_ref_resolution_state": "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED"
+                            "evidence_ref_resolution_state": "EVIDENCE_REF_STRUCTURALLY_REACHABLE"
                         }
                     ],
                     "structural_outcomes": [
                         "BOUNDARY_MAPPING_PRESENT",
                         "BOUNDARY_EXPANSION_RECORDED",
-                        "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
-                        "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
-                        "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                        "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
+                        "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
+                        "STRUCTURAL_CONFORMANCE_CONFIRMED"
                     ]
                 }
             ],
             "expected_structural_outcomes": [
                 "BOUNDARY_MAPPING_PRESENT",
                 "BOUNDARY_EXPANSION_RECORDED",
-                "AUTHORITY_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
-                "EVIDENCE_REF_RECORDED_RESOLUTION_NOT_PERFORMED",
-                "MAPPED_WITH_UNRESOLVED_REFERENCES"
+                "AUTHORITY_REF_STRUCTURALLY_REACHABLE",
+                "EVIDENCE_REF_STRUCTURALLY_REACHABLE",
+                "STRUCTURAL_CONFORMANCE_CONFIRMED"
             ],
-            "expected_aggregate_posture": "MAPPED_WITH_UNRESOLVED_REFERENCES",
-            "expected_precedence_trigger": "UNRESOLVED_REFERENCES_PRECEDENCE",
+            "expected_aggregate_posture": "STRUCTURAL_CONFORMANCE_CONFIRMED",
+            "expected_precedence_trigger": "STRUCTURAL_CONFORMANCE_CONFIRMED_PRECEDENCE",
             "non_claims": [
                 "does_not_claim_truth",
                 "does_not_claim_authority",
