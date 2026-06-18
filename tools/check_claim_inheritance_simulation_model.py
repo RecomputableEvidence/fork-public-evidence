@@ -1311,91 +1311,286 @@ def check_invalid_manifest(manifest_path: Path | str = INVALID_MANIFEST) -> Dict
 
 from typing import Any, Dict, List, Optional
 
-OUTPUT_SEMANTICS_VERSION = "0.1.3"
+OUTPUT_SEMANTICS_VERSION = "0.1.4"
 
-MACHINE_READABLE_LIMITATIONS_V013: Dict[str, Any] = {
-    "limitations_code": "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY",
+DO_NOT_MAP_TO_V014: List[str] = [
+    "APPROVAL",
+    "APPROVED",
+    "TRUTH",
+    "TRUE",
+    "COMPLIANCE",
+    "COMPLIANT",
+    "POLICY_COMPLIANCE",
+    "REGULATORY_COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "LEGAL_CHAIN_OF_CUSTODY",
+    "LEGAL_RELIANCE",
+    "AUTHORITY_VALIDITY",
+    "AUTHORITY_VALIDATED",
+    "EVIDENCE_SUFFICIENCY",
+    "EVIDENCE_SUFFICIENT",
+    "SAFETY",
+    "SAFE",
+    "MEDICAL_CORRECTNESS",
+    "OPERATIONAL_AUTHORIZATION",
+    "PRODUCTION_READINESS",
+    "PRODUCTION_AUTHORIZATION",
+    "VERIFIED_NON_USE",
+    "ACTUAL_DOWNSTREAM_EXECUTION",
+]
+
+MACHINE_READABLE_LIMITATIONS_V014: Dict[str, Any] = {
+    "limitations_code": "LIMIT_STRUCTURAL_SYNTHETIC_PROTOCOL_ONLY_V0_1_4",
     "scope": "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY",
     "synthetic_corpus_only": True,
+    "safe_to_automate": False,
+    "automation_interpretation_required": True,
+    "does_not_validate_approval": True,
     "does_not_validate_truth": True,
     "does_not_validate_safety": True,
     "does_not_validate_compliance": True,
+    "does_not_validate_policy_compliance": True,
+    "does_not_validate_regulatory_compliance": True,
     "does_not_validate_legal_sufficiency": True,
+    "does_not_validate_legal_chain_of_custody": True,
+    "does_not_validate_legal_reliance": True,
     "does_not_validate_admissibility": True,
     "does_not_validate_authority": True,
     "does_not_validate_evidence_sufficiency": True,
     "does_not_validate_medical_correctness": True,
     "does_not_validate_operational_authorization": True,
+    "does_not_validate_production_readiness": True,
+    "does_not_validate_actual_non_use": True,
+    "does_not_validate_downstream_execution": True,
+    "does_not_validate_actual_downstream_execution": True,
     "does_not_authorize_production_use": True,
     "does_not_observe_undisclosed_downstream_behavior": True,
+    "legacy_output_disabled": True,
+    "do_not_map_to": DO_NOT_MAP_TO_V014,
     "canonical_warning": "STRUCTURAL_CONFORMANCE_IS_NOT_APPROVAL_TRUTH_COMPLIANCE_AUTHORITY_OR_EVIDENCE_SUFFICIENCY",
 }
 
 
-def _v013_structural_output_from_legacy(result: Dict[str, Any]) -> Dict[str, Any]:
+def _v014_limitations(scope: str, extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    limitations = dict(MACHINE_READABLE_LIMITATIONS_V014)
+    limitations["do_not_map_to"] = list(DO_NOT_MAP_TO_V014)
+    limitations["scope"] = scope
+    if extra:
+        limitations.update(extra)
+    return _v014_require_limitations(limitations)
+
+
+def _v014_require_limitations(limitations: Dict[str, Any]) -> Dict[str, Any]:
+    required_true = (
+        "synthetic_corpus_only",
+        "automation_interpretation_required",
+        "does_not_validate_approval",
+        "does_not_validate_truth",
+        "does_not_validate_compliance",
+        "does_not_validate_authority",
+        "does_not_validate_evidence_sufficiency",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_actual_non_use",
+        "does_not_validate_downstream_execution",
+        "does_not_authorize_production_use",
+    )
+
+    for key in required_true:
+        if limitations.get(key) is not True:
+            raise RuntimeError(f"Required limitation missing or false: {key}")
+
+    if limitations.get("safe_to_automate") is not False:
+        raise RuntimeError("Required limitation missing or unsafe: safe_to_automate=false")
+
+    if not limitations.get("limitations_code"):
+        raise RuntimeError("Required limitations_code missing")
+
+    if not limitations.get("scope"):
+        raise RuntimeError("Required limitations scope missing")
+
+    do_not_map_to = limitations.get("do_not_map_to")
+    if not isinstance(do_not_map_to, list) or not do_not_map_to:
+        raise RuntimeError("Required do_not_map_to list missing")
+
+    for forbidden in ("APPROVAL", "TRUTH", "COMPLIANCE", "AUTHORITY_VALIDITY", "EVIDENCE_SUFFICIENCY"):
+        if forbidden not in do_not_map_to:
+            raise RuntimeError(f"Required do_not_map_to entry missing: {forbidden}")
+
+    return limitations
+
+
+def _v014_error_findings_from_errors(errors: Any) -> List[Dict[str, Any]]:
+    if not isinstance(errors, list):
+        return []
+
+    findings: List[Dict[str, Any]] = []
+    for index, error in enumerate(errors):
+        if isinstance(error, dict):
+            finding = dict(error)
+            code = (
+                finding.get("code")
+                or finding.get("error_code")
+                or finding.get("type")
+                or finding.get("message")
+                or f"STRUCTURAL_ERROR_{index + 1}"
+            )
+        else:
+            code = str(error)
+            finding = {"legacy_error": error}
+
+        finding.setdefault("check_id", str(code))
+        finding.setdefault("check_version", OUTPUT_SEMANTICS_VERSION)
+        finding.setdefault("scope", "STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY")
+        finding.setdefault("severity", "STRUCTURAL_FAILURE")
+        finding.setdefault(
+            "explanation",
+            "This finding is a structural checker output only; it is not a truth, compliance, authority, approval, or evidence-sufficiency verdict.",
+        )
+        findings.append(finding)
+
+    return findings
+
+
+def _v014_findings_from_error_codes(codes: Any) -> List[Dict[str, Any]]:
+    if not isinstance(codes, list):
+        return []
+
+    return [
+        {
+            "check_id": str(code),
+            "check_version": OUTPUT_SEMANTICS_VERSION,
+            "scope": "NEGATIVE_TEST_HARNESS_ONLY",
+            "severity": "EXPECTED_STRUCTURAL_FAILURE",
+            "explanation": "Invalid fixture produced this structural failure code as part of the negative-test harness.",
+        }
+        for code in codes
+    ]
+
+
+def _v014_structural_output_from_legacy(result: Dict[str, Any]) -> Dict[str, Any]:
+    top_limitations = _v014_limitations("STRUCTURAL_SYNTHETIC_PROTOCOL_CHECK_ONLY")
+    structural_limitations = _v014_limitations("STRUCTURAL_RESULT_ONLY")
+
     errors = result.get("errors", [])
     error_count = result.get("error_count", len(errors) if isinstance(errors, list) else 0)
 
     return {
         "result_kind": "STRUCTURAL_BUNDLE_CHECK",
         "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+        "safe_to_automate": False,
+        "automation_interpretation_required": True,
         "runner": {
-            "runner_succeeded": True,
+            "command_completed": True,
             "mode": "single_bundle_check",
+            "runner_outcome": "completed",
         },
         "structural_result": {
             "structurally_conformant": bool(result.get("ok", False)),
             "source": result.get("source"),
             "error_count": error_count,
             "errors": errors,
+            "findings": _v014_error_findings_from_errors(errors),
+            "limitations": structural_limitations,
         },
         "harness_result": None,
-        "limitations": MACHINE_READABLE_LIMITATIONS_V013,
+        "limitations": top_limitations,
     }
 
 
-def _v013_fixture_result_from_legacy(item: Dict[str, Any]) -> Dict[str, Any]:
+def _v014_fixture_result_from_legacy(item: Dict[str, Any]) -> Dict[str, Any]:
+    actual_error_codes = item.get("actual_error_codes", [])
+
     return {
         "fixture_file": item.get("fixture_file"),
         "checker_structurally_conformant": bool(item.get("checker_ok", False)),
         "expected_failures_observed": bool(item.get("ok", False)),
-        "actual_error_codes": item.get("actual_error_codes", []),
+        "actual_error_codes": actual_error_codes,
+        "findings": _v014_findings_from_error_codes(actual_error_codes),
         "missing_expected_failures": item.get("missing_expected_failures", []),
+        "limitations": _v014_limitations(
+            "INVALID_FIXTURE_RESULT_ONLY",
+            {"does_not_indicate_structural_conformance": True},
+        ),
     }
 
 
-def _v013_invalid_manifest_output_from_legacy(result: Dict[str, Any]) -> Dict[str, Any]:
+def _v014_invalid_manifest_output_from_legacy(result: Dict[str, Any]) -> Dict[str, Any]:
+    top_limitations = _v014_limitations(
+        "NEGATIVE_TEST_HARNESS_ONLY",
+        {"does_not_indicate_structural_conformance": True},
+    )
+    harness_limitations = _v014_limitations(
+        "HARNESS_RESULT_ONLY",
+        {"does_not_indicate_structural_conformance": True},
+    )
+
     fixture_results = [
-        _v013_fixture_result_from_legacy(item)
+        _v014_fixture_result_from_legacy(item)
         for item in result.get("fixture_results", [])
         if isinstance(item, dict)
     ]
 
+    all_expected_failures = bool(result.get("ok", False))
+
     return {
         "result_kind": "INVALID_FIXTURE_HARNESS",
         "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+        "safe_to_automate": False,
+        "automation_interpretation_required": True,
         "runner": {
-            "runner_succeeded": True,
+            "command_completed": True,
             "mode": "invalid_fixture_harness",
+            "runner_outcome": "completed",
         },
         "structural_result": None,
         "harness_result": {
-            "all_invalid_fixtures_rejected": bool(result.get("ok", False)),
+            "all_invalid_fixtures_produced_expected_structural_failures": all_expected_failures,
             "does_not_indicate_structural_conformance": True,
             "manifest": result.get("manifest"),
             "fixture_count": len(fixture_results),
             "fixture_results": fixture_results,
+            "limitations": harness_limitations,
         },
-        "limitations": {
-            **MACHINE_READABLE_LIMITATIONS_V013,
-            "scope": "NEGATIVE_TEST_HARNESS_ONLY",
-            "does_not_indicate_structural_conformance": True,
-        },
+        "limitations": top_limitations,
     }
 
 
-def _v013_print_json(payload: Dict[str, Any], pretty: bool) -> None:
+def _v014_legacy_output_disabled_payload() -> Dict[str, Any]:
+    limitations = _v014_limitations(
+        "LEGACY_OUTPUT_DISABLED",
+        {
+            "legacy_output_disabled": True,
+            "does_not_indicate_structural_conformance": True,
+        },
+    )
+
+    return {
+        "result_kind": "LEGACY_OUTPUT_DISABLED",
+        "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+        "safe_to_automate": False,
+        "automation_interpretation_required": True,
+        "runner": {
+            "command_completed": True,
+            "mode": "legacy_output_disabled",
+            "runner_outcome": "blocked",
+        },
+        "structural_result": None,
+        "harness_result": None,
+        "limitations": limitations,
+    }
+
+
+def _v014_print_json(payload: Dict[str, Any], pretty: bool) -> None:
     import json as _json
+
+    # Fail closed: public output must never emit a positive structural result without limitations.
+    if payload.get("structural_result") and payload["structural_result"].get("structurally_conformant") is True:
+        _v014_require_limitations(payload.get("limitations", {}))
+        _v014_require_limitations(payload["structural_result"].get("limitations", {}))
+
+    if payload.get("harness_result"):
+        _v014_require_limitations(payload.get("limitations", {}))
+        _v014_require_limitations(payload["harness_result"].get("limitations", {}))
 
     if pretty:
         print(_json.dumps(payload, indent=2, sort_keys=True))
@@ -1403,7 +1598,7 @@ def _v013_print_json(payload: Dict[str, Any], pretty: bool) -> None:
         print(_json.dumps(payload, sort_keys=True))
 
 
-def _v013_call_invalid_manifest(manifest_path: Optional[str] = None) -> Dict[str, Any]:
+def _v014_call_invalid_manifest(manifest_path: Optional[str] = None) -> Dict[str, Any]:
     candidates = (
         "check_invalid_manifest",
         "check_invalid_manifest_path",
@@ -1441,7 +1636,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser = _argparse.ArgumentParser(
         description=(
             "Fork claim-inheritance simulation structural checker. "
-            "Output semantics v0.1.3 separates runner success from structural conformance."
+            "Output boundary lock v0.1.4 separates command completion, structural conformance, and expected negative-test harness outcomes."
         )
     )
     parser.add_argument(
@@ -1462,51 +1657,49 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument(
         "--legacy-output",
         action="store_true",
-        help="Emit pre-v0.1.3 legacy JSON shape for local compatibility only.",
+        help="Disabled in v0.1.4. Legacy output is blocked because it can reintroduce ambiguous top-level ok semantics.",
     )
 
     args = parser.parse_args(argv)
 
     try:
+        if args.legacy_output:
+            payload = _v014_legacy_output_disabled_payload()
+            _v014_print_json(payload, args.pretty)
+            return 2
+
         if args.invalid_manifest:
-            legacy_result = _v013_call_invalid_manifest(args.manifest_path)
-
-            if args.legacy_output:
-                _v013_print_json(legacy_result, args.pretty)
-                return 0 if bool(legacy_result.get("ok", False)) else 1
-
-            payload = _v013_invalid_manifest_output_from_legacy(legacy_result)
-            _v013_print_json(payload, args.pretty)
-            return 0 if payload["harness_result"]["all_invalid_fixtures_rejected"] else 1
+            legacy_result = _v014_call_invalid_manifest(args.manifest_path)
+            payload = _v014_invalid_manifest_output_from_legacy(legacy_result)
+            _v014_print_json(payload, args.pretty)
+            return 0 if payload["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] else 1
 
         if not args.bundle:
             parser.error("bundle path is required unless --invalid-manifest is used")
 
         legacy_result = check_bundle_path(_Path(args.bundle))
-
-        if args.legacy_output:
-            _v013_print_json(legacy_result, args.pretty)
-            return 0 if bool(legacy_result.get("ok", False)) else 1
-
-        payload = _v013_structural_output_from_legacy(legacy_result)
-        _v013_print_json(payload, args.pretty)
+        payload = _v014_structural_output_from_legacy(legacy_result)
+        _v014_print_json(payload, args.pretty)
         return 0 if payload["structural_result"]["structurally_conformant"] else 1
 
     except Exception as exc:
         payload = {
             "result_kind": "RUNNER_ERROR",
             "output_semantics_version": OUTPUT_SEMANTICS_VERSION,
+            "safe_to_automate": False,
+            "automation_interpretation_required": True,
             "runner": {
-                "runner_succeeded": False,
+                "command_completed": False,
                 "mode": "runner_error",
+                "runner_outcome": "internal_error",
                 "error_type": type(exc).__name__,
                 "message": str(exc),
             },
             "structural_result": None,
             "harness_result": None,
-            "limitations": MACHINE_READABLE_LIMITATIONS_V013,
+            "limitations": _v014_limitations("RUNNER_ERROR_ONLY"),
         }
-        _v013_print_json(payload, args.pretty)
+        _v014_print_json(payload, args.pretty)
         return 2
 
 if __name__ == "__main__":

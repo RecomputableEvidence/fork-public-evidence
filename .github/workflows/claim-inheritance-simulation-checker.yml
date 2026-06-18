@@ -2,8 +2,6 @@ name: Claim Inheritance Simulation Checker
 
 on:
   push:
-    branches:
-      - main
     paths:
       - "tools/check_claim_inheritance_simulation_model.py"
       - "tests/test_claim_inheritance_simulation_model_v0_1.py"
@@ -11,6 +9,9 @@ on:
       - "schemas/fork_controlled_vocabulary_v0_1.schema.json"
       - "examples/claim_inheritance_simulation_model/**"
       - ".github/workflows/claim-inheritance-simulation-checker.yml"
+      - "docs/CLAIM_INHERITANCE_CHECKER_OUTPUT_SEMANTICS_v0_1_3.md"
+      - "docs/CLAIM_INHERITANCE_CHECKER_OUTPUT_BOUNDARY_LOCK_v0_1_4.md"
+      - "docs/CLAIM_INHERITANCE_SIMULATION_CHECKER_LIMITATIONS_v0_1_2.md"
   pull_request:
     paths:
       - "tools/check_claim_inheritance_simulation_model.py"
@@ -19,14 +20,13 @@ on:
       - "schemas/fork_controlled_vocabulary_v0_1.schema.json"
       - "examples/claim_inheritance_simulation_model/**"
       - ".github/workflows/claim-inheritance-simulation-checker.yml"
+      - "docs/CLAIM_INHERITANCE_CHECKER_OUTPUT_SEMANTICS_v0_1_3.md"
+      - "docs/CLAIM_INHERITANCE_CHECKER_OUTPUT_BOUNDARY_LOCK_v0_1_4.md"
+      - "docs/CLAIM_INHERITANCE_SIMULATION_CHECKER_LIMITATIONS_v0_1_2.md"
   workflow_dispatch:
-
-permissions:
-  contents: read
 
 jobs:
   claim-inheritance-simulation-checker:
-    name: Claim inheritance simulation checker
     runs-on: ubuntu-latest
 
     steps:
@@ -38,23 +38,66 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install test dependency
+      - name: Run valid synthetic bundle
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install pytest
+          python tools/check_claim_inheritance_simulation_model.py examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json --pretty
 
-      - name: Check valid synthetic bundle
+      - name: Run invalid fixture manifest harness
         run: |
-          python tools/check_claim_inheritance_simulation_model.py \
-            examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json \
-            --pretty
+          python tools/check_claim_inheritance_simulation_model.py --invalid-manifest --pretty
 
-      - name: Check invalid fixture manifest
+      - name: Assert v0.1.4 output boundary shape
+        shell: python
         run: |
-          python tools/check_claim_inheritance_simulation_model.py \
-            --invalid-manifest \
-            --pretty
+          import json
+          import subprocess
+          import sys
 
-      - name: Run claim inheritance checker tests and output semantics tests
+          tool = "tools/check_claim_inheritance_simulation_model.py"
+          valid_bundle = "examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json"
+          invalid_fixture = "examples/claim_inheritance_simulation_model/invalid/invalid_malformed_structural_outcome_token_v0_1.json"
+
+          def run_expect(args, expected_returncode):
+              completed = subprocess.run(
+                  [sys.executable, tool] + args,
+                  text=True,
+                  capture_output=True,
+                  check=False,
+              )
+              if completed.returncode != expected_returncode:
+                  print(completed.stdout)
+                  print(completed.stderr, file=sys.stderr)
+                  raise SystemExit(f"Unexpected return code: {completed.returncode}")
+              return json.loads(completed.stdout)
+
+          valid = run_expect([valid_bundle, "--pretty"], 0)
+          assert "ok" not in valid
+          assert valid["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
+          assert valid["output_semantics_version"] == "0.1.4"
+          assert valid["safe_to_automate"] is False
+          assert valid["automation_interpretation_required"] is True
+          assert valid["structural_result"]["structurally_conformant"] is True
+          assert valid["structural_result"]["limitations"]["safe_to_automate"] is False
+          assert "APPROVAL" in valid["limitations"]["do_not_map_to"]
+
+          invalid = run_expect([invalid_fixture, "--pretty"], 1)
+          assert "ok" not in invalid
+          assert invalid["result_kind"] == "STRUCTURAL_BUNDLE_CHECK"
+          assert invalid["structural_result"]["structurally_conformant"] is False
+          assert invalid["structural_result"]["limitations"]["does_not_validate_truth"] is True
+
+          harness = run_expect(["--invalid-manifest", "--pretty"], 0)
+          assert "ok" not in harness
+          assert harness["result_kind"] == "INVALID_FIXTURE_HARNESS"
+          assert harness["structural_result"] is None
+          assert harness["harness_result"]["all_invalid_fixtures_produced_expected_structural_failures"] is True
+          assert harness["harness_result"]["limitations"]["safe_to_automate"] is False
+
+          legacy = run_expect([valid_bundle, "--legacy-output", "--pretty"], 2)
+          assert "ok" not in legacy
+          assert legacy["result_kind"] == "LEGACY_OUTPUT_DISABLED"
+          assert legacy["limitations"]["legacy_output_disabled"] is True
+
+      - name: Run pytest suite
         run: |
           python -m pytest -q tests/test_claim_inheritance_simulation_model_v0_1.py

@@ -39,3 +39,44 @@ Machine consumers should use:
 Invalid-manifest harness success does not indicate structural conformance of the invalid fixtures.
 
 Structural conformance does not indicate truth, compliance, authority validity, evidence sufficiency, legal sufficiency, safety, or production authorization.
+
+## v0.1.4 output-boundary lock
+
+The v0.1.4 output-boundary lock is an additive publication-safety hardening layer.
+
+It preserves v0.1.2 as the hardened structural checker milestone and v0.1.3 as the output-semantics correction layer.
+
+v0.1.4 adds:
+
+- disabled legacy output;
+- expanded machine-readable limitations;
+- duplicated limitations inside result objects;
+- `safe_to_automate=false`;
+- `automation_interpretation_required=true`;
+- a `do_not_map_to` list;
+- an explicit invalid-manifest alias: `all_invalid_fixtures_produced_expected_structural_failures`;
+- CI assertions for output shape.
+
+Exit code `0` remains structural-only. It does not indicate approval, truth, compliance, authority validity, evidence sufficiency, legal sufficiency, safety, production authorization, or actual downstream behavior.
+
+## v0.1.4 removed compatibility aliases
+
+v0.1.4 removed ambiguous compatibility aliases from public output.
+
+The checker does not emit `runner.runner_succeeded`.
+
+The checker does not emit `harness_result.all_invalid_fixtures_rejected`.
+
+Machine consumers must use `runner.command_completed`, `runner.runner_outcome`, and `harness_result.all_invalid_fixtures_produced_expected_structural_failures`.
+
+## v0.1.4 alias purge
+
+v0.1.4 removes ambiguous compatibility aliases from public output.
+
+The checker does not emit `runner.runner_succeeded`.
+
+The checker does not emit `harness_result.all_invalid_fixtures_rejected`.
+
+Machine consumers must use `runner.command_completed`, `runner.runner_outcome`, and `harness_result.all_invalid_fixtures_produced_expected_structural_failures`.
+
+The removal is intentional because generic success-like aliases can cause downstream systems to collapse structural evidence into approval, truth, compliance, authority validity, evidence sufficiency, safety, legal sufficiency, or production authorization.
