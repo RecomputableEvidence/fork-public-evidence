@@ -42,9 +42,7 @@
         "contains_no_real_authorization_workflows"
       ],
       "properties": {
-        "synthetic_only": {
-          "const": true
-        },
+        "synthetic_only": true,
         "contains_no_phi": {
           "const": true
         },

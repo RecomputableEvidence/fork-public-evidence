@@ -16,8 +16,8 @@
   },
   "jsonl_exports": [
     {
-      "export_id": "synthetic_prior_auth_denial_internal_appeals_batch_v0_1",
-      "path": "examples/controlled_pilot_synthetic_dry_run_corpus/exports/synthetic_prior_auth_denial_internal_appeals_batch_v0_1.jsonl",
+      "export_id": "synthetic_prior_auth_denial_evidence_boundary_records_v0_1",
+      "path": "examples/controlled_pilot_synthetic_dry_run_corpus/exports/synthetic_evidence_boundary_records_v0_1.jsonl",
       "workflow": "SYNTHETIC_PRIOR_AUTH_DENIAL_INTERNAL_APPEALS_REVIEW",
       "classes": [
         "CLASS_A_BOUNDED_PRESERVATION",
@@ -35,5 +35,11 @@
     "DOES_NOT_CLAIM_SOURCE_TRUTH",
     "DOES_NOT_AUTHORIZE_LIVE_INGESTION",
     "DOES_NOT_USE_REAL_PATIENT_DATA"
+  ],
+  "synthetic_only": true,
+  "fork_role": "evidence_boundary_only",
+  "statutory_process_non_claim": "This corpus does not represent, simulate, validate, or recommend any statutory prior-authorization, adverse-benefit-determination, utilization-management, or internal-appeals process.",
+  "v0_1_1_required_non_claims": [
+    "does_not_claim_statutory_review_process"
   ]
 }

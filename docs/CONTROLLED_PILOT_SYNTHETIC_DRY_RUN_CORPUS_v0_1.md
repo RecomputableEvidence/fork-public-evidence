@@ -1,5 +1,8 @@
 # Controlled Pilot Synthetic Dry-Run Corpus v0.1
 
+**SYNTHETIC ONLY — STRUCTURAL EVIDENCE-BOUNDARY CORPUS; NOT AUTHORIZATION, NOT CLINICAL REVIEW, NOT LEGAL SUFFICIENCY, NOT HIPAA COMPLIANCE, NOT PRODUCTION READINESS, AND NOT A STATUTORY REVIEW PROCESS.**
+
+
 ## Purpose
 
 This corpus provides synthetic JSONL batch exports for exercising the Fork controlled-pilot dry-run path without using real institutional data.
@@ -27,7 +30,7 @@ Class A records represent bounded structural preservation.
 Expected result:
 
 ```text
-PASS
+BOUNDARY_PRESERVED
 ```
 
 Class A does not mean the denial was medically correct, legally sufficient, compliant, complete, fair, clinically appropriate, or authorized for live ingestion.
@@ -39,7 +42,7 @@ Class B records represent a bounded packet with an unresolved synthetic pointer.
 Expected result:
 
 ```text
-INDETERMINATE
+POINTER_UNRESOLVED
 ```
 
 Class B does not mean the underlying workflow is invalid or valid. It means the synthetic packet intentionally includes unresolved pointer state.
@@ -51,7 +54,7 @@ Class C records represent attempted downstream expansion of a bounded structural
 Expected result:
 
 ```text
-FAIL
+EXPANSION_DETECTED
 ```
 
 Class C demonstrates the overclaim pattern the controlled-pilot stack is designed to surface.
@@ -78,3 +81,18 @@ This corpus does not claim:
 This corpus may be used to demonstrate packet generation, receipt binding, dry-run review, orientation acknowledgment, and structural verification paths.
 
 It must not be used as real institutional data, real medical data, real payer data, real provider data, real patient data, real member data, or evidence that any live workflow is authorized.
+
+
+## v0.1.1 Structural Outcome Hardening Note
+
+This corpus includes the machine-readable non-claim `does_not_claim_statutory_review_process`.
+
+This corpus does not represent, simulate, validate, or recommend any statutory prior-authorization, adverse-benefit-determination, utilization-management, or internal-appeals process.
+
+Fork outcome labels in this corpus are structural evidence-boundary labels only:
+
+- `BOUNDARY_PRESERVED` means the bounded structural evidence boundary was preserved.
+- `POINTER_UNRESOLVED` means an evidence pointer remains unresolved and must not be collapsed into preservation.
+- `EXPANSION_DETECTED` means a downstream record attempted to expand beyond the bounded evidence claim.
+
+These labels do not indicate claim approval, denial, clinical sufficiency, utilization-management sufficiency, legal sufficiency, HIPAA compliance, operational authorization, or production readiness.

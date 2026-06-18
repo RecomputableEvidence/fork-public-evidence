@@ -24,7 +24,7 @@ v0.1.1 is complete only when the acceptance criteria in this document are satisf
 All uses of the synthetic dry-run corpus are governed by the following banner:
 
 ```text
-PASS, INDETERMINATE, and FAIL are structural evidence-boundary outcomes only.
+BOUNDARY_PRESERVED, POINTER_UNRESOLVED, and EXPANSION_DETECTED are structural evidence-boundary outcomes only.
 
 They are not medical, legal, regulatory, clinical, coverage, authorization, fairness, source-truth, production-readiness, live-ingestion, or compliance determinations.
 ```
@@ -74,17 +74,17 @@ They do not create domain authority.
 
 The v0.1 corpus uses three expected outcomes:
 
-- PASS
-- INDETERMINATE
-- FAIL
+- BOUNDARY_PRESERVED
+- POINTER_UNRESOLVED
+- EXPANSION_DETECTED
 
 In v0.1.1, these are interpreted only through the following structural contract.
 
-### Structural PASS
+### Structural BOUNDARY_PRESERVED
 
-PASS means only that the synthetic record preserves the expected evidence boundary for its class.
+BOUNDARY_PRESERVED means only that the synthetic record preserves the expected evidence boundary for its class.
 
-A structural PASS may indicate that:
+A structural BOUNDARY_PRESERVED may indicate that:
 
 - required synthetic-only flags are present;
 - required canonical non-claims are preserved;
@@ -93,7 +93,7 @@ A structural PASS may indicate that:
 - the record matches the expected structural class;
 - the checker did not detect a prohibited structural violation.
 
-A structural PASS does not mean:
+A structural BOUNDARY_PRESERVED does not mean:
 
 - the synthetic denial was medically correct;
 - the synthetic appeal was legally sufficient;
@@ -105,19 +105,19 @@ A structural PASS does not mean:
 - live ingestion is authorized;
 - any real-world process has been validated.
 
-### Structural INDETERMINATE
+### Structural POINTER_UNRESOLVED
 
-INDETERMINATE means only that the synthetic record intentionally contains unresolved pointer state without detected boundary expansion.
+POINTER_UNRESOLVED means only that the synthetic record intentionally contains unresolved pointer state without detected boundary expansion.
 
-A structural INDETERMINATE may indicate that:
+A structural POINTER_UNRESOLVED may indicate that:
 
 - the record is synthetically bounded;
 - at least one required unresolved pointer is present;
 - canonical non-claims remain preserved;
-- the unresolved state prevents safe collapse into structural PASS;
+- the unresolved state prevents safe collapse into structural BOUNDARY_PRESERVED;
 - no explicit attempted expansion claim was detected.
 
-A structural INDETERMINATE does not mean:
+A structural POINTER_UNRESOLVED does not mean:
 
 - a medical outcome is uncertain;
 - legal sufficiency is uncertain;
@@ -127,11 +127,11 @@ A structural INDETERMINATE does not mean:
 - a real workflow needs escalation;
 - Fork has evaluated the underlying domain issue.
 
-### Structural FAIL
+### Structural EXPANSION_DETECTED
 
-FAIL means only that the synthetic record violates a structural boundary rule.
+EXPANSION_DETECTED means only that the synthetic record violates a structural boundary rule.
 
-A structural FAIL may indicate that:
+A structural EXPANSION_DETECTED may indicate that:
 
 - an attempted expansion claim is present;
 - required non-claims were not preserved;
@@ -141,7 +141,7 @@ A structural FAIL may indicate that:
 - synthetic-only flags were violated;
 - the record attempted to convert bounded evidence into a claim Fork does not make.
 
-A structural FAIL does not mean:
+A structural EXPANSION_DETECTED does not mean:
 
 - a payer was wrong;
 - a provider was wrong;
@@ -181,7 +181,7 @@ Any document, release note, checker receipt, or package index entry that describ
 
 > This corpus tests structural evidence-boundary behavior only. It does not validate clinical logic, legal sufficiency, regulatory compliance, HIPAA compliance, payer workflow fidelity, provider workflow fidelity, authorization correctness, appeal correctness, source truth, source completeness, production readiness, or live-ingestion authorization.
 
-This statement should appear before any reader encounters PASS, INDETERMINATE, or FAIL labels.
+This statement should appear before any reader encounters BOUNDARY_PRESERVED, POINTER_UNRESOLVED, or EXPANSION_DETECTED labels.
 
 ## Adversarial fixture hardening targets
 
@@ -202,7 +202,7 @@ Example prohibited patterns include claims that a synthetic action:
 - was HIPAA compliant;
 - was authorized for live ingestion.
 
-Expected checker result: **FAIL**
+Expected checker result: **EXPANSION_DETECTED**
 
 ### Invalid class mislabel
 
@@ -215,7 +215,7 @@ Examples:
 - Class B label without unresolved pointer behavior;
 - Class C label without attempted expansion behavior.
 
-Expected checker result: **FAIL**
+Expected checker result: **EXPANSION_DETECTED**
 
 ### Invalid encoded PII-like content
 
@@ -229,7 +229,7 @@ Examples:
 - identifier-like string hidden in metadata;
 - synthetic field name containing real-contact-like text.
 
-Expected checker result: **FAIL**
+Expected checker result: **EXPANSION_DETECTED**
 
 ### Invalid pointer cycle
 
@@ -242,13 +242,13 @@ Examples:
 - unresolved pointer is presented as unresolved while resolvable inside the same corpus;
 - pointer chain creates unbounded traversal risk.
 
-Expected checker result: **FAIL**
+Expected checker result: **EXPANSION_DETECTED**
 
 ### Invalid real-regime reference
 
 Purpose: Detect synthetic records that name real institutions, real payers, real providers, real plans, real statutes, real regulations, real cases, or real source-system exports in a way that could imply real-world provenance or domain fidelity.
 
-Expected checker result: **FAIL**
+Expected checker result: **EXPANSION_DETECTED**
 
 ## Checker hardening requirements
 
@@ -257,9 +257,9 @@ The synthetic corpus checker should preserve the existing v0.1 validations and a
 At minimum, the checker should verify:
 
 - `expected_rgv_result` is a structural outcome label only;
-- PASS records do not include unresolved pointers or attempted expansion claims;
-- INDETERMINATE records include unresolved pointer state and no attempted expansion claims;
-- FAIL records include a structural failure reason or prohibited expansion condition;
+- BOUNDARY_PRESERVED records do not include unresolved pointers or attempted expansion claims;
+- POINTER_UNRESOLVED records include unresolved pointer state and no attempted expansion claims;
+- EXPANSION_DETECTED records include a structural failure reason or prohibited expansion condition;
 - class labels and structural content are consistent;
 - canonical non-claims are preserved exactly;
 - synthetic-only flags remain enforced;
@@ -271,7 +271,7 @@ At minimum, the checker should verify:
 
 ## Receipt hardening requirements
 
-Synthetic corpus validation receipts should not emit bare PASS, INDETERMINATE, or FAIL without structural qualification.
+Synthetic corpus validation receipts should not emit bare BOUNDARY_PRESERVED, POINTER_UNRESOLVED, or EXPANSION_DETECTED without structural qualification.
 
 Receipts should include:
 
@@ -368,3 +368,28 @@ The central rule is:
 Fork may preserve, compare, and verify evidence-boundary structure.
 
 Fork does not convert synthetic healthcare-adjacent dry-run records into clinical, legal, regulatory, compliance, authorization, or source-truth claims.
+
+
+## v0.1.1 Applied Repair Note
+
+**SYNTHETIC ONLY — STRUCTURAL EVIDENCE-BOUNDARY CORPUS; NOT AUTHORIZATION, NOT CLINICAL REVIEW, NOT LEGAL SUFFICIENCY, NOT HIPAA COMPLIANCE, NOT PRODUCTION READINESS, AND NOT A STATUTORY REVIEW PROCESS.**
+
+This repair preserves the v0.1 corpus architecture while hardening the visible artifact surface.
+
+Applied structural-outcome labels:
+
+- `BOUNDARY_PRESERVED` — bounded structural preservation.
+- `POINTER_UNRESOLVED` — unresolved evidence pointer state.
+- `EXPANSION_DETECTED` — detected boundary expansion.
+
+Required machine-readable non-claim:
+
+`does_not_claim_statutory_review_process`
+
+This corpus does not represent, simulate, validate, or recommend any statutory prior-authorization, adverse-benefit-determination, utilization-management, or internal-appeals process.
+
+`BOUNDARY_PRESERVED` is not claim approval.
+
+`POINTER_UNRESOLVED` is not approval with warnings and must not aggregate into `BOUNDARY_PRESERVED`.
+
+`EXPANSION_DETECTED` is not clinical denial or payer denial. It means the corpus intentionally demonstrates an invalid downstream structural expansion beyond the bounded evidence claim.

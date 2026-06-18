@@ -7,6 +7,9 @@ import sys
 from pathlib import Path
 from typing import Any
 
+SYNTHETIC_CORPUS_STRUCTURAL_BANNER = "SYNTHETIC ONLY — STRUCTURAL EVIDENCE-BOUNDARY CHECK; NOT AUTHORIZATION, NOT CLINICAL REVIEW, NOT LEGAL SUFFICIENCY, NOT HIPAA COMPLIANCE, NOT PRODUCTION READINESS, AND NOT A STATUTORY REVIEW PROCESS."
+
+
 
 CANONICAL_NON_CLAIMS = [
     "DOES_NOT_CLAIM_MEDICAL_CORRECTNESS",
@@ -20,19 +23,19 @@ CANONICAL_NON_CLAIMS = [
 
 CLASS_EXPECTATIONS = {
     "CLASS_A_BOUNDED_PRESERVATION": {
-        "expected_rgv_result": "PASS",
+        "expected_rgv_result": "BOUNDARY_PRESERVED",
         "boundary_effect": "PRESERVED",
         "requires_unresolved": False,
         "requires_expansion": False,
     },
     "CLASS_B_INDETERMINATE_UNRESOLVED_POINTER": {
-        "expected_rgv_result": "INDETERMINATE",
+        "expected_rgv_result": "POINTER_UNRESOLVED",
         "boundary_effect": "UNRESOLVED_POINTER",
         "requires_unresolved": True,
         "requires_expansion": False,
     },
     "CLASS_C_INVALID_BOUNDARY_EXPANSION": {
-        "expected_rgv_result": "FAIL",
+        "expected_rgv_result": "EXPANSION_DETECTED",
         "boundary_effect": "EXPANDED",
         "requires_unresolved": False,
         "requires_expansion": True,
@@ -240,7 +243,7 @@ def build_receipt(manifest_ref: Path, errors: list[str], class_counts: dict[str,
         "record_type": "CONTROLLED_PILOT_SYNTHETIC_CORPUS_VALIDATION_RECEIPT",
         "schema_version": "0.1",
         "manifest_ref": manifest_ref.as_posix(),
-        "validation_result": "PASS" if not errors else "FAIL",
+        "validation_result": "BOUNDARY_PRESERVED" if not errors else "EXPANSION_DETECTED",
         "record_count": record_count,
         "class_counts": class_counts,
         "errors": errors,
@@ -327,3 +330,9 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+# v0.1.1 hardening invariant:
+# Required non-claim for healthcare-adjacent synthetic corpus:
+# does_not_claim_statutory_review_process
+# This corpus does not represent, simulate, validate, or recommend any statutory prior-authorization, adverse-benefit-determination, utilization-management, or internal-appeals process.

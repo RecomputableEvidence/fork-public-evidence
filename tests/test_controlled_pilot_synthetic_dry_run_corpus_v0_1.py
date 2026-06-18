@@ -11,7 +11,7 @@ DOC = ROOT / "docs" / "CONTROLLED_PILOT_SYNTHETIC_DRY_RUN_CORPUS_v0_1.md"
 SCHEMA = ROOT / "schemas" / "controlled_pilot_synthetic_dry_run_corpus_v0_1.schema.json"
 CHECKER = ROOT / "tools" / "check_controlled_pilot_synthetic_corpus.py"
 MANIFEST = ROOT / "examples" / "controlled_pilot_synthetic_dry_run_corpus" / "manifest_v0_1.json"
-VALID_JSONL = ROOT / "examples" / "controlled_pilot_synthetic_dry_run_corpus" / "exports" / "synthetic_prior_auth_denial_internal_appeals_batch_v0_1.jsonl"
+VALID_JSONL = ROOT / "examples" / "controlled_pilot_synthetic_dry_run_corpus" / "exports" / "synthetic_evidence_boundary_records_v0_1.jsonl"
 INVALID_PII_JSONL = ROOT / "examples" / "controlled_pilot_synthetic_dry_run_corpus" / "invalid" / "invalid_contains_pii_v0_1.jsonl"
 INVALID_CLASS_C_JSONL = ROOT / "examples" / "controlled_pilot_synthetic_dry_run_corpus" / "invalid" / "invalid_class_c_missing_expansion_v0_1.jsonl"
 PACKAGE_INDEX = ROOT / "pilot_package" / "controlled_pilot_package_index_v0_1.json"
@@ -71,7 +71,7 @@ def test_valid_synthetic_corpus_checker_passes() -> None:
 
     assert result.returncode == 0, result.stdout + result.stderr
     receipt = json.loads(result.stdout)
-    assert receipt["validation_result"] == "PASS"
+    assert receipt["validation_result"] == "BOUNDARY_PRESERVED"
     assert receipt["record_count"] == 3
 
 
@@ -93,7 +93,7 @@ def test_class_a_record_is_bounded_preservation_pass() -> None:
         if record["synthetic_class"] == "CLASS_A_BOUNDED_PRESERVATION"
     )
 
-    assert class_a["expected_rgv_result"] == "PASS"
+    assert class_a["expected_rgv_result"] == "BOUNDARY_PRESERVED"
     assert class_a["downstream_consumption"]["boundary_effect"] == "PRESERVED"
     assert class_a["downstream_consumption"]["attempted_expansion_claims"] == []
     assert class_a["unresolved_pointers"] == []
@@ -106,7 +106,7 @@ def test_class_c_record_models_invalid_boundary_expansion() -> None:
         if record["synthetic_class"] == "CLASS_C_INVALID_BOUNDARY_EXPANSION"
     )
 
-    assert class_c["expected_rgv_result"] == "FAIL"
+    assert class_c["expected_rgv_result"] == "EXPANSION_DETECTED"
     assert class_c["downstream_consumption"]["boundary_effect"] == "EXPANDED"
     assert "LIVE_INGESTION_AUTHORIZATION_GRANTED" in class_c["downstream_consumption"]["attempted_expansion_claims"]
 
@@ -133,7 +133,7 @@ def test_invalid_pii_fixture_fails_checker(tmp_path: Path) -> None:
 
     assert result.returncode == 1
     receipt = json.loads(result.stdout)
-    assert receipt["validation_result"] == "FAIL"
+    assert receipt["validation_result"] == "EXPANSION_DETECTED"
     assert any(
         "PII-like text" in error or "contains_pii must be false" in error
         for error in receipt["errors"]
@@ -162,7 +162,7 @@ def test_invalid_class_c_missing_expansion_fails_checker(tmp_path: Path) -> None
 
     assert result.returncode == 1
     receipt = json.loads(result.stdout)
-    assert receipt["validation_result"] == "FAIL"
+    assert receipt["validation_result"] == "EXPANSION_DETECTED"
     assert any(
         "requires at least one attempted expansion claim" in error
         for error in receipt["errors"]
