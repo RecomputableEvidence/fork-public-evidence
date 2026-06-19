@@ -52,9 +52,9 @@ def test_valid_grc_register_reference_passes() -> None:
     code, payload = run_checker("valid_grc_register_reference.json")
     assert code == 0
     assert payload["checker"]["version"] == "0.1.3"
+    assert payload["actionability"] == "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY"
     assert payload["result"] == {
         "result_kind": "STRUCTURAL_CONFORMANCE_RECORDED",
-        "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
         "safe_to_automate": False,
         "requires_human_interpretation_before_any_automation": True,
     }
@@ -91,7 +91,7 @@ def test_result_ok_removed_from_output_contract() -> None:
     code, payload = run_checker("valid_grc_register_reference.json")
     assert code == 0
     assert "ok" not in payload["result"]
-    assert payload["result"]["actionability"] == "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY"
+    assert payload["actionability"] == "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY"
     assert payload["result"]["safe_to_automate"] is False
     assert payload["result"]["requires_human_interpretation_before_any_automation"] is True
     assert_output_contract(payload)
@@ -233,5 +233,11 @@ def test_invalid_native_scoring_object_attachment_fails_closed() -> None:
     assert_contract_failure("invalid_native_scoring_object_attachment.json", "CCEC_INTEROP_ORACLE_TARGET_FIELD")
 
 
-def test_invalid_human_prose_summary_green_signal_fails_closed() -> None:
-    assert_contract_failure("invalid_human_prose_summary_green_signal.json", "CCEC_INTEROP_ORACLE_TARGET_FIELD")
+
+def test_known_residual_human_prose_summary_is_audit_only() -> None:
+    residual = json.loads(
+        (EXAMPLES / "known_residual_risks" / "human_prose_summary_green_signal.json").read_text(encoding="utf-8")
+    )
+    assert residual["enforcement_tier"] == "INSTITUTIONAL_AUDIT_ONLY"
+    assert residual["checker_enforcement"] == "NONE"
+    assert residual["non_claims"]["does_not_claim_machine_detection_of_human_prose"] is True

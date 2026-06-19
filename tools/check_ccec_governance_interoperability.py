@@ -833,9 +833,9 @@ def make_output(input_path: Path, result_kind: str, errors: list[dict[str, str]]
     return {
         "checker": {"name": CHECKER_NAME, "version": CHECKER_VERSION},
         "input": {"path": str(input_path)},
+        "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
         "result": {
             "result_kind": result_kind,
-            "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
             "safe_to_automate": False,
             "requires_human_interpretation_before_any_automation": True,
         },

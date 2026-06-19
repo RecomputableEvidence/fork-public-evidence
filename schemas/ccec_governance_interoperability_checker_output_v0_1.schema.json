@@ -1,10 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://example.org/schemas/ccec_governance_interoperability_checker_output_v0_1.schema.json",
-  "title": "CCEC Governance Interoperability Checker Output Contract v0.1.3 Output and Host Conformance Hardened",
+  "title": "CCEC Governance Interoperability Checker Output Contract v0.1.3.1 Output Vocabulary and Enforcement Tier Repaired",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "actionability",
     "checker",
     "input",
     "result",
@@ -140,6 +141,9 @@
     },
     "non_claims": {
       "$ref": "#/definitions/non_claims"
+    },
+    "actionability": {
+      "const": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY"
     }
   },
   "definitions": {
@@ -176,7 +180,6 @@
       "additionalProperties": false,
       "required": [
         "result_kind",
-        "actionability",
         "safe_to_automate",
         "requires_human_interpretation_before_any_automation"
       ],
@@ -191,14 +194,12 @@
             "OUTPUT_CONTRACT_VIOLATION"
           ]
         },
-        "actionability": {
-          "const": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY"
-        },
         "safe_to_automate": {
           "const": false
         },
         "requires_human_interpretation_before_any_automation": {
-          "const": true
+          "const": true,
+          "description": "Human interpretation is required before any downstream automation, routing, approval, deployment, risk acceptance, or host-system action may rely on this structural checker result."
         }
       }
     },

@@ -33,7 +33,6 @@ The CCEC Governance Interoperability checker no longer emits:
 ```json
 {
   "result": {
-    "ok": true
   }
 }
 ```
@@ -184,7 +183,7 @@ It makes shortcutting, proxy laundering, and host-conformance obligations explic
 
 v0.1.3 removed the obvious boolean oracle by eliminating `result.ok`.
 
-This repair removes the next shortcut: pass/fail vocabulary. The checker no longer emits `STRUCTURAL_PASS`. The positive structural result is now `STRUCTURAL_CONFORMANCE_RECORDED`.
+This repair removes the next shortcut: pass/fail vocabulary. The checker no longer emits `STRUCTURAL_CONFORMANCE_RECORDED`. The positive structural result is now `STRUCTURAL_CONFORMANCE_RECORDED`.
 
 The checker output now places actionability at the root level:
 

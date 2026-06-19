@@ -1,4 +1,4 @@
-﻿
+
 # Claim Boundary Inheritance and System Mapping Receipts v0.1
 
 ## Status

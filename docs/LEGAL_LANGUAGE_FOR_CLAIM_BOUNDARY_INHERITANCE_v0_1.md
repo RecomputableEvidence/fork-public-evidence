@@ -1,4 +1,4 @@
-﻿
+
 # Legal Language for Claim Boundary Inheritance v0.1
 
 ## Status and Scope
