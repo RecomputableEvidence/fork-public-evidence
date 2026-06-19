@@ -1,7 +1,7 @@
 {
   "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
   "profile_version": "0.1",
-  "profile_id": "CCEC_INTEROP_INVALID_COVERAGE_PERCENTAGE_AS_POSTURE_001",
+  "profile_id": "CCEC_INTEROP_INVALID_SAME_VIEWPORT_LIMITATIONS_ABSENT_001",
   "source_ccec_ref": {
     "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
     "ccec_contract_version": "0.1",
@@ -133,14 +133,6 @@
       "source_ccec_field": "local_reliance_decision.decision_owner_ref",
       "external_target_field": "governance_record.local_owner_reference",
       "mapping_kind": "DECISION_OWNER_REFERENCE",
-      "transformation": "REFERENCE_ONLY",
-      "preserves_non_claims": true,
-      "creates_external_status": false
-    },
-    {
-      "source_ccec_field": "source_ccec_ref.ccec_id",
-      "external_target_field": "executive_dashboard.boundary_preservation_rate_percent",
-      "mapping_kind": "EVIDENCE_REFERENCE",
       "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,
       "creates_external_status": false
@@ -346,7 +338,7 @@
     "traffic_light_rendering_prohibited": true,
     "checkmark_icon_rendering_prohibited": true,
     "pass_fail_iconography_prohibited": true,
-    "same_viewport_limitations_required": true,
+    "same_viewport_limitations_required": false,
     "click_to_expand_limitations_insufficient": true,
     "tooltip_status_language_prohibited": true,
     "neutral_documentation_label_required": true,

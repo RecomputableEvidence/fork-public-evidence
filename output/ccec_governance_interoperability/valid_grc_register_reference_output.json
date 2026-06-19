@@ -1,7 +1,7 @@
 {
   "checker": {
     "name": "check_ccec_governance_interoperability",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "do_not_map_to": [
     "APPROVAL",
@@ -67,7 +67,28 @@
     "CHECKMARK_RENDERING",
     "TERMINAL_WORKFLOW_STATE",
     "DISPOSITION_MAPPING",
-    "QUANTITATIVE_RISK_SCORING"
+    "QUANTITATIVE_RISK_SCORING",
+    "DATA_QUALITY_PROXY",
+    "DOCUMENTATION_COMPLETENESS_PROXY",
+    "METADATA_HEALTH_PROXY",
+    "SLA_TIMER_COERCION",
+    "SLA_MET",
+    "SLA_PAUSED",
+    "SLA_STOPPED",
+    "REVIEW_TIER_FAST_TRACK",
+    "LOWER_FRICTION_QUEUE_ROUTING",
+    "ROUTING_TIER_REDUCTION",
+    "TRIAGE_COMPLETE",
+    "ARCHIVAL_CLOSURE",
+    "PROMOTION_STATUS",
+    "GOVERNANCE_READINESS_SCORE",
+    "GOVERNANCE_HEALTH_INDEX",
+    "REQUIRED_COVERAGE_BASELINE",
+    "HOST_NATIVE_SCORING_INPUT",
+    "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
+    "HUMAN_PROSE_GREEN_SIGNAL",
+    "OUTPUT_OK_BOOLEAN",
+    "CI_CD_BLOCKING_GATE"
   ],
   "errors": [],
   "input": {
@@ -81,18 +102,26 @@
     "does_not_validate_approval": true,
     "does_not_validate_compliance": true,
     "does_not_validate_control_satisfaction": true,
+    "does_not_validate_data_quality": true,
     "does_not_validate_deployment_authorization": true,
+    "does_not_validate_documentation_completeness": true,
     "does_not_validate_evidence_sufficiency": true,
+    "does_not_validate_executive_narrative_framing": true,
     "does_not_validate_external_system_governance_adequacy": true,
+    "does_not_validate_host_platform_native_scoring_behavior": true,
+    "does_not_validate_human_free_text_interpretation": true,
     "does_not_validate_institutional_authorization": true,
     "does_not_validate_issue_closure": true,
     "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_metadata_health": true,
     "does_not_validate_policy_satisfaction": true,
     "does_not_validate_quantitative_risk_reduction": true,
     "does_not_validate_reasonable_reliance": true,
+    "does_not_validate_review_queue_routing_adequacy": true,
     "does_not_validate_risk_acceptance": true,
     "does_not_validate_runtime_configuration_compliance": true,
     "does_not_validate_safety": true,
+    "does_not_validate_sla_configuration_compliance": true,
     "does_not_validate_truth": true,
     "does_not_validate_visual_assurance": true,
     "does_not_validate_workflow_transition": true,
@@ -109,15 +138,24 @@
     "does_not_create_approval_status": true,
     "does_not_create_compliance_status": true,
     "does_not_create_control_satisfaction": true,
+    "does_not_create_data_quality_status": true,
+    "does_not_create_documentation_completeness_status": true,
+    "does_not_create_host_native_scoring_input": true,
+    "does_not_create_human_prose_approval": true,
     "does_not_create_legal_sufficiency_status": true,
+    "does_not_create_metadata_health_status": true,
+    "does_not_create_review_tier_eligibility": true,
     "does_not_create_safety_status": true,
+    "does_not_create_sla_satisfaction": true,
     "does_not_create_truth_status": true,
     "does_not_create_workflow_transition": true,
     "does_not_transfer_authority": true
   },
   "result": {
-    "ok": true,
-    "result_kind": "STRUCTURAL_PASS"
+    "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
+    "automation_interpretation_required": true,
+    "result_kind": "STRUCTURAL_PASS",
+    "safe_to_automate": false
   },
   "scope": {
     "checker_scope": "structural_ccec_governance_interoperability_validation_only",
@@ -142,7 +180,15 @@
       "third_party_governance_adequacy",
       "quantitative_risk_reduction",
       "visual_assurance",
-      "workflow_transition"
+      "workflow_transition",
+      "host_platform_native_scoring_behavior",
+      "human_free_text_interpretation",
+      "executive_narrative_framing",
+      "sla_configuration_compliance",
+      "review_queue_routing_adequacy",
+      "data_quality_actuality",
+      "metadata_health_actuality",
+      "documentation_completeness_actuality"
     ],
     "validates": [
       "json_parseability",
@@ -164,7 +210,15 @@
       "visual_assurance_signal_prohibition",
       "authority_inheritance_prohibition",
       "unresolved_gap_preservation",
-      "checker_output_contract_conformance"
+      "checker_output_contract_conformance",
+      "output_actionability_constraints",
+      "proxy_laundering_constraints",
+      "host_conformance_constraints",
+      "proxy_laundering_detection",
+      "sla_timer_coercion_detection",
+      "review_tier_routing_detection",
+      "host_native_scoring_attachment_detection",
+      "output_ok_boolean_absence"
     ]
   },
   "warnings": []

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://example.org/schemas/ccec_governance_interoperability_profile_v0_1.schema.json",
-  "title": "CCEC Governance Interoperability Profile v0.1.2 Behavioral Layer Hardened",
+  "title": "CCEC Governance Interoperability Profile v0.1.3 Output and Host Conformance Hardened",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -25,7 +25,10 @@
     "behavioral_use_constraints",
     "visual_semantics_constraints",
     "aggregate_metric_constraints",
-    "workflow_transition_constraints"
+    "workflow_transition_constraints",
+    "output_actionability_constraints",
+    "proxy_laundering_constraints",
+    "host_conformance_constraints"
   ],
   "properties": {
     "profile_type": {
@@ -123,7 +126,28 @@
           "CHECKMARK_RENDERING",
           "TERMINAL_WORKFLOW_STATE",
           "DISPOSITION_MAPPING",
-          "QUANTITATIVE_RISK_SCORING"
+          "QUANTITATIVE_RISK_SCORING",
+          "DATA_QUALITY_PROXY",
+          "DOCUMENTATION_COMPLETENESS_PROXY",
+          "METADATA_HEALTH_PROXY",
+          "SLA_TIMER_COERCION",
+          "SLA_MET_STATUS",
+          "SLA_PAUSED_STATUS",
+          "SLA_STOPPED_STATUS",
+          "REVIEW_TIER_FAST_TRACK",
+          "LOWER_FRICTION_QUEUE_ROUTING",
+          "ROUTING_TIER_REDUCTION",
+          "TRIAGE_COMPLETE_STATUS",
+          "ARCHIVAL_CLOSURE",
+          "PROMOTION_STATUS",
+          "GOVERNANCE_READINESS_SCORE",
+          "GOVERNANCE_HEALTH_INDEX",
+          "REQUIRED_COVERAGE_BASELINE",
+          "HOST_NATIVE_SCORING_INPUT",
+          "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
+          "HUMAN_PROSE_GREEN_SIGNAL",
+          "OUTPUT_OK_BOOLEAN",
+          "CI_CD_BLOCKING_GATE"
         ]
       }
     },
@@ -173,6 +197,15 @@
     },
     "workflow_transition_constraints": {
       "$ref": "#/definitions/workflow_transition_constraints"
+    },
+    "output_actionability_constraints": {
+      "$ref": "#/definitions/output_actionability_constraints"
+    },
+    "proxy_laundering_constraints": {
+      "$ref": "#/definitions/proxy_laundering_constraints"
+    },
+    "host_conformance_constraints": {
+      "$ref": "#/definitions/host_conformance_constraints"
     }
   },
   "definitions": {
@@ -455,7 +488,15 @@
         "not_runtime_control",
         "not_policy_engine",
         "not_compliance_oracle",
-        "do_not_map_to"
+        "do_not_map_to",
+        "does_not_validate_host_platform_native_scoring_behavior",
+        "does_not_validate_human_free_text_interpretation",
+        "does_not_validate_executive_narrative_framing",
+        "does_not_validate_sla_configuration_compliance",
+        "does_not_validate_review_queue_routing_adequacy",
+        "does_not_validate_data_quality",
+        "does_not_validate_metadata_health",
+        "does_not_validate_documentation_completeness"
       ],
       "properties": {
         "safe_to_automate": {
@@ -606,9 +647,54 @@
               "CHECKMARK_RENDERING",
               "TERMINAL_WORKFLOW_STATE",
               "DISPOSITION_MAPPING",
-              "QUANTITATIVE_RISK_SCORING"
+              "QUANTITATIVE_RISK_SCORING",
+              "DATA_QUALITY_PROXY",
+              "DOCUMENTATION_COMPLETENESS_PROXY",
+              "METADATA_HEALTH_PROXY",
+              "SLA_TIMER_COERCION",
+              "SLA_MET",
+              "SLA_PAUSED",
+              "SLA_STOPPED",
+              "REVIEW_TIER_FAST_TRACK",
+              "LOWER_FRICTION_QUEUE_ROUTING",
+              "ROUTING_TIER_REDUCTION",
+              "TRIAGE_COMPLETE",
+              "ARCHIVAL_CLOSURE",
+              "PROMOTION_STATUS",
+              "GOVERNANCE_READINESS_SCORE",
+              "GOVERNANCE_HEALTH_INDEX",
+              "REQUIRED_COVERAGE_BASELINE",
+              "HOST_NATIVE_SCORING_INPUT",
+              "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
+              "HUMAN_PROSE_GREEN_SIGNAL",
+              "OUTPUT_OK_BOOLEAN",
+              "CI_CD_BLOCKING_GATE"
             ]
           }
+        },
+        "does_not_validate_host_platform_native_scoring_behavior": {
+          "type": "boolean"
+        },
+        "does_not_validate_human_free_text_interpretation": {
+          "type": "boolean"
+        },
+        "does_not_validate_executive_narrative_framing": {
+          "type": "boolean"
+        },
+        "does_not_validate_sla_configuration_compliance": {
+          "type": "boolean"
+        },
+        "does_not_validate_review_queue_routing_adequacy": {
+          "type": "boolean"
+        },
+        "does_not_validate_data_quality": {
+          "type": "boolean"
+        },
+        "does_not_validate_metadata_health": {
+          "type": "boolean"
+        },
+        "does_not_validate_documentation_completeness": {
+          "type": "boolean"
         }
       }
     },
@@ -786,7 +872,10 @@
         "same_viewport_limitations_required",
         "click_to_expand_limitations_insufficient",
         "tooltip_status_language_prohibited",
-        "neutral_documentation_label_required"
+        "neutral_documentation_label_required",
+        "host_design_system_assurance_signal_prohibited",
+        "tab_or_pagination_limitation_disclosure_insufficient",
+        "scroll_only_limitation_disclosure_insufficient"
       ],
       "properties": {
         "traffic_light_rendering_prohibited": {
@@ -808,6 +897,15 @@
           "type": "boolean"
         },
         "neutral_documentation_label_required": {
+          "type": "boolean"
+        },
+        "host_design_system_assurance_signal_prohibited": {
+          "type": "boolean"
+        },
+        "tab_or_pagination_limitation_disclosure_insufficient": {
+          "type": "boolean"
+        },
+        "scroll_only_limitation_disclosure_insufficient": {
           "type": "boolean"
         }
       }
@@ -876,6 +974,134 @@
           "type": "boolean"
         },
         "ccec_triggered_policy_exception_or_waiver_prohibited": {
+          "type": "boolean"
+        }
+      }
+    },
+    "output_actionability_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "top_level_ok_boolean_prohibited",
+        "structural_pass_non_actionable",
+        "exit_zero_not_approval_signal",
+        "ci_cd_blocking_gate_use_prohibited",
+        "checker_may_run_only_as_audit_or_non_actionable_validation",
+        "ci_job_name_must_disclose_structural_only_scope",
+        "result_kind_must_not_be_extracted_without_limitations"
+      ],
+      "properties": {
+        "top_level_ok_boolean_prohibited": {
+          "type": "boolean"
+        },
+        "structural_pass_non_actionable": {
+          "type": "boolean"
+        },
+        "exit_zero_not_approval_signal": {
+          "type": "boolean"
+        },
+        "ci_cd_blocking_gate_use_prohibited": {
+          "type": "boolean"
+        },
+        "checker_may_run_only_as_audit_or_non_actionable_validation": {
+          "type": "boolean"
+        },
+        "ci_job_name_must_disclose_structural_only_scope": {
+          "type": "boolean"
+        },
+        "result_kind_must_not_be_extracted_without_limitations": {
+          "type": "boolean"
+        }
+      }
+    },
+    "proxy_laundering_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "data_quality_proxy_mapping_prohibited",
+        "metadata_health_proxy_mapping_prohibited",
+        "documentation_completeness_proxy_mapping_prohibited",
+        "sla_timer_coercion_prohibited",
+        "sla_met_or_paused_status_prohibited",
+        "review_tier_fast_track_prohibited",
+        "lower_friction_queue_routing_prohibited",
+        "triage_completion_proxy_prohibited",
+        "required_coverage_baseline_posture_prohibited",
+        "host_design_system_assurance_signal_prohibited"
+      ],
+      "properties": {
+        "data_quality_proxy_mapping_prohibited": {
+          "type": "boolean"
+        },
+        "metadata_health_proxy_mapping_prohibited": {
+          "type": "boolean"
+        },
+        "documentation_completeness_proxy_mapping_prohibited": {
+          "type": "boolean"
+        },
+        "sla_timer_coercion_prohibited": {
+          "type": "boolean"
+        },
+        "sla_met_or_paused_status_prohibited": {
+          "type": "boolean"
+        },
+        "review_tier_fast_track_prohibited": {
+          "type": "boolean"
+        },
+        "lower_friction_queue_routing_prohibited": {
+          "type": "boolean"
+        },
+        "triage_completion_proxy_prohibited": {
+          "type": "boolean"
+        },
+        "required_coverage_baseline_posture_prohibited": {
+          "type": "boolean"
+        },
+        "host_design_system_assurance_signal_prohibited": {
+          "type": "boolean"
+        }
+      }
+    },
+    "host_conformance_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host_native_scoring_must_not_use_ccec_attachment_count",
+        "ccec_attachment_to_scored_object_requires_disabled_score_contribution",
+        "human_checklist_item_must_not_use_ccec_as_gate",
+        "human_free_text_summary_must_not_launder_ccec_into_approval",
+        "ccec_presence_must_not_control_approval_ui_availability",
+        "integration_conformance_review_required",
+        "external_behavior_outside_checker_scope_acknowledged",
+        "opaque_host_scoring_declared_residual_risk",
+        "human_prose_summary_declared_residual_risk"
+      ],
+      "properties": {
+        "host_native_scoring_must_not_use_ccec_attachment_count": {
+          "type": "boolean"
+        },
+        "ccec_attachment_to_scored_object_requires_disabled_score_contribution": {
+          "type": "boolean"
+        },
+        "human_checklist_item_must_not_use_ccec_as_gate": {
+          "type": "boolean"
+        },
+        "human_free_text_summary_must_not_launder_ccec_into_approval": {
+          "type": "boolean"
+        },
+        "ccec_presence_must_not_control_approval_ui_availability": {
+          "type": "boolean"
+        },
+        "integration_conformance_review_required": {
+          "type": "boolean"
+        },
+        "external_behavior_outside_checker_scope_acknowledged": {
+          "type": "boolean"
+        },
+        "opaque_host_scoring_declared_residual_risk": {
+          "type": "boolean"
+        },
+        "human_prose_summary_declared_residual_risk": {
           "type": "boolean"
         }
       }

@@ -1,7 +1,7 @@
 {
   "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
   "profile_version": "0.1",
-  "profile_id": "CCEC_INTEROP_INVALID_COVERAGE_PERCENTAGE_AS_POSTURE_001",
+  "profile_id": "CCEC_INTEROP_INVALID_DATA_QUALITY_PROXY_MAPPING_001",
   "source_ccec_ref": {
     "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
     "ccec_contract_version": "0.1",
@@ -139,7 +139,7 @@
     },
     {
       "source_ccec_field": "source_ccec_ref.ccec_id",
-      "external_target_field": "executive_dashboard.boundary_preservation_rate_percent",
+      "external_target_field": "enterprise_architecture.ai_metadata_quality_index",
       "mapping_kind": "EVIDENCE_REFERENCE",
       "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,

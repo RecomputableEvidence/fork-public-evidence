@@ -1,7 +1,7 @@
 {
   "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
   "profile_version": "0.1",
-  "profile_id": "CCEC_INTEROP_INVALID_COVERAGE_PERCENTAGE_AS_POSTURE_001",
+  "profile_id": "CCEC_INTEROP_INVALID_HOST_DESIGN_SYSTEM_ASSURANCE_COLOR_001",
   "source_ccec_ref": {
     "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
     "ccec_contract_version": "0.1",
@@ -133,14 +133,6 @@
       "source_ccec_field": "local_reliance_decision.decision_owner_ref",
       "external_target_field": "governance_record.local_owner_reference",
       "mapping_kind": "DECISION_OWNER_REFERENCE",
-      "transformation": "REFERENCE_ONLY",
-      "preserves_non_claims": true,
-      "creates_external_status": false
-    },
-    {
-      "source_ccec_field": "source_ccec_ref.ccec_id",
-      "external_target_field": "executive_dashboard.boundary_preservation_rate_percent",
-      "mapping_kind": "EVIDENCE_REFERENCE",
       "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,
       "creates_external_status": false
@@ -350,7 +342,7 @@
     "click_to_expand_limitations_insufficient": true,
     "tooltip_status_language_prohibited": true,
     "neutral_documentation_label_required": true,
-    "host_design_system_assurance_signal_prohibited": true,
+    "host_design_system_assurance_signal_prohibited": false,
     "tab_or_pagination_limitation_disclosure_insufficient": true,
     "scroll_only_limitation_disclosure_insufficient": true
   },

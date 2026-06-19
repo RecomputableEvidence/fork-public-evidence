@@ -14,7 +14,7 @@ else:
     JSONSCHEMA_IMPORT_ERROR = None
 
 CHECKER_NAME = "check_ccec_governance_interoperability"
-CHECKER_VERSION = "0.1.2"
+CHECKER_VERSION = "0.1.3"
 
 PROHIBITED_MAPPINGS = [
     "APPROVAL_STATUS",
@@ -68,6 +68,27 @@ PROHIBITED_MAPPINGS = [
     "TERMINAL_WORKFLOW_STATE",
     "DISPOSITION_MAPPING",
     "QUANTITATIVE_RISK_SCORING",
+    "DATA_QUALITY_PROXY",
+    "DOCUMENTATION_COMPLETENESS_PROXY",
+    "METADATA_HEALTH_PROXY",
+    "SLA_TIMER_COERCION",
+    "SLA_MET_STATUS",
+    "SLA_PAUSED_STATUS",
+    "SLA_STOPPED_STATUS",
+    "REVIEW_TIER_FAST_TRACK",
+    "LOWER_FRICTION_QUEUE_ROUTING",
+    "ROUTING_TIER_REDUCTION",
+    "TRIAGE_COMPLETE_STATUS",
+    "ARCHIVAL_CLOSURE",
+    "PROMOTION_STATUS",
+    "GOVERNANCE_READINESS_SCORE",
+    "GOVERNANCE_HEALTH_INDEX",
+    "REQUIRED_COVERAGE_BASELINE",
+    "HOST_NATIVE_SCORING_INPUT",
+    "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
+    "HUMAN_PROSE_GREEN_SIGNAL",
+    "OUTPUT_OK_BOOLEAN",
+    "CI_CD_BLOCKING_GATE",
 ]
 
 DO_NOT_MAP_TO = [
@@ -135,6 +156,27 @@ DO_NOT_MAP_TO = [
     "TERMINAL_WORKFLOW_STATE",
     "DISPOSITION_MAPPING",
     "QUANTITATIVE_RISK_SCORING",
+    "DATA_QUALITY_PROXY",
+    "DOCUMENTATION_COMPLETENESS_PROXY",
+    "METADATA_HEALTH_PROXY",
+    "SLA_TIMER_COERCION",
+    "SLA_MET",
+    "SLA_PAUSED",
+    "SLA_STOPPED",
+    "REVIEW_TIER_FAST_TRACK",
+    "LOWER_FRICTION_QUEUE_ROUTING",
+    "ROUTING_TIER_REDUCTION",
+    "TRIAGE_COMPLETE",
+    "ARCHIVAL_CLOSURE",
+    "PROMOTION_STATUS",
+    "GOVERNANCE_READINESS_SCORE",
+    "GOVERNANCE_HEALTH_INDEX",
+    "REQUIRED_COVERAGE_BASELINE",
+    "HOST_NATIVE_SCORING_INPUT",
+    "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
+    "HUMAN_PROSE_GREEN_SIGNAL",
+    "OUTPUT_OK_BOOLEAN",
+    "CI_CD_BLOCKING_GATE",
 ]
 
 LIMITATIONS = {
@@ -165,6 +207,14 @@ LIMITATIONS = {
     "not_runtime_control": True,
     "not_policy_engine": True,
     "not_compliance_oracle": True,
+    "does_not_validate_host_platform_native_scoring_behavior": True,
+    "does_not_validate_human_free_text_interpretation": True,
+    "does_not_validate_executive_narrative_framing": True,
+    "does_not_validate_sla_configuration_compliance": True,
+    "does_not_validate_review_queue_routing_adequacy": True,
+    "does_not_validate_data_quality": True,
+    "does_not_validate_metadata_health": True,
+    "does_not_validate_documentation_completeness": True,
 }
 
 NON_CLAIMS = {
@@ -179,6 +229,13 @@ NON_CLAIMS = {
     "does_not_create_control_satisfaction": True,
     "does_not_create_workflow_transition": True,
     "does_not_create_aggregate_posture": True,
+    "does_not_create_sla_satisfaction": True,
+    "does_not_create_review_tier_eligibility": True,
+    "does_not_create_data_quality_status": True,
+    "does_not_create_metadata_health_status": True,
+    "does_not_create_documentation_completeness_status": True,
+    "does_not_create_host_native_scoring_input": True,
+    "does_not_create_human_prose_approval": True,
 }
 
 VALIDATES = [
@@ -202,6 +259,14 @@ VALIDATES = [
     "authority_inheritance_prohibition",
     "unresolved_gap_preservation",
     "checker_output_contract_conformance",
+    "output_actionability_constraints",
+    "proxy_laundering_constraints",
+    "host_conformance_constraints",
+    "proxy_laundering_detection",
+    "sla_timer_coercion_detection",
+    "review_tier_routing_detection",
+    "host_native_scoring_attachment_detection",
+    "output_ok_boolean_absence",
 ]
 
 DOES_NOT_VALIDATE = [
@@ -226,6 +291,14 @@ DOES_NOT_VALIDATE = [
     "quantitative_risk_reduction",
     "visual_assurance",
     "workflow_transition",
+    "host_platform_native_scoring_behavior",
+    "human_free_text_interpretation",
+    "executive_narrative_framing",
+    "sla_configuration_compliance",
+    "review_queue_routing_adequacy",
+    "data_quality_actuality",
+    "metadata_health_actuality",
+    "documentation_completeness_actuality",
 ]
 
 FORBIDDEN_FIELD_NAMES = {
@@ -367,6 +440,32 @@ FORBIDDEN_TARGET_FRAGMENTS = [
     "default_allow",
     "no_ccec",
     "unless_no_ccec",
+    "data_quality",
+    "metadata_health",
+    "documentation_completeness",
+    "sla_met",
+    "sla_paused",
+    "sla_stopped",
+    "sla_timer",
+    "fast_track",
+    "routing_tier",
+    "review_tier",
+    "lower_friction",
+    "standard_review_queue",
+    "triage_complete",
+    "archived",
+    "promoted",
+    "governance_readiness",
+    "governance_health",
+    "required_coverage",
+    "native_scoring",
+    "evidence_attachment_count",
+    "host_design_system",
+    "verified_secure",
+    "secure_shield",
+    "human_prose",
+    "green_signal",
+    "metadata_quality",
 ]
 
 RUNTIME_USE_EXPECTED = {
@@ -422,6 +521,9 @@ VISUAL_SEMANTICS_EXPECTED = {
     "click_to_expand_limitations_insufficient": True,
     "tooltip_status_language_prohibited": True,
     "neutral_documentation_label_required": True,
+    "host_design_system_assurance_signal_prohibited": True,
+    "tab_or_pagination_limitation_disclosure_insufficient": True,
+    "scroll_only_limitation_disclosure_insufficient": True,
 }
 
 AGGREGATE_METRIC_EXPECTED = {
@@ -441,6 +543,41 @@ WORKFLOW_TRANSITION_EXPECTED = {
     "ccec_triggered_deployment_transition_prohibited": True,
     "ccec_triggered_audit_finding_closure_prohibited": True,
     "ccec_triggered_policy_exception_or_waiver_prohibited": True,
+}
+
+OUTPUT_ACTIONABILITY_EXPECTED = {
+    "top_level_ok_boolean_prohibited": True,
+    "structural_pass_non_actionable": True,
+    "exit_zero_not_approval_signal": True,
+    "ci_cd_blocking_gate_use_prohibited": True,
+    "checker_may_run_only_as_audit_or_non_actionable_validation": True,
+    "ci_job_name_must_disclose_structural_only_scope": True,
+    "result_kind_must_not_be_extracted_without_limitations": True
+}
+
+PROXY_LAUNDERING_EXPECTED = {
+    "data_quality_proxy_mapping_prohibited": True,
+    "metadata_health_proxy_mapping_prohibited": True,
+    "documentation_completeness_proxy_mapping_prohibited": True,
+    "sla_timer_coercion_prohibited": True,
+    "sla_met_or_paused_status_prohibited": True,
+    "review_tier_fast_track_prohibited": True,
+    "lower_friction_queue_routing_prohibited": True,
+    "triage_completion_proxy_prohibited": True,
+    "required_coverage_baseline_posture_prohibited": True,
+    "host_design_system_assurance_signal_prohibited": True
+}
+
+HOST_CONFORMANCE_EXPECTED = {
+    "host_native_scoring_must_not_use_ccec_attachment_count": True,
+    "ccec_attachment_to_scored_object_requires_disabled_score_contribution": True,
+    "human_checklist_item_must_not_use_ccec_as_gate": True,
+    "human_free_text_summary_must_not_launder_ccec_into_approval": True,
+    "ccec_presence_must_not_control_approval_ui_availability": True,
+    "integration_conformance_review_required": True,
+    "external_behavior_outside_checker_scope_acknowledged": True,
+    "opaque_host_scoring_declared_residual_risk": True,
+    "human_prose_summary_declared_residual_risk": True
 }
 
 def repo_root() -> Path:
@@ -647,6 +784,9 @@ def contract_errors(profile: dict[str, Any]) -> list[dict[str, str]]:
     check_expected_object(profile, "visual_semantics_constraints", VISUAL_SEMANTICS_EXPECTED, "CCEC_INTEROP_VISUAL_SEMANTICS_CONSTRAINT_VIOLATION", errors)
     check_expected_object(profile, "aggregate_metric_constraints", AGGREGATE_METRIC_EXPECTED, "CCEC_INTEROP_AGGREGATE_METRIC_CONSTRAINT_VIOLATION", errors)
     check_expected_object(profile, "workflow_transition_constraints", WORKFLOW_TRANSITION_EXPECTED, "CCEC_INTEROP_WORKFLOW_TRANSITION_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "output_actionability_constraints", OUTPUT_ACTIONABILITY_EXPECTED, "CCEC_INTEROP_OUTPUT_ACTIONABILITY_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "proxy_laundering_constraints", PROXY_LAUNDERING_EXPECTED, "CCEC_INTEROP_PROXY_LAUNDERING_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "host_conformance_constraints", HOST_CONFORMANCE_EXPECTED, "CCEC_INTEROP_HOST_CONFORMANCE_CONSTRAINT_VIOLATION", errors)
 
     for index, rule in enumerate(profile.get("mapping_rules", [])):
         if not isinstance(rule, dict):
@@ -693,7 +833,12 @@ def make_output(input_path: Path, result_kind: str, errors: list[dict[str, str]]
     return {
         "checker": {"name": CHECKER_NAME, "version": CHECKER_VERSION},
         "input": {"path": str(input_path)},
-        "result": {"ok": result_kind == "STRUCTURAL_PASS", "result_kind": result_kind},
+        "result": {
+            "result_kind": result_kind,
+            "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
+            "safe_to_automate": False,
+            "automation_interpretation_required": True,
+        },
         "errors": errors,
         "warnings": warnings or [],
         "scope": {
@@ -728,7 +873,7 @@ def emit(output: dict[str, Any]) -> int:
         return 2
 
     print(json.dumps(output, indent=2, sort_keys=True))
-    return 0 if output["result"]["ok"] else 1
+    return 0 if output["result"]["result_kind"] == "STRUCTURAL_PASS" else 1
 
 def check(path: Path) -> dict[str, Any]:
     profile, input_errors = load_json_file(path)
