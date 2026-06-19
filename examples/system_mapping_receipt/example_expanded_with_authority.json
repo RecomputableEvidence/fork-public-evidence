@@ -1,0 +1,40 @@
+{
+  "receipt_type": "SYSTEM_MAPPING_RECEIPT",
+  "receipt_version": "0.1",
+  "source_record_ref": "cbc:synthetic-prior-auth-denial-boundary-v0-1",
+  "consumer_system_ref": "downstream:appeals-routing-review-v0-1",
+  "consumer_declared_boundary_behavior": "EXPANDED",
+  "boundary_behavior_records": [
+    {
+      "claim_ref": "claim:denial-letter-generated",
+      "behavior": "EXPANDED",
+      "mapping_note": "Downstream consumer adds a separate routing eligibility claim with its own authority and evidence references.",
+      "preserved_non_claims": [
+        "does_not_claim_medical_necessity",
+        "does_not_claim_legal_sufficiency"
+      ],
+      "dropped_non_claims": [],
+      "dropped_non_claims_disclosed": true,
+      "unresolved_pointers": [],
+      "unresolved_pointer_disposition": "NONE",
+      "resolution_evidence_refs": [],
+      "consumer_added_claims": [
+        {
+          "claim_id": "consumer-claim:appeals-routing-eligible",
+          "claim_text": "The record is eligible for synthetic appeals-routing review under the downstream demonstration profile.",
+          "authority_ref": "authority:synthetic-appeals-routing-demo-profile-v0-1",
+          "evidence_refs": [
+            "evidence:synthetic-routing-profile",
+            "evidence:source-record-present"
+          ]
+        }
+      ]
+    }
+  ],
+  "receipt_non_claims": [
+    "does_not_approve_downstream_action",
+    "does_not_validate_truth",
+    "does_not_validate_compliance",
+    "does_not_validate_safety"
+  ]
+}

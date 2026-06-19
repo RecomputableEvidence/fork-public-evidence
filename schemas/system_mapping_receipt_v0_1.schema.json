@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/system_mapping_receipt_v0_1.schema.json",
+  "title": "SYSTEM_MAPPING_RECEIPT v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_type",
+    "receipt_version",
+    "source_record_ref",
+    "consumer_system_ref",
+    "consumer_declared_boundary_behavior",
+    "boundary_behavior_records",
+    "receipt_non_claims"
+  ],
+  "properties": {
+    "receipt_type": {
+      "const": "SYSTEM_MAPPING_RECEIPT"
+    },
+    "receipt_version": {
+      "const": "0.1"
+    },
+    "source_record_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "consumer_system_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "consumer_declared_boundary_behavior": {
+      "$ref": "#/definitions/boundary_behavior"
+    },
+    "boundary_behavior_records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/boundary_behavior_record"
+      }
+    },
+    "receipt_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "definitions": {
+    "boundary_behavior": {
+      "type": "string",
+      "enum": [
+        "PRESERVED",
+        "NARROWED",
+        "EXPANDED",
+        "UNRESOLVED",
+        "MIXED"
+      ]
+    },
+    "pointer_disposition": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "CARRIED_FORWARD",
+        "RESOLVED_WITH_EVIDENCE",
+        "SILENTLY_RESOLVED"
+      ]
+    },
+    "string_list": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "consumer_added_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "claim_text",
+        "authority_ref",
+        "evidence_refs"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority_ref": {
+          "type": "string"
+        },
+        "evidence_refs": {
+          "$ref": "#/definitions/string_list"
+        }
+      }
+    },
+    "boundary_behavior_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_ref",
+        "behavior",
+        "preserved_non_claims",
+        "dropped_non_claims",
+        "dropped_non_claims_disclosed",
+        "unresolved_pointers",
+        "unresolved_pointer_disposition",
+        "resolution_evidence_refs",
+        "consumer_added_claims"
+      ],
+      "properties": {
+        "claim_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "behavior": {
+          "type": "string",
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "EXPANDED",
+            "UNRESOLVED"
+          ]
+        },
+        "mapping_note": {
+          "type": "string"
+        },
+        "preserved_non_claims": {
+          "$ref": "#/definitions/string_list"
+        },
+        "dropped_non_claims": {
+          "$ref": "#/definitions/string_list"
+        },
+        "dropped_non_claims_disclosed": {
+          "type": "boolean"
+        },
+        "unresolved_pointers": {
+          "$ref": "#/definitions/string_list"
+        },
+        "unresolved_pointer_disposition": {
+          "$ref": "#/definitions/pointer_disposition"
+        },
+        "resolution_evidence_refs": {
+          "$ref": "#/definitions/string_list"
+        },
+        "consumer_added_claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/consumer_added_claim"
+          }
+        }
+      }
+    }
+  }
+}
