@@ -53,7 +53,8 @@
   "market_system_analogue": {
     "stored_as": "trace_span_or_audit_log_row",
     "likely_market_record": "A conventional trace/audit system may store request, response, actor, timestamp, and artifact references.",
-    "fork_gap_tested": "Whether the downstream record explicitly preserved upstream non-claims."
+    "fork_gap_tested": "Whether the downstream record explicitly preserved upstream non-claims.",
+    "analogue_interpretation_boundary": "Conceptual public-documentation analogue only; does not imply native vendor support, product equivalence, or vendor-endorsed integration behavior."
   },
   "simulation_non_claims": [
     "does_not_represent_real_vendor_behavior",

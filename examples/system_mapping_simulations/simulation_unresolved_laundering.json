@@ -55,7 +55,8 @@
   "market_system_analogue": {
     "stored_as": "trace_span_with_successful_runtime_completion",
     "likely_market_record": "A trace system may store that the workflow step completed even though a claim pointer remained unresolved.",
-    "fork_gap_tested": "Whether runtime completion is prevented from laundering unresolved claim state."
+    "fork_gap_tested": "Whether runtime completion is prevented from laundering unresolved claim state.",
+    "analogue_interpretation_boundary": "Conceptual public-documentation analogue only; does not imply native vendor support, product equivalence, or vendor-endorsed integration behavior."
   },
   "simulation_non_claims": [
     "does_not_represent_real_vendor_behavior",

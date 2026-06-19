@@ -6,6 +6,22 @@ This research note compares SYSTEM_MAPPING_RECORD against common storage pattern
 
 The purpose is not to claim that those systems are deficient. The purpose is to identify where Fork can sit beside existing trace, lineage, registry, evaluation, and audit-log systems without pretending to replace them.
 
+## Naming relationship
+
+SYSTEM_MAPPING_RECORD is the broader conceptual category: a downstream handoff record that declares whether upstream claim boundaries were preserved, narrowed, expanded, or left unresolved.
+
+SYSTEM_MAPPING_RECEIPT is the concrete v0.1 artifact and checker implementation currently used to express that record structure in this repository.
+
+This document uses SYSTEM_MAPPING_RECORD when discussing the architectural category and SYSTEM_MAPPING_RECEIPT when referring to the specific v0.1 receipt implementation.
+
+## Research posture and vendor-language boundary
+
+This document is a research scaffold over public documentation. It is not an exhaustive product analysis of any vendor product, standard, API, or platform.
+
+The market-system analogies below are heuristic mapping aids. They do not assert product equivalence, native vendor support, vendor deficiency, or vendor-endorsed integration behavior.
+
+This document does not claim that any platform cannot support claim-boundary metadata through extensions, custom schemas, tags, labels, metadata fields, artifacts, workflow integrations, governance policies, or third-party integrations.
+
 ## Working thesis
 
 Traceability records what happened.
@@ -64,3 +80,42 @@ Publicly documented storage primitives primarily emphasize traces, lineage, arti
 4. Can SYSTEM_MAPPING_RECORD complement audit logs without becoming an approval or compliance finding?
 5. Can unresolved pointers remain visible when downstream platforms prefer terminal success/failure states?
 6. Can expansion authority references avoid circular reliance on structural evidence artifacts?
+
+
+## Worked example: traceability and lineage without boundary mapping
+
+A trace system may record that a downstream workflow step executed.
+
+A lineage system may record that the downstream workflow consumed an upstream artifact.
+
+Both records may be accurate.
+
+The remaining boundary question is different: did the downstream system stay inside the upstream claim boundary?
+
+Example:
+
+- Upstream artifact claim: `claim:denial-letter-generated`
+- Upstream non-claim: `does_not_claim_medical_correctness`
+- Downstream statement: `ready_for_appeals_routing`
+
+Traceability can show that the routing step happened.
+
+Lineage can show that the routing step consumed the denial-letter artifact.
+
+SYSTEM_MAPPING_RECORD asks whether the downstream `ready_for_appeals_routing` statement preserved the upstream boundary, narrowed it, expanded it with authority and evidence, or silently inherited a claim the upstream artifact did not make.
+
+## Pre-tag review notes
+
+The v0.1 research scaffold intentionally avoids vendor capability conclusions.
+
+Preferred framing:
+
+- public documentation emphasizes traceability, lineage, artifact, registry, evaluation, metadata, and audit-log storage;
+- SYSTEM_MAPPING_RECORD tests a narrower claim-boundary handoff primitive;
+- Fork can sit beside existing trace, lineage, registry, observability, and audit systems.
+
+Avoided framing:
+
+- any unsupported negative capability statement about a named platform;
+- any exclusive-capability statement about Fork or claim-boundary handoffs;
+- any statement that a market gap has been proven by this research scaffold.

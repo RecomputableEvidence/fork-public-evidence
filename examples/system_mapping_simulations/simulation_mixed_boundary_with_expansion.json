@@ -1,0 +1,96 @@
+{
+  "simulation_id": "simulation:mixed-boundary-with-expansion-v0-1",
+  "simulation_version": "0.1",
+  "simulation_class": "MIXED_WITH_EXPANSION",
+  "expected_result_kind": "SIMULATION_MAPPING_RECORDED",
+  "upstream_boundary_summary": {
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-letter-generated",
+      "claim:appeals-routing-review"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_legal_sufficiency",
+      "does_not_claim_routing_approval"
+    ]
+  },
+  "downstream_mapping_receipt": {
+    "receipt_type": "SYSTEM_MAPPING_RECEIPT",
+    "receipt_version": "0.1",
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-letter-generated",
+      "claim:appeals-routing-review"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_legal_sufficiency",
+      "does_not_claim_routing_approval"
+    ],
+    "consumer_system_ref": "downstream:synthetic-consumer-v0-1",
+    "consumer_declared_boundary_behavior": "MIXED",
+    "boundary_behavior_records": [
+      {
+        "claim_ref": "claim:denial-letter-generated",
+        "behavior": "PRESERVED",
+        "mapping_note": "Downstream preserves the upstream artifact-generation claim.",
+        "preserved_non_claims": [
+          "does_not_claim_medical_correctness",
+          "does_not_claim_legal_sufficiency",
+          "does_not_claim_routing_approval"
+        ],
+        "dropped_non_claims": [],
+        "dropped_non_claims_disclosed": true,
+        "unresolved_pointers": [],
+        "unresolved_pointer_disposition": "NONE",
+        "resolution_evidence_refs": [],
+        "consumer_added_claims": []
+      },
+      {
+        "claim_ref": "claim:appeals-routing-review",
+        "behavior": "EXPANDED",
+        "mapping_note": "Downstream adds a separate routing-review eligibility claim with authority and evidence.",
+        "preserved_non_claims": [
+          "does_not_claim_medical_correctness",
+          "does_not_claim_legal_sufficiency",
+          "does_not_claim_routing_approval"
+        ],
+        "dropped_non_claims": [],
+        "dropped_non_claims_disclosed": true,
+        "unresolved_pointers": [],
+        "unresolved_pointer_disposition": "NONE",
+        "resolution_evidence_refs": [],
+        "consumer_added_claims": [
+          {
+            "claim_id": "consumer-claim:eligible-for-routing-review",
+            "claim_text": "The record is eligible for synthetic routing-review under the downstream demonstration profile.",
+            "authority_ref": "authority:synthetic-routing-review-profile-v0-1",
+            "evidence_refs": [
+              "evidence:synthetic-routing-review-profile",
+              "evidence:source-record-present"
+            ]
+          }
+        ]
+      }
+    ],
+    "receipt_non_claims": [
+      "does_not_approve_downstream_action",
+      "does_not_validate_truth",
+      "does_not_validate_compliance",
+      "does_not_validate_safety"
+    ]
+  },
+  "market_system_analogue": {
+    "stored_as": "multi_span_trace_or_lineage_graph_with_linked_metadata",
+    "likely_market_record": "A trace or lineage system may record multiple upstream-to-downstream relationships across a workflow.",
+    "fork_gap_tested": "Whether heterogeneous per-claim behavior remains visible instead of being flattened into one aggregate handoff state.",
+    "analogue_interpretation_boundary": "Conceptual public-documentation analogue only; does not imply native vendor support, product equivalence, or vendor-endorsed integration behavior."
+  },
+  "simulation_non_claims": [
+    "does_not_represent_real_vendor_behavior",
+    "does_not_validate_market_system_compliance",
+    "does_not_claim_production_readiness",
+    "does_not_replace_platform_native_audit_logs"
+  ]
+}

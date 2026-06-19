@@ -52,7 +52,8 @@
   "market_system_analogue": {
     "stored_as": "lineage_edge_without_non_claim_fields",
     "likely_market_record": "A lineage edge may show consumption of the upstream artifact without preserving explicit non-claims.",
-    "fork_gap_tested": "Whether omitted upstream non-claims become visible as mapping gaps."
+    "fork_gap_tested": "Whether omitted upstream non-claims become visible as mapping gaps.",
+    "analogue_interpretation_boundary": "Conceptual public-documentation analogue only; does not imply native vendor support, product equivalence, or vendor-endorsed integration behavior."
   },
   "simulation_non_claims": [
     "does_not_represent_real_vendor_behavior",

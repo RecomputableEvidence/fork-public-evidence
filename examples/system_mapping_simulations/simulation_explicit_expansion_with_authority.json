@@ -63,7 +63,8 @@
   "market_system_analogue": {
     "stored_as": "model_registry_artifact_or_evaluation_record",
     "likely_market_record": "A registry/evaluation system may store a versioned artifact or evaluation result for the downstream step.",
-    "fork_gap_tested": "Whether an added downstream claim carries its own authority and evidence."
+    "fork_gap_tested": "Whether an added downstream claim carries its own authority and evidence.",
+    "analogue_interpretation_boundary": "Conceptual public-documentation analogue only; does not imply native vendor support, product equivalence, or vendor-endorsed integration behavior."
   },
   "simulation_non_claims": [
     "does_not_represent_real_vendor_behavior",

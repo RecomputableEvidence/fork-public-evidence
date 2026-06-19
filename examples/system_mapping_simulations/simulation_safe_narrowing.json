@@ -53,7 +53,8 @@
   "market_system_analogue": {
     "stored_as": "lineage_edge_or_workflow_metadata",
     "likely_market_record": "A lineage or workflow system may record that the downstream intake step consumed the upstream artifact.",
-    "fork_gap_tested": "Whether the downstream system narrowed rather than silently expanded the upstream claim."
+    "fork_gap_tested": "Whether the downstream system narrowed rather than silently expanded the upstream claim.",
+    "analogue_interpretation_boundary": "Conceptual public-documentation analogue only; does not imply native vendor support, product equivalence, or vendor-endorsed integration behavior."
   },
   "simulation_non_claims": [
     "does_not_represent_real_vendor_behavior",

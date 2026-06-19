@@ -58,6 +58,14 @@ Expected result kind:
 
 `SIMULATION_NON_CLAIM_DROP_RECORDED`
 
+### MIXED_WITH_EXPANSION
+
+The downstream mapping has heterogeneous per-claim behavior, including at least one expansion with authority and evidence.
+
+Expected result kind:
+
+`SIMULATION_MAPPING_RECORDED`
+
 ### UNRESOLVED_LAUNDERING
 
 The upstream boundary includes an unresolved pointer, and the downstream mapping treats it as resolved without resolution evidence.
@@ -90,3 +98,40 @@ The analogue is illustrative. It is not a vendor integration and does not claim 
 The v0.1 harness validates synthetic simulation fixtures and expected structural outcomes.
 
 It does not ingest real Databricks, Purview, Bedrock, Vertex, LangSmith, Phoenix, W&B, OpenLineage, OpenTelemetry, or MLflow records.
+
+
+## Authority validation depth
+
+The v0.1 harness checks structural authority presence.
+
+It verifies that expansion records contain non-empty `authority_ref` and `evidence_refs` through SYSTEM_MAPPING_RECEIPT validation.
+
+It does not independently validate that the cited authority is institutionally sufficient, legally sufficient, policy-approved, or substantively correct.
+
+## Harness-level and simulation-level result kinds
+
+The simulation-level result kinds describe observed handoff behavior:
+
+- SIMULATION_MAPPING_RECORDED
+- SIMULATION_EXPANSION_GAP_RECORDED
+- SIMULATION_NON_CLAIM_DROP_RECORDED
+- SIMULATION_UNRESOLVED_POINTER_GAP_RECORDED
+
+The harness-level result kinds describe runner or expectation conditions:
+
+- SIMULATION_EXPECTATION_MISMATCH_RECORDED
+- SIMULATION_INPUT_GAP_RECORDED
+
+Harness-level result kinds are not handoff-behavior classes. They indicate that the simulation runner encountered an input or expectation condition requiring review.
+
+## v0.2 candidate failure modes
+
+Future iterations may add:
+
+- MIXED boundary with hidden expansion pressure tests across larger multi-claim sets;
+- NARROWED records that attempt to justify silent non-claim dropping;
+- CONTRADICTORY_RELATION cases where downstream asserts the inverse of an upstream non-claim;
+- MULTIPLEXED_UPSTREAM_CONFLATION cases where one downstream consumer merges multiple upstream boundaries with conflicting claim perimeters;
+- deeper authority-reference validation profiles.
+
+These are not required for the v0.1 research scaffold.

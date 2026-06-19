@@ -37,6 +37,12 @@
       "simulation_id": "simulation:unresolved-laundering-v0-1",
       "simulation_class": "UNRESOLVED_LAUNDERING",
       "expected_result_kind": "SIMULATION_UNRESOLVED_POINTER_GAP_RECORDED"
+    },
+    {
+      "path": "examples/system_mapping_simulations/simulation_mixed_boundary_with_expansion.json",
+      "simulation_id": "simulation:mixed-boundary-with-expansion-v0-1",
+      "simulation_class": "MIXED_WITH_EXPANSION",
+      "expected_result_kind": "SIMULATION_MAPPING_RECORDED"
     }
   ],
   "manifest_non_claims": [
