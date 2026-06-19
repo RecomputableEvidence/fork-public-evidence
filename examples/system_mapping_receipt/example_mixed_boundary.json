@@ -3,17 +3,33 @@
   "receipt_version": "0.1",
   "source_record_ref": "cbc:synthetic-prior-auth-denial-boundary-v0-1",
   "source_claim_refs": [
-    "claim:denial-letter-generated"
+    "claim:denial-letter-generated",
+    "claim:appeals-routing-eligibility"
   ],
   "source_non_claim_refs": [
     "does_not_claim_medical_necessity",
     "does_not_claim_legal_sufficiency"
   ],
   "consumer_system_ref": "downstream:appeals-routing-review-v0-1",
-  "consumer_declared_boundary_behavior": "EXPANDED",
+  "consumer_declared_boundary_behavior": "MIXED",
   "boundary_behavior_records": [
     {
       "claim_ref": "claim:denial-letter-generated",
+      "behavior": "PRESERVED",
+      "mapping_note": "Downstream consumer preserves the upstream denial-letter generation boundary.",
+      "preserved_non_claims": [
+        "does_not_claim_medical_necessity",
+        "does_not_claim_legal_sufficiency"
+      ],
+      "dropped_non_claims": [],
+      "dropped_non_claims_disclosed": true,
+      "unresolved_pointers": [],
+      "unresolved_pointer_disposition": "NONE",
+      "resolution_evidence_refs": [],
+      "consumer_added_claims": []
+    },
+    {
+      "claim_ref": "claim:appeals-routing-eligibility",
       "behavior": "EXPANDED",
       "mapping_note": "Downstream consumer adds a separate routing eligibility claim with its own authority and evidence references.",
       "preserved_non_claims": [

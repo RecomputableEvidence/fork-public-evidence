@@ -15,7 +15,7 @@
     {
       "claim_ref": "claim:denial-rationale-pointer",
       "behavior": "UNRESOLVED",
-      "mapping_note": "Downstream consumer treats an unresolved upstream pointer as resolved without evidence.",
+      "mapping_note": "Downstream consumer carries the unresolved upstream pointer forward without treating it as resolved.",
       "preserved_non_claims": [
         "does_not_claim_medical_necessity",
         "does_not_claim_rationale_resolution"
@@ -25,7 +25,7 @@
       "unresolved_pointers": [
         "pointer:clinical-rationale-source"
       ],
-      "unresolved_pointer_disposition": "SILENTLY_RESOLVED",
+      "unresolved_pointer_disposition": "CARRIED_FORWARD",
       "resolution_evidence_refs": [],
       "consumer_added_claims": []
     }

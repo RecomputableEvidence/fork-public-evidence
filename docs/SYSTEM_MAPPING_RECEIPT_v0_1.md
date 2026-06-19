@@ -111,3 +111,43 @@ It checks that:
 This v0.1 artifact defines SYSTEM_MAPPING_RECEIPT structure and a deterministic checker.
 
 It does not alter CBC, CCE, RGV, CCEC, claim-inheritance, or broader Fork governance semantics.
+
+## v0.1 review hardening notes
+
+### Receipt-declared coverage
+
+The v0.1 receipt includes `source_claim_refs` and `source_non_claim_refs`.
+
+The checker verifies receipt-declared coverage by requiring each declared upstream claim reference to appear in `boundary_behavior_records[].claim_ref`.
+
+The checker also verifies that each declared upstream non-claim reference appears in either `preserved_non_claims` or `dropped_non_claims`.
+
+This is an internal structural coverage check for the receipt. It does not independently fetch or validate the upstream source record. Independent upstream-manifest cross-checking is reserved for a later alignment harness.
+
+### MIXED behavior
+
+`MIXED` is an aggregate declaration only.
+
+It is not a leaf-level result. A MIXED receipt requires per-claim `boundary_behavior_records` showing which claims were preserved, narrowed, expanded, or left unresolved.
+
+Downstream consumers must not treat MIXED as approval, readiness, or a single flattened disposition. MIXED requires per-claim inspection.
+
+### EXPANDED behavior
+
+`EXPANDED` records require downstream added claims.
+
+Each downstream added claim requires a non-empty `authority_ref` and at least one evidence reference.
+
+The checker also rejects authority references that point back to Fork structural receipts, checker artifacts, schemas, or the consuming system itself. Fork records structural evidence boundaries; it does not provide substantive authority for downstream claim expansion.
+
+### UNRESOLVED behavior
+
+`UNRESOLVED` is a visible mapping state, not a default approval state.
+
+A receipt carrying unresolved pointers can be structurally recorded as provisional mapping evidence, but unresolved pointers must not be silently treated as preserved, narrowed, expanded, approved, compliant, or resolved.
+
+### Non-decisional result semantics
+
+`STRUCTURAL_MAPPING_RECORDED`, `STRUCTURAL_MAPPING_PROVISIONAL_RECORDED`, and gap-recording result kinds are evidence records.
+
+They may inform separate review, policy, or governance processes, but they do not themselves approve, reject, authorize, certify, or determine compliance.

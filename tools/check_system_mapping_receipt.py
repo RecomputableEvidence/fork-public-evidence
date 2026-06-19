@@ -20,6 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = REPO_ROOT / "schemas" / "system_mapping_receipt_v0_1.schema.json"
 
 RECORDED_KIND = "STRUCTURAL_MAPPING_RECORDED"
+PROVISIONAL_KIND = "STRUCTURAL_MAPPING_PROVISIONAL_RECORDED"
 INCOMPLETE_KIND = "MAPPING_INCOMPLETE_RECORDED"
 EXPANSION_GAP_KIND = "EXPANSION_AUTHORITY_GAP_RECORDED"
 NON_CLAIM_DROP_KIND = "NON_CLAIM_DROP_RECORDED"
@@ -64,6 +65,32 @@ def is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and value.strip() != ""
 
 
+def is_structural_authority_ref(value: str) -> bool:
+    normalized = value.strip().lower()
+    structural_prefixes = (
+        "fork:",
+        "receipt:",
+        "checker:",
+        "schema:",
+        "structural:",
+        "system_mapping_receipt:",
+    )
+    return normalized.startswith(structural_prefixes)
+
+
+def is_self_authority_ref(authority_ref: str, consumer_system_ref: Any) -> bool:
+    if not isinstance(consumer_system_ref, str):
+        return False
+
+    authority = authority_ref.strip().lower()
+    consumer = consumer_system_ref.strip().lower()
+
+    if not consumer:
+        return False
+
+    return authority == consumer or authority.startswith("self:") or authority.startswith("consumer:self")
+
+
 def schema_errors(receipt: Any) -> list[dict[str, str]]:
     schema = load_json(SCHEMA_PATH)
     validator = Draft7Validator(schema)
@@ -80,6 +107,24 @@ def schema_errors(receipt: Any) -> list[dict[str, str]]:
     return errors
 
 
+def list_values(value: Any) -> list[str]:
+    if not isinstance(value, list):
+        return []
+
+    return [item for item in value if isinstance(item, str)]
+
+
+def has_unresolved_behavior(receipt: Any) -> bool:
+    if not isinstance(receipt, dict):
+        return False
+
+    records = receipt.get("boundary_behavior_records")
+    if not isinstance(records, list):
+        return False
+
+    return any(isinstance(record, dict) and record.get("behavior") == "UNRESOLVED" for record in records)
+
+
 def custom_errors(receipt: Any) -> list[dict[str, str]]:
     errors: list[dict[str, str]] = []
 
@@ -92,6 +137,7 @@ def custom_errors(receipt: Any) -> list[dict[str, str]]:
         return errors
 
     declared_behavior = receipt.get("consumer_declared_boundary_behavior")
+    consumer_system_ref = receipt.get("consumer_system_ref")
     record_behaviors = [
         record.get("behavior")
         for record in records
@@ -115,6 +161,37 @@ def custom_errors(receipt: Any) -> list[dict[str, str]]:
                     f"boundary_behavior_records[{index}].behavior",
                     "Non-MIXED declaration must match each per-claim behavior record.",
                 )
+
+    mapped_claim_refs = {
+        record.get("claim_ref")
+        for record in records
+        if isinstance(record, dict) and isinstance(record.get("claim_ref"), str)
+    }
+
+    for index, claim_ref in enumerate(list_values(receipt.get("source_claim_refs"))):
+        if claim_ref not in mapped_claim_refs:
+            add_error(
+                errors,
+                "SOURCE_CLAIM_UNMAPPED",
+                f"source_claim_refs[{index}]",
+                "Each receipt-declared source claim reference must have a boundary behavior record.",
+            )
+
+    handled_non_claims: set[str] = set()
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        handled_non_claims.update(list_values(record.get("preserved_non_claims")))
+        handled_non_claims.update(list_values(record.get("dropped_non_claims")))
+
+    for index, non_claim_ref in enumerate(list_values(receipt.get("source_non_claim_refs"))):
+        if non_claim_ref not in handled_non_claims:
+            add_error(
+                errors,
+                "SOURCE_NON_CLAIM_UNMAPPED",
+                f"source_non_claim_refs[{index}]",
+                "Each receipt-declared source non-claim reference must be preserved or explicitly dropped.",
+            )
 
     for index, record in enumerate(records):
         if not isinstance(record, dict):
@@ -160,12 +237,27 @@ def custom_errors(receipt: Any) -> list[dict[str, str]]:
                     if not isinstance(claim, dict):
                         continue
 
-                    if not is_non_empty_string(claim.get("authority_ref")):
+                    authority_ref = claim.get("authority_ref")
+                    if not is_non_empty_string(authority_ref):
                         add_error(
                             errors,
                             "EXPANSION_AUTHORITY_REF_MISSING",
                             f"{claim_base}.authority_ref",
                             "Downstream added claims require a non-empty authority_ref.",
+                        )
+                    elif is_structural_authority_ref(authority_ref):
+                        add_error(
+                            errors,
+                            "EXPANSION_AUTHORITY_REF_STRUCTURAL_ONLY",
+                            f"{claim_base}.authority_ref",
+                            "authority_ref must not point to Fork structural receipts, schemas, or checker artifacts.",
+                        )
+                    elif is_self_authority_ref(authority_ref, consumer_system_ref):
+                        add_error(
+                            errors,
+                            "EXPANSION_AUTHORITY_REF_SELF_REFERENTIAL",
+                            f"{claim_base}.authority_ref",
+                            "authority_ref must not be self-referential to the consuming system.",
                         )
 
                     evidence_refs = claim.get("evidence_refs")
@@ -235,8 +327,10 @@ def custom_errors(receipt: Any) -> list[dict[str, str]]:
     return errors
 
 
-def choose_result_kind(errors: list[dict[str, str]]) -> str:
+def choose_result_kind(errors: list[dict[str, str]], receipt: Any) -> str:
     if not errors:
+        if has_unresolved_behavior(receipt):
+            return PROVISIONAL_KIND
         return RECORDED_KIND
 
     codes = {error["code"] for error in errors}
@@ -244,6 +338,8 @@ def choose_result_kind(errors: list[dict[str, str]]) -> str:
     if {
         "EXPANSION_WITHOUT_ADDED_CLAIM",
         "EXPANSION_AUTHORITY_REF_MISSING",
+        "EXPANSION_AUTHORITY_REF_STRUCTURAL_ONLY",
+        "EXPANSION_AUTHORITY_REF_SELF_REFERENTIAL",
         "EXPANDED_CLAIM_EVIDENCE_REF_MISSING",
     } & codes:
         return EXPANSION_GAP_KIND
@@ -251,6 +347,7 @@ def choose_result_kind(errors: list[dict[str, str]]) -> str:
     if {
         "NON_CLAIM_DROPPED_WITHOUT_DISCLOSURE",
         "PRESERVED_RECORD_DROPS_NON_CLAIMS",
+        "SOURCE_NON_CLAIM_UNMAPPED",
     } & codes:
         return NON_CLAIM_DROP_KIND
 
@@ -288,6 +385,8 @@ def build_output(input_path: Path, result_kind: str, errors: list[dict[str, str]
             "does_not_validate_legal_sufficiency": True,
             "does_not_validate_control_effectiveness": True,
             "does_not_determine_policy_permission": True,
+            "does_not_independently_fetch_upstream_source_record": True,
+            "validates_receipt_declared_source_coverage_only": True,
             "do_not_map_to": DO_NOT_MAP_TO,
         },
         "errors": sorted(errors, key=lambda item: (item["code"], item["path"], item["message"])),
@@ -296,17 +395,18 @@ def build_output(input_path: Path, result_kind: str, errors: list[dict[str, str]
 
 def check_file(input_path: Path) -> dict[str, Any]:
     errors: list[dict[str, str]] = []
+    receipt: Any = None
 
     try:
         receipt = load_json(input_path)
     except json.JSONDecodeError as exc:
         add_error(errors, "JSON_PARSE_GAP", "$", str(exc))
-        return build_output(input_path, choose_result_kind(errors), errors)
+        return build_output(input_path, choose_result_kind(errors, receipt), errors)
 
     errors.extend(schema_errors(receipt))
     errors.extend(custom_errors(receipt))
 
-    result_kind = choose_result_kind(errors)
+    result_kind = choose_result_kind(errors, receipt)
     return build_output(input_path, result_kind, errors)
 
 
@@ -323,7 +423,7 @@ def main(argv: list[str] | None = None) -> int:
     else:
         print(json.dumps(output, indent=2, sort_keys=True))
 
-    return 0 if output["result"]["result_kind"] == RECORDED_KIND else 1
+    return 0 if output["result"]["result_kind"] in {RECORDED_KIND, PROVISIONAL_KIND} else 1
 
 
 if __name__ == "__main__":
