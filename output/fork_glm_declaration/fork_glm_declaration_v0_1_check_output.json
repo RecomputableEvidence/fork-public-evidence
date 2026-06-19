@@ -1,0 +1,42 @@
+{
+  "checker": {
+    "name": "check_fork_glm_declaration",
+    "version": "0.1"
+  },
+  "manifest": {
+    "path": "C:\\N\\fork-public-evidence\\.well-known\\governance-layer-manifest.json",
+    "schema_version": "1.3",
+    "manifest_kind": "layer",
+    "manifest_version": "0.1",
+    "layer": "Fork"
+  },
+  "actionability": "NON_ACTIONABLE_STRUCTURAL_DECLARATION_ONLY",
+  "result": {
+    "result_kind": "STRUCTURAL_CONFORMANCE_RECORDED",
+    "safe_to_automate": false,
+    "requires_human_interpretation_before_any_automation": true
+  },
+  "scope": {
+    "validates": [
+      "json_parseability",
+      "fork_glm_declaration_schema_conformance",
+      "required_non_claims_presence",
+      "required_forbidden_interpretations_presence",
+      "timing_axis_boundary_presence",
+      "machine_readable_status_boundary_presence",
+      "manifest_digest_recomputability"
+    ],
+    "does_not_validate": [
+      "truth_of_fork_claims",
+      "legal_sufficiency",
+      "compliance",
+      "safety",
+      "risk_acceptance",
+      "external_glm_certification",
+      "host_platform_behavior",
+      "human_prose_or_dashboard_framing",
+      "reciprocal_interoperability_by_adjacent_layers"
+    ]
+  },
+  "errors": []
+}

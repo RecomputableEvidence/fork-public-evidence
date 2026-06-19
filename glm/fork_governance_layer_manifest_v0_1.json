@@ -1,0 +1,290 @@
+{
+  "schema_version": "1.3",
+  "manifest_kind": "layer",
+  "manifest_version": "0.1",
+  "valid_from": "2026-06-19",
+  "valid_until": null,
+  "supersedes": null,
+  "definitions": {
+    "evidence_boundary_record": "A machine-readable record preserving what was claimed, what was not claimed, what evidence was referenced, what reliance was declared, and what unresolved gaps remained at a governance handoff.",
+    "non_claim": "A declared boundary stating what the layer, record, checker, or downstream consumer does not assert.",
+    "claim_expansion": "A downstream interpretation that turns a bounded structural record into a broader approval, truth, safety, compliance, authority, readiness, or sufficiency claim not made by the source artifact.",
+    "local_authority": "The institutionally accountable authority outside Fork that may make legal, compliance, safety, risk, policy, or deployment decisions."
+  },
+  "controlling_test": "Interoperability may increase reviewability only when it preserves claim boundaries, non-claims, unresolved gaps, and local authority rather than silently transferring or expanding them.",
+  "interoperability_doctrine": "Evidence may travel. Non-claims and unresolved gaps should travel with it. Authority remains local.",
+  "layer": {
+    "owner": "NGAST / Fork",
+    "layer_type": "cross_cutting",
+    "vendor_layer_name": "Fork",
+    "vendor_layer_descriptor": "Evidence-boundary infrastructure for AI-assisted governance workflows.",
+    "public_repository": "https://github.com/RecomputableEvidence/fork-public-evidence",
+    "publication_status": "public repository declaration candidate"
+  },
+  "timing_axis": {
+    "position": "cross-cutting",
+    "not_runtime_gate": true,
+    "surfaces": [
+      {
+        "surface": "claim_boundary_creation",
+        "timing_position": "at-bind",
+        "construct": "Claim Boundary Contract",
+        "scope": "records supported claims, explicit non-claims, upstream reliance, verification scope, and non-transitivity at artifact creation or declaration time"
+      },
+      {
+        "surface": "claim_consumption",
+        "timing_position": "post-bind",
+        "construct": "Claim Consumption Event",
+        "scope": "records how a downstream consumer relies on, preserves, narrows, expands, or leaves unresolved a prior claim boundary"
+      },
+      {
+        "surface": "composition_review",
+        "timing_position": "post-bind / post-closure",
+        "construct": "Relational Graph Verifier",
+        "scope": "checks whether assembled claim-boundary and consumption records remain structurally resolvable without silently inheriting claims"
+      },
+      {
+        "surface": "governance_interoperability",
+        "timing_position": "cross-cutting",
+        "construct": "CCEC Governance Interoperability Profile",
+        "scope": "declares how CCEC records may be referenced by GRC, audit, legal, risk, policy, model governance, vendor-risk, evidence, or dashboard systems without becoming approval or control signals"
+      }
+    ]
+  },
+  "operational_scope": {
+    "does": [
+      "preserves machine-readable claim and non-claim boundaries",
+      "records declared upstream reliance and downstream consumption behavior",
+      "identifies unresolved pointers, unresolved gaps, and boundary-expansion conditions",
+      "supports structural checking of declared artifacts, examples, schemas, and generated outputs",
+      "supports independent review of whether a sealed record or assembled bundle still structurally verifies",
+      "supports non-transitivity by default: downstream consumers do not inherit unmade claims"
+    ],
+    "does_not": [
+      "does not approve decisions",
+      "does not validate truth",
+      "does not validate safety",
+      "does not certify compliance",
+      "does not determine legal sufficiency",
+      "does not accept risk",
+      "does not satisfy policy",
+      "does not authorize deployment",
+      "does not transfer institutional authority",
+      "does not operate as runtime control",
+      "does not operate as a policy engine",
+      "does not inspect opaque host-platform scoring behavior",
+      "does not police human prose, dashboard narrative framing, or institutional culture"
+    ]
+  },
+  "claims_boundary": {
+    "authoritative_layer_claim": "Fork preserves and checks machine-readable evidence-boundary records that identify what was claimed, what was not claimed, what evidence was referenced, what reliance was declared, and whether downstream composition preserves or expands those boundaries.",
+    "explicit_non_claims": [
+      "does_not_claim_approval",
+      "does_not_claim_truth",
+      "does_not_claim_safety",
+      "does_not_claim_compliance",
+      "does_not_claim_legal_sufficiency",
+      "does_not_claim_policy_satisfaction",
+      "does_not_claim_risk_acceptance",
+      "does_not_claim_control_effectiveness",
+      "does_not_claim_evidence_sufficiency",
+      "does_not_claim_reasonable_reliance",
+      "does_not_claim_deployment_readiness",
+      "does_not_claim_execution_authorization",
+      "does_not_claim_host_platform_configuration_compliance",
+      "does_not_claim_human_review_sufficiency",
+      "does_not_claim_institutional_authority",
+      "does_not_claim_admissibility",
+      "does_not_claim_external_framework_certification",
+      "does_not_claim_prevention_of_human_narrative_laundering"
+    ],
+    "consumer_boundary_constraint": "A Fork structural result may be used as a boundary-inspection record only. It must not be converted into approval, truth, safety, compliance, legal sufficiency, risk acceptance, policy satisfaction, deployment readiness, control effectiveness, or authority transfer.",
+    "forbidden_interpretations": [
+      "approval_status",
+      "truth_validation",
+      "safety_validation",
+      "compliance_certification",
+      "legal_sufficiency",
+      "policy_satisfaction",
+      "risk_acceptance",
+      "control_effectiveness",
+      "evidence_sufficiency",
+      "reasonable_reliance",
+      "deployment_authorization",
+      "runtime_approval",
+      "execution_authorization",
+      "authority_transfer",
+      "claim_expansion_without_new_authority",
+      "ci_cd_blocking_gate",
+      "host_native_scoring_input",
+      "dashboard_assurance_signal",
+      "workflow_completion_signal",
+      "artifact_completeness_proxy",
+      "human_prose_green_signal"
+    ]
+  },
+  "responsibility_boundaries": {
+    "fork_responsibility": [
+      "define schemas for claim-boundary and consumption records",
+      "provide structural checkers for declared artifacts",
+      "emit non-actionable structural conformance records",
+      "preserve explicit non-claims and unresolved gaps",
+      "detect declared boundary expansion and prohibited mapping patterns"
+    ],
+    "external_responsibility": [
+      "determine legal sufficiency",
+      "determine compliance posture",
+      "determine safety posture",
+      "determine risk acceptance",
+      "approve deployment or production use",
+      "configure host-platform scoring, workflow, and dashboard behavior",
+      "audit human prose and executive narrative framing"
+    ],
+    "authority_rule": "Fork may preserve and inspect declared authority references, but authority remains with the local institution or accountable decision owner."
+  },
+  "composition": {
+    "composable_with_layer_types": [
+      "witness",
+      "boundary",
+      "closure",
+      "reviewability",
+      "formation",
+      "cross_cutting"
+    ],
+    "composition_assumptions": [
+      "adjacent layers may preserve references to Fork artifacts without inheriting Fork non-claims as approvals",
+      "a downstream expansion requires a separate authority-bearing claim boundary or local decision record",
+      "composition is unilateral unless the adjacent layer publishes its own compatible manifest",
+      "absence of a reciprocal manifest must not be interpreted as mutual interoperability"
+    ],
+    "declared_manifest_urls": [],
+    "non_reciprocity_notice": "This Fork declaration does not claim that any adjacent layer has declared reciprocal interoperability with Fork."
+  },
+  "machine_readable_status": {
+    "boundary_readiness": "experimental",
+    "authority_dependency": "local_external_authority_required",
+    "execution_capability": "non_actionable_structural_check_only",
+    "reviewability_state": "portable_for_declared_artifacts",
+    "safe_to_automate": false,
+    "requires_human_interpretation_before_any_automation": true
+  },
+  "public_anchors": [
+    {
+      "label": "Fork public repository",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence",
+      "anchor_type": "repository"
+    },
+    {
+      "label": "Claim Boundary Contract",
+      "repo_path": "docs/CLAIM_BOUNDARY_CONTRACT_v0_1.md",
+      "anchor_type": "doctrine"
+    },
+    {
+      "label": "Claim Consumption Events",
+      "repo_path": "docs/CLAIM_CONSUMPTION_EVENTS_v0_1.md",
+      "anchor_type": "doctrine"
+    },
+    {
+      "label": "CCEC Governance Interoperability Profile",
+      "repo_path": "docs/CCEC_GOVERNANCE_INTEROPERABILITY_OUTPUT_AND_HOST_CONFORMANCE_HARDENING_v0_1_3.md",
+      "anchor_type": "doctrine"
+    },
+    {
+      "label": "Operational Boundary Map",
+      "repo_path": "docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md",
+      "anchor_type": "doctrine"
+    }
+  ],
+  "glm_compatibility": {
+    "schema_family": "GLM",
+    "declared_schema_version": "1.3",
+    "minimum_supported_schema_version": "1.3",
+    "maximum_supported_schema_version": "1.3",
+    "manifest_kind": "layer",
+    "change_policy": "breaking semantic changes are published as new manifest versions and tagged in the public repository",
+    "well_known_publication_path": "/.well-known/governance-layer-manifest.json"
+  },
+  "expansion_risks": [
+    {
+      "risk": "structural_result_laundered_as_approval",
+      "mitigation": "forbidden_interpretations and non-actionable output vocabulary"
+    },
+    {
+      "risk": "non_claims_dropped_by_downstream_consumer",
+      "mitigation": "Claim Consumption Event requires preserved non-claims and boundary effect declaration"
+    },
+    {
+      "risk": "unresolved_gap_recast_as_resolved",
+      "mitigation": "unresolved pointers and unresolved gaps remain explicit structural states"
+    },
+    {
+      "risk": "host_platform_native_scoring_counts_fork_artifacts",
+      "mitigation": "documented as conformance-review-only host obligation, not Fork runtime guarantee"
+    },
+    {
+      "risk": "human_prose_or_dashboard_narrative_creates_green_signal",
+      "mitigation": "documented as institutional-audit-only residual risk"
+    },
+    {
+      "risk": "ci_cd_exit_zero_laundered_as_merge_ready",
+      "mitigation": "exit zero is documented as process completion, not approval or readiness"
+    }
+  ],
+  "vendor_framework_constructs": [
+    {
+      "canonical_uri": "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/CLAIM_BOUNDARY_CONTRACT_v0_1.md",
+      "vendor_local_alias": "CBC",
+      "label": "Claim Boundary Contract",
+      "purpose": "Declares the source-side boundary around supported claims, explicit non-claims, reliance, verification scope, and non-transitivity.",
+      "version": "0.1",
+      "forbidden_interpretations": [
+        "approval_status",
+        "truth_validation",
+        "compliance_certification",
+        "authority_transfer"
+      ]
+    },
+    {
+      "canonical_uri": "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/CLAIM_CONSUMPTION_EVENTS_v0_1.md",
+      "vendor_local_alias": "CCE",
+      "label": "Claim Consumption Event",
+      "purpose": "Records receiving-side reliance, preserved non-claims, unresolved gaps, boundary effects, and local decision ownership.",
+      "version": "0.1",
+      "forbidden_interpretations": [
+        "automatic_authority_inheritance",
+        "risk_acceptance",
+        "policy_satisfaction"
+      ]
+    },
+    {
+      "canonical_uri": "https://github.com/RecomputableEvidence/fork-public-evidence",
+      "vendor_local_alias": "RGV",
+      "label": "Relational Graph Verifier",
+      "purpose": "Checks whether assembled claim and consumption records remain structurally resolvable without silent claim inheritance.",
+      "version": "0.3",
+      "forbidden_interpretations": [
+        "graph_pass_as_truth",
+        "bundle_pass_as_approval",
+        "composition_as_compliance"
+      ]
+    },
+    {
+      "canonical_uri": "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/CCEC_GOVERNANCE_INTEROPERABILITY_OUTPUT_AND_HOST_CONFORMANCE_HARDENING_v0_1_3.md",
+      "vendor_local_alias": "CCEC_GOVERNANCE_INTEROPERABILITY",
+      "label": "CCEC Governance Interoperability Profile",
+      "purpose": "Declares how CCEC records may be referenced by surrounding governance systems without becoming approval, routing, scoring, SLA, readiness, or dashboard assurance signals.",
+      "version": "0.1.3.1",
+      "forbidden_interpretations": [
+        "ci_cd_gate",
+        "host_native_scoring_input",
+        "dashboard_assurance_signal",
+        "workflow_completeness_proxy"
+      ]
+    }
+  ],
+  "manifest_digest": {
+    "algorithm": "SHA-256",
+    "canonicalization_method": "repo-local JSON canonicalization using sorted keys and compact separators, excluding manifest_digest to avoid self-reference",
+    "sha256": "e383fc52e1f62e47021d155504ff2470abb6b24109d9e809539dc5dd0544f1da"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/RecomputableEvidence/fork-public-evidence/schemas/fork_glm_declaration_v0_1.schema.json",
+  "title": "Fork GLM Declaration v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "manifest_kind",
+    "manifest_version",
+    "valid_from",
+    "valid_until",
+    "controlling_test",
+    "interoperability_doctrine",
+    "layer",
+    "timing_axis",
+    "operational_scope",
+    "claims_boundary",
+    "responsibility_boundaries",
+    "composition",
+    "machine_readable_status",
+    "public_anchors",
+    "glm_compatibility",
+    "expansion_risks",
+    "vendor_framework_constructs",
+    "manifest_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.3"
+    },
+    "manifest_kind": {
+      "const": "layer"
+    },
+    "manifest_version": {
+      "const": "0.1"
+    },
+    "valid_from": {
+      "type": "string"
+    },
+    "valid_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "controlling_test": {
+      "type": "string",
+      "minLength": 20
+    },
+    "interoperability_doctrine": {
+      "type": "string",
+      "minLength": 20
+    },
+    "layer": {
+      "type": "object",
+      "required": [
+        "layer_type",
+        "vendor_layer_name",
+        "vendor_layer_descriptor",
+        "owner"
+      ],
+      "properties": {
+        "layer_type": {
+          "const": "cross_cutting"
+        },
+        "vendor_layer_name": {
+          "const": "Fork"
+        },
+        "vendor_layer_descriptor": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      }
+    },
+    "timing_axis": {
+      "type": "object",
+      "required": [
+        "position",
+        "surfaces",
+        "not_runtime_gate"
+      ],
+      "properties": {
+        "position": {
+          "const": "cross-cutting"
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 3
+        },
+        "not_runtime_gate": {
+          "const": true
+        }
+      }
+    },
+    "claims_boundary": {
+      "type": "object",
+      "required": [
+        "authoritative_layer_claim",
+        "explicit_non_claims",
+        "consumer_boundary_constraint",
+        "forbidden_interpretations"
+      ],
+      "properties": {
+        "authoritative_layer_claim": {
+          "type": "string",
+          "minLength": 40
+        },
+        "explicit_non_claims": {
+          "type": "array",
+          "minItems": 15,
+          "items": {
+            "type": "string"
+          }
+        },
+        "consumer_boundary_constraint": {
+          "type": "string",
+          "minLength": 40
+        },
+        "forbidden_interpretations": {
+          "type": "array",
+          "minItems": 15,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responsibility_boundaries": {
+      "type": "object"
+    },
+    "composition": {
+      "type": "object"
+    },
+    "machine_readable_status": {
+      "type": "object"
+    },
+    "public_anchors": {
+      "type": "array",
+      "minItems": 5
+    },
+    "glm_compatibility": {
+      "type": "object"
+    },
+    "expansion_risks": {
+      "type": "array",
+      "minItems": 5
+    },
+    "vendor_framework_constructs": {
+      "type": "array",
+      "minItems": 4
+    },
+    "manifest_digest": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "canonicalization_method",
+        "sha256"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "SHA-256"
+        },
+        "canonicalization_method": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}
