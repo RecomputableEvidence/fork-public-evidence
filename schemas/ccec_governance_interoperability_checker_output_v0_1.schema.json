@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://example.org/schemas/ccec_governance_interoperability_checker_output_v0_1.schema.json",
-  "title": "CCEC Governance Interoperability Checker Output Contract v0.1",
+  "title": "CCEC Governance Interoperability Checker Output Contract v0.1.1 Runtime Use Hardened",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,6 +17,90 @@
   ],
   "properties": {
     "checker": {
+      "$ref": "#/definitions/checker"
+    },
+    "input": {
+      "$ref": "#/definitions/input"
+    },
+    "result": {
+      "$ref": "#/definitions/result"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/finding"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/finding"
+      }
+    },
+    "scope": {
+      "$ref": "#/definitions/scope"
+    },
+    "limitations": {
+      "$ref": "#/definitions/limitations"
+    },
+    "do_not_map_to": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 42,
+      "items": {
+        "type": "string",
+        "enum": [
+          "APPROVAL",
+          "APPROVED",
+          "TRUTH",
+          "TRUE",
+          "VERIFIED",
+          "SAFETY",
+          "SAFE",
+          "COMPLIANCE",
+          "COMPLIANT",
+          "CERTIFIED",
+          "LEGAL",
+          "LEGAL_SUFFICIENCY",
+          "AUTHORITY",
+          "AUTHORIZED",
+          "INSTITUTIONAL_AUTHORIZATION",
+          "POLICY",
+          "POLICY_SATISFACTION",
+          "RISK",
+          "RISK_ACCEPTANCE",
+          "VALID",
+          "VALIDATED",
+          "AUTHORITY_TRANSFER",
+          "CLAIM_EXPANSION_BY_MAPPING",
+          "AUTOMATED_CONTROL_DECISION",
+          "CONTROL_STATUS",
+          "CONTROL_EFFECTIVENESS_STATUS",
+          "CONTROL_SATISFIED",
+          "AUTOMATED_CONTROL_SATISFIED",
+          "ASSURANCE_LEVEL",
+          "CONFIDENCE_LEVEL",
+          "RESIDUAL_RISK_STATUS",
+          "ISSUE_CLOSED_STATUS",
+          "SIGN_OFF_STATUS",
+          "GO_LIVE_AUTHORIZATION",
+          "DEPLOYMENT_APPROVED",
+          "EVIDENCE_SUFFICIENCY",
+          "AUDIT_SUFFICIENCY",
+          "REASONABLE_RELIANCE",
+          "STANDARD_OF_CARE",
+          "DELEGATED_AUTHORITY",
+          "PERPETUAL_RELIANCE",
+          "SOLE_EVIDENCE"
+        ]
+      }
+    },
+    "non_claims": {
+      "$ref": "#/definitions/non_claims"
+    }
+  },
+  "definitions": {
+    "checker": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -28,7 +112,7 @@
           "const": "check_ccec_governance_interoperability"
         },
         "version": {
-          "const": "0.1"
+          "const": "0.1.1"
         }
       }
     },
@@ -67,71 +151,6 @@
         }
       }
     },
-    "errors": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/finding"
-      }
-    },
-    "warnings": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/finding"
-      }
-    },
-    "scope": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "checker_scope",
-        "validates",
-        "does_not_validate"
-      ],
-      "properties": {
-        "checker_scope": {
-          "const": "structural_ccec_governance_interoperability_validation_only"
-        },
-        "validates": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "does_not_validate": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "limitations": {
-      "$ref": "#/definitions/limitations"
-    },
-    "do_not_map_to": {
-      "type": "array",
-      "uniqueItems": true,
-      "minItems": 9,
-      "items": {
-        "type": "string",
-        "enum": [
-          "APPROVAL",
-          "TRUTH",
-          "SAFETY",
-          "COMPLIANCE",
-          "LEGAL_SUFFICIENCY",
-          "INSTITUTIONAL_AUTHORIZATION",
-          "POLICY_SATISFACTION",
-          "RISK_ACCEPTANCE",
-          "AUTHORITY_TRANSFER"
-        ]
-      }
-    },
-    "non_claims": {
-      "$ref": "#/definitions/non_claims"
-    }
-  },
-  "definitions": {
     "finding": {
       "type": "object",
       "additionalProperties": false,
@@ -149,7 +168,68 @@
           "minLength": 1
         },
         "path": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checker_scope",
+        "validates",
+        "does_not_validate"
+      ],
+      "properties": {
+        "checker_scope": {
+          "const": "structural_ccec_governance_interoperability_validation_only"
+        },
+        "validates": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 12,
+          "items": {
+            "type": "string",
+            "enum": [
+              "json_parseability",
+              "ccec_governance_interoperability_schema_conformance",
+              "permitted_mapping_consistency",
+              "prohibited_mapping_completeness",
+              "expanded_do_not_map_to_completeness",
+              "runtime_use_constraints",
+              "rendering_constraints",
+              "aggregation_constraints",
+              "forbidden_oracle_target_field_absence",
+              "authority_inheritance_prohibition",
+              "unresolved_gap_preservation",
+              "checker_output_contract_conformance"
+            ]
+          }
+        },
+        "does_not_validate": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 14,
+          "items": {
+            "type": "string",
+            "enum": [
+              "truth_of_source_ccec",
+              "correctness_of_external_governance_decision",
+              "compliance_of_external_system",
+              "safety_of_external_system",
+              "legal_sufficiency_of_external_decision",
+              "institutional_authority_of_external_owner",
+              "policy_satisfaction",
+              "risk_acceptance",
+              "control_satisfaction",
+              "issue_closure",
+              "deployment_authorization",
+              "evidence_sufficiency",
+              "reasonable_reliance",
+              "aggregation_posture"
+            ]
+          }
         }
       }
     },
@@ -169,6 +249,12 @@
         "does_not_validate_institutional_authorization",
         "does_not_validate_policy_satisfaction",
         "does_not_validate_risk_acceptance",
+        "does_not_validate_control_satisfaction",
+        "does_not_validate_issue_closure",
+        "does_not_validate_deployment_authorization",
+        "does_not_validate_evidence_sufficiency",
+        "does_not_validate_reasonable_reliance",
+        "does_not_validate_aggregation_posture",
         "does_not_transfer_authority",
         "not_runtime_control",
         "not_policy_engine",
@@ -209,6 +295,24 @@
           "const": true
         },
         "does_not_validate_risk_acceptance": {
+          "const": true
+        },
+        "does_not_validate_control_satisfaction": {
+          "const": true
+        },
+        "does_not_validate_issue_closure": {
+          "const": true
+        },
+        "does_not_validate_deployment_authorization": {
+          "const": true
+        },
+        "does_not_validate_evidence_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_reasonable_reliance": {
+          "const": true
+        },
+        "does_not_validate_aggregation_posture": {
           "const": true
         },
         "does_not_transfer_authority": {

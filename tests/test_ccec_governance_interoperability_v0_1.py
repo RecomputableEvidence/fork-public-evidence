@@ -38,11 +38,15 @@ def test_output_schema_is_valid_draft7() -> None:
 def test_valid_grc_register_reference_passes() -> None:
     code, payload = run_checker("valid_grc_register_reference.json")
     assert code == 0
+    assert payload["checker"]["version"] == "0.1.1"
     assert payload["result"] == {"ok": True, "result_kind": "STRUCTURAL_PASS"}
     assert payload["limitations"]["does_not_transfer_authority"] is True
     assert payload["limitations"]["safe_to_automate"] is False
     assert payload["limitations"]["automation_interpretation_required"] is True
+    assert payload["limitations"]["does_not_validate_control_satisfaction"] is True
     assert "AUTHORITY_TRANSFER" in payload["do_not_map_to"]
+    assert "CONTROL_SATISFIED" in payload["do_not_map_to"]
+    assert "EVIDENCE_SUFFICIENCY" in payload["do_not_map_to"]
     assert_output_contract(payload)
 
 def test_valid_audit_evidence_reference_passes() -> None:
@@ -91,7 +95,7 @@ def test_mapping_kind_must_be_listed_in_permitted_mappings(tmp_path: Path) -> No
 
 def test_prohibited_mappings_must_be_complete(tmp_path: Path) -> None:
     source = json.loads((EXAMPLES / "valid_grc_register_reference.json").read_text(encoding="utf-8"))
-    source["prohibited_mappings"].remove("COMPLIANCE_STATUS")
+    source["prohibited_mappings"].remove("CONTROL_SATISFIED")
 
     candidate = tmp_path / "missing_prohibited_mapping.json"
     candidate.write_text(json.dumps(source, indent=2), encoding="utf-8")
@@ -108,4 +112,32 @@ def test_prohibited_mappings_must_be_complete(tmp_path: Path) -> None:
     assert completed.returncode != 0
     assert payload["result"]["result_kind"] == "CONTRACT_VALIDATION_FAILED"
     assert any(error["code"] == "CCEC_INTEROP_PROHIBITED_MAPPINGS_INCOMPLETE" for error in payload["errors"])
+    assert_output_contract(payload)
+
+def test_invalid_composite_control_satisfied_rule_fails_closed() -> None:
+    code, payload = run_checker("invalid_composite_control_satisfied_rule.json")
+    assert code != 0
+    assert payload["result"]["result_kind"] == "CONTRACT_VALIDATION_FAILED"
+    assert any(error["code"] == "CCEC_INTEROP_ORACLE_TARGET_FIELD" for error in payload["errors"])
+    assert_output_contract(payload)
+
+def test_invalid_dashboard_badge_collapse_fails_closed() -> None:
+    code, payload = run_checker("invalid_dashboard_badge_collapse.json")
+    assert code != 0
+    assert payload["result"]["result_kind"] == "CONTRACT_VALIDATION_FAILED"
+    assert any(error["code"] == "CCEC_INTEROP_RENDERING_CONSTRAINT_VIOLATION" for error in payload["errors"])
+    assert_output_contract(payload)
+
+def test_invalid_decision_owner_as_approver_fails_closed() -> None:
+    code, payload = run_checker("invalid_decision_owner_as_approver.json")
+    assert code != 0
+    assert payload["result"]["result_kind"] == "CONTRACT_VALIDATION_FAILED"
+    assert any(error["code"] == "CCEC_INTEROP_ORACLE_TARGET_FIELD" for error in payload["errors"])
+    assert_output_contract(payload)
+
+def test_invalid_aggregation_control_effectiveness_fails_closed() -> None:
+    code, payload = run_checker("invalid_aggregation_control_effectiveness.json")
+    assert code != 0
+    assert payload["result"]["result_kind"] == "CONTRACT_VALIDATION_FAILED"
+    assert any(error["code"] == "CCEC_INTEROP_AGGREGATION_CONSTRAINT_VIOLATION" for error in payload["errors"])
     assert_output_contract(payload)

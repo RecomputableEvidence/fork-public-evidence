@@ -1,7 +1,7 @@
 {
   "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
   "profile_version": "0.1",
-  "profile_id": "CCEC_INTEROP_SYNTHETIC_AUDIT_REFERENCE_001",
+  "profile_id": "CCEC_INTEROP_INVALID_DECISION_OWNER_AS_APPROVER_001",
   "source_ccec_ref": {
     "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
     "ccec_contract_version": "0.1",
@@ -11,15 +11,15 @@
     ]
   },
   "external_system": {
-    "system_id": "SYNTHETIC_AUDIT_SYSTEM",
-    "system_type": "AUDIT_SYSTEM",
-    "system_name": "Synthetic Audit Evidence System",
+    "system_id": "SYNTHETIC_GRC_REGISTER",
+    "system_type": "GRC_REGISTER",
+    "system_name": "Synthetic GRC Register",
     "owner_organization": "synthetic controlled pilot"
   },
   "integration_context": {
     "integration_purpose": "reference a bounded CCEC record without converting it into an external status or authority signal",
     "receiving_workflow_id": "SYNTHETIC_EXTERNAL_GOVERNANCE_WORKFLOW",
-    "target_record_type": "audit evidence reference"
+    "target_record_type": "bounded evidence reference"
   },
   "permitted_mappings": [
     "EVIDENCE_REFERENCE",
@@ -64,7 +64,7 @@
   "mapping_rules": [
     {
       "source_ccec_field": "source_ccec_ref.ccec_id",
-      "external_target_field": "audit_record.evidence_packet_reference",
+      "external_target_field": "governance_record.evidence_reference_id",
       "mapping_kind": "EVIDENCE_REFERENCE",
       "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,
@@ -72,7 +72,7 @@
     },
     {
       "source_ccec_field": "preserved_non_claims",
-      "external_target_field": "audit_record.preserved_non_claims",
+      "external_target_field": "governance_record.non_claims_reference",
       "mapping_kind": "NON_CLAIM_REFERENCE",
       "transformation": "COPY_BOUNDED_LIST",
       "preserves_non_claims": true,
@@ -80,7 +80,7 @@
     },
     {
       "source_ccec_field": "unresolved_gaps",
-      "external_target_field": "audit_record.open_gap_reference",
+      "external_target_field": "governance_record.open_gap_reference",
       "mapping_kind": "UNRESOLVED_GAP_REFERENCE",
       "transformation": "COPY_BOUNDED_LIST",
       "preserves_non_claims": true,
@@ -95,10 +95,10 @@
       "creates_external_status": false
     },
     {
-      "source_ccec_field": "boundary_effect",
-      "external_target_field": "audit_record.boundary_effect_reference",
-      "mapping_kind": "BOUNDARY_EFFECT_REFERENCE",
-      "transformation": "COPY_BOUNDED_VALUE",
+      "source_ccec_field": "local_reliance_decision.decision_owner_ref",
+      "external_target_field": "governance_record.approver",
+      "mapping_kind": "DECISION_OWNER_REFERENCE",
+      "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,
       "creates_external_status": false
     }
@@ -121,7 +121,7 @@
     "handling_mode": "PRESERVE_AS_OPEN",
     "may_close_gaps_by_mapping": false,
     "external_closure_requires_separate_record": true,
-    "gap_reference_target_field": "audit_record.open_gap_reference"
+    "gap_reference_target_field": "governance_record.open_gap_reference"
   },
   "local_authority_boundary": {
     "authority_transfer_prohibited": true,
