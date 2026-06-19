@@ -181,7 +181,7 @@ DO_NOT_MAP_TO = [
 
 LIMITATIONS = {
     "safe_to_automate": False,
-    "automation_interpretation_required": True,
+    "requires_human_interpretation_before_any_automation": True,
     "bounded_reference_only": True,
     "synthetic_structural_checker_only": True,
     "does_not_validate_approval": True,
@@ -547,7 +547,7 @@ WORKFLOW_TRANSITION_EXPECTED = {
 
 OUTPUT_ACTIONABILITY_EXPECTED = {
     "top_level_ok_boolean_prohibited": True,
-    "structural_pass_non_actionable": True,
+    "structural_conformance_recorded_non_actionable": True,
     "exit_zero_not_approval_signal": True,
     "ci_cd_blocking_gate_use_prohibited": True,
     "checker_may_run_only_as_audit_or_non_actionable_validation": True,
@@ -741,7 +741,7 @@ def contract_errors(profile: dict[str, Any]) -> list[dict[str, str]]:
 
         expected_limitations = {
             "safe_to_automate": False,
-            "automation_interpretation_required": True,
+            "requires_human_interpretation_before_any_automation": True,
             "bounded_reference_only": True,
             "does_not_validate_approval": True,
             "does_not_validate_truth": True,
@@ -837,7 +837,7 @@ def make_output(input_path: Path, result_kind: str, errors: list[dict[str, str]]
             "result_kind": result_kind,
             "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
             "safe_to_automate": False,
-            "automation_interpretation_required": True,
+            "requires_human_interpretation_before_any_automation": True,
         },
         "errors": errors,
         "warnings": warnings or [],
@@ -873,7 +873,7 @@ def emit(output: dict[str, Any]) -> int:
         return 2
 
     print(json.dumps(output, indent=2, sort_keys=True))
-    return 0 if output["result"]["result_kind"] == "STRUCTURAL_PASS" else 1
+    return 0 if output["result"]["result_kind"] == "STRUCTURAL_CONFORMANCE_RECORDED" else 1
 
 def check(path: Path) -> dict[str, Any]:
     profile, input_errors = load_json_file(path)
@@ -892,7 +892,7 @@ def check(path: Path) -> dict[str, Any]:
     if extra_errors:
         return make_output(path, "CONTRACT_VALIDATION_FAILED", extra_errors)
 
-    return make_output(path, "STRUCTURAL_PASS", [])
+    return make_output(path, "STRUCTURAL_CONFORMANCE_RECORDED", [])
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Validate a CCEC Governance Interoperability Profile v0.1.2 behavioral-layer hardened structural contract.")

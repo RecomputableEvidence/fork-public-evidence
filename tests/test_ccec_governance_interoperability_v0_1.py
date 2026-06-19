@@ -53,13 +53,13 @@ def test_valid_grc_register_reference_passes() -> None:
     assert code == 0
     assert payload["checker"]["version"] == "0.1.3"
     assert payload["result"] == {
-        "result_kind": "STRUCTURAL_PASS",
+        "result_kind": "STRUCTURAL_CONFORMANCE_RECORDED",
         "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
         "safe_to_automate": False,
-        "automation_interpretation_required": True,
+        "requires_human_interpretation_before_any_automation": True,
     }
     assert payload["limitations"]["safe_to_automate"] is False
-    assert payload["limitations"]["automation_interpretation_required"] is True
+    assert payload["limitations"]["requires_human_interpretation_before_any_automation"] is True
     assert payload["limitations"]["does_not_validate_quantitative_risk_reduction"] is True
     assert payload["limitations"]["does_not_validate_visual_assurance"] is True
     assert payload["limitations"]["does_not_validate_workflow_transition"] is True
@@ -78,7 +78,7 @@ def test_valid_grc_register_reference_passes() -> None:
 def test_valid_audit_evidence_reference_passes() -> None:
     code, payload = run_checker("valid_audit_evidence_reference.json")
     assert code == 0
-    assert payload["result"]["result_kind"] == "STRUCTURAL_PASS"
+    assert payload["result"]["result_kind"] == "STRUCTURAL_CONFORMANCE_RECORDED"
     assert "ok" not in payload["result"]
     assert payload["non_claims"]["does_not_create_workflow_transition"] is True
     assert payload["non_claims"]["does_not_create_aggregate_posture"] is True
@@ -93,7 +93,7 @@ def test_result_ok_removed_from_output_contract() -> None:
     assert "ok" not in payload["result"]
     assert payload["result"]["actionability"] == "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY"
     assert payload["result"]["safe_to_automate"] is False
-    assert payload["result"]["automation_interpretation_required"] is True
+    assert payload["result"]["requires_human_interpretation_before_any_automation"] is True
     assert_output_contract(payload)
 
 

@@ -95,7 +95,7 @@
     "path": "examples\\ccec_governance_interoperability\\valid_audit_evidence_reference.json"
   },
   "limitations": {
-    "automation_interpretation_required": true,
+    "requires_human_interpretation_before_any_automation": true,
     "bounded_reference_only": true,
     "does_not_transfer_authority": true,
     "does_not_validate_aggregation_posture": true,
@@ -153,8 +153,8 @@
   },
   "result": {
     "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
-    "automation_interpretation_required": true,
-    "result_kind": "STRUCTURAL_PASS",
+    "requires_human_interpretation_before_any_automation": true,
+    "result_kind": "STRUCTURAL_CONFORMANCE_RECORDED",
     "safe_to_automate": false
   },
   "scope": {

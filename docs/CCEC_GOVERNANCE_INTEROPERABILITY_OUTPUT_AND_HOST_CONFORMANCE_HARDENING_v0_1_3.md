@@ -44,10 +44,10 @@ The checker now emits a non-actionable structural result object:
 ```json
 {
   "result": {
-    "result_kind": "STRUCTURAL_PASS",
+    "result_kind": "STRUCTURAL_CONFORMANCE_RECORDED",
     "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
     "safe_to_automate": false,
-    "automation_interpretation_required": true
+    "requires_human_interpretation_before_any_automation": true
   }
 }
 ```
@@ -179,3 +179,45 @@ v0.1.3 adds invalid fixtures for:
 This patch does not claim Fork can prevent all downstream misuse.
 
 It makes shortcutting, proxy laundering, and host-conformance obligations explicit, structurally visible, and harder to hide behind ok, CI exit codes, neutral labels, or host-native dashboard conventions.
+
+## Final v0.1.3.1 vocabulary and enforcement-tier repair
+
+v0.1.3 removed the obvious boolean oracle by eliminating `result.ok`.
+
+This repair removes the next shortcut: pass/fail vocabulary. The checker no longer emits `STRUCTURAL_PASS`. The positive structural result is now `STRUCTURAL_CONFORMANCE_RECORDED`.
+
+The checker output now places actionability at the root level:
+
+```json
+{
+  "actionability": "NON_ACTIONABLE_STRUCTURAL_CONFORMANCE_ONLY",
+  "result": {
+    "result_kind": "STRUCTURAL_CONFORMANCE_RECORDED",
+    "safe_to_automate": false,
+    "requires_human_interpretation_before_any_automation": true
+  }
+}
+```
+
+### Enforcement tiers
+
+v0.1.3.1 separates constraints into three tiers:
+
+| Tier | Name                 | Meaning                  |
+|------|----------------------|--------------------------|
+| M    | Machine-enforceable  | Checker can inspect and reject from declared schemas, profiles, examples, mapping rules, and checker output. |
+| C    | Conformance-review   | Checker can require declarations; a human reviewer must inspect host-platform configuration or integration behavior. |
+| A    | Institutional-audit  | Risk arises from human prose, dashboards, email, meetings, or culture; Fork can document but not runtime-enforce it. |
+
+### Residual risks
+
+The following are documented residual risks, not Fork runtime guarantees:
+
+- CI/CD exit code 0 may be laundered by GitHub, GitLab, Azure DevOps, Jenkins, or similar into success/pass/merge-ready signals.
+- Human prose such as ?Reviewed, no blockers ? proceeding? may launder structural conformance into readiness or approval.
+- Opaque host-native scoring engines may count attached CCEC artifacts without exposing that scoring logic in the declared profile.
+- Neutral-label presence aggregation may convert `has_ccec_artifact = true` into workflow completeness, artifact completeness, or executive dashboard health metrics.
+
+### Proxy aggregation rule
+
+CCEC presence, absence, attachment, existence, count, or structural-conformance recording may not contribute to any aggregate completeness, readiness, health, hygiene, maturity, trust, assurance, workflow-progress, or governance-progress metric, regardless of the label applied.

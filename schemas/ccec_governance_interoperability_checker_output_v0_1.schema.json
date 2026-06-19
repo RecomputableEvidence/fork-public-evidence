@@ -178,13 +178,13 @@
         "result_kind",
         "actionability",
         "safe_to_automate",
-        "automation_interpretation_required"
+        "requires_human_interpretation_before_any_automation"
       ],
       "properties": {
         "result_kind": {
           "type": "string",
           "enum": [
-            "STRUCTURAL_PASS",
+            "STRUCTURAL_CONFORMANCE_RECORDED",
             "SCHEMA_VALIDATION_FAILED",
             "CONTRACT_VALIDATION_FAILED",
             "INPUT_ERROR",
@@ -197,7 +197,7 @@
         "safe_to_automate": {
           "const": false
         },
-        "automation_interpretation_required": {
+        "requires_human_interpretation_before_any_automation": {
           "const": true
         }
       }
@@ -320,7 +320,7 @@
       "additionalProperties": false,
       "required": [
         "safe_to_automate",
-        "automation_interpretation_required",
+        "requires_human_interpretation_before_any_automation",
         "bounded_reference_only",
         "synthetic_structural_checker_only",
         "does_not_validate_approval",
@@ -359,7 +359,7 @@
         "safe_to_automate": {
           "const": false
         },
-        "automation_interpretation_required": {
+        "requires_human_interpretation_before_any_automation": {
           "const": true
         },
         "bounded_reference_only": {

@@ -1,7 +1,7 @@
 {
   "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
   "profile_version": "0.1",
-  "profile_id": "CCEC_INTEROP_INVALID_NEGATIVE_GATE_DEFAULT_ALLOW_001",
+  "profile_id": "CCEC_INTEROP_INVALID_EVIDENCE_COMPLETENESS_PROXY_001",
   "source_ccec_ref": {
     "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
     "ccec_contract_version": "0.1",
@@ -152,7 +152,7 @@
     },
     {
       "source_ccec_field": "source_ccec_ref.ccec_id",
-      "external_target_field": "workflow.negative_gate_condition.default_allow_unless_no_ccec_reference",
+      "external_target_field": "grc.evidence_completeness_score",
       "mapping_kind": "EVIDENCE_REFERENCE",
       "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,

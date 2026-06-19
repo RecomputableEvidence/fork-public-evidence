@@ -102,7 +102,20 @@
     "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
     "HUMAN_PROSE_GREEN_SIGNAL",
     "OUTPUT_OK_BOOLEAN",
-    "CI_CD_BLOCKING_GATE"
+    "CI_CD_BLOCKING_GATE",
+    "WORKFLOW_COMPLETENESS_PROXY",
+    "ARTIFACT_COMPLETENESS_PROXY",
+    "EVIDENCE_COMPLETENESS_PROXY",
+    "CONTROL_HEALTH_PROXY",
+    "RISK_HYGIENE_PROXY",
+    "HYGIENE_SCORE_PROXY",
+    "TRUST_INDEX_PROXY",
+    "TRUST_SCORE_PROXY",
+    "ASSURANCE_RATING_PROXY",
+    "PROCESS_MATURITY_PROXY",
+    "AI_READINESS_PROXY",
+    "DEPLOYMENT_READINESS_PROXY",
+    "OUTPUT_PASS_VOCABULARY"
   ],
   "mapping_rules": [
     {
@@ -172,7 +185,7 @@
   },
   "accord_limitations": {
     "safe_to_automate": false,
-    "automation_interpretation_required": true,
+    "requires_human_interpretation_before_any_automation": true,
     "bounded_reference_only": true,
     "does_not_validate_approval": true,
     "does_not_validate_truth": true,
@@ -282,7 +295,20 @@
       "HOST_DESIGN_SYSTEM_ASSURANCE_SIGNAL",
       "HUMAN_PROSE_GREEN_SIGNAL",
       "OUTPUT_OK_BOOLEAN",
-      "CI_CD_BLOCKING_GATE"
+      "CI_CD_BLOCKING_GATE",
+      "WORKFLOW_COMPLETENESS_PROXY",
+      "ARTIFACT_COMPLETENESS_PROXY",
+      "EVIDENCE_COMPLETENESS_PROXY",
+      "CONTROL_HEALTH_PROXY",
+      "RISK_HYGIENE_PROXY",
+      "HYGIENE_SCORE_PROXY",
+      "TRUST_INDEX_PROXY",
+      "TRUST_SCORE_PROXY",
+      "ASSURANCE_RATING_PROXY",
+      "PROCESS_MATURITY_PROXY",
+      "AI_READINESS_PROXY",
+      "DEPLOYMENT_READINESS_PROXY",
+      "OUTPUT_PASS_VOCABULARY"
     ],
     "does_not_validate_host_platform_native_scoring_behavior": true,
     "does_not_validate_human_free_text_interpretation": true,
@@ -291,7 +317,14 @@
     "does_not_validate_review_queue_routing_adequacy": true,
     "does_not_validate_data_quality": true,
     "does_not_validate_metadata_health": true,
-    "does_not_validate_documentation_completeness": true
+    "does_not_validate_documentation_completeness": true,
+    "does_not_validate_workflow_artifact_completeness": true,
+    "does_not_validate_evidence_completeness": true,
+    "does_not_validate_control_health": true,
+    "does_not_validate_risk_hygiene": true,
+    "does_not_validate_trust_index": true,
+    "does_not_validate_assurance_rating": true,
+    "does_not_validate_process_maturity": true
   },
   "runtime_use_constraints": {
     "may_be_used_as_sufficient_condition_for_approval": false,
@@ -365,7 +398,7 @@
   },
   "output_actionability_constraints": {
     "top_level_ok_boolean_prohibited": true,
-    "structural_pass_non_actionable": true,
+    "structural_conformance_recorded_non_actionable": true,
     "exit_zero_not_approval_signal": true,
     "ci_cd_blocking_gate_use_prohibited": true,
     "checker_may_run_only_as_audit_or_non_actionable_validation": true,
@@ -394,5 +427,24 @@
     "external_behavior_outside_checker_scope_acknowledged": true,
     "opaque_host_scoring_declared_residual_risk": true,
     "human_prose_summary_declared_residual_risk": true
+  },
+  "enforcement_tier_definitions": {
+    "machine_enforceable_tier_defined": true,
+    "conformance_review_only_tier_defined": true,
+    "institutional_audit_only_tier_defined": true,
+    "machine_enforceable_constraints_labeled": true,
+    "host_conformance_obligations_labeled": true,
+    "institutional_audit_residual_risks_labeled": true,
+    "checker_runtime_guarantees_limited_to_declared_artifacts": true
+  },
+  "known_residual_risk_constraints": {
+    "ci_cd_exit_zero_laundering_declared": true,
+    "github_checks_success_laundering_declared": true,
+    "gitlab_passed_job_laundering_declared": true,
+    "azure_devops_succeeded_task_laundering_declared": true,
+    "human_prose_summary_audit_only_declared": true,
+    "opaque_host_native_scoring_conformance_only_declared": true,
+    "neutral_label_presence_aggregation_declared": true,
+    "dashboard_narrative_framing_audit_only_declared": true
   }
 }
