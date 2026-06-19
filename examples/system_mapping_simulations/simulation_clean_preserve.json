@@ -1,0 +1,64 @@
+{
+  "simulation_id": "simulation:clean-preserve-v0-1",
+  "simulation_version": "0.1",
+  "simulation_class": "CLEAN_PRESERVE",
+  "expected_result_kind": "SIMULATION_MAPPING_RECORDED",
+  "upstream_boundary_summary": {
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-letter-generated"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_legal_sufficiency"
+    ]
+  },
+  "downstream_mapping_receipt": {
+    "receipt_type": "SYSTEM_MAPPING_RECEIPT",
+    "receipt_version": "0.1",
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-letter-generated"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_legal_sufficiency"
+    ],
+    "consumer_system_ref": "downstream:synthetic-consumer-v0-1",
+    "consumer_declared_boundary_behavior": "PRESERVED",
+    "boundary_behavior_records": [
+      {
+        "claim_ref": "claim:denial-letter-generated",
+        "behavior": "PRESERVED",
+        "mapping_note": "Downstream repeats only that the denial-letter artifact was generated.",
+        "preserved_non_claims": [
+          "does_not_claim_medical_correctness",
+          "does_not_claim_legal_sufficiency"
+        ],
+        "dropped_non_claims": [],
+        "dropped_non_claims_disclosed": true,
+        "unresolved_pointers": [],
+        "unresolved_pointer_disposition": "NONE",
+        "resolution_evidence_refs": [],
+        "consumer_added_claims": []
+      }
+    ],
+    "receipt_non_claims": [
+      "does_not_approve_downstream_action",
+      "does_not_validate_truth",
+      "does_not_validate_compliance",
+      "does_not_validate_safety"
+    ]
+  },
+  "market_system_analogue": {
+    "stored_as": "trace_span_or_audit_log_row",
+    "likely_market_record": "A conventional trace/audit system may store request, response, actor, timestamp, and artifact references.",
+    "fork_gap_tested": "Whether the downstream record explicitly preserved upstream non-claims."
+  },
+  "simulation_non_claims": [
+    "does_not_represent_real_vendor_behavior",
+    "does_not_validate_market_system_compliance",
+    "does_not_claim_production_readiness",
+    "does_not_replace_platform_native_audit_logs"
+  ]
+}

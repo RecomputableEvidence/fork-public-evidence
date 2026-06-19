@@ -1,0 +1,64 @@
+{
+  "simulation_id": "simulation:safe-narrowing-v0-1",
+  "simulation_version": "0.1",
+  "simulation_class": "SAFE_NARROWING",
+  "expected_result_kind": "SIMULATION_MAPPING_RECORDED",
+  "upstream_boundary_summary": {
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-letter-generated"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_appeal_outcome"
+    ]
+  },
+  "downstream_mapping_receipt": {
+    "receipt_type": "SYSTEM_MAPPING_RECEIPT",
+    "receipt_version": "0.1",
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-letter-generated"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_appeal_outcome"
+    ],
+    "consumer_system_ref": "downstream:synthetic-consumer-v0-1",
+    "consumer_declared_boundary_behavior": "NARROWED",
+    "boundary_behavior_records": [
+      {
+        "claim_ref": "claim:denial-letter-generated",
+        "behavior": "NARROWED",
+        "mapping_note": "Downstream uses only artifact existence for intake routing, not the upstream rationale.",
+        "preserved_non_claims": [
+          "does_not_claim_medical_correctness",
+          "does_not_claim_appeal_outcome"
+        ],
+        "dropped_non_claims": [],
+        "dropped_non_claims_disclosed": true,
+        "unresolved_pointers": [],
+        "unresolved_pointer_disposition": "NONE",
+        "resolution_evidence_refs": [],
+        "consumer_added_claims": []
+      }
+    ],
+    "receipt_non_claims": [
+      "does_not_approve_downstream_action",
+      "does_not_validate_truth",
+      "does_not_validate_compliance",
+      "does_not_validate_safety"
+    ]
+  },
+  "market_system_analogue": {
+    "stored_as": "lineage_edge_or_workflow_metadata",
+    "likely_market_record": "A lineage or workflow system may record that the downstream intake step consumed the upstream artifact.",
+    "fork_gap_tested": "Whether the downstream system narrowed rather than silently expanded the upstream claim."
+  },
+  "simulation_non_claims": [
+    "does_not_represent_real_vendor_behavior",
+    "does_not_validate_market_system_compliance",
+    "does_not_claim_production_readiness",
+    "does_not_replace_platform_native_audit_logs"
+  ]
+}

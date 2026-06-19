@@ -1,0 +1,66 @@
+{
+  "simulation_id": "simulation:unresolved-laundering-v0-1",
+  "simulation_version": "0.1",
+  "simulation_class": "UNRESOLVED_LAUNDERING",
+  "expected_result_kind": "SIMULATION_UNRESOLVED_POINTER_GAP_RECORDED",
+  "upstream_boundary_summary": {
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-rationale-pointer"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_rationale_resolution"
+    ]
+  },
+  "downstream_mapping_receipt": {
+    "receipt_type": "SYSTEM_MAPPING_RECEIPT",
+    "receipt_version": "0.1",
+    "source_record_ref": "cbc:synthetic-upstream-boundary-v0-1",
+    "source_claim_refs": [
+      "claim:denial-rationale-pointer"
+    ],
+    "source_non_claim_refs": [
+      "does_not_claim_medical_correctness",
+      "does_not_claim_rationale_resolution"
+    ],
+    "consumer_system_ref": "downstream:synthetic-consumer-v0-1",
+    "consumer_declared_boundary_behavior": "UNRESOLVED",
+    "boundary_behavior_records": [
+      {
+        "claim_ref": "claim:denial-rationale-pointer",
+        "behavior": "UNRESOLVED",
+        "mapping_note": "Downstream treats an unresolved pointer as resolved without evidence.",
+        "preserved_non_claims": [
+          "does_not_claim_medical_correctness",
+          "does_not_claim_rationale_resolution"
+        ],
+        "dropped_non_claims": [],
+        "dropped_non_claims_disclosed": true,
+        "unresolved_pointers": [
+          "pointer:clinical-rationale-source"
+        ],
+        "unresolved_pointer_disposition": "SILENTLY_RESOLVED",
+        "resolution_evidence_refs": [],
+        "consumer_added_claims": []
+      }
+    ],
+    "receipt_non_claims": [
+      "does_not_approve_downstream_action",
+      "does_not_validate_truth",
+      "does_not_validate_compliance",
+      "does_not_validate_safety"
+    ]
+  },
+  "market_system_analogue": {
+    "stored_as": "trace_span_with_successful_runtime_completion",
+    "likely_market_record": "A trace system may store that the workflow step completed even though a claim pointer remained unresolved.",
+    "fork_gap_tested": "Whether runtime completion is prevented from laundering unresolved claim state."
+  },
+  "simulation_non_claims": [
+    "does_not_represent_real_vendor_behavior",
+    "does_not_validate_market_system_compliance",
+    "does_not_claim_production_readiness",
+    "does_not_replace_platform_native_audit_logs"
+  ]
+}

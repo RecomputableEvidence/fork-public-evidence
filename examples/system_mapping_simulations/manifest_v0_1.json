@@ -1,0 +1,47 @@
+{
+  "manifest_type": "SYSTEM_MAPPING_RECORD_SIMULATION_MANIFEST",
+  "manifest_version": "0.1",
+  "simulations": [
+    {
+      "path": "examples/system_mapping_simulations/simulation_clean_preserve.json",
+      "simulation_id": "simulation:clean-preserve-v0-1",
+      "simulation_class": "CLEAN_PRESERVE",
+      "expected_result_kind": "SIMULATION_MAPPING_RECORDED"
+    },
+    {
+      "path": "examples/system_mapping_simulations/simulation_safe_narrowing.json",
+      "simulation_id": "simulation:safe-narrowing-v0-1",
+      "simulation_class": "SAFE_NARROWING",
+      "expected_result_kind": "SIMULATION_MAPPING_RECORDED"
+    },
+    {
+      "path": "examples/system_mapping_simulations/simulation_explicit_expansion_with_authority.json",
+      "simulation_id": "simulation:explicit-expansion-with-authority-v0-1",
+      "simulation_class": "EXPLICIT_EXPANSION_WITH_AUTHORITY",
+      "expected_result_kind": "SIMULATION_MAPPING_RECORDED"
+    },
+    {
+      "path": "examples/system_mapping_simulations/simulation_unsafe_expansion_without_authority.json",
+      "simulation_id": "simulation:unsafe-expansion-without-authority-v0-1",
+      "simulation_class": "UNSAFE_EXPANSION_WITHOUT_AUTHORITY",
+      "expected_result_kind": "SIMULATION_EXPANSION_GAP_RECORDED"
+    },
+    {
+      "path": "examples/system_mapping_simulations/simulation_non_claim_drop.json",
+      "simulation_id": "simulation:non-claim-drop-v0-1",
+      "simulation_class": "NON_CLAIM_DROP",
+      "expected_result_kind": "SIMULATION_NON_CLAIM_DROP_RECORDED"
+    },
+    {
+      "path": "examples/system_mapping_simulations/simulation_unresolved_laundering.json",
+      "simulation_id": "simulation:unresolved-laundering-v0-1",
+      "simulation_class": "UNRESOLVED_LAUNDERING",
+      "expected_result_kind": "SIMULATION_UNRESOLVED_POINTER_GAP_RECORDED"
+    }
+  ],
+  "manifest_non_claims": [
+    "does_not_represent_real_vendor_behavior",
+    "does_not_validate_market_system_compliance",
+    "does_not_claim_production_readiness"
+  ]
+}
