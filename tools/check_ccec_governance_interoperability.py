@@ -14,7 +14,7 @@ else:
     JSONSCHEMA_IMPORT_ERROR = None
 
 CHECKER_NAME = "check_ccec_governance_interoperability"
-CHECKER_VERSION = "0.1.1"
+CHECKER_VERSION = "0.1.2"
 
 PROHIBITED_MAPPINGS = [
     "APPROVAL_STATUS",
@@ -46,6 +46,28 @@ PROHIBITED_MAPPINGS = [
     "DELEGATED_AUTHORITY",
     "PERPETUAL_RELIANCE",
     "SOLE_EVIDENCE",
+    "EXCEPTION_GRANTED",
+    "WAIVER_APPROVED",
+    "INHERENT_RISK_REDUCED",
+    "RESIDUAL_RISK_ACCEPTED",
+    "COMPENSATING_CONTROL_ACTIVE",
+    "AUDIT_FINDING_CLOSED",
+    "REMEDIATION_COMPLETE",
+    "OPERATIONAL_READINESS",
+    "DEPLOYMENT_ALLOWED",
+    "CONTRACTUAL_RELIANCE_ALLOWED",
+    "BOOLEAN_COERCION",
+    "NUMERIC_SCORE_COERCION",
+    "WEIGHTED_RISK_REDUCTION",
+    "WORKFLOW_PHASE_UNLOCK",
+    "NEGATIVE_GATE_CONDITION",
+    "NECESSARY_CONDITION_GATE",
+    "COVERAGE_PERCENTAGE_POSTURE",
+    "TRAFFIC_LIGHT_RENDERING",
+    "CHECKMARK_RENDERING",
+    "TERMINAL_WORKFLOW_STATE",
+    "DISPOSITION_MAPPING",
+    "QUANTITATIVE_RISK_SCORING",
 ]
 
 DO_NOT_MAP_TO = [
@@ -91,6 +113,28 @@ DO_NOT_MAP_TO = [
     "DELEGATED_AUTHORITY",
     "PERPETUAL_RELIANCE",
     "SOLE_EVIDENCE",
+    "EXCEPTION_GRANTED",
+    "WAIVER_APPROVED",
+    "INHERENT_RISK_REDUCED",
+    "RESIDUAL_RISK_ACCEPTED",
+    "COMPENSATING_CONTROL_ACTIVE",
+    "AUDIT_FINDING_CLOSED",
+    "REMEDIATION_COMPLETE",
+    "OPERATIONAL_READINESS",
+    "DEPLOYMENT_ALLOWED",
+    "CONTRACTUAL_RELIANCE_ALLOWED",
+    "BOOLEAN_COERCION",
+    "NUMERIC_SCORE_COERCION",
+    "WEIGHTED_RISK_REDUCTION",
+    "WORKFLOW_PHASE_UNLOCK",
+    "NEGATIVE_GATE_CONDITION",
+    "NECESSARY_CONDITION_GATE",
+    "COVERAGE_PERCENTAGE_POSTURE",
+    "TRAFFIC_LIGHT_RENDERING",
+    "CHECKMARK_RENDERING",
+    "TERMINAL_WORKFLOW_STATE",
+    "DISPOSITION_MAPPING",
+    "QUANTITATIVE_RISK_SCORING",
 ]
 
 LIMITATIONS = {
@@ -112,6 +156,11 @@ LIMITATIONS = {
     "does_not_validate_evidence_sufficiency": True,
     "does_not_validate_reasonable_reliance": True,
     "does_not_validate_aggregation_posture": True,
+    "does_not_validate_quantitative_risk_reduction": True,
+    "does_not_validate_visual_assurance": True,
+    "does_not_validate_workflow_transition": True,
+    "does_not_validate_runtime_configuration_compliance": True,
+    "does_not_validate_external_system_governance_adequacy": True,
     "does_not_transfer_authority": True,
     "not_runtime_control": True,
     "not_policy_engine": True,
@@ -127,6 +176,9 @@ NON_CLAIMS = {
     "does_not_transfer_authority": True,
     "does_not_close_unresolved_gaps": True,
     "does_not_accept_risk": True,
+    "does_not_create_control_satisfaction": True,
+    "does_not_create_workflow_transition": True,
+    "does_not_create_aggregate_posture": True,
 }
 
 VALIDATES = [
@@ -138,7 +190,15 @@ VALIDATES = [
     "runtime_use_constraints",
     "rendering_constraints",
     "aggregation_constraints",
+    "behavioral_use_constraints",
+    "visual_semantics_constraints",
+    "aggregate_metric_constraints",
+    "workflow_transition_constraints",
     "forbidden_oracle_target_field_absence",
+    "anti_coercion_target_detection",
+    "terminal_state_mapping_detection",
+    "quantitative_scoring_prohibition",
+    "visual_assurance_signal_prohibition",
     "authority_inheritance_prohibition",
     "unresolved_gap_preservation",
     "checker_output_contract_conformance",
@@ -159,6 +219,13 @@ DOES_NOT_VALIDATE = [
     "evidence_sufficiency",
     "reasonable_reliance",
     "aggregation_posture",
+    "external_runtime_behavior",
+    "external_dashboard_behavior",
+    "external_workflow_configuration_compliance",
+    "third_party_governance_adequacy",
+    "quantitative_risk_reduction",
+    "visual_assurance",
+    "workflow_transition",
 ]
 
 FORBIDDEN_FIELD_NAMES = {
@@ -186,6 +253,12 @@ FORBIDDEN_FIELD_NAMES = {
     "evidence_sufficiency",
     "audit_sufficiency",
     "reasonable_reliance",
+    "status_code",
+    "ok_flag",
+    "pass_flag",
+    "go_flag",
+    "trust_level",
+    "confidence_score",
 }
 
 FORBIDDEN_TARGET_FRAGMENTS = [
@@ -199,28 +272,101 @@ FORBIDDEN_TARGET_FRAGMENTS = [
     "authorization_status",
     "authority_transfer",
     "compliance_status",
+    "compliance_state",
+    "compliance_level",
     "compliance_evidence",
     "compliant",
     "control_status",
     "control_effectiveness",
     "control_satisfied",
+    "control_passed",
+    "control_effective",
+    "control_maturity",
     "automated_control_satisfied",
     "risk_acceptance",
     "risk_accepted",
+    "risk_state",
+    "risk_level",
+    "risk_score",
     "residual_risk",
+    "inherent_risk",
+    "risk_tolerance",
     "legal_sufficiency",
     "policy_satisfaction",
+    "policy_gate",
     "evidence_sufficiency",
+    "evidence_sufficient",
+    "evidence_accepted",
     "audit_sufficiency",
+    "audit_sufficient",
+    "audit_accepted",
+    "audit_passed",
+    "audit_status",
+    "audit_finding",
+    "finding_status",
     "reasonable_reliance",
     "standard_of_care",
     "issue_closed",
+    "issue_resolved",
+    "issue_status",
+    "ticket_resolution",
+    "remediation_complete",
+    "exception_granted",
+    "waiver_approved",
+    "compensating_control",
     "go_live",
+    "go_no_go",
+    "go_decision",
+    "deploy_allowed",
+    "deployment_allowed",
     "deployment_approved",
+    "deployment_authorized",
+    "deploy_status",
+    "production_ready",
+    "production_authorized",
+    "operational_readiness",
+    "phase_gate",
+    "tollgate",
+    "milestone_clearance",
+    "review_outcome",
+    "review_complete",
+    "attestation_state",
+    "record_state",
+    "maturity_level",
+    "model_approval",
+    "validation_status",
+    "drift_status",
+    "gate_status",
+    "resolution",
+    "disposition",
+    "terminal_state",
+    "ready_for_deploy",
+    "ready_for_go_live",
+    "status_code",
+    "ok_flag",
+    "pass_flag",
+    "go_flag",
+    "authz",
+    "assurance_level",
+    "assurance_score",
+    "trust_level",
+    "confidence_level",
+    "confidence_score",
+    "documentation_coverage",
+    "evidence_hygiene_score",
+    "reliance_completeness_index",
+    "boundary_preservation_rate",
+    "coverage_percentage",
+    "coverage_percent",
+    "compliance_coverage",
     "green_badge",
     "pass_badge",
-    "assurance_level",
-    "confidence_level",
+    "checkmark",
+    "traffic_light",
+    "negative_gate",
+    "default_allow",
+    "no_ccec",
+    "unless_no_ccec",
 ]
 
 RUNTIME_USE_EXPECTED = {
@@ -251,6 +397,50 @@ AGGREGATION_EXPECTED = {
     "aggregation_must_not_claim_safety": True,
     "aggregation_must_not_claim_risk_acceptance": True,
     "aggregation_requires_non_claim_and_gap_disclosure": True,
+}
+
+BEHAVIORAL_USE_EXPECTED = {
+    "ccec_presence_absence_gate_prohibited": True,
+    "ccec_as_necessary_condition_prohibited": True,
+    "ccec_as_sufficient_condition_prohibited": True,
+    "ccec_as_negative_gate_condition_prohibited": True,
+    "ccec_as_workflow_phase_unlock_prohibited": True,
+    "boolean_coercion_prohibited": True,
+    "numeric_score_coercion_prohibited": True,
+    "weighted_risk_reduction_prohibited": True,
+    "compensating_control_use_prohibited": True,
+    "coverage_percentage_posture_prohibited": True,
+    "result_ok_actionability_prohibited": True,
+    "external_runtime_enforcement_required": True,
+}
+
+VISUAL_SEMANTICS_EXPECTED = {
+    "traffic_light_rendering_prohibited": True,
+    "checkmark_icon_rendering_prohibited": True,
+    "pass_fail_iconography_prohibited": True,
+    "same_viewport_limitations_required": True,
+    "click_to_expand_limitations_insufficient": True,
+    "tooltip_status_language_prohibited": True,
+    "neutral_documentation_label_required": True,
+}
+
+AGGREGATE_METRIC_EXPECTED = {
+    "raw_event_count_aggregates_allowed": True,
+    "ratio_aggregates_over_ccec_content_prohibited": True,
+    "percentage_aggregates_over_ccec_content_prohibited": True,
+    "trendline_aggregates_over_ccec_content_prohibited": True,
+    "weighted_scores_from_ccec_fields_prohibited": True,
+    "coverage_percentage_as_compliance_proxy_prohibited": True,
+    "aggregate_metric_names_must_not_imply_posture": True,
+}
+
+WORKFLOW_TRANSITION_EXPECTED = {
+    "terminal_status_mapping_prohibited": True,
+    "stage_state_disposition_terminal_mapping_prohibited": True,
+    "ccec_triggered_ticket_resolution_prohibited": True,
+    "ccec_triggered_deployment_transition_prohibited": True,
+    "ccec_triggered_audit_finding_closure_prohibited": True,
+    "ccec_triggered_policy_exception_or_waiver_prohibited": True,
 }
 
 def repo_root() -> Path:
@@ -345,6 +535,44 @@ def check_expected_object(profile: dict[str, Any], field: str, expected: dict[st
                 )
             )
 
+def target_field_errors(rule: dict[str, Any], index: int) -> list[dict[str, str]]:
+    errors: list[dict[str, str]] = []
+    target = str(rule.get("external_target_field", "")).lower()
+    transform = str(rule.get("transformation", "")).lower()
+
+    for fragment in FORBIDDEN_TARGET_FRAGMENTS:
+        if fragment in target:
+            errors.append(
+                finding(
+                    "CCEC_INTEROP_ORACLE_TARGET_FIELD",
+                    f"external_target_field '{rule.get('external_target_field')}' would map a bounded CCEC reference into a prohibited oracle-like, behavioral, workflow, scoring, or visual target.",
+                    f"$.mapping_rules[{index}].external_target_field",
+                )
+            )
+            break
+
+    for fragment in ["boolean", "numeric", "score", "weight", "weighted", "coerce", "status_code", "risk_reduction"]:
+        if fragment in transform:
+            errors.append(
+                finding(
+                    "CCEC_INTEROP_COERCIVE_TRANSFORMATION_PROHIBITED",
+                    f"transformation '{rule.get('transformation')}' implies coercion, scoring, or status transformation.",
+                    f"$.mapping_rules[{index}].transformation",
+                )
+            )
+            break
+
+    if rule.get("creates_external_status") is True:
+        errors.append(
+            finding(
+                "CCEC_INTEROP_EXTERNAL_STATUS_CREATION_PROHIBITED",
+                "mapping_rules items must not create external status.",
+                f"$.mapping_rules[{index}].creates_external_status",
+            )
+        )
+
+    return errors
+
 def contract_errors(profile: dict[str, Any]) -> list[dict[str, str]]:
     errors: list[dict[str, str]] = []
 
@@ -392,6 +620,11 @@ def contract_errors(profile: dict[str, Any]) -> list[dict[str, str]]:
             "does_not_validate_evidence_sufficiency": True,
             "does_not_validate_reasonable_reliance": True,
             "does_not_validate_aggregation_posture": True,
+            "does_not_validate_quantitative_risk_reduction": True,
+            "does_not_validate_visual_assurance": True,
+            "does_not_validate_workflow_transition": True,
+            "does_not_validate_runtime_configuration_compliance": True,
+            "does_not_validate_external_system_governance_adequacy": True,
             "does_not_transfer_authority": True,
             "not_runtime_control": True,
             "not_policy_engine": True,
@@ -407,27 +640,13 @@ def contract_errors(profile: dict[str, Any]) -> list[dict[str, str]]:
                     )
                 )
 
-    check_expected_object(
-        profile,
-        "runtime_use_constraints",
-        RUNTIME_USE_EXPECTED,
-        "CCEC_INTEROP_RUNTIME_USE_CONSTRAINT_VIOLATION",
-        errors,
-    )
-    check_expected_object(
-        profile,
-        "rendering_constraints",
-        RENDERING_EXPECTED,
-        "CCEC_INTEROP_RENDERING_CONSTRAINT_VIOLATION",
-        errors,
-    )
-    check_expected_object(
-        profile,
-        "aggregation_constraints",
-        AGGREGATION_EXPECTED,
-        "CCEC_INTEROP_AGGREGATION_CONSTRAINT_VIOLATION",
-        errors,
-    )
+    check_expected_object(profile, "runtime_use_constraints", RUNTIME_USE_EXPECTED, "CCEC_INTEROP_RUNTIME_USE_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "rendering_constraints", RENDERING_EXPECTED, "CCEC_INTEROP_RENDERING_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "aggregation_constraints", AGGREGATION_EXPECTED, "CCEC_INTEROP_AGGREGATION_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "behavioral_use_constraints", BEHAVIORAL_USE_EXPECTED, "CCEC_INTEROP_BEHAVIORAL_USE_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "visual_semantics_constraints", VISUAL_SEMANTICS_EXPECTED, "CCEC_INTEROP_VISUAL_SEMANTICS_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "aggregate_metric_constraints", AGGREGATE_METRIC_EXPECTED, "CCEC_INTEROP_AGGREGATE_METRIC_CONSTRAINT_VIOLATION", errors)
+    check_expected_object(profile, "workflow_transition_constraints", WORKFLOW_TRANSITION_EXPECTED, "CCEC_INTEROP_WORKFLOW_TRANSITION_CONSTRAINT_VIOLATION", errors)
 
     for index, rule in enumerate(profile.get("mapping_rules", [])):
         if not isinstance(rule, dict):
@@ -443,17 +662,7 @@ def contract_errors(profile: dict[str, Any]) -> list[dict[str, str]]:
                 )
             )
 
-        target = str(rule.get("external_target_field", "")).lower()
-        for fragment in FORBIDDEN_TARGET_FRAGMENTS:
-            if fragment in target:
-                errors.append(
-                    finding(
-                        "CCEC_INTEROP_ORACLE_TARGET_FIELD",
-                        f"external_target_field '{rule.get('external_target_field')}' would map a bounded CCEC reference into a prohibited oracle-like target.",
-                        f"$.mapping_rules[{index}].external_target_field",
-                    )
-                )
-                break
+        errors.extend(target_field_errors(rule, index))
 
     local_authority = profile.get("local_authority_boundary")
     if isinstance(local_authority, dict):
@@ -541,7 +750,7 @@ def check(path: Path) -> dict[str, Any]:
     return make_output(path, "STRUCTURAL_PASS", [])
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Validate a CCEC Governance Interoperability Profile v0.1.1 runtime-use hardened structural contract.")
+    parser = argparse.ArgumentParser(description="Validate a CCEC Governance Interoperability Profile v0.1.2 behavioral-layer hardened structural contract.")
     parser.add_argument("path", type=Path, help="Path to the CCEC governance interoperability profile JSON file.")
     args = parser.parse_args(argv)
 

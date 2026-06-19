@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://example.org/schemas/ccec_governance_interoperability_checker_output_v0_1.schema.json",
-  "title": "CCEC Governance Interoperability Checker Output Contract v0.1.1 Runtime Use Hardened",
+  "title": "CCEC Governance Interoperability Checker Output Contract v0.1.2 Behavioral Layer Hardened",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -46,7 +46,7 @@
     "do_not_map_to": {
       "type": "array",
       "uniqueItems": true,
-      "minItems": 42,
+      "minItems": 64,
       "items": {
         "type": "string",
         "enum": [
@@ -91,7 +91,29 @@
           "STANDARD_OF_CARE",
           "DELEGATED_AUTHORITY",
           "PERPETUAL_RELIANCE",
-          "SOLE_EVIDENCE"
+          "SOLE_EVIDENCE",
+          "EXCEPTION_GRANTED",
+          "WAIVER_APPROVED",
+          "INHERENT_RISK_REDUCED",
+          "RESIDUAL_RISK_ACCEPTED",
+          "COMPENSATING_CONTROL_ACTIVE",
+          "AUDIT_FINDING_CLOSED",
+          "REMEDIATION_COMPLETE",
+          "OPERATIONAL_READINESS",
+          "DEPLOYMENT_ALLOWED",
+          "CONTRACTUAL_RELIANCE_ALLOWED",
+          "BOOLEAN_COERCION",
+          "NUMERIC_SCORE_COERCION",
+          "WEIGHTED_RISK_REDUCTION",
+          "WORKFLOW_PHASE_UNLOCK",
+          "NEGATIVE_GATE_CONDITION",
+          "NECESSARY_CONDITION_GATE",
+          "COVERAGE_PERCENTAGE_POSTURE",
+          "TRAFFIC_LIGHT_RENDERING",
+          "CHECKMARK_RENDERING",
+          "TERMINAL_WORKFLOW_STATE",
+          "DISPOSITION_MAPPING",
+          "QUANTITATIVE_RISK_SCORING"
         ]
       }
     },
@@ -112,7 +134,7 @@
           "const": "check_ccec_governance_interoperability"
         },
         "version": {
-          "const": "0.1.1"
+          "const": "0.1.2"
         }
       }
     },
@@ -188,7 +210,7 @@
         "validates": {
           "type": "array",
           "uniqueItems": true,
-          "minItems": 12,
+          "minItems": 20,
           "items": {
             "type": "string",
             "enum": [
@@ -200,7 +222,15 @@
               "runtime_use_constraints",
               "rendering_constraints",
               "aggregation_constraints",
+              "behavioral_use_constraints",
+              "visual_semantics_constraints",
+              "aggregate_metric_constraints",
+              "workflow_transition_constraints",
               "forbidden_oracle_target_field_absence",
+              "anti_coercion_target_detection",
+              "terminal_state_mapping_detection",
+              "quantitative_scoring_prohibition",
+              "visual_assurance_signal_prohibition",
               "authority_inheritance_prohibition",
               "unresolved_gap_preservation",
               "checker_output_contract_conformance"
@@ -210,7 +240,7 @@
         "does_not_validate": {
           "type": "array",
           "uniqueItems": true,
-          "minItems": 14,
+          "minItems": 21,
           "items": {
             "type": "string",
             "enum": [
@@ -227,7 +257,14 @@
               "deployment_authorization",
               "evidence_sufficiency",
               "reasonable_reliance",
-              "aggregation_posture"
+              "aggregation_posture",
+              "external_runtime_behavior",
+              "external_dashboard_behavior",
+              "external_workflow_configuration_compliance",
+              "third_party_governance_adequacy",
+              "quantitative_risk_reduction",
+              "visual_assurance",
+              "workflow_transition"
             ]
           }
         }
@@ -255,6 +292,11 @@
         "does_not_validate_evidence_sufficiency",
         "does_not_validate_reasonable_reliance",
         "does_not_validate_aggregation_posture",
+        "does_not_validate_quantitative_risk_reduction",
+        "does_not_validate_visual_assurance",
+        "does_not_validate_workflow_transition",
+        "does_not_validate_runtime_configuration_compliance",
+        "does_not_validate_external_system_governance_adequacy",
         "does_not_transfer_authority",
         "not_runtime_control",
         "not_policy_engine",
@@ -315,6 +357,21 @@
         "does_not_validate_aggregation_posture": {
           "const": true
         },
+        "does_not_validate_quantitative_risk_reduction": {
+          "const": true
+        },
+        "does_not_validate_visual_assurance": {
+          "const": true
+        },
+        "does_not_validate_workflow_transition": {
+          "const": true
+        },
+        "does_not_validate_runtime_configuration_compliance": {
+          "const": true
+        },
+        "does_not_validate_external_system_governance_adequacy": {
+          "const": true
+        },
         "does_not_transfer_authority": {
           "const": true
         },
@@ -340,7 +397,10 @@
         "does_not_create_legal_sufficiency_status",
         "does_not_transfer_authority",
         "does_not_close_unresolved_gaps",
-        "does_not_accept_risk"
+        "does_not_accept_risk",
+        "does_not_create_control_satisfaction",
+        "does_not_create_workflow_transition",
+        "does_not_create_aggregate_posture"
       ],
       "properties": {
         "does_not_create_approval_status": {
@@ -365,6 +425,15 @@
           "const": true
         },
         "does_not_accept_risk": {
+          "const": true
+        },
+        "does_not_create_control_satisfaction": {
+          "const": true
+        },
+        "does_not_create_workflow_transition": {
+          "const": true
+        },
+        "does_not_create_aggregate_posture": {
           "const": true
         }
       }

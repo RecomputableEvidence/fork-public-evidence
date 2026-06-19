@@ -1,7 +1,7 @@
 {
   "checker": {
     "name": "check_ccec_governance_interoperability",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "do_not_map_to": [
     "APPROVAL",
@@ -45,7 +45,29 @@
     "STANDARD_OF_CARE",
     "DELEGATED_AUTHORITY",
     "PERPETUAL_RELIANCE",
-    "SOLE_EVIDENCE"
+    "SOLE_EVIDENCE",
+    "EXCEPTION_GRANTED",
+    "WAIVER_APPROVED",
+    "INHERENT_RISK_REDUCED",
+    "RESIDUAL_RISK_ACCEPTED",
+    "COMPENSATING_CONTROL_ACTIVE",
+    "AUDIT_FINDING_CLOSED",
+    "REMEDIATION_COMPLETE",
+    "OPERATIONAL_READINESS",
+    "DEPLOYMENT_ALLOWED",
+    "CONTRACTUAL_RELIANCE_ALLOWED",
+    "BOOLEAN_COERCION",
+    "NUMERIC_SCORE_COERCION",
+    "WEIGHTED_RISK_REDUCTION",
+    "WORKFLOW_PHASE_UNLOCK",
+    "NEGATIVE_GATE_CONDITION",
+    "NECESSARY_CONDITION_GATE",
+    "COVERAGE_PERCENTAGE_POSTURE",
+    "TRAFFIC_LIGHT_RENDERING",
+    "CHECKMARK_RENDERING",
+    "TERMINAL_WORKFLOW_STATE",
+    "DISPOSITION_MAPPING",
+    "QUANTITATIVE_RISK_SCORING"
   ],
   "errors": [],
   "input": {
@@ -61,14 +83,19 @@
     "does_not_validate_control_satisfaction": true,
     "does_not_validate_deployment_authorization": true,
     "does_not_validate_evidence_sufficiency": true,
+    "does_not_validate_external_system_governance_adequacy": true,
     "does_not_validate_institutional_authorization": true,
     "does_not_validate_issue_closure": true,
     "does_not_validate_legal_sufficiency": true,
     "does_not_validate_policy_satisfaction": true,
+    "does_not_validate_quantitative_risk_reduction": true,
     "does_not_validate_reasonable_reliance": true,
     "does_not_validate_risk_acceptance": true,
+    "does_not_validate_runtime_configuration_compliance": true,
     "does_not_validate_safety": true,
     "does_not_validate_truth": true,
+    "does_not_validate_visual_assurance": true,
+    "does_not_validate_workflow_transition": true,
     "not_compliance_oracle": true,
     "not_policy_engine": true,
     "not_runtime_control": true,
@@ -78,11 +105,14 @@
   "non_claims": {
     "does_not_accept_risk": true,
     "does_not_close_unresolved_gaps": true,
+    "does_not_create_aggregate_posture": true,
     "does_not_create_approval_status": true,
     "does_not_create_compliance_status": true,
+    "does_not_create_control_satisfaction": true,
     "does_not_create_legal_sufficiency_status": true,
     "does_not_create_safety_status": true,
     "does_not_create_truth_status": true,
+    "does_not_create_workflow_transition": true,
     "does_not_transfer_authority": true
   },
   "result": {
@@ -105,7 +135,14 @@
       "deployment_authorization",
       "evidence_sufficiency",
       "reasonable_reliance",
-      "aggregation_posture"
+      "aggregation_posture",
+      "external_runtime_behavior",
+      "external_dashboard_behavior",
+      "external_workflow_configuration_compliance",
+      "third_party_governance_adequacy",
+      "quantitative_risk_reduction",
+      "visual_assurance",
+      "workflow_transition"
     ],
     "validates": [
       "json_parseability",
@@ -116,7 +153,15 @@
       "runtime_use_constraints",
       "rendering_constraints",
       "aggregation_constraints",
+      "behavioral_use_constraints",
+      "visual_semantics_constraints",
+      "aggregate_metric_constraints",
+      "workflow_transition_constraints",
       "forbidden_oracle_target_field_absence",
+      "anti_coercion_target_detection",
+      "terminal_state_mapping_detection",
+      "quantitative_scoring_prohibition",
+      "visual_assurance_signal_prohibition",
       "authority_inheritance_prohibition",
       "unresolved_gap_preservation",
       "checker_output_contract_conformance"

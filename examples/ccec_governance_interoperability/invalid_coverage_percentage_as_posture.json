@@ -1,7 +1,7 @@
 {
   "profile_type": "CCEC_GOVERNANCE_INTEROPERABILITY_PROFILE",
   "profile_version": "0.1",
-  "profile_id": "CCEC_INTEROP_INVALID_AUTHORITY_INHERITANCE_001",
+  "profile_id": "CCEC_INTEROP_INVALID_COVERAGE_PERCENTAGE_AS_POSTURE_001",
   "source_ccec_ref": {
     "ccec_id": "CCE_SYNTHETIC_PRESERVED_001",
     "ccec_contract_version": "0.1",
@@ -11,9 +11,9 @@
     ]
   },
   "external_system": {
-    "system_id": "SYNTHETIC_RISK_REGISTER",
-    "system_type": "RISK_REGISTER",
-    "system_name": "Synthetic Invalid Authority Inheritance Register",
+    "system_id": "SYNTHETIC_GRC_REGISTER",
+    "system_type": "GRC_REGISTER",
+    "system_name": "Synthetic GRC Register",
     "owner_organization": "synthetic controlled pilot"
   },
   "integration_context": {
@@ -115,6 +115,14 @@
       "transformation": "REFERENCE_ONLY",
       "preserves_non_claims": true,
       "creates_external_status": false
+    },
+    {
+      "source_ccec_field": "source_ccec_ref.ccec_id",
+      "external_target_field": "executive_dashboard.boundary_preservation_rate_percent",
+      "mapping_kind": "EVIDENCE_REFERENCE",
+      "transformation": "REFERENCE_ONLY",
+      "preserves_non_claims": true,
+      "creates_external_status": false
     }
   ],
   "preserved_non_claims": [
@@ -141,7 +149,7 @@
     "authority_transfer_prohibited": true,
     "external_system_must_make_local_decision": true,
     "local_decision_record_required_before_status_change": true,
-    "external_status_change_basis": "INHERITED_FROM_CCEC",
+    "external_status_change_basis": "LOCAL_DECISION_REQUIRED",
     "boundary_statement": "The external system may reference the CCEC only as bounded evidence; any approval-like, compliance-like, safety-like, legal-like, policy-like, risk-like, or authority-like status requires a separate local decision record."
   },
   "external_decision_owner": {
