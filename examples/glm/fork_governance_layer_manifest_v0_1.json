@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.3",
+  "manifest_kind": "layer",
+  "manifest_version": "0.1",
+  "valid_from": "2026-06-19",
+  "valid_until": null,
+  "supersedes": null,
+  "supersedes_digest": null,
+  "controlling_test": "Fork interoperability should increase independent reviewability of claim, non-claim, reliance, and expansion boundaries without silently transferring truth, approval, compliance, admissibility, legal sufficiency, safety, runtime-control, or authority determinations across layers.",
+  "interoperability_doctrine": "Fork does not create interoperability through authority transfer, semantic inheritance, or bilateral trust assumptions. Fork contributes to interoperability by preserving independently inspectable evidence-boundary records that make claims, non-claims, unresolved pointers, reliance propagation, and downstream expansion visible for later review.",
+  "layer": {
+    "layer_type": "cross_cutting",
+    "vendor_layer_name": "Fork",
+    "vendor_layer_full_name": "Fork Recomputable Evidence",
+    "vendor_layer_descriptor": "Out-of-band recomputable evidence-boundary infrastructure for AI-assisted workflows",
+    "owner": {
+      "name": "Ryan Feller",
+      "organization": "NGAST",
+      "public_repository": "https://github.com/RecomputableEvidence/fork-public-evidence"
+    },
+    "version": "0.1",
+    "status": "experimental",
+    "declaration_note": "This manifest exposes Fork's claim boundary in GLM-readable form. It does not declare GLM certification, EVIDE compatibility, legal sufficiency, compliance approval, admissibility, safety certification, truth determination, runtime control, or authority transfer."
+  },
+  "timing_axis": {
+    "position": "cross-cutting",
+    "surfaces": [
+      {
+        "surface": "record_creation",
+        "timing_position": "post-bind",
+        "operational_scope": "Preserves what was requested, what AI produced, what humans reviewed, what claims were declared, what non-claims were preserved, what evidence was referenced, and what verification state was recorded when an AI-assisted workflow artifact or receipt is sealed.",
+        "does_not": [
+          "Does not decide whether the workflow action was correct",
+          "Does not decide whether the workflow action was authorized",
+          "Does not decide whether the workflow action was compliant",
+          "Does not decide whether the workflow action was safe",
+          "Does not approve the workflow action"
+        ]
+      },
+      {
+        "surface": "claim_boundary_preservation",
+        "timing_position": "cross-cutting",
+        "operational_scope": "Preserves declared claims, explicit non-claims, upstream reliance, rejected reliance, unresolved pointers, consumer-declared reliance, and downstream expansion signals across handoffs and composed artifacts.",
+        "does_not": [
+          "Does not convert upstream claims into downstream claims",
+          "Does not remove or erase non-claims",
+          "Does not resolve unresolved pointers by implication",
+          "Does not authorize downstream expansion",
+          "Does not validate the authority basis for any expanded claim"
+        ]
+      },
+      {
+        "surface": "reliance_mapping",
+        "timing_position": "post-bind",
+        "operational_scope": "Records how downstream consumers state that they relied on, preserved, narrowed, expanded, rejected, or left unresolved specific upstream claims and non-claims.",
+        "does_not": [
+          "Does not determine whether the reliance was reasonable",
+          "Does not determine whether the reliance was legally sufficient",
+          "Does not determine whether the reliance satisfied a policy or regulatory requirement",
+          "Does not determine whether the downstream consumer had authority to rely"
+        ]
+      },
+      {
+        "surface": "structural_recomputation",
+        "timing_position": "post-bind",
+        "timing_qualifier": "post-closure reviewability",
+        "operational_scope": "Allows independent recomputation of sealed record integrity, schema conformance, manifest constraints, digest consistency, boundary-preservation structure, and declared non-authority limitations.",
+        "does_not": [
+          "Does not determine truth",
+          "Does not determine correctness",
+          "Does not determine safety",
+          "Does not determine compliance",
+          "Does not determine legal sufficiency",
+          "Does not determine admissibility",
+          "Does not determine institutional acceptance"
+        ]
+      },
+      {
+        "surface": "bundle_or_composition_review",
+        "timing_position": "post-bind",
+        "timing_qualifier": "post-closure reviewability",
+        "operational_scope": "Makes visible whether composed governance artifacts preserve, narrow, expand, obscure, or fail to map their upstream claim and non-claim boundaries.",
+        "does_not": [
+          "Does not certify composability with any external governance layer",
+          "Does not certify interoperability with EVIDE, GLM, or any adjacent framework",
+          "Does not decide which declaration prevails when governance declarations conflict",
+          "Does not adjudicate authority between layers"
+        ]
+      }
+    ],
+    "description": "Fork operates out-of-band across record creation, claim-boundary preservation, reliance mapping, downstream expansion visibility, and later recomputation. Fork does not control execution, resolve admissibility, approve actions, determine truth, certify safety, determine compliance, validate legal sufficiency, or transfer authority."
+  },
+  "operational_scope": {
+    "does": [
+      "Preserves recomputable evidence-boundary records for AI-assisted workflows",
+      "Records declared claims and explicit non-claims",
+      "Records evidence references and declared reliance relationships",
+      "Records unresolved pointers without treating them as resolved",
+      "Records downstream claim expansion signals when declared or structurally detectable",
+      "Supports later structural recomputation of sealed records, receipts, manifests, schemas, and bundles",
+      "Helps distinguish structural verification from truth, safety, compliance, approval, legal sufficiency, admissibility, and authority determinations",
+      "Helps make downstream boundary expansion inspectable when a downstream artifact declares, adds, transforms, or appears to rely on claims not preserved from the upstream boundary"
+    ],
+    "does_not": [
+      "Does not determine truth",
+      "Does not determine factual correctness",
+      "Does not determine legal sufficiency",
+      "Does not determine regulatory compliance",
+      "Does not certify safety",
+      "Does not approve decisions",
+      "Does not authorize execution",
+      "Does not resolve admissibility",
+      "Does not validate authority",
+      "Does not control runtime behavior",
+      "Does not block or permit production actions",
+      "Does not replace human, legal, audit, compliance, risk, or institutional review",
+      "Does not convert upstream claims into downstream claims",
+      "Does not make unresolved pointers resolved",
+      "Does not certify interoperability with adjacent governance layers",
+      "Does not claim compatibility with EVIDE or any specific external GLM manifest in this version"
+    ],
+    "out_of_band_posture": {
+      "read_only": true,
+      "runtime_control": false,
+      "fail_open": true,
+      "decision_authority": false,
+      "policy_engine": false,
+      "approval_engine": false,
+      "compliance_engine": false,
+      "legal_adjudication_engine": false
+    }
+  },
+  "claims_boundary": {
+    "authoritative_layer_claim": "Fork preserves recomputable evidence-boundary records for AI-assisted workflows by structurally recording declared claims, explicit non-claims, evidence references, reliance relationships, unresolved pointers, downstream expansion signals, and later verification state without deciding truth, safety, compliance, approval, legal sufficiency, admissibility, execution permission, or authority.",
+    "explicit_non_claims": [
+      "Fork does not determine truth",
+      "Fork does not determine factual correctness",
+      "Fork does not determine legal sufficiency",
+      "Fork does not determine regulatory compliance",
+      "Fork does not certify safety",
+      "Fork does not approve decisions",
+      "Fork does not authorize execution",
+      "Fork does not resolve admissibility",
+      "Fork does not validate authority",
+      "Fork does not control runtime behavior",
+      "Fork does not block or permit production actions",
+      "Fork does not replace human review",
+      "Fork does not replace legal review",
+      "Fork does not replace audit review",
+      "Fork does not replace compliance review",
+      "Fork does not replace risk review",
+      "Fork does not replace institutional governance review",
+      "Fork does not convert upstream claims into downstream claims",
+      "Fork does not erase upstream non-claims",
+      "Fork does not make unresolved pointers resolved",
+      "Fork does not certify interoperability with GLM, EVIDE, or any adjacent governance layer",
+      "Fork does not claim compatibility with EVIDE",
+      "Fork does not determine which governance declaration prevails when declarations conflict"
+    ],
+    "consumer_boundary_constraint": "Consumers must not interpret Fork records, receipts, manifests, check outputs, verification results, structural passes, recomputation results, or preserved evidence-boundary artifacts as approval, authorization, truth certification, legal sufficiency, compliance certification, safety certification, admissibility determination, runtime permission, authority transfer, interoperability certification, or proof that downstream claim expansion is justified.",
+    "forbidden_interpretations": [
+      "approval",
+      "authorization",
+      "execution_authorization",
+      "execution_permission",
+      "runtime_approval",
+      "runtime_control",
+      "truth_certification",
+      "correctness_certification",
+      "safety_certification",
+      "compliance_certification",
+      "legal_sufficiency",
+      "admissibility_certification",
+      "authority_validation",
+      "authority_transfer",
+      "interoperability_certification",
+      "evide_compatibility_certification",
+      "glm_certification",
+      "semantic_inheritance",
+      "claim_inheritance",
+      "non_claim_erasure",
+      "unresolved_pointer_resolution",
+      "downstream_expansion_authorization"
+    ],
+    "non_claim_integrity_rule": "A downstream Fork artifact that consumes or references an upstream claim-boundary record should preserve the upstream non-claims or explicitly declare any dropped, narrowed, unresolved, or expanded boundary behavior. Silent erasure of non-claims is outside Fork's declared safe-consumption posture.",
+    "downstream_expansion_rule": "A downstream artifact may add or expand claims only by declaring the expansion as downstream behavior and referencing its own authority basis or claim-boundary contract. Fork preservation of the expansion signal does not validate the expanded claim."
+  },
+  "composition": {
+    "composable_with_types": [
+      "substrate",
+      "witness",
+      "boundary",
+      "closure",
+      "reviewability",
+      "formation",
+      "cross_cutting"
+    ],
+    "composable_with_manifests": [],
+    "composition_note": "Fork may structurally preserve handoffs to or from adjacent governance layers, but this v0.1 declaration does not claim verified composability, reciprocal compatibility, or interoperability certification with any specific external manifest.",
+    "composition_assumptions": [
+      "Adjacent layers remain responsible for their own declared claims and non-claims",
+      "Fork preservation of an adjacent layer's declaration does not validate that declaration",
+      "Fork recomputation of a record does not determine whether the record satisfies an adjacent layer's operational requirements",
+      "Fork can make declared overlap or expansion visible, but does not adjudicate which declaration controls",
+      "Mutual composability requires explicit review beyond this unilateral v0.1 declaration"
+    ]
+  },
+  "machine_readable_status": {
+    "boundary_readiness": "experimental",
+    "reviewability_state": "portable",
+    "authority_dependency": "external_to_fork",
+    "execution_capability": false,
+    "runtime_control": false,
+    "approval_capability": false,
+    "authorization_capability": false,
+    "truth_determination_capability": false,
+    "safety_certification_capability": false,
+    "compliance_certification_capability": false,
+    "legal_sufficiency_capability": false,
+    "admissibility_capability": false,
+    "interoperability_certification_capability": false,
+    "declaration_status_note": "Experimental declaration for machine-readable inspection of Fork's governance boundary. It is not a claim of GLM certification, EVIDE compatibility, external validation, production readiness, or institutional adoption."
+  },
+  "public_anchors": {
+    "repository": "https://github.com/RecomputableEvidence/fork-public-evidence",
+    "publication_note": "This repository path is the initial experimental publication surface. A canonical /.well-known/governance-layer-manifest.json publication should occur only after local Fork boundary checks and external GLM validator review."
+  },
+  "glm_compatibility": {
+    "schema_family": "GLM",
+    "schema_version_used": "1.3",
+    "minimum_supported": "1.3",
+    "forward_compatible_until": "1.x",
+    "breaking_change_policy": "major version increment required",
+    "non_breaking_addition_policy": "minor version increment, backward compatible within major version",
+    "compatibility_note": "This declaration uses GLM schema 1.3 fields for a single-layer manifest. It does not use organization_index and does not claim external validator approval beyond whatever structural checks a GLM tool performs."
+  },
+  "manifest_digest": {
+    "type": "sha256",
+    "value": "<computed-at-publish-time>",
+    "canonicalization_method": "SHA-256 computed over the file as served, with manifest_digest.value set to the placeholder string <computed-at-publish-time> during computation."
+  }
+}

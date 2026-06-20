@@ -1,0 +1,46 @@
+{
+  "checker": {
+    "name": "check_fork_glm_declaration",
+    "scope": "FORK_GLM_DECLARATION_BOUNDARY_GUARD_ONLY",
+    "version": "0.1"
+  },
+  "findings": {
+    "errors": [],
+    "warnings": []
+  },
+  "input": {
+    "path": "examples/glm/fork_governance_layer_manifest_v0_1.json"
+  },
+  "limitations": {
+    "does_not_validate": [
+      "full GLM compliance",
+      "EVIDE compatibility",
+      "interoperability",
+      "truth",
+      "factual correctness",
+      "safety",
+      "regulatory compliance",
+      "legal sufficiency",
+      "approval",
+      "authorization",
+      "admissibility",
+      "runtime control",
+      "institutional acceptance",
+      "production readiness"
+    ],
+    "human_review_required_for_publication": true,
+    "interpretation_required": true,
+    "scope": "FORK_GLM_DECLARATION_BOUNDARY_GUARD_ONLY",
+    "structural_only": true
+  },
+  "observed": {
+    "composable_with_manifests_count": 0,
+    "execution_capability": false,
+    "layer_status": "experimental",
+    "layer_type": "cross_cutting",
+    "manifest_kind": "layer",
+    "runtime_control": false,
+    "schema_version": "1.3"
+  },
+  "result": "STRUCTURAL_PASS"
+}

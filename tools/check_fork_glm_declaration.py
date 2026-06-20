@@ -1,201 +1,631 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
-import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
 
-try:
-    import jsonschema
-except Exception as exc:
-    jsonschema = None
-    JSONSCHEMA_IMPORT_ERROR = exc
-else:
-    JSONSCHEMA_IMPORT_ERROR = None
-
 CHECKER_NAME = "check_fork_glm_declaration"
 CHECKER_VERSION = "0.1"
+SCOPE = "FORK_GLM_DECLARATION_BOUNDARY_GUARD_ONLY"
 
-REQUIRED_NON_CLAIMS = [
-    "does_not_claim_approval",
-    "does_not_claim_truth",
-    "does_not_claim_safety",
-    "does_not_claim_compliance",
-    "does_not_claim_legal_sufficiency",
-    "does_not_claim_policy_satisfaction",
-    "does_not_claim_risk_acceptance",
-    "does_not_claim_control_effectiveness",
-    "does_not_claim_deployment_readiness",
-    "does_not_claim_institutional_authority",
-]
+PASS_RESULT = "STRUCTURAL_PASS"
+FAIL_RESULT = "STRUCTURAL_FAIL"
+INPUT_ERROR_RESULT = "INPUT_ERROR"
 
-REQUIRED_FORBIDDEN_INTERPRETATIONS = [
-    "approval_status",
-    "truth_validation",
-    "safety_validation",
+REQUIRED_FORBIDDEN_INTERPRETATIONS = {
+    "approval",
+    "authorization",
+    "execution_authorization",
+    "execution_permission",
+    "runtime_approval",
+    "runtime_control",
+    "truth_certification",
+    "correctness_certification",
+    "safety_certification",
     "compliance_certification",
     "legal_sufficiency",
-    "risk_acceptance",
-    "deployment_authorization",
+    "admissibility_certification",
+    "authority_validation",
     "authority_transfer",
-    "claim_expansion_without_new_authority",
-    "ci_cd_blocking_gate",
-    "host_native_scoring_input",
-    "dashboard_assurance_signal",
-    "workflow_completion_signal",
-    "human_prose_green_signal",
+    "interoperability_certification",
+    "evide_compatibility_certification",
+    "glm_certification",
+    "semantic_inheritance",
+    "claim_inheritance",
+    "non_claim_erasure",
+    "unresolved_pointer_resolution",
+    "downstream_expansion_authorization",
+}
+
+REQUIRED_FALSE_CAPABILITIES = [
+    "machine_readable_status.execution_capability",
+    "machine_readable_status.runtime_control",
+    "machine_readable_status.approval_capability",
+    "machine_readable_status.authorization_capability",
+    "machine_readable_status.truth_determination_capability",
+    "machine_readable_status.safety_certification_capability",
+    "machine_readable_status.compliance_certification_capability",
+    "machine_readable_status.legal_sufficiency_capability",
+    "machine_readable_status.admissibility_capability",
+    "machine_readable_status.interoperability_certification_capability",
 ]
 
-def repo_root() -> Path:
-    invoked = Path(sys.argv[0]).resolve()
-    if invoked.parent.name == "tools":
-        return invoked.parents[1]
-    return Path.cwd()
+REQUIRED_OUT_OF_BAND_POSTURE = {
+    "operational_scope.out_of_band_posture.read_only": True,
+    "operational_scope.out_of_band_posture.fail_open": True,
+    "operational_scope.out_of_band_posture.runtime_control": False,
+    "operational_scope.out_of_band_posture.decision_authority": False,
+    "operational_scope.out_of_band_posture.policy_engine": False,
+    "operational_scope.out_of_band_posture.approval_engine": False,
+    "operational_scope.out_of_band_posture.compliance_engine": False,
+    "operational_scope.out_of_band_posture.legal_adjudication_engine": False,
+}
 
-def canonical_digest_without_manifest_digest(payload: dict[str, Any]) -> str:
-    clone = json.loads(json.dumps(payload, ensure_ascii=False))
-    clone.pop("manifest_digest", None)
-    canonical = json.dumps(clone, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    return hashlib.sha256(canonical).hexdigest()
+REQUIRED_NON_CLAIM_PHRASES = {
+    "truth": ["does not determine truth", "truth_certification"],
+    "factual_correctness": ["does not determine factual correctness", "correctness_certification"],
+    "legal_sufficiency": ["does not determine legal sufficiency", "legal_sufficiency"],
+    "regulatory_compliance": ["does not determine regulatory compliance", "compliance_certification"],
+    "safety": ["does not certify safety", "safety_certification"],
+    "approval": ["does not approve decisions", "approval"],
+    "authorization": ["does not authorize execution", "authorization"],
+    "admissibility": ["does not resolve admissibility", "admissibility_certification"],
+    "authority_transfer": ["does not validate authority", "authority_transfer"],
+    "runtime_control": ["does not control runtime behavior", "runtime_control"],
+    "evide_compatibility": ["does not claim compatibility with evide", "evide_compatibility_certification"],
+    "interoperability_certification": ["does not certify interoperability", "interoperability_certification"],
+}
 
-def finding(code: str, message: str, path: str = "$") -> dict[str, str]:
-    return {"code": code, "message": message, "path": path}
+ALLOWED_TIMING_POSITIONS = {"pre-bind", "at-bind", "post-bind", "cross-cutting"}
+PROHIBITED_TIMING_POSITIONS = {"post-closure"}
 
-def load_json(path: Path) -> tuple[Any | None, list[dict[str, str]]]:
-    try:
-        return json.loads(path.read_text(encoding="utf-8")), []
-    except FileNotFoundError:
-        return None, [finding("INPUT_FILE_NOT_FOUND", f"Input file not found: {path}")]
-    except json.JSONDecodeError as exc:
-        return None, [finding("INPUT_JSON_PARSE_ERROR", f"Input is not valid JSON: {exc.msg}", f"line {exc.lineno}, column {exc.colno}")]
+NEGATION_MARKERS = [
+    "does not",
+    "do not",
+    "must not",
+    "should not",
+    "without",
+    "forbidden",
+    "cannot",
+    "can not",
+    "is not",
+    "are not",
+    "not ",
+    "no ",
+    "non-",
+    "non_",
+]
 
-def schema_errors(payload: dict[str, Any], schema: dict[str, Any]) -> list[dict[str, str]]:
-    if jsonschema is None:
-        return [finding("JSONSCHEMA_IMPORT_ERROR", f"jsonschema could not be imported: {JSONSCHEMA_IMPORT_ERROR}")]
-    validator = jsonschema.Draft7Validator(schema)
-    errors = sorted(validator.iter_errors(payload), key=lambda err: list(err.absolute_path))
-    out = []
-    for err in errors:
-        path = "$"
-        for part in err.absolute_path:
-            path += f"[{part}]" if isinstance(part, int) else f".{part}"
-        out.append(finding("SCHEMA_VALIDATION_ERROR", err.message, path))
-    return out
+POSITIVE_AUTHORITY_PATTERNS = [
+    (
+        "POSITIVE_APPROVAL_OR_AUTHORIZATION_CLAIM",
+        re.compile(
+            r"\bfork\b.{0,120}\b(approves?|authorizes?|permits?|allows|clears|greenlights)\b"
+            r".{0,120}\b(decisions?|execution|runtime|action|actions|deployment|production)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_TRUTH_OR_CORRECTNESS_CLAIM",
+        re.compile(
+            r"\bfork\b.{0,120}\b(certifies?|validates?|determines?|proves?)\b"
+            r".{0,120}\b(truth|true|correctness|correct|factual)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_SAFETY_OR_COMPLIANCE_CLAIM",
+        re.compile(
+            r"\bfork\b.{0,120}\b(certifies?|validates?|determines?|proves?)\b"
+            r".{0,120}\b(safety|safe|compliance|compliant|regulatory)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_LEGAL_OR_ADMISSIBILITY_CLAIM",
+        re.compile(
+            r"\bfork\b.{0,120}\b(certifies?|validates?|determines?|resolves?|proves?)\b"
+            r".{0,120}\b(legal sufficiency|legally sufficient|admissibility|admissible)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_RUNTIME_CONTROL_CLAIM",
+        re.compile(
+            r"\bfork\b.{0,120}\b(controls?|blocks?|permits?|enforces?|executes?)\b"
+            r".{0,120}\b(runtime|execution|production|deployment|actions?)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_AUTHORITY_TRANSFER_CLAIM",
+        re.compile(
+            r"\bfork\b.{0,120}\b(transfers?|confers?|grants?|validates?|establishes?)\b"
+            r".{0,120}\b(authority|authorization|permission|standing)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_EVIDE_COMPATIBILITY_CLAIM",
+        re.compile(
+            r"\bevide\b.{0,120}\b(compatible|compatibility|certified|certification|interoperable|interoperability|composable|composability)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        "POSITIVE_GLM_CERTIFICATION_CLAIM",
+        re.compile(
+            r"\bglm\b.{0,120}\b(certifies?|certified|certification|approves?|approval|validates?|validated|validation)\b",
+            re.IGNORECASE,
+        ),
+    ),
+]
 
-def contract_errors(manifest: dict[str, Any]) -> list[dict[str, str]]:
-    errors = []
+LIMITATIONS = {
+    "scope": SCOPE,
+    "structural_only": True,
+    "does_not_validate": [
+        "full GLM compliance",
+        "EVIDE compatibility",
+        "interoperability",
+        "truth",
+        "factual correctness",
+        "safety",
+        "regulatory compliance",
+        "legal sufficiency",
+        "approval",
+        "authorization",
+        "admissibility",
+        "runtime control",
+        "institutional acceptance",
+        "production readiness",
+    ],
+    "interpretation_required": True,
+    "human_review_required_for_publication": True,
+}
 
-    if manifest.get("schema_version") != "1.3":
-        errors.append(finding("FORK_GLM_SCHEMA_VERSION_UNSUPPORTED", "Fork GLM declaration v0.1 expects schema_version 1.3.", "$.schema_version"))
 
-    if manifest.get("manifest_kind") != "layer":
-        errors.append(finding("FORK_GLM_MANIFEST_KIND_INVALID", "Fork GLM declaration must be a layer manifest.", "$.manifest_kind"))
+def issue(code: str, path: str, message: str, observed: Any = None) -> dict[str, Any]:
+    payload: dict[str, Any] = {"code": code, "path": path, "message": message}
+    if observed is not None:
+        payload["observed"] = observed
+    return payload
 
-    layer = manifest.get("layer", {})
-    if layer.get("vendor_layer_name") != "Fork":
-        errors.append(finding("FORK_GLM_LAYER_NAME_INVALID", "layer.vendor_layer_name must be Fork.", "$.layer.vendor_layer_name"))
 
-    if layer.get("layer_type") != "cross_cutting":
-        errors.append(finding("FORK_GLM_LAYER_TYPE_INVALID", "Fork declares GLM layer_type cross_cutting.", "$.layer.layer_type"))
+def normalize_token(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", str(value).strip().lower()).strip("_")
 
-    timing = manifest.get("timing_axis", {})
-    if timing.get("not_runtime_gate") is not True:
-        errors.append(finding("FORK_GLM_RUNTIME_GATE_BOUNDARY_MISSING", "timing_axis.not_runtime_gate must be true.", "$.timing_axis.not_runtime_gate"))
 
-    claims = manifest.get("claims_boundary", {})
-    non_claims = set(claims.get("explicit_non_claims", []))
-    missing_non_claims = [item for item in REQUIRED_NON_CLAIMS if item not in non_claims]
-    if missing_non_claims:
-        errors.append(finding("FORK_GLM_NON_CLAIMS_INCOMPLETE", "Missing explicit_non_claims: " + ", ".join(missing_non_claims), "$.claims_boundary.explicit_non_claims"))
+def normalize_text(value: Any) -> str:
+    return re.sub(r"\s+", " ", str(value).strip().lower())
 
-    forbidden = set(claims.get("forbidden_interpretations", []))
-    missing_forbidden = [item for item in REQUIRED_FORBIDDEN_INTERPRETATIONS if item not in forbidden]
-    if missing_forbidden:
-        errors.append(finding("FORK_GLM_FORBIDDEN_INTERPRETATIONS_INCOMPLETE", "Missing forbidden_interpretations: " + ", ".join(missing_forbidden), "$.claims_boundary.forbidden_interpretations"))
 
-    status = manifest.get("machine_readable_status", {})
-    if status.get("safe_to_automate") is not False:
-        errors.append(finding("FORK_GLM_AUTOMATION_BOUNDARY_INVALID", "machine_readable_status.safe_to_automate must be false.", "$.machine_readable_status.safe_to_automate"))
-    if status.get("requires_human_interpretation_before_any_automation") is not True:
-        errors.append(finding("FORK_GLM_HUMAN_INTERPRETATION_BOUNDARY_MISSING", "machine_readable_status.requires_human_interpretation_before_any_automation must be true.", "$.machine_readable_status.requires_human_interpretation_before_any_automation"))
+def get_path(obj: Any, dotted_path: str) -> tuple[bool, Any]:
+    cursor = obj
+    for part in dotted_path.split("."):
+        if isinstance(cursor, dict) and part in cursor:
+            cursor = cursor[part]
+        else:
+            return False, None
+    return True, cursor
 
-    digest = manifest.get("manifest_digest", {})
-    expected_digest = canonical_digest_without_manifest_digest(manifest)
-    if digest.get("sha256") != expected_digest:
-        errors.append(finding("FORK_GLM_DIGEST_MISMATCH", "manifest_digest.sha256 does not match canonical digest excluding manifest_digest.", "$.manifest_digest.sha256"))
 
-    return errors
+def iter_strings(obj: Any, path: str = "$"):
+    if isinstance(obj, dict):
+        for key in sorted(obj.keys()):
+            yield from iter_strings(obj[key], f"{path}.{key}")
+    elif isinstance(obj, list):
+        for index, item in enumerate(obj):
+            yield from iter_strings(item, f"{path}[{index}]")
+    elif isinstance(obj, str):
+        yield path, obj
 
-def make_output(path: Path, manifest: dict[str, Any] | None, result_kind: str, errors: list[dict[str, str]]) -> dict[str, Any]:
+
+def is_negated_near(text: str, start: int, end: int) -> bool:
+    window = text[max(0, start - 140):min(len(text), end + 60)].lower()
+    return any(marker in window for marker in NEGATION_MARKERS)
+
+
+def require_exact(manifest: dict[str, Any], path: str, expected: Any, errors: list[dict[str, Any]], code: str) -> None:
+    exists, observed = get_path(manifest, path)
+    if not exists:
+        errors.append(issue(code, path, f"Required field is missing; expected {expected!r}."))
+    elif observed != expected:
+        errors.append(issue(code, path, f"Expected {expected!r}.", observed))
+
+
+def check_layer_identity(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    require_exact(manifest, "schema_version", "1.3", errors, "SCHEMA_VERSION_MISMATCH")
+    require_exact(manifest, "manifest_kind", "layer", errors, "MANIFEST_KIND_MISMATCH")
+    require_exact(manifest, "layer.layer_type", "cross_cutting", errors, "LAYER_TYPE_MUST_BE_CROSS_CUTTING")
+    require_exact(manifest, "layer.status", "experimental", errors, "LAYER_STATUS_MUST_BE_EXPERIMENTAL")
+
+    exists, observed = get_path(manifest, "layer.vendor_layer_name")
+    if not exists or normalize_token(observed) != "fork":
+        errors.append(issue(
+            "LAYER_NAME_MUST_BE_FORK",
+            "layer.vendor_layer_name",
+            "This checker is only for Fork GLM declarations.",
+            observed if exists else None,
+        ))
+
+
+def check_timing_axis(manifest: dict[str, Any], errors: list[dict[str, Any]], warnings: list[dict[str, Any]]) -> None:
+    exists, position = get_path(manifest, "timing_axis.position")
+    if not exists:
+        errors.append(issue("MISSING_TIMING_AXIS_POSITION", "timing_axis.position", "timing_axis.position is required."))
+    elif normalize_token(position) != "cross_cutting":
+        errors.append(issue(
+            "TIMING_AXIS_MUST_BE_CROSS_CUTTING",
+            "timing_axis.position",
+            "Fork GLM declaration must use cross-cutting timing posture.",
+            position,
+        ))
+
+    exists, surfaces = get_path(manifest, "timing_axis.surfaces")
+    if not exists:
+        errors.append(issue("MISSING_TIMING_SURFACES", "timing_axis.surfaces", "cross_cutting layer must declare surfaces."))
+        return
+
+    if not isinstance(surfaces, list) or not surfaces:
+        errors.append(issue("INVALID_TIMING_SURFACES", "timing_axis.surfaces", "timing_axis.surfaces must be a non-empty list.", surfaces))
+        return
+
+    for index, surface in enumerate(surfaces):
+        base = f"timing_axis.surfaces[{index}]"
+        if not isinstance(surface, dict):
+            errors.append(issue("INVALID_TIMING_SURFACE", base, "Each timing surface must be an object.", surface))
+            continue
+
+        timing_position = surface.get("timing_position")
+        if timing_position in PROHIBITED_TIMING_POSITIONS:
+            errors.append(issue(
+                "PROHIBITED_TIMING_POSITION_VALUE",
+                f"{base}.timing_position",
+                "Use post-bind plus timing_qualifier instead of post-closure as the controlled timing value.",
+                timing_position,
+            ))
+        elif timing_position not in ALLOWED_TIMING_POSITIONS:
+            errors.append(issue(
+                "UNKNOWN_TIMING_POSITION_VALUE",
+                f"{base}.timing_position",
+                "timing_position must be one of: pre-bind, at-bind, post-bind, cross-cutting.",
+                timing_position,
+            ))
+
+        if "does_not" not in surface:
+            warnings.append(issue(
+                "TIMING_SURFACE_WITHOUT_DOES_NOT",
+                f"{base}.does_not",
+                "Recommended: each timing surface should explicitly state what it does not do.",
+            ))
+
+
+def check_authoritative_claim(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    path = "claims_boundary.authoritative_layer_claim"
+    exists, observed = get_path(manifest, path)
+
+    if not exists:
+        errors.append(issue("MISSING_AUTHORITATIVE_LAYER_CLAIM", path, "Fork GLM declaration requires a bounded authoritative_layer_claim."))
+        return
+
+    if not isinstance(observed, str) or not observed.strip():
+        errors.append(issue("INVALID_AUTHORITATIVE_LAYER_CLAIM", path, "authoritative_layer_claim must be a non-empty string.", observed))
+        return
+
+    claim = normalize_text(observed)
+    required_terms = [
+        "without deciding",
+        "truth",
+        "safety",
+        "compliance",
+        "approval",
+        "legal sufficiency",
+        "admissibility",
+        "authority",
+    ]
+    missing = [term for term in required_terms if term not in claim]
+
+    if missing:
+        errors.append(issue(
+            "AUTHORITATIVE_CLAIM_NOT_BOUNDED_ENOUGH",
+            path,
+            "authoritative_layer_claim must visibly exclude truth/safety/compliance/approval/legal/admissibility/authority readings.",
+            missing,
+        ))
+
+
+def check_forbidden_interpretations(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    path = "claims_boundary.forbidden_interpretations"
+    exists, observed = get_path(manifest, path)
+
+    if not exists:
+        errors.append(issue("MISSING_FORBIDDEN_INTERPRETATIONS", path, "claims_boundary.forbidden_interpretations is required."))
+        return
+
+    if not isinstance(observed, list) or not all(isinstance(item, str) for item in observed):
+        errors.append(issue("INVALID_FORBIDDEN_INTERPRETATIONS", path, "forbidden_interpretations must be a list of strings.", observed))
+        return
+
+    normalized = {normalize_token(item) for item in observed}
+    missing = sorted(REQUIRED_FORBIDDEN_INTERPRETATIONS - normalized)
+
+    if missing:
+        errors.append(issue(
+            "MISSING_REQUIRED_FORBIDDEN_INTERPRETATION",
+            path,
+            "Fork declaration is missing required forbidden interpretation tokens.",
+            missing,
+        ))
+
+
+def check_non_claim_themes(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    fields = []
+
+    for path in [
+        "claims_boundary.explicit_non_claims",
+        "claims_boundary.consumer_boundary_constraint",
+        "claims_boundary.forbidden_interpretations",
+        "operational_scope.does_not",
+        "layer.declaration_note",
+        "machine_readable_status.declaration_status_note",
+    ]:
+        exists, observed = get_path(manifest, path)
+        if exists:
+            fields.extend(observed if isinstance(observed, list) else [observed])
+
+    combined = normalize_text(" ".join(str(item) for item in fields))
+    missing = []
+
+    for theme, phrases in REQUIRED_NON_CLAIM_PHRASES.items():
+        if not any(normalize_text(phrase) in combined for phrase in phrases):
+            missing.append(theme)
+
+    if missing:
+        errors.append(issue(
+            "MISSING_REQUIRED_NON_CLAIM_THEME",
+            "claims_boundary.explicit_non_claims",
+            "Fork declaration does not explicitly preserve all required non-authority themes.",
+            missing,
+        ))
+
+
+def check_false_capabilities(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    for path in REQUIRED_FALSE_CAPABILITIES:
+        exists, observed = get_path(manifest, path)
+
+        if not exists:
+            errors.append(issue("MISSING_FALSE_CAPABILITY_FIELD", path, "Required machine-readable non-capability field is missing."))
+        elif observed is not False:
+            errors.append(issue("CAPABILITY_MUST_BE_FALSE", path, "Fork GLM declaration must not expose this capability.", observed))
+
+
+def check_out_of_band_posture(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    for path, expected in REQUIRED_OUT_OF_BAND_POSTURE.items():
+        exists, observed = get_path(manifest, path)
+
+        if not exists:
+            errors.append(issue("MISSING_OUT_OF_BAND_POSTURE_FIELD", path, f"Required out-of-band posture field is missing; expected {expected!r}."))
+        elif observed is not expected:
+            errors.append(issue("OUT_OF_BAND_POSTURE_MISMATCH", path, f"Expected {expected!r}.", observed))
+
+
+def check_composition(manifest: dict[str, Any], errors: list[dict[str, Any]], warnings: list[dict[str, Any]]) -> None:
+    path = "composition.composable_with_manifests"
+    exists, observed = get_path(manifest, path)
+
+    if not exists:
+        errors.append(issue("MISSING_COMPOSABLE_WITH_MANIFESTS", path, "v0.1 requires an explicit empty composable_with_manifests list."))
+    elif observed != []:
+        errors.append(issue(
+            "EXTERNAL_MANIFEST_COMPOSITION_NOT_ALLOWED_IN_V0_1",
+            path,
+            "Fork GLM v0.1 must not claim verified composability with any specific external manifest.",
+            observed,
+        ))
+
+    note_exists, note = get_path(manifest, "composition.composition_note")
+    if not note_exists or not isinstance(note, str) or "does not claim" not in note.lower():
+        warnings.append(issue(
+            "COMPOSITION_NOTE_SHOULD_EXPLICITLY_DENY_VERIFIED_COMPOSABILITY",
+            "composition.composition_note",
+            "Recommended: composition_note should explicitly say v0.1 does not claim verified composability or reciprocal compatibility.",
+            note if note_exists else None,
+        ))
+
+
+def check_positive_authority_language(manifest: dict[str, Any], errors: list[dict[str, Any]]) -> None:
+    for path, value in iter_strings(manifest):
+        if "forbidden_interpretations" in path:
+            continue
+
+        text = value.strip()
+        if not text:
+            continue
+
+        for code, pattern in POSITIVE_AUTHORITY_PATTERNS:
+            for match in pattern.finditer(text):
+                if not is_negated_near(text, match.start(), match.end()):
+                    errors.append(issue(
+                        code,
+                        path,
+                        "Potential positive authority/certification/control claim found without nearby negation.",
+                        {
+                            "matched_text": match.group(0),
+                            "full_value": value,
+                        },
+                    ))
+
+
+def check_digest_and_publication(manifest: dict[str, Any], warnings: list[dict[str, Any]]) -> None:
+    exists, digest_type = get_path(manifest, "manifest_digest.type")
+    if not exists or normalize_token(digest_type) != "sha256":
+        warnings.append(issue(
+            "MANIFEST_DIGEST_SHA256_RECOMMENDED",
+            "manifest_digest.type",
+            "Recommended: manifest_digest.type should be sha256.",
+            digest_type if exists else None,
+        ))
+
+    exists, digest_value = get_path(manifest, "manifest_digest.value")
+    if not exists or not isinstance(digest_value, str) or not digest_value.strip():
+        warnings.append(issue(
+            "MANIFEST_DIGEST_VALUE_MISSING_OR_EMPTY",
+            "manifest_digest.value",
+            "Recommended: include a non-empty manifest_digest.value placeholder before public digest computation.",
+            digest_value if exists else None,
+        ))
+
+    exists, publication_note = get_path(manifest, "public_anchors.publication_note")
+    if not exists:
+        warnings.append(issue(
+            "MISSING_PUBLICATION_NOTE",
+            "public_anchors.publication_note",
+            "Recommended: state repo-first experimental publication and defer /.well-known publication until review.",
+        ))
+    elif isinstance(publication_note, str):
+        note = publication_note.lower()
+        if "/.well-known/governance-layer-manifest.json" in note and "only after" not in note:
+            warnings.append(issue(
+                "WELL_KNOWN_PUBLICATION_NEEDS_REVIEW_GATE",
+                "public_anchors.publication_note",
+                "Recommended: /.well-known publication should be gated by local Fork checks and GLM validator review.",
+                publication_note,
+            ))
+
+
+def build_result(manifest: dict[str, Any], input_path: str) -> dict[str, Any]:
+    errors: list[dict[str, Any]] = []
+    warnings: list[dict[str, Any]] = []
+
+    check_layer_identity(manifest, errors)
+    check_timing_axis(manifest, errors, warnings)
+    check_authoritative_claim(manifest, errors)
+    check_forbidden_interpretations(manifest, errors)
+    check_non_claim_themes(manifest, errors)
+    check_false_capabilities(manifest, errors)
+    check_out_of_band_posture(manifest, errors)
+    check_composition(manifest, errors, warnings)
+    check_positive_authority_language(manifest, errors)
+    check_digest_and_publication(manifest, warnings)
+
+    def observed_value(path: str) -> Any:
+        return get_path(manifest, path)[1]
+
+    composable_exists, composable = get_path(manifest, "composition.composable_with_manifests")
+
     return {
         "checker": {
             "name": CHECKER_NAME,
-            "version": CHECKER_VERSION
+            "version": CHECKER_VERSION,
+            "scope": SCOPE,
         },
-        "manifest": {
-            "path": str(path),
-            "schema_version": manifest.get("schema_version") if isinstance(manifest, dict) else None,
-            "manifest_kind": manifest.get("manifest_kind") if isinstance(manifest, dict) else None,
-            "manifest_version": manifest.get("manifest_version") if isinstance(manifest, dict) else None,
-            "layer": manifest.get("layer", {}).get("vendor_layer_name") if isinstance(manifest, dict) else None
+        "input": {
+            "path": input_path,
         },
-        "actionability": "NON_ACTIONABLE_STRUCTURAL_DECLARATION_ONLY",
-        "result": {
-            "result_kind": result_kind,
-            "safe_to_automate": False,
-            "requires_human_interpretation_before_any_automation": True
+        "result": PASS_RESULT if not errors else FAIL_RESULT,
+        "observed": {
+            "schema_version": observed_value("schema_version"),
+            "manifest_kind": observed_value("manifest_kind"),
+            "layer_type": observed_value("layer.layer_type"),
+            "layer_status": observed_value("layer.status"),
+            "execution_capability": observed_value("machine_readable_status.execution_capability"),
+            "runtime_control": observed_value("machine_readable_status.runtime_control"),
+            "composable_with_manifests_count": len(composable) if composable_exists and isinstance(composable, list) else None,
         },
-        "scope": {
-            "validates": [
-                "json_parseability",
-                "fork_glm_declaration_schema_conformance",
-                "required_non_claims_presence",
-                "required_forbidden_interpretations_presence",
-                "timing_axis_boundary_presence",
-                "machine_readable_status_boundary_presence",
-                "manifest_digest_recomputability"
-            ],
-            "does_not_validate": [
-                "truth_of_fork_claims",
-                "legal_sufficiency",
-                "compliance",
-                "safety",
-                "risk_acceptance",
-                "external_glm_certification",
-                "host_platform_behavior",
-                "human_prose_or_dashboard_framing",
-                "reciprocal_interoperability_by_adjacent_layers"
-            ]
+        "findings": {
+            "errors": errors,
+            "warnings": warnings,
         },
-        "errors": errors
+        "limitations": LIMITATIONS,
     }
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("manifest", nargs="?", default=".well-known/governance-layer-manifest.json")
-    args = parser.parse_args()
 
-    path = Path(args.manifest)
-    if not path.is_absolute():
-        path = repo_root() / path
+def input_error(input_path: str, code: str, message: str, observed: Any = None) -> dict[str, Any]:
+    return {
+        "checker": {
+            "name": CHECKER_NAME,
+            "version": CHECKER_VERSION,
+            "scope": SCOPE,
+        },
+        "input": {
+            "path": input_path,
+        },
+        "result": INPUT_ERROR_RESULT,
+        "findings": {
+            "errors": [issue(code, "$", message, observed)],
+            "warnings": [],
+        },
+        "limitations": LIMITATIONS,
+    }
 
-    manifest, load_errors = load_json(path)
-    if load_errors:
-        print(json.dumps(make_output(path, None, "INPUT_ERROR", load_errors), indent=2))
-        return 1
 
-    schema_path = repo_root() / "schemas" / "fork_glm_declaration_v0_1.schema.json"
-    schema, schema_load_errors = load_json(schema_path)
-    if schema_load_errors:
-        print(json.dumps(make_output(path, manifest, "INPUT_ERROR", schema_load_errors), indent=2))
-        return 1
+def load_json(path: Path) -> tuple[dict[str, Any] | None, dict[str, Any] | None]:
+    if not path.exists():
+        return None, input_error(str(path), "INPUT_FILE_NOT_FOUND", "Input manifest file was not found.", str(path))
 
-    errors = schema_errors(manifest, schema) + contract_errors(manifest)
-    result_kind = "STRUCTURAL_CONFORMANCE_RECORDED" if not errors else "CONTRACT_VALIDATION_FAILED"
-    output = make_output(path, manifest, result_kind, errors)
-    print(json.dumps(output, indent=2))
-    return 0 if result_kind == "STRUCTURAL_CONFORMANCE_RECORDED" else 1
+    try:
+        loaded = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return None, input_error(
+            str(path),
+            "INVALID_JSON",
+            "Input file is not valid JSON.",
+            {
+                "line": exc.lineno,
+                "column": exc.colno,
+                "message": exc.msg,
+            },
+        )
+
+    if not isinstance(loaded, dict):
+        return None, input_error(
+            str(path),
+            "ROOT_MUST_BE_OBJECT",
+            "Input manifest root must be a JSON object.",
+            type(loaded).__name__,
+        )
+
+    return loaded, None
+
+
+def write_result(result: dict[str, Any], output_path: str | None) -> None:
+    text = json.dumps(result, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
+
+    if output_path is None:
+        sys.stdout.write(text)
+        return
+
+    path = Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Fork-local GLM declaration non-authority guard checker.")
+    parser.add_argument("manifest", help="Path to Fork GLM declaration JSON.")
+    parser.add_argument("--output", "-o", default=None, help="Optional path for JSON check output.")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str]) -> int:
+    args = parse_args(argv)
+
+    manifest, error_result = load_json(Path(args.manifest))
+    if error_result is not None:
+        write_result(error_result, args.output)
+        return 2
+
+    assert manifest is not None
+    result = build_result(manifest, args.manifest)
+    write_result(result, args.output)
+
+    return 0 if result["result"] == PASS_RESULT else 1
+
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(sys.argv[1:]))
