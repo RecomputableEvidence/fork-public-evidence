@@ -1,0 +1,179 @@
+{
+  "created_at": "2026-06-20T00:00:00Z",
+  "do_not_map_to": [
+    "APPROVAL",
+    "AUTHORIZATION",
+    "CERTIFICATION",
+    "COMPLIANCE",
+    "COMPATIBILITY_RECOGNITION",
+    "ENDORSEMENT",
+    "EVIDE_COMPATIBILITY",
+    "GLM_COMPATIBILITY",
+    "INTEROPERABILITY_RECOGNITION",
+    "LEGAL_SUFFICIENCY",
+    "PROVENANCE_RECOGNITION",
+    "RISK_ACCEPTANCE",
+    "RUNTIME_CONTROL",
+    "SAFETY",
+    "SC_GOVERNANCE_VALIDATION",
+    "TRUTH",
+    "CAUSALITY_VALIDATION",
+    "ADMISSIBILITY_VALIDATION"
+  ],
+  "fork_normalized_handoff_records": [
+    {
+      "authority_boundary": {
+        "authority_transfer": false,
+        "fork_participates_in_runtime_control": false,
+        "fork_validates_admissibility": false,
+        "fork_validates_approval": false,
+        "fork_validates_authorization": false,
+        "fork_validates_causality": false,
+        "fork_validates_compliance": false,
+        "fork_validates_legal_sufficiency": false,
+        "fork_validates_safety": false,
+        "fork_validates_truth": false,
+        "fork_validates_upstream_governance": false
+      },
+      "claims_preserved": true,
+      "dropped_non_claims": [],
+      "fork_role": "PRESERVE_DECLARE_CHECK_REPORT",
+      "non_claims_preserved": true,
+      "recomputation": {
+        "digest_subject_available": false,
+        "does_not_validate_truth": true,
+        "status": "RECOMPUTABLE_METHOD_DECLARED"
+      },
+      "record_id": "fork-normalized-glm-boundary-record-v0-1",
+      "source_artifact_ids": [
+        "fork-glm-declaration-v0-1-1"
+      ],
+      "unresolved_references_declared": true
+    },
+    {
+      "authority_boundary": {
+        "authority_transfer": false,
+        "fork_participates_in_runtime_control": false,
+        "fork_validates_admissibility": false,
+        "fork_validates_approval": false,
+        "fork_validates_authorization": false,
+        "fork_validates_causality": false,
+        "fork_validates_compliance": false,
+        "fork_validates_legal_sufficiency": false,
+        "fork_validates_safety": false,
+        "fork_validates_truth": false,
+        "fork_validates_upstream_governance": false
+      },
+      "claims_preserved": true,
+      "dropped_non_claims": [],
+      "fork_role": "PRESERVE_NORMALIZE_RECOMPUTE_REPORT",
+      "non_claims_preserved": true,
+      "recomputation": {
+        "computed_digest": "sha256:0fdc58246b7fa31c78a58029bc64aa373bec6b114661b2d159e7ca65100a76a1",
+        "declared_digest": "sha256:0fdc58246b7fa31c78a58029bc64aa373bec6b114661b2d159e7ca65100a76a1",
+        "digest_algorithm": "SHA-256",
+        "digest_subject_available": true,
+        "does_not_validate_truth": true,
+        "matches_declared_digest": true,
+        "status": "RECOMPUTATION_PERFORMED"
+      },
+      "record_id": "fork-normalized-sc-cbo-record-v0-1",
+      "source_artifact_ids": [
+        "sc-cbo-workload-003"
+      ],
+      "unresolved_references_declared": true
+    }
+  ],
+  "handoff_result": {
+    "claim_expansion_detected": false,
+    "fork_inherited_upstream_authority": false,
+    "interpretation_required": true,
+    "non_claims_dropped": false,
+    "public_endorsement_leak_detected": false,
+    "result_kind": "BOUNDARY_CROSSING_EVIDENCE_INSPECTABLE",
+    "structural_pass": true,
+    "upstream_authority_preserved": true
+  },
+  "layer_id": "fork-boundary-crossing-evidence-inspectability-layer-v0-1",
+  "layer_version": "0.1",
+  "public_attribution_constraints": {
+    "certification_claim_allowed": false,
+    "compatibility_claim_allowed": false,
+    "endorsement_claim_allowed": false,
+    "interoperability_claim_allowed": false,
+    "public_attribution_allowed": false
+  },
+  "upstream_artifacts": [
+    {
+      "artifact_class": "GOVERNANCE_BOUNDARY_DECLARATION",
+      "artifact_id": "fork-glm-declaration-v0-1-1",
+      "authority_assertions": {
+        "claims_approval": false,
+        "claims_authorization": false,
+        "claims_certification": false,
+        "claims_compatibility": false,
+        "claims_compliance": false,
+        "claims_endorsement": false,
+        "claims_interoperability": false,
+        "claims_legal_sufficiency": false,
+        "claims_runtime_control": false,
+        "claims_safety": false,
+        "claims_truth": false,
+        "claims_upstream_governance_validation": false
+      },
+      "authority_domain": "Fork evidence-boundary declaration",
+      "claims": [
+        "Fork declares an evidence-boundary infrastructure posture."
+      ],
+      "issuer_system": "Fork",
+      "native_artifact_ref": ".well-known/governance-layer-manifest.json",
+      "non_claims": [
+        "Does not claim approval.",
+        "Does not claim certification.",
+        "Does not claim GLM compatibility.",
+        "Does not claim EVIDE compatibility.",
+        "Does not claim endorsement.",
+        "Does not claim legal sufficiency.",
+        "Does not claim safety.",
+        "Does not claim compliance.",
+        "Does not claim truth."
+      ],
+      "review_state": "UNDER_REVIEW"
+    },
+    {
+      "artifact_class": "EXECUTION_CONTINUITY_PACKET",
+      "artifact_id": "sc-cbo-workload-003",
+      "authority_assertions": {
+        "claims_approval": false,
+        "claims_authorization": false,
+        "claims_certification": false,
+        "claims_compatibility": false,
+        "claims_compliance": false,
+        "claims_endorsement": false,
+        "claims_interoperability": false,
+        "claims_legal_sufficiency": false,
+        "claims_runtime_control": false,
+        "claims_safety": false,
+        "claims_truth": false,
+        "claims_upstream_governance_validation": false
+      },
+      "authority_domain": "SC zero-trust execution and governance environment",
+      "claims": [
+        "This packet represents a governed continuity path emitted from an SC execution environment."
+      ],
+      "issuer_system": "Supreme Computation",
+      "native_artifact_ref": "examples/cbo/sc_native_workload_003.json",
+      "non_claims": [
+        "Does not require Fork to validate SC governance authority.",
+        "Does not grant Fork admission authority.",
+        "Does not grant Fork authorization authority.",
+        "Does not grant Fork safety authority.",
+        "Does not grant Fork compliance authority.",
+        "Does not grant Fork causal authority.",
+        "Does not require Fork to validate semantic meaning of SC-declared invariant references."
+      ],
+      "review_state": "FORK_STRUCTURAL_RECOMPUTATION_TRACE"
+    }
+  ],
+  "validation_scope": "STRUCTURAL_HANDOFF_INSPECTABILITY_ONLY"
+}
