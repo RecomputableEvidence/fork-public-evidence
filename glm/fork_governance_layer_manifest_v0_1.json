@@ -143,7 +143,7 @@
     "authority_rule": "Fork may preserve and inspect declared authority references, but authority remains with the local institution or accountable decision owner."
   },
   "composition": {
-    "composable_with_layer_types": [
+    "composable_with_types": [
       "witness",
       "boundary",
       "closure",
@@ -157,13 +157,13 @@
       "composition is unilateral unless the adjacent layer publishes its own compatible manifest",
       "absence of a reciprocal manifest must not be interpreted as mutual interoperability"
     ],
-    "declared_manifest_urls": [],
+    "composable_with_manifests": [],
     "non_reciprocity_notice": "This Fork declaration does not claim that any adjacent layer has declared reciprocal interoperability with Fork."
   },
   "machine_readable_status": {
     "boundary_readiness": "experimental",
     "authority_dependency": "local_external_authority_required",
-    "execution_capability": "non_actionable_structural_check_only",
+    "execution_capability": false,
     "reviewability_state": "portable_for_declared_artifacts",
     "safe_to_automate": false,
     "requires_human_interpretation_before_any_automation": true
@@ -283,8 +283,8 @@
     }
   ],
   "manifest_digest": {
-    "algorithm": "SHA-256",
+    "type": "sha256",
     "canonicalization_method": "repo-local JSON canonicalization using sorted keys and compact separators, excluding manifest_digest to avoid self-reference",
-    "sha256": "e383fc52e1f62e47021d155504ff2470abb6b24109d9e809539dc5dd0544f1da"
+    "value": "41e8ad0d0f7b8e3337adfbc67625cbe801b352f6c993126b76dd0a5d6c4acc5a"
   }
 }
