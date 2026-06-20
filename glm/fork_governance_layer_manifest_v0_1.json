@@ -22,7 +22,7 @@
     "publication_status": "public repository declaration candidate"
   },
   "timing_axis": {
-    "position": "cross-cutting",
+    "position": "post-bind",
     "not_runtime_gate": true,
     "surfaces": [
       {
@@ -39,13 +39,13 @@
       },
       {
         "surface": "composition_review",
-        "timing_position": "post-bind / post-closure",
+        "timing_position": "post-bind",
         "construct": "Relational Graph Verifier",
         "scope": "checks whether assembled claim-boundary and consumption records remain structurally resolvable without silently inheriting claims"
       },
       {
         "surface": "governance_interoperability",
-        "timing_position": "cross-cutting",
+        "timing_position": "post-bind",
         "construct": "CCEC Governance Interoperability Profile",
         "scope": "declares how CCEC records may be referenced by GRC, audit, legal, risk, policy, model governance, vendor-risk, evidence, or dashboard systems without becoming approval or control signals"
       }

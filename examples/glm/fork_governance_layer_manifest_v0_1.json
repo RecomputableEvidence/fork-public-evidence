@@ -23,7 +23,7 @@
     "declaration_note": "This manifest exposes Fork's claim boundary in GLM-readable form. It does not declare GLM certification, EVIDE compatibility, legal sufficiency, compliance approval, admissibility, safety certification, truth determination, runtime control, or authority transfer."
   },
   "timing_axis": {
-    "position": "cross-cutting",
+    "position": "post-bind",
     "surfaces": [
       {
         "surface": "record_creation",
@@ -39,7 +39,7 @@
       },
       {
         "surface": "claim_boundary_preservation",
-        "timing_position": "cross-cutting",
+        "timing_position": "post-bind",
         "operational_scope": "Preserves declared claims, explicit non-claims, upstream reliance, rejected reliance, unresolved pointers, consumer-declared reliance, and downstream expansion signals across handoffs and composed artifacts.",
         "does_not": [
           "Does not convert upstream claims into downstream claims",
