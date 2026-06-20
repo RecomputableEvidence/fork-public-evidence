@@ -8,6 +8,12 @@ The core boundary is:
 
 > Vendor evidence completeness is not vendor approval, security validation, contract sufficiency, compliance, or risk acceptance.
 
+## Scope and non-scope
+
+Scope: Fork records and checks the structural boundary of this use case, including supported claims, non-claims, evidence references, downstream consumption, unresolved pointers, and added downstream claims.
+
+Non-scope: Fork does not evaluate substantive correctness, safety, compliance, legal sufficiency, approval, risk acceptance, control effectiveness, clinical appropriateness, production readiness, model safety, patient safety, vendor security, or incident closure.
+
 ## Scenario
 
 An AI-assisted workflow summarizes vendor questionnaires, SOC reports, insurance certificates, contract exhibits, data-processing terms, security documentation, and unresolved review items.

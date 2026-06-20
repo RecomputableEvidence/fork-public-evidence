@@ -12,6 +12,12 @@ The core boundary is:
 
 This use case is synthetic. It is intended for structural boundary demonstration only. It should not be interpreted as patient data, payer behavior, provider behavior, medical guidance, or legal guidance.
 
+## Scope and non-scope
+
+Scope: Fork records and checks the structural boundary of this use case, including supported claims, non-claims, evidence references, downstream consumption, unresolved pointers, and added downstream claims.
+
+Non-scope: Fork does not evaluate substantive correctness, safety, compliance, legal sufficiency, approval, risk acceptance, control effectiveness, clinical appropriateness, production readiness, model safety, patient safety, vendor security, or incident closure.
+
 ## Scenario
 
 An AI-assisted workflow summarizes a prior authorization denial, extracts synthetic policy language, references synthetic clinical notes, and helps assemble an internal appeal packet for human review.

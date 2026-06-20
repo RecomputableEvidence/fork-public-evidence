@@ -25,7 +25,10 @@
   "non_claims": [
     "does_not_claim_vendor_approval",
     "does_not_claim_vendor_security",
-    "does_not_claim_risk_acceptance"
+    "does_not_claim_contract_sufficiency",
+    "does_not_claim_compliance",
+    "does_not_claim_risk_acceptance",
+    "does_not_claim_approval"
   ],
   "downstream_consumption": {
     "consumer_identity": "downstream reviewer",
@@ -36,7 +39,10 @@
     "preserved_non_claims": [
       "does_not_claim_vendor_approval",
       "does_not_claim_vendor_security",
-      "does_not_claim_risk_acceptance"
+      "does_not_claim_contract_sufficiency",
+      "does_not_claim_compliance",
+      "does_not_claim_risk_acceptance",
+      "does_not_claim_approval"
     ],
     "dropped_non_claims": [],
     "unresolved_pointers": [],

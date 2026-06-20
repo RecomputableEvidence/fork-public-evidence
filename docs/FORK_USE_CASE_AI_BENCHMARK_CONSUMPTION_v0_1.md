@@ -8,6 +8,12 @@ The core boundary is:
 
 > A recomputable benchmark record is not model safety, generalized performance, production readiness, compliance, or approval.
 
+## Scope and non-scope
+
+Scope: Fork records and checks the structural boundary of this use case, including supported claims, non-claims, evidence references, downstream consumption, unresolved pointers, and added downstream claims.
+
+Non-scope: Fork does not evaluate substantive correctness, safety, compliance, legal sufficiency, approval, risk acceptance, control effectiveness, clinical appropriateness, production readiness, model safety, patient safety, vendor security, or incident closure.
+
 ## Scenario
 
 A model team, evaluator, vendor, or governance reviewer publishes or consumes a benchmark run, dataset reference, evaluation result, red-team finding, or model-comparison artifact.

@@ -10,6 +10,7 @@ from typing import Any
 
 ARTIFACT_TYPE = "FORK_USE_CASE_BOUNDARY_RECORD"
 ARTIFACT_VERSION = "v0.1"
+CHECKER_SEMANTICS_VERSION = "v0.1.1"
 FORK_ROLE = "EVIDENCE_BOUNDARY_INFRASTRUCTURE"
 STRUCTURAL_SCOPE = "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY"
 
@@ -28,6 +29,17 @@ OUTCOMES = {
     "NON_CLAIM_DROPPED",
     "EXPANSION_AUTHORITY_REF_MISSING",
     "MAPPING_INCOMPLETE",
+}
+
+ADVERSE_OUTCOMES = OUTCOMES - {"BOUNDARY_PRESERVED"}
+
+OUTCOME_REVIEW_REASONS = {
+    "BOUNDARY_PRESERVED": "BOUNDARY_STRUCTURALLY_PRESERVED",
+    "POINTER_UNRESOLVED": "UNRESOLVED_POINTER_REQUIRES_REVIEW",
+    "BOUNDARY_EXPANSION_DETECTED": "BOUNDARY_EXPANSION_REQUIRES_REVIEW",
+    "NON_CLAIM_DROPPED": "NON_CLAIM_DROP_REQUIRES_REVIEW",
+    "EXPANSION_AUTHORITY_REF_MISSING": "EXPANSION_POINTER_DEFECT_REQUIRES_REVIEW",
+    "MAPPING_INCOMPLETE": "INCOMPLETE_MAPPING_REQUIRES_REVIEW",
 }
 
 REQUIRED_DO_NOT_MAP_TO = {
@@ -290,9 +302,12 @@ def validate_record(record: dict[str, Any]) -> tuple[bool, str, list[str]]:
 
 
 def build_output(path: Path, ok: bool, declared: str | None, computed: str | None, findings: list[str]) -> dict[str, Any]:
+    boundary_preserved = ok and computed == "BOUNDARY_PRESERVED"
+    outcome_requires_review = computed != "BOUNDARY_PRESERVED"
     return {
         "limitations": {
-            "limitations_code": "FORK_USE_CASE_BOUNDARY_CHECKER_LIMITATIONS_v0_1",
+            "limitations_code": "FORK_USE_CASE_BOUNDARY_CHECKER_LIMITATIONS_v0_1_1",
+            "checker_semantics_version": CHECKER_SEMANTICS_VERSION,
             "scope": STRUCTURAL_SCOPE,
             "does_not_validate_truth": True,
             "does_not_validate_safety": True,
@@ -305,6 +320,10 @@ def build_output(path: Path, ok: bool, declared: str | None, computed: str | Non
         "result": {
             "artifact_path": str(path),
             "ok": ok,
+            "boundary_preserved": boundary_preserved,
+            "outcome_requires_review": outcome_requires_review,
+            "review_reason": OUTCOME_REVIEW_REASONS.get(computed, "UNKNOWN_OR_INVALID_OUTCOME_REQUIRES_REVIEW"),
+            "result_semantics": "ok means structurally valid and interpretable only; boundary_preserved is the machine-readable preserved-boundary signal; no result field is an approval, compliance, safety, legal-sufficiency, control-effectiveness, risk-acceptance, or truth verdict.",
             "declared_outcome": declared,
             "computed_outcome": computed,
             "findings": findings,

@@ -8,6 +8,12 @@ The core boundary is:
 
 > Evidence packet completeness is not control effectiveness, audit opinion, compliance status, remediation sufficiency, or risk acceptance.
 
+## Scope and non-scope
+
+Scope: Fork records and checks the structural boundary of this use case, including supported claims, non-claims, evidence references, downstream consumption, unresolved pointers, and added downstream claims.
+
+Non-scope: Fork does not evaluate substantive correctness, safety, compliance, legal sufficiency, approval, risk acceptance, control effectiveness, clinical appropriateness, production readiness, model safety, patient safety, vendor security, or incident closure.
+
 ## Scenario
 
 An AI-assisted workflow collects control evidence, summarizes artifacts, maps them to a requested audit or compliance control, and routes the packet to a reviewer.
@@ -53,7 +59,7 @@ Boundary result:
 
 ## Buyer-facing boundary sentence
 
-Fork can preserve the difference between evidence presence, evidence integrity, and substantive control effectiveness.
+Fork can preserve the difference between evidence presence, evidence reference recording, and substantive control effectiveness.
 
 ## Fork role
 

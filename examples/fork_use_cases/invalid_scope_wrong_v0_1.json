@@ -1,30 +1,35 @@
 {
   "artifact_type": "FORK_USE_CASE_BOUNDARY_RECORD",
   "artifact_version": "v0.1",
-  "use_case_id": "invalid_non_claim_dropped_mislabeled_v0_1",
-  "title": "Invalid Non-Claim Dropped Mislabeled Example",
+  "use_case_id": "invalid_scope_wrong_v0_1",
+  "title": "Invalid Structural Scope Wrong Example",
   "field": "AUDIT_COMPLIANCE",
   "synthetic": true,
   "fork_role": "EVIDENCE_BOUNDARY_INFRASTRUCTURE",
   "source_event": {
-    "event_id": "evt_invalid_non_claim_dropped_mislabeled_v0_1",
+    "event_id": "evt_invalid_scope_wrong_v0_1",
     "producer": "NGAST synthetic workflow harness",
     "event_type": "AI_ASSISTED_AUDIT_EVIDENCE_PACKET_CREATED",
     "artifact_refs": [
-      "synthetic_control_matrix.json"
+      "synthetic_control_matrix.json",
+      "synthetic_evidence_index.json"
     ],
     "timestamp": "2026-06-20T00:00:00Z"
   },
   "supported_claim": {
     "claim_id": "claim_primary_001",
-    "statement": "An AI-assisted evidence packet was assembled from identified synthetic evidence references.",
+    "statement": "An AI-assisted evidence packet was assembled from identified synthetic evidence references and routed for review.",
     "evidence_refs": [
-      "synthetic_control_matrix.json#CTRL-001"
+      "synthetic_control_matrix.json#CTRL-001",
+      "synthetic_evidence_index.json#EVID-004"
     ]
   },
   "non_claims": [
     "does_not_claim_control_effectiveness",
+    "does_not_claim_audit_opinion",
     "does_not_claim_compliance",
+    "does_not_claim_remediation_sufficiency",
+    "does_not_claim_risk_acceptance",
     "does_not_claim_approval"
   ],
   "downstream_consumption": {
@@ -34,18 +39,20 @@
       "claim_primary_001"
     ],
     "preserved_non_claims": [
+      "does_not_claim_control_effectiveness",
+      "does_not_claim_audit_opinion",
       "does_not_claim_compliance",
+      "does_not_claim_remediation_sufficiency",
+      "does_not_claim_risk_acceptance",
       "does_not_claim_approval"
     ],
-    "dropped_non_claims": [
-      "does_not_claim_control_effectiveness"
-    ],
+    "dropped_non_claims": [],
     "unresolved_pointers": [],
     "consumer_added_claims": []
   },
   "boundary_result": {
     "outcome": "BOUNDARY_PRESERVED",
-    "structural_verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+    "structural_verification_scope": "FULL_COMPLIANCE_VERIFICATION",
     "findings": []
   },
   "limitations": {
@@ -71,7 +78,8 @@
   "public_language": {
     "clean_boundary_sentence": "Fork can preserve the difference between evidence presence, evidence reference recording, and substantive control effectiveness.",
     "prohibited_readings": [
-      "Evidence present means compliant."
+      "Changing structural scope to full compliance verification gives Fork compliance authority.",
+      "A record can expand verification scope beyond Fork doctrine."
     ]
   },
   "created_at": "2026-06-20T00:00:00Z"

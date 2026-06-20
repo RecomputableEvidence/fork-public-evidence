@@ -104,7 +104,8 @@
         },
         "statement": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "description": "Human-readable supported claim statement. This describes the record boundary and must not be interpreted as Fork validating the substantive truth or sufficiency of the statement."
         },
         "evidence_refs": {
           "type": "array",
@@ -114,7 +115,8 @@
             "minLength": 1
           }
         }
-      }
+      },
+      "description": "A structural definition of the use-case boundary claim; strictly not an assertion of fact, compliance, safety, legal sufficiency, approval, or control effectiveness."
     },
     "non_claims": {
       "type": "array",
@@ -191,14 +193,18 @@
                 "minLength": 1
               },
               "authority_ref": {
-                "type": "string"
+                "type": "string",
+                "minLength": 1,
+                "description": "Required pointer declared by the consumer when adding an expanded downstream claim. Fork checks presence and non-emptiness only; it does not determine whether the authority is valid, sufficient, legally effective, or approved."
               },
               "evidence_refs": {
                 "type": "array",
                 "items": {
                   "type": "string",
                   "minLength": 1
-                }
+                },
+                "minItems": 1,
+                "description": "Required non-empty evidence-reference list for an expanded downstream claim. Fork checks structural presence only; it does not validate the truth, sufficiency, authenticity, or legal effect of the referenced evidence."
               }
             }
           }
@@ -223,10 +229,12 @@
             "NON_CLAIM_DROPPED",
             "EXPANSION_AUTHORITY_REF_MISSING",
             "MAPPING_INCOMPLETE"
-          ]
+          ],
+          "description": "Single structural boundary outcome. This is not an approval, compliance, safety, control-effectiveness, or truth verdict. BOUNDARY_PRESERVED is the only outcome indicating the declared boundary was preserved structurally."
         },
         "structural_verification_scope": {
-          "const": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY"
+          "const": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+          "description": "Fork checker scope. The checker is limited to record integrity and boundary structure only."
         },
         "findings": {
           "type": "array",
@@ -273,7 +281,8 @@
           "uniqueItems": true,
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Tokens that downstream systems must not map Fork output to. Includes approval, authorization, compliance, control effectiveness, legal sufficiency, model safety, patient safety, production readiness, risk acceptance, and truth."
         }
       }
     },
@@ -303,5 +312,6 @@
       "type": "string",
       "format": "date-time"
     }
-  }
+  },
+  "description": "Machine-readable v0.1 Fork use case boundary record schema, integration-hardened by v0.1.1. Structural validation only; not truth, safety, compliance, legal sufficiency, approval, risk acceptance, or control-effectiveness validation."
 }

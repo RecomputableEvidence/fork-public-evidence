@@ -1,0 +1,89 @@
+{
+  "artifact_type": "FORK_USE_CASE_BOUNDARY_RECORD",
+  "artifact_version": "v0.1",
+  "use_case_id": "invalid_compound_drop_and_unresolved_v0_1",
+  "title": "Invalid Compound Drop and Unresolved Pointer Example",
+  "field": "CYBER_TRIAGE",
+  "synthetic": true,
+  "fork_role": "EVIDENCE_BOUNDARY_INFRASTRUCTURE",
+  "source_event": {
+    "event_id": "evt_invalid_compound_drop_and_unresolved_v0_1",
+    "producer": "NGAST synthetic workflow harness",
+    "event_type": "AI_ASSISTED_CYBER_TRIAGE_PACKET_CREATED",
+    "artifact_refs": [
+      "synthetic_alert_summary.json",
+      "synthetic_log_excerpt.json"
+    ],
+    "timestamp": "2026-06-20T00:00:00Z"
+  },
+  "supported_claim": {
+    "claim_id": "claim_primary_001",
+    "statement": "An AI-assisted triage packet was assembled from identified synthetic alerts, logs, and analyst notes.",
+    "evidence_refs": [
+      "synthetic_alert_summary.json#ALERT-18",
+      "synthetic_log_excerpt.json#LOG-77"
+    ]
+  },
+  "non_claims": [
+    "does_not_claim_no_breach_occurred",
+    "does_not_claim_incident_scope",
+    "does_not_claim_containment_success",
+    "does_not_claim_reporting_obligation",
+    "does_not_claim_security_effectiveness",
+    "does_not_claim_approval"
+  ],
+  "downstream_consumption": {
+    "consumer_identity": "downstream reviewer",
+    "consumed_as": "analyst-support artifact based on available observed evidence",
+    "relied_claim_ids": [
+      "claim_primary_001"
+    ],
+    "preserved_non_claims": [
+      "does_not_claim_incident_scope",
+      "does_not_claim_containment_success",
+      "does_not_claim_reporting_obligation",
+      "does_not_claim_security_effectiveness",
+      "does_not_claim_approval"
+    ],
+    "dropped_non_claims": [
+      "does_not_claim_no_breach_occurred"
+    ],
+    "unresolved_pointers": [
+      "synthetic_log_excerpt.json#MISSING-SECONDARY"
+    ],
+    "consumer_added_claims": []
+  },
+  "boundary_result": {
+    "outcome": "BOUNDARY_PRESERVED",
+    "structural_verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+    "findings": []
+  },
+  "limitations": {
+    "does_not_validate_truth": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_approval": true,
+    "automation_interpretation_required": true,
+    "do_not_map_to": [
+      "APPROVAL",
+      "AUTHORIZATION",
+      "COMPLIANCE",
+      "CONTROL_EFFECTIVENESS",
+      "LEGAL_SUFFICIENCY",
+      "MODEL_SAFETY",
+      "PATIENT_SAFETY",
+      "PRODUCTION_READINESS",
+      "RISK_ACCEPTANCE",
+      "TRUTH"
+    ]
+  },
+  "public_language": {
+    "clean_boundary_sentence": "Fork can preserve the boundary between observed evidence in a triage record and broader claims about breach status, incident scope, containment, reporting obligations, or security control effectiveness.",
+    "prohibited_readings": [
+      "Dropped no-breach non-claim plus unresolved pointer can still be treated as preserved.",
+      "Boundary-preserved declaration overrides compound adverse conditions."
+    ]
+  },
+  "created_at": "2026-06-20T00:00:00Z"
+}

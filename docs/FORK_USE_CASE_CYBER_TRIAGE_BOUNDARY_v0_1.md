@@ -8,6 +8,12 @@ The core boundary is:
 
 > Observed evidence in a triage record is not proof that no breach occurred, that containment succeeded, or that reporting obligations do not exist.
 
+## Scope and non-scope
+
+Scope: Fork records and checks the structural boundary of this use case, including supported claims, non-claims, evidence references, downstream consumption, unresolved pointers, and added downstream claims.
+
+Non-scope: Fork does not evaluate substantive correctness, safety, compliance, legal sufficiency, approval, risk acceptance, control effectiveness, clinical appropriateness, production readiness, model safety, patient safety, vendor security, or incident closure.
+
 ## Scenario
 
 An AI-assisted workflow summarizes alerts, log excerpts, endpoint events, network observations, analyst notes, and severity recommendations.
