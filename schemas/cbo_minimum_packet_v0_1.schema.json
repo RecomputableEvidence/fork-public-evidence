@@ -152,6 +152,12 @@
           "items": {
             "type": "string"
           }
+        },
+        "seal_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -291,6 +297,56 @@
           "const": true
         },
         "does_not_join_runtime_control_path": {
+          "const": true
+        }
+      }
+    },
+    "recomputation_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recomputation_performed",
+        "canonicalization_method",
+        "digest_subject_artifact_id",
+        "computed_digest_algorithm",
+        "computed_digest_value",
+        "authority_boundary_preserved",
+        "does_not_validate_issuer_governance",
+        "does_not_validate_causality",
+        "does_not_validate_runtime_execution",
+        "does_not_validate_invariant_meaning"
+      ],
+      "properties": {
+        "recomputation_performed": {
+          "const": true
+        },
+        "canonicalization_method": {
+          "const": "UTF8_JSON_MINIFIED_SORTED_KEYS"
+        },
+        "digest_subject_artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "computed_digest_algorithm": {
+          "const": "sha256"
+        },
+        "computed_digest_value": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "authority_boundary_preserved": {
+          "const": true
+        },
+        "does_not_validate_issuer_governance": {
+          "const": true
+        },
+        "does_not_validate_causality": {
+          "const": true
+        },
+        "does_not_validate_runtime_execution": {
+          "const": true
+        },
+        "does_not_validate_invariant_meaning": {
           "const": true
         }
       }

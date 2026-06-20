@@ -1,0 +1,71 @@
+{
+  "admission_decision_ref": "admission://sc/workload-003/decision",
+  "authority_boundary": {
+    "authority_transfer": false,
+    "fork_participates_in_runtime_control": false,
+    "fork_validates_causality": false,
+    "fork_validates_sc_governance": false
+  },
+  "authority_domain": "SC zero-trust execution and governance environment",
+  "canonicalization_method": "UTF8_JSON_MINIFIED_SORTED_KEYS",
+  "cbo_id": "cbo-sc-workload-003-invalid-missing-digest-subject",
+  "cbo_version": "0.1",
+  "digest_seal_anchor_metadata": {
+    "anchor_refs": [
+      "ipfs://bafy-workload-003-anchor"
+    ],
+    "anchor_status": "present",
+    "digest_algorithm": "SHA-256",
+    "digest_value": "sha256:RECOMPUTE_FROM_DIGEST_SUBJECT",
+    "seal_ref": "seal://sc/workload-003",
+    "seal_status": "present"
+  },
+  "downstream_do_not_infer": [
+    "Do not infer governance authority beyond emitted evidence.",
+    "Do not infer runtime control authority.",
+    "Do not infer semantic validation of SC-declared invariant references.",
+    "Do not infer causal truth from recomputation success."
+  ],
+  "emitted_at": "2026-06-20T00:00:00Z",
+  "execution_event_refs": [
+    "aws://execution/workload-003",
+    "kubernetes://pod/workload-003",
+    "kafka://topic/sc-continuity/workload-003"
+  ],
+  "issuer_system": "Supreme Computation",
+  "preservation_refs": [
+    "preservation://sc/workload-003"
+  ],
+  "recomputation_refs": [
+    "recompute://fork/workload-003"
+  ],
+  "sc_claims": [
+    "This packet represents a governed continuity path emitted from an SC execution environment."
+  ],
+  "sc_declared_invariant_refs": [
+    "invariant://time",
+    "invariant://continuity",
+    "invariant://alignment",
+    "invariant://genesis",
+    "invariant://boundary",
+    "invariant://reference",
+    "invariant://causality",
+    "invariant://consciousness"
+  ],
+  "sc_non_claims": [
+    "This packet does not require Fork to validate SC governance authority.",
+    "This packet does not grant Fork admission, authorization, safety, compliance, or causal authority."
+  ],
+  "stable_workload_id": "sc-workload-003",
+  "state_transition_refs": [
+    "state://workload-003/admitted",
+    "state://workload-003/executing",
+    "state://workload-003/emitted",
+    "state://workload-003/preserved"
+  ],
+  "unresolved_or_excluded_refs": [
+    "credentials",
+    "live control access",
+    "proprietary internal machinery"
+  ]
+}

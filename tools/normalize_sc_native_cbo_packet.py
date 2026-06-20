@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
-import sys
 from pathlib import Path
 from typing import Any
 
@@ -20,7 +20,6 @@ REQUIRED_TOP_LEVEL = [
     "sc_declared_invariant_refs",
     "state_transition_refs",
     "execution_event_refs",
-    "emitted_artifact_refs",
     "digest_seal_anchor_metadata",
     "preservation_refs",
     "recomputation_refs",
@@ -70,7 +69,10 @@ DISALLOWED_STATUS_VALUES = {
     "PENDING-OR-PRESENT",
 }
 
+SUPPORTED_CANONICALIZATION = "UTF8_JSON_MINIFIED_SORTED_KEYS"
+RECOMPUTE_INSTRUCTION = "sha256:RECOMPUTE_FROM_DIGEST_SUBJECT"
 SHA256_HEX_RE = re.compile(r"^[0-9a-f]{64}$")
+SHA256_PREFIXED_HEX_RE = re.compile(r"^sha256:([0-9a-f]{64})$")
 
 
 def reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -116,6 +118,17 @@ def require_array(data: dict[str, Any], key: str) -> list[str]:
     return value
 
 
+def optional_array(data: dict[str, Any], key: str) -> list[str]:
+    value = data.get(key)
+    if value is None:
+        return []
+    if not isinstance(value, list):
+        raise ValueError(f"{key} must be an array when present.")
+    if not all(isinstance(item, str) and item.strip() for item in value):
+        raise ValueError(f"{key} must contain only non-empty strings.")
+    return value
+
+
 def normalize_status(value: Any, field_path: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise ValueError(f"{field_path} must be a non-empty string.")
@@ -126,16 +139,63 @@ def normalize_status(value: Any, field_path: str) -> str:
     return VALID_STATUS_NORMALIZATION[value]
 
 
-def normalize_digest_status(digest_value: Any) -> str:
-    if digest_value is None or digest_value == "":
-        return "NOT_PROVIDED"
-    if isinstance(digest_value, str) and digest_value.lower() == "pending":
-        return "PENDING"
-    if isinstance(digest_value, str) and digest_value.lower() == "unresolved":
-        return "UNRESOLVED"
-    if isinstance(digest_value, str) and SHA256_HEX_RE.match(digest_value):
-        return "PRESENT"
-    return "UNRESOLVED"
+def canonicalize_payload(payload: Any, method: str) -> bytes:
+    if method != SUPPORTED_CANONICALIZATION:
+        raise ValueError(f"Unsupported canonicalization_method: {method}")
+    return json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+
+
+def require_digest_subject(native: dict[str, Any]) -> dict[str, Any]:
+    subject = native.get("digest_subject")
+    if not isinstance(subject, dict):
+        raise ValueError("digest_subject must be present and must be an object when digest recomputation is requested.")
+    for key in ["artifact_id", "artifact_type", "payload"]:
+        if key not in subject:
+            raise ValueError(f"digest_subject.{key} is required.")
+    if not isinstance(subject["artifact_id"], str) or not subject["artifact_id"].strip():
+        raise ValueError("digest_subject.artifact_id must be a non-empty string.")
+    if not isinstance(subject["artifact_type"], str) or not subject["artifact_type"].strip():
+        raise ValueError("digest_subject.artifact_type must be a non-empty string.")
+    return subject
+
+
+def compute_digest_from_subject(native: dict[str, Any]) -> str:
+    method = native.get("canonicalization_method")
+    if not isinstance(method, str) or not method.strip():
+        raise ValueError("canonicalization_method is required when digest recomputation is requested.")
+    subject = require_digest_subject(native)
+    canonical_bytes = canonicalize_payload(subject["payload"], method)
+    return hashlib.sha256(canonical_bytes).hexdigest()
+
+
+def normalize_digest_value_and_status(native: dict[str, Any], metadata: dict[str, Any]) -> tuple[str, str, str | None]:
+    raw = metadata.get("digest_value")
+    if raw is None or raw == "":
+        return "", "NOT_PROVIDED", None
+
+    if not isinstance(raw, str):
+        raise ValueError("digest_seal_anchor_metadata.digest_value must be a string.")
+
+    if raw == RECOMPUTE_INSTRUCTION:
+        computed = compute_digest_from_subject(native)
+        return computed, "PRESENT", computed
+
+    lowered = raw.lower()
+
+    if lowered == "pending":
+        return "", "PENDING", None
+
+    if lowered == "unresolved":
+        return "", "UNRESOLVED", None
+
+    if SHA256_HEX_RE.match(lowered):
+        return lowered, "PRESENT", None
+
+    prefixed = SHA256_PREFIXED_HEX_RE.match(lowered)
+    if prefixed:
+        return prefixed.group(1), "PRESENT", None
+
+    return raw, "UNRESOLVED", None
 
 
 def validate_authority_boundary(boundary: Any) -> dict[str, bool]:
@@ -166,6 +226,34 @@ def unique_preserving_order(items: list[str]) -> list[str]:
     return result
 
 
+def resolve_emitted_artifact_refs(native: dict[str, Any]) -> list[str]:
+    explicit_refs = optional_array(native, "emitted_artifact_refs")
+    if explicit_refs:
+        return explicit_refs
+
+    subject = native.get("digest_subject")
+    if isinstance(subject, dict) and isinstance(subject.get("artifact_id"), str) and subject["artifact_id"].strip():
+        return [subject["artifact_id"]]
+
+    raise ValueError("Either emitted_artifact_refs or digest_subject.artifact_id must be present.")
+
+
+def normalize_seal_refs(metadata: dict[str, Any]) -> list[str]:
+    refs: list[str] = []
+
+    seal_ref = metadata.get("seal_ref")
+    if isinstance(seal_ref, str) and seal_ref.strip():
+        refs.append(seal_ref)
+
+    seal_refs = metadata.get("seal_refs")
+    if isinstance(seal_refs, list):
+        for item in seal_refs:
+            if isinstance(item, str) and item.strip():
+                refs.append(item)
+
+    return unique_preserving_order(refs)
+
+
 def normalize_sc_native_packet(native: dict[str, Any]) -> dict[str, Any]:
     require_keys(native)
 
@@ -177,11 +265,12 @@ def normalize_sc_native_packet(native: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("digest_seal_anchor_metadata must be an object.")
 
     boundary = validate_authority_boundary(native.get("authority_boundary"))
+    digest_value, digest_status, computed_digest = normalize_digest_value_and_status(native, metadata)
 
     sc_non_claims = require_array(native, "sc_non_claims")
     normalized_non_claims = unique_preserving_order(sc_non_claims + CANONICAL_SC_NON_CLAIMS)
 
-    return {
+    normalized = {
         "profile_id": "CBO_MINIMUM_PACKET_REQUIREMENTS_v0_1",
         "cbo_version": native["cbo_version"],
         "cbo_id": require_string(native, "cbo_id"),
@@ -195,13 +284,14 @@ def normalize_sc_native_packet(native: dict[str, Any]) -> dict[str, Any]:
             "invariant_binding_refs": require_array(native, "sc_declared_invariant_refs"),
             "state_transition_refs": require_array(native, "state_transition_refs"),
             "execution_event_refs": require_array(native, "execution_event_refs"),
-            "emitted_artifact_refs": require_array(native, "emitted_artifact_refs"),
+            "emitted_artifact_refs": resolve_emitted_artifact_refs(native),
         },
         "integrity_metadata": {
             "digest_algorithm": str(metadata.get("digest_algorithm", "")).lower().replace("-", ""),
-            "digest_value": "" if metadata.get("digest_value") == "pending" else str(metadata.get("digest_value", "")),
-            "digest_status": normalize_digest_status(metadata.get("digest_value")),
+            "digest_value": digest_value,
+            "digest_status": digest_status,
             "seal_status": normalize_status(metadata.get("seal_status"), "digest_seal_anchor_metadata.seal_status"),
+            "seal_refs": normalize_seal_refs(metadata),
             "anchor_status": normalize_status(metadata.get("anchor_status"), "digest_seal_anchor_metadata.anchor_status"),
             "anchor_refs": metadata.get("anchor_refs") if isinstance(metadata.get("anchor_refs"), list) else [],
         },
@@ -252,6 +342,22 @@ def normalize_sc_native_packet(native: dict[str, Any]) -> dict[str, Any]:
         },
     }
 
+    if computed_digest is not None:
+        normalized["recomputation_metadata"] = {
+            "recomputation_performed": True,
+            "canonicalization_method": native["canonicalization_method"],
+            "digest_subject_artifact_id": require_digest_subject(native)["artifact_id"],
+            "computed_digest_algorithm": "sha256",
+            "computed_digest_value": computed_digest,
+            "authority_boundary_preserved": True,
+            "does_not_validate_issuer_governance": True,
+            "does_not_validate_causality": True,
+            "does_not_validate_runtime_execution": True,
+            "does_not_validate_invariant_meaning": True,
+        }
+
+    return normalized
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Normalize an SC-native CBO packet into Fork's CBO minimum packet envelope.")
@@ -290,6 +396,8 @@ def main() -> int:
             "computed_outcome": "SC_NATIVE_CBO_PACKET_NORMALIZED",
             "artifact_path": args.artifact,
             "normalized_output_path": str(output_path),
+            "recomputation_performed": "recomputation_metadata" in normalized,
+            "computed_digest_value": normalized.get("recomputation_metadata", {}).get("computed_digest_value"),
             "limitations": {
                 "scope": "SC_NATIVE_TO_FORK_CBO_NORMALIZATION_ONLY",
                 "does_not_validate_sc_governance": True,
