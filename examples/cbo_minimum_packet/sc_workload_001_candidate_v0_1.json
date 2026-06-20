@@ -1,0 +1,113 @@
+{
+  "profile_id": "CBO_MINIMUM_PACKET_REQUIREMENTS_v0_1",
+  "cbo_version": "0.1",
+  "cbo_id": "cbo_sc_workload_001_v0_1",
+  "packet_id": "cbo-minimum-packet-sc-workload-001-v0-1",
+  "issuer_system": "Supreme Computation",
+  "authority_domain": "SC zero-trust execution and governance environment",
+  "stable_workload_id": "sc-workload-001",
+  "emitted_at": "2026-06-20T00:00:00Z",
+  "continuity_chain": {
+    "admission_decision_ref": "admission://sc/workload-001/decision",
+    "invariant_binding_refs": [
+      "invariant://time",
+      "invariant://continuity",
+      "invariant://alignment",
+      "invariant://genesis",
+      "invariant://boundary",
+      "invariant://reference",
+      "invariant://causality",
+      "invariant://consciousness"
+    ],
+    "state_transition_refs": [
+      "state://workload-001/admitted",
+      "state://workload-001/executing",
+      "state://workload-001/emitted"
+    ],
+    "execution_event_refs": [
+      "aws://execution/workload-001",
+      "kubernetes://pod/workload-001",
+      "kafka://topic/sc-continuity/workload-001"
+    ],
+    "emitted_artifact_refs": [
+      "artifact://continuity-packet/workload-001"
+    ]
+  },
+  "integrity_metadata": {
+    "digest_algorithm": "sha256",
+    "digest_value": "",
+    "digest_status": "PENDING",
+    "seal_status": "PENDING",
+    "anchor_status": "PENDING",
+    "anchor_refs": [
+      "ipfs://pending"
+    ]
+  },
+  "preservation_refs": [],
+  "recomputation_refs": [],
+  "boundary_semantics": {
+    "authority_transfer": false,
+    "fork_validates_issuer_governance": false,
+    "fork_validates_causality": false,
+    "fork_participates_in_runtime_control": false,
+    "fork_accepts_runtime_credentials": false,
+    "fork_claims_control_path_authority": false,
+    "issuer_invariant_refs_are_opaque_to_fork": true
+  },
+  "issuer_claims": [
+    "This packet represents a governed continuity path emitted from an SC execution environment."
+  ],
+  "issuer_non_claims": [
+    "This packet does not require Fork to validate SC governance authority.",
+    "This packet does not grant Fork admission authority.",
+    "This packet does not grant Fork authorization authority.",
+    "This packet does not grant Fork safety authority.",
+    "This packet does not grant Fork compliance authority.",
+    "This packet does not grant Fork causal authority."
+  ],
+  "fork_permissions": [
+    "preserve emitted continuity evidence",
+    "recompute declared metadata when present",
+    "compare preserved references",
+    "report structural continuity loss",
+    "identify missing unresolved or excluded references"
+  ],
+  "fork_restrictions": [
+    "do not infer issuer governance authority",
+    "do not infer admissibility authority",
+    "do not infer authorization authority",
+    "do not infer runtime control authority",
+    "do not infer safety approval",
+    "do not infer compliance approval",
+    "do not infer causal authority beyond emitted continuity evidence"
+  ],
+  "downstream_constraints": {
+    "do_not_infer": [
+      "GOVERNANCE_AUTHORITY",
+      "ADMISSIBILITY_AUTHORITY",
+      "AUTHORIZATION_AUTHORITY",
+      "RUNTIME_CONTROL_AUTHORITY",
+      "COMPLIANCE_APPROVAL",
+      "SAFETY_APPROVAL",
+      "CAUSAL_AUTHORITY",
+      "ISSUER_GOVERNANCE_VALIDITY",
+      "FORK_RUNTIME_PARTICIPATION"
+    ],
+    "requires_human_or_institutional_interpretation": true
+  },
+  "unresolved_or_excluded_refs": [
+    "credentials",
+    "live control access",
+    "proprietary internal machinery"
+  ],
+  "expected_fork_evaluation": {
+    "structural_continuity_test_only": true,
+    "can_preserve": true,
+    "can_compare": true,
+    "can_report_continuity_loss": true,
+    "can_recompute_when_metadata_present": true,
+    "does_not_validate_issuer_governance": true,
+    "does_not_validate_causality": true,
+    "does_not_join_runtime_control_path": true
+  }
+}

@@ -1,0 +1,381 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/continuity_boundary_object_v0_1.schema.json",
+  "title": "Continuity Boundary Object v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "object_id",
+    "profile_version",
+    "synthetic_trace",
+    "issuer_system",
+    "receiver_system",
+    "continuity_object_semantics",
+    "upstream_asserted_events",
+    "emitted_evidence",
+    "downstream_preservation",
+    "non_claims",
+    "consumer_constraints",
+    "integrity_metadata",
+    "unresolveds",
+    "expected_boundary_result"
+  ],
+  "properties": {
+    "profile_id": {
+      "const": "CONTINUITY_BOUNDARY_OBJECT_PROFILE_v0_1"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_version": {
+      "const": "0.1"
+    },
+    "synthetic_trace": {
+      "type": "boolean"
+    },
+    "issuer_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "system_type",
+        "declared_authority_domain",
+        "claims",
+        "non_claims"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_type": {
+          "type": "string",
+          "enum": [
+            "pre_execution_governance",
+            "runtime_control",
+            "attestation",
+            "evidence_preservation",
+            "recomputation",
+            "other"
+          ]
+        },
+        "declared_authority_domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "non_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "receiver_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "system_type",
+        "declared_preservation_boundary",
+        "claims",
+        "non_claims"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "system_type": {
+          "type": "string",
+          "enum": [
+            "evidence_preservation",
+            "recomputation",
+            "audit_support",
+            "attestation",
+            "other"
+          ]
+        },
+        "declared_preservation_boundary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "non_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "continuity_object_semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_role",
+        "authority_transfer",
+        "upstream_authority_inherited_by_receiver",
+        "receiver_verifies_upstream_governance",
+        "causality_crosses_boundary"
+      ],
+      "properties": {
+        "object_role": {
+          "const": "structured_evidence_of_asserted_continuity_path"
+        },
+        "authority_transfer": {
+          "const": false
+        },
+        "upstream_authority_inherited_by_receiver": {
+          "const": false
+        },
+        "receiver_verifies_upstream_governance": {
+          "const": false
+        },
+        "causality_crosses_boundary": {
+          "const": false
+        }
+      }
+    },
+    "upstream_asserted_events": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "admission_decision_refs",
+        "invariant_refs",
+        "control_state_refs",
+        "execution_state_refs",
+        "continuity_transition_refs"
+      ],
+      "properties": {
+        "admission_decision_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "invariant_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "control_state_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "execution_state_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "continuity_transition_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "emitted_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_refs",
+        "receipt_refs",
+        "state_refs",
+        "log_refs",
+        "external_anchor_refs"
+      ],
+      "properties": {
+        "artifact_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "receipt_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "log_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_anchor_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "downstream_preservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preserved_refs",
+        "recomputed_refs",
+        "comparison_refs",
+        "unresolved_refs",
+        "excluded_refs"
+      ],
+      "properties": {
+        "preserved_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recomputed_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "comparison_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "consumer_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "do_not_map_to",
+        "requires_human_or_institutional_interpretation"
+      ],
+      "properties": {
+        "do_not_map_to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_human_or_institutional_interpretation": {
+          "const": true
+        }
+      }
+    },
+    "integrity_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "digest_algorithm",
+        "digest_value",
+        "digest_status",
+        "canonicalization_method",
+        "seal_refs",
+        "timestamp_refs"
+      ],
+      "properties": {
+        "digest_algorithm": {
+          "type": "string"
+        },
+        "digest_value": {
+          "type": "string"
+        },
+        "digest_status": {
+          "type": "string",
+          "enum": [
+            "NOT_COMPUTED_SYNTHETIC_TRACE",
+            "COMPUTED",
+            "UNRESOLVED"
+          ]
+        },
+        "canonicalization_method": {
+          "type": "string"
+        },
+        "seal_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timestamp_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "unresolveds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_boundary_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "structurally_preservable",
+        "upstream_authority_preserved",
+        "downstream_authority_not_inherited",
+        "requires_review_before_substantive_use"
+      ],
+      "properties": {
+        "structurally_preservable": {
+          "const": true
+        },
+        "upstream_authority_preserved": {
+          "const": true
+        },
+        "downstream_authority_not_inherited": {
+          "const": true
+        },
+        "requires_review_before_substantive_use": {
+          "const": true
+        }
+      }
+    }
+  }
+}

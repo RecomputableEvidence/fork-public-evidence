@@ -1,0 +1,299 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/cbo_minimum_packet_v0_1.schema.json",
+  "title": "CBO Minimum Packet v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "cbo_version",
+    "cbo_id",
+    "packet_id",
+    "issuer_system",
+    "authority_domain",
+    "stable_workload_id",
+    "emitted_at",
+    "continuity_chain",
+    "integrity_metadata",
+    "preservation_refs",
+    "recomputation_refs",
+    "boundary_semantics",
+    "issuer_claims",
+    "issuer_non_claims",
+    "fork_permissions",
+    "fork_restrictions",
+    "downstream_constraints",
+    "unresolved_or_excluded_refs",
+    "expected_fork_evaluation"
+  ],
+  "properties": {
+    "profile_id": {
+      "const": "CBO_MINIMUM_PACKET_REQUIREMENTS_v0_1"
+    },
+    "cbo_version": {
+      "const": "0.1"
+    },
+    "cbo_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packet_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuer_system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority_domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stable_workload_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "emitted_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "continuity_chain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "admission_decision_ref",
+        "invariant_binding_refs",
+        "state_transition_refs",
+        "execution_event_refs",
+        "emitted_artifact_refs"
+      ],
+      "properties": {
+        "admission_decision_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invariant_binding_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "state_transition_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "execution_event_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "emitted_artifact_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "integrity_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "digest_algorithm",
+        "digest_value",
+        "digest_status",
+        "seal_status",
+        "anchor_status",
+        "anchor_refs"
+      ],
+      "properties": {
+        "digest_algorithm": {
+          "enum": [
+            "sha256",
+            "SHA-256"
+          ]
+        },
+        "digest_value": {
+          "type": "string"
+        },
+        "digest_status": {
+          "enum": [
+            "NOT_PROVIDED",
+            "PENDING",
+            "PRESENT",
+            "UNRESOLVED"
+          ]
+        },
+        "seal_status": {
+          "enum": [
+            "ABSENT",
+            "PENDING",
+            "PRESENT",
+            "UNRESOLVED"
+          ]
+        },
+        "anchor_status": {
+          "enum": [
+            "ABSENT",
+            "PENDING",
+            "PRESENT",
+            "UNRESOLVED"
+          ]
+        },
+        "anchor_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "preservation_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recomputation_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_transfer",
+        "fork_validates_issuer_governance",
+        "fork_validates_causality",
+        "fork_participates_in_runtime_control",
+        "fork_accepts_runtime_credentials",
+        "fork_claims_control_path_authority",
+        "issuer_invariant_refs_are_opaque_to_fork"
+      ],
+      "properties": {
+        "authority_transfer": {
+          "const": false
+        },
+        "fork_validates_issuer_governance": {
+          "const": false
+        },
+        "fork_validates_causality": {
+          "const": false
+        },
+        "fork_participates_in_runtime_control": {
+          "const": false
+        },
+        "fork_accepts_runtime_credentials": {
+          "const": false
+        },
+        "fork_claims_control_path_authority": {
+          "const": false
+        },
+        "issuer_invariant_refs_are_opaque_to_fork": {
+          "const": true
+        }
+      }
+    },
+    "issuer_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "issuer_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "fork_permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fork_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "downstream_constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "do_not_infer",
+        "requires_human_or_institutional_interpretation"
+      ],
+      "properties": {
+        "do_not_infer": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "requires_human_or_institutional_interpretation": {
+          "const": true
+        }
+      }
+    },
+    "unresolved_or_excluded_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_fork_evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "structural_continuity_test_only",
+        "can_preserve",
+        "can_compare",
+        "can_report_continuity_loss",
+        "can_recompute_when_metadata_present",
+        "does_not_validate_issuer_governance",
+        "does_not_validate_causality",
+        "does_not_join_runtime_control_path"
+      ],
+      "properties": {
+        "structural_continuity_test_only": {
+          "const": true
+        },
+        "can_preserve": {
+          "const": true
+        },
+        "can_compare": {
+          "const": true
+        },
+        "can_report_continuity_loss": {
+          "const": true
+        },
+        "can_recompute_when_metadata_present": {
+          "const": true
+        },
+        "does_not_validate_issuer_governance": {
+          "const": true
+        },
+        "does_not_validate_causality": {
+          "const": true
+        },
+        "does_not_join_runtime_control_path": {
+          "const": true
+        }
+      }
+    }
+  }
+}
