@@ -1,0 +1,89 @@
+{
+  "artifact_type": "FORK_USE_CASE_BOUNDARY_RECORD",
+  "artifact_version": "v0.1",
+  "use_case_id": "ai_benchmark_consumption_v0_1",
+  "title": "AI Benchmark Pointer Unresolved Example",
+  "field": "AI_BENCHMARK_CONSUMPTION",
+  "synthetic": true,
+  "fork_role": "EVIDENCE_BOUNDARY_INFRASTRUCTURE",
+  "source_event": {
+    "event_id": "evt_ai_benchmark_consumption_v0_1",
+    "producer": "NGAST synthetic workflow harness",
+    "event_type": "AI_BENCHMARK_RECORD_CREATED",
+    "artifact_refs": [
+      "synthetic_benchmark_result.json",
+      "synthetic_model_card_excerpt.json"
+    ],
+    "timestamp": "2026-06-20T00:00:00Z"
+  },
+  "supported_claim": {
+    "claim_id": "claim_primary_001",
+    "statement": "A bounded benchmark record was created from identified synthetic benchmark inputs and outputs.",
+    "evidence_refs": [
+      "synthetic_benchmark_result.json#RUN-2026-001"
+    ]
+  },
+  "non_claims": [
+    "does_not_claim_model_safety",
+    "does_not_claim_model_superiority",
+    "does_not_claim_production_readiness",
+    "does_not_claim_generalized_performance",
+    "does_not_claim_compliance",
+    "does_not_claim_approval"
+  ],
+  "downstream_consumption": {
+    "consumer_identity": "downstream reviewer",
+    "consumed_as": "bounded evaluation artifact with one unresolved pointer",
+    "relied_claim_ids": [
+      "claim_primary_001"
+    ],
+    "preserved_non_claims": [
+      "does_not_claim_model_safety",
+      "does_not_claim_model_superiority",
+      "does_not_claim_production_readiness",
+      "does_not_claim_generalized_performance",
+      "does_not_claim_compliance",
+      "does_not_claim_approval"
+    ],
+    "dropped_non_claims": [],
+    "unresolved_pointers": [
+      "synthetic_dataset_registry.json#DATASET-UNKNOWN"
+    ],
+    "consumer_added_claims": []
+  },
+  "boundary_result": {
+    "outcome": "POINTER_UNRESOLVED",
+    "structural_verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+    "findings": [
+      "POINTER_UNRESOLVED"
+    ]
+  },
+  "limitations": {
+    "does_not_validate_truth": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_approval": true,
+    "automation_interpretation_required": true,
+    "do_not_map_to": [
+      "APPROVAL",
+      "AUTHORIZATION",
+      "COMPLIANCE",
+      "CONTROL_EFFECTIVENESS",
+      "LEGAL_SUFFICIENCY",
+      "MODEL_SAFETY",
+      "PATIENT_SAFETY",
+      "PRODUCTION_READINESS",
+      "RISK_ACCEPTANCE",
+      "TRUTH"
+    ]
+  },
+  "public_language": {
+    "clean_boundary_sentence": "Fork can preserve the boundary between a recomputable benchmark record and broader claims about safety, compliance, generalized performance, or production readiness.",
+    "prohibited_readings": [
+      "Benchmark verified means model safe.",
+      "Benchmark passed means production-ready."
+    ]
+  },
+  "created_at": "2026-06-20T00:00:00Z"
+}

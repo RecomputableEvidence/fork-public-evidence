@@ -1,0 +1,307 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/fork_use_case_boundary_v0_1.schema.json",
+  "title": "Fork Use Case Boundary Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "artifact_version",
+    "use_case_id",
+    "title",
+    "field",
+    "synthetic",
+    "fork_role",
+    "source_event",
+    "supported_claim",
+    "non_claims",
+    "downstream_consumption",
+    "boundary_result",
+    "limitations",
+    "public_language",
+    "created_at"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "FORK_USE_CASE_BOUNDARY_RECORD"
+    },
+    "artifact_version": {
+      "const": "v0.1"
+    },
+    "use_case_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+_v0_1$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "field": {
+      "type": "string",
+      "enum": [
+        "AUDIT_COMPLIANCE",
+        "VENDOR_RISK",
+        "AI_BENCHMARK_CONSUMPTION",
+        "CYBER_TRIAGE",
+        "HEALTHCARE_PRIOR_AUTH_SYNTHETIC"
+      ]
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "fork_role": {
+      "const": "EVIDENCE_BOUNDARY_INFRASTRUCTURE"
+    },
+    "source_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "producer",
+        "event_type",
+        "artifact_refs",
+        "timestamp"
+      ],
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "supported_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "statement",
+        "evidence_refs"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^does_not_claim_[a-z0-9_]+$"
+      }
+    },
+    "downstream_consumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "consumer_identity",
+        "consumed_as",
+        "relied_claim_ids",
+        "preserved_non_claims",
+        "dropped_non_claims",
+        "unresolved_pointers",
+        "consumer_added_claims"
+      ],
+      "properties": {
+        "consumer_identity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consumed_as": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relied_claim_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "preserved_non_claims": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^does_not_claim_[a-z0-9_]+$"
+          }
+        },
+        "dropped_non_claims": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^does_not_claim_[a-z0-9_]+$"
+          }
+        },
+        "unresolved_pointers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "consumer_added_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim",
+              "authority_ref",
+              "evidence_refs"
+            ],
+            "properties": {
+              "claim": {
+                "type": "string",
+                "minLength": 1
+              },
+              "authority_ref": {
+                "type": "string"
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "boundary_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "structural_verification_scope",
+        "findings"
+      ],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "BOUNDARY_PRESERVED",
+            "POINTER_UNRESOLVED",
+            "BOUNDARY_EXPANSION_DETECTED",
+            "NON_CLAIM_DROPPED",
+            "EXPANSION_AUTHORITY_REF_MISSING",
+            "MAPPING_INCOMPLETE"
+          ]
+        },
+        "structural_verification_scope": {
+          "const": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "does_not_validate_truth",
+        "does_not_validate_safety",
+        "does_not_validate_compliance",
+        "does_not_validate_legal_sufficiency",
+        "does_not_validate_approval",
+        "automation_interpretation_required",
+        "do_not_map_to"
+      ],
+      "properties": {
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "does_not_validate_safety": {
+          "const": true
+        },
+        "does_not_validate_compliance": {
+          "const": true
+        },
+        "does_not_validate_legal_sufficiency": {
+          "const": true
+        },
+        "does_not_validate_approval": {
+          "const": true
+        },
+        "automation_interpretation_required": {
+          "const": true
+        },
+        "do_not_map_to": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "public_language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "clean_boundary_sentence",
+        "prohibited_readings"
+      ],
+      "properties": {
+        "clean_boundary_sentence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prohibited_readings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

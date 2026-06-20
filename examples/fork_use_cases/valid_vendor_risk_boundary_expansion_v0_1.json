@@ -1,0 +1,96 @@
+{
+  "artifact_type": "FORK_USE_CASE_BOUNDARY_RECORD",
+  "artifact_version": "v0.1",
+  "use_case_id": "vendor_risk_boundary_v0_1",
+  "title": "Vendor Risk Boundary Expansion Example",
+  "field": "VENDOR_RISK",
+  "synthetic": true,
+  "fork_role": "EVIDENCE_BOUNDARY_INFRASTRUCTURE",
+  "source_event": {
+    "event_id": "evt_vendor_risk_boundary_v0_1",
+    "producer": "NGAST synthetic workflow harness",
+    "event_type": "AI_ASSISTED_VENDOR_RISK_PACKET_CREATED",
+    "artifact_refs": [
+      "synthetic_vendor_questionnaire.json",
+      "synthetic_soc_summary.json"
+    ],
+    "timestamp": "2026-06-20T00:00:00Z"
+  },
+  "supported_claim": {
+    "claim_id": "claim_primary_001",
+    "statement": "A vendor-risk packet was assembled from identified synthetic vendor evidence references and routed for review.",
+    "evidence_refs": [
+      "synthetic_vendor_questionnaire.json#SEC-12",
+      "synthetic_soc_summary.json#OBS-03"
+    ]
+  },
+  "non_claims": [
+    "does_not_claim_vendor_approval",
+    "does_not_claim_vendor_security",
+    "does_not_claim_contract_sufficiency",
+    "does_not_claim_compliance",
+    "does_not_claim_risk_acceptance",
+    "does_not_claim_approval"
+  ],
+  "downstream_consumption": {
+    "consumer_identity": "downstream reviewer",
+    "consumed_as": "vendor approval basis",
+    "relied_claim_ids": [
+      "claim_primary_001"
+    ],
+    "preserved_non_claims": [
+      "does_not_claim_vendor_security",
+      "does_not_claim_contract_sufficiency",
+      "does_not_claim_compliance",
+      "does_not_claim_risk_acceptance",
+      "does_not_claim_approval",
+      "does_not_claim_vendor_approval"
+    ],
+    "dropped_non_claims": [],
+    "unresolved_pointers": [],
+    "consumer_added_claims": [
+      {
+        "claim": "The vendor was approved for onboarding by the downstream procurement reviewer.",
+        "authority_ref": "synthetic_procurement_policy.json#APPROVAL_AUTHORITY",
+        "evidence_refs": [
+          "synthetic_procurement_review_log.json#APPROVAL-001"
+        ]
+      }
+    ]
+  },
+  "boundary_result": {
+    "outcome": "BOUNDARY_EXPANSION_DETECTED",
+    "structural_verification_scope": "RECORD_INTEGRITY_AND_BOUNDARY_STRUCTURE_ONLY",
+    "findings": [
+      "BOUNDARY_EXPANSION_DETECTED"
+    ]
+  },
+  "limitations": {
+    "does_not_validate_truth": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_approval": true,
+    "automation_interpretation_required": true,
+    "do_not_map_to": [
+      "APPROVAL",
+      "AUTHORIZATION",
+      "COMPLIANCE",
+      "CONTROL_EFFECTIVENESS",
+      "LEGAL_SUFFICIENCY",
+      "MODEL_SAFETY",
+      "PATIENT_SAFETY",
+      "PRODUCTION_READINESS",
+      "RISK_ACCEPTANCE",
+      "TRUTH"
+    ]
+  },
+  "public_language": {
+    "clean_boundary_sentence": "Fork can preserve the difference between vendor evidence packet completeness and vendor approval.",
+    "prohibited_readings": [
+      "Packet complete means vendor approved.",
+      "SOC report present means vendor secure."
+    ]
+  },
+  "created_at": "2026-06-20T00:00:00Z"
+}
