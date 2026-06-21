@@ -114,6 +114,23 @@ FAIL_CLOSED_TRANSFORMATION_RULES = {
 
 KNOWN_TRANSFORMATION_RULES = SAFE_TRANSFORMATION_RULES | FAIL_CLOSED_TRANSFORMATION_RULES
 
+TRANSITION_KIND_TO_ALLOWED_RULES = {
+    "CLAIM_SCOPE_PRESERVED": {"PRESERVE_AS_IS"},
+    "CLAIM_SCOPE_NARROWED": {"NARROW_SCOPE"},
+    "NON_CLAIM_PRESERVED": {"RETAIN_NON_CLAIM"},
+    "EVIDENCE_REFERENCE_PRESERVED": {"PRESERVE_EVIDENCE_REFERENCE"},
+    "EVIDENCE_REFERENCE_LOST": {"RECORD_REFERENCE_LOSS"},
+    "RECOMPUTATION_STATUS_PRESERVED": {"PRESERVE_RECOMPUTATION_STATUS"},
+    "AUTHORITY_PRESERVED": {"PRESERVE_AUTHORITY"},
+    "CLAIM_SCOPE_GENERALIZED": {"GENERALIZE_SCOPE"},
+    "CLAIM_ADDED_FROM_SILENCE": {"CONVERT_SILENCE_TO_CLAIM"},
+    "AUTHORITY_EXPANDED": {"EXPAND_AUTHORITY"},
+    "EVIDENCE_REFERENCE_EXPANDED": {"ADD_UNTRANSFERRED_EVIDENCE_REFERENCE"},
+    "EVIDENCE_REFERENCE_SUPPRESSED": {"SUPPRESS_REFERENCE"},
+    "RECOMPUTATION_STATUS_CONVERTED_TO_TRUTH": {"MAP_RECOMPUTATION_TO_TRUTH"},
+    "NON_CLAIM_DROPPED": {"DROP_NON_CLAIM"},
+}
+
 PROHIBITED_KEYS = {
     "score",
     "severity",
@@ -373,6 +390,25 @@ def validate_shape(record: Any) -> list[dict[str, Any]]:
                         observed=rule,
                     )
                 )
+
+            if (
+                isinstance(kind, str)
+                and isinstance(rule, str)
+                and kind in KNOWN_TRANSITION_KINDS
+                and rule in KNOWN_TRANSFORMATION_RULES
+            ):
+                allowed_rules = TRANSITION_KIND_TO_ALLOWED_RULES.get(kind, set())
+                if rule not in allowed_rules:
+                    findings.append(
+                        finding(
+                            "TRANSITION_KIND_RULE_MISMATCH",
+                            "transition_kind and transformation_rule are incompatible under Boundary Delta Record v0.1.",
+                            transition_id=transition.get("transition_id"),
+                            transition_kind=kind,
+                            transformation_rule=rule,
+                            allowed_transformation_rules=sorted(allowed_rules),
+                        )
+                    )
 
             if kind == "EVIDENCE_REFERENCE_SUPPRESSED":
                 if not isinstance(transition.get("suppression_disclosure_ref"), str) or transition.get("suppression_disclosure_ref") == "":

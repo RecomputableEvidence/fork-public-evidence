@@ -134,3 +134,10 @@ def test_checker_output_is_deterministic() -> None:
     )
 
     assert first.stdout == second.stdout
+
+def test_transition_kind_rule_mismatch_fails_closed() -> None:
+    code, result = run_checker("invalid_transition_kind_rule_mismatch_v0_1.json")
+
+    assert code == 1
+    assert result["structural_outcome"] == "NOT_INSPECTABLE"
+    assert any(item["code"] == "TRANSITION_KIND_RULE_MISMATCH" for item in result["findings"])

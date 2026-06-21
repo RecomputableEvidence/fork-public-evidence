@@ -48,7 +48,8 @@ Boundary Delta Record v0.1 enforces the following locks:
 4. Any true derived flag without a supporting transition fails closed.
 5. Loss and suppression are structurally distinct.
 6. No scoring, severity, confidence, LLM interpretation, recommendation, approval, or cross-record inference is allowed.
-7. The checker emits only `INSPECTABLE` or `NOT_INSPECTABLE`.
+7. Each recognized `transition_kind` must use a compatible recognized `transformation_rule`; known-but-incompatible pairs fail closed.
+8. The checker emits only `INSPECTABLE` or `NOT_INSPECTABLE`.
 
 ## Structural outcome
 
