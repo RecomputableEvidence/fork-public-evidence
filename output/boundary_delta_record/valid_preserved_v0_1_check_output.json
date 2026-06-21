@@ -1,0 +1,33 @@
+{
+  "checker": "check_boundary_delta_record.py",
+  "checker_version": "BDR_v0_1",
+  "derived": {
+    "authority_expansion_required": false,
+    "claim_scope_generalized": false,
+    "evidence_reference_expansion_required": false,
+    "evidence_reference_lost": false,
+    "evidence_reference_suppressed": false,
+    "licensed_claim_surface": "SOURCE_SURFACE_PRESERVED",
+    "non_claim_dropped": false,
+    "recomputation_status_converted_to_truth": false,
+    "silence_converted_to_claim": false
+  },
+  "findings": [],
+  "limitations": {
+    "binary_outcomes_only": [
+      "INSPECTABLE",
+      "NOT_INSPECTABLE"
+    ],
+    "does_not_approve_reliance": true,
+    "does_not_perform_cross_record_inference": true,
+    "does_not_perform_llm_interpretation": true,
+    "does_not_rank_severity": true,
+    "does_not_score_risk": true,
+    "does_not_validate_compliance": true,
+    "does_not_validate_legal_sufficiency": true,
+    "does_not_validate_safety": true,
+    "does_not_validate_truth": true
+  },
+  "record_id": "BDR_VALID_PRESERVED_v0_1",
+  "structural_outcome": "INSPECTABLE"
+}
