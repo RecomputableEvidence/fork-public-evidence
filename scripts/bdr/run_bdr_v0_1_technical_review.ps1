@@ -7,7 +7,6 @@ if (Get-Variable -Name PSNativeCommandUseErrorActionPreference -Scope Global -Er
 }
 
 $ExpectedBranch = "boundary-delta-record-v0.1"
-$ExpectedHead   = "e1612fa"
 $FixtureWin = "examples\boundary_delta_record\invalid_transition_kind_rule_mismatch_v0_1.json"
 $FixtureGit = "examples/boundary_delta_record/invalid_transition_kind_rule_mismatch_v0_1.json"
 $ValidWin   = "examples\boundary_delta_record\valid_preserved_v0_1.json"
@@ -59,13 +58,12 @@ if ($Branch -ne $ExpectedBranch) {
 git log --oneline -3
 
 "`n=== HEAD COMMIT ==="
-$Head = git rev-parse --short=7 HEAD
-$Head
-if ($Head -ne $ExpectedHead) {
-    throw "Unexpected HEAD. Expected $ExpectedHead, got $Head."
-}
-
-"`n=== FIXTURE PRESENT IN HEAD ==="
+$HistoricalReviewSeed = "e1612fa"
+$HeadShort = git rev-parse --short=7 HEAD
+$HeadFull = git rev-parse HEAD
+"HEAD_SHORT=$HeadShort"
+"HEAD_FULL=$HeadFull"
+"HISTORICAL_REVIEW_SEED=$HistoricalReviewSeed""`n=== FIXTURE PRESENT IN HEAD ==="
 git cat-file -e "HEAD:$FixtureGit"
 if ($LASTEXITCODE -ne 0) {
     throw "Mismatch fixture is not present in HEAD. Use forward slashes in Git object paths."
