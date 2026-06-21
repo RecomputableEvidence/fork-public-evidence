@@ -63,7 +63,9 @@ $HeadShort = git rev-parse --short=7 HEAD
 $HeadFull = git rev-parse HEAD
 "HEAD_SHORT=$HeadShort"
 "HEAD_FULL=$HeadFull"
-"HISTORICAL_REVIEW_SEED=$HistoricalReviewSeed""`n=== FIXTURE PRESENT IN HEAD ==="
+"HISTORICAL_REVIEW_SEED=$HistoricalReviewSeed"
+
+"`n=== FIXTURE PRESENT IN HEAD ==="
 git cat-file -e "HEAD:$FixtureGit"
 if ($LASTEXITCODE -ne 0) {
     throw "Mismatch fixture is not present in HEAD. Use forward slashes in Git object paths."
