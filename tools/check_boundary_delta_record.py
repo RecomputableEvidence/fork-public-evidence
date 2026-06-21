@@ -600,6 +600,11 @@ def limitations() -> dict[str, Any]:
         "does_not_approve_reliance": True,
         "does_not_perform_llm_interpretation": True,
         "does_not_perform_cross_record_inference": True,
+        "does_not_infer_scope_from_text": True,
+        "does_not_infer_authority_from_text": True,
+        "does_not_infer_evidence_requirements_from_text": True,
+        "treats_references_as_opaque_tokens": True,
+        "requires_declared_transitions": True,
         "binary_outcomes_only": ["INSPECTABLE", "NOT_INSPECTABLE"],
     }
 

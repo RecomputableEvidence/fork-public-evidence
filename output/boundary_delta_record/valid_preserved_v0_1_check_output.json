@@ -19,6 +19,9 @@
       "NOT_INSPECTABLE"
     ],
     "does_not_approve_reliance": true,
+    "does_not_infer_authority_from_text": true,
+    "does_not_infer_evidence_requirements_from_text": true,
+    "does_not_infer_scope_from_text": true,
     "does_not_perform_cross_record_inference": true,
     "does_not_perform_llm_interpretation": true,
     "does_not_rank_severity": true,
@@ -26,7 +29,9 @@
     "does_not_validate_compliance": true,
     "does_not_validate_legal_sufficiency": true,
     "does_not_validate_safety": true,
-    "does_not_validate_truth": true
+    "does_not_validate_truth": true,
+    "requires_declared_transitions": true,
+    "treats_references_as_opaque_tokens": true
   },
   "record_id": "BDR_VALID_PRESERVED_v0_1",
   "structural_outcome": "INSPECTABLE"

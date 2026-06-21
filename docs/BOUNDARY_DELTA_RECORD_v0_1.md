@@ -38,6 +38,21 @@ It does not answer:
 - Whether suppressed or lost material was substantively important.
 - Whether an expansion is permitted by external policy, contract, law, or governance authority.
 
+## Input determinism and non-inference
+
+Boundary Delta Record v0.1 does not infer authority, scope, evidence requirements, reference status, non-claim continuity, or recomputation status from natural language.
+
+BDR consumes declared boundary facts and recognized transition records. References, claim identifiers, non-claim identifiers, authority references, and evidence references are treated as opaque structural tokens.
+
+If a downstream system, annotator, model, policy engine, or governance process determines that a statement requires a particular authority, scope, or evidence reference, that determination must occur outside BDR and be represented as declared input.
+
+BDR then checks whether the declared transition record is structurally inspectable under the v0.1 rules.
+
+This preserves the boundary between:
+
+- requirement declaration, which may be produced by an upstream system or governance process; and
+- boundary delta inspection, which is performed mechanically by BDR v0.1.
+
 ## v0.1 hard locks
 
 Boundary Delta Record v0.1 enforces the following locks:

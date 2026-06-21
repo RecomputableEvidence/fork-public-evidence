@@ -141,3 +141,26 @@ def test_transition_kind_rule_mismatch_fails_closed() -> None:
     assert code == 1
     assert result["structural_outcome"] == "NOT_INSPECTABLE"
     assert any(item["code"] == "TRANSITION_KIND_RULE_MISMATCH" for item in result["findings"])
+
+def test_checker_output_declares_non_inference_limitations() -> None:
+    code, result = run_checker("valid_preserved_v0_1.json")
+
+    assert code == 0
+    limitations = result["limitations"]
+    assert limitations["does_not_infer_scope_from_text"] is True
+    assert limitations["does_not_infer_authority_from_text"] is True
+    assert limitations["does_not_infer_evidence_requirements_from_text"] is True
+    assert limitations["treats_references_as_opaque_tokens"] is True
+    assert limitations["requires_declared_transitions"] is True
+
+def test_all_known_transition_kinds_have_compatibility_rules() -> None:
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("check_boundary_delta_record", CHECKER)
+    assert spec is not None
+    assert spec.loader is not None
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    assert module.KNOWN_TRANSITION_KINDS == set(module.TRANSITION_KIND_TO_ALLOWED_RULES)
