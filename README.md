@@ -258,3 +258,49 @@ Adds a bounded checker/output extension for Structural Execution Receipt artifac
 - Uses SHA-256 only.
 - Does not change the Placement Profile schema.
 - Does not validate semantic truth, legal sufficiency, compliance sufficiency, audit sufficiency, model safety, runtime behavior, external artifacts, cross-record graphs, or institutional authority.
+
+
+# Fork Transition Localization (v0.1)
+
+This repository defines and exercises the Transition Localization discipline: a method for analyzing how authority over property claims moves between artifact states and contexts.
+
+## Artifact Structure
+
+- `docs/TRANSITION_LOCALIZATION_INVARIANTS_v0_1.md`  
+  Defines the invariant grammar for Transition Localization. This is the normative dependency for all downstream artifacts.
+
+- `docs/CASEBOOK_TRANSITION_LOCALIZATION_v0_1.md`  
+  Specifies the casebook procedure: how to apply the invariants to concrete transitions (establishment ? transition ? mechanism ? determination ? classification).
+
+- `docs/cases/CASE_001_AI_SAFETY_FINE_TUNE.md`  
+  First calibration case: AI safety evaluation ? fine-tuned derivative model.
+  - Purpose: test whether reviewers can separate disagreement about the artifact from agreement about the authority path.
+  - Outcome: Class D (Unlocalized transfer path) for this specific transition, without judging whether the fine-tuned model is safe.
+
+- `docs/cases/CASE_001_REVIEW_WORKSHEET.md`  
+  Reviewer worksheet for Case 001.
+  - Captures establishment localization, transition definition, boundary inventory, assumptions, mechanism identification, determination path, classification, and confidence per stage.
+
+- `docs/cases/CASE_001_VARIANCE_REPORT.md`  
+  Template for summarizing reviewer variance on Case 001.
+  - Distinguishes observational variance (seeing different facts) from procedural variance (applying rules differently) and taxonomic variance (mapping determination to A/B/C/D).
+
+## Calibration vs Validation
+
+- **Calibration (Case 001)**  
+  - Question: Can reviewers execute the procedure consistently on a structurally simple transition?  
+  - Metrics: agreement on establishment, transition, boundaries, mechanism identification, determination path, classification; plus confidence per stage.
+
+- **Validation (Cases 002–003 and beyond)**  
+  - Question: Does the procedure remain stable when transitions are genuinely ambiguous and domain intuitions conflict?  
+  - Metrics: agreement under competing intuitions, partial mechanisms, contested scope, overlapping boundary types.
+
+## Empirical Claim (Target for v0.1)
+
+The initial empirical goal is:
+
+> Independent reviewers applying the same Transition Localization procedure are able to reproduce establishment localization, transition determination, and classification outcomes for the same transition scenario.
+
+This claim is modest by design. It does not assert that classifications are objectively correct or that artifacts are safe or unsafe. It asserts that the authority-path analysis is reproducible across reviewers.
+
+Further cases (e.g., cloud certification ? workload claims, medical validation ? configuration drift) will extend this evidence across domains.
