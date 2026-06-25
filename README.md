@@ -1,4 +1,4 @@
-# Fork Public Evidence
+﻿# Fork Public Evidence
 
 ## Suggested Reading Path
 
@@ -291,7 +291,7 @@ This repository defines and exercises the Transition Localization discipline: a 
   - Question: Can reviewers execute the procedure consistently on a structurally simple transition?  
   - Metrics: agreement on establishment, transition, boundaries, mechanism identification, determination path, classification; plus confidence per stage.
 
-- **Validation (Cases 002�003 and beyond)**  
+- **Validation (Cases 002–003 and beyond)**  
   - Question: Does the procedure remain stable when transitions are genuinely ambiguous and domain intuitions conflict?  
   - Metrics: agreement under competing intuitions, partial mechanisms, contested scope, overlapping boundary types.
 
@@ -323,3 +323,4 @@ Measurement focuses on:
 - classification reproducibility.
 
 The goal is procedural measurement, not artifact judgment.
+
