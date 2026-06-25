@@ -304,3 +304,22 @@ The initial empirical goal is:
 This claim is modest by design. It does not assert that classifications are objectively correct or that artifacts are safe or unsafe. It asserts that the authority-path analysis is reproducible across reviewers.
 
 Further cases (e.g., cloud certification ? workload claims, medical validation ? configuration drift) will extend this evidence across domains.
+
+## Transition Localization Measurement Layer
+
+The repository now includes reviewer calibration artifacts:
+
+- `docs/cases/CASE_001_REVIEW_WORKSHEET.md`
+- `docs/cases/CASE_001_VARIANCE_REPORT.md`
+
+These capture independent application of the Transition Localization procedure.
+
+Measurement focuses on:
+
+- establishment localization,
+- transition definition,
+- boundary inventory,
+- me- determination path,
+- classification reproducibility.
+
+The goal is procedural measurement, not artifact judgment.
