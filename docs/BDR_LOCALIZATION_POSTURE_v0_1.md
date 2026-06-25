@@ -105,3 +105,4 @@ BDR remains a mechanical inspector of declared structure. Localization posture i
 - If a boundary record references an establishment event, BDR can record that localization is possible.
 - If not, BDR can record `no_localized_establishment_for_transferred_property` and `NO_LOCALIZABLE_ESTABLISHMENT` as inspectable limitations.
 - This keeps BDR non‑interpretive while making “no transition to evaluate” an explicit, machine‑readable outcome.
+
