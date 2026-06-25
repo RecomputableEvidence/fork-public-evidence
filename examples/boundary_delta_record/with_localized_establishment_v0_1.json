@@ -1,0 +1,9 @@
+﻿{
+  "claims": [
+    {
+      "claim_id": "CLAIM-001",
+      "establishment_ref": "EST-001",
+      "supporting_refs": []
+    }
+  ]
+}
