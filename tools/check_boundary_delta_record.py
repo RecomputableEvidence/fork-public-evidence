@@ -48,7 +48,7 @@ def main() -> None:
 
     # Placeholder structural outcome; real BDR logic would compute this.
     # For now we use INSPECTABLE so we do not accidentally collapse existing flows.
-    outcome = "INSPECTABLE"
+    outcome = "NOT_YET_COMPUTED"
 
     localization_status, loc_findings, loc_limitations = compute_localization_posture(record)
 
@@ -69,4 +69,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 

@@ -106,3 +106,7 @@ BDR remains a mechanical inspector of declared structure. Localization posture i
 - If not, BDR can record `no_localized_establishment_for_transferred_property` and `NO_LOCALIZABLE_ESTABLISHMENT` as inspectable limitations.
 - This keeps BDR non‑interpretive while making “no transition to evaluate” an explicit, machine‑readable outcome.
 
+## Known Limitations (v0.1)
+
+- The \outcome\ field in checker receipts is a placeholder (\NOT_YET_COMPUTED\) in v0.1. It is **not** a structural determination.
+- Advisory vs. blocking behavior for localization findings (INSPECTABLE / NOT_INSPECTABLE) is **not yet implemented** in v0.1; Section 5 describes intended future behavior for later versions.
