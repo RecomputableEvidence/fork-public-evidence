@@ -1,0 +1,21 @@
+﻿{
+  "id": "bdr-no-localized-establishment-v0-1",
+  "version": "0.1",
+  "transition_kind": "CLAIM_SCOPE_PRESERVED",
+  "transformation_rule": "PRESERVE_AS_IS",
+  "boundary_context": {
+    "source": "system:A",
+    "destination": "system:B",
+    "scope": "example-context-v0-1"
+  },
+  "claims": [
+    {
+      "claim_id": "claim:example-trusted-output",
+      "property": "trusted_output",
+      "statement": "This output is trusted in destination system B.",
+      "supporting_refs": [
+        "ref:upstream-trusted-model"
+      ]
+    }
+  ]
+}
