@@ -4,13 +4,13 @@
 
 For a first review, read the artifacts in this order:
 
-1. **README** â€” what Fork establishes and does not establish.
-2. **[Reading Guide: From Reconstructive Fidelity to Recomputable Evidence](docs/READING_GUIDE_RECONSTRUCTIVE_FIDELITY_TO_RECOMPUTABLE_EVIDENCE.md)** â€” how the reconstructive-fidelity doctrine maps to Fork's executable evidence posture.
+1. **README** what Fork establishes and does not establish.
+2. **[Reading Guide: From Reconstructive Fidelity to Recomputable Evidence](docs/READING_GUIDE_RECONSTRUCTIVE_FIDELITY_TO_RECOMPUTABLE_EVIDENCE.md)**  how the reconstructive-fidelity doctrine maps to Fork's executable evidence posture.
 3. **[Fork Operational Boundary Map v0.1](docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md)** - defines Fork's production boundary as a read-only evidence hand-off layer between upstream authority/execution mechanisms and downstream audit, legal, compliance, risk, security, remediation, and reporting functions.
-4. **White Paper: _Reconstructive Fidelity in the Age of AI_** â€” the broader governance and evidentiary doctrine.
-5. **v0.7 Release Notes** â€” the narrow recomputability receipt-binding milestone.
-6. **Local Verification Script** â€” run `technical-disclosure/verify_public_disclosure.py` to inspect the public disclosure verification surface.
-7. **Schemas, examples, tests, and tools** â€” review the executable evidence constraints in `schemas/`, `examples/`, `tests/`, and `tools/`.
+4. **White Paper: _Reconstructive Fidelity in the Age of AI_**  the broader governance and evidentiary doctrine.
+5. **v0.7 Release Notes**  the narrow recomputability receipt-binding milestone.
+6. **Local Verification Script**  run `technical-disclosure/verify_public_disclosure.py` to inspect the public disclosure verification surface.
+7. **Schemas, examples, tests, and tools**  review the executable evidence constraints in `schemas/`, `examples/`, `tests/`, and `tools/`.
 
 This reading path is intended to prevent two common misreadings: treating Fork as only a theoretical governance paper, or treating the repository as a broad product-readiness claim. Fork's current public posture is narrower: bounded evidence preservation, explicit non-claims, and test-backed controls against specific forms of evidentiary overclaim.
 
@@ -31,7 +31,7 @@ This reading path is intended to prevent two common misreadings: treating Fork a
 Fork restricts what any artifact in the evidentiary chain may be treated as proving, for the purpose of authorized action.
 
 
-Public evidence, technical disclosure, and canonical publication materials for Forkâ€™s work on reconstructive fidelity in AI-assisted workflows.
+Public evidence, technical disclosure, and canonical publication materials for Fork™s work on reconstructive fidelity in AI-assisted workflows.
 
 ## Canonical white paper
 
@@ -103,9 +103,9 @@ and through the tagged GitHub Release.
 
 ## Copyright
 
-Copyright Â© 2026 Ryan Feller. All rights reserved.
+Copyright © 2026 Ryan Feller. All rights reserved.
 
-Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Forkâ€™s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
+Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork™s undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
 
 ## AI Governance Mapping System v0.1
 
@@ -291,7 +291,7 @@ This repository defines and exercises the Transition Localization discipline: a 
   - Question: Can reviewers execute the procedure consistently on a structurally simple transition?  
   - Metrics: agreement on establishment, transition, boundaries, mechanism identification, determination path, classification; plus confidence per stage.
 
-- **Validation (Cases 002�003 and beyond)**  
+- **Validation (Cases 002�003 and beyond)**  
   - Question: Does the procedure remain stable when transitions are genuinely ambiguous and domain intuitions conflict?  
   - Metrics: agreement under competing intuitions, partial mechanisms, contested scope, overlapping boundary types.
 
