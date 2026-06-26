@@ -1,0 +1,54 @@
+{
+    "bdr_id":  "bdr-A-B-020",
+    "obligations":  [
+                        "log_all_outputs"
+                    ],
+    "event_type":  "BDR_CREATED",
+    "parent_event_id":  null,
+    "authority_delta_type":  "grant",
+    "parent_bdr_id":  null,
+    "timestamp":  1710002000,
+    "event_id":  "uuid-20",
+    "boundary_id":  "A-\u003eB",
+    "constraints":  [
+                        "no_external_network_access"
+                    ],
+    "delegated_authority":  [
+                                "summarize"
+                            ]
+}
+{
+    "bdr_id":  "bdr-B-C-020",
+    "obligations":  [
+                        "log_all_outputs",
+                        "emit_audit_event"
+                    ],
+    "event_type":  "BDR_CREATED",
+    "parent_event_id":  "uuid-20",
+    "authority_delta_type":  "grant",
+    "parent_bdr_id":  "bdr-A-B-020",
+    "timestamp":  1710002100,
+    "event_id":  "uuid-21",
+    "boundary_id":  "B-\u003eC",
+    "constraints":  [
+                        "no_external_network_access"
+                    ],
+    "delegated_authority":  [
+                                "summarize"
+                            ]
+}
+{
+    "action":  "summarize",
+    "timestamp":  1710002200,
+    "result":  "success",
+    "bdr_id":  "bdr-B-C-020",
+    "event_type":  "EXECUTION",
+    "parent_event_id":  "uuid-21",
+    "constraint_checks":  [
+                              {
+                                  "constraint":  "no_external_network_access",
+                                  "status":  "pass"
+                              }
+                          ],
+    "event_id":  "uuid-22"
+}

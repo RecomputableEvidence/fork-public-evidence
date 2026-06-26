@@ -1,0 +1,20 @@
+﻿{
+  "protocol": "BDR-ESAL",
+  "version": "0.1",
+  "implementation": "reference-oracle",
+  "semantics": {
+    "canonicalization": "C",
+    "reduction": "F",
+    "fingerprint": "H"
+  },
+  "serialization": {
+    "format": "canonical-json",
+    "hash": "sha256"
+  },
+  "excluded_capabilities": [
+    "external_state",
+    "network_access",
+    "runtime_policy_resolution",
+    "human_review"
+  ]
+}

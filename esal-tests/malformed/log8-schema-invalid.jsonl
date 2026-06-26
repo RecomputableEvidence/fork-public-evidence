@@ -1,0 +1,17 @@
+{
+    "bdr_id":  "bdr-invalid-080",
+    "event_type":  "BDR",
+    "constraints":  [
+
+                    ],
+    "authority_delta_type":  "grant",
+    "timestamp":  "not-an-epoch",
+    "parent_bdr_id":  null,
+    "boundary_id":  "A-\u003eB",
+    "obligations":  [
+
+                    ],
+    "delegated_authority":  [
+                                "summarize"
+                            ]
+}

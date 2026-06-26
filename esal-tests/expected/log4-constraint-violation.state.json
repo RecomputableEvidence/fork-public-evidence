@@ -1,0 +1,28 @@
+﻿{
+    "failure_class":  "G",
+    "authority":  [
+                      "summarize",
+                      "translate"
+                  ],
+    "description":  "Constraint violation recorded; state marked invalid",
+    "lineage":  [
+                    "bdr-A-B-001",
+                    "bdr-B-C-001"
+                ],
+    "obligations":  [
+                        "emit_audit_event",
+                        "log_all_outputs"
+                    ],
+    "constraints":  [
+                        "max_tokens\u003c=1500",
+                        "no_external_network_access"
+                    ],
+    "violations":  [
+                       {
+                           "constraint":  "no_external_network_access",
+                           "action":  "external_network_call",
+                           "bdr_id":  "bdr-B-C-001"
+                       }
+                   ],
+    "validity":  false
+}

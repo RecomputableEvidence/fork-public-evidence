@@ -1,0 +1,19 @@
+{
+    "bdr_id":  "bdr-broken-040",
+    "obligations":  [
+
+                    ],
+    "event_type":  "BDR_CREATED",
+    "parent_event_id":  "uuid-999",
+    "authority_delta_type":  "grant",
+    "parent_bdr_id":  "bdr-missing-000",
+    "timestamp":  1710004000,
+    "event_id":  "uuid-40",
+    "boundary_id":  "X-\u003eY",
+    "constraints":  [
+
+                    ],
+    "delegated_authority":  [
+                                "summarize"
+                            ]
+}

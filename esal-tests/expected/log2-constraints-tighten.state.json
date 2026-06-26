@@ -1,0 +1,19 @@
+﻿{
+    "violations":  [
+
+                   ],
+    "lineage":  [
+                    "bdr-A-B-010",
+                    "bdr-B-C-010"
+                ],
+    "validity":  true,
+    "constraints":  [
+                        "max_tokens\u003c=1500"
+                    ],
+    "authority":  [
+                      "summarize"
+                  ],
+    "obligations":  [
+                        "log_all_outputs"
+                    ]
+}
