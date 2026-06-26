@@ -1,1 +1,1 @@
-﻿// TODO: add canonical ESAL event log for C-001 once reference oracle is implemented.
+﻿{"event_type":"EXECUTION","event_id":"uuid-00","parent_event_id":null,"bdr_id":null,"timestamp":1710000000,"action":"noop","result":"success","constraint_checks":[]}

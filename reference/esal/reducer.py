@@ -1,39 +1,39 @@
-﻿# reference/esal/reducer.py
-
-from .models import State, ViolationRecord, INITIAL_STATE
+﻿from .models import State, ViolationRecord
 from .errors import StructuralError, GovernanceError
 
 
 def apply_bdr(state: State, event: dict) -> State:
     """
     Apply a BDR_CREATED event.
-    This is intentionally minimal and conservative:
-    - authority: union with delegated_authority
-    - constraints: union with constraints
-    - obligations: union with obligations
-    - lineage: append bdr_id
-    """
-    payload_authority = set(event.get("delegated_authority", []))
-    payload_constraints = set(event.get("constraints", []))
-    payload_obligations = set(event.get("obligations", []))
 
-    # Very simple authority containment check:
-    # if there is a parent_bdr_id, ensure delegated_authority does not exceed parent.
-    # (For now we assume parent authority == current state's authority.)
-    parent_bdr_id = event.get("parent_bdr_id")
+    Semantics:
+    - Read envelope fields from event["body"].
+    - Enforce simple authority containment when parent_bdr_id is present.
+    - Union authority/constraints/obligations into the state.
+    - Append bdr_id to lineage.
+    """
+    body = event.get("body", {})
+
+    delegated_authority = set(body.get("delegated_authority", []))
+    constraints = set(body.get("constraints", []))
+    obligations = set(body.get("obligations", []))
+
+    parent_bdr_id = body.get("parent_bdr_id")
+    bdr_id = body.get("bdr_id")
+
+    # Authority containment check:
+    # If there is a parent_bdr_id, delegated_authority must not exceed current state's authority.
     if parent_bdr_id is not None:
-        # Any authority in payload_authority that is not already in state.authority
-        # is treated as inflation.
-        inflation = payload_authority.difference(state.authority)
+        inflation = delegated_authority.difference(state.authority)
         if inflation:
             raise GovernanceError(
                 f"Delegated authority exceeds parent envelope: {sorted(inflation)}"
             )
 
-    new_authority = state.authority.union(payload_authority)
-    new_constraints = state.constraints.union(payload_constraints)
-    new_obligations = state.obligations.union(payload_obligations)
-    new_lineage = state.lineage + (event.get("bdr_id"),)
+    new_authority = state.authority.union(delegated_authority)
+    new_constraints = state.constraints.union(constraints)
+    new_obligations = state.obligations.union(obligations)
+    new_lineage = state.lineage + (bdr_id,)
 
     return State(
         authority=new_authority,
@@ -48,13 +48,17 @@ def apply_bdr(state: State, event: dict) -> State:
 def apply_execution(state: State, event: dict) -> State:
     """
     Apply an EXECUTION event.
-    Rules:
+
+    Semantics:
+    - Read constraint_checks from event["body"].
     - May ONLY change validity and violations.
-    - authority / constraints / obligations / lineage must be preserved.
-    - If any constraint status == 'fail', mark validity false and add violation.
+    - For each check with status == "fail":
+      - Mark validity False.
+      - Append a violation record.
     """
-    # Extract constraint checks
-    checks = event.get("constraint_checks", [])
+    body = event.get("body", {})
+
+    checks = body.get("constraint_checks", [])
     violations = list(state.violations)
     validity = state.validity
 
@@ -73,7 +77,7 @@ def apply_execution(state: State, event: dict) -> State:
                 )
             )
 
-    # Return new state with updated validity/violations only
+    # EXECUTION is pure with respect to envelope: authority/constraints/obligations/lineage unchanged.
     return State(
         authority=state.authority,
         constraints=state.constraints,
@@ -96,7 +100,7 @@ def transition(state: State, event: dict) -> State:
 
 def reduce_state(initial_state: State, canonical_events: list[dict]) -> State:
     """
-    F(S0, E*): fold(transition, S0, E*).
+    F(S0, E*): fold(transition, S0, E*)
     """
     state = initial_state
     for e in canonical_events:
