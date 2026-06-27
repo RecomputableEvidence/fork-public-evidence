@@ -1,0 +1,64 @@
+{
+    "artifact_id":  "ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_PENDING_v0_1",
+    "artifact_type":  "ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_v0_1",
+    "spec_version":  "BDR-ESAL-v0.1",
+    "profile":  "BDR_ESAL_BASELINE_REPLAY_v0_1",
+    "bundle_manifest_path":  "esal-tests/reproduction/manifest_v0_1.json",
+    "bundle_manifest_sha256":  "a37a58a7360f0912c37d34f1e256f89258c241fa576fc0ab09629d32989b3bc5",
+    "execution_status":  "PENDING",
+    "result":  "INDEPENDENT_REPRODUCTION_NOT_ESTABLISHED",
+    "evaluator":  {
+                      "name_or_role":  "UNASSIGNED",
+                      "organization":  "UNASSIGNED",
+                      "contact_or_reference":  "UNASSIGNED",
+                      "declared_independence":  false
+                  },
+    "implementation":  {
+                           "name":  "UNASSIGNED",
+                           "repository_or_archive":  "UNASSIGNED",
+                           "commit_or_version":  "UNASSIGNED",
+                           "relationship_to_fork_reference":  "unknown"
+                       },
+    "independence_basis":  {
+                               "method":  "No independent execution has been performed.",
+                               "source_materials_used":  [
+                                                             "spec/BDR-ESAL-v0.1.md",
+                                                             "esal-tests/reproduction/manifest_v0_1.json"
+                                                         ],
+                               "private_project_notes_used":  false,
+                               "reference_implementation_copied":  false
+                           },
+    "execution":  {
+                      "timestamp_utc":  "2026-06-27T20:27:23Z",
+                      "command":  "NOT_EXECUTED",
+                      "environment":  {
+                                          "status":  "pending"
+                                      },
+                      "executor_notes":  [
+                                             "This is a pending template. It does not record an independent reproduction run."
+                                         ]
+                  },
+    "vector_results":  [
+
+                       ],
+    "mismatches":  [
+
+                   ],
+    "limitations":  [
+                        "Independent reproduction has not yet been attempted.",
+                        "This pending artifact must not be cited as reproduced evidence."
+                    ],
+    "non_claims":  [
+                       "legal_sufficiency",
+                       "regulatory_compliance",
+                       "audit_acceptance",
+                       "safety",
+                       "truth",
+                       "approval",
+                       "runtime_authorization",
+                       "external_endorsement",
+                       "host_system_conformance",
+                       "business_fitness",
+                       "claim_inheritance"
+                   ]
+}
