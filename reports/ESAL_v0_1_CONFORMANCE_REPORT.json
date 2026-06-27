@@ -1,0 +1,279 @@
+{
+    "artifact_id":  "ESAL-CONFORMANCE-REPORT-v0.1",
+    "generated_utc":  "2026-06-27T08:46:28Z",
+    "started_utc":  "2026-06-27T08:46:26Z",
+    "branch":  "esal-v0.1-roadmap-v0_1",
+    "commit":  "66090c4eacebb1934b503f861f315eb94653524d",
+    "release_candidate_tag":  "esal-v0.1-rc6",
+    "release_candidate_tag_commit":  "1a99d32a305dd9f295b794c0e95bcd61c2af183d",
+    "result":  "CONFORMANCE_PASS",
+    "expected_distribution":  {
+                                  "PASS":  4,
+                                  "G":  3,
+                                  "S":  2,
+                                  "D":  1
+                              },
+    "actual_distribution":  {
+                                "PASS":  4,
+                                "G":  3,
+                                "S":  2,
+                                "D":  1
+                            },
+    "distribution_passed":  true,
+    "fixture_count":  10,
+    "fixture_pass_count":  10,
+    "fixture_results":  [
+                            {
+                                "corpus_group":  "adversarial",
+                                "log":  "log2-constraints-tighten.jsonl",
+                                "expected":  {
+                                                 "classification":  "G",
+                                                 "fingerprint":  null,
+                                                 "fingerprint_present":  false,
+                                                 "exception_class":  "GovernanceError",
+                                                 "message_contains":  "authority inflation without explicit expansion delta: translate"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\adversarial\\log2-constraints-tighten.jsonl",
+                                               "classification":  "G",
+                                               "fingerprint":  null,
+                                               "exception":  "GovernanceError: authority inflation without explicit expansion delta: translate"
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "adversarial",
+                                "log":  "log4-constraint-violation.jsonl",
+                                "expected":  {
+                                                 "classification":  "G",
+                                                 "fingerprint":  "bee2ca4f6ef180c915ea84c1aad8fb68f1229fa549585103197f499889736e44",
+                                                 "fingerprint_present":  true,
+                                                 "exception_class":  null,
+                                                 "message_contains":  "replayable governance-invalid state"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\adversarial\\log4-constraint-violation.jsonl",
+                                               "classification":  "G",
+                                               "fingerprint":  "bee2ca4f6ef180c915ea84c1aad8fb68f1229fa549585103197f499889736e44",
+                                               "exception":  ""
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "adversarial",
+                                "log":  "log5-authority-inflation.jsonl",
+                                "expected":  {
+                                                 "classification":  "G",
+                                                 "fingerprint":  null,
+                                                 "fingerprint_present":  false,
+                                                 "exception_class":  "GovernanceError",
+                                                 "message_contains":  "authority inflation without explicit expansion delta: write:data"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\adversarial\\log5-authority-inflation.jsonl",
+                                               "classification":  "G",
+                                               "fingerprint":  null,
+                                               "exception":  "GovernanceError: authority inflation without explicit expansion delta: write:data"
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "adversarial",
+                                "log":  "log6-lineage-truncation.jsonl",
+                                "expected":  {
+                                                 "classification":  "S",
+                                                 "fingerprint":  null,
+                                                 "fingerprint_present":  false,
+                                                 "exception_class":  "StructuralError",
+                                                 "message_contains":  "unknown parent_bdr_id: bdr-missing-000"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\adversarial\\log6-lineage-truncation.jsonl",
+                                               "classification":  "S",
+                                               "fingerprint":  null,
+                                               "exception":  "StructuralError: unknown parent_bdr_id: bdr-missing-000"
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "adversarial",
+                                "log":  "log7-event-reordering.jsonl",
+                                "expected":  {
+                                                 "classification":  "D",
+                                                 "fingerprint":  null,
+                                                 "fingerprint_present":  false,
+                                                 "exception_class":  "DeterminismError",
+                                                 "message_contains":  "event_id conflict with differing event content"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\adversarial\\log7-event-reordering.jsonl",
+                                               "classification":  "D",
+                                               "fingerprint":  null,
+                                               "exception":  "DeterminismError: event_id conflict with differing event content"
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "canonical",
+                                "log":  "C-001-placeholder.jsonl",
+                                "expected":  {
+                                                 "classification":  "PASS",
+                                                 "fingerprint":  "39fde2d6cb76d9409fdf09cb5e76ab2ba8b7174b430cb19c455038f2ded37bb1",
+                                                 "fingerprint_present":  true,
+                                                 "exception_class":  null,
+                                                 "message_contains":  "minimal passing fixture"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\canonical\\C-001-placeholder.jsonl",
+                                               "classification":  "PASS",
+                                               "fingerprint":  "39fde2d6cb76d9409fdf09cb5e76ab2ba8b7174b430cb19c455038f2ded37bb1",
+                                               "exception":  ""
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "canonical",
+                                "log":  "log1-basic-A-B-C.jsonl",
+                                "expected":  {
+                                                 "classification":  "PASS",
+                                                 "fingerprint":  "6b38d8a5a586052c68cb767a6e44fe583c62e952bf1df54f3f4cf7763870a836",
+                                                 "fingerprint_present":  true,
+                                                 "exception_class":  null,
+                                                 "message_contains":  "canonical baseline trace"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\canonical\\log1-basic-A-B-C.jsonl",
+                                               "classification":  "PASS",
+                                               "fingerprint":  "6b38d8a5a586052c68cb767a6e44fe583c62e952bf1df54f3f4cf7763870a836",
+                                               "exception":  ""
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "canonical",
+                                "log":  "log2-constraints-tighten.jsonl",
+                                "expected":  {
+                                                 "classification":  "PASS",
+                                                 "fingerprint":  "50b3d57de240108c39ab25be712114f6efb9ef0903fe1661a931e99fe4fc8393",
+                                                 "fingerprint_present":  true,
+                                                 "exception_class":  null,
+                                                 "message_contains":  "valid constraint tightening trace"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\canonical\\log2-constraints-tighten.jsonl",
+                                               "classification":  "PASS",
+                                               "fingerprint":  "50b3d57de240108c39ab25be712114f6efb9ef0903fe1661a931e99fe4fc8393",
+                                               "exception":  ""
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "canonical",
+                                "log":  "log3-obligations-accumulate.jsonl",
+                                "expected":  {
+                                                 "classification":  "PASS",
+                                                 "fingerprint":  "95659c757320ac0c0db79154e4f7d06cd9db0284cf2d2413d421c238ccdaf5bb",
+                                                 "fingerprint_present":  true,
+                                                 "exception_class":  null,
+                                                 "message_contains":  "valid obligation accumulation trace"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\canonical\\log3-obligations-accumulate.jsonl",
+                                               "classification":  "PASS",
+                                               "fingerprint":  "95659c757320ac0c0db79154e4f7d06cd9db0284cf2d2413d421c238ccdaf5bb",
+                                               "exception":  ""
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            },
+                            {
+                                "corpus_group":  "malformed",
+                                "log":  "log8-schema-invalid.jsonl",
+                                "expected":  {
+                                                 "classification":  "S",
+                                                 "fingerprint":  null,
+                                                 "fingerprint_present":  false,
+                                                 "exception_class":  "StructuralError",
+                                                 "message_contains":  "missing event_id"
+                                             },
+                                "actual":  {
+                                               "log":  "esal-tests\\malformed\\log8-schema-invalid.jsonl",
+                                               "classification":  "S",
+                                               "fingerprint":  null,
+                                               "exception":  "StructuralError: missing event_id"
+                                           },
+                                "passed":  true,
+                                "issues":  [
+
+                                           ]
+                            }
+                        ],
+    "permutation":  {
+                        "skipped":  false,
+                        "exit_code":  0,
+                        "passed":  true,
+                        "issues":  [
+
+                                   ],
+                        "expected":  {
+                                         "TargetLog":  "esal-tests\\canonical\\log1-basic-A-B-C.jsonl",
+                                         "Iterations":  50,
+                                         "Seed":  1701,
+                                         "Classification":  "PASS",
+                                         "Fingerprint":  "6b38d8a5a586052c68cb767a6e44fe583c62e952bf1df54f3f4cf7763870a836",
+                                         "CanonicalEventsHash":  "a50c88fabb07842722f0251721dab5ed4fc0a175e283c8bdb8e20f7f5cb85878",
+                                         "RequiredOutputFragment":  "PASS: 50 permutations preserved canonical hash, state, fingerprint, and classification."
+                                     },
+                        "output_excerpt":  [
+                                               "Baseline:",
+                                               "  fingerprint:           6b38d8a5a586052c68cb767a6e44fe583c62e952bf1df54f3f4cf7763870a836",
+                                               "  canonical_events_hash: a50c88fabb07842722f0251721dab5ed4fc0a175e283c8bdb8e20f7f5cb85878",
+                                               "  classification:        PASS",
+                                               "",
+                                               "PASS: 50 permutations preserved canonical hash, state, fingerprint, and classification.",
+                                               "Fingerprint: 6b38d8a5a586052c68cb767a6e44fe583c62e952bf1df54f3f4cf7763870a836",
+                                               "Canonical events hash: a50c88fabb07842722f0251721dab5ed4fc0a175e283c8bdb8e20f7f5cb85878"
+                                           ]
+                    },
+    "non_claims":  [
+                       "production completeness",
+                       "legal sufficiency",
+                       "compliance sufficiency",
+                       "authorization correctness",
+                       "external governance validity",
+                       "endorsement",
+                       "approval",
+                       "safety",
+                       "truth",
+                       "independent implementation convergence"
+                   ],
+    "issues":  [
+
+               ]
+}
