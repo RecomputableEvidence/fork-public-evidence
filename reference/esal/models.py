@@ -1,5 +1,5 @@
-﻿from dataclasses import dataclass
-from typing import FrozenSet, Tuple
+from dataclasses import asdict, dataclass
+from typing import Any, FrozenSet, Tuple
 
 
 @dataclass(frozen=True)
@@ -7,8 +7,9 @@ class ViolationRecord:
     constraint_id: str
     event_id: str
     boundary_id: str
-    severity: str
+    status: str
     timestamp: int
+    detail: str = ""
 
 
 @dataclass(frozen=True)
@@ -29,3 +30,27 @@ INITIAL_STATE = State(
     validity=True,
     violations=tuple(),
 )
+
+
+def state_to_dict(state: State) -> dict[str, Any]:
+    return {
+        "authority": sorted(state.authority),
+        "constraints": sorted(state.constraints),
+        "obligations": sorted(state.obligations),
+        "lineage": list(state.lineage),
+        "validity": state.validity,
+        "violations": [
+            asdict(v)
+            for v in sorted(
+                state.violations,
+                key=lambda v: (
+                    v.timestamp,
+                    v.event_id,
+                    v.boundary_id,
+                    v.constraint_id,
+                    v.status,
+                    v.detail,
+                ),
+            )
+        ],
+    }

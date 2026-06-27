@@ -1,142 +1,178 @@
-﻿from __future__ import annotations
-
 import json
 import sys
 from pathlib import Path
 from typing import Any
 
 from .canonicalization import canonicalize
-from .fingerprint import hash_state
-from .models import INITIAL_STATE
+from .errors import StructuralError
+from .fingerprint import canonical_event_sequence_hash, hash_state
+from .models import INITIAL_STATE, state_to_dict
 from .reducer import reduce_state
-from .validator import validate_events
-from .taxonomy import classify
-from .errors import GovernanceError, StructuralError, DeterminismError
-
-
-def replay(events: list[dict]) -> dict:
-    """
-    ESAL v0.1 reference replay pipeline:
-
-    RAW EVENTS
-        -> validate
-        -> canonicalize (C)
-        -> reduce (F)
-        -> fingerprint (H)
-        -> classify
-    """
-    validate_events(events)
-    canonical_events = canonicalize(events)
-
-    state = None
-    exc: Exception | None = None
-
-    try:
-        state = reduce_state(INITIAL_STATE, canonical_events)
-    except (GovernanceError, StructuralError, DeterminismError) as e:
-        exc = e
-
-    fingerprint = hash_state(state) if state is not None else None
-    classification = classify(state=state, exc=exc)
-
-    return {
-        "canonical_events": canonical_events,
-        "state": state,
-        "fingerprint": fingerprint,
-        "classification": classification,
-        "exception": exc,
-    }
+from .taxonomy import classify, exception_to_dict
+from .validator import validate_event_shape, validate_lineage
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
     events: list[dict[str, Any]] = []
-    with path.open("r", encoding="utf-8-sig") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
+
+    with path.open("r", encoding="utf-8-sig") as handle:
+        for line_number, line in enumerate(handle, start=1):
+            stripped = line.strip()
+
+            if not stripped:
                 continue
-            events.append(json.loads(line))
+
+            if stripped.startswith("#"):
+                continue
+
+            try:
+                value = json.loads(stripped)
+            except json.JSONDecodeError as exc:
+                raise StructuralError(
+                    f"invalid JSONL at {path}:{line_number}: {exc}",
+                    error_code="INVALID_JSONL",
+                    path=str(path),
+                ) from exc
+
+            if not isinstance(value, dict):
+                raise StructuralError(
+                    f"JSONL event must be object at {path}:{line_number}",
+                    error_code="JSONL_EVENT_NOT_OBJECT",
+                    path=str(path),
+                )
+
+            events.append(value)
+
     return events
 
 
-def load_expected(path: Path) -> dict[str, Any] | None:
-    if not path.exists():
-        return None
-    with path.open("r", encoding="utf-8") as f:
-        return json.load(f)
+def replay(events: list[dict[str, Any]]) -> dict[str, Any]:
+    validate_event_shape(events)
+
+    canonical_events = canonicalize(events)
+
+    validate_lineage(canonical_events)
+
+    state = reduce_state(
+        INITIAL_STATE,
+        canonical_events,
+    )
+
+    fingerprint = hash_state(state)
+
+    return {
+        "canonical_events": canonical_events,
+        "canonical_events_hash": canonical_event_sequence_hash(canonical_events),
+        "state": state,
+        "state_dict": state_to_dict(state),
+        "fingerprint": fingerprint,
+        "classification": classify(state=state),
+        "exception": None,
+    }
 
 
-def main() -> None:
-    """
-    CLI entrypoint used by:
-        python -m reference.esal.runner esal-tests
+def replay_file(path: Path) -> dict[str, Any]:
+    try:
+        events = load_jsonl(path)
+        result = replay(events)
 
-    Walks esal-tests/{canonical,adversarial,malformed}/*.jsonl and
-    prints observed fingerprints/classifications. If an expected JSON
-    exists in esal-tests/expected/, also prints match info.
-    """
-    if len(sys.argv) != 2:
-        print(
-            "Usage: python -m reference.esal.runner <tests-root>",
-            file=sys.stderr,
-        )
-        sys.exit(1)
+        return {
+            "log": str(path),
+            "fingerprint": result["fingerprint"],
+            "canonical_events_hash": result["canonical_events_hash"],
+            "classification": result["classification"],
+            "state": result["state_dict"],
+            "exception": None,
+        }
 
-    tests_root = Path(sys.argv[1])
-    expected_root = tests_root / "expected"
+    except Exception as exc:
+        return {
+            "log": str(path),
+            "fingerprint": None,
+            "canonical_events_hash": None,
+            "classification": classify(exc=exc),
+            "state": None,
+            "exception": exception_to_dict(exc),
+        }
 
-    if not tests_root.exists():
-        print(f"Test root not found: {tests_root}", file=sys.stderr)
-        sys.exit(1)
 
-    categories = ["canonical", "adversarial", "malformed"]
+def iter_jsonl_files(root: Path) -> list[Path]:
+    if root.is_file():
+        return [root]
 
-    print("== ESAL v0.1 corpus replay ==")
+    return sorted(
+        path
+        for path in root.rglob("*.jsonl")
+        if path.is_file()
+    )
 
-    for cat in categories:
-        cat_dir = tests_root / cat
-        if not cat_dir.exists():
-            continue
 
-        for log_path in sorted(cat_dir.glob("*.jsonl")):
-            try:
-                events = load_jsonl(log_path)
-            except json.JSONDecodeError as e:
-                print(f"[{cat}] {log_path.name} -> JSON decode error: {e}")
-                continue
+def run_corpus(root: Path) -> dict[str, Any]:
+    results = [
+        replay_file(path)
+        for path in iter_jsonl_files(root)
+    ]
 
-            if not events:
-                # Skip empty logs quietly for now
-                print(f"[{cat}] {log_path.name} -> no events (skipped)")
-                continue
+    return {
+        "root": str(root),
+        "results": results,
+        "counts": {
+            "PASS": sum(1 for r in results if r["classification"] == "PASS"),
+            "G": sum(1 for r in results if r["classification"] == "G"),
+            "S": sum(1 for r in results if r["classification"] == "S"),
+            "D": sum(1 for r in results if r["classification"] == "D"),
+        },
+    }
 
-            result = replay(events)
 
-            # Expected file convention: same stem under expected/
-            expected_path = expected_root / f"{log_path.stem}.json"
-            expected = load_expected(expected_path)
+def print_report(report: dict[str, Any]) -> None:
+    print("== ESAL v0.1 Reference Oracle Verification ==")
+    print(f"Corpus: {report['root']}")
+    print("")
 
-            exc = result.get("exception")
-            exc_suffix = f" ({exc})" if exc is not None else ""
+    for result in report["results"]:
+        name = Path(result["log"]).name
+        print(f"Log: {name}")
+        print(f"Fingerprint: {result['fingerprint']}")
+        print(f"Classification: {result['classification']}")
 
-            print(
-                f"[{cat}] {log_path.name} -> "
-                f"fp={result['fingerprint']} "
-                f"class={result['classification']}{exc_suffix}"
-            )
+        if result["exception"] is not None:
+            print(f"Exception: {result['exception']['type']}: {result['exception']['message']}")
 
-            if expected:
-                exp_fp = expected.get("fingerprint")
-                exp_cls = expected.get("classification")
-                fp_match = (exp_fp == result["fingerprint"]) if exp_fp else None
-                cls_match = (exp_cls == result["classification"]) if exp_cls else None
+        print("")
 
-                print(
-                    f"    expected={expected_path.name} "
-                    f"fp_match={fp_match} "
-                    f"class_match={cls_match}"
-                )
+    print("Summary:")
+    for key in ("PASS", "G", "S", "D"):
+        print(f"  {key}: {report['counts'][key]}")
+
+
+def main(argv: list[str] | None = None) -> int:
+    argv = list(sys.argv[1:] if argv is None else argv)
+
+    root = Path(argv[0]) if argv else Path("esal-tests")
+
+    report = run_corpus(root)
+
+    reports_dir = Path("reports")
+    reports_dir.mkdir(exist_ok=True)
+
+    latest_report = reports_dir / "latest-report.json"
+
+    latest_report.write_text(
+        json.dumps(
+            report,
+            sort_keys=True,
+            indent=2,
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    print_report(report)
+    print(f"Report written: {latest_report}")
+
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

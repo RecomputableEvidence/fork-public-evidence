@@ -1,107 +1,89 @@
-﻿# reference/esal/validator.py
-
+from .canonicalization import normalize_event
 from .errors import StructuralError
 
 
-REQUIRED_COMMON_FIELDS = ["event_type", "event_id", "timestamp"]
-BDR_REQUIRED_FIELDS = [
-    "bdr_id",
-    "boundary_id",
-    "delegated_authority",
-    "authority_delta_type",
-    "constraints",
-    "obligations",
-]
-EXEC_REQUIRED_FIELDS = [
-    "bdr_id",
-    "action",
-    "result",
-    "constraint_checks",
-]
+def validate_event_shape(events: list[dict]) -> None:
+    for event in events:
+        normalize_event(event)
 
 
-def _validate_common(event: dict, index: int) -> None:
-    for field in REQUIRED_COMMON_FIELDS:
-        if field not in event:
-            raise StructuralError(f"Event[{index}] missing required field: {field}")
-    # Basic type checks
-    if not isinstance(event["event_type"], str):
-        raise StructuralError(f"Event[{index}] event_type must be string")
-    if not isinstance(event["event_id"], str):
-        raise StructuralError(f"Event[{index}] event_id must be string")
-    try:
-        int(event["timestamp"])
-    except Exception:
-        raise StructuralError(f"Event[{index}] timestamp must be an integer epoch")
+def _bdr_id(event: dict) -> str:
+    return str(event["body"].get("bdr_id", event["event_id"]))
 
 
-def _validate_bdr(event: dict, index: int) -> None:
-    for field in BDR_REQUIRED_FIELDS:
-        if field not in event:
+def _parent_id(event: dict) -> str | None:
+    body = event["body"]
+    parent = body.get("parent_bdr_id", body.get("parent_event_id"))
+
+    if parent in (None, ""):
+        return None
+
+    return str(parent)
+
+
+def validate_lineage(canonical_events: list[dict]) -> None:
+    seen_bdr_ids: set[str] = set()
+    seen_event_ids: set[str] = set()
+
+    for event in canonical_events:
+        event_id = event["event_id"]
+        seen_event_ids.add(event_id)
+
+        if event["event_type"] != "BDR_CREATED":
+            body = event["body"]
+            governed_by = body.get("governed_by_bdr_id", body.get("bdr_id"))
+
+            if governed_by not in (None, ""):
+                governed_by = str(governed_by)
+
+                if governed_by not in seen_bdr_ids and governed_by not in seen_event_ids:
+                    raise StructuralError(
+                        f"execution references unknown governing BDR: {governed_by}",
+                        error_code="UNKNOWN_GOVERNING_BDR",
+                        offending_event_id=event_id,
+                    )
+
+            continue
+
+        bdr_id = _bdr_id(event)
+        parent = _parent_id(event)
+
+        if bdr_id in seen_bdr_ids:
             raise StructuralError(
-                f"Event[{index}] BDR_CREATED missing required field: {field}"
+                f"duplicate bdr_id: {bdr_id}",
+                error_code="DUPLICATE_BDR_ID",
+                offending_event_id=event_id,
             )
-    if not isinstance(event["delegated_authority"], list):
-        raise StructuralError(
-            f"Event[{index}] delegated_authority must be a list"
-        )
-    if not isinstance(event["constraints"], list):
-        raise StructuralError(f"Event[{index}] constraints must be a list")
-    if not isinstance(event["obligations"], list):
-        raise StructuralError(f"Event[{index}] obligations must be a list")
 
-
-def _validate_execution(event: dict, index: int) -> None:
-    for field in EXEC_REQUIRED_FIELDS:
-        if field not in event:
-            raise StructuralError(
-                f"Event[{index}] EXECUTION missing required field: {field}"
-            )
-    if not isinstance(event["constraint_checks"], list):
-        raise StructuralError(
-            f"Event[{index}] constraint_checks must be a list"
-        )
-
-
-def _validate_lineage(events: list[dict]) -> None:
-    """
-    Minimal lineage check:
-    - parent_event_id, if present and not null, must refer to an earlier event_id.
-    """
-    seen_ids: set[str] = set()
-    for idx, e in enumerate(events):
-        eid = e.get("event_id")
-        if eid is not None:
-            seen_ids.add(eid)
-
-        parent_eid = e.get("parent_event_id")
-        if parent_eid not in (None, "", "null"):
-            if parent_eid not in seen_ids:
+        if parent is not None:
+            if parent == bdr_id or parent == event_id:
                 raise StructuralError(
-                    f"Event[{idx}] references unknown parent_event_id: {parent_eid}"
+                    "BDR cannot reference itself as parent",
+                    error_code="SELF_PARENT_BDR",
+                    offending_event_id=event_id,
                 )
+
+            if parent not in seen_bdr_ids and parent not in seen_event_ids:
+                raise StructuralError(
+                    f"unknown parent_bdr_id: {parent}",
+                    error_code="UNKNOWN_PARENT_BDR",
+                    offending_event_id=event_id,
+                )
+
+        seen_bdr_ids.add(bdr_id)
 
 
 def validate_events(events: list[dict]) -> None:
     """
-    Schema + minimal lineage validation for ESAL events.
-    Raises StructuralError on any problem.
+    Backward-compatible validator.
+
+    For permutation-safe replay, runner.py intentionally performs:
+
+        validate_event_shape(raw_events)
+        canonicalize(raw_events)
+        validate_lineage(canonical_events)
+
+    This function is retained for direct callers.
     """
-    if not isinstance(events, list):
-        raise StructuralError("Events must be a list")
 
-    for idx, e in enumerate(events):
-        if not isinstance(e, dict):
-            raise StructuralError(f"Event[{idx}] must be an object")
-
-        _validate_common(e, idx)
-
-        etype = e["event_type"]
-        if etype == "BDR_CREATED":
-            _validate_bdr(e, idx)
-        elif etype == "EXECUTION":
-            _validate_execution(e, idx)
-        else:
-            raise StructuralError(f"Event[{idx}] unknown event_type: {etype!r}")
-
-    _validate_lineage(events)
+    validate_event_shape(events)
