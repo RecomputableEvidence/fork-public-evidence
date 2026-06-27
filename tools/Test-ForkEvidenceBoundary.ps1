@@ -118,8 +118,22 @@ function Run-ChildSuite {
 }
 
 $StartedUtc = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
-$Branch     = Get-GitValue @('branch', '--show-current')
-$Commit     = Get-GitValue @('rev-parse', 'HEAD')
+
+try {
+    $Branch = (& git rev-parse --abbrev-ref HEAD 2>$null | Select-Object -First 1)
+    if ($null -eq $Branch) { $Branch = '' } else { $Branch = "$Branch".Trim() }
+}
+catch {
+    $Branch = ''
+}
+
+try {
+    $Commit = (& git rev-parse HEAD 2>$null | Select-Object -First 1)
+    if ($null -eq $Commit) { $Commit = '' } else { $Commit = "$Commit".Trim() }
+}
+catch {
+    $Commit = ''
+}
 
 $SuiteResults = @()
 

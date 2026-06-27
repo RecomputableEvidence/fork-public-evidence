@@ -1,22 +1,22 @@
-\# Fork Evidence Boundary Verification Suite v0.1
+# Fork Evidence Boundary Verification Suite v0.1
 
 
 
-\*\*Artifact ID:\*\* FORK-EVIDENCE-BOUNDARY-VERIFICATION-SUITE-v0.1-001  
+**Artifact ID:** FORK-EVIDENCE-BOUNDARY-VERIFICATION-SUITE-v0.1-001  
 
-\*\*Status:\*\* Documentation  
+**Status:** Documentation  
 
-\*\*Scope:\*\* Reviewer-facing description of the top-level Fork evidence-boundary verification command  
+**Scope:** Reviewer-facing description of the top-level Fork evidence-boundary verification command  
 
-\*\*Primary command:\*\* `tools/Test-ForkEvidenceBoundary.ps1`
-
-
-
-\---
+**Primary command:** `tools/Test-ForkEvidenceBoundary.ps1`
 
 
 
-\## 1. Purpose
+---
+
+
+
+## 1. Purpose
 
 
 
@@ -38,7 +38,7 @@ Current command:
 
 ```powershell
 
-.\\tools\\Test-ForkEvidenceBoundary.ps1
+.\tools\Test-ForkEvidenceBoundary.ps1
 
 ```
 
@@ -50,17 +50,17 @@ Current combined report:
 
 ```text
 
-reports/FORK\_EVIDENCE\_BOUNDARY\_REPORT.json
+reports/FORK_EVIDENCE_BOUNDARY_REPORT.json
 
 ```
 
 
 
-\---
+---
 
 
 
-\## 2. Current Verification Surface
+## 2. Current Verification Surface
 
 
 
@@ -72,19 +72,19 @@ The suite currently runs two bounded checks:
 
 |---|---|---|---|
 
-| ESAL v0.1 conformance | `tools/Test-EsalConformance.ps1` | `CONFORMANCE\_PASS` | `reports/ESAL\_v0\_1\_CONFORMANCE\_REPORT.json` |
+| ESAL v0.1 conformance | `tools/Test-EsalConformance.ps1` | `CONFORMANCE_PASS` | `reports/ESAL_v0_1_CONFORMANCE_REPORT.json` |
 
-| BDR / ESAL handoff validation | `tools/Test-BdrEsalHandoff.ps1` | `HANDOFF\_VALIDATOR\_PASS` | `reports/BDR\_ESAL\_HANDOFF\_VALIDATION\_REPORT.json` |
+| BDR / ESAL handoff validation | `tools/Test-BdrEsalHandoff.ps1` | `HANDOFF_VALIDATOR_PASS` | `reports/BDR_ESAL_HANDOFF_VALIDATION_REPORT.json` |
 
-| Fork evidence-boundary orchestration | `tools/Test-ForkEvidenceBoundary.ps1` | `FORK\_EVIDENCE\_BOUNDARY\_PASS` | `reports/FORK\_EVIDENCE\_BOUNDARY\_REPORT.json` |
-
-
-
-\---
+| Fork evidence-boundary orchestration | `tools/Test-ForkEvidenceBoundary.ps1` | `FORK_EVIDENCE_BOUNDARY_PASS` | `reports/FORK_EVIDENCE_BOUNDARY_REPORT.json` |
 
 
 
-\## 3. What the Top-Level Suite Does
+---
+
+
+
+## 3. What the Top-Level Suite Does
 
 
 
@@ -92,21 +92,21 @@ The suite currently runs two bounded checks:
 
 
 
-1\. Confirms required repository files are present.
+1. Confirms required repository files are present.
 
-2\. Runs the ESAL v0.1 conformance harness.
+2. Runs the ESAL v0.1 conformance harness.
 
-3\. Confirms the ESAL conformance harness emits `CONFORMANCE\_PASS`.
+3. Confirms the ESAL conformance harness emits `CONFORMANCE_PASS`.
 
-4\. Confirms the ESAL conformance report records `CONFORMANCE\_PASS`.
+4. Confirms the ESAL conformance report records `CONFORMANCE_PASS`.
 
-5\. Runs the BDR / ESAL handoff validator.
+5. Runs the BDR / ESAL handoff validator.
 
-6\. Confirms the handoff validator emits `HANDOFF\_VALIDATOR\_PASS`.
+6. Confirms the handoff validator emits `HANDOFF_VALIDATOR_PASS`.
 
-7\. Confirms the handoff validator report records `HANDOFF\_VALIDATOR\_PASS`.
+7. Confirms the handoff validator report records `HANDOFF_VALIDATOR_PASS`.
 
-8\. Writes a combined evidence-boundary report.
+8. Writes a combined evidence-boundary report.
 
 
 
@@ -114,15 +114,15 @@ The top-level suite passes only when all non-skipped child suites pass.
 
 
 
-\---
+---
 
 
 
-\## 4. What `FORK\_EVIDENCE\_BOUNDARY\_PASS` Means
+## 4. What `FORK_EVIDENCE_BOUNDARY_PASS` Means
 
 
 
-`FORK\_EVIDENCE\_BOUNDARY\_PASS` means:
+`FORK_EVIDENCE_BOUNDARY_PASS` means:
 
 
 
@@ -144,55 +144,55 @@ More specifically:
 
 
 
-\- ESAL v0.1 reference-oracle conformance matched the expected fixture surface.
+- ESAL v0.1 reference-oracle conformance matched the expected fixture surface.
 
-\- The valid BDR / ESAL handoff example was accepted.
+- The valid BDR / ESAL handoff example was accepted.
 
-\- The invalid authority-inheritance handoff example was rejected.
+- The invalid authority-inheritance handoff example was rejected.
 
-\- The top-level suite preserved the distinction between ESAL conformance and BDR / ESAL handoff validation.
-
-
-
-\---
+- The top-level suite preserved the distinction between ESAL conformance and BDR / ESAL handoff validation.
 
 
 
-\## 5. What `FORK\_EVIDENCE\_BOUNDARY\_PASS` Does Not Mean
+---
 
 
 
-`FORK\_EVIDENCE\_BOUNDARY\_PASS` does not establish:
+## 5. What `FORK_EVIDENCE_BOUNDARY_PASS` Does Not Mean
 
 
 
-\- production completeness;
+`FORK_EVIDENCE_BOUNDARY_PASS` does not establish:
 
-\- legal sufficiency;
 
-\- compliance sufficiency;
 
-\- authorization correctness;
+- production completeness;
 
-\- policy approval;
+- legal sufficiency;
 
-\- endorsement;
+- compliance sufficiency;
 
-\- safety;
+- authorization correctness;
 
-\- truth;
+- policy approval;
 
-\- external governance validity;
+- endorsement;
 
-\- independent implementation convergence;
+- safety;
 
-\- BDR truth;
+- truth;
 
-\- BDR legal or compliance sufficiency;
+- external governance validity;
 
-\- ESAL validation of the underlying BDR transition;
+- independent implementation convergence;
 
-\- or that ESAL has become a policy-enforcement engine.
+- BDR truth;
+
+- BDR legal or compliance sufficiency;
+
+- ESAL validation of the underlying BDR transition;
+
+- or that ESAL has become a policy-enforcement engine.
 
 
 
@@ -200,11 +200,11 @@ The suite verifies bounded executable evidence behavior only.
 
 
 
-\---
+---
 
 
 
-\## 6. Layer Boundaries
+## 6. Layer Boundaries
 
 
 
@@ -216,19 +216,19 @@ The suite preserves the following layer separation:
 
 ESAL conformance
 
-&#x20; = reference-oracle expected-output checking
+  = reference-oracle expected-output checking
 
 
 
 BDR / ESAL handoff validation
 
-&#x20; = accepts a bounded handoff and rejects an authority-inheritance attempt
+  = accepts a bounded handoff and rejects an authority-inheritance attempt
 
 
 
 Fork evidence-boundary suite
 
-&#x20; = orchestrates both checks without collapsing their semantics
+  = orchestrates both checks without collapsing their semantics
 
 ```
 
@@ -238,11 +238,11 @@ The top-level suite must not be interpreted as creating a new authority layer ab
 
 
 
-\---
+---
 
 
 
-\## 7. Relationship to ESAL
+## 7. Relationship to ESAL
 
 
 
@@ -266,19 +266,19 @@ Relevant ESAL files include:
 
 tools/Test-EsalConformance.ps1
 
-reports/ESAL\_v0\_1\_EXPECTED\_OUTPUTS.md
+reports/ESAL_v0_1_EXPECTED_OUTPUTS.md
 
-reports/ESAL\_v0\_1\_CONFORMANCE\_REPORT.json
+reports/ESAL_v0_1_CONFORMANCE_REPORT.json
 
 ```
 
 
 
-\---
+---
 
 
 
-\## 8. Relationship to BDR / ESAL Handoff
+## 8. Relationship to BDR / ESAL Handoff
 
 
 
@@ -306,25 +306,25 @@ Relevant handoff files include:
 
 ```text
 
-docs/BDR\_ESAL\_HANDOFF\_CONTRACT\_v0\_1.md
+docs/BDR_ESAL_HANDOFF_CONTRACT_v0_1.md
 
-examples/bdr\_esal\_handoff/valid\_vendor\_risk\_handoff\_event.json
+examples/bdr_esal_handoff/valid_vendor_risk_handoff_event.json
 
-examples/bdr\_esal\_handoff/invalid\_authority\_inheritance\_handoff\_event.json
+examples/bdr_esal_handoff/invalid_authority_inheritance_handoff_event.json
 
 tools/Test-BdrEsalHandoff.ps1
 
-reports/BDR\_ESAL\_HANDOFF\_VALIDATION\_REPORT.json
+reports/BDR_ESAL_HANDOFF_VALIDATION_REPORT.json
 
 ```
 
 
 
-\---
+---
 
 
 
-\## 9. Report Structure
+## 9. Report Structure
 
 
 
@@ -334,7 +334,7 @@ The combined report is written to:
 
 ```text
 
-reports/FORK\_EVIDENCE\_BOUNDARY\_REPORT.json
+reports/FORK_EVIDENCE_BOUNDARY_REPORT.json
 
 ```
 
@@ -344,25 +344,25 @@ The report includes:
 
 
 
-\- artifact identifier;
+- artifact identifier;
 
-\- generation timestamp;
+- generation timestamp;
 
-\- git branch;
+- git branch;
 
-\- git commit;
+- git commit;
 
-\- overall result;
+- overall result;
 
-\- suite-level results;
+- suite-level results;
 
-\- child-suite report expectations;
+- child-suite report expectations;
 
-\- child-suite output excerpts;
+- child-suite output excerpts;
 
-\- explicit non-claims;
+- explicit non-claims;
 
-\- and issues, if any.
+- and issues, if any.
 
 
 
@@ -372,7 +372,7 @@ Expected overall result:
 
 ```text
 
-FORK\_EVIDENCE\_BOUNDARY\_PASS
+FORK_EVIDENCE_BOUNDARY_PASS
 
 ```
 
@@ -384,17 +384,17 @@ Failure result:
 
 ```text
 
-FORK\_EVIDENCE\_BOUNDARY\_FAIL
+FORK_EVIDENCE_BOUNDARY_FAIL
 
 ```
 
 
 
-\---
+---
 
 
 
-\## 10. Reviewer Reproduction
+## 10. Reviewer Reproduction
 
 
 
@@ -404,7 +404,7 @@ From the repository root:
 
 ```powershell
 
-.\\tools\\Test-ForkEvidenceBoundary.ps1
+.\tools\Test-ForkEvidenceBoundary.ps1
 
 ```
 
@@ -428,7 +428,7 @@ Running suite: BDR / ESAL handoff
 
 == Fork Evidence Boundary Result ==
 
-FORK\_EVIDENCE\_BOUNDARY\_PASS
+FORK_EVIDENCE_BOUNDARY_PASS
 
 
 
@@ -436,7 +436,7 @@ ESAL v0.1 conformance: PASS
 
 BDR / ESAL handoff: PASS
 
-Report written: reports\\FORK\_EVIDENCE\_BOUNDARY\_REPORT.json
+Report written: reports\FORK_EVIDENCE_BOUNDARY_REPORT.json
 
 ```
 
@@ -448,17 +448,17 @@ To inspect the report:
 
 ```powershell
 
-Get-Content reports\\FORK\_EVIDENCE\_BOUNDARY\_REPORT.json -Raw | ConvertFrom-Json
+Get-Content reports\FORK_EVIDENCE_BOUNDARY_REPORT.json -Raw | ConvertFrom-Json
 
 ```
 
 
 
-\---
+---
 
 
 
-\## 11. Failure Interpretation
+## 11. Failure Interpretation
 
 
 
@@ -486,11 +486,11 @@ A failure should be interpreted according to the failing layer:
 
 
 
-\---
+---
 
 
 
-\## 12. Maintenance Rule
+## 12. Maintenance Rule
 
 
 
@@ -502,15 +502,15 @@ A new child suite must declare:
 
 
 
-1\. the command being run;
+1. the command being run;
 
-2\. the expected pass token;
+2. the expected pass token;
 
-3\. the expected report path;
+3. the expected report path;
 
-4\. the exact claim supported by a pass;
+4. the exact claim supported by a pass;
 
-5\. the explicit non-claims preserved by the check.
+5. the explicit non-claims preserved by the check.
 
 
 
@@ -518,11 +518,11 @@ No child suite should be added if it silently expands Fork from evidence-boundar
 
 
 
-\---
+---
 
 
 
-\## 13. Current Claim Boundary
+## 13. Current Claim Boundary
 
 
 
@@ -542,11 +542,11 @@ It is not a claim of production readiness, legal sufficiency, compliance suffici
 
 
 
-\---
+---
 
 
 
-\## 14. Current Status
+## 14. Current Status
 
 
 
@@ -556,13 +556,10 @@ As of this document version, the expected successful result is:
 
 ```text
 
-FORK\_EVIDENCE\_BOUNDARY\_PASS
+FORK_EVIDENCE_BOUNDARY_PASS
 
 ```
 
 
 
 The suite should be treated as a reproducible evidence-boundary verification command for the current repository surface.
-
-
-

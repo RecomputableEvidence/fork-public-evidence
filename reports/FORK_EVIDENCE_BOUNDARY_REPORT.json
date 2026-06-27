@@ -1,9 +1,9 @@
 {
     "artifact_id":  "FORK-EVIDENCE-BOUNDARY-REPORT-v0.1",
-    "generated_utc":  "2026-06-27T12:04:38Z",
-    "started_utc":  "2026-06-27T12:04:31Z",
-    "branch":  "",
-    "commit":  "",
+    "generated_utc":  "2026-06-27T12:35:13Z",
+    "started_utc":  "2026-06-27T12:35:06Z",
+    "branch":  "boundary-delta-record-v0.1",
+    "commit":  "6b0a28d9d28464e9804b47fcc74f868206dac454",
     "result":  "FORK_EVIDENCE_BOUNDARY_PASS",
     "purpose":  "Runs the bounded Fork evidence-boundary verification suite without collapsing ESAL conformance and BDR/ESAL handoff semantics.",
     "suites":  [
