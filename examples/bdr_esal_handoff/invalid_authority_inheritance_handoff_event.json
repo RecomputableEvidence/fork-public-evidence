@@ -1,0 +1,62 @@
+{
+    "artifact_id":  "EXAMPLE-BDR-ESAL-HANDOFF-INVALID-AUTHORITY-INHERITANCE-001",
+    "profile":  "BDR_ESAL_HANDOFF_CONTRACT_v0_1",
+    "status":  "INVALID_HANDOFF_EXAMPLE",
+    "purpose":  "Documents a forbidden authority-inheritance pattern. This file is not an admissible handoff fixture.",
+    "source_bdr":  {
+                       "bdr_id":  "bdr-invalid-authority-inheritance-001",
+                       "boundary_id":  "boundary-invalid-authority-transfer",
+                       "source_boundary":  "human-reviewed-record",
+                       "target_boundary":  "esal-replay-oracle",
+                       "transition_kind":  "EXPANDED",
+                       "evidence_refs":  [
+                                             "evidence://invalid/example-review-record"
+                                         ],
+                       "preserved_claims":  [
+                                                "A review occurred."
+                                            ],
+                       "preserved_non_claims":  [
+                                                    "The review did not establish compliance.",
+                                                    "The review did not establish approval.",
+                                                    "The review did not establish external governance validity."
+                                                ]
+                   },
+    "attempted_esal_event":  {
+                                 "event_id":  "event-invalid-authority-inheritance-001",
+                                 "event_type":  "BDR_CREATED",
+                                 "timestamp":  "2026-06-27T00:00:00Z",
+                                 "body":  {
+                                              "bdr_id":  "bdr-invalid-authority-inheritance-001",
+                                              "boundary_id":  "boundary-invalid-authority-transfer",
+                                              "authority":  [
+                                                                "approve:vendor",
+                                                                "certify:compliance"
+                                                            ],
+                                              "constraints":  [
+                                                                  "preserve-evidence"
+                                                              ],
+                                              "evidence_refs":  [
+                                                                    "evidence://invalid/example-review-record"
+                                                                ],
+                                              "invalid_derived_claims":  [
+                                                                             "ESAL replay establishes that the vendor-risk decision is approved.",
+                                                                             "ESAL fingerprint establishes compliance sufficiency.",
+                                                                             "BDR review authority transfers into ESAL state."
+                                                                         ],
+                                              "attempted_authority_inheritance":  true,
+                                              "attempted_external_validity_transfer":  true
+                                          }
+                             },
+    "expected_contract_result":  {
+                                     "allowed":  false,
+                                     "classification":  "INVALID_HANDOFF_AUTHORITY_INHERITANCE_ATTEMPT",
+                                     "reason":  "The attempted handoff converts BDR evidence preservation into ESAL authority, approval, compliance, and external-validity claims.",
+                                     "required_response":  "Reject as a bounded BDR to ESAL handoff. Preserve only as an invalid example of a forbidden pattern."
+                                 },
+    "non_claims":  [
+                       "This invalid example does not establish that ESAL has authority.",
+                       "This invalid example does not establish compliance.",
+                       "This invalid example does not establish approval.",
+                       "This invalid example does not establish external governance validity."
+                   ]
+}

@@ -1,0 +1,83 @@
+{
+    "artifact_id":  "EXAMPLE-BDR-ESAL-HANDOFF-VALID-VENDOR-RISK-001",
+    "profile":  "BDR_ESAL_HANDOFF_CONTRACT_v0_1",
+    "status":  "VALID_HANDOFF_EXAMPLE",
+    "purpose":  "Demonstrates a bounded BDR-derived ESAL event without authority inheritance.",
+    "source_bdr":  {
+                       "bdr_id":  "bdr-vendor-risk-001",
+                       "parent_bdr_id":  null,
+                       "boundary_id":  "boundary-vendor-risk-review",
+                       "source_boundary":  "ai-assisted-summary-generation",
+                       "target_boundary":  "human-reviewed-vendor-risk-record",
+                       "transition_kind":  "PRESERVED",
+                       "subject_reference":  "vendor-risk-summary-2026-06-27",
+                       "evidence_refs":  [
+                                             "evidence://vendor-risk/input-materials-hash",
+                                             "evidence://vendor-risk/ai-output-hash",
+                                             "evidence://vendor-risk/human-review-notes-hash"
+                                         ],
+                       "preserved_claims":  [
+                                                "The vendor-risk summary was generated, reviewed, and recorded under the stated workflow."
+                                            ],
+                       "preserved_non_claims":  [
+                                                    "The record does not establish that the vendor is safe.",
+                                                    "The record does not establish legal sufficiency.",
+                                                    "The record does not establish compliance sufficiency.",
+                                                    "The record does not establish approval.",
+                                                    "The record does not establish external governance validity.",
+                                                    "The record does not establish that underlying facts are true."
+                                                ],
+                       "unresolved_unknowns":  [
+                                                   "Whether all relevant vendor-risk materials were available to the reviewer.",
+                                                   "Whether downstream policy review is required."
+                                               ]
+                   },
+    "esal_event":  {
+                       "event_id":  "event-bdr-vendor-risk-001",
+                       "event_type":  "BDR_CREATED",
+                       "timestamp":  "2026-06-27T00:00:00Z",
+                       "body":  {
+                                    "bdr_id":  "bdr-vendor-risk-001",
+                                    "parent_bdr_id":  null,
+                                    "boundary_id":  "boundary-vendor-risk-review",
+                                    "source_boundary":  "ai-assisted-summary-generation",
+                                    "target_boundary":  "human-reviewed-vendor-risk-record",
+                                    "authority":  [
+
+                                                  ],
+                                    "constraints":  [
+                                                        "preserve-non-claims",
+                                                        "no-authority-inheritance",
+                                                        "no-compliance-inference"
+                                                    ],
+                                    "obligations":  [
+                                                        "retain-evidence-refs",
+                                                        "retain-unresolved-unknowns"
+                                                    ],
+                                    "evidence_refs":  [
+                                                          "evidence://vendor-risk/input-materials-hash",
+                                                          "evidence://vendor-risk/ai-output-hash",
+                                                          "evidence://vendor-risk/human-review-notes-hash"
+                                                      ],
+                                    "preserved_non_claims":  [
+                                                                 "no legal sufficiency",
+                                                                 "no compliance sufficiency",
+                                                                 "no approval",
+                                                                 "no external governance validity",
+                                                                 "no truth certification"
+                                                             ]
+                                }
+                   },
+    "handoff_assertion":  {
+                              "allowed":  true,
+                              "allowed_effect":  "ESAL may replay, reduce, classify, and fingerprint this event under ESAL oracle rules.",
+                              "non_inheritance":  [
+                                                      "ESAL does not inherit BDR issuer authority.",
+                                                      "ESAL does not approve the vendor-risk decision.",
+                                                      "ESAL does not establish compliance.",
+                                                      "ESAL does not establish legal sufficiency.",
+                                                      "ESAL does not establish external governance validity.",
+                                                      "ESAL does not certify truth or safety."
+                                                  ]
+                          }
+}
