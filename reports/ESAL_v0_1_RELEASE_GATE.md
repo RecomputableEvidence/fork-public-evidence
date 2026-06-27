@@ -1,7 +1,11 @@
 ﻿# ESAL v0.1 Reference Oracle Release Gate
 
 **Artifact ID:** ESAL-RELEASE-GATE-v0.1-001  
-**Branch:** `boundary-delta-record-v0.1`  
+**Branch:** `boundary-delta-record-v0.1`
+**Reviewed ESAL Subject Commit:** `859d2abe3db324970f0d3af4faffafd22f221b28`
+**Release-Gate Artifact Commit:** `f7720f3de9b32a971bf066cc96295065aeae29b0`
+**Release Metadata Clarification Commit:** `bfde05a9e51e339cf4a6571258455ed6c1e3ab02`
+**Release Candidate Tag:** `esal-v0.1-rc5`  
 **HEAD:** `859d2abe3db324970f0d3af4faffafd22f221b28`  
 **Status:** READY FOR RELEASE GATING
 
@@ -130,6 +134,4 @@ READY_FOR_RELEASE_GATING
 ```
 
 This determination is limited to ESAL v0.1 reference-oracle release gating. It does not establish external validity, production sufficiency, legal sufficiency, compliance sufficiency, authorization correctness, or independent implementation convergence.
-
-
 
