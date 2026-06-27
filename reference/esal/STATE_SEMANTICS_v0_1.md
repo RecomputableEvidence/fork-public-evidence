@@ -128,8 +128,7 @@ Expected error code:
 AUTHORITY_INFLATION
 ```
 
-### 4.3.1 Explicit Expansion Marker Definition
-
+#### 4.3.1 Explicit Expansion Marker Definition
 The ESAL v0.1 Reference Oracle recognizes the following explicit authority expansion markers in the BDR event body:
 
 - Boolean field `expanded_authority: true`
@@ -149,6 +148,8 @@ This is a halted G-class path.
 
 
 
+### 4.4 Empty Authority
+
 In ESAL v0.1, an empty authority set means:
 
 > no authority restriction has been declared
@@ -163,8 +164,7 @@ A future ESAL version may introduce explicit deny-all or closed-world authority 
 
 ---
 
-## 4.5 Action-Outside-Authority Enforcement
-
+### 4.5 Action-Outside-Authority Enforcement
 If `state.authority` is non-empty and an `EXECUTION` event body contains an `action` field whose value is not present in `state.authority`, the reducer raises `GovernanceError` with:
 
 ```text
@@ -530,4 +530,5 @@ The following design decisions are intentional for ESAL v0.1:
 - Production governance semantics are out of scope.
 
 These decisions may be revisited in future ESAL versions but should not be treated as defects in the v0.1 reference oracle.
+
 
