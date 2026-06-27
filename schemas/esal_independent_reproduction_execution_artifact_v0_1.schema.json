@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputable-evidence.dev/schemas/esal_independent_reproduction_execution_artifact_v0_1.schema.json",
+  "title": "ESAL Independent Reproduction Execution Artifact v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "artifact_type",
+    "spec_version",
+    "profile",
+    "bundle_manifest_path",
+    "bundle_manifest_sha256",
+    "execution_status",
+    "result",
+    "evaluator",
+    "implementation",
+    "independence_basis",
+    "execution",
+    "vector_results",
+    "mismatches",
+    "limitations",
+    "non_claims"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "const": "ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_v0_1"
+    },
+    "spec_version": {
+      "const": "BDR-ESAL-v0.1"
+    },
+    "profile": {
+      "const": "BDR_ESAL_BASELINE_REPLAY_v0_1"
+    },
+    "bundle_manifest_path": {
+      "type": "string"
+    },
+    "bundle_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "execution_status": {
+      "enum": [
+        "PENDING",
+        "EXECUTED",
+        "INCOMPLETE",
+        "NOT_EXECUTED"
+      ]
+    },
+    "result": {
+      "enum": [
+        "INDEPENDENT_REPRODUCTION_ESTABLISHED_WITH_LIMITATIONS",
+        "PARTIAL_INDEPENDENT_REPRODUCTION",
+        "INDEPENDENT_REPRODUCTION_NOT_ESTABLISHED",
+        "INCONCLUSIVE"
+      ]
+    },
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name_or_role",
+        "organization",
+        "contact_or_reference",
+        "declared_independence"
+      ],
+      "properties": {
+        "name_or_role": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "contact_or_reference": {
+          "type": "string"
+        },
+        "declared_independence": {
+          "type": "boolean"
+        }
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "repository_or_archive",
+        "commit_or_version",
+        "relationship_to_fork_reference"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "repository_or_archive": {
+          "type": "string"
+        },
+        "commit_or_version": {
+          "type": "string"
+        },
+        "relationship_to_fork_reference": {
+          "enum": [
+            "clean_room",
+            "independent",
+            "forked",
+            "adapted",
+            "reference_implementation",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "independence_basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "source_materials_used",
+        "private_project_notes_used",
+        "reference_implementation_copied"
+      ],
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "source_materials_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "private_project_notes_used": {
+          "type": "boolean"
+        },
+        "reference_implementation_copied": {
+          "type": "boolean"
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp_utc",
+        "command",
+        "environment",
+        "executor_notes"
+      ],
+      "properties": {
+        "timestamp_utc": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "executor_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "vector_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "vector_id",
+          "input_path",
+          "expected_artifact_path",
+          "expected_result",
+          "observed_result",
+          "matched_expected_state",
+          "matched_expected_fingerprint",
+          "matched_expected_failure_class",
+          "notes"
+        ],
+        "properties": {
+          "vector_id": {
+            "type": "string"
+          },
+          "input_path": {
+            "type": "string"
+          },
+          "expected_artifact_path": {
+            "type": "string"
+          },
+          "expected_result": {
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "observed_result": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "ERROR",
+              "NOT_RUN"
+            ]
+          },
+          "matched_expected_state": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "matched_expected_fingerprint": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "matched_expected_failure_class": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "observed_fingerprint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expected_fingerprint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "observed_failure_class": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expected_failure_class": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "mismatches": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "legal_sufficiency",
+          "regulatory_compliance",
+          "audit_acceptance",
+          "safety",
+          "truth",
+          "approval",
+          "runtime_authorization",
+          "external_endorsement",
+          "host_system_conformance",
+          "business_fitness",
+          "claim_inheritance"
+        ]
+      },
+      "contains": {
+        "const": "claim_inheritance"
+      }
+    }
+  }
+}
