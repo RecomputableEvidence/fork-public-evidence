@@ -1,0 +1,27 @@
+{
+  "artifact_id": "ESAL_REPRODUCTION_VECTOR_BUNDLE_RECEIPT_v0_1",
+  "boundary": "First-party expected-output bundle. Does not establish independent reproduction.",
+  "bundle_id": "ESAL_REPRODUCTION_VECTOR_BUNDLE_v0_1",
+  "failure_expectation_record_count": 3,
+  "failure_vector_count": 3,
+  "fingerprint_record_count": 5,
+  "generation_branch": "esal-reproduction-vector-bundle-v0.1",
+  "generation_commit": "ed4eeee57c28bcc861b7dfb115667b61f019efe6",
+  "generation_timestamp_utc": "2026-06-27T19:55:10Z",
+  "non_claims": [
+    "legal_sufficiency",
+    "regulatory_compliance",
+    "audit_acceptance",
+    "safety",
+    "truth",
+    "approval",
+    "runtime_authorization",
+    "external_endorsement",
+    "host_system_conformance",
+    "independent_reproduction"
+  ],
+  "profile": "BDR_ESAL_BASELINE_REPLAY_v0_1",
+  "result": "REPRODUCTION_VECTOR_BUNDLE_GENERATED",
+  "spec_version": "BDR-ESAL-v0.1",
+  "state_vector_count": 5
+}

@@ -1,0 +1,29 @@
+{
+  "artifact_id": "ESAL_REPRODUCTION_FINGERPRINT_v0_1_log4-constraint-violation",
+  "canonical_state_sha256": "bee2ca4f6ef180c915ea84c1aad8fb68f1229fa549585103197f499889736e44",
+  "expected_state_file_sha256": "01924c28a5241080a95315bdbab2f90b9fe462707d00c33a5d836194f617f5ed",
+  "expected_state_path": "esal-tests/reproduction/expected/log4-constraint-violation.state.json",
+  "fingerprint_algorithm": "sha256",
+  "generated_from": "expected state artifact canonicalized with JSON sort_keys=True and compact separators",
+  "generation_branch": "esal-reproduction-vector-bundle-v0.1",
+  "generation_commit": "ed4eeee57c28bcc861b7dfb115667b61f019efe6",
+  "generation_timestamp_utc": "2026-06-27T19:55:10Z",
+  "input_file_sha256": "63e8a603a149480572beed75310563f690ec26aef3ecf99d6e072ba84466a76a",
+  "input_path": "esal-tests/reproduction/adversarial/log4-constraint-violation.jsonl",
+  "non_claims": [
+    "legal_sufficiency",
+    "regulatory_compliance",
+    "audit_acceptance",
+    "safety",
+    "truth",
+    "approval",
+    "runtime_authorization",
+    "external_endorsement",
+    "host_system_conformance",
+    "independent_reproduction"
+  ],
+  "profile": "BDR_ESAL_BASELINE_REPLAY_v0_1",
+  "spec_version": "BDR-ESAL-v0.1",
+  "vector_class": "validity_false_and_violation_preservation",
+  "vector_id": "log4-constraint-violation"
+}

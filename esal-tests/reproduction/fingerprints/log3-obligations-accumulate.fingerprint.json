@@ -1,0 +1,29 @@
+{
+  "artifact_id": "ESAL_REPRODUCTION_FINGERPRINT_v0_1_log3-obligations-accumulate",
+  "canonical_state_sha256": "95659c757320ac0c0db79154e4f7d06cd9db0284cf2d2413d421c238ccdaf5bb",
+  "expected_state_file_sha256": "3c73f7073c6987c7853b5dfcadae5386f34d6fd33300ac0efcb2af84ef61e8fe",
+  "expected_state_path": "esal-tests/reproduction/expected/log3-obligations-accumulate.state.json",
+  "fingerprint_algorithm": "sha256",
+  "generated_from": "expected state artifact canonicalized with JSON sort_keys=True and compact separators",
+  "generation_branch": "esal-reproduction-vector-bundle-v0.1",
+  "generation_commit": "ed4eeee57c28bcc861b7dfb115667b61f019efe6",
+  "generation_timestamp_utc": "2026-06-27T19:55:10Z",
+  "input_file_sha256": "e413108f4df26725751f4b3688dc463abf5fb9948af6bdc382bb53799a2dc390",
+  "input_path": "esal-tests/reproduction/positive/log3-obligations-accumulate.jsonl",
+  "non_claims": [
+    "legal_sufficiency",
+    "regulatory_compliance",
+    "audit_acceptance",
+    "safety",
+    "truth",
+    "approval",
+    "runtime_authorization",
+    "external_endorsement",
+    "host_system_conformance",
+    "independent_reproduction"
+  ],
+  "profile": "BDR_ESAL_BASELINE_REPLAY_v0_1",
+  "spec_version": "BDR-ESAL-v0.1",
+  "vector_class": "obligation_accumulation",
+  "vector_id": "log3-obligations-accumulate"
+}

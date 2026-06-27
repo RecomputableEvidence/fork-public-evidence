@@ -1,0 +1,1 @@
+{"body":{"authority_delta_type":"grant","bdr_id":"bdr-broken-040","constraints":[],"delegated_authority":["summarize"],"obligations":[],"parent_bdr_id":"bdr-missing-000","parent_event_id":"uuid-999"},"boundary_id":"X->Y","event_id":"uuid-40","event_type":"BDR_CREATED","timestamp":1710004000}

@@ -1,0 +1,5 @@
+{
+    "failure_class":  "G",
+    "description":  "Delegated authority exceeds parent envelope",
+    "offending_bdr":  "bdr-child-030"
+}

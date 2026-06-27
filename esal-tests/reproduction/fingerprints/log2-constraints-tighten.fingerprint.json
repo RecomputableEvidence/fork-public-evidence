@@ -1,0 +1,29 @@
+{
+  "artifact_id": "ESAL_REPRODUCTION_FINGERPRINT_v0_1_log2-constraints-tighten",
+  "canonical_state_sha256": "50b3d57de240108c39ab25be712114f6efb9ef0903fe1661a931e99fe4fc8393",
+  "expected_state_file_sha256": "8155b4c54e4c09f34ebf4e82925af8ce3694ec4bb52a66c3768bc5141d7b0ae0",
+  "expected_state_path": "esal-tests/reproduction/expected/log2-constraints-tighten.state.json",
+  "fingerprint_algorithm": "sha256",
+  "generated_from": "expected state artifact canonicalized with JSON sort_keys=True and compact separators",
+  "generation_branch": "esal-reproduction-vector-bundle-v0.1",
+  "generation_commit": "ed4eeee57c28bcc861b7dfb115667b61f019efe6",
+  "generation_timestamp_utc": "2026-06-27T19:55:10Z",
+  "input_file_sha256": "2c2f824f50168ab112077cefa10bd6e2a63bb1c7082c26efd3d50c1bc0e5deb2",
+  "input_path": "esal-tests/reproduction/positive/log2-constraints-tighten.jsonl",
+  "non_claims": [
+    "legal_sufficiency",
+    "regulatory_compliance",
+    "audit_acceptance",
+    "safety",
+    "truth",
+    "approval",
+    "runtime_authorization",
+    "external_endorsement",
+    "host_system_conformance",
+    "independent_reproduction"
+  ],
+  "profile": "BDR_ESAL_BASELINE_REPLAY_v0_1",
+  "spec_version": "BDR-ESAL-v0.1",
+  "vector_class": "constraint_accumulation",
+  "vector_id": "log2-constraints-tighten"
+}

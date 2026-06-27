@@ -1,0 +1,30 @@
+{
+  "artifact_id": "ESAL_REPRODUCTION_FAILURE_EXPECTATION_v0_1_log7-event-reordering",
+  "expected_error_code": "D",
+  "expected_error_code_status": "EXTRACTED",
+  "expected_error_scope": "canonicalization",
+  "expected_failure_file_sha256": "353398346c2485d98440fb4540e4b9270e4a1d4e1e0ee100790865301142157c",
+  "expected_failure_path": "esal-tests/reproduction/expected/log7-event-reordering.failure.json",
+  "expected_result": "FAIL",
+  "generation_branch": "esal-reproduction-vector-bundle-v0.1",
+  "generation_commit": "ed4eeee57c28bcc861b7dfb115667b61f019efe6",
+  "generation_timestamp_utc": "2026-06-27T19:55:10Z",
+  "input_file_sha256": "e50565640facc597486e895bd5345d5b9920cb8b4fe6e121b1c0339ff8f31e89",
+  "input_path": "esal-tests/reproduction/adversarial/log7-event-reordering.jsonl",
+  "non_claims": [
+    "legal_sufficiency",
+    "regulatory_compliance",
+    "audit_acceptance",
+    "safety",
+    "truth",
+    "approval",
+    "runtime_authorization",
+    "external_endorsement",
+    "host_system_conformance",
+    "independent_reproduction"
+  ],
+  "profile": "BDR_ESAL_BASELINE_REPLAY_v0_1",
+  "spec_version": "BDR-ESAL-v0.1",
+  "vector_class": "event_reordering_failure_or_gap",
+  "vector_id": "log7-event-reordering"
+}
