@@ -241,6 +241,8 @@ It means only that the ESAL v0.1 Reference Oracle did not detect a structural, g
 
 This `PASS` result does not constitute authorization, approval, legal sufficiency, policy compliance, decision correctness, or substantive validity.
 
+The list above is illustrative, not exhaustive, and is consistent with the non-claim framing used elsewhere in this specification.
+
 This behavior reflects ESAL v0.1 open-world authority semantics and may not apply to future ESAL versions.
 
 ## 5. Constraint Semantics
@@ -583,6 +585,7 @@ The following design decisions are intentional for ESAL v0.1:
 - Production governance semantics are out of scope.
 
 These decisions may be revisited in future ESAL versions but should not be treated as defects in the v0.1 reference oracle.
+
 
 
 
