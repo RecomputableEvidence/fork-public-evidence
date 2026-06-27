@@ -1,0 +1,41 @@
+{
+    "artifact_id":  "BDR-ESAL-HANDOFF-VALIDATION-REPORT-v0.1",
+    "generated_utc":  "2026-06-27T11:39:19Z",
+    "started_utc":  "2026-06-27T11:39:19Z",
+    "branch":  "",
+    "commit":  "",
+    "result":  "HANDOFF_VALIDATOR_PASS",
+    "contract":  "docs/BDR_ESAL_HANDOFF_CONTRACT_v0_1.md",
+    "valid_example":  {
+                          "path":  "examples\\bdr_esal_handoff\\valid_vendor_risk_handoff_event.json",
+                          "expected":  "ACCEPT",
+                          "actual":  "ACCEPT",
+                          "passed":  true,
+                          "issues":  [
+
+                                     ]
+                      },
+    "invalid_example":  {
+                            "path":  "examples\\bdr_esal_handoff\\invalid_authority_inheritance_handoff_event.json",
+                            "expected":  "REJECT",
+                            "actual":  "REJECT",
+                            "classification":  "INVALID_HANDOFF_AUTHORITY_INHERITANCE_ATTEMPT",
+                            "passed":  true,
+                            "detected_authority_inheritance":  true,
+                            "detected_external_validity_transfer":  true,
+                            "detected_invalid_claims":  true,
+                            "issues":  [
+
+                                       ]
+                        },
+    "non_claims":  [
+                       "does not establish BDR truth",
+                       "does not establish legal sufficiency",
+                       "does not establish compliance sufficiency",
+                       "does not establish real-world authorization",
+                       "does not establish policy approval",
+                       "does not establish external governance validity",
+                       "does not establish ESAL validation of the underlying transition",
+                       "does not establish independent implementation convergence"
+                   ]
+}
