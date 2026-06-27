@@ -1,0 +1,30 @@
+{
+  "artifact_id": "ESAL_REPRODUCTION_FAILURE_EXPECTATION_v0_1_log8-schema-invalid",
+  "expected_error_code": "S",
+  "expected_error_code_status": "EXTRACTED",
+  "expected_error_scope": "parse",
+  "expected_failure_file_sha256": "330d18a3504db22b043fbce6b29a2f05e9a5d2dafa0f3deae01cb0b80a332569",
+  "expected_failure_path": "esal-tests/reproduction/expected/log8-schema-invalid.failure.json",
+  "expected_result": "FAIL",
+  "generation_branch": "esal-reproduction-vector-bundle-v0.1",
+  "generation_commit": "ed4eeee57c28bcc861b7dfb115667b61f019efe6",
+  "generation_timestamp_utc": "2026-06-27T19:55:10Z",
+  "input_file_sha256": "076747384f242b573f51d2c995702e44a683a4a5412398ede18dfcd8f768ab11",
+  "input_path": "esal-tests/reproduction/malformed/log8-schema-invalid.jsonl",
+  "non_claims": [
+    "legal_sufficiency",
+    "regulatory_compliance",
+    "audit_acceptance",
+    "safety",
+    "truth",
+    "approval",
+    "runtime_authorization",
+    "external_endorsement",
+    "host_system_conformance",
+    "independent_reproduction"
+  ],
+  "profile": "BDR_ESAL_BASELINE_REPLAY_v0_1",
+  "spec_version": "BDR-ESAL-v0.1",
+  "vector_class": "malformed_event_failure",
+  "vector_id": "log8-schema-invalid"
+}

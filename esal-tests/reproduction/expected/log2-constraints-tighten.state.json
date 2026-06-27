@@ -1,0 +1,22 @@
+{
+  "authority": [
+    "summarize",
+    "translate"
+  ],
+  "constraints": [
+    "max_tokens<=1500",
+    "max_tokens<=2000",
+    "no_external_network_access",
+    "no_sensitive_phrases"
+  ],
+  "lineage": [
+    "bdr-A-B-002",
+    "bdr-B-C-002"
+  ],
+  "obligations": [
+    "emit_audit_event",
+    "log_all_outputs"
+  ],
+  "validity": true,
+  "violations": []
+}
