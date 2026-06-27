@@ -1,0 +1,2 @@
+{"body":{"bdr_id":"bdr-adv7-a","constraints":["no_external_network_access"],"delegated_authority":["summarize"],"obligations":["record_execution"],"parent_bdr_id":null},"boundary_id":"ADV-007","event_id":"adv7-duplicate-event","event_type":"BDR_CREATED","timestamp":1}
+{"body":{"bdr_id":"bdr-adv7-b","constraints":["no_external_network_access"],"delegated_authority":["translate"],"obligations":["record_execution"],"parent_bdr_id":null},"boundary_id":"ADV-007","event_id":"adv7-duplicate-event","event_type":"BDR_CREATED","timestamp":1}

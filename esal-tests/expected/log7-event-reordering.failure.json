@@ -1,0 +1,4 @@
+﻿{
+    "failure_class":  "D",
+    "description":  "Canonicalization not applied; replay non-deterministic if file order is used"
+}

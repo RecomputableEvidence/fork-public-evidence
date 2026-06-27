@@ -1,0 +1,148 @@
+{
+  "profile_id": "CONTINUITY_BOUNDARY_OBJECT_PROFILE_v0_1",
+  "object_id": "cbo_minimal_synthetic_trace_v0_1",
+  "profile_version": "0.1",
+  "synthetic_trace": true,
+  "issuer_system": {
+    "name": "SYNTHETIC_PRE_EXECUTION_GOVERNANCE_LAYER",
+    "system_type": "pre_execution_governance",
+    "declared_authority_domain": "synthetic admissibility and execution-continuity assertions for a controlled test trace",
+    "claims": [
+      "asserts_that_a_synthetic_admission_decision_was_emitted",
+      "asserts_that_named_invariants_were_bound_to_the_synthetic_trace",
+      "asserts_that_execution_state_references_were_emitted_for_downstream_preservation"
+    ],
+    "non_claims": [
+      "does_not_claim_legal_authority",
+      "does_not_claim_real_system_execution",
+      "does_not_claim_safety",
+      "does_not_claim_compliance",
+      "does_not_claim_causal_proof"
+    ]
+  },
+  "receiver_system": {
+    "name": "FORK_SYNTHETIC_EVIDENCE_BOUNDARY_RECEIVER",
+    "system_type": "evidence_preservation",
+    "declared_preservation_boundary": "synthetic downstream preservation and recomputation boundary for emitted continuity evidence",
+    "claims": [
+      "may_preserve_the_emitted_continuity_object",
+      "may_recompute_declared_integrity_metadata_when_present",
+      "may_report_missing_unresolved_or_excluded_references"
+    ],
+    "non_claims": [
+      "does_not_verify_upstream_governance",
+      "does_not_verify_causality",
+      "does_not_verify_admissibility",
+      "does_not_verify_authorization",
+      "does_not_verify_approval",
+      "does_not_verify_truth",
+      "does_not_verify_safety",
+      "does_not_verify_compliance"
+    ]
+  },
+  "continuity_object_semantics": {
+    "object_role": "structured_evidence_of_asserted_continuity_path",
+    "authority_transfer": false,
+    "upstream_authority_inherited_by_receiver": false,
+    "receiver_verifies_upstream_governance": false,
+    "causality_crosses_boundary": false
+  },
+  "upstream_asserted_events": {
+    "admission_decision_refs": [
+      "synthetic_admission_decision:admit_request_001"
+    ],
+    "invariant_refs": [
+      "synthetic_invariant:input_schema_bound",
+      "synthetic_invariant:execution_policy_bound"
+    ],
+    "control_state_refs": [
+      "synthetic_control_state:pre_execution_guard_evaluated"
+    ],
+    "execution_state_refs": [
+      "synthetic_execution_state:workflow_started",
+      "synthetic_execution_state:workflow_completed"
+    ],
+    "continuity_transition_refs": [
+      "synthetic_transition:intent_to_admission",
+      "synthetic_transition:admission_to_execution",
+      "synthetic_transition:execution_to_evidence"
+    ]
+  },
+  "emitted_evidence": {
+    "artifact_refs": [
+      "artifact:intent_request_v0_1",
+      "artifact:admission_decision_v0_1",
+      "artifact:execution_state_v0_1",
+      "artifact:evidence_packet_v0_1"
+    ],
+    "receipt_refs": [
+      "receipt:synthetic_continuity_receipt_v0_1"
+    ],
+    "state_refs": [
+      "state:pre_execution_state_snapshot_v0_1",
+      "state:post_execution_state_snapshot_v0_1"
+    ],
+    "log_refs": [
+      "log:synthetic_control_log_v0_1"
+    ],
+    "external_anchor_refs": []
+  },
+  "downstream_preservation": {
+    "preserved_refs": [
+      "artifact:intent_request_v0_1",
+      "artifact:admission_decision_v0_1",
+      "artifact:execution_state_v0_1",
+      "artifact:evidence_packet_v0_1",
+      "receipt:synthetic_continuity_receipt_v0_1"
+    ],
+    "recomputed_refs": [],
+    "comparison_refs": [],
+    "unresolved_refs": [],
+    "excluded_refs": [
+      "upstream_internal_policy_engine",
+      "upstream_private_runtime_configuration"
+    ]
+  },
+  "non_claims": [
+    "does_not_claim_truth",
+    "does_not_claim_safety",
+    "does_not_claim_compliance",
+    "does_not_claim_legal_sufficiency",
+    "does_not_claim_admissibility",
+    "does_not_claim_authorization",
+    "does_not_claim_approval",
+    "does_not_claim_risk_acceptance",
+    "does_not_claim_causal_correctness",
+    "does_not_claim_upstream_governance_validity"
+  ],
+  "consumer_constraints": {
+    "do_not_map_to": [
+      "APPROVAL",
+      "AUTHORIZATION",
+      "COMPLIANCE",
+      "LEGAL_SUFFICIENCY",
+      "SAFETY",
+      "TRUTH",
+      "ADMISSIBILITY",
+      "RISK_ACCEPTANCE",
+      "CAUSAL_PROOF",
+      "UPSTREAM_GOVERNANCE_VALIDITY"
+    ],
+    "requires_human_or_institutional_interpretation": true
+  },
+  "integrity_metadata": {
+    "digest_algorithm": "sha256",
+    "digest_value": "<not-computed-in-v0.1-synthetic-trace>",
+    "digest_status": "NOT_COMPUTED_SYNTHETIC_TRACE",
+    "canonicalization_method": "not computed in v0.1 minimal synthetic trace",
+    "seal_refs": [],
+    "timestamp_refs": []
+  },
+  "unresolveds": [],
+  "expected_boundary_result": {
+    "structurally_preservable": true,
+    "upstream_authority_preserved": true,
+    "downstream_authority_not_inherited": true,
+    "requires_review_before_substantive_use": true
+  }
+}

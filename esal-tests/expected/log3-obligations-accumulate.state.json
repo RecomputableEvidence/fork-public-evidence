@@ -1,0 +1,20 @@
+﻿{
+    "violations":  [
+
+                   ],
+    "lineage":  [
+                    "bdr-A-B-020",
+                    "bdr-B-C-020"
+                ],
+    "validity":  true,
+    "constraints":  [
+                        "no_external_network_access"
+                    ],
+    "authority":  [
+                      "summarize"
+                  ],
+    "obligations":  [
+                        "emit_audit_event",
+                        "log_all_outputs"
+                    ]
+}

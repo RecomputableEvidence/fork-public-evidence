@@ -1,0 +1,64 @@
+{
+    "review_package":  "BDR_v0_1_hardened_technical_review",
+    "branch":  "boundary-delta-record-v0.1",
+    "head_commit":  "323768235280aad1aebaa155936ad3972e03dfec",
+    "head_short":  "3237682",
+    "tree_hash":  "737e454e86c4f073b4ee5326b96bdca871953b08",
+    "fixture_path":  "examples\\boundary_delta_record\\invalid_transition_kind_rule_mismatch_v0_1.json",
+    "fixture_git_object_path":  "examples/boundary_delta_record/invalid_transition_kind_rule_mismatch_v0_1.json",
+    "fixture_hash":  "c5813de4918e4264f6626f18fb338edf87c917e4",
+    "recent_commits":  [
+                           "3237682 Relax BDR v0.1 review gate to current branch HEAD",
+                           "ce92c23 Add BDR v0.1 technical review scripts",
+                           "e1612fa Harden BDR non-inference and transition compatibility"
+                       ],
+    "fixture_history":  [
+                            "730e906 Enforce BDR transition rule compatibility"
+                        ],
+    "valid_fixture":  {
+                          "path":  "examples\\boundary_delta_record\\valid_preserved_v0_1.json",
+                          "exit_code":  0,
+                          "structural_outcome":  "INSPECTABLE",
+                          "findings_count":  0,
+                          "limitations":  {
+                                              "binary_outcomes_only":  [
+                                                                           "INSPECTABLE",
+                                                                           "NOT_INSPECTABLE"
+                                                                       ],
+                                              "does_not_approve_reliance":  true,
+                                              "does_not_infer_authority_from_text":  true,
+                                              "does_not_infer_evidence_requirements_from_text":  true,
+                                              "does_not_infer_scope_from_text":  true,
+                                              "does_not_perform_cross_record_inference":  true,
+                                              "does_not_perform_llm_interpretation":  true,
+                                              "does_not_rank_severity":  true,
+                                              "does_not_score_risk":  true,
+                                              "does_not_validate_compliance":  true,
+                                              "does_not_validate_legal_sufficiency":  true,
+                                              "does_not_validate_safety":  true,
+                                              "does_not_validate_truth":  true,
+                                              "requires_declared_transitions":  true,
+                                              "treats_references_as_opaque_tokens":  true
+                                          }
+                      },
+    "mismatch_fixture":  {
+                             "path":  "examples\\boundary_delta_record\\invalid_transition_kind_rule_mismatch_v0_1.json",
+                             "exit_code":  1,
+                             "structural_outcome":  "NOT_INSPECTABLE",
+                             "finding_codes":  [
+                                                   "TRANSITION_KIND_RULE_MISMATCH",
+                                                   "STRUCTURAL_OUTCOME_MISMATCH"
+                                               ],
+                             "deterministic_replay":  true
+                         },
+    "non_claims":  {
+                       "not_truth":  true,
+                       "not_safety":  true,
+                       "not_compliance":  true,
+                       "not_legal_sufficiency":  true,
+                       "not_approval":  true,
+                       "not_risk_or_severity":  true,
+                       "not_runtime_enforcement":  true,
+                       "not_semantic_inference":  true
+                   }
+}

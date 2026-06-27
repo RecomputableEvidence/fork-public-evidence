@@ -1,0 +1,221 @@
+{
+  "$id": "https://example.org/schemas/sc_native_cbo_packet_v0_1_1.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "required": [
+        "emitted_artifact_refs"
+      ]
+    },
+    {
+      "required": [
+        "digest_subject"
+      ]
+    }
+  ],
+  "properties": {
+    "admission_decision_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_transfer": {
+          "const": false
+        },
+        "fork_participates_in_runtime_control": {
+          "const": false
+        },
+        "fork_validates_causality": {
+          "const": false
+        },
+        "fork_validates_sc_governance": {
+          "const": false
+        }
+      },
+      "required": [
+        "authority_transfer",
+        "fork_validates_sc_governance",
+        "fork_validates_causality",
+        "fork_participates_in_runtime_control"
+      ],
+      "type": "object"
+    },
+    "authority_domain": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "canonicalization_method": {
+      "enum": [
+        "UTF8_JSON_MINIFIED_SORTED_KEYS"
+      ]
+    },
+    "cbo_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cbo_version": {
+      "const": "0.1"
+    },
+    "digest_seal_anchor_metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_refs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "anchor_status": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "digest_algorithm": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "digest_value": {
+          "type": "string"
+        },
+        "seal_ref": {
+          "type": "string"
+        },
+        "seal_status": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "digest_algorithm",
+        "digest_value",
+        "seal_status",
+        "anchor_status",
+        "anchor_refs"
+      ],
+      "type": "object"
+    },
+    "digest_subject": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "artifact_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "payload": {}
+      },
+      "required": [
+        "artifact_id",
+        "artifact_type",
+        "payload"
+      ],
+      "type": "object"
+    },
+    "downstream_do_not_infer": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "emitted_artifact_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "emitted_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_event_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "issuer_system": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "preservation_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "recomputation_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "sc_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "sc_declared_invariant_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "sc_non_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "stable_workload_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state_transition_refs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "unresolved_or_excluded_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "cbo_version",
+    "cbo_id",
+    "emitted_at",
+    "issuer_system",
+    "authority_domain",
+    "stable_workload_id",
+    "admission_decision_ref",
+    "sc_declared_invariant_refs",
+    "state_transition_refs",
+    "execution_event_refs",
+    "digest_seal_anchor_metadata",
+    "preservation_refs",
+    "recomputation_refs",
+    "authority_boundary",
+    "sc_claims",
+    "sc_non_claims",
+    "downstream_do_not_infer",
+    "unresolved_or_excluded_refs"
+  ],
+  "title": "SC Native CBO Packet v0.1.1",
+  "type": "object"
+}

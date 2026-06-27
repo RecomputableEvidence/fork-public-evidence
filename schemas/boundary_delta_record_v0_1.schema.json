@@ -1,0 +1,206 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/boundary_delta_record_v0_1.schema.json",
+  "title": "Boundary Delta Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "record_version",
+    "boundary_delta_record_id",
+    "source_boundary_ref",
+    "downstream_statement_ref",
+    "transitions",
+    "derived_boundary_delta",
+    "structural_outcome"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "BOUNDARY_DELTA_RECORD"
+    },
+    "record_version": {
+      "const": "0.1"
+    },
+    "boundary_delta_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_boundary_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_record_id",
+        "claim_boundary_contract_id",
+        "source_claim_refs",
+        "source_non_claim_refs",
+        "source_evidence_refs",
+        "source_recomputation_status"
+      ],
+      "properties": {
+        "source_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim_boundary_contract_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_claim_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "source_non_claim_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "source_evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "source_recomputation_status": {
+          "enum": [
+            "RECOMPUTABLE_RECORD_INTEGRITY_ONLY",
+            "NOT_ASSERTED"
+          ]
+        }
+      }
+    },
+    "downstream_statement_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "downstream_record_id",
+        "downstream_statement_refs",
+        "downstream_evidence_refs"
+      ],
+      "properties": {
+        "downstream_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "downstream_statement_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "downstream_evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "transition_id",
+          "from_ref",
+          "to_ref",
+          "transition_kind",
+          "transformation_rule",
+          "supporting_refs"
+        ],
+        "properties": {
+          "transition_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "to_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "transition_kind": {
+            "enum": [
+              "CLAIM_SCOPE_PRESERVED",
+              "CLAIM_SCOPE_NARROWED",
+              "NON_CLAIM_PRESERVED",
+              "EVIDENCE_REFERENCE_PRESERVED",
+              "EVIDENCE_REFERENCE_LOST",
+              "RECOMPUTATION_STATUS_PRESERVED",
+              "AUTHORITY_PRESERVED",
+              "CLAIM_SCOPE_GENERALIZED",
+              "CLAIM_ADDED_FROM_SILENCE",
+              "AUTHORITY_EXPANDED",
+              "EVIDENCE_REFERENCE_EXPANDED",
+              "EVIDENCE_REFERENCE_SUPPRESSED",
+              "RECOMPUTATION_STATUS_CONVERTED_TO_TRUTH",
+              "NON_CLAIM_DROPPED"
+            ]
+          },
+          "transformation_rule": {
+            "enum": [
+              "PRESERVE_AS_IS",
+              "NARROW_SCOPE",
+              "RETAIN_NON_CLAIM",
+              "PRESERVE_EVIDENCE_REFERENCE",
+              "RECORD_REFERENCE_LOSS",
+              "PRESERVE_RECOMPUTATION_STATUS",
+              "PRESERVE_AUTHORITY",
+              "GENERALIZE_SCOPE",
+              "CONVERT_SILENCE_TO_CLAIM",
+              "EXPAND_AUTHORITY",
+              "ADD_UNTRANSFERRED_EVIDENCE_REFERENCE",
+              "SUPPRESS_REFERENCE",
+              "MAP_RECOMPUTATION_TO_TRUTH",
+              "DROP_NON_CLAIM"
+            ]
+          },
+          "supporting_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "suppression_disclosure_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "derived_boundary_delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "licensed_claim_surface",
+        "claim_scope_generalized",
+        "silence_converted_to_claim",
+        "authority_expansion_required",
+        "evidence_reference_expansion_required",
+        "recomputation_status_converted_to_truth",
+        "evidence_reference_lost",
+        "evidence_reference_suppressed",
+        "non_claim_dropped"
+      ],
+      "properties": {
+        "licensed_claim_surface": {
+          "enum": [
+            "SOURCE_SURFACE_PRESERVED",
+            "SOURCE_SURFACE_NARROWED",
+            "REFERENCE_SUPPRESSED_AT_BOUNDARY",
+            "UNLICENSED_EXPANSION_DETECTED"
+          ]
+        },
+        "claim_scope_generalized": { "type": "boolean" },
+        "silence_converted_to_claim": { "type": "boolean" },
+        "authority_expansion_required": { "type": "boolean" },
+        "evidence_reference_expansion_required": { "type": "boolean" },
+        "recomputation_status_converted_to_truth": { "type": "boolean" },
+        "evidence_reference_lost": { "type": "boolean" },
+        "evidence_reference_suppressed": { "type": "boolean" },
+        "non_claim_dropped": { "type": "boolean" }
+      }
+    },
+    "structural_outcome": {
+      "enum": [
+        "INSPECTABLE",
+        "NOT_INSPECTABLE"
+      ]
+    }
+  }
+}

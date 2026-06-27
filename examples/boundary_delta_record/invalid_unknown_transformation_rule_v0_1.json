@@ -1,0 +1,52 @@
+{
+  "record_type": "BOUNDARY_DELTA_RECORD",
+  "record_version": "0.1",
+  "boundary_delta_record_id": "BDR_INVALID_UNKNOWN_TRANSFORMATION_RULE_v0_1",
+  "source_boundary_ref": {
+    "source_record_id": "CBC_SYNTHETIC_SOURCE_RECORD_v0_1",
+    "claim_boundary_contract_id": "CBC_SYNTHETIC_BOUNDARY_v0_1",
+    "source_claim_refs": [
+      "claim:ai_output_generated"
+    ],
+    "source_non_claim_refs": [
+      "non_claim:does_not_validate_truth"
+    ],
+    "source_evidence_refs": [
+      "evidence:model_output_packet"
+    ],
+    "source_recomputation_status": "RECOMPUTABLE_RECORD_INTEGRITY_ONLY"
+  },
+  "downstream_statement_ref": {
+    "downstream_record_id": "DOWNSTREAM_SYNTHETIC_REVIEW_RECORD_v0_1",
+    "downstream_statement_refs": [
+      "downstream:ai_output_generated"
+    ],
+    "downstream_evidence_refs": [
+      "evidence:model_output_packet"
+    ]
+  },
+  "transitions": [
+    {
+      "transition_id": "transition:unknown_rule",
+      "from_ref": "claim:ai_output_generated",
+      "to_ref": "downstream:ai_output_generated",
+      "transition_kind": "CLAIM_SCOPE_PRESERVED",
+      "transformation_rule": "LLM_INFERRED_EQUIVALENCE",
+      "supporting_refs": [
+        "CBC_SYNTHETIC_BOUNDARY_v0_1"
+      ]
+    }
+  ],
+  "derived_boundary_delta": {
+    "licensed_claim_surface": "SOURCE_SURFACE_PRESERVED",
+    "claim_scope_generalized": false,
+    "silence_converted_to_claim": false,
+    "authority_expansion_required": false,
+    "evidence_reference_expansion_required": false,
+    "recomputation_status_converted_to_truth": false,
+    "evidence_reference_lost": false,
+    "evidence_reference_suppressed": false,
+    "non_claim_dropped": false
+  },
+  "structural_outcome": "INSPECTABLE"
+}

@@ -1,0 +1,2 @@
+{"body":{"authority_delta_type":"grant","bdr_id":"bdr-root-030","constraints":[],"delegated_authority":["read:data"],"obligations":[],"parent_bdr_id":null,"parent_event_id":null},"boundary_id":"Root","event_id":"uuid-30","event_type":"BDR_CREATED","timestamp":1710003000}
+{"body":{"authority_delta_type":"grant","bdr_id":"bdr-child-030","constraints":[],"delegated_authority":["read:data","write:data"],"obligations":[],"parent_bdr_id":"bdr-root-030","parent_event_id":"uuid-30"},"boundary_id":"Root->Child","event_id":"uuid-31","event_type":"BDR_CREATED","timestamp":1710003100}

@@ -1,0 +1,400 @@
+{
+  "$id": "https://example.org/schemas/boundary_crossing_evidence_inspectability_layer_v0_1.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "authority_assertions": {
+      "additionalProperties": false,
+      "properties": {
+        "claims_approval": {
+          "const": false
+        },
+        "claims_authorization": {
+          "const": false
+        },
+        "claims_certification": {
+          "const": false
+        },
+        "claims_compatibility": {
+          "const": false
+        },
+        "claims_compliance": {
+          "const": false
+        },
+        "claims_endorsement": {
+          "const": false
+        },
+        "claims_interoperability": {
+          "const": false
+        },
+        "claims_legal_sufficiency": {
+          "const": false
+        },
+        "claims_runtime_control": {
+          "const": false
+        },
+        "claims_safety": {
+          "const": false
+        },
+        "claims_truth": {
+          "const": false
+        },
+        "claims_upstream_governance_validation": {
+          "const": false
+        }
+      },
+      "required": [
+        "claims_approval",
+        "claims_authorization",
+        "claims_certification",
+        "claims_compliance",
+        "claims_compatibility",
+        "claims_endorsement",
+        "claims_interoperability",
+        "claims_legal_sufficiency",
+        "claims_runtime_control",
+        "claims_safety",
+        "claims_truth",
+        "claims_upstream_governance_validation"
+      ],
+      "type": "object"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_transfer": {
+          "const": false
+        },
+        "fork_participates_in_runtime_control": {
+          "const": false
+        },
+        "fork_validates_admissibility": {
+          "const": false
+        },
+        "fork_validates_approval": {
+          "const": false
+        },
+        "fork_validates_authorization": {
+          "const": false
+        },
+        "fork_validates_causality": {
+          "const": false
+        },
+        "fork_validates_compliance": {
+          "const": false
+        },
+        "fork_validates_legal_sufficiency": {
+          "const": false
+        },
+        "fork_validates_safety": {
+          "const": false
+        },
+        "fork_validates_truth": {
+          "const": false
+        },
+        "fork_validates_upstream_governance": {
+          "const": false
+        }
+      },
+      "required": [
+        "authority_transfer",
+        "fork_validates_upstream_governance",
+        "fork_validates_causality",
+        "fork_participates_in_runtime_control",
+        "fork_validates_truth",
+        "fork_validates_safety",
+        "fork_validates_compliance",
+        "fork_validates_approval",
+        "fork_validates_authorization",
+        "fork_validates_legal_sufficiency",
+        "fork_validates_admissibility"
+      ],
+      "type": "object"
+    },
+    "handoff_record": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_boundary": {
+          "$ref": "#/definitions/authority_boundary"
+        },
+        "claims_preserved": {
+          "const": true
+        },
+        "dropped_non_claims": {
+          "maxItems": 0,
+          "type": "array"
+        },
+        "fork_role": {
+          "enum": [
+            "PRESERVE_DECLARE_CHECK_REPORT",
+            "PRESERVE_NORMALIZE_RECOMPUTE_REPORT",
+            "PRESERVE_COMPARE_REPORT"
+          ]
+        },
+        "non_claims_preserved": {
+          "const": true
+        },
+        "recomputation": {
+          "$ref": "#/definitions/recomputation"
+        },
+        "record_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_artifact_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "unresolved_references_declared": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "record_id",
+        "source_artifact_ids",
+        "fork_role",
+        "authority_boundary",
+        "claims_preserved",
+        "non_claims_preserved",
+        "dropped_non_claims",
+        "unresolved_references_declared",
+        "recomputation"
+      ],
+      "type": "object"
+    },
+    "handoff_result": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_expansion_detected": {
+          "const": false
+        },
+        "fork_inherited_upstream_authority": {
+          "const": false
+        },
+        "interpretation_required": {
+          "const": true
+        },
+        "non_claims_dropped": {
+          "const": false
+        },
+        "public_endorsement_leak_detected": {
+          "const": false
+        },
+        "result_kind": {
+          "enum": [
+            "BOUNDARY_CROSSING_EVIDENCE_INSPECTABLE",
+            "BOUNDARY_CROSSING_EVIDENCE_NOT_INSPECTABLE"
+          ]
+        },
+        "structural_pass": {
+          "type": "boolean"
+        },
+        "upstream_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "result_kind",
+        "structural_pass",
+        "upstream_authority_preserved",
+        "fork_inherited_upstream_authority",
+        "non_claims_dropped",
+        "claim_expansion_detected",
+        "public_endorsement_leak_detected",
+        "interpretation_required"
+      ],
+      "type": "object"
+    },
+    "recomputation": {
+      "additionalProperties": false,
+      "properties": {
+        "computed_digest": {
+          "type": "string"
+        },
+        "declared_digest": {
+          "type": "string"
+        },
+        "digest_algorithm": {
+          "type": "string"
+        },
+        "digest_subject_available": {
+          "type": "boolean"
+        },
+        "does_not_validate_truth": {
+          "const": true
+        },
+        "matches_declared_digest": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "RECOMPUTATION_NOT_AVAILABLE",
+            "RECOMPUTABLE_METHOD_DECLARED",
+            "RECOMPUTATION_PERFORMED",
+            "RECOMPUTATION_FAILED"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "digest_subject_available",
+        "does_not_validate_truth"
+      ],
+      "type": "object"
+    },
+    "upstream_artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_class": {
+          "enum": [
+            "GOVERNANCE_BOUNDARY_DECLARATION",
+            "EXECUTION_CONTINUITY_PACKET",
+            "REGISTRY_EVENT",
+            "SEAL_EVENT",
+            "AUDIT_RECEIPT",
+            "OTHER_BOUNDARY_ARTIFACT"
+          ]
+        },
+        "artifact_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "authority_assertions": {
+          "$ref": "#/definitions/authority_assertions"
+        },
+        "authority_domain": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "issuer_system": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "native_artifact_ref": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "non_claims": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "review_state": {
+          "enum": [
+            "UNDER_REVIEW",
+            "ISSUER_DECLARED",
+            "FORK_STRUCTURAL_TRACE",
+            "FORK_STRUCTURAL_RECOMPUTATION_TRACE",
+            "UNREVIEWED"
+          ]
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_class",
+        "issuer_system",
+        "authority_domain",
+        "native_artifact_ref",
+        "review_state",
+        "claims",
+        "non_claims",
+        "authority_assertions"
+      ],
+      "type": "object"
+    }
+  },
+  "properties": {
+    "created_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "do_not_map_to": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "fork_normalized_handoff_records": {
+      "items": {
+        "$ref": "#/definitions/handoff_record"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "handoff_result": {
+      "$ref": "#/definitions/handoff_result"
+    },
+    "layer_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "layer_version": {
+      "const": "0.1"
+    },
+    "public_attribution_constraints": {
+      "additionalProperties": false,
+      "properties": {
+        "certification_claim_allowed": {
+          "const": false
+        },
+        "compatibility_claim_allowed": {
+          "const": false
+        },
+        "endorsement_claim_allowed": {
+          "const": false
+        },
+        "interoperability_claim_allowed": {
+          "const": false
+        },
+        "public_attribution_allowed": {
+          "const": false
+        }
+      },
+      "required": [
+        "public_attribution_allowed",
+        "endorsement_claim_allowed",
+        "compatibility_claim_allowed",
+        "certification_claim_allowed",
+        "interoperability_claim_allowed"
+      ],
+      "type": "object"
+    },
+    "upstream_artifacts": {
+      "items": {
+        "$ref": "#/definitions/upstream_artifact"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "validation_scope": {
+      "const": "STRUCTURAL_HANDOFF_INSPECTABILITY_ONLY"
+    }
+  },
+  "required": [
+    "layer_version",
+    "layer_id",
+    "created_at",
+    "validation_scope",
+    "public_attribution_constraints",
+    "upstream_artifacts",
+    "fork_normalized_handoff_records",
+    "handoff_result",
+    "do_not_map_to"
+  ],
+  "title": "Boundary-Crossing Evidence Inspectability Layer Bundle v0.1",
+  "type": "object"
+}

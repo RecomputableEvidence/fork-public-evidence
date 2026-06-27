@@ -1,0 +1,2 @@
+{"body":{"bdr_id":"bdr-c001-root","constraints":["no_external_network_access"],"delegated_authority":["summarize"],"obligations":["record_execution"],"parent_bdr_id":null},"boundary_id":"C-001","event_id":"c001-bdr-root","event_type":"BDR_CREATED","timestamp":1}
+{"body":{"action":"summarize","constraint_checks":[{"constraint":"no_external_network_access","status":"pass"}],"governed_by_bdr_id":"bdr-c001-root"},"boundary_id":"C-001","event_id":"c001-exec-001","event_type":"EXECUTION","timestamp":2}

@@ -1,0 +1,1 @@
+{"body":{"authority_delta_type":"grant","bdr_id":"bdr-invalid-080","constraints":[],"delegated_authority":["summarize"],"obligations":[],"parent_bdr_id":null},"boundary_id":"A->B","event_type":"BDR_CREATED","timestamp":"not-an-epoch"}

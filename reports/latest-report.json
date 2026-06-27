@@ -1,0 +1,225 @@
+{
+  "counts": {
+    "D": 1,
+    "G": 3,
+    "PASS": 4,
+    "S": 2
+  },
+  "results": [
+    {
+      "canonical_events_hash": null,
+      "classification": "G",
+      "exception": {
+        "classification": "G",
+        "error_code": "AUTHORITY_INFLATION",
+        "message": "authority inflation without explicit expansion delta: translate",
+        "offending_event_id": "adv2-bdr-child",
+        "path": null,
+        "type": "GovernanceError"
+      },
+      "fingerprint": null,
+      "log": "esal-tests\\adversarial\\log2-constraints-tighten.jsonl",
+      "state": null
+    },
+    {
+      "canonical_events_hash": "ba2747ff7d4f28edab672746353283872e3b26816162128ac5595298c618b0f7",
+      "classification": "G",
+      "exception": null,
+      "fingerprint": "bee2ca4f6ef180c915ea84c1aad8fb68f1229fa549585103197f499889736e44",
+      "log": "esal-tests\\adversarial\\log4-constraint-violation.jsonl",
+      "state": {
+        "authority": [
+          "summarize"
+        ],
+        "constraints": [
+          "no_external_network_access"
+        ],
+        "lineage": [
+          "bdr-adv4-root",
+          "bdr-adv4-child"
+        ],
+        "obligations": [
+          "append_violation_if_constraint_fails",
+          "record_execution"
+        ],
+        "validity": false,
+        "violations": [
+          {
+            "boundary_id": "ADV-004",
+            "constraint_id": "no_external_network_access",
+            "detail": "external network access observed during execution",
+            "event_id": "adv4-exec-001",
+            "status": "fail",
+            "timestamp": 3
+          }
+        ]
+      }
+    },
+    {
+      "canonical_events_hash": null,
+      "classification": "G",
+      "exception": {
+        "classification": "G",
+        "error_code": "AUTHORITY_INFLATION",
+        "message": "authority inflation without explicit expansion delta: write:data",
+        "offending_event_id": "uuid-31",
+        "path": null,
+        "type": "GovernanceError"
+      },
+      "fingerprint": null,
+      "log": "esal-tests\\adversarial\\log5-authority-inflation.jsonl",
+      "state": null
+    },
+    {
+      "canonical_events_hash": null,
+      "classification": "S",
+      "exception": {
+        "classification": "S",
+        "error_code": "UNKNOWN_PARENT_BDR",
+        "message": "unknown parent_bdr_id: bdr-missing-000",
+        "offending_event_id": "uuid-40",
+        "path": null,
+        "type": "StructuralError"
+      },
+      "fingerprint": null,
+      "log": "esal-tests\\adversarial\\log6-lineage-truncation.jsonl",
+      "state": null
+    },
+    {
+      "canonical_events_hash": null,
+      "classification": "D",
+      "exception": {
+        "classification": "D",
+        "error_code": "EVENT_ID_CONFLICT",
+        "message": "event_id conflict with differing event content",
+        "offending_event_id": "adv7-duplicate-event",
+        "path": null,
+        "type": "DeterminismError"
+      },
+      "fingerprint": null,
+      "log": "esal-tests\\adversarial\\log7-event-reordering.jsonl",
+      "state": null
+    },
+    {
+      "canonical_events_hash": "bd54e4f05ac1ca0bf13055354dd918f46191504f85f5d1d3ede4ae8a478fb483",
+      "classification": "PASS",
+      "exception": null,
+      "fingerprint": "39fde2d6cb76d9409fdf09cb5e76ab2ba8b7174b430cb19c455038f2ded37bb1",
+      "log": "esal-tests\\canonical\\C-001-placeholder.jsonl",
+      "state": {
+        "authority": [
+          "summarize"
+        ],
+        "constraints": [
+          "no_external_network_access"
+        ],
+        "lineage": [
+          "bdr-c001-root"
+        ],
+        "obligations": [
+          "record_execution"
+        ],
+        "validity": true,
+        "violations": []
+      }
+    },
+    {
+      "canonical_events_hash": "a50c88fabb07842722f0251721dab5ed4fc0a175e283c8bdb8e20f7f5cb85878",
+      "classification": "PASS",
+      "exception": null,
+      "fingerprint": "6b38d8a5a586052c68cb767a6e44fe583c62e952bf1df54f3f4cf7763870a836",
+      "log": "esal-tests\\canonical\\log1-basic-A-B-C.jsonl",
+      "state": {
+        "authority": [
+          "summarize",
+          "translate"
+        ],
+        "constraints": [
+          "max_tokens<=1500",
+          "max_tokens<=2000",
+          "no_external_network_access"
+        ],
+        "lineage": [
+          "bdr-A-B-001",
+          "bdr-B-C-001"
+        ],
+        "obligations": [
+          "emit_audit_event",
+          "log_all_outputs"
+        ],
+        "validity": true,
+        "violations": []
+      }
+    },
+    {
+      "canonical_events_hash": "dc0c160a6a957b269c867c6c43287108bd35ed3ccb06e10f521b531ecadbe380",
+      "classification": "PASS",
+      "exception": null,
+      "fingerprint": "50b3d57de240108c39ab25be712114f6efb9ef0903fe1661a931e99fe4fc8393",
+      "log": "esal-tests\\canonical\\log2-constraints-tighten.jsonl",
+      "state": {
+        "authority": [
+          "summarize",
+          "translate"
+        ],
+        "constraints": [
+          "max_tokens<=1500",
+          "max_tokens<=2000",
+          "no_external_network_access",
+          "no_sensitive_phrases"
+        ],
+        "lineage": [
+          "bdr-A-B-002",
+          "bdr-B-C-002"
+        ],
+        "obligations": [
+          "emit_audit_event",
+          "log_all_outputs"
+        ],
+        "validity": true,
+        "violations": []
+      }
+    },
+    {
+      "canonical_events_hash": "6447b70544ebb26b9bcbe80253ec3450ac72dd5af3c1fac7caf1f97bc5176098",
+      "classification": "PASS",
+      "exception": null,
+      "fingerprint": "95659c757320ac0c0db79154e4f7d06cd9db0284cf2d2413d421c238ccdaf5bb",
+      "log": "esal-tests\\canonical\\log3-obligations-accumulate.jsonl",
+      "state": {
+        "authority": [
+          "summarize"
+        ],
+        "constraints": [
+          "no_external_network_access"
+        ],
+        "lineage": [
+          "bdr-A-B-020",
+          "bdr-B-C-020"
+        ],
+        "obligations": [
+          "emit_audit_event",
+          "log_all_outputs"
+        ],
+        "validity": true,
+        "violations": []
+      }
+    },
+    {
+      "canonical_events_hash": null,
+      "classification": "S",
+      "exception": {
+        "classification": "S",
+        "error_code": "MISSING_EVENT_ID",
+        "message": "missing event_id",
+        "offending_event_id": null,
+        "path": null,
+        "type": "StructuralError"
+      },
+      "fingerprint": null,
+      "log": "esal-tests\\malformed\\log8-schema-invalid.jsonl",
+      "state": null
+    }
+  ],
+  "root": "esal-tests"
+}
