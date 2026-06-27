@@ -11,6 +11,8 @@
 
 This release gate covers the ESAL v0.1 reference-oracle specification and executed verification surface on branch `boundary-delta-record-v0.1`.
 
+The reviewed ESAL subject commit is the commit at which all review findings, delta residuals, and advisories were closed. The release-gate artifact commit is the later commit that records this closure as an evidence artifact. These two commits have different roles and should not be interpreted as conflicting release identifiers.
+
 This gate does not claim production completeness, legal sufficiency, compliance sufficiency, independent cross-implementation convergence, or external governance validity.
 
 It records that the ESAL v0.1 reference-oracle documentation, fixtures, and verification behavior have passed the current review chain with no open findings.
@@ -120,3 +122,4 @@ READY_FOR_RELEASE_GATING
 ```
 
 This determination is limited to ESAL v0.1 reference-oracle release gating. It does not establish external validity, production sufficiency, legal sufficiency, compliance sufficiency, authorization correctness, or independent implementation convergence.
+
