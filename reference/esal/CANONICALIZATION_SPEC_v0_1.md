@@ -174,9 +174,9 @@ A pair is resolvable only when both the left and right members resolve to non-em
 Fields that are absent, null, non-string, or empty strings are not resolvable for boundary-pair inference.
 If either side of the pair is missing or non-string after lookup, that pair is skipped and the next boundary inference rule is attempted.
 If multiple boundary-pair candidates are populated, ESAL v0.1 uses the first resolvable pair in the priority order listed above.
-The reference oracle does not detect, warn on, or classify conflicting multi-pair declarations as S in v0.1.
+When multiple boundary-pair candidates conflict, ESAL v0.1 still applies the first-resolvable-pair selection rule.
 
-Conflicting populated boundary-pair candidates are not classified as S in ESAL v0.1.
+A multi-pair conflict does not alter the canonicalization path by itself.
 
 The first resolvable pair in the declared priority order is selected silently.
 

@@ -179,7 +179,7 @@ A trace may pass the authority check because the action is present in a non-empt
 A trace may also pass the authority check because no authority restriction was declared.
 The ESAL v0.1 Reference Oracle does not distinguish those two PASS paths in its classification output.
 
-ESAL v0.1 cannot determine from oracle output alone whether an execution was affirmatively authorized or merely proceeded because no authority restriction was declared.
+ESAL v0.1 cannot determine whether an execution was affirmatively authorized or merely proceeded because no authority restriction was declared.
 
 PASS is therefore a replay classification, not an authorization decision.
 
@@ -233,13 +233,15 @@ In this path:
 - the empty-authority rule means no authority restriction has been declared,  
 - the absent-action rule means ACTION_OUTSIDE_AUTHORITY does not fire,  
 - reduction continues under ordinary replay rules, and  
-- the trace may classify as PASS.
+- if no other structural, governance, or determinism failure occurs, the trace classifies as `PASS`.
 
 This PASS classification does **not** imply affirmative authorization.
 
 It means only that the ESAL v0.1 Reference Oracle did not detect a structural, governance, or determinism failure under its current open-world semantics.
 
-Consumers MUST NOT infer authorization, approval, legal sufficiency, policy compliance, decision correctness, or substantive validity from this PASS result.
+This `PASS` result does not constitute authorization, approval, legal sufficiency, policy compliance, decision correctness, or substantive validity.
+
+This behavior reflects ESAL v0.1 open-world authority semantics and may not apply to future ESAL versions.
 
 ## 5. Constraint Semantics
 
