@@ -1,19 +1,22 @@
-﻿{
-    "violations":  [
-
-                   ],
-    "lineage":  [
-                    "bdr-A-B-010",
-                    "bdr-B-C-010"
-                ],
-    "validity":  true,
-    "constraints":  [
-                        "max_tokens\u003c=1500"
-                    ],
-    "authority":  [
-                      "summarize"
-                  ],
-    "obligations":  [
-                        "log_all_outputs"
-                    ]
+{
+  "authority": [
+    "summarize",
+    "translate"
+  ],
+  "constraints": [
+    "max_tokens<=1500",
+    "max_tokens<=2000",
+    "no_external_network_access",
+    "no_sensitive_phrases"
+  ],
+  "lineage": [
+    "bdr-A-B-002",
+    "bdr-B-C-002"
+  ],
+  "obligations": [
+    "emit_audit_event",
+    "log_all_outputs"
+  ],
+  "validity": true,
+  "violations": []
 }

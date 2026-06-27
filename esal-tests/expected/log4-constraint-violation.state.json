@@ -1,28 +1,27 @@
-﻿{
-    "failure_class":  "G",
-    "authority":  [
-                      "summarize",
-                      "translate"
-                  ],
-    "description":  "Constraint violation recorded; state marked invalid",
-    "lineage":  [
-                    "bdr-A-B-001",
-                    "bdr-B-C-001"
-                ],
-    "obligations":  [
-                        "emit_audit_event",
-                        "log_all_outputs"
-                    ],
-    "constraints":  [
-                        "max_tokens\u003c=1500",
-                        "no_external_network_access"
-                    ],
-    "violations":  [
-                       {
-                           "constraint":  "no_external_network_access",
-                           "action":  "external_network_call",
-                           "bdr_id":  "bdr-B-C-001"
-                       }
-                   ],
-    "validity":  false
+{
+  "authority": [
+    "summarize"
+  ],
+  "constraints": [
+    "no_external_network_access"
+  ],
+  "lineage": [
+    "bdr-adv4-root",
+    "bdr-adv4-child"
+  ],
+  "obligations": [
+    "append_violation_if_constraint_fails",
+    "record_execution"
+  ],
+  "validity": false,
+  "violations": [
+    {
+      "boundary_id": "ADV-004",
+      "constraint_id": "no_external_network_access",
+      "detail": "external network access observed during execution",
+      "event_id": "adv4-exec-001",
+      "status": "fail",
+      "timestamp": 3
+    }
+  ]
 }
