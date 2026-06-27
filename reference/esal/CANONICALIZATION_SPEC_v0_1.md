@@ -2,7 +2,7 @@
 
 **Project:** Fork — Recomputable Evidence for AI-Assisted Workflows  
 **Artifact:** ESAL v0.1 Canonicalization Specification  
-**Status:** Reference-oracle specification  
+**Status:** Normative for ESAL v0.1 reference-oracle canonicalization  
 **Scope:** `reference/esal/canonicalization.py`  
 **Applies to:** ESAL v0.1 Reference Oracle  
 **Branch:** `boundary-delta-record-v0.1`  
@@ -164,6 +164,9 @@ The inferred value is:
 <left>-><right>
 ```
 
+For each boundary pair, the reference oracle searches `body` first, then the event envelope.
+Both left and right members of the pair must be resolvable from the combined body-plus-event lookup for the inferred boundary to be used.
+If either side of the pair is missing or non-string after lookup, that pair is skipped and the next boundary inference rule is attempted.
 ### 6.3 BDR-Based Boundary Surrogate
 
 If no explicit or pair-inferred boundary exists, use:
@@ -458,3 +461,4 @@ Incorrect claim:
 > ESAL v0.1 has proven independent implementation convergence.
 
 Independent convergence requires at least one independently implemented oracle to reproduce the same canonical event sequence, reduced state, fingerprint, and taxonomy classifications over the same corpus.
+

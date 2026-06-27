@@ -2,7 +2,7 @@
 
 **Project:** Fork — Recomputable Evidence for AI-Assisted Workflows  
 **Artifact:** ESAL v0.1 State Semantics  
-**Status:** Reference-oracle semantics note  
+**Status:** Normative for ESAL v0.1 reference-oracle state semantics  
 **Applies to:** `reference/esal/reducer.py`, `reference/esal/models.py`, `reference/esal/taxonomy.py`  
 **Branch:** `boundary-delta-record-v0.1`  
 **Reference surface:** ESAL v0.1 Reference Oracle
@@ -128,7 +128,26 @@ Expected error code:
 AUTHORITY_INFLATION
 ```
 
-### 4.4 Empty Authority
+### 4.3.1 Explicit Expansion Marker Definition
+
+The ESAL v0.1 Reference Oracle recognizes the following explicit authority expansion markers in the BDR event body:
+
+- Boolean field `expanded_authority: true`
+- String field `authority_delta_type` with one of these values:
+  - `expand`
+  - `expanded`
+  - `expanded_authority`
+  - `authority_expansion`
+
+If neither marker is present, any net-new authority in a child BDR raises `GovernanceError` with:
+
+```text
+error_code = AUTHORITY_INFLATION
+```
+
+This is a halted G-class path.
+
+
 
 In ESAL v0.1, an empty authority set means:
 
@@ -143,6 +162,33 @@ The current reference oracle therefore does not reject execution solely because 
 A future ESAL version may introduce explicit deny-all or closed-world authority semantics, but that is not part of v0.1.
 
 ---
+
+## 4.5 Action-Outside-Authority Enforcement
+
+If `state.authority` is non-empty and an `EXECUTION` event body contains an `action` field whose value is not present in `state.authority`, the reducer raises `GovernanceError` with:
+
+```text
+error_code = ACTION_OUTSIDE_AUTHORITY
+```
+
+This halts reduction.
+
+Expected result:
+
+```text
+classification = G
+fingerprint = None
+state = None
+exception = GovernanceError
+```
+
+If `state.authority` is empty, this check does not fire.  
+If the `EXECUTION` body does not include an `action` field, this check does not fire.
+
+This rule preserves the v0.1 distinction between:
+
+- empty authority = no restriction declared  
+- non-empty authority = declared authority envelope
 
 ## 5. Constraint Semantics
 
@@ -285,6 +331,11 @@ Some governance failures halt reduction.
 Example:
 
 - authority inflation without explicit expansion delta
+
+Expected halted governance error codes include:
+
+- `AUTHORITY_INFLATION`
+- `ACTION_OUTSIDE_AUTHORITY`
 
 Expected result:
 
@@ -479,3 +530,4 @@ The following design decisions are intentional for ESAL v0.1:
 - Production governance semantics are out of scope.
 
 These decisions may be revisited in future ESAL versions but should not be treated as defects in the v0.1 reference oracle.
+
