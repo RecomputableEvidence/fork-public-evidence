@@ -34,6 +34,7 @@ The ESAL v0.1 release-candidate package is composed of:
 - `reports/ESAL_v0_1_RELEASE_GATE.md`
 - `reports/ESAL_v0_1_RELEASE_RECORD.md`
 - `reports/ESAL_v0_1_EXPECTED_OUTPUTS.md`
+- `reports/ESAL_v0_1_CONFORMANCE_REPORT.json`
 - `docs/ESAL_CONFORMANCE_KIT_v0_1.md`
 - `docs/ESAL_v0_1_START_HERE.md`
 - `docs/FORK_EVIDENCE_BOUNDARY_WALKTHROUGH_v0_1.md`
@@ -43,6 +44,7 @@ The ESAL v0.1 release-candidate package is composed of:
 - `esal-tests/`
 - `tools/esal_verify.ps1`
 - `tools/Test-EsalPermutationInvariance.ps1`
+- `tools/Test-EsalConformance.ps1`
 
 ---
 
@@ -135,6 +137,7 @@ From the repository root:
 git checkout esal-v0.1-rc6
 powershell .\tools\esal_verify.ps1
 .\tools\Test-EsalPermutationInvariance.ps1
+.\tools\Test-EsalConformance.ps1
 ```
 
 Expected verification distribution:
@@ -153,6 +156,28 @@ PASS: 50 permutations preserved canonical hash, state, fingerprint, and classifi
 ```
 
 ---
+
+## Executable Conformance Evidence
+
+The ESAL v0.1 executable conformance harness is:
+
+```text id="na5j07"
+tools/Test-EsalConformance.ps1
+```
+
+It checks the ESAL v0.1 reference oracle against the expected-output surface and writes:
+
+```text
+reports/ESAL_v0_1_CONFORMANCE_REPORT.json
+```
+
+A passing run emits:
+
+```text
+CONFORMANCE_PASS
+```
+
+This establishes executable reference-oracle conformance checking only. It does not establish independent implementation convergence.
 
 ## 7. Non-Claims
 

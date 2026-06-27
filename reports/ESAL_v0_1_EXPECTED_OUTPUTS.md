@@ -14,6 +14,12 @@ These outputs support replay comparison. They do not establish external validity
 
 ---
 
+These expected outputs are checked by `tools/Test-EsalConformance.ps1`, which writes `reports/ESAL_v0_1_CONFORMANCE_REPORT.json`.
+
+A passing conformance run emits `CONFORMANCE_PASS`.
+
+This establishes executable reference-oracle conformance checking only. It does not establish independent implementation convergence.
+
 ## 2. Expected Distribution
 
 ```text

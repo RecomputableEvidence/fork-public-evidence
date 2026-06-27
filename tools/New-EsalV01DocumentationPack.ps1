@@ -504,7 +504,7 @@ This list is illustrative, not exhaustive.
 # --------------------------------------------------------------------
 
 $StartHere = @'
-# ESAL v0.1 — Start Here
+# ESAL v0.1 â€” Start Here
 
 **Release candidate tag:** `{{RELEASE_TAG}}`  
 **Release candidate tag commit:** `{{RELEASE_TAG_COMMIT}}`  
@@ -739,7 +739,7 @@ A human team uses an AI system to summarize vendor-risk materials. The organizat
 
 ## 3. Step-by-Step Evidence Boundary
 
-**Step 1 — AI Produces a Summary**
+**Step 1 â€” AI Produces a Summary**
 
 The AI system produces a vendor-risk summary.
 
@@ -752,7 +752,7 @@ Fork records:
 
 Fork does **not** claim that the AI summary is true, complete, legally sufficient, compliant, or safe.
 
-**Step 2 — Human Reviews and Annotates**
+**Step 2 â€” Human Reviews and Annotates**
 
 A human reviewer inspects the AI output and adds review notes.
 
@@ -767,7 +767,7 @@ Fork records:
 
 Fork does **not** claim that human review makes the result legally sufficient, compliant, authorized, approved, or correct.
 
-**Step 3 — Claim Boundary Is Recorded**
+**Step 3 â€” Claim Boundary Is Recorded**
 
 A claim boundary records the scope of what is being asserted.
 
@@ -782,7 +782,7 @@ Example non-claims:
 - The record does not establish that the review was compliant with all applicable policies.  
 - The record does not establish that the underlying facts are true.
 
-**Step 4 — BDR Records Boundary Transition**
+**Step 4 â€” BDR Records Boundary Transition**
 
 A Boundary Delta Record can capture a transition between evidence contexts.
 
@@ -797,7 +797,7 @@ Fork preserves:
 
 Fork does not allow authority, compliance, approval, or external validity to silently transfer merely because an adjacent record exists.
 
-**Step 5 — ESAL Replays Events and Fingerprints State**
+**Step 5 â€” ESAL Replays Events and Fingerprints State**
 
 ESAL consumes events and reconstructs state under ESAL v0.1 reference-oracle rules.
 
@@ -810,7 +810,7 @@ ESAL can produce:
 
 ESAL does **not** determine whether the vendor decision was correct, approved, compliant, legally sufficient, authorized in the world, or externally governance-valid.
 
-**Step 6 — Release Gate States What Verified**
+**Step 6 â€” Release Gate States What Verified**
 
 The release gate records that the ESAL v0.1 reference-oracle release candidate has a closed review chain, stable verification distribution, stable permutation-invariance evidence, explicit commit-role metadata, and explicit non-claims.
 

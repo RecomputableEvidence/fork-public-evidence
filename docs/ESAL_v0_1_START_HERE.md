@@ -1,4 +1,4 @@
-# ESAL v0.1 â€” Start Here
+# ESAL v0.1 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Start Here
 
 **Release candidate tag:** `esal-v0.1-rc6`  
 **Release candidate tag commit:** `1a99d32a305dd9f295b794c0e95bcd61c2af183d`  
@@ -52,6 +52,7 @@ From the repository root:
 git checkout esal-v0.1-rc6
 powershell .\tools\esal_verify.ps1
 .\tools\Test-EsalPermutationInvariance.ps1
+.\tools\Test-EsalConformance.ps1
 ```
 
 Expected verification distribution:
@@ -70,6 +71,18 @@ PASS: 50 permutations preserved canonical hash, state, fingerprint, and classifi
 ```
 
 ---
+
+The executable conformance harness is:
+
+```text
+tools/Test-EsalConformance.ps1
+```
+
+It writes:
+
+```text
+reports/ESAL_v0_1_CONFORMANCE_REPORT.json
+```
 
 ## 4. Core Claim Boundary
 

@@ -24,8 +24,10 @@ A conforming ESAL v0.1 replay comparison should use:
 - `reference/esal/`  
 - `esal-tests/`  
 - `tools/esal_verify.ps1`  
-- `tools/Test-EsalPermutationInvariance.ps1`  
+- `tools/Test-EsalPermutationInvariance.ps1`
+- `tools/Test-EsalConformance.ps1`  
 - `reports/ESAL_v0_1_EXPECTED_OUTPUTS.md`
+- `reports/ESAL_v0_1_CONFORMANCE_REPORT.json`
 
 ---
 
@@ -37,9 +39,32 @@ From the repository root:
 git checkout esal-v0.1-rc6
 powershell .\tools\esal_verify.ps1
 .\tools\Test-EsalPermutationInvariance.ps1
+.\tools\Test-EsalConformance.ps1
 ```
 
 ---
+
+## Executable Conformance Harness
+
+The ESAL v0.1 conformance harness is:
+
+```text
+tools/Test-EsalConformance.ps1
+```
+
+It runs the reference verification, checks fixture-level classifications, fingerprints, exception expectations, runs permutation invariance, and writes:
+
+```text
+reports/ESAL_v0_1_CONFORMANCE_REPORT.json
+```
+
+A passing run emits:
+
+```text
+CONFORMANCE_PASS
+```
+
+This establishes executable reference-oracle conformance checking only. It does not establish independent implementation convergence.
 
 ## 4. Expected Classification Distribution
 
