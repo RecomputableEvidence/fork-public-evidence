@@ -1,0 +1,91 @@
+{
+    "artifact_id":  "FORK-EVIDENCE-BOUNDARY-REPORT-v0.1",
+    "generated_utc":  "2026-06-27T11:49:00Z",
+    "started_utc":  "2026-06-27T11:48:53Z",
+    "branch":  "",
+    "commit":  "",
+    "result":  "FORK_EVIDENCE_BOUNDARY_PASS",
+    "purpose":  "Runs the bounded Fork evidence-boundary verification suite without collapsing ESAL conformance and BDR/ESAL handoff semantics.",
+    "suites":  [
+                   {
+                       "name":  "ESAL v0.1 conformance",
+                       "script":  ".\\tools\\Test-EsalConformance.ps1",
+                       "expected_output_fragment":  "CONFORMANCE_PASS",
+                       "expected_report_path":  "reports\\ESAL_v0_1_CONFORMANCE_REPORT.json",
+                       "expected_report_result":  "CONFORMANCE_PASS",
+                       "exit_code":  0,
+                       "passed":  true,
+                       "issues":  [
+
+                                  ],
+                       "output_excerpt":  [
+                                              "",
+                                              "Running ESAL reference verification...",
+                                              "",
+                                              "Running ESAL permutation invariance check...",
+                                              "== ESAL v0.1 Permutation Invariance Test ==",
+                                              "Log:        esal-tests\\canonical\\log1-basic-A-B-C.jsonl",
+                                              "Iterations: 50",
+                                              "Seed:       1701",
+                                              "",
+                                              "",
+                                              "ESAL permutation invariance test completed.",
+                                              "",
+                                              "== ESAL v0.1 Conformance Result ==",
+                                              "CONFORMANCE_PASS",
+                                              "",
+                                              "Distribution:",
+                                              "  PASS: actual 4, expected 4",
+                                              "  G:    actual 3, expected 3",
+                                              "  S:    actual 2, expected 2",
+                                              "  D:    actual 1, expected 1",
+                                              "",
+                                              "Fixtures: 10 / 10 passed",
+                                              "Permutation: passed",
+                                              "Report written: reports\\ESAL_v0_1_CONFORMANCE_REPORT.json"
+                                          ],
+                       "report_result":  "CONFORMANCE_PASS",
+                       "skipped":  false
+                   },
+                   {
+                       "name":  "BDR / ESAL handoff",
+                       "script":  ".\\tools\\Test-BdrEsalHandoff.ps1",
+                       "expected_output_fragment":  "HANDOFF_VALIDATOR_PASS",
+                       "expected_report_path":  "reports\\BDR_ESAL_HANDOFF_VALIDATION_REPORT.json",
+                       "expected_report_result":  "HANDOFF_VALIDATOR_PASS",
+                       "exit_code":  0,
+                       "passed":  true,
+                       "issues":  [
+
+                                  ],
+                       "output_excerpt":  [
+                                              "== BDR / ESAL Handoff Validator v0.1 ==",
+                                              "",
+                                              "== BDR / ESAL Handoff Validation Result ==",
+                                              "HANDOFF_VALIDATOR_PASS",
+                                              "",
+                                              "Valid example:   expected ACCEPT, actual ACCEPT",
+                                              "Invalid example: expected REJECT, actual REJECT",
+                                              "Invalid classification: INVALID_HANDOFF_AUTHORITY_INHERITANCE_ATTEMPT",
+                                              "Report written: reports\\BDR_ESAL_HANDOFF_VALIDATION_REPORT.json"
+                                          ],
+                       "report_result":  "HANDOFF_VALIDATOR_PASS",
+                       "skipped":  false
+                   }
+               ],
+    "non_claims":  [
+                       "does not establish production completeness",
+                       "does not establish legal sufficiency",
+                       "does not establish compliance sufficiency",
+                       "does not establish authorization correctness",
+                       "does not establish external governance validity",
+                       "does not establish endorsement or approval",
+                       "does not establish safety or truth",
+                       "does not establish independent implementation convergence",
+                       "does not make ESAL a policy-enforcement engine",
+                       "does not validate the underlying BDR transition as externally sufficient"
+                   ],
+    "issues":  [
+
+               ]
+}
