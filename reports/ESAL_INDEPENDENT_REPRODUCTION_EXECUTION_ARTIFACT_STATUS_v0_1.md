@@ -2,7 +2,8 @@
 
 **Document ID:** ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_STATUS_v0_1
 **Status:** Draft v0.1
-**Intended path:** eports/ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_STATUS_v0_1.md
+**Intended path:**
+eports/ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_STATUS_v0_1.md
 **Primary artifact definition:** docs/ESAL_INDEPENDENT_REPRODUCTION_EXECUTION_ARTIFACT_v0_1.md
 **Schema:** schemas/esal_independent_reproduction_execution_artifact_v0_1.schema.json
 **Pending example:** examples/esal_independent_reproduction_execution_artifact/pending_independent_reproduction_v0_1.json
