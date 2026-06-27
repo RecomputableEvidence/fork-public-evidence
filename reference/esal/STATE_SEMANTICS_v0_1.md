@@ -109,7 +109,7 @@ Per-BDR active-scope enforcement is out of scope for ESAL v0.1.
 
 ### 4.3 Authority Inflation
 
-ESAL v0.1 does enforce silent authority inflation.
+ESAL v0.1 prohibits silent authority inflation.
 
 If a child BDR declares authority that is not already present in the accumulated authority state, and no explicit expansion marker is present, the reducer raises a governance error.
 
@@ -152,6 +152,10 @@ It does not constitute validation that the expanding actor held authority to aut
 
 It does not establish that the expansion was institutionally approved, legally sufficient, policy-compliant, or valid outside the ESAL v0.1 reference-oracle structure.
 
+It also does not establish decision correctness, substantive validity, truth, safety, compliance, admissibility, or governance adequacy.
+
+The foregoing list is illustrative, not exhaustive. Marker recognition is a structural recognition event inside the ESAL v0.1 reference oracle, not an authorization, approval, certification, or validation of the underlying expansion.
+
 ### 4.4 Empty Authority
 
 In ESAL v0.1, an empty authority set means:
@@ -174,6 +178,10 @@ PASS does not imply affirmative authorization.
 A trace may pass the authority check because the action is present in a non-empty accumulated authority set.
 A trace may also pass the authority check because no authority restriction was declared.
 The ESAL v0.1 Reference Oracle does not distinguish those two PASS paths in its classification output.
+
+ESAL v0.1 cannot determine from oracle output alone whether an execution was affirmatively authorized or merely proceeded because no authority restriction was declared.
+
+PASS is therefore a replay classification, not an authorization decision.
 
 Consumers MUST NOT interpret PASS as proof that an action was affirmatively authorized.
 ```
@@ -198,7 +206,7 @@ exception = GovernanceError
 ```
 
 If `state.authority` is empty, this check does not fire.  
-If the EXECUTION body does not include an ction field, this check does not fire.
+If the EXECUTION body does not include an  ction field, this check does not fire.
 In ESAL v0.1, an EXECUTION event without an action field does not trigger `ACTION_OUTSIDE_AUTHORITY`.
 
 Absent action fields are therefore treated as outside the v0.1 authority check, not as structural errors and not as automatic governance errors.
@@ -208,6 +216,30 @@ This rule preserves the v0.1 distinction between:
 
 - empty authority = no restriction declared  
 - non-empty authority = declared authority envelope
+
+
+### 4.6 Compound Open-World PASS Case
+
+The following compound path is possible in ESAL v0.1:
+
+```text
+state.authority = {}
+EXECUTION body has no action field
+no other structural or governance failure occurs
+```
+
+In this path:
+
+- the empty-authority rule means no authority restriction has been declared,  
+- the absent-action rule means ACTION_OUTSIDE_AUTHORITY does not fire,  
+- reduction continues under ordinary replay rules, and  
+- the trace may classify as PASS.
+
+This PASS classification does **not** imply affirmative authorization.
+
+It means only that the ESAL v0.1 Reference Oracle did not detect a structural, governance, or determinism failure under its current open-world semantics.
+
+Consumers MUST NOT infer authorization, approval, legal sufficiency, policy compliance, decision correctness, or substantive validity from this PASS result.
 
 ## 5. Constraint Semantics
 
@@ -549,6 +581,9 @@ The following design decisions are intentional for ESAL v0.1:
 - Production governance semantics are out of scope.
 
 These decisions may be revisited in future ESAL versions but should not be treated as defects in the v0.1 reference oracle.
+
+
+
 
 
 

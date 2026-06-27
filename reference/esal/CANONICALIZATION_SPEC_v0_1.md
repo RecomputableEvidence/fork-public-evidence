@@ -166,9 +166,21 @@ The inferred value is:
 
 For each boundary pair, the reference oracle searches `body` first, then the event envelope.
 Both left and right members of the pair must be resolvable from the combined body-plus-event lookup for the inferred boundary to be used.
+
+For Section 6.2, a boundary-pair member is resolvable only when the lookup returns a non-empty string value.
+
+A pair is resolvable only when both the left and right members resolve to non-empty strings.
+
+Fields that are absent, null, non-string, or empty strings are not resolvable for boundary-pair inference.
 If either side of the pair is missing or non-string after lookup, that pair is skipped and the next boundary inference rule is attempted.
 If multiple boundary-pair candidates are populated, ESAL v0.1 uses the first resolvable pair in the priority order listed above.
 The reference oracle does not detect, warn on, or classify conflicting multi-pair declarations as S in v0.1.
+
+Conflicting populated boundary-pair candidates are not classified as S in ESAL v0.1.
+
+The first resolvable pair in the declared priority order is selected silently.
+
+Unselected boundary-pair candidates are not represented in the canonical boundary identifier, and their presence does not affect classification.
 
 This is a deterministic selection rule, not a semantic validation that the selected pair was the producer''s intended governance boundary.
 
@@ -479,6 +491,7 @@ Incorrect claim:
 > ESAL v0.1 has proven independent implementation convergence.
 
 Independent convergence requires at least one independently implemented oracle to reproduce the same canonical event sequence, reduced state, fingerprint, and taxonomy classifications over the same corpus.
+
 
 
 
