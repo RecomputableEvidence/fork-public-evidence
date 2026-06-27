@@ -1,10 +1,10 @@
 ESAL Independent Reproduction Gap Report v0.1
 
-Document ID: ESAL_INDEPENDENT_REPRODUCTION_GAP_REPORT_v0_1  
-Status: Draft v0.1  
-Intended path: reports/ESAL_INDEPENDENT_REPRODUCTION_GAP_REPORT_v0_1.md  
-Applies to: ESAL v0.1 independent reproduction readiness.  
-Primary spec: spec/BDR-ESAL-v0.1.md  
+Document ID: ESAL_INDEPENDENT_REPRODUCTION_GAP_REPORT_v0_1
+Status: Draft v0.1
+Intended path: reports/ESAL_INDEPENDENT_REPRODUCTION_GAP_REPORT_v0_1.md
+Applies to: ESAL v0.1 independent reproduction readiness.
+Primary spec: spec/BDR-ESAL-v0.1.md
 Boundary posture: Preservation without inheritance.
 
 ---

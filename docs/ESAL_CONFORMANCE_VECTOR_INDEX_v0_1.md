@@ -1,10 +1,10 @@
 ESAL Conformance Vector Index v0.1
 
-Document ID: ESAL_CONFORMANCE_VECTOR_INDEX_v0_1  
-Status: Draft v0.1  
-Intended path: docs/ESAL_CONFORMANCE_VECTOR_INDEX_v0_1.md  
-Applies to: ESAL v0.1 conformance and reproduction vectors.  
-Primary spec: spec/BDR-ESAL-v0.1.md  
+Document ID: ESAL_CONFORMANCE_VECTOR_INDEX_v0_1
+Status: Draft v0.1
+Intended path: docs/ESAL_CONFORMANCE_VECTOR_INDEX_v0_1.md
+Applies to: ESAL v0.1 conformance and reproduction vectors.
+Primary spec: spec/BDR-ESAL-v0.1.md
 Boundary posture: Preservation without inheritance.
 
 ---

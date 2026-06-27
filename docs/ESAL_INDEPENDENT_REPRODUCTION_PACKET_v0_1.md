@@ -1,10 +1,10 @@
 # ESAL Independent Reproduction Packet v0.1
 
-**Document ID:** `ESAL_INDEPENDENT_REPRODUCTION_PACKET_v0_1`  
-**Status:** Draft v0.1  
-**Intended path:** `docs/ESAL_INDEPENDENT_REPRODUCTION_PACKET_v0_1.md`  
-**Applies to:** BDR-ESAL v0.1 replay, conformance, and independent reproduction review.  
-**Primary spec:** `spec/BDR-ESAL-v0.1.md`  
+**Document ID:** `ESAL_INDEPENDENT_REPRODUCTION_PACKET_v0_1`
+**Status:** Draft v0.1
+**Intended path:** `docs/ESAL_INDEPENDENT_REPRODUCTION_PACKET_v0_1.md`
+**Applies to:** BDR-ESAL v0.1 replay, conformance, and independent reproduction review.
+**Primary spec:** `spec/BDR-ESAL-v0.1.md`
 **Boundary posture:** Preservation without inheritance.
 
 ---
