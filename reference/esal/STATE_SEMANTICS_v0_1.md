@@ -146,7 +146,11 @@ error_code = AUTHORITY_INFLATION
 
 This is a halted G-class path.
 
+Marker recognition confirms structural compliance with the expansion declaration requirement.
 
+It does not constitute validation that the expanding actor held authority to authorize the expansion.
+
+It does not establish that the expansion was institutionally approved, legally sufficient, policy-compliant, or valid outside the ESAL v0.1 reference-oracle structure.
 
 ### 4.4 Empty Authority
 
@@ -162,6 +166,17 @@ The current reference oracle therefore does not reject execution solely because 
 
 A future ESAL version may introduce explicit deny-all or closed-world authority semantics, but that is not part of v0.1.
 
+Important v0.1 non-claim:
+
+```text
+PASS does not imply affirmative authorization.
+
+A trace may pass the authority check because the action is present in a non-empty accumulated authority set.
+A trace may also pass the authority check because no authority restriction was declared.
+The ESAL v0.1 Reference Oracle does not distinguish those two PASS paths in its classification output.
+
+Consumers MUST NOT interpret PASS as proof that an action was affirmatively authorized.
+```
 ---
 
 ### 4.5 Action-Outside-Authority Enforcement
@@ -183,8 +198,12 @@ exception = GovernanceError
 ```
 
 If `state.authority` is empty, this check does not fire.  
-If the `EXECUTION` body does not include an `action` field, this check does not fire.
+If the EXECUTION body does not include an ction field, this check does not fire.
+In ESAL v0.1, an EXECUTION event without an action field does not trigger `ACTION_OUTSIDE_AUTHORITY`.
 
+Absent action fields are therefore treated as outside the v0.1 authority check, not as structural errors and not as automatic governance errors.
+
+This is an open-world v0.1 behavior. A future ESAL version may require action for all EXECUTION events or classify missing action as S or G.
 This rule preserves the v0.1 distinction between:
 
 - empty authority = no restriction declared  
@@ -530,5 +549,6 @@ The following design decisions are intentional for ESAL v0.1:
 - Production governance semantics are out of scope.
 
 These decisions may be revisited in future ESAL versions but should not be treated as defects in the v0.1 reference oracle.
+
 
 

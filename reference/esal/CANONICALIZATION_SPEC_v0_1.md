@@ -167,7 +167,16 @@ The inferred value is:
 For each boundary pair, the reference oracle searches `body` first, then the event envelope.
 Both left and right members of the pair must be resolvable from the combined body-plus-event lookup for the inferred boundary to be used.
 If either side of the pair is missing or non-string after lookup, that pair is skipped and the next boundary inference rule is attempted.
+If multiple boundary-pair candidates are populated, ESAL v0.1 uses the first resolvable pair in the priority order listed above.
+The reference oracle does not detect, warn on, or classify conflicting multi-pair declarations as S in v0.1.
 
+This is a deterministic selection rule, not a semantic validation that the selected pair was the producer''s intended governance boundary.
+
+The generic pairs `source` -> `target` and `from` -> `to` are lowest-priority compatibility fallbacks. They may collide with infrastructure, messaging, ETL, routing, or logging fields that are not governance-boundary fields.
+
+Producers SHOULD prefer explicit semantic boundary fields such as `source_boundary` and `target_boundary`.
+
+Consumers MUST NOT treat a boundary inferred from generic `source` / `target` or `from` / `to` fields as proof that the producer made an explicit governance-boundary declaration.
 ### 6.3 BDR-Based Boundary Surrogate
 
 If no explicit or pair-inferred boundary exists, use:
@@ -176,8 +185,16 @@ If no explicit or pair-inferred boundary exists, use:
 bdr:<bdr_id>
 ```
 
-where `bdr_id` is taken from:
+where dr_id is taken from:
+Priority rule:
 
+If both `body["bdr_id"]` and `body["governed_by_bdr_id"]` are present, ESAL v0.1 uses `body["bdr_id"]`.
+
+If `body["bdr_id"]` is absent or not a non-empty string, ESAL v0.1 falls back to `body["governed_by_bdr_id"]`.
+
+If both are present and differ, ESAL v0.1 does not classify the event as S; it silently applies the priority rule above.
+
+This is a deterministic v0.1 compatibility behavior, not validation that the unused value was semantically consistent.
 - `body["bdr_id"]`  
 - `body["governed_by_bdr_id"]`
 
@@ -462,5 +479,6 @@ Incorrect claim:
 > ESAL v0.1 has proven independent implementation convergence.
 
 Independent convergence requires at least one independently implemented oracle to reproduce the same canonical event sequence, reduced state, fingerprint, and taxonomy classifications over the same corpus.
+
 
 
