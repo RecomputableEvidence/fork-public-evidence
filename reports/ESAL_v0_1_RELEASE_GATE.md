@@ -5,8 +5,8 @@
 **Reviewed ESAL Subject Commit:** `859d2abe3db324970f0d3af4faffafd22f221b28`
 **Release-Gate Artifact Commit:** `f7720f3de9b32a971bf066cc96295065aeae29b0`
 **Release Metadata Clarification Commit:** `bfde05a9e51e339cf4a6571258455ed6c1e3ab02`
-**Release Candidate Tag:** `esal-v0.1-rc5`  
-**HEAD:** `859d2abe3db324970f0d3af4faffafd22f221b28`  
+**Release Candidate Tag:** `esal-v0.1-rc6`  
+**Review Closure Commit:** `859d2abe3db324970f0d3af4faffafd22f221b28`  
 **Status:** READY FOR RELEASE GATING
 
 ---
@@ -25,7 +25,7 @@ The release candidate tag identifies the retrieval anchor for this release-candi
 
 These commits have different roles and should not be interpreted as conflicting release identifiers.
 
-This gate does not claim production completeness, legal sufficiency, compliance sufficiency, independent cross-implementation convergence, or external governance validity.
+This gate does not claim production completeness, legal sufficiency, compliance sufficiency, independent cross-implementation convergence, or external governance validity. This list is illustrative, not exhaustive.
 
 It records that the ESAL v0.1 reference-oracle documentation, fixtures, and verification behavior have passed the current review chain with no open findings.
 
@@ -133,5 +133,6 @@ ESAL v0.1 has a reviewed, internally consistent reference-oracle specification w
 READY_FOR_RELEASE_GATING
 ```
 
-This determination is limited to ESAL v0.1 reference-oracle release gating. It does not establish external validity, production sufficiency, legal sufficiency, compliance sufficiency, authorization correctness, or independent implementation convergence.
+This determination is limited to ESAL v0.1 reference-oracle release gating. It does not establish external validity, production sufficiency, legal sufficiency, compliance sufficiency, authorization correctness, or independent implementation convergence. This list is illustrative, not exhaustive.
+
 
