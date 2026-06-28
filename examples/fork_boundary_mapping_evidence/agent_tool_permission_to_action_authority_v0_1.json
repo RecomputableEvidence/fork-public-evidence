@@ -1,0 +1,85 @@
+{
+  "artifact_id": "FORK-BME-AGENT-TOOL-PERMISSION-ACTION-AUTHORITY-v0.1",
+  "artifact_type": "FORK_BOUNDARY_MAPPING_EVIDENCE",
+  "artifact_version": "v0.1",
+  "mapping_id": "agent_tool_permission_to_action_authority_v0_1",
+  "mapping_title": "Agent tool permission treated as action authority",
+  "domain": "Agent governance and autonomous workflow control",
+  "native_domain_object": {
+    "object_type": "agent_tool_permission_record",
+    "object_id": "agent-tool-permission-example-v0.1",
+    "description": "A record showing that an agent, workflow, or automation had access to a tool, API, connector, or execution capability under defined conditions."
+  },
+  "source_claim": {
+    "claim_id": "tool-access-claim-example-v0.1",
+    "statement": "The agent or workflow had the recorded tool access permission under the specified identity, scope, and configuration.",
+    "scope": "Tool access permission, configured identity, tool scope, time, and declared operational context only.",
+    "evidence_refs": [
+      "tool permission record reference",
+      "agent identity reference",
+      "tool scope reference",
+      "configuration reference"
+    ]
+  },
+  "evidence_preserved": [
+    {
+      "evidence_id": "tool-permission-ref",
+      "evidence_type": "permission_record",
+      "description": "The tool permission record is preserved as evidence that the agent or workflow had access to the tool."
+    },
+    {
+      "evidence_id": "agent-identity-ref",
+      "evidence_type": "identity_reference",
+      "description": "The agent or workflow identity reference is preserved as evidence of the subject associated with the permission."
+    }
+  ],
+  "boundary_crossing": {
+    "from_context": "tool access configuration context",
+    "to_context": "consequential action context",
+    "boundary_type": "PERMISSION_TO_ACTION",
+    "transition_description": "A tool access permission is consumed by a downstream workflow as if it authorizes a consequential action using that tool."
+  },
+  "downstream_assumption": {
+    "assumption_id": "action-authority-assumption-example-v0.1",
+    "statement": "The existence of tool permission is treated as if it establishes authority to perform a consequential action.",
+    "assumption_type": "AUTHORITY_INFERENCE"
+  },
+  "attempted_inherited_authority": [
+    "ACTION_AUTHORITY",
+    "RUNTIME_AUTHORIZATION"
+  ],
+  "fork_preservation_result": [
+    "SOURCE_CLAIM_RECORDED",
+    "EVIDENCE_REFERENCES_PRESERVED",
+    "BOUNDARY_CROSSING_RECORDED",
+    "DOWNSTREAM_ASSUMPTION_RECORDED",
+    "NON_CLAIMS_PRESERVED",
+    "UNRESOLVED_QUESTIONS_RECORDED"
+  ],
+  "fork_non_inheritance_result": [
+    "ACTION_AUTHORITY_INHERITANCE_NOT_ESTABLISHED",
+    "AUTHORITY_INHERITANCE_NOT_ESTABLISHED"
+  ],
+  "unresolved_questions": [
+    "What actor or institution has authority to approve the consequential action?",
+    "What policy, mandate, or delegated authority basis governs the action?",
+    "What additional evidence would bind the action to an authorized purpose, scope, and accountable actor?"
+  ],
+  "non_claims": [
+    "This mapping does not establish action authority.",
+    "This mapping does not establish runtime authorization.",
+    "This mapping does not establish legal sufficiency.",
+    "This mapping does not establish policy compliance.",
+    "This mapping does not convert tool access into permission to act."
+  ],
+  "result_tokens": [
+    "BOUNDARY_MAPPING_RECORDED",
+    "EVIDENCE_PRESERVED",
+    "AUTHORITY_INHERITANCE_NOT_ESTABLISHED",
+    "SCOPE_EXPANSION_RECORDED",
+    "NON_CLAIM_PRESERVED",
+    "UNRESOLVED_AUTHORITY_ASSUMPTION_RECORDED"
+  ],
+  "determination": "BOUNDARY_MAPPING_RECORDED",
+  "created_at": "2026-06-27T00:00:00Z"
+}

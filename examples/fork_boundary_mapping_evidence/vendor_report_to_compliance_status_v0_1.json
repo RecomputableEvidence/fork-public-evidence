@@ -1,0 +1,85 @@
+{
+  "artifact_id": "FORK-BME-VENDOR-REPORT-COMPLIANCE-STATUS-v0.1",
+  "artifact_type": "FORK_BOUNDARY_MAPPING_EVIDENCE",
+  "artifact_version": "v0.1",
+  "mapping_id": "vendor_report_to_compliance_status_v0_1",
+  "mapping_title": "Vendor report treated as compliance status",
+  "domain": "Vendor risk, GRC, and compliance evidence assembly",
+  "native_domain_object": {
+    "object_type": "vendor_risk_report",
+    "object_id": "vendor-risk-report-example-v0.1",
+    "description": "A vendor risk report containing observations, attestations, questionnaire answers, control descriptions, or review notes for a vendor or service provider."
+  },
+  "source_claim": {
+    "claim_id": "vendor-report-existence-and-content-claim-example-v0.1",
+    "statement": "The vendor report exists and contains the preserved statements, attachments, or observations recorded in the source context.",
+    "scope": "Report contents, issuer, date, referenced evidence, review context, and stated limitations only.",
+    "evidence_refs": [
+      "vendor report reference",
+      "questionnaire reference",
+      "attachment reference",
+      "review timestamp reference"
+    ]
+  },
+  "evidence_preserved": [
+    {
+      "evidence_id": "vendor-report-ref",
+      "evidence_type": "report_reference",
+      "description": "The vendor report reference is preserved as evidence that the report exists and was available to the consuming process."
+    },
+    {
+      "evidence_id": "vendor-attachment-ref",
+      "evidence_type": "supporting_attachment_reference",
+      "description": "Supporting attachments or questionnaire responses are preserved as referenced evidence."
+    }
+  ],
+  "boundary_crossing": {
+    "from_context": "vendor review context",
+    "to_context": "compliance register context",
+    "boundary_type": "REPORT_TO_REGISTER",
+    "transition_description": "A vendor report is consumed by a compliance or GRC register as evidence relevant to compliance status, control posture, or residual risk."
+  },
+  "downstream_assumption": {
+    "assumption_id": "compliance-status-assumption-example-v0.1",
+    "statement": "The existence or review of the vendor report is treated as if it establishes compliance status for the vendor, system, or control area.",
+    "assumption_type": "COMPLIANCE_INFERENCE"
+  },
+  "attempted_inherited_authority": [
+    "COMPLIANCE_STATUS",
+    "AUDIT_ACCEPTANCE"
+  ],
+  "fork_preservation_result": [
+    "SOURCE_CLAIM_RECORDED",
+    "EVIDENCE_REFERENCES_PRESERVED",
+    "BOUNDARY_CROSSING_RECORDED",
+    "DOWNSTREAM_ASSUMPTION_RECORDED",
+    "NON_CLAIMS_PRESERVED",
+    "UNRESOLVED_QUESTIONS_RECORDED"
+  ],
+  "fork_non_inheritance_result": [
+    "COMPLIANCE_INHERITANCE_NOT_ESTABLISHED",
+    "AUTHORITY_INHERITANCE_NOT_ESTABLISHED"
+  ],
+  "unresolved_questions": [
+    "What policy, control framework, or regulatory basis would authorize a compliance determination?",
+    "Which claims in the vendor report are independently verified, and which are self-attested?",
+    "What time period, system boundary, jurisdiction, and control scope would apply to any compliance claim?"
+  ],
+  "non_claims": [
+    "This mapping does not establish compliance.",
+    "This mapping does not establish audit acceptance.",
+    "This mapping does not establish vendor trustworthiness.",
+    "This mapping does not establish legal sufficiency.",
+    "This mapping does not convert a report into an approval."
+  ],
+  "result_tokens": [
+    "BOUNDARY_MAPPING_RECORDED",
+    "EVIDENCE_PRESERVED",
+    "AUTHORITY_INHERITANCE_NOT_ESTABLISHED",
+    "SCOPE_EXPANSION_RECORDED",
+    "NON_CLAIM_PRESERVED",
+    "UNRESOLVED_AUTHORITY_ASSUMPTION_RECORDED"
+  ],
+  "determination": "BOUNDARY_MAPPING_RECORDED",
+  "created_at": "2026-06-27T00:00:00Z"
+}
