@@ -1,0 +1,292 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.dev/schemas/fork_boundary_mapping_evidence_v0_1.schema.json",
+  "title": "Fork Boundary Mapping Evidence v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "artifact_type",
+    "artifact_version",
+    "mapping_id",
+    "mapping_title",
+    "domain",
+    "native_domain_object",
+    "source_claim",
+    "evidence_preserved",
+    "boundary_crossing",
+    "downstream_assumption",
+    "attempted_inherited_authority",
+    "fork_preservation_result",
+    "fork_non_inheritance_result",
+    "unresolved_questions",
+    "non_claims",
+    "result_tokens",
+    "determination",
+    "created_at"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_type": {
+      "const": "FORK_BOUNDARY_MAPPING_EVIDENCE"
+    },
+    "artifact_version": {
+      "const": "v0.1"
+    },
+    "mapping_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_\\-]+_v0_1$"
+    },
+    "mapping_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native_domain_object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_type",
+        "object_id",
+        "description"
+      ],
+      "properties": {
+        "object_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "object_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "source_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "statement",
+        "scope",
+        "evidence_refs"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "evidence_preserved": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "evidence_type",
+          "description"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "boundary_crossing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_context",
+        "to_context",
+        "boundary_type",
+        "transition_description"
+      ],
+      "properties": {
+        "from_context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "boundary_type": {
+          "type": "string",
+          "enum": [
+            "EVALUATION_TO_DEPLOYMENT",
+            "REPORT_TO_REGISTER",
+            "PERMISSION_TO_ACTION",
+            "REVIEW_TO_APPROVAL",
+            "EVIDENCE_TO_AUTHORITY",
+            "OTHER"
+          ]
+        },
+        "transition_description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "downstream_assumption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assumption_id",
+        "statement",
+        "assumption_type"
+      ],
+      "properties": {
+        "assumption_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assumption_type": {
+          "type": "string",
+          "enum": [
+            "SAFETY_INFERENCE",
+            "COMPLIANCE_INFERENCE",
+            "AUTHORITY_INFERENCE",
+            "APPROVAL_INFERENCE",
+            "LEGAL_SUFFICIENCY_INFERENCE",
+            "AUDIT_ACCEPTANCE_INFERENCE",
+            "TRUTH_INFERENCE",
+            "OTHER"
+          ]
+        }
+      }
+    },
+    "attempted_inherited_authority": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "DEPLOYMENT_SAFETY",
+          "COMPLIANCE_STATUS",
+          "ACTION_AUTHORITY",
+          "LEGAL_SUFFICIENCY",
+          "AUDIT_ACCEPTANCE",
+          "APPROVAL",
+          "TRUTH_CERTIFICATION",
+          "RUNTIME_AUTHORIZATION",
+          "EXTERNAL_ENDORSEMENT",
+          "BUSINESS_FITNESS"
+        ]
+      }
+    },
+    "fork_preservation_result": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "SOURCE_CLAIM_RECORDED",
+          "EVIDENCE_REFERENCES_PRESERVED",
+          "BOUNDARY_CROSSING_RECORDED",
+          "DOWNSTREAM_ASSUMPTION_RECORDED",
+          "NON_CLAIMS_PRESERVED",
+          "UNRESOLVED_QUESTIONS_RECORDED"
+        ]
+      }
+    },
+    "fork_non_inheritance_result": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "AUTHORITY_INHERITANCE_NOT_ESTABLISHED",
+          "SAFETY_INHERITANCE_NOT_ESTABLISHED",
+          "COMPLIANCE_INHERITANCE_NOT_ESTABLISHED",
+          "APPROVAL_INHERITANCE_NOT_ESTABLISHED",
+          "LEGAL_SUFFICIENCY_INHERITANCE_NOT_ESTABLISHED",
+          "ACTION_AUTHORITY_INHERITANCE_NOT_ESTABLISHED",
+          "TRUTH_INHERITANCE_NOT_ESTABLISHED"
+        ]
+      }
+    },
+    "unresolved_questions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "result_tokens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "BOUNDARY_MAPPING_RECORDED",
+          "EVIDENCE_PRESERVED",
+          "AUTHORITY_INHERITANCE_NOT_ESTABLISHED",
+          "SCOPE_EXPANSION_RECORDED",
+          "NON_CLAIM_PRESERVED",
+          "UNRESOLVED_AUTHORITY_ASSUMPTION_RECORDED"
+        ]
+      }
+    },
+    "determination": {
+      "type": "string",
+      "enum": [
+        "BOUNDARY_MAPPING_RECORDED",
+        "BOUNDARY_MAPPING_INCOMPLETE"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
