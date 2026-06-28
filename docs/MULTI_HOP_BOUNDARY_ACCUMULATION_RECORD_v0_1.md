@@ -378,7 +378,7 @@ MHBAR MUST NOT produce or imply the following determinations:
 - VALID
 - INVALID
 - DEPLOYABLE
-- NOT_DEPLYABLE
+- NOT_DEPLOYABLE
 - BLOCKED
 - PERMITTED
 - CERTIFIED
