@@ -1,0 +1,82 @@
+{
+    "artifact_id":  "FORK-BME-CHECKER-EXECUTION-RECEIPT-v0.1",
+    "artifact_type":  "FORK_BOUNDARY_MAPPING_EVIDENCE_CHECKER_EXECUTION_RECEIPT",
+    "artifact_version":  "v0.1",
+    "created_at":  "2026-06-28T02:51:09Z",
+    "execution_context":  {
+                              "repository":  "RecomputableEvidence/fork-public-evidence",
+                              "branch":  "fork-boundary-mapping-evidence-execution-receipt-v0.1",
+                              "commit":  "01543be9dba34e6cbc2cdcb4a1995d00e108d0d9",
+                              "short_commit":  "01543be",
+                              "platform":  "Windows PowerShell 5.1"
+                          },
+    "checker_execution":  {
+                              "command":  "python .\\tools\\check_boundary_mapping_evidence.py",
+                              "exit_code":  0,
+                              "checker":  "check_boundary_mapping_evidence.py",
+                              "checker_version":  "v0.1",
+                              "status":  "STRUCTURAL_PASS",
+                              "record_count":  3,
+                              "mapping_ids":  [
+                                                  "agent_tool_permission_to_action_authority_v0_1",
+                                                  "benchmark_to_deployment_safety_v0_1",
+                                                  "vendor_report_to_compliance_status_v0_1"
+                                              ],
+                              "record_determinations":  [
+                                                            {
+                                                                "mapping_id":  "agent_tool_permission_to_action_authority_v0_1",
+                                                                "determination":  "STRUCTURAL_PASS",
+                                                                "error_count":  0
+                                                            },
+                                                            {
+                                                                "mapping_id":  "benchmark_to_deployment_safety_v0_1",
+                                                                "determination":  "STRUCTURAL_PASS",
+                                                                "error_count":  0
+                                                            },
+                                                            {
+                                                                "mapping_id":  "vendor_report_to_compliance_status_v0_1",
+                                                                "determination":  "STRUCTURAL_PASS",
+                                                                "error_count":  0
+                                                            }
+                                                        ],
+                              "non_claims":  [
+                                                 "Checker does not establish legal sufficiency.",
+                                                 "Checker does not establish regulatory compliance.",
+                                                 "Checker does not establish audit acceptance.",
+                                                 "Checker does not establish deployment safety.",
+                                                 "Checker does not establish model truth.",
+                                                 "Checker does not establish agent authorization.",
+                                                 "Checker does not establish runtime enforcement.",
+                                                 "Checker does not establish external endorsement.",
+                                                 "Checker does not establish business fitness.",
+                                                 "Checker does not establish claim inheritance."
+                                             ]
+                          },
+    "test_execution":  {
+                           "command":  "python -m unittest discover -s tests -p \"test_boundary_mapping_evidence_v0_1.py\"",
+                           "exit_code":  0,
+                           "observed_output":  "....\n----------------------------------------------------------------------\nRan 4 tests in 0.666s\nSystem.Management.Automation.RemoteException\nOK",
+                           "observed_result":  "TESTS_PASSED"
+                       },
+    "prior_ci_observation":  {
+                                 "pull_request":  31,
+                                 "observation":  "GitHub PR checks were observed successful before merge using gh pr checks 31 --watch.",
+                                 "bound_ci_log":  false
+                             },
+    "determination":  "EXECUTION_RECEIPT_RECORDED",
+    "non_claims":  [
+                       "Receipt does not establish legal sufficiency.",
+                       "Receipt does not establish regulatory compliance.",
+                       "Receipt does not establish audit acceptance.",
+                       "Receipt does not establish deployment safety.",
+                       "Receipt does not establish model truth.",
+                       "Receipt does not establish benchmark validity.",
+                       "Receipt does not establish vendor trustworthiness.",
+                       "Receipt does not establish agent authorization.",
+                       "Receipt does not establish runtime enforcement.",
+                       "Receipt does not establish institutional approval.",
+                       "Receipt does not establish external endorsement.",
+                       "Receipt does not establish business fitness.",
+                       "Receipt does not establish claim inheritance."
+                   ]
+}
