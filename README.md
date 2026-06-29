@@ -55,16 +55,21 @@ Use this path only when a serious prospect asks how a bounded workflow would be 
 From the repository root:
 
 ```powershell
-python .\tools\check_release_package.py .\release_packages\FORK_PUBLIC_DOCTRINE_PACKET_v0_1
-python .\tools\check_release_package.py .\release_packages\FORK_TECHNICAL_VALIDATION_PACKET_v0_1
-python .\tools\check_release_package.py .\release_packages\FORK_PILOT_DISCOVERY_PACKET_v0_1
+python ./tools/check_release_package.py ./release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1
+python ./tools/check_release_package.py ./release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1
+```
+
+Before checking the pilot discovery package, note: This verifies package structure and checksums only; it does not validate commercial pilot readiness.
+
+```powershell
+python ./tools/check_release_package.py ./release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1
 ```
 
 To inspect the public technical disclosure verifier:
 
 ```powershell
-cd .\technical-disclosure
-python .\verify_public_disclosure.py
+cd ./technical-disclosure
+python ./verify_public_disclosure.py
 cd ..
 ```
 
@@ -78,7 +83,9 @@ A passing command establishes only the bounded condition declared by that comman
 
 ## Released materials vs branch work
 
-The `main` branch is the canonical public-review surface unless a different branch is explicitly named for a bounded review. Tagged GitHub releases are frozen public release artifacts. Other branches may contain experimental, repair, localization, or development work and must not be treated as released public-review posture unless merged into `main` or explicitly referenced by a release package or review request.
+- The `main` branch is the canonical public-review surface unless a different branch is explicitly named for a bounded review.
+- Tagged GitHub releases are frozen public release artifacts.
+- Other branches may contain experimental, repair, localization, or development work and must not be treated as released public-review posture unless merged into `main` or explicitly referenced by a release package or review request.
 
 See `docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md` before citing any branch-specific artifact externally.
 
@@ -86,28 +93,26 @@ See `docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md` before citing any branch-specific ar
 
 The stable public/reviewer package map is maintained in:
 
-```text
-docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md
-```
+- `docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md`
 
 Current public package directories include:
 
-```text
-release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1/
-release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/
-release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/
-release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/
-release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/
-release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/
-```
+- `release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1/`
+- `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/`
+- `release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/`
+- `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/`
+- `release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/`
+- `release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/`
 
 ## Canonical white paper
 
 **Reconstructive Fidelity in the Age of AI**  
-*The Invariant Distance Principle and Why Governance Requires Evidence That Survives Institutional Change*
+_The Invariant Distance Principle and Why Governance Requires Evidence That Survives Institutional Change_
 
-- Canonical article: `https://RecomputableEvidence.github.io/fork-public-evidence/`
+- Canonical article: <https://RecomputableEvidence.github.io/fork-public-evidence/>
 - Repository copy: `white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md`
+
+Citation metadata in `CITATION.cff` supports formal attribution of this repository and cited public disclosure materials. It does not establish peer-reviewed publication, academic endorsement, certification, or institutional validation.
 
 ## Public technical disclosure
 
@@ -121,18 +126,18 @@ Outer ZIP SHA-256:
 
 The disclosure contains a deterministic synthetic workflow fixture, selected schemas, an included verifier, granular gate results, explicit non-claims, and a detached outer-ZIP receipt.
 
-## What the public disclosure establishes
+### What the public disclosure establishes
 
 - Declared workflow-member eligibility and packet membership.
 - SHA-256 member-digest recomputation.
 - Canonical manifest-digest recomputation.
 - Public test-key HMAC binding recomputation.
 - Persisted-artifact verification.
-- Granular `PASS / FAIL / NOT_CHECKED` preservation.
+- Granular PASS / FAIL / NOT_CHECKED preservation.
 - Mechanical semantic-authority non-promotion checks.
 - Explicit timestamp disclosure boundaries.
 
-## What the public disclosure does not establish
+### What the public disclosure does not establish
 
 - Source truth or source completeness.
 - Public signer identity or non-repudiation.
@@ -145,8 +150,10 @@ The disclosure contains a deterministic synthetic workflow fixture, selected sch
 - AI-output correctness.
 - Decision correctness.
 
+For the complete non-claim boundary, see `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md`.
+
 ## Copyright
 
 Copyright © 2026 Ryan Feller. All rights reserved.
 
-Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, or controlled operating materials.
+Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, unpublished implementation code, internal tooling, operating procedures, or delivery materials not included in this public release.

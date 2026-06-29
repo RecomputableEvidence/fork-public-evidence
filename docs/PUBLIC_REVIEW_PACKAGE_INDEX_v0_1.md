@@ -10,45 +10,54 @@ This index is not a maturity claim. It is a navigation and boundary artifact.
 
 Start with:
 
-```text
-README.md
-docs/REVIEWER_START_HERE_v0_1.md
-docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md
-```
+1. `README.md`
+2. `docs/REVIEWER_START_HERE_v0_1.md`
+3. `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md`
 
 ## Package table
 
-| Package | Path | Use when | Supported claim | Non-claim boundary |
-|---|---|---|---|---|
-| Public Doctrine Packet v0.1 | `release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1/` | A reviewer asks what Fork is and where it sits. | Fork has a public, bounded doctrine and evidence posture for recomputable evidence in AI-assisted workflows. | No production deployment, legal admissibility, source completeness, decision correctness, runtime enforcement, compliance satisfaction, or client-specific readiness. |
-| Executive Buyer Packet v0.1 | `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/` | A GC, CLO, CCO, CRO, audit leader, legal operations leader, or governance sponsor asks why Fork matters commercially. | Fork addresses a reconstructive-fidelity gap by preserving bounded evidence records for later review. | No replacement of governance, compliance, audit, legal review, risk ownership, or remediation authority. |
-| Technical Validation Packet v0.1 | `release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/` | A technical reviewer asks what can be inspected, checked, or verified. | Fork has inspectable public technical materials for bounded evidence preservation and verification under controlled repository conditions. | No client production operation, full model replay, complete vendor telemetry, legal admissibility, compliance satisfaction, runtime enforcement, or decision correctness. |
-| Pilot Discovery Packet v0.1 | `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/` | A serious prospect asks how a bounded workflow would be evaluated for a possible pilot. | Fork can help evaluate whether a defined client workflow is suitable for bounded, read-only evidence preservation. | No claim that the workflow is already suitable, no universal ingestion claim, no hidden backend reconstruction, no automatic blocking, and no compliance/legal conclusion. |
-| Client Discovery Return Packet Template v0.1 | `release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/` | A client-side team needs to provide workflow/source-system facts before scoping. | A candidate workflow can be described in a structured way for boundary review. | No claim that Fork can capture all listed systems or that the workflow is approved for pilot. |
-| Client Evidence Boundary Packet Template v0.1 | `release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/` | Fork translates completed discovery into a specific workflow evidence-boundary draft. | A workflow-specific preservation boundary can be stated for review. | No coverage of other workflows, no unobserved-system claim, no legal/compliance conclusion, and no response/remediation ownership. |
+| Package                               | Path                                                     | Use when                                                                 | Supported claim                                                                                                          | Non-claim boundary                                                                                                                                                                                                 |
+|---------------------------------------|----------------------------------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Public Doctrine Packet v0.1           | `release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1/`     | A reviewer asks what Fork is and where it sits.                           | Fork has a public, bounded doctrine and evidence posture for recomputable evidence in AI-assisted workflows.            | No production deployment, legal admissibility, source completeness, decision correctness, runtime enforcement, compliance satisfaction, or client-specific readiness.                                               |
+| Executive Buyer Packet v0.1           | `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/`     | A GC, CLO, CCO, CRO, audit leader, legal ops leader, or sponsor asks why Fork matters commercially. | Fork addresses a reconstructive-fidelity gap by preserving bounded evidence records for later review.                   | No replacement of governance, compliance, audit, legal review, risk ownership, or remediation authority.                                                                                                         |
+| Technical Validation Packet v0.1      | `release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/`| A technical reviewer asks what can be inspected, checked, or verified.    | Fork has inspectable public technical materials for bounded evidence preservation and verification under controlled repository conditions. | No client production operation, full model replay, complete vendor telemetry, legal admissibility, compliance satisfaction, runtime enforcement, or decision correctness.                                         |
+| Pilot Discovery Packet v0.1           | `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/`     | A serious prospect asks how a bounded workflow would be evaluated for a possible pilot. | Fork can help evaluate whether a defined client workflow is suitable for bounded, read-only evidence preservation.      | No claim that the workflow is already suitable, no universal ingestion claim, no hidden backend reconstruction, no automatic blocking, and no compliance/legal conclusion.                                         |
+| Client Discovery Return Packet v0.1   | `release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/` | A client-side team needs to provide workflow/source-system facts before scoping. | A candidate workflow can be described in a structured way for boundary review.                                           | No claim that Fork can capture all listed systems or that the workflow is approved for pilot.                                                                                                                     |
+| Client Evidence Boundary Packet v0.1  | `release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/` | Fork translates completed discovery into a specific workflow evidence-boundary draft. | A workflow-specific preservation boundary can be stated for review.                                                      | No coverage of other workflows, no unobserved-system claim, no legal/compliance conclusion, and no response/remediation ownership.                                                                                |
 
 ## Technical validation commands
 
 From the repository root:
 
 ```powershell
-python .\tools\check_release_package.py .\release_packages\FORK_PUBLIC_DOCTRINE_PACKET_v0_1
-python .\tools\check_release_package.py .\release_packages\FORK_TECHNICAL_VALIDATION_PACKET_v0_1
-python .\tools\check_release_package.py .\release_packages\FORK_PILOT_DISCOVERY_PACKET_v0_1
+python ./tools/check_release_package.py ./release_packages/FORK_PUBLIC_DOCTRINE_PACKET_v0_1
+python ./tools/check_release_package.py ./release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1
+```
+
+Before checking the pilot discovery package, note: This verifies package structure and checksums only; it does not validate commercial pilot readiness.
+
+```powershell
+python ./tools/check_release_package.py ./release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1
 ```
 
 For public technical disclosure verification:
 
 ```powershell
-cd .\technical-disclosure
-python .\verify_public_disclosure.py
+cd ./technical-disclosure
+python ./verify_public_disclosure.py
 cd ..
 ```
 
 ## Release status rule
 
-Materials on `main` are the public-review baseline unless a review request explicitly names a different branch. Tagged GitHub releases are frozen release artifacts. Branch work is not part of the public-review baseline until merged into `main`, tagged, or explicitly listed in a bounded review request.
+Materials on `main` are the public-review baseline unless a review request explicitly names a different branch. Tagged GitHub releases are frozen release artifacts.
+
+Branch work is not part of the public-review baseline until merged into `main`, tagged, or explicitly listed in a bounded review request.
 
 ## Package-selection rule
 
-Send the smallest package that truthfully answers the recipient's question. Do not send a later-stage package merely to appear more mature. Do not let a package imply a broader claim than its `CLAIMS_AND_NON_CLAIMS.md` supports.
+Send the smallest package that truthfully answers the recipient's question.
+
+Do not send a later-stage package merely to appear more mature.
+
+Do not let a package imply a broader claim than its `CLAIMS_AND_NON_CLAIMS.md` supports.

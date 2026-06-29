@@ -25,16 +25,28 @@ Fork is read-only evidence-boundary infrastructure for AI-assisted workflows: it
 5. `release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/README.md`
 6. `docs/VERIFICATION_COMMANDS_v0_1.md`
 
-### Technical validation path
+## Technical validation path
 
 1. `release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/VERIFICATION_INSTRUCTIONS.md`
 2. `release_packages/FORK_TECHNICAL_VALIDATION_PACKET_v0_1/TECHNICAL_VALIDATION_MAP.md`
 3. `technical-disclosure/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md`
 4. `tools/`, `schemas/`, `examples/`, and `tests/`
 
+## Pilot discovery path
+
+Use this path only when a serious prospect asks how a bounded workflow would be evaluated for possible pilot scoping.
+
+1. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/README.md`
+2. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/EVIDENCE_BOUNDARY_WORKSHEET.md`
+3. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/SOURCE_SYSTEM_INVENTORY.md`
+4. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/SECURITY_AND_DATA_HANDLING_QUESTIONS.md`
+5. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/CLAIMS_AND_NON_CLAIMS.md`
+
 ## Reviewer posture
 
-Review Fork as an evidence-boundary system, not as a general AI governance platform. A valid review should distinguish:
+Review Fork as an evidence-boundary system, not as a general AI governance platform.
+
+A valid review should distinguish:
 
 - what the artifact preserves;
 - what the verifier checks;
@@ -44,7 +56,9 @@ Review Fork as an evidence-boundary system, not as a general AI governance platf
 
 ## Correct interpretation of verification
 
-A successful verification result means the checked artifact satisfied the declared structural condition for that verifier. It does not mean the underlying workflow was correct, lawful, compliant, complete, independently witnessed, safe, or production-ready.
+A successful verification result means the checked artifact satisfied the declared structural condition for that verifier.
+
+It does not mean the underlying workflow was correct, lawful, compliant, complete, independently witnessed, safe, or production-ready.
 
 ## Common misreadings to avoid
 
@@ -61,4 +75,6 @@ Do not treat Fork as:
 
 ## External review rule
 
-When citing Fork externally, cite the smallest bounded artifact that supports the statement. Do not cite the whole repository as support for a claim that only one package, checker, or branch artifact addresses.
+When citing Fork externally, cite the smallest bounded artifact that supports the statement.
+
+Do not cite the whole repository as support for a claim that only one package, checker, or branch artifact addresses.

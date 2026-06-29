@@ -2,11 +2,15 @@
 
 ## Purpose
 
-This document states the universal non-claim boundary for Fork's public/reviewer surface. It is intended to prevent reviewers, prospects, advisors, integrators, downstream systems, or automation layers from treating preserved evidence as proof of claims Fork does not make.
+This document states the universal non-claim boundary for Fork's public/reviewer surface.
+
+It is intended to prevent reviewers, prospects, advisors, integrators, downstream systems, or automation layers from treating preserved evidence as proof of claims Fork does not make.
 
 ## Core boundary
 
-Fork preserves bounded evidence records. Fork does not decide what the preserved record legally, clinically, ethically, commercially, operationally, or institutionally authorizes.
+Fork preserves bounded evidence records.
+
+Fork does not decide what the preserved record legally, clinically, ethically, commercially, operationally, or institutionally authorizes.
 
 ## Fork may support review of
 
@@ -17,7 +21,7 @@ Fork public artifacts may support review of:
 - byte-level integrity checks;
 - manifest and checksum relationships;
 - bounded schema or checker behavior;
-- explicit `PASS`, `FAIL`, `NOT_CHECKED`, `PARTIAL`, `STALE_CONTEXT`, `OUT_OF_SCOPE`, or `SOURCE_UNAVAILABLE` states where applicable;
+- explicit PASS, FAIL, NOT_CHECKED, PARTIAL, STALE_CONTEXT, OUT_OF_SCOPE, or SOURCE_UNAVAILABLE states where applicable;
 - explicit non-claims and unresolved unknowns;
 - whether a preserved record still matches its declared boundary.
 
@@ -69,4 +73,6 @@ Any such decision must be made by a separate authorized process with its own aut
 
 ## Reviewer rule
 
-When reviewing or citing Fork, state both the supported claim and the non-claim boundary. A statement about Fork is incomplete if it describes what a verifier checked but omits what the verifier does not establish.
+When reviewing or citing Fork, state both the supported claim and the non-claim boundary.
+
+A statement about Fork is incomplete if it describes what a verifier checked but omits what the verifier does not establish.
