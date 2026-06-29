@@ -22,11 +22,11 @@ Use the root `README.md` as a short orientation only. Use `docs/REVIEWER_START_H
 
 ### Minimum first-review path
 
-- `docs/REVIEWER_START_HERE_v0_1.md` â€” canonical reviewer entry point.
-- `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md` â€” complete non-claim boundary.
-- `docs/VERIFICATION_COMMANDS_v0_1.md` â€” bounded technical verification commands.
-- `docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md` â€” stable package map.
-- `docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md` â€” boundary for branch, internal, legacy, and non-release materials.
+- `docs/REVIEWER_START_HERE_v0_1.md` - canonical reviewer entry point.
+- `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md` - complete non-claim boundary.
+- `docs/VERIFICATION_COMMANDS_v0_1.md` - bounded technical verification commands.
+- `docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md` - stable package map.
+- `docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md` - boundary for branch, internal, legacy, and non-release materials.
 
 ## Recommended reviewer paths
 

@@ -116,6 +116,7 @@ GATES_FAIL: 0
 After running the quick start, read:
 
 - `docs/REVIEWER_START_HERE_v0_1.md`
+- `docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md`
 - `docs/VERIFICATION_COMMANDS_v0_1.md`
 - `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md`
 - `docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md`
