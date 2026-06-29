@@ -1,0 +1,8 @@
+Fork public technical disclosure verifier requirements.
+
+No third-party Python packages are required for:
+- technical-disclosure/verify_public_disclosure.py
+
+The verifier uses the Python standard library.
+
+Tested reviewer path: Python 3.11+.

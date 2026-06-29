@@ -1,5 +1,7 @@
 # Fork Public Evidence
 
+> **Boundary note:** This repository provides a bounded, read-only evidence disclosure and verification surface. It does not certify legal admissibility, production readiness, security posture, SOC 2, ISO, HIPAA, regulatory compliance, customer deployment, commercial pilot approval, AI-output correctness, source completeness, or institutional authority.
+
 **Recomputable Evidence for AI-assisted workflows.**
 
 Fork is a bounded evidence-preservation surface for AI-assisted workflow events. It preserves what was observable and captured, what was checked, what failed or was not checked, what was referenced, and what must not be inferred from the preserved record.
@@ -7,6 +9,8 @@ Fork is a bounded evidence-preservation surface for AI-assisted workflow events.
 Fork is not a runtime control plane, policy engine, compliance oracle, audit function, legal determination system, AI-output correctness validator, or production-deployment claim.
 
 ## Start here
+
+Start with [REVIEWER_QUICK_START_v0_1.md](REVIEWER_QUICK_START_v0_1.md) for the shortest reproducible reviewer path.
 
 The canonical reviewer entry point is:
 
