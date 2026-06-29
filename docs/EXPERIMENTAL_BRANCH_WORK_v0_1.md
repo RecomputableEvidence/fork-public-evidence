@@ -66,3 +66,31 @@ Branch work does not claim:
 - institutional authority;
 - endorsement by external reviewers;
 - inclusion in public release packages unless expressly stated.
+
+## Public repository auxiliary-material boundary
+
+Some directories may be visible on `main` but still not part of the released public-review surface.
+
+### docs/internal/
+
+`docs/internal/` contains internal working materials. It is publicly visible for repository transparency, but it is not part of Fork's released public-review posture unless a later release package, tag, or bounded review request expressly brings a specific file into scope.
+
+External reviewers should not cite `docs/internal/` as Fork's released public-review position.
+
+The directory-level boundary is stated in:
+
+- `docs/internal/README.md`
+
+### pilot_package/
+
+`pilot_package/` is an auxiliary controlled-pilot index area. It is not the same thing as:
+
+- `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/`
+
+The released pilot-discovery review path is the package under `release_packages/`, not the root `pilot_package/` directory.
+
+External reviewers should not treat `pilot_package/` as a released pilot offer, commercial term sheet, production-readiness claim, implementation commitment, or substitute for the pilot discovery packet.
+
+The directory-level boundary is stated in:
+
+- `pilot_package/README.md`

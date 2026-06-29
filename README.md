@@ -8,16 +8,25 @@ Fork is not a runtime control plane, policy engine, compliance oracle, audit fun
 
 ## Start here
 
-For first review, use this path:
+The canonical reviewer entry point is:
 
-1. [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md) — orientation for external reviewers.
-2. [`docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md`](docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md) — stable map of public/reviewer packages.
-3. [`docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md`](docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md) — Fork's read-only operational boundary.
-4. [`docs/VERIFICATION_COMMANDS_v0_1.md`](docs/VERIFICATION_COMMANDS_v0_1.md) — exact commands for local verification.
-5. [`docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md`](docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md) — what Fork artifacts must not be interpreted as proving.
-6. [`docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md`](docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md) — distinction between released public-review materials and branch work.
+```text
+docs/REVIEWER_START_HERE_v0_1.md
+```
+
+Use the root `README.md` as a short orientation only. Use `docs/REVIEWER_START_HERE_v0_1.md` as the authoritative reading path for external review.
+
+### Minimum first-review path
+
+- `docs/REVIEWER_START_HERE_v0_1.md` â€” canonical reviewer entry point.
+- `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md` â€” complete non-claim boundary.
+- `docs/VERIFICATION_COMMANDS_v0_1.md` â€” bounded technical verification commands.
+- `docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md` â€” stable package map.
+- `docs/EXPERIMENTAL_BRANCH_WORK_v0_1.md` â€” boundary for branch, internal, legacy, and non-release materials.
 
 ## Recommended reviewer paths
+
+The paths below are a quick summary of `docs/REVIEWER_START_HERE_v0_1.md`. If there is any uncertainty, treat `docs/REVIEWER_START_HERE_v0_1.md` as authoritative.
 
 ### Public orientation path
 
@@ -40,9 +49,23 @@ Use this path when the reviewer asks: "Is this technically inspectable?"
 5. `technical-disclosure/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md`
 6. `tools/`, `schemas/`, `examples/`, and `tests/`
 
+### Executive buyer orientation path
+
+Use this path only when an executive, advisor, technical sponsor, legal/compliance leader, audit leader, or design-partner sponsor asks why Fork matters commercially or organizationally.
+
+This packet is an orientation surface. It does not establish pricing, procurement readiness, pilot approval, production deployment, legal sufficiency, compliance satisfaction, risk acceptance, or client-specific suitability.
+
+1. `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/README.md`
+2. `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/EXECUTIVE_BRIEF.md`
+3. `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/BUYER_PROBLEM.md`
+4. `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/USE_CASES.md`
+5. `release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/CLAIMS_AND_NON_CLAIMS.md`
+
 ### Pilot discovery path
 
-Use this path only when a serious prospect asks how a bounded workflow would be evaluated.
+Use this path only when a serious prospect asks how a bounded workflow would be evaluated for possible pilot scoping.
+
+This packet supports discovery and boundary scoping. It does not establish workflow suitability, commercial pilot readiness, production readiness, implementation approval, legal sufficiency, compliance satisfaction, or client-specific deployment coverage.
 
 1. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/README.md`
 2. `release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/EVIDENCE_BOUNDARY_WORKSHEET.md`
