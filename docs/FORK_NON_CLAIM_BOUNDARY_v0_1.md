@@ -22,6 +22,8 @@ Fork public artifacts may support review of:
 - manifest and checksum relationships;
 - bounded schema or checker behavior;
 - explicit PASS, FAIL, NOT_CHECKED, PARTIAL, STALE_CONTEXT, OUT_OF_SCOPE, or SOURCE_UNAVAILABLE states where applicable;
+
+The public technical disclosure verifier currently emits `PASS`, `FAIL`, and `NOT_CHECKED` states. Other state labels are not implied for the public technical disclosure verifier unless a specific checker, schema, package README, or receipt explicitly declares them.
 - explicit non-claims and unresolved unknowns;
 - whether a preserved record still matches its declared boundary.
 
@@ -44,8 +46,8 @@ Fork public artifacts do not establish:
 - public signer identity;
 - non-repudiation;
 - third-party verifier independence;
-- append-only persistence unless separately established;
-- RFC 3161 validation unless separately established;
+- append-only persistence for this public review surface;
+- RFC 3161 timestamp validation for this public review surface;
 - full replay of hidden vendor behavior;
 - complete external telemetry;
 - authority validity;
