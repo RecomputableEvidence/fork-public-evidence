@@ -1,3 +1,12 @@
+# Historical Publication Checklist Boundary
+
+This file is a historical publication checklist. It is not a current readiness gate.
+
+Its presence in the repository does not mean the current public review surface is unfinished, unreleased, blocked, or awaiting approval. Current public-review posture is determined by the repository `main` branch, released package materials, explicit boundary documents, and tagged releases where applicable.
+
+The checklist below is retained for traceability of earlier publication preparation.
+
+---
 # GitHub Publication Readiness Checklist
 
 ## Repository

@@ -56,7 +56,7 @@ Fork public artifacts do not establish:
 
 ## Automation boundary
 
-No downstream automation should map a Fork verification result directly to:
+No downstream automation is authorized to map a Fork verification result directly to:
 
 - approval;
 - authorization;
@@ -76,3 +76,29 @@ Any such decision must be made by a separate authorized process with its own aut
 When reviewing or citing Fork, state both the supported claim and the non-claim boundary.
 
 A statement about Fork is incomplete if it describes what a verifier checked but omits what the verifier does not establish.
+
+## Buyer, discovery, and pilot packets
+
+Fork buyer, discovery, design-partner, and pilot-discovery packets are bounded orientation and scoping materials.
+
+They do not establish:
+
+- live customer deployment;
+- production operation;
+- procurement readiness;
+- pricing commitment;
+- commercial pilot approval;
+- design-partner acceptance;
+- client-specific suitability;
+- implementation approval;
+- legal sufficiency;
+- compliance satisfaction;
+- audit sufficiency;
+- risk acceptance;
+- security certification;
+- source-system completeness;
+- workflow coverage beyond the stated boundary.
+
+A package name containing `buyer`, `discovery`, `design partner`, or `pilot` must not be interpreted as evidence that Fork is operating in a customer environment, that a customer has approved deployment, or that a workflow has been accepted for production use.
+
+Those materials may support bounded conversation, scoping, or review only within the claims and non-claims declared by the relevant package.
