@@ -1,0 +1,13 @@
+target_id,path,organization,person_or_role_hypothesis,trigger,why_now,why_fork,asset_anchor,message_variant,pain_signal_0_3,timing_trigger_0_3,authority_proximity_0_3,category_comprehension_0_3,warm_access_0_3,path_fit_0_3,priority_score,status,last_touch,next_action,reply_signal,notes
+T-001,PUBLIC_REVIEWER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-002,PUBLIC_REVIEWER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-003,PUBLIC_REVIEWER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-004,PUBLIC_REVIEWER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-005,ADVISOR_DESIGN_PARTNER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-006,ADVISOR_DESIGN_PARTNER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-007,ADVISOR_DESIGN_PARTNER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-008,ADVISOR_DESIGN_PARTNER,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-009,ENTERPRISE_POV,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-010,ENTERPRISE_POV,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-011,ENTERPRISE_POV,,,,,,,,,,,,,,0,IDENTIFIED,,,,
+T-012,ENTERPRISE_POV,,,,,,,,,,,,,,0,IDENTIFIED,,,,
