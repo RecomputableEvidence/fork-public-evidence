@@ -6,3 +6,14 @@ desktop.ini
 *.swp
 __pycache__/
 *.pyc
+
+# Private outreach working files
+# Public-safe templates may live under outreach/templates/.
+# Do not commit populated target lists, private relationship notes, or prospect research.
+outreach/private/
+outreach/*.local.*
+outreach/*PRIVATE*
+outreach/*private*
+outreach/*targets-filled*
+outreach/*prospects*
+outreach/*crm*
