@@ -181,43 +181,38 @@ For the complete non-claim boundary, see `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md`.
 
 ## Copyright
 
-Copyright Â© 2026 Ryan Feller. All rights reserved.
+Copyright© 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, unpublished implementation code, internal tooling, operating procedures, or delivery materials not included in this public release.
 
-## Public presence and buyer routing
 
-For cold reviewers, advisors, design partners, and enterprise buyers, start with:
-
-- Reviewer Quick Start
-- Reviewer Start Here
-- Non-Claim Boundary
-- Timestamp Pathway
-- Worked Example: Vendor Risk AI-Assisted Decision Record
-
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
-
-This routing does not establish production readiness, compliance certification, legal sufficiency, customer deployment, commercial pilot approval, or procurement readiness.
-
-## Enterprise discovery and bounded workflow PoV
-
-Fork can be evaluated through a bounded enterprise discovery or proof-of-value engagement around one AI-assisted workflow.
-
-The proposed commercial signal is:
-
-`	ext
-USD 75,000 per bounded workflow
-90 days
-`
-
-Start with:
-
-- Enterprise Discovery / Bounded Workflow PoV Packet
-- Bounded Workflow PoV Scope Template
-- Executive Buyer Packet PoV Summary
-- Worked Example: Vendor Risk AI-Assisted Decision Record
-- Fork Non-Claim Boundary
-
-This routing does not establish a binding quote, procurement approval, production readiness, customer deployment, commercial pilot approval, legal sufficiency, security certification, compliance satisfaction, audit sufficiency, or risk acceptance.
-
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
+Public presence and workflow-inlet routing
+Fork routes by evidence-boundary input, not by buyer persona.
+A reviewer, advisor, enterprise sponsor, legal/compliance leader, audit leader, risk leader, technical sponsor, source-system owner, GRC owner, AI governance lead, or co-integration partner may all enter through the same public surface.
+The correct inlet depends on what the visitor can provide:
+Public review input: use REVIEWER_QUICK_START_v0_1.md, docs/REVIEWER_START_HERE_v0_1.md, docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md, and docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md.
+Candidate workflow input: start with release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/.
+Client-side workflow/source-system input: complete release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/.
+Fork-authored evidence-boundary output: Fork may draft release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/ only after reviewing a completed Client Discovery Return Packet.
+Sidecar bridge specification: a sidecar bridge follows an accepted evidence boundary; it is not assumed from public review alone.
+Bounded workflow PoV: a PoV may be scoped only around one accepted bounded workflow.
+For the canonical routing cadence, see:
+docs/FORK_INLET_ROUTING_AND_ONBOARDING_CADENCE_v0_1.md
+This routing does not establish production readiness, customer deployment, procurement approval, legal sufficiency, compliance satisfaction, audit sufficiency, source completeness, security approval, risk acceptance, workflow suitability, commercial pilot approval, AI-output correctness, decision correctness, or institutional authority.
+Enterprise discovery and bounded workflow PoV
+Fork can be evaluated only around a bounded AI-assisted workflow whose evidence boundary has been described, reviewed, and accepted for scoping.
+The governing sequence is:
+Public repo orientation.
+Workflow-inlet routing.
+Client Discovery Return Packet.
+Fork review of returned workflow/source-system facts.
+Client Evidence Boundary Packet draft, if responsible.
+Client review of the proposed evidence boundary.
+Sidecar bridge specification candidate, if the boundary is accepted.
+Bounded workflow PoV scope, if commercially and operationally appropriate.
+The Client Discovery Return Packet is the inbound mapping record.
+The Client Evidence Boundary Packet is the Fork-authored boundary draft.
+The sidecar bridge is downstream of the accepted boundary.
+The institution owns the action. Fork preserves the bounded evidence record.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn.
+This routing does not establish a binding quote, procurement approval, production readiness, customer deployment, commercial pilot approval, legal sufficiency, security certification, compliance satisfaction, audit sufficiency, risk acceptance, workflow suitability, source-system access approval, implementation approval, or sidecar bridge approval.

@@ -2,6 +2,24 @@
 
 ## Purpose
 
+
+<!-- BEGIN FORK_WORKFLOW_INLET_ROLE_V0_1 -->
+
+Workflow-inlet routing role
+This packet is the inbound mapping record for workflow-inlet routing.
+A visitor may arrive through any of the following input channels:
+candidate workflow identification
+source-system/export mapping
+evidence-artifact mapping
+AI-assisted surface description
+state-transition mapping
+security/data-handling constraints
+institutional ownership mapping
+co-integration boundary review
+The packet consolidates those inputs into a single client-side discovery return.
+Fork uses the completed packet to determine whether a client-specific evidence boundary can be responsibly drafted.
+Completion of this packet does not establish onboarding, deployment, source-system access approval, production integration approval, workflow suitability, legal sufficiency, compliance satisfaction, audit sufficiency, security approval, risk acceptance, or sidecar bridge approval.
+<!-- END FORK_WORKFLOW_INLET_ROLE_V0_1 -->
 This package is a client-completable discovery return packet template for Fork.
 
 It is used when a qualified prospect has a candidate workflow and needs to provide enough structured information for Fork to determine whether a client-specific evidence boundary and sidecar bridge can be responsibly scoped.

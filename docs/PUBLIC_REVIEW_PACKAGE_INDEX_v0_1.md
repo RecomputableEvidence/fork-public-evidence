@@ -8,6 +8,22 @@ This index is not a maturity claim. It is a navigation and boundary artifact.
 
 ## Canonical entry point
 
+
+<!-- BEGIN FORK_WORKFLOW_INLET_ROUTING_V0_1 -->
+
+Workflow-inlet routing
+Fork routes by evidence-boundary input, not by buyer persona.
+Use docs/FORK_INLET_ROUTING_AND_ONBOARDING_CADENCE_v0_1.md to determine whether a visitor should enter through public review, candidate workflow identification, source-system/export mapping, evidence-artifact mapping, state-transition mapping, security/data-handling constraints, institutional ownership, or co-integration boundary review.
+The routing sequence is:
+Public repo orientation.
+Workflow-inlet routing.
+Client Discovery Return Packet.
+Fork review of returned workflow/source-system facts.
+Client Evidence Boundary Packet draft, if responsible.
+Sidecar bridge specification candidate, if the boundary is accepted.
+Bounded workflow PoV scope, if commercially and operationally appropriate.
+This routing does not establish production readiness, legal sufficiency, compliance satisfaction, audit sufficiency, security approval, risk acceptance, workflow suitability, source completeness, commercial pilot approval, or institutional authority.
+<!-- END FORK_WORKFLOW_INLET_ROUTING_V0_1 -->
 Start with:
 
 1. `README.md`

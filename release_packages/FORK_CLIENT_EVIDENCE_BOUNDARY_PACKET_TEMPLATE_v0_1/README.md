@@ -2,6 +2,21 @@
 
 ## Purpose
 
+
+<!-- BEGIN FORK_WORKFLOW_INLET_ROLE_V0_1 -->
+
+Workflow-inlet routing role
+This packet is the Fork-authored boundary draft produced only after review of a completed Client Discovery Return Packet.
+It converts client-side workflow/source-system facts into a bounded preservation surface.
+It is downstream of workflow-inlet routing and upstream of any sidecar bridge specification candidate.
+The governing sequence is:
+Client Discovery Return Packet maps the environment.
+Fork reviews the returned facts and unknowns.
+Fork drafts this Client Evidence Boundary Packet only if responsible.
+The client reviews the proposed boundary.
+A sidecar bridge specification candidate may follow only after the boundary is accepted.
+This packet does not establish production deployment, client onboarding, source-system access approval, legal admissibility, compliance satisfaction, audit conclusions, security approval, risk acceptance, AI-output correctness, decision correctness, runtime workflow control, or sidecar bridge approval.
+<!-- END FORK_WORKFLOW_INLET_ROLE_V0_1 -->
 This package is the template Fork uses after receiving a completed Client Discovery Return Packet.
 
 It converts client-provided discovery information into a bounded client-specific evidence boundary.
