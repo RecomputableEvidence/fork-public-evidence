@@ -178,4 +178,4 @@ A first discovery conversation should answer:
 
 ## Contact
 
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
