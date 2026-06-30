@@ -195,7 +195,7 @@ For cold reviewers, advisors, design partners, and enterprise buyers, start with
 - Timestamp Pathway
 - Worked Example: Vendor Risk AI-Assisted Decision Record
 
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
 
 This routing does not establish production readiness, compliance certification, legal sufficiency, customer deployment, commercial pilot approval, or procurement readiness.
 
@@ -220,4 +220,4 @@ Start with:
 
 This routing does not establish a binding quote, procurement approval, production readiness, customer deployment, commercial pilot approval, legal sufficiency, security certification, compliance satisfaction, audit sufficiency, or risk acceptance.
 
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.

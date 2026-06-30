@@ -654,5 +654,5 @@ The disclosed fixture is synthetic. Live institutional deployment, source truth 
 
 Ryan Feller maintains the Fork public evidence work as part of the Recomputable Evidence / Fork effort.
 Fork focuses on evidence-boundary infrastructure for AI-assisted workflows: preserving what was claimed, what was not claimed, what evidence was referenced, what checks were performed, and what later reviewers must not infer from the record.
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
 

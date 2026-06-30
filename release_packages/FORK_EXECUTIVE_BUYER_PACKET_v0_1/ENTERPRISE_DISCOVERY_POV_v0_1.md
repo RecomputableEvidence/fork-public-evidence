@@ -80,4 +80,4 @@ A bounded PoV may return:
 
 ## Contact
 
-To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
