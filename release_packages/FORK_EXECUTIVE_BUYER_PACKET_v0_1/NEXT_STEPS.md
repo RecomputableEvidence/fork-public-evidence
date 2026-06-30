@@ -32,3 +32,21 @@ Use the Pilot Discovery Packet when the question becomes workflow suitability, s
 Do not proceed directly from this packet to implementation.
 
 A pilot-ready implementation packet requires prior discovery, source-system review, security and data-handling review, workflow scope, acceptance criteria, and client-specific non-claims.
+
+## Bounded discovery contact
+
+To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+
+A discovery conversation may identify:
+
+- the workflow boundary;
+- the AI-assisted event type;
+- the records available for preservation;
+- the evidence boundary;
+- non-claims;
+- transfer assumptions;
+- verification outputs;
+- operational constraints.
+
+A discovery conversation does not establish production readiness, procurement approval, legal sufficiency, compliance satisfaction, customer deployment, commercial pilot approval, or risk acceptance.
+

@@ -181,6 +181,21 @@ For the complete non-claim boundary, see `docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md`.
 
 ## Copyright
 
-Copyright © 2026 Ryan Feller. All rights reserved.
+Copyright Â© 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, unpublished implementation code, internal tooling, operating procedures, or delivery materials not included in this public release.
+
+## Public presence and buyer routing
+
+For cold reviewers, advisors, design partners, and enterprise buyers, start with:
+
+- Reviewer Quick Start
+- Reviewer Start Here
+- Non-Claim Boundary
+- Timestamp Pathway
+- Worked Example: Vendor Risk AI-Assisted Decision Record
+
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
+
+This routing does not establish production readiness, compliance certification, legal sufficiency, customer deployment, commercial pilot approval, or procurement readiness.
+
