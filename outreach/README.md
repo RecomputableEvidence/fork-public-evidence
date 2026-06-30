@@ -37,3 +37,14 @@ The patch creates:
 - `outreach/private/OUTREACH_TARGET_MAP_PRIVATE_v0_1.md`
 
 This file is ignored and should remain local unless intentionally moved into a private workspace.
+
+## Message variants
+Public-safe message templates are available in:
+outreach/messages/PUBLIC_REVIEWER_MESSAGE_v0_1.md
+outreach/messages/ADVISOR_DESIGN_PARTNER_MESSAGE_v0_1.md
+outreach/messages/ENTERPRISE_POV_MESSAGE_v0_1.md
+outreach/messages/FOLLOW_UP_MESSAGES_v0_1.md
+outreach/messages/REPLY_HANDLING_GUIDE_v0_1.md
+These are templates only.
+Do not commit personalized versions, target names, private relationship notes, or reply content.
+
