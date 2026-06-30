@@ -199,3 +199,25 @@ For bounded technical review, design-partner discussion, or enterprise discovery
 
 This routing does not establish production readiness, compliance certification, legal sufficiency, customer deployment, commercial pilot approval, or procurement readiness.
 
+## Enterprise discovery and bounded workflow PoV
+
+Fork can be evaluated through a bounded enterprise discovery or proof-of-value engagement around one AI-assisted workflow.
+
+The proposed commercial signal is:
+
+`	ext
+USD 75,000 per bounded workflow
+90 days
+`
+
+Start with:
+
+- Enterprise Discovery / Bounded Workflow PoV Packet
+- Bounded Workflow PoV Scope Template
+- Executive Buyer Packet PoV Summary
+- Worked Example: Vendor Risk AI-Assisted Decision Record
+- Fork Non-Claim Boundary
+
+This routing does not establish a binding quote, procurement approval, production readiness, customer deployment, commercial pilot approval, legal sufficiency, security certification, compliance satisfaction, audit sufficiency, or risk acceptance.
+
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-REAL-SLUG/.
