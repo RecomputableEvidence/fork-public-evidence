@@ -1,4 +1,4 @@
-﻿# Fork Verification Receipt Specification v0.1
+# Fork Verification Receipt Specification v0.1
 
 ## Purpose
 

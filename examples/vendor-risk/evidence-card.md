@@ -1,4 +1,4 @@
-﻿Fork Evidence Card: Vendor-Risk Golden Workflow
+Fork Evidence Card: Vendor-Risk Golden Workflow
 
 Workflow summary
 An AI-assisted vendor-risk recommendation was generated, reviewed by a human, incorporated into an internal decision memo, and later referenced by a downstream consumer as if it established broader vendor approval.

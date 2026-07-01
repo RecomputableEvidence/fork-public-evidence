@@ -1,4 +1,4 @@
-﻿Vendor-Risk Golden Workflow Example
+Vendor-Risk Golden Workflow Example
 
 Purpose
 This example is Fork's golden workflow for the current product surface.

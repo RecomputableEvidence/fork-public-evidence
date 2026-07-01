@@ -1,4 +1,4 @@
-﻿Fork Boundary Map: Vendor-Risk Golden Workflow
+Fork Boundary Map: Vendor-Risk Golden Workflow
 
 Canonical flow
 requested â†’ generated â†’ reviewed â†’ accepted/modified â†’ relied upon â†’ consumed downstream

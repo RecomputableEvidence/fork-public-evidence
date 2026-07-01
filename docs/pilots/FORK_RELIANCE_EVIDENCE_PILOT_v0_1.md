@@ -1,4 +1,4 @@
-﻿Fork Reliance Evidence Pilot v0.1
+Fork Reliance Evidence Pilot v0.1
 
 Name
 Fork Reliance Evidence Pilot

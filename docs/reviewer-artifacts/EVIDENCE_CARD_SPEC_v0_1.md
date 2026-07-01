@@ -1,4 +1,4 @@
-﻿# Fork Evidence Card Specification v0.1
+# Fork Evidence Card Specification v0.1
 
 ## Purpose
 

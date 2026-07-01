@@ -1,4 +1,4 @@
-﻿Fork Review Packet: Vendor-Risk Golden Workflow
+Fork Review Packet: Vendor-Risk Golden Workflow
 
 Purpose
 This review packet provides a reviewer-operable view of the vendor-risk golden workflow.

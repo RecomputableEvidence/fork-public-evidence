@@ -1,4 +1,4 @@
-﻿# Fork Review Packet Specification v0.1
+# Fork Review Packet Specification v0.1
 
 ## Purpose
 

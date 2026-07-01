@@ -1,4 +1,4 @@
-﻿Fork Proof Surface
+Fork Proof Surface
 
 This directory is reserved for Fork's proof-layer materials: schemas, checkers, fixtures, receipts, reproducibility materials, and boundary discipline.
 

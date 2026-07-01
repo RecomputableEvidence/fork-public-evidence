@@ -1,4 +1,4 @@
-﻿# Fork Surface Doctrine v0.1
+# Fork Surface Doctrine v0.1
 
 This document defines the current public and product surface doctrine for Fork. Treat these lines as invariants for the next iteration of the repository, reviewer artifacts, golden workflow, and pilot materials.
 

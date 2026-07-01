@@ -1,4 +1,4 @@
-﻿# Fork Non-Claim Panel Specification v0.1
+# Fork Non-Claim Panel Specification v0.1
 
 ## Purpose
 

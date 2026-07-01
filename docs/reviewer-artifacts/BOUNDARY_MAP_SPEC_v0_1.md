@@ -1,4 +1,4 @@
-﻿# Fork Boundary Map Specification v0.1
+# Fork Boundary Map Specification v0.1
 
 ## Purpose
 
