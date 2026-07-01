@@ -4,13 +4,13 @@ Name
 Fork Reliance Evidence Pilot
 
 Duration
-60â€“90 days
+60-90 days
 
 Scope
 One bounded AI-assisted workflow. One sealed evidence packet. One verification path. One reviewer-facing closeout report.
 
 Default golden workflow
-AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt.
+AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt.
 
 Pilot purpose
 The pilot evaluates whether Fork can preserve a reviewer-operable evidence boundary for one AI-assisted workflow at the moment the output becomes eligible for institutional reliance.
@@ -49,10 +49,10 @@ Recommended next workflows
 
 Pricing lane
 Indicative commercial ladder:
-Design partner: $0â€“$25K
-Proof of value: $75K / 60â€“90 days
-Limited production: $125Kâ€“$175K/year
-Enterprise: $400Kâ€“$750K/year+
+Design partner: $0-$25K
+Proof of value: $75K / 60-90 days
+Limited production: $125K-$175K/year
+Enterprise: $400K-$750K/year+
 Regulated multi-workflow deployments may require higher scope and pricing.
 
 Explicit exclusions
@@ -69,3 +69,11 @@ transfer upstream authority.
 
 Buyer-facing statement
 At the end of the pilot, the organization receives a sealed evidence packet for one real AI-assisted workflow and a reviewer-facing closeout report showing what Fork preserved, what it did not claim, and where downstream reliance would require additional authority.
+
+## Indicative pricing and readiness boundary
+
+Any pricing, sequencing, pilot framing, or commercial ladder described for this pilot is indicative only and subject to scoped discovery.
+
+This pilot does not imply production readiness, legal sufficiency, compliance satisfaction, security certification, customer deployment approval, model correctness, source completeness, or workflow suitability.
+
+Those determinations remain with the institution and its authorized legal, compliance, audit, risk, security, procurement, governance, and executive reviewers.

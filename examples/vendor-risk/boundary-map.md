@@ -1,35 +1,35 @@
 Fork Boundary Map: Vendor-Risk Golden Workflow
 
 Canonical flow
-requested â†’ generated â†’ reviewed â†’ accepted/modified â†’ relied upon â†’ consumed downstream
+requested -> generated -> reviewed -> accepted/modified -> relied upon -> consumed downstream
 
 Nodes
-N1 â€” Request
+N1 - Request
 Type: REQUESTED
 Description: A user requests an AI-assisted vendor-risk summary.
 Boundary effect: PRESERVED
 
-N2 â€” AI output
+N2 - AI output
 Type: GENERATED
 Description: The AI produces a vendor-risk recommendation.
 Boundary effect: PRESERVED
 
-N3 â€” Human review
+N3 - Human review
 Type: REVIEWED
 Description: A human reviewer evaluates the AI output.
 Boundary effect: PRESERVED
 
-N4 â€” Human modification / acceptance
+N4 - Human modification / acceptance
 Type: ACCEPTED_MODIFIED
 Description: The reviewer accepts some parts and modifies others.
 Boundary effect: NARROWED
 
-N5 â€” Institutional reliance
+N5 - Institutional reliance
 Type: RELIED_UPON
 Description: The reviewed memo becomes eligible to inform an internal vendor-risk decision.
 Boundary effect: PRESERVED
 
-N6 â€” Downstream consumption attempt
+N6 - Downstream consumption attempt
 Type: CONSUMED_DOWNSTREAM
 Description: A downstream consumer attempts to treat the memo as broader vendor approval.
 Boundary effect: EXPANDED
@@ -46,3 +46,7 @@ This record does not establish regulatory compliance.
 This record does not transfer upstream authority.
 This record does not prove underlying sources were true.
 This record preserves only the bounded evidence and reliance structure.
+
+## Human-readable non-claims panel
+
+See `NON_CLAIMS_PANEL.md` for the reviewer-facing **Not Established by This Record** panel. The JSON file `non-claims.json` remains the machine-readable companion; the Markdown panel is the human-readable boundary-control surface.

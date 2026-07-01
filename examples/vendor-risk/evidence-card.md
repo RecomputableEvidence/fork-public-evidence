@@ -7,7 +7,7 @@ Fork preserves the bounded evidence record for that workflow.
 Packet
 Packet ID: fork-example-vendor-risk-001
 Workflow type: AI_ASSISTED_VENDOR_RISK_RECOMMENDATION
-Golden workflow: AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt
+Golden workflow: AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt
 
 What was requested
 A vendor-risk summary to support internal review of a prospective vendor.
@@ -39,3 +39,7 @@ This record does not establish regulatory compliance.
 This record does not transfer upstream authority.
 This record does not prove underlying sources were true.
 This record preserves only the bounded evidence and reliance structure.
+
+## Human-readable non-claims panel
+
+See `NON_CLAIMS_PANEL.md` for the reviewer-facing **Not Established by This Record** panel. The JSON file `non-claims.json` remains the machine-readable companion; the Markdown panel is the human-readable boundary-control surface.

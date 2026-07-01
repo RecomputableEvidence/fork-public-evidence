@@ -22,7 +22,7 @@ One bounded AI-assisted workflow. One sealed evidence packet. One verification p
 
 ### Golden workflow
 
-AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt.
+AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt.
 
 ## Surface separation
 

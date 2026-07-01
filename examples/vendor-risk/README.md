@@ -4,7 +4,7 @@ Purpose
 This example is Fork's golden workflow for the current product surface.
 
 It demonstrates:
-AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt.
+AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt.
 
 Scenario
 A team requests an AI-assisted vendor-risk summary. The AI produces a recommendation. A human reviewer edits and accepts parts of the output. The resulting memo becomes eligible for institutional reliance. A downstream consumer later attempts to treat the memo as broader vendor approval.
@@ -31,3 +31,7 @@ Whether the record structurally verifies
 
 What this example does not show
 This example does not certify vendor approval, legal sufficiency, compliance, model correctness, safety, or truth of the underlying sources.
+
+## Human-readable non-claims panel
+
+See `NON_CLAIMS_PANEL.md` for the reviewer-facing **Not Established by This Record** panel. The JSON file `non-claims.json` remains the machine-readable companion; the Markdown panel is the human-readable boundary-control surface.

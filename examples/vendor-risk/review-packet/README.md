@@ -5,7 +5,7 @@ This review packet provides a reviewer-operable view of the vendor-risk golden w
 It is intended for Legal, Audit, Risk, Compliance, Procurement, Security, or AI governance review.
 
 Workflow
-AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt.
+AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt.
 
 Packet components
 Evidence Card: ../evidence-card.md
@@ -32,3 +32,7 @@ This record does not establish regulatory compliance.
 This record does not transfer upstream authority.
 This record does not prove underlying sources were true.
 This record preserves only the bounded evidence and reliance structure.
+
+## Human-readable non-claims panel
+
+See `NON_CLAIMS_PANEL.md` for the reviewer-facing **Not Established by This Record** panel. The JSON file `non-claims.json` remains the machine-readable companion; the Markdown panel is the human-readable boundary-control surface.

@@ -62,3 +62,19 @@ Fork's doctrine is:
 > Preservation without inheritance.
 
 That doctrine becomes operational when every packet states what the record does not establish.
+
+## Human-readable rendering
+
+Reviewer-facing packets SHOULD include a human-readable Markdown rendering of the machine-readable `non-claims.json` file.
+
+For examples and review packets, this rendering may appear as `NON_CLAIMS_PANEL.md`.
+
+The Markdown rendering is not a replacement for the machine-readable non-claim record. It is the reviewer-facing surface that allows legal, compliance, audit, risk, governance, procurement, security, and executive reviewers to see which tempting downstream inferences are not established by the packet.
+
+A conformant rendering should identify:
+
+- the tempting inference;
+- that the inference is not established;
+- why the packet does not establish it;
+- what external authority, review, approval, or evidence would be required before relying on it;
+- the relevant boundary-map reference where applicable.

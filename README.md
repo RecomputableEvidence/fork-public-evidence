@@ -58,7 +58,7 @@ Fork's doctrine is:
 
 The current golden workflow is:
 
-> AI-assisted vendor-risk recommendation Ã¢â€ â€™ internal decision memo Ã¢â€ â€™ downstream reliance attempt.
+> AI-assisted vendor-risk recommendation Ã¢â€ ' internal decision memo Ã¢â€ ' downstream reliance attempt.
 
 This workflow demonstrates the moment an AI-assisted artifact becomes eligible for institutional reliance and the downstream risk that a bounded record may be silently expanded into a broader claim.
 
@@ -103,7 +103,7 @@ Technical and proof-layer materials live under:
 The proof surface may document schemas, checkers, fixtures, receipts, reproducibility materials, and boundary discipline. These mechanisms support the reviewer-facing product surface but should not be required for a reviewer to understand what Fork preserves.
 
 ## Start here
-Start with [REVIEWER_QUICK_START_v0_1.md](REVIEWER_QUICK_START_v0_1.md) for the shortest reproducible reviewer path.
+Start with [docs/REVIEWER_START_HERE_v0_1.md](docs/REVIEWER_START_HERE_v0_1.md) for the shortest reproducible reviewer path.
 
 The canonical reviewer entry point is:
 
@@ -199,7 +199,7 @@ For the broader repository test suite, when local dependencies are available:
 python -m pytest
 ```
 
-A passing command establishes only the bounded condition declared by that command. It does not establish legal admissibility, compliance satisfaction, decision correctness, source completeness, runtime authorization, production readiness, or institutional authority.
+A passing command indicates only the bounded condition declared by that command. It does not establish legal admissibility, compliance satisfaction, decision correctness, source completeness, runtime authorization, production readiness, or institutional authority.
 
 ## Released materials vs branch work
 
@@ -236,7 +236,7 @@ Citation metadata in `CITATION.cff` supports formal attribution of this reposito
 
 ## Public technical disclosure
 
-Release: **Fork Public Technical Disclosure v0.1.1**
+Publication: **Fork Public Technical Disclosure v0.1.1**
 
 Outer ZIP SHA-256:
 
@@ -286,7 +286,7 @@ The correct inlet depends on what the visitor can provide.
 
 Use:
 
-- REVIEWER_QUICK_START_v0_1.md
+- docs/REVIEWER_START_HERE_v0_1.md
 - docs/REVIEWER_START_HERE_v0_1.md
 - docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md
 - docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md
@@ -296,21 +296,21 @@ Use:
 Start with:
 
 - 
-elease_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/
+release_packages/FORK_PILOT_DISCOVERY_PACKET_v0_1/
 
 ### Client-side workflow/source-system input
 
 Complete:
 
 - 
-elease_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/
+release_packages/FORK_CLIENT_DISCOVERY_RETURN_PACKET_TEMPLATE_v0_1/
 
 ### Fork-authored evidence-boundary output
 
 Fork may draft:
 
 - 
-elease_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/
+release_packages/FORK_CLIENT_EVIDENCE_BOUNDARY_PACKET_TEMPLATE_v0_1/
 
 only after reviewing a completed Client Discovery Return Packet.
 
@@ -358,6 +358,6 @@ This routing does not establish a binding quote, procurement approval, productio
 <!-- FORK_PUBLIC_PRESENCE_ROUTING_END -->
 
 ## Copyright
-CopyrightÃ‚Â© 2026 Ryan Feller. All rights reserved.
+CopyrightÃ‚(c) 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, unpublished implementation code, internal tooling, operating procedures, or delivery materials not included in this public release.

@@ -6,7 +6,7 @@ The Fork Boundary Map makes claim movement legible across an AI-assisted workflo
 
 ## Canonical flow
 
-requested â†’ generated â†’ reviewed â†’ accepted â†’ modified â†’ relied upon â†’ consumed downstream
+requested -> generated -> reviewed -> accepted -> modified -> relied upon -> consumed downstream
 
 ## Audience
 
