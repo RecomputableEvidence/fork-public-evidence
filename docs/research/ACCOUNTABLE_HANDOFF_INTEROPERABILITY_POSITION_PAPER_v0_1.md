@@ -44,7 +44,27 @@ Fork provides one implementation case of this idea in AI-assisted institutional 
 
 ---
 
-## 2. Core Hypothesis
+## 2. Limitations and Current Evidence
+
+This paper advances a research hypothesis, not an established systems theory.
+
+The current evidence base is limited in four important ways.
+
+First, the implementation evidence comes primarily from Fork, a boundary-recording pattern developed for AI-assisted institutional workflows. Fork demonstrates one candidate implementation of accountable handoff recording, but it does not prove that the same pattern generalizes across domains, institutions, or technical architectures.
+
+Second, the motivating convergence comes from a bounded set of reviewer and collaborator conversations involving AI governance, evidence preservation, runtime authority, procurement, audit, interoperability, and related institutional workflows. These conversations repeatedly identify the importance of preserving boundary separation between evidence, authority, execution, governance, and review. They should be treated as motivating evidence of a recurring concern, not as proof of a general architectural primitive.
+
+Third, no independent non-Fork implementation of Accountable Handoff Interoperability has yet been evaluated. The hypothesis therefore remains open. It should be tested through independent implementations, adversarial handoff simulations, reviewer reconstruction exercises, and comparative workflow studies across domains such as healthcare, finance, procurement, legal review, insurance, industrial control, and public-sector AI governance.
+
+Fourth, no controlled evaluation has yet established that explicit handoff-state records improve reviewer performance relative to ordinary logs, audit trails, chain-of-custody records, policy artifacts, or existing governance workflows. The proposed evaluation criteria in this paper should therefore be understood as research commitments, not demonstrated outcomes.
+
+Accordingly, this paper makes a limited claim: Fork supports an engineering pattern and motivates a broader hypothesis. It does not establish that explicit handoff-state communication is universally required, superior to existing mechanisms, or sufficient for accountability by itself.
+
+The hypothesis should be strengthened only if independent implementations preserve similar invariants and improve reviewability in practice. It should be narrowed if the pattern applies only to certain domains, risk tiers, or workflow types. It should be revised or rejected if simpler existing mechanisms prove sufficient, if handoff-state records fail to reduce institutional inference risk, or if they introduce more ambiguity than they resolve.
+
+---
+
+## 3. Core Hypothesis
 
 The research hypothesis is:
 
@@ -60,7 +80,7 @@ It would be rejected, or at least significantly narrowed, if the same problems c
 
 ---
 
-## 3. Definitions
+## 4. Definitions
 
 ### Independently Accountable System
 
@@ -79,7 +99,7 @@ Examples include:
 * AI-assisted workflow systems;
 * human decision bodies.
 
-The relevant feature is not whether the system is software. The relevant feature is whether it carries distinct accountability that should not silently collapse into another system’s accountability.
+The relevant feature is not whether the system is software. The relevant feature is whether it carries distinct accountability that should not silently collapse into another system's accountability.
 
 ### Consequential State
 
@@ -131,7 +151,7 @@ Examples include:
 
 ---
 
-## 4. Problem Statement
+## 5. Problem Statement
 
 Many interoperability failures are treated as failures of logging, access control, policy enforcement, or auditability. Those may be real failures, but they do not exhaust the problem.
 
@@ -169,7 +189,7 @@ This paper argues that unsupported inheritance is a recurring failure mode at th
 
 ---
 
-## 5. Boundary-State Communication as an Architectural Pattern
+## 6. Boundary-State Communication as an Architectural Pattern
 
 Boundary-state communication is a candidate architectural pattern for making handoffs inspectable without collapsing adjacent responsibilities.
 
@@ -197,7 +217,7 @@ The goal is not to make the handoff self-authorizing. The goal is to make the ha
 
 ---
 
-## 6. Fork as an Implementation Case
+## 7. Fork as an Implementation Case
 
 Fork is one candidate implementation of boundary-state communication for AI-assisted institutional workflows.
 
@@ -239,7 +259,7 @@ But Fork does not prove Accountable Handoff Interoperability.
 
 ---
 
-## 7. Non-Claims
+## 8. Non-Claims
 
 This hypothesis depends on strict non-claim discipline.
 
@@ -265,7 +285,7 @@ The broader hypothesis carries the same discipline. Accountable Handoff Interope
 
 ---
 
-## 8. Related Work and Adjacent Concepts
+## 9. Related Work and Adjacent Concepts
 
 Accountable Handoff Interoperability should be evaluated beside existing traditions, not presented as if it invents boundaries, custody, or translation.
 
@@ -307,7 +327,7 @@ A sequence of events may not show claim scope, authority exercised, non-claims, 
 
 ---
 
-## 9. Proposed Invariants
+## 10. Proposed Invariants
 
 A system that claims to implement accountable handoff interoperability should preserve several invariants.
 
@@ -349,7 +369,7 @@ Different domains may implement handoff-state communication differently. The hyp
 
 ---
 
-## 10. Predictions
+## 11. Predictions
 
 If Accountable Handoff Interoperability is a useful systems hypothesis, several predictions follow.
 
@@ -399,7 +419,7 @@ If explicit handoff-state records do not improve reviewability, reduce inference
 
 ---
 
-## 11. Evaluation Criteria
+## 12. Evaluation Criteria
 
 The hypothesis can be evaluated through domain-specific pilots, adversarial simulations, reviewer studies, and comparative workflow analysis.
 
@@ -429,7 +449,7 @@ These criteria make the hypothesis testable.
 
 ---
 
-## 12. Falsification Paths
+## 13. Falsification Paths
 
 A serious hypothesis must name what would count against it.
 
@@ -447,7 +467,7 @@ It would be substantially falsified if independent testing shows that explicit h
 
 ---
 
-## 13. Research Program
+## 14. Research Program
 
 The proposed research program has three tracks.
 
@@ -501,7 +521,7 @@ Evaluation should include:
 
 ---
 
-## 14. Discussion
+## 15. Discussion
 
 The hypothesis is intentionally modest.
 
@@ -519,7 +539,7 @@ The strongest version of the thesis is therefore:
 
 ---
 
-## 15. Conclusion
+## 16. Conclusion
 
 Independently accountable systems increasingly interoperate in institutional workflows. Each system may remain valid inside its own boundary while governance ambiguity emerges at the handoff between systems.
 
