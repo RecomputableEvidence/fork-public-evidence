@@ -52,3 +52,9 @@ The Review Packet does not certify truth, compliance, legal sufficiency, model q
 Every Review Packet MUST include:
 
 > **Not Established by This Record**
+
+## Authority and policy context inclusion
+
+Review Packets SHOULD include the Authority and Policy Context section when the packet contains a human review, acceptance, memo, recommendation, approval state, or institutional reliance event.
+
+The packet should make clear what authority context was recorded and what authority, policy, legal, compliance, audit, security, procurement, risk, executive, or regulatory determinations remain outside the packet.

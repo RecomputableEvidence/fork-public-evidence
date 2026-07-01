@@ -17,3 +17,9 @@ These artifacts are intended for legal, audit, compliance, risk, governance, pro
 Reviewer artifacts are not legal opinions, compliance certifications, audit conclusions, security approvals, model evaluations, or production-readiness determinations.
 
 They are reviewer-operable records showing what Fork preserved for a bounded AI-assisted workflow and what the record explicitly does not establish.
+
+## Authority and policy context
+
+`AUTHORITY_POLICY_CONTEXT_SPEC_v0_1.md` defines how reviewer-facing packets preserve who accepted or relied on a claim, under what role or policy context, for what purpose, and whether later use stayed within or moved beyond that context.
+
+This artifact does not establish that the authority was sufficient, the policy was adequate, or the reliance was legally, commercially, operationally, or regulatorily sufficient.

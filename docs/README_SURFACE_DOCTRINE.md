@@ -44,3 +44,11 @@ Every new public artifact, feature, example, or outreach message should answer:
 > Can a GC, auditor, CRO, or AI governance lead open the repo or packet and understand, in one pass, what Fork preserves, what it does not claim, and why that matters at the moment of institutional reliance?
 
 If the answer is no, the surface is not yet legible.
+
+## Authority and policy context invariant
+
+Fork packets should preserve not only what was claimed and what evidence was referenced, but also the stated authority and policy context under which the claim was reviewed, accepted, or relied upon.
+
+This does not make Fork an authority validator. Fork does not establish that the reviewer had sufficient authority, that the policy was adequate, or that the resulting reliance was legally, commercially, operationally, or regulatorily sufficient.
+
+The purpose is preservation without inheritance: a later reviewer should not be forced to reconstruct authority context that should have survived with the artifact.

@@ -78,3 +78,11 @@ A conformant rendering should identify:
 - why the packet does not establish it;
 - what external authority, review, approval, or evidence would be required before relying on it;
 - the relevant boundary-map reference where applicable.
+
+## Authority and policy context non-claim
+
+The Non-Claim Panel SHOULD include a non-claim covering authority and policy context when the packet records an institutional review, acceptance, approval, memo, recommendation, or reliance event.
+
+Required substance:
+
+This record preserves the stated authority and policy context associated with the review, acceptance, or reliance event. It does not establish that the reviewer had sufficient institutional authority, that the policy was adequate, that the review was complete, or that the resulting decision satisfied legal, compliance, audit, procurement, security, risk, executive, or regulatory requirements.

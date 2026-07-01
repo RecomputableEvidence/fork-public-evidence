@@ -109,3 +109,16 @@ Do not treat Fork as:
 When citing Fork externally, cite the smallest bounded artifact that supports the statement.
 
 Do not cite the whole repository as support for a claim that only one package, checker, or branch artifact addresses.
+
+## Authority and policy context
+
+Fork reviewer packets should show the stated authority and policy context for the reviewed workflow artifact.
+
+This helps a reviewer distinguish:
+
+- the evidence state Fork preserved;
+- the purpose for which the artifact was accepted;
+- the authority context asserted at the time of reliance;
+- any downstream narrowing or expansion of that authority context.
+
+Fork does not establish that the stated authority was sufficient, that the policy was adequate, or that the resulting reliance was legally, commercially, operationally, or regulatorily sufficient.

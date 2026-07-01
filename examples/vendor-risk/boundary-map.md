@@ -50,3 +50,9 @@ This record preserves only the bounded evidence and reliance structure.
 ## Human-readable non-claims panel
 
 See `NON_CLAIMS_PANEL.md` for the reviewer-facing **Not Established by This Record** panel. The JSON file `non-claims.json` remains the machine-readable companion; the Markdown panel is the human-readable boundary-control surface.
+
+## Authority and policy context
+
+See `authority-policy-context.md` for the reviewer-facing authority and policy context associated with this vendor-risk workflow.
+
+That file preserves the stated role, policy context, reliance purpose, unresolved authority questions, and downstream authority-context expansion. It does not establish that the authority was sufficient, that the policy was adequate, or that the decision was legally, commercially, operationally, or regulatorily sufficient.

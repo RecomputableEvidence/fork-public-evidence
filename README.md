@@ -58,7 +58,7 @@ Fork's doctrine is:
 
 The current golden workflow is:
 
-> AI-assisted vendor-risk recommendation Ã¢â€ ' internal decision memo Ã¢â€ ' downstream reliance attempt.
+> AI-assisted vendor-risk recommendation â†' internal decision memo â†' downstream reliance attempt.
 
 This workflow demonstrates the moment an AI-assisted artifact becomes eligible for institutional reliance and the downstream risk that a bounded record may be silently expanded into a broader claim.
 
@@ -358,6 +358,6 @@ This routing does not establish a binding quote, procurement approval, productio
 <!-- FORK_PUBLIC_PRESENCE_ROUTING_END -->
 
 ## Copyright
-CopyrightÃ‚(c) 2026 Ryan Feller. All rights reserved.
+CopyrightÂ(c) 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, unpublished implementation code, internal tooling, operating procedures, or delivery materials not included in this public release.

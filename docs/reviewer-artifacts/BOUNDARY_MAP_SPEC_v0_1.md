@@ -67,3 +67,11 @@ The Boundary Map does not certify correctness, compliance, legal sufficiency, sa
 Every reviewer-facing Boundary Map MUST include or link to:
 
 > **Not Established by This Record**
+
+## Authority-context boundary changes
+
+Boundary Maps SHOULD mark whether a downstream reliance event preserves, narrows, expands, or leaves unresolved the original authority and policy context.
+
+A downstream consumer expands the authority context when it treats a packet as supporting a broader approval, legal/compliance conclusion, security clearance, procurement approval, production authorization, or institutional decision than the original recorded context supports.
+
+Fork records the authority-context change. Fork does not decide whether the new authority context is valid, sufficient, or approved.

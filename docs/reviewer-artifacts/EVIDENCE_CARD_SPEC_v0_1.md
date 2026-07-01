@@ -51,3 +51,11 @@ The Evidence Card does not certify truth, legal sufficiency, regulatory complian
 Every Evidence Card MUST include:
 
 > **Not Established by This Record**
+
+## Authority and policy context section
+
+Evidence Cards SHOULD include an Authority and Policy Context section when the packet records a review, acceptance, approval, memo, recommendation, or institutional reliance event.
+
+The section should identify the stated role, policy context, reliance purpose, review status, approval status if any, unresolved authority questions, and any downstream authority-context change.
+
+This section preserves the stated authority context. It does not establish that the authority was sufficient, that the policy was adequate, or that the decision satisfied legal, compliance, audit, procurement, security, risk, executive, or regulatory requirements.

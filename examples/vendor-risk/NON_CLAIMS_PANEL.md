@@ -58,3 +58,11 @@ By reviewing this panel, the reviewer acknowledges that:
 - the packet does not establish the non-claims listed above;
 - the packet does not replace legal, compliance, audit, security, risk, procurement, or executive judgment;
 - any downstream expansion requires separate authority or evidence.
+
+## Authority and Policy Context Non-Claims
+
+| ID | Tempting inference | Status | Why this is not established | Required external authority or evidence |
+|---|---|---|---|---|
+| NC-007 | The reviewer had sufficient institutional authority to approve the vendor. | Not established | The packet preserves the stated review role and authority context. It does not certify that the reviewer had authority to issue final vendor approval. | Institutionally recognized approval record, role authorization, procurement approval, security approval, legal/compliance signoff, or executive authorization. |
+| NC-008 | The policy context was adequate for the decision. | Not established | The packet may record the policy or review process asserted for the workflow. It does not establish that the policy was complete, current, legally sufficient, or appropriate for the decision. | Policy owner review, legal/compliance analysis, control assessment, audit review, or other institutionally authorized determination. |
+| NC-009 | The downstream consumer may reuse the memo under the same authority context. | Not established | The packet is bound to the recorded workflow purpose. Reuse in another workflow, department, jurisdiction, contract, or approval path may require separate authority and evidence. | New boundary record, new authority record, new policy mapping, or explicit authorization for the expanded use. |
