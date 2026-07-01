@@ -1,0 +1,30 @@
+﻿{
+  "version": "0.1.0",
+  "packet_id": "fork-example-vendor-risk-001",
+  "verified_at": "TBD",
+  "verifier_name": "fork-verifier",
+  "verifier_version": "TBD",
+  "manifest_result": "EXAMPLE_NOT_EXECUTED",
+  "hash_result": "EXAMPLE_NOT_EXECUTED",
+  "boundary_result": "EXAMPLE_BOUNDARY_RENDERED",
+  "non_claims_result": "NON_CLAIMS_PRESENT",
+  "files_verified": [
+    "examples/vendor-risk/evidence-card.md",
+    "examples/vendor-risk/boundary-map.md",
+    "examples/vendor-risk/non-claims.json",
+    "examples/vendor-risk/review-packet/README.md"
+  ],
+  "warnings": [
+    "This is a rendered example receipt, not an executed verifier output."
+  ],
+  "failures": [],
+  "not_established_summary": [
+    "This record does not certify legal sufficiency.",
+    "This record does not establish vendor approval.",
+    "This record does not certify model correctness.",
+    "This record does not establish regulatory compliance.",
+    "This record does not transfer upstream authority.",
+    "This record does not prove underlying sources were true.",
+    "This record preserves only the bounded evidence and reliance structure."
+  ]
+}

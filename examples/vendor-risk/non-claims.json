@@ -1,0 +1,13 @@
+﻿{
+  "version": "0.1.0",
+  "packet_id": "fork-example-vendor-risk-001",
+  "not_established": [
+    "This record does not certify legal sufficiency.",
+    "This record does not establish vendor approval.",
+    "This record does not certify model correctness.",
+    "This record does not establish regulatory compliance.",
+    "This record does not transfer upstream authority.",
+    "This record does not prove underlying sources were true.",
+    "This record preserves only the bounded evidence and reliance structure."
+  ]
+}
