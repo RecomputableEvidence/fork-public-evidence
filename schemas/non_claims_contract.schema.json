@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RecomputableEvidence/fork-public-evidence/schemas/non_claims_contract.schema.json",
+  "title": "Fork Non-Claims Contract",
+  "type": "object",
+  "required": [
+    "contract_id",
+    "version",
+    "scope",
+    "invariant",
+    "required_presence_files",
+    "scan_paths",
+    "non_claims"
+  ],
+  "properties": {
+    "contract_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "invariant": {
+      "type": "string"
+    },
+    "required_presence_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scan_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "category",
+          "statement",
+          "positive_assertions_prohibited"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "positive_assertions_prohibited": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

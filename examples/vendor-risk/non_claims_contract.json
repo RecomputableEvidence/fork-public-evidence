@@ -1,0 +1,84 @@
+{
+  "$schema": "../../schemas/non_claims_contract.schema.json",
+  "contract_id": "FORK_NON_CLAIMS_CONTRACT_v0_1",
+  "version": "0.1",
+  "scope": "Fork public evidence surface, with initial required presence in README.md",
+  "invariant": "Non-claims are negative boundaries only. They do not create authority, compliance status, legal sufficiency, production readiness, or factual correctness.",
+  "required_presence_files": [
+    "README.md"
+  ],
+  "scan_paths": [
+    "README.md",
+    "docs/reviewer-artifacts",
+    "docs/reviewer_notes",
+    "docs/research",
+    "examples/vendor-risk"
+  ],
+  "non_claims": [
+    {
+      "id": "NC-001",
+      "category": "LEGAL_SUFFICIENCY",
+      "statement": "This system does not assert legal sufficiency.",
+      "positive_assertions_prohibited": [
+        "asserts legal sufficiency",
+        "establishes legal sufficiency",
+        "proves legal sufficiency"
+      ]
+    },
+    {
+      "id": "NC-002",
+      "category": "AUTHORITY",
+      "statement": "This system does not grant authority.",
+      "positive_assertions_prohibited": [
+        "grants authority",
+        "confers authority",
+        "authorizes execution",
+        "authorizes the decision"
+      ]
+    },
+    {
+      "id": "NC-003",
+      "category": "COMPLIANCE",
+      "statement": "This system does not certify compliance.",
+      "positive_assertions_prohibited": [
+        "certifies compliance",
+        "establishes compliance",
+        "proves compliance",
+        "compliance certified"
+      ]
+    },
+    {
+      "id": "NC-004",
+      "category": "PRODUCTION_USE",
+      "statement": "This system does not approve production use.",
+      "positive_assertions_prohibited": [
+        "approves production use",
+        "production ready",
+        "enterprise ready",
+        "approved for production"
+      ]
+    },
+    {
+      "id": "NC-005",
+      "category": "INSTITUTIONAL_REVIEW",
+      "statement": "This system does not replace institutional review.",
+      "positive_assertions_prohibited": [
+        "replaces institutional review",
+        "substitutes for legal review",
+        "substitutes for compliance review",
+        "substitutes for audit review"
+      ]
+    },
+    {
+      "id": "NC-006",
+      "category": "DATA_CORRECTNESS",
+      "statement": "This system does not verify correctness of underlying workflow data.",
+      "positive_assertions_prohibited": [
+        "verifies correctness of underlying workflow data",
+        "verifies factual correctness",
+        "proves factual correctness",
+        "guarantees data correctness"
+      ]
+    }
+  ]
+}
