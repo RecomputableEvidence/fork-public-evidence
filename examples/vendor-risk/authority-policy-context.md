@@ -54,3 +54,30 @@ It does not establish that:
 - the AI-assisted output was correct;
 - the evidence base was complete;
 - any downstream consumer may reuse the memo outside the recorded boundary.
+
+## Policy Reference Non-Claim
+
+Presence of a policy reference does **not** imply:
+
+- policy applicability;
+- policy approval;
+- compliance determination;
+- authority sufficiency;
+- legal adequacy;
+- operational readiness.
+
+This example records only that a policy context was asserted or referenced in the bounded workflow record.
+
+Any determination that the referenced policy was applicable, adequate, current, satisfied, or sufficient requires separate institutional authority.
+
+## Structural Separation
+
+| Layer | Recorded Here? | Meaning | Not Established |
+|---|---:|---|---|
+| Referenced policy | Yes | A policy context was referenced in the workflow record | Applicability, approval, compliance, or sufficiency |
+| Authority context | Yes | A role or authority context was recorded | Authority adequacy or decision authorization |
+| Policy applicability validation | No | Would require separate institutional determination | Not provided by this record |
+| Compliance determination | No | Would require separate authorized compliance review | Not provided by this record |
+| Decision approval | No | Would require separate approval authority | Not provided by this record |
+
+This file is an evidence-context artifact only. It is not an approval artifact, compliance artifact, legal sufficiency artifact, or production-readiness artifact.

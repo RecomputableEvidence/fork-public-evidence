@@ -77,3 +77,32 @@ This section does not establish:
 - completeness of the evidence base;
 - adequacy of the policy or governance process;
 - institutional authority beyond the recorded context.
+
+## Policy Reference Non-Claim
+
+Presence of a policy reference does **not** imply:
+
+- policy applicability;
+- policy approval;
+- compliance determination;
+- authority sufficiency;
+- legal adequacy;
+- operational readiness.
+
+A policy reference records only that a policy context was asserted or referenced in the bounded workflow record.
+
+Any determination that the policy was applicable, adequate, current, satisfied, or sufficient requires separate institutional authority.
+
+## Required Structural Separation
+
+Authority and policy context records should keep the following concepts structurally distinct:
+
+| Field | Meaning | Non-Claim |
+|---|---|---|
+| Referenced policy | A policy was cited, asserted, or attached as context | Does not imply the policy applies |
+| Recorded authority context | A role, actor, or process was recorded as part of the workflow context | Does not imply authority was sufficient |
+| Validated applicability | A separate authorized process determined the policy applied | Not established by Fork unless separately recorded |
+| Approved compliance status | A separate authorized process determined compliance status | Not established by Fork |
+| Approved decision status | A separate authorized process approved a decision | Not established by Fork |
+
+Fork records policy and authority context only as bounded evidence context. It does not validate, approve, certify, or complete that context.
