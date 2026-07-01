@@ -77,7 +77,7 @@ If independent implementations in other domains do not reproduce the proposed in
 
 ## 3. Naming Recommendation
 
-The phrase **Transition Integrity Specification** should be retired before public release.
+The prior transition-integrity naming should be retired before public release.
 
 The term risks confusion with existing “Transition Integrity Project” references in U.S. election-transition contexts. The replacement language should be neutral, descriptive, and closer to the actual object of study.
 
