@@ -14,7 +14,7 @@ Each target should receive one path:
 
 ## Path assignment decision tree
 
-### Step 1 â€” Is the person being asked to critique the public evidence surface?
+### Step 1 -- Is the person being asked to critique the public evidence surface?
 
 Assign:
 
@@ -36,7 +36,7 @@ Can you review whether the evidence boundary and recomputation path hold?
 
 Do not ask for purchase, procurement, or deployment.
 
-### Step 2 â€” Is the person being asked to pressure-test enterprise fit?
+### Step 2 -- Is the person being asked to pressure-test enterprise fit?
 
 Assign:
 
@@ -58,7 +58,7 @@ Can you help stress-test whether this framing holds up in real workflows?
 
 Do not lead with price.
 
-### Step 3 â€” Is the person close to an enterprise budget, workflow, or risk owner?
+### Step 3 -- Is the person close to an enterprise budget, workflow, or risk owner?
 
 Assign:
 

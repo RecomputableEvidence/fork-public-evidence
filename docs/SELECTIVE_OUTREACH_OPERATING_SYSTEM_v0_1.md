@@ -193,10 +193,10 @@ Maximum score: 18.
 
 Priority bands:
 
-- 15â€“18: first wave
-- 11â€“14: second wave
-- 7â€“10: hold / research more
-- 0â€“6: do not send
+- 15-18: first wave
+- 11-14: second wave
+- 7-10: hold / research more
+- 0-6: do not send
 
 ## Send discipline
 

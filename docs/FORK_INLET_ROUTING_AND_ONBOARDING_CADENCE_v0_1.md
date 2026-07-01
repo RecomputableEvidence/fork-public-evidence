@@ -24,7 +24,7 @@ Fork routes their input into the evidence-boundary mapping process.
 
 ## Inlet map
 
-### I0 â€” Public Review Inlet
+### I0 -- Public Review Inlet
 
 Use when a reviewer wants to understand Fork, challenge its doctrine, inspect its public boundaries, or reproduce bounded verification commands.
 
@@ -37,7 +37,7 @@ Start with:
 
 This inlet does not imply enterprise discovery, client suitability, implementation readiness, or commercial pilot approval.
 
-### I1 â€” Candidate Workflow Inlet
+### I1 -- Candidate Workflow Inlet
 
 Use when a contact can identify a real AI-assisted workflow where later reconstruction would matter.
 
@@ -49,7 +49,7 @@ Start with:
 
 This inlet identifies a possible workflow. It does not establish workflow suitability.
 
-### I2 â€” Source-System / Export Inlet
+### I2 -- Source-System / Export Inlet
 
 Use when a contact can describe the systems, logs, records, exports, APIs, files, tickets, messages, approval systems, or data surfaces involved in a candidate workflow.
 
@@ -60,7 +60,7 @@ Map into:
 
 This inlet does not establish that Fork can access, capture, export, observe, or verify all listed systems.
 
-### I3 â€” Evidence-Artifact Inlet
+### I3 -- Evidence-Artifact Inlet
 
 Use when a contact can describe what should be preserved, hashed, referenced, sealed, excluded, redacted, or treated as unavailable.
 
@@ -72,7 +72,7 @@ Map into:
 
 This inlet does not establish source completeness, legal admissibility, compliance sufficiency, audit sufficiency, or decision correctness.
 
-### I4 â€” State-Transition Inlet
+### I4 -- State-Transition Inlet
 
 Use when a contact can identify where the workflow changes state.
 
@@ -85,7 +85,7 @@ Map into:
 
 This inlet does not establish that Fork controls, blocks, approves, or modifies runtime workflow execution.
 
-### I5 â€” Security / Data-Handling Inlet
+### I5 -- Security / Data-Handling Inlet
 
 Use when a contact can describe confidentiality constraints, redaction needs, retention rules, air-gap requirements, access limitations, data residency issues, regulated data, or prohibited capture surfaces.
 
@@ -96,7 +96,7 @@ Map into:
 
 This inlet does not establish security approval, risk acceptance, production access, or client data handling authorization.
 
-### I6 â€” Institutional Ownership Inlet
+### I6 -- Institutional Ownership Inlet
 
 Use when a contact can identify workflow owners, decision owners, source-system owners, legal/compliance/audit/risk owners, security reviewers, executive sponsors, or approval authorities.
 
@@ -110,7 +110,7 @@ The institution owns the action.
 
 Fork preserves the bounded evidence record.
 
-### I7 â€” Co-Integration Inlet
+### I7 -- Co-Integration Inlet
 
 Use when a platform, GRC, audit, AI governance, evidence, workflow, or integration counterparty needs to map its own boundary to Fork's boundary.
 

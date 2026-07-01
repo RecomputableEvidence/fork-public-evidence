@@ -6,7 +6,7 @@ Repair note: `CBC_CCE_v0_2_2_ENFORCEMENT_REPAIR`
 
 Base commit:
 
-- `4cbe52e` â€” Add CBC and CCE v0.2.2 final precision hardening patch
+- `4cbe52e` -- Add CBC and CCE v0.2.2 final precision hardening patch
 
 ## Purpose
 
@@ -49,11 +49,11 @@ An `EXPANDED` CCE must include:
 
 ## Additional precision edits
 
-The CCE expanded-claim non-claim now uses â€œdirection and destination of expansionâ€ instead of â€œvector of expansion.â€
+The CCE expanded-claim non-claim now uses "direction and destination of expansion" instead of "vector of expansion."
 
-The limited internal review example now uses â€œapplicable internal review processâ€ rather than â€œstated internal review process.â€
+The limited internal review example now uses "applicable internal review process" rather than "stated internal review process."
 
-The CBC partial verification posture now says partial scopes must not be used to â€œassert or suggestâ€ completeness.
+The CBC partial verification posture now says partial scopes must not be used to "assert or suggest" completeness.
 
 ## Relationship to v0.3
 

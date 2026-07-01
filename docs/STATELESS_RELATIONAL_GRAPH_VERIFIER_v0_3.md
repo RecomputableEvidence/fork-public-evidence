@@ -56,10 +56,10 @@ A stateful registry may be added later as an enterprise profile, but the public 
 
 The verifier emits:
 
-- `CLOSED_LOCAL` â€” all checked graph relationships resolved inside the supplied bundle;
-- `OPEN_EXTERNAL_POINTERS` â€” the bundle is structurally valid, but at least one reference points outside the local bundle;
-- `OPEN_UNRESOLVED_POINTERS` â€” at least one required reference is explicitly unresolved;
-- `INVALID` â€” the graph contains schema errors, relational errors, cycles, missing local references, or other invalid states.
+- `CLOSED_LOCAL` -- all checked graph relationships resolved inside the supplied bundle;
+- `OPEN_EXTERNAL_POINTERS` -- the bundle is structurally valid, but at least one reference points outside the local bundle;
+- `OPEN_UNRESOLVED_POINTERS` -- at least one required reference is explicitly unresolved;
+- `INVALID` -- the graph contains schema errors, relational errors, cycles, missing local references, or other invalid states.
 
 ## Closure-state interpretation table
 
@@ -80,9 +80,9 @@ This warning travels with the JSON output itself; it is not limited to `--help` 
 
 The verifier emits:
 
-- `PASS` â€” the supplied bundle is structurally and relationally valid within its stated closure state;
-- `INDETERMINATE` â€” the supplied bundle is structurally valid but contains unresolved pointers that prevent local graph closure;
-- `FAIL` â€” the supplied bundle violates schema, relation, edge, non-claim, or graph-cycle rules.
+- `PASS` -- the supplied bundle is structurally and relationally valid within its stated closure state;
+- `INDETERMINATE` -- the supplied bundle is structurally valid but contains unresolved pointers that prevent local graph closure;
+- `FAIL` -- the supplied bundle violates schema, relation, edge, non-claim, or graph-cycle rules.
 
 ## Relationship to CBC / CCE v0.2.2
 

@@ -28,7 +28,7 @@ It does not approve v0.2 code changes.
 
 It does not add runtime behavior.
 
-It does not expand Forkâ€™s authority beyond structural and boundary validation.
+It does not expand Fork's authority beyond structural and boundary validation.
 
 The purpose of this design is to define how Fork may compute deterministic SHA-256 hashes over normalized checker outputs and emit bounded verification receipts that support recomputable comparison across clean machines.
 

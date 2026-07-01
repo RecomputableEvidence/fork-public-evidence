@@ -22,10 +22,10 @@ A CCE never holds an expanded claim. It records the vector of expansion and term
 
 CCE v0.2.1 records one of four pointer-resolution states:
 
-- `LOCAL_RESOLVED` â€” the referenced downstream CBC exists in the analyzed bundle and validates against the CBC schema.
-- `EXTERNAL_POINTER` â€” the referenced CBC is external; the pointer is recorded, but the verifier does not claim the CBC was inspected.
-- `NOT_RESOLVED` â€” the pointer was recorded but not resolved; the unresolved state must be explicitly recorded.
-- `NOT_APPLICABLE` â€” no new claim boundary is referenced because the CCE is preserved or narrowed rather than expanded.
+- `LOCAL_RESOLVED` -- the referenced downstream CBC exists in the analyzed bundle and validates against the CBC schema.
+- `EXTERNAL_POINTER` -- the referenced CBC is external; the pointer is recorded, but the verifier does not claim the CBC was inspected.
+- `NOT_RESOLVED` -- the pointer was recorded but not resolved; the unresolved state must be explicitly recorded.
+- `NOT_APPLICABLE` -- no new claim boundary is referenced because the CCE is preserved or narrowed rather than expanded.
 
 This keeps Fork substrate-neutral and avoids pretending that an external pointer was inspected when it was only referenced.
 
