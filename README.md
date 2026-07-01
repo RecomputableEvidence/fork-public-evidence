@@ -4,12 +4,105 @@
 
 **Recomputable Evidence for AI-assisted workflows.**
 
-Fork is a bounded evidence-preservation surface for AI-assisted workflow events. It preserves what was observable and captured, what was checked, what failed or was not checked, what was referenced, and what must not be inferred from the preserved record.
+Fork is evidence-boundary infrastructure for AI-assisted workflows. It preserves a reviewer-operable record of what was requested, what AI produced, what humans reviewed or changed, what evidence was referenced, what was explicitly not claimed, and whether the sealed packet still verifies later.
 
-Fork is not a runtime control plane, policy engine, compliance oracle, audit function, legal determination system, AI-output correctness validator, or production-deployment claim.
+Fork preserves the evidence boundary around AI-assisted institutional work.
+
+Fork does **not** certify truth, compliance, safety, legal sufficiency, model quality, vendor approval, production readiness, source completeness, or institutional authority. It preserves what the record can legitimately be said to establish, and what it explicitly does not establish.
+
+Fork is not a runtime control plane, policy engine, compliance oracle, audit function, legal determination system, AI-output correctness validator, production-deployment claim, or authority-transfer mechanism.
+
+## What Fork is
+
+Fork is designed to preserve the evidence boundary around AI-assisted institutional work.
+
+It provides reviewer-facing artifacts for AI-assisted workflows, including:
+
+- Evidence Card
+- Boundary Map
+- Verification Receipt
+- Review Packet
+- Non-Claim Panel
+
+Fork helps reviewers answer:
+
+> When an AI-assisted output became a basis for action, what exactly did the organization rely on, what was explicitly not established, and does that record still verify?
+
+## What Fork is not
+
+Fork is not:
+
+- an AI governance platform;
+- a compliance automation system;
+- a model monitoring or observability tool;
+- a runtime policy engine;
+- an explainability or truth-certification system;
+- a replacement for GRC, legal judgment, audit judgment, risk acceptance, or governance programs.
+
+Fork does not:
+
+- certify legal sufficiency;
+- establish regulatory compliance;
+- declare vendor approval;
+- prove model correctness;
+- guarantee safety;
+- validate AI-output correctness;
+- establish source completeness;
+- transfer authority from one record to another.
+
+Fork's doctrine is:
+
+> Preservation without inheritance.
+
+## Golden workflow
+
+The current golden workflow is:
+
+> AI-assisted vendor-risk recommendation Ã¢â€ â€™ internal decision memo Ã¢â€ â€™ downstream reliance attempt.
+
+This workflow demonstrates the moment an AI-assisted artifact becomes eligible for institutional reliance and the downstream risk that a bounded record may be silently expanded into a broader claim.
+
+See:
+
+- `examples/vendor-risk/`
+
+## Reviewer artifacts
+
+Reviewer-facing artifacts are defined under:
+
+- `docs/reviewer-artifacts/`
+
+The current artifact set includes:
+
+- Fork Evidence Card
+- Fork Boundary Map
+- Fork Verification Receipt
+- Fork Review Packet
+- Fork Non-Claim Panel
+
+Every Fork packet exposes a required section titled:
+
+> **Not Established by This Record**
+
+## Pilot
+
+The current buyer-facing pilot is:
+
+> One bounded AI-assisted workflow. One sealed evidence packet. One verification path. One reviewer-facing closeout report.
+
+See:
+
+- `docs/pilots/FORK_RELIANCE_EVIDENCE_PILOT_v0_1.md`
+
+## Proof surface
+
+Technical and proof-layer materials live under:
+
+- `docs/proof/`
+
+The proof surface may document schemas, checkers, fixtures, receipts, reproducibility materials, and boundary discipline. These mechanisms support the reviewer-facing product surface but should not be required for a reviewer to understand what Fork preserves.
 
 ## Start here
-
 Start with [REVIEWER_QUICK_START_v0_1.md](REVIEWER_QUICK_START_v0_1.md) for the shortest reproducible reviewer path.
 
 The canonical reviewer entry point is:
@@ -265,6 +358,6 @@ This routing does not establish a binding quote, procurement approval, productio
 <!-- FORK_PUBLIC_PRESENCE_ROUTING_END -->
 
 ## Copyright
-CopyrightÂ© 2026 Ryan Feller. All rights reserved.
+CopyrightÃ‚Â© 2026 Ryan Feller. All rights reserved.
 
 Public availability permits inspection and verification of the disclosed artifacts. It does not grant a license to Fork's undisclosed implementation, trademarks, proprietary architecture, unpublished implementation code, internal tooling, operating procedures, or delivery materials not included in this public release.
