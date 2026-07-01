@@ -10,7 +10,7 @@ The current evidence supports a strong engineering pattern and a motivated resea
 
 The corrected framing is:
 
-> Fork demonstrates one implementation of an accountable handoff pattern in AI-assisted workflows. Whether that pattern generalizes remains a testable hypothesis.
+> Fork implements and explores one accountable handoff pattern in AI-assisted workflows. Whether that pattern generalizes remains a testable hypothesis.
 
 ---
 
@@ -329,6 +329,6 @@ Fork should be presented as an engineering case study and experimental apparatus
 
 The strongest final framing is:
 
-> Fork demonstrates one implementation of an accountable handoff pattern in AI-assisted workflows. Whether that pattern generalizes across independently accountable systems remains a falsifiable research hypothesis.
+> Fork implements and explores one accountable handoff pattern in AI-assisted workflows. Whether that pattern generalizes across independently accountable systems remains a falsifiable research hypothesis.
 
 This posture preserves the strength of Fork while preventing the research framing from outrunning the evidence.

@@ -1,7 +1,7 @@
-Fork Review Packet: Vendor-Risk Golden Workflow
+Fork Review Packet: Vendor-Risk Example Workflow
 
 Purpose
-This review packet provides a reviewer-operable view of the vendor-risk golden workflow.
+This review packet provides a reviewer-operable view of the vendor-risk example workflow.
 It is intended for Legal, Audit, Risk, Compliance, Procurement, Security, or AI governance review.
 
 Workflow

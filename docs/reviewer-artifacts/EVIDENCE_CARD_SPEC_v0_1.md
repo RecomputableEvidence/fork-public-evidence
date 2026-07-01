@@ -11,7 +11,7 @@ The Fork Evidence Card is a one-page reviewer-facing summary of an AI-assisted w
 - Compliance
 - Risk
 - AI governance leads
-- Procurement or security reviewers for the golden workflow
+- Procurement or security reviewers for the example workflow
 
 ## Required sections
 

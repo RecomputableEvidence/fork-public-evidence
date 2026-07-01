@@ -1,9 +1,9 @@
-Vendor-Risk Golden Workflow Example
+Vendor-Risk Example Workflow
 
 Purpose
-This example is Fork's golden workflow for the current product surface.
+This example is Fork's current bounded test workflow for the public research surface.
 
-It demonstrates:
+It is used to inspect:
 AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt.
 
 Scenario

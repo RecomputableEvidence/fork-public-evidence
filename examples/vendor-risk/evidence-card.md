@@ -1,4 +1,4 @@
-Fork Evidence Card: Vendor-Risk Golden Workflow
+Fork Evidence Card: Vendor-Risk Example Workflow
 
 Workflow summary
 An AI-assisted vendor-risk recommendation was generated, reviewed by a human, incorporated into an internal decision memo, and later referenced by a downstream consumer as if it established broader vendor approval.
@@ -7,7 +7,7 @@ Fork preserves the bounded evidence record for that workflow.
 Packet
 Packet ID: fork-example-vendor-risk-001
 Workflow type: AI_ASSISTED_VENDOR_RISK_RECOMMENDATION
-Golden workflow: AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt
+Example workflow: AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt
 
 What was requested
 A vendor-risk summary to support internal review of a prospective vendor.

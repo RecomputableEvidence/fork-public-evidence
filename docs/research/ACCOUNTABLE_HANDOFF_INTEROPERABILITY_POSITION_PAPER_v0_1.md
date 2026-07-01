@@ -50,7 +50,7 @@ This paper advances a research hypothesis, not an established systems theory.
 
 The current evidence base is limited in four important ways.
 
-First, the implementation evidence comes primarily from Fork, a boundary-recording pattern developed for AI-assisted institutional workflows. Fork demonstrates one candidate implementation of accountable handoff recording, but it does not prove that the same pattern generalizes across domains, institutions, or technical architectures.
+First, the implementation evidence comes primarily from Fork, a boundary-recording pattern developed for AI-assisted institutional workflows. Fork implements and explores one candidate implementation of accountable handoff recording, but it does not prove that the same pattern generalizes across domains, institutions, or technical architectures.
 
 Second, the motivating convergence comes from a bounded set of reviewer and collaborator conversations involving AI governance, evidence preservation, runtime authority, procurement, audit, interoperability, and related institutional workflows. These conversations repeatedly identify the importance of preserving boundary separation between evidence, authority, execution, governance, and review. They should be treated as motivating evidence of a recurring concern, not as proof of a general architectural primitive.
 
@@ -535,7 +535,7 @@ It allows Fork to be valuable without being universal. It allows other implement
 
 The strongest version of the thesis is therefore:
 
-> Fork demonstrates one implementation of an accountable handoff pattern in AI-assisted workflows. Whether that pattern generalizes across independently accountable systems remains a falsifiable research hypothesis.
+> Fork implements and explores one accountable handoff pattern in AI-assisted workflows. Whether that pattern generalizes across independently accountable systems remains a falsifiable research hypothesis.
 
 ---
 

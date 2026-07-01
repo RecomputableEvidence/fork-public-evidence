@@ -1,4 +1,4 @@
-Fork Boundary Map: Vendor-Risk Golden Workflow
+Fork Boundary Map: Vendor-Risk Example Workflow
 
 Canonical flow
 requested -> generated -> reviewed -> accepted/modified -> relied upon -> consumed downstream
