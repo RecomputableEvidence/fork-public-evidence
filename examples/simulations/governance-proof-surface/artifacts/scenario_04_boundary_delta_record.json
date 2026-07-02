@@ -1,0 +1,93 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_04_AUTHORITY_LEAKAGE_ATTEMPT",
+  "record_id": "BDR-SIM-04-001",
+  "title": "Scenario 04 Boundary Delta Record",
+  "created_for": "Fork Governance Simulation Proof Surface",
+  "transition": {
+    "transition_id": "TRANSITION-SIM-04-001",
+    "from_systems": [
+      "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "SYSTEM_C_INSTITUTIONAL_REVIEW_CONTEXT"
+    ],
+    "through_system": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+    "to_system": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+    "reconstruction_system": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+    "transition_kind": "PRELIMINARY_REVIEW_ROLE_TO_INFERRED_FUNCTIONAL_AUTHORIZATION"
+  },
+  "upstream_state": {
+    "artifact_id": "ART-SIM-04-VENDOR-RISK-MEMO",
+    "artifact_type": "AI_ASSISTED_VENDOR_RISK_MEMO",
+    "recorded_claims": [
+      {
+        "claim_id": "CLM-SIM-04-001",
+        "statement": "An AI-assisted vendor-risk memo was produced and reviewed by a vendor-risk analyst for preliminary triage.",
+        "scope": "PRELIMINARY_TRIAGE_ONLY",
+        "status": "RECORDED"
+      }
+    ],
+    "recorded_role_context": {
+      "role_id": "ROLE-SIM-04-ANALYST",
+      "role_label": "Vendor-risk analyst / preliminary reviewer",
+      "authority_level": "PRELIMINARY_REVIEW_ONLY"
+    },
+    "recorded_policy_context": [
+      {
+        "policy_id": "POLICY-SIM-04-VR-PRELIM-REVIEW-v0.1",
+        "description": "Vendor-risk preliminary review policy reference",
+        "status": "REFERENCED"
+      }
+    ],
+    "recorded_non_claims": [
+      "The recorded reviewer role does not establish final approval authority.",
+      "The recorded reviewer role does not establish onboarding clearance.",
+      "The recorded policy reference does not establish policy applicability.",
+      "The recorded policy reference does not establish compliance.",
+      "The recorded preliminary review does not establish legal sufficiency.",
+      "The recorded preliminary review does not establish production readiness.",
+      "The recorded preliminary review does not transfer institutional authorization."
+    ],
+    "unresolved_state": [
+      {
+        "unresolved_id": "UNRESOLVED-SIM-04-001",
+        "description": "Final approval authority not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-04-002",
+        "description": "Onboarding clearance not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-04-003",
+        "description": "Policy applicability and compliance not determined."
+      }
+    ]
+  },
+  "downstream_authority_leakage": {
+    "consumer_system": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+    "leakage_id": "AUTH-LEAK-SIM-04-001",
+    "source_role": "Vendor-risk analyst / preliminary reviewer",
+    "downstream_inferred_authority": "Vendor-risk function authorized onboarding / final approval",
+    "inference_type": "ROLE_TO_FUNCTION_AUTHORITY_TRANSFER",
+    "new_approval_record_present": false,
+    "new_authority_evidence_present": false,
+    "new_policy_approval_decision_present": false
+  },
+  "delta_classification": {
+    "authority_context": "LEAKED",
+    "claim_scope": "EXPANDED",
+    "policy_context": "REFERENCED_ONLY",
+    "non_claims": "PRESERVED",
+    "unresolved_state": "PRESERVED",
+    "overall_boundary_effect": "UNSUPPORTED_AUTHORITY_LEAKAGE_EXPOSED"
+  },
+  "required_revalidation": [
+    "Obtain explicit approval authority before treating preliminary review as authorization.",
+    "Obtain explicit onboarding clearance before operational onboarding.",
+    "Obtain explicit policy-approval decision before treating policy reference as compliance.",
+    "Resolve unresolved authority and compliance state before downstream action."
+  ],
+  "inspectability_result": "INSPECTABLE",
+  "fork_role": "PRESERVE_HANDOFF_STATE_AND_EXPOSE_AUTHORITY_LEAKAGE",
+  "fork_non_authority_statement": "Fork records the role and policy context and exposes authority leakage for inspection and reconstruction. Fork does not approve, authorize, certify, or determine the downstream action."
+}

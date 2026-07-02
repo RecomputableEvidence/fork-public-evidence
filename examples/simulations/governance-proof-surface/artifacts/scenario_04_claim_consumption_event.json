@@ -1,0 +1,53 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_04_AUTHORITY_LEAKAGE_ATTEMPT",
+  "event_id": "CCE-SIM-04-001",
+  "title": "Scenario 04 Claim Consumption Event",
+  "consumer": {
+    "system_id": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+    "consumer_role": "DOWNSTREAM_OPERATIONAL_CONSUMER"
+  },
+  "consumed_claim": {
+    "claim_id": "CLM-SIM-04-001",
+    "statement": "The memo was produced and reviewed by a vendor-risk analyst for preliminary vendor-risk triage.",
+    "recorded_scope": "PRELIMINARY_TRIAGE_ONLY"
+  },
+  "attempted_consumption": {
+    "attempted_claim": "Vendor-risk function has authorized the vendor for onboarding.",
+    "attempted_scope": "FINAL_VENDOR_APPROVAL_OR_AUTHORIZATION",
+    "consumption_effect": "EXPANDED",
+    "authority_shift": {
+      "from_role": "Vendor-risk analyst / preliminary reviewer",
+      "to_function": "Vendor-risk function as approval authority"
+    },
+    "new_approval_record_present": false,
+    "new_authority_evidence_present": false,
+    "new_policy_approval_decision_present": false
+  },
+  "classification": {
+    "consumption_classification": "AUTHORITY_LEAKAGE_UNSUPPORTED",
+    "unsupported_inheritance": true,
+    "primary_category": "AUTHORITY_LEAKAGE",
+    "secondary_categories": [
+      "CLAIM_SCOPE_EXPANSION",
+      "POLICY_APPROVAL_CONFUSION"
+    ],
+    "reason": "The downstream authority inference exceeds the recorded preliminary triage scope and lacks explicit approval decision, identified approval authority, or policy-approval determination."
+  },
+  "preserved_non_claims": [
+    "Not final approval.",
+    "Not onboarding clearance.",
+    "Not authorization.",
+    "Not compliance determination.",
+    "Not legal sufficiency.",
+    "Not production readiness.",
+    "Not factual correctness guarantee.",
+    "No authority transfer."
+  ],
+  "required_next_action": [
+    "Treat downstream authority inference as unsupported unless separately authorized.",
+    "Request explicit approval authority, decision record, and evidence before operational onboarding action."
+  ],
+  "fork_role": "RECORD_CONSUMPTION_AND_EXPOSE_AUTHORITY_LEAKAGE"
+}

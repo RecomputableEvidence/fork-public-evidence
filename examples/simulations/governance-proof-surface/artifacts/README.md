@@ -4,7 +4,7 @@
 
 This artifact directory contains machine-readable and reviewer-readable artifacts for Fork Governance Simulation Proof Surface scenarios.
 
-The artifacts support bounded inspection of claim scope, non-claims, authority context, unsupported inheritance, and downstream semantic drift.
+The artifacts support bounded inspection of claim scope, non-claims, authority context, unsupported inheritance, semantic drift, and authority leakage.
 
 ## Scenario 02 Artifact Set
 
@@ -29,6 +29,18 @@ The artifacts support bounded inspection of claim scope, non-claims, authority c
 | Unsupported Inheritance Event | scenario_03_unsupported_inheritance_event.json | Records the unsupported scope expansion |
 | Authority Policy Context | scenario_03_authority_policy_context.md | Records policy and role context without treating either as approval authority |
 | Non-Claims Panel | scenario_03_non_claims_panel.md | Preserves explicit non-claims, including no conversion of preliminary review into onboarding approval |
+
+## Scenario 04 Artifact Set
+
+| Artifact | File | Purpose |
+|---|---|---|
+| Boundary Delta Record | scenario_04_boundary_delta_record.json | Records authority leakage from analyst review to inferred functional authorization |
+| Claim Boundary Contract | scenario_04_claim_boundary_contract.json | Records that reviewer role and policy references do not transfer approval authority |
+| Claim Consumption Event | scenario_04_claim_consumption_event.json | Records downstream inference that the vendor-risk function has authorized onboarding |
+| System Mapping Receipt | scenario_04_system_mapping_receipt.json | Maps systems and highlights the authority leakage path |
+| Unsupported Inheritance Event | scenario_04_unsupported_inheritance_event.json | Records unsupported authority transfer and policy-approval confusion |
+| Authority Policy Context | scenario_04_authority_policy_context.md | Records role and policy context without converting them into approval authority |
+| Non-Claims Panel | scenario_04_non_claims_panel.md | Preserves explicit non-claims about authority, approval, and policy applicability |
 
 ## Non-Claims
 

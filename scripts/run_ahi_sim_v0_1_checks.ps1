@@ -36,7 +36,14 @@ $required = @(
     "examples/simulations/governance-proof-surface/artifacts/scenario_03_system_mapping_receipt.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_03_authority_policy_context.md",
-    "examples/simulations/governance-proof-surface/artifacts/scenario_03_non_claims_panel.md"
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_non_claims_panel.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_boundary_delta_record.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_boundary_contract.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_consumption_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_system_mapping_receipt.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_unsupported_inheritance_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_authority_policy_context.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_non_claims_panel.md"
 )
 
 foreach ($path in $required) {
@@ -60,7 +67,12 @@ $jsonFiles = @(
     "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_boundary_contract.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_03_system_mapping_receipt.json",
-    "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json"
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_boundary_delta_record.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_boundary_contract.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_consumption_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_system_mapping_receipt.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_04_unsupported_inheritance_event.json"
 )
 
 foreach ($path in $jsonFiles) {
@@ -76,38 +88,33 @@ foreach ($path in $jsonFiles) {
 }
 
 Write-Host ""
-Write-Host "Checking Scenario 03 semantic classifications..."
+Write-Host "Checking Scenario 04 semantic classifications..."
 
-$cce03 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json" | ConvertFrom-Json
-$uie03 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json" | ConvertFrom-Json
-$bdr03 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_03_boundary_delta_record.json" | ConvertFrom-Json
+$cce04 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_consumption_event.json" | ConvertFrom-Json
+$uie04 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_04_unsupported_inheritance_event.json" | ConvertFrom-Json
+$bdr04 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_04_boundary_delta_record.json" | ConvertFrom-Json
 
-if ($cce03.classification.consumption_classification -ne "SCOPE_EXPANSION_UNSUPPORTED") {
-    Write-Host "FAIL: Scenario 03 CCE must classify consumption as SCOPE_EXPANSION_UNSUPPORTED"
+if ($cce04.classification.consumption_classification -ne "AUTHORITY_LEAKAGE_UNSUPPORTED") {
+    Write-Host "FAIL: Scenario 04 CCE must classify consumption as AUTHORITY_LEAKAGE_UNSUPPORTED"
     exit 1
 }
 
-if ($uie03.category -ne "CLAIM_SCOPE_EXPANSION") {
-    Write-Host "FAIL: Scenario 03 UIE primary category must be CLAIM_SCOPE_EXPANSION"
+if ($uie04.category -ne "AUTHORITY_LEAKAGE") {
+    Write-Host "FAIL: Scenario 04 UIE primary category must be AUTHORITY_LEAKAGE"
     exit 1
 }
 
-if ($bdr03.delta_classification.claim_scope -ne "EXPANDED") {
-    Write-Host "FAIL: Scenario 03 BDR claim_scope must be EXPANDED"
+if ($bdr04.delta_classification.authority_context -ne "LEAKED") {
+    Write-Host "FAIL: Scenario 04 BDR authority_context must be LEAKED"
     exit 1
 }
 
-if ($bdr03.downstream_semantic_change.new_authority_reference_present -ne $false) {
-    Write-Host "FAIL: Scenario 03 must not include new authority reference in the downstream semantic change"
+if ($bdr04.downstream_authority_leakage.new_approval_record_present -ne $false) {
+    Write-Host "FAIL: Scenario 04 must not include new approval record in the downstream authority leakage"
     exit 1
 }
 
-if ($bdr03.downstream_semantic_change.new_evidence_reference_present -ne $false) {
-    Write-Host "FAIL: Scenario 03 must not include new evidence reference in the downstream semantic change"
-    exit 1
-}
-
-Write-Host "PASS: Scenario 03 semantic classifications are bounded and explicit."
+Write-Host "PASS: Scenario 04 authority leakage classifications are bounded and explicit."
 Write-Host ""
 Write-Host "Running non-claims contract checker..."
 python tools\check_non_claims_contract.py
