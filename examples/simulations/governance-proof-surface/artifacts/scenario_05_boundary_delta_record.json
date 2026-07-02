@@ -1,0 +1,121 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+  "record_id": "BDR-SIM-05-001",
+  "title": "Scenario 05 Boundary Delta Record",
+  "created_for": "Fork Governance Simulation Proof Surface",
+  "transition": {
+    "transition_id": "TRANSITION-SIM-05-001",
+    "from_systems": [
+      "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "SYSTEM_C_PRELIMINARY_REVIEW_POLICY_CONTEXT"
+    ],
+    "through_system": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+    "to_system": "SYSTEM_D_DOWNSTREAM_DECISION_MEMO",
+    "reconstruction_system": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+    "transition_kind": "PRELIMINARY_REVIEW_POLICY_REFERENCE_TO_DOWNSTREAM_RELIANCE_MEMO",
+    "failure_mode_under_test": "NON_CLAIM_SUPPRESSION_AND_POLICY_REFERENCE_LAUNDERING"
+  },
+  "upstream_state": {
+    "artifact_id": "ART-SIM-05-VENDOR-RISK-MEMO",
+    "artifact_type": "AI_ASSISTED_VENDOR_RISK_MEMO",
+    "recorded_claims": [
+      {
+        "claim_id": "CLM-SIM-05-001",
+        "statement": "An AI-assisted vendor-risk memo was produced and reviewed for preliminary vendor-risk triage, with policy reference VR-PRELIM-REVIEW-v0.1 recorded.",
+        "scope": "PRELIMINARY_TRIAGE_WITH_POLICY_REFERENCE_ONLY",
+        "status": "RECORDED"
+      }
+    ],
+    "recorded_policy_context": [
+      {
+        "policy_id": "VR-PRELIM-REVIEW-v0.1",
+        "description": "Vendor-risk preliminary review policy reference",
+        "recorded_effect": "REFERENCED_ONLY",
+        "policy_applicability_established": false,
+        "policy_satisfaction_established": false,
+        "compliance_established": false
+      }
+    ],
+    "recorded_non_claims": [
+      "The policy reference does not establish policy applicability.",
+      "The policy reference does not establish policy satisfaction.",
+      "The policy reference does not establish compliance.",
+      "The preliminary review does not establish legal sufficiency.",
+      "The preliminary review does not establish final vendor approval.",
+      "The preliminary review does not establish onboarding clearance.",
+      "The preliminary review does not establish production readiness.",
+      "The preliminary review does not establish factual correctness of underlying vendor data.",
+      "The preliminary review does not establish closure of unresolved issues.",
+      "The preliminary review does not transfer institutional authorization."
+    ],
+    "unresolved_state": [
+      {
+        "unresolved_id": "UNRESOLVED-SIM-05-001",
+        "description": "Policy applicability not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-05-002",
+        "description": "Policy satisfaction not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-05-003",
+        "description": "Compliance determination not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-05-004",
+        "description": "Onboarding clearance not established."
+      }
+    ]
+  },
+  "downstream_suppression": {
+    "consumer_system": "SYSTEM_D_DOWNSTREAM_DECISION_MEMO",
+    "suppression_id": "SUPPRESS-SIM-05-001",
+    "preserved_positive_claims": [
+      "The vendor-risk memo was reviewed and a policy reference was recorded."
+    ],
+    "suppressed_non_claims": [
+      "No policy applicability determination.",
+      "No policy satisfaction determination.",
+      "No compliance determination.",
+      "No legal sufficiency determination.",
+      "No final vendor approval.",
+      "No onboarding clearance.",
+      "No production readiness.",
+      "No factual correctness guarantee.",
+      "No closure of unresolved issues.",
+      "No authority transfer."
+    ],
+    "downstream_inference": "The workflow complied with the referenced vendor-risk policy and may be relied on for downstream onboarding.",
+    "suppression_vectors": [
+      "NON_CLAIM_DROPPED",
+      "LIMITATION_COMPRESSED",
+      "POLICY_REFERENCE_TO_POLICY_SATISFACTION",
+      "PRELIMINARY_REVIEW_TO_DOWNSTREAM_CLEARANCE"
+    ],
+    "new_policy_applicability_record_present": false,
+    "new_policy_satisfaction_record_present": false,
+    "new_compliance_determination_present": false,
+    "new_approval_record_present": false
+  },
+  "delta_classification": {
+    "claim_scope": "EXPANDED",
+    "non_claims": "SUPPRESSED",
+    "limitations": "DROPPED",
+    "policy_reference": "LAUNDERED",
+    "authority_context": "PRESERVED_NOT_TRANSFERRED",
+    "unresolved_state": "SUPPRESSED",
+    "overall_boundary_effect": "NON_CLAIM_SUPPRESSION_EXPOSED"
+  },
+  "required_revalidation": [
+    "Establish policy applicability before treating the policy reference as applicable.",
+    "Establish policy satisfaction before treating the workflow as policy-satisfied.",
+    "Establish compliance before treating the workflow as compliant.",
+    "Establish approval authority before treating preliminary review as approval.",
+    "Resolve unresolved issues before treating downstream reliance as cleared."
+  ],
+  "inspectability_result": "INSPECTABLE",
+  "fork_role": "PRESERVE_HANDOFF_STATE_AND_EXPOSE_NON_CLAIM_SUPPRESSION",
+  "fork_non_authority_statement": "Fork exposes non-claim suppression and policy-reference laundering for inspection and reconstruction. Fork does not determine compliance, legal sufficiency, approval, or downstream permission."
+}

@@ -42,6 +42,20 @@ The artifacts support bounded inspection of claim scope, non-claims, authority c
 | Authority Policy Context | scenario_04_authority_policy_context.md | Records role and policy context without converting them into approval authority |
 | Non-Claims Panel | scenario_04_non_claims_panel.md | Preserves explicit non-claims about authority, approval, and policy applicability |
 
+## Scenario 05 Artifact Set
+
+| Artifact | File | Purpose |
+|---|---|---|
+| Boundary Delta Record | scenario_05_boundary_delta_record.json | Records limitation suppression and policy-reference laundering during downstream memo transition |
+| Claim Boundary Contract | scenario_05_claim_boundary_contract.json | Defines what preliminary review and policy-reference claims may cross, and which non-claims must remain attached |
+| Claim Consumption Event | scenario_05_claim_consumption_event.json | Records downstream consumption that expands policy reference into policy satisfaction / compliance |
+| System Mapping Receipt | scenario_05_system_mapping_receipt.json | Maps systems and highlights the non-claim suppression path |
+| Suppressed Limitations Event | scenario_05_suppressed_limitations_event.json | Records the material limitations dropped by the downstream artifact |
+| Original Non-Claims Panel | scenario_05_original_non_claims_panel.md | Preserves the upstream limitations before suppression |
+| Policy Reference Context | scenario_05_policy_reference_context.md | Records policy reference without treating it as policy applicability or satisfaction |
+| Downstream Memo Excerpt | scenario_05_downstream_memo_excerpt.md | Provides the downstream text that launders the policy reference |
+| Non-Claims Panel | scenario_05_non_claims_panel.md | Restates explicit non-claims required for reconstruction |
+
 ## Non-Claims
 
 These artifact bundles do not establish correctness, compliance, legal sufficiency, institutional authority, production readiness, or general validity.

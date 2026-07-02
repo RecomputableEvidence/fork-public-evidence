@@ -1,0 +1,63 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+  "event_id": "CCE-SIM-05-001",
+  "title": "Scenario 05 Claim Consumption Event",
+  "consumer": {
+    "system_id": "SYSTEM_D_DOWNSTREAM_DECISION_MEMO",
+    "consumer_role": "DOWNSTREAM_MEMO_AUTHOR_OR_ROUTING_SYSTEM"
+  },
+  "consumed_claim": {
+    "claim_id": "CLM-SIM-05-001",
+    "statement": "The memo was produced and reviewed for preliminary vendor-risk triage, with policy reference VR-PRELIM-REVIEW-v0.1 recorded.",
+    "recorded_scope": "PRELIMINARY_TRIAGE_WITH_POLICY_REFERENCE_ONLY"
+  },
+  "attempted_consumption": {
+    "attempted_claim": "The workflow complied with the referenced vendor-risk policy and may be relied on for downstream onboarding.",
+    "attempted_scope": "POLICY_SATISFACTION_COMPLIANCE_AND_DOWNSTREAM_RELIANCE",
+    "consumption_effect": "EXPANDED",
+    "non_claim_treatment": "SUPPRESSED",
+    "limitation_treatment": "DROPPED",
+    "policy_shift": {
+      "from": "POLICY_REFERENCED",
+      "to": "POLICY_APPLIED_SATISFIED_OR_COMPLIED_WITH"
+    },
+    "new_policy_applicability_record_present": false,
+    "new_policy_satisfaction_record_present": false,
+    "new_compliance_determination_present": false,
+    "new_approval_record_present": false
+  },
+  "classification": {
+    "consumption_classification": "NON_CLAIM_SUPPRESSION_UNSUPPORTED",
+    "unsupported_inheritance": true,
+    "primary_category": "NON_CLAIM_SUPPRESSION",
+    "secondary_categories": [
+      "POLICY_REFERENCE_LAUNDERING",
+      "COMPLIANCE_CERTIFICATION_CONFUSION",
+      "LIMITATION_LAUNDERING",
+      "UNSUPPORTED_INHERITANCE"
+    ],
+    "reason": "The downstream memo preserves the favorable review and policy-reference claim while dropping material non-claims and treating a policy reference as policy satisfaction or compliance without a new determination."
+  },
+  "dropped_non_claims": [
+    "No policy applicability determination.",
+    "No policy satisfaction determination.",
+    "No compliance determination.",
+    "No legal sufficiency determination.",
+    "No final vendor approval.",
+    "No onboarding clearance.",
+    "No production readiness.",
+    "No factual correctness guarantee.",
+    "No unresolved issue closure.",
+    "No authority transfer."
+  ],
+  "required_next_action": [
+    "Restore material non-claims to the downstream memo.",
+    "Obtain separate policy applicability evidence before asserting applicability.",
+    "Obtain separate policy satisfaction evidence before asserting satisfaction.",
+    "Obtain separate compliance determination before asserting compliance.",
+    "Obtain separate approval or clearance before downstream onboarding reliance."
+  ],
+  "fork_role": "RECORD_CONSUMPTION_AND_EXPOSE_NON_CLAIM_SUPPRESSION"
+}
