@@ -29,7 +29,14 @@ $required = @(
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_system_mapping_receipt.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_unsupported_inheritance_event.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_authority_policy_context.md",
-    "examples/simulations/governance-proof-surface/artifacts/scenario_02_non_claims_panel.md"
+    "examples/simulations/governance-proof-surface/artifacts/scenario_02_non_claims_panel.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_boundary_delta_record.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_boundary_contract.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_system_mapping_receipt.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_authority_policy_context.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_non_claims_panel.md"
 )
 
 foreach ($path in $required) {
@@ -41,13 +48,19 @@ foreach ($path in $required) {
 }
 
 Write-Host ""
-Write-Host "Validating Scenario 02 JSON artifacts..."
+Write-Host "Validating simulation JSON artifacts..."
+
 $jsonFiles = @(
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_boundary_delta_record.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_claim_boundary_contract.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_claim_consumption_event.json",
     "examples/simulations/governance-proof-surface/artifacts/scenario_02_system_mapping_receipt.json",
-    "examples/simulations/governance-proof-surface/artifacts/scenario_02_unsupported_inheritance_event.json"
+    "examples/simulations/governance-proof-surface/artifacts/scenario_02_unsupported_inheritance_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_boundary_delta_record.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_boundary_contract.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_system_mapping_receipt.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json"
 )
 
 foreach ($path in $jsonFiles) {
@@ -62,6 +75,39 @@ foreach ($path in $jsonFiles) {
     }
 }
 
+Write-Host ""
+Write-Host "Checking Scenario 03 semantic classifications..."
+
+$cce03 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json" | ConvertFrom-Json
+$uie03 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json" | ConvertFrom-Json
+$bdr03 = Get-Content -Raw -Path "examples/simulations/governance-proof-surface/artifacts/scenario_03_boundary_delta_record.json" | ConvertFrom-Json
+
+if ($cce03.classification.consumption_classification -ne "SCOPE_EXPANSION_UNSUPPORTED") {
+    Write-Host "FAIL: Scenario 03 CCE must classify consumption as SCOPE_EXPANSION_UNSUPPORTED"
+    exit 1
+}
+
+if ($uie03.category -ne "CLAIM_SCOPE_EXPANSION") {
+    Write-Host "FAIL: Scenario 03 UIE primary category must be CLAIM_SCOPE_EXPANSION"
+    exit 1
+}
+
+if ($bdr03.delta_classification.claim_scope -ne "EXPANDED") {
+    Write-Host "FAIL: Scenario 03 BDR claim_scope must be EXPANDED"
+    exit 1
+}
+
+if ($bdr03.downstream_semantic_change.new_authority_reference_present -ne $false) {
+    Write-Host "FAIL: Scenario 03 must not include new authority reference in the downstream semantic change"
+    exit 1
+}
+
+if ($bdr03.downstream_semantic_change.new_evidence_reference_present -ne $false) {
+    Write-Host "FAIL: Scenario 03 must not include new evidence reference in the downstream semantic change"
+    exit 1
+}
+
+Write-Host "PASS: Scenario 03 semantic classifications are bounded and explicit."
 Write-Host ""
 Write-Host "Running non-claims contract checker..."
 python tools\check_non_claims_contract.py

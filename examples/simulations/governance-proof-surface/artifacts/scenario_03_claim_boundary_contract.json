@@ -1,0 +1,95 @@
+{
+  "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+  "contract_id": "CBC-SIM-03-001",
+  "title": "Scenario 03 Claim Boundary Contract",
+  "subject": {
+    "artifact_id": "ART-SIM-03-VENDOR-RISK-MEMO",
+    "artifact_type": "AI_ASSISTED_VENDOR_RISK_MEMO"
+  },
+  "boundary": {
+    "from": "SYSTEM_A_AI_ASSISTED_PRODUCTION_AND_SYSTEM_C_REVIEW_CONTEXT",
+    "to": "SYSTEM_D2_DOWNSTREAM_OPERATIONAL_LABELER",
+    "mediated_by": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER"
+  },
+  "claims_allowed_to_cross": [
+    {
+      "claim_id": "CLM-SIM-03-001",
+      "statement": "The memo was produced and reviewed for preliminary vendor-risk triage only.",
+      "scope": "PRELIMINARY_TRIAGE_ONLY",
+      "conditions": [
+        "May be used to understand what preliminary review occurred.",
+        "May be used to identify unresolved issues.",
+        "May be used to request additional review, approval, or revalidation."
+      ]
+    }
+  ],
+  "claims_not_allowed_to_be_inferred": [
+    {
+      "non_claim_id": "NC-SIM-03-001",
+      "statement": "The preliminary triage record does not establish final vendor approval."
+    },
+    {
+      "non_claim_id": "NC-SIM-03-002",
+      "statement": "The preliminary triage record does not establish that the vendor is cleared for onboarding."
+    },
+    {
+      "non_claim_id": "NC-SIM-03-003",
+      "statement": "The preliminary triage record does not establish compliance."
+    },
+    {
+      "non_claim_id": "NC-SIM-03-004",
+      "statement": "The preliminary triage record does not establish legal sufficiency."
+    },
+    {
+      "non_claim_id": "NC-SIM-03-005",
+      "statement": "The preliminary triage record does not establish production readiness."
+    },
+    {
+      "non_claim_id": "NC-SIM-03-006",
+      "statement": "The preliminary triage record does not establish factual correctness of underlying vendor data."
+    },
+    {
+      "non_claim_id": "NC-SIM-03-007",
+      "statement": "The preliminary triage record does not transfer institutional authority."
+    }
+  ],
+  "semantic_expansion_guard": {
+    "source_scope": "PRELIMINARY_TRIAGE_ONLY",
+    "prohibited_downstream_labels_without_new_authority": [
+      "APPROVED_FOR_ONBOARDING",
+      "CLEARED_FOR_ONBOARDING",
+      "VENDOR_APPROVED",
+      "VENDOR_CLEARED"
+    ],
+    "expansion_requires": [
+      "new approval authority",
+      "new evidence reference",
+      "explicit downstream decision record"
+    ]
+  },
+  "evidence_references": [
+    {
+      "evidence_id": "EVID-SIM-03-001",
+      "description": "AI-assisted memo artifact reference",
+      "status": "REFERENCED"
+    },
+    {
+      "evidence_id": "EVID-SIM-03-002",
+      "description": "Human preliminary review context",
+      "status": "REFERENCED"
+    }
+  ],
+  "revalidation_required_for": [
+    "approval",
+    "onboarding clearance",
+    "authorization",
+    "compliance determination",
+    "legal sufficiency",
+    "production readiness",
+    "factual correctness"
+  ],
+  "contract_result": "BOUNDARY_STRUCTURE_RECORDED_ONLY",
+  "non_claims_preserved": true
+}

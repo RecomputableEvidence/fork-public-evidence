@@ -2,33 +2,88 @@
 
 ## Purpose
 
-This scenario tests whether Fork exposes a downstream claim expansion attempt.
+This scenario tests whether Fork exposes downstream claim expansion.
+
+The modeled expansion is:
+
+```text
+reviewed for preliminary triage
+        ->
+approved / cleared for onboarding
+```
+
+The purpose is not to block the downstream actor. The purpose is to make the semantic expansion visible, classifiable, and reconstructable.
+
+## Participating Systems
+
+| System   | Role                                           |
+|---------|------------------------------------------------|
+| System A | AI-assisted production system                 |
+| System B | Fork boundary-record layer                    |
+| System C | Institutional review / policy context system  |
+| System D1 | First downstream consumer                    |
+| System D2 | Second downstream consumer / operational labeler |
+| System E | Audit / reconstruction / oversight system     |
 
 ## Flow
 
-1. Upstream artifact records a narrow claim: preliminary vendor-risk review completed.
-2. Downstream system treats the artifact as vendor cleared.
-3. Fork records whether the downstream claim preserved, narrowed, expanded, or exceeded the upstream boundary.
+- System A produces an AI-assisted vendor-risk memo.
+- System C records preliminary review context.
+- System B preserves the original handoff boundary.
+- System D1 consumes the memo within the preliminary triage scope.
+- System D2 rephrases the status as "approved for onboarding" or "cleared for onboarding."
+- System E reconstructs the transition and identifies scope expansion.
 
 ## Original Claim
 
-`Vendor-risk memo reviewed for preliminary triage only.`
+The vendor-risk memo was produced and reviewed for preliminary triage only.
 
-## Downstream Inference
+## Downstream Expanded Claim
 
-`Vendor cleared for onboarding.`
+The vendor is approved / cleared for onboarding.
 
 ## Expected Classification
 
-`CLAIM_SCOPE_EXPANSION`
+Primary:
 
-## Expected Reconstruction Outcome
+- CLAIM_SCOPE_EXPANSION
+
+Secondary:
+
+- AUTHORITY_LEAKAGE
+
+## Expected Fork Behavior
+
+Fork does not block the downstream phrasing.  
+Fork preserves the original claim boundary, records the attempted expanded consumption, and exposes that the downstream wording exceeds the recorded preliminary review scope unless supported by separate authority and evidence.
+
+## What Crossed the Boundary
+
+- AI-assisted vendor-risk memo.
+- Preliminary triage review claim.
+- Evidence references.
+- Authority and policy context.
+- Non-claims.
+- Unresolved state.
+- Revalidation requirements.
+
+## What Did Not Cross the Boundary
+
+- Final vendor approval.
+- Cleared onboarding status.
+- Compliance determination.
+- Legal sufficiency.
+- Production readiness.
+- Factual correctness guarantee.
+- Institutional authorization.
+
+## Reconstruction Result
+
+Expected outcome:
 
 `UNSUPPORTED_INHERITANCE_EXPOSED`
 
-## What Remains Outside Fork
+## Non-Claims
 
-- Whether the vendor should be onboarded.
-- Whether the reviewer had approval authority.
-- Whether compliance requirements were satisfied.
-- Whether the decision was correct.
+This scenario does not establish correctness, compliance, legal sufficiency, institutional authority, production readiness, or general validity.  
+This scenario tests whether a downstream scope expansion becomes inspectable.

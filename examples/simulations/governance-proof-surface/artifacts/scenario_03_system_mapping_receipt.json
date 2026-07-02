@@ -1,0 +1,62 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+  "receipt_id": "SMR-SIM-03-001",
+  "title": "Scenario 03 System Mapping Receipt",
+  "systems": [
+    {
+      "system_id": "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "native_responsibility": "Produce AI-assisted vendor-risk memo",
+      "fork_does_not_become": "model evaluator"
+    },
+    {
+      "system_id": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+      "native_responsibility": "Preserve handoff state and expose boundary effects",
+      "fork_does_not_become": "authority layer"
+    },
+    {
+      "system_id": "SYSTEM_C_INSTITUTIONAL_REVIEW_CONTEXT",
+      "native_responsibility": "Represent preliminary human review and policy context",
+      "fork_does_not_become": "compliance decision-maker"
+    },
+    {
+      "system_id": "SYSTEM_D1_FIRST_DOWNSTREAM_CONSUMER",
+      "native_responsibility": "Consume preliminary review artifact within recorded scope",
+      "fork_does_not_become": "runtime controller"
+    },
+    {
+      "system_id": "SYSTEM_D2_DOWNSTREAM_OPERATIONAL_LABELER",
+      "native_responsibility": "Apply operational status label",
+      "fork_does_not_become": "approval authority"
+    },
+    {
+      "system_id": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+      "native_responsibility": "Reconstruct transition later",
+      "fork_does_not_become": "legal authority"
+    }
+  ],
+  "mapping": {
+    "source_artifact": "ART-SIM-03-VENDOR-RISK-MEMO",
+    "boundary_artifacts": [
+      "BDR-SIM-03-001",
+      "CBC-SIM-03-001",
+      "CCE-SIM-03-001",
+      "APC-SIM-03-001",
+      "NCP-SIM-03-001"
+    ],
+    "consumer_event": "CCE-SIM-03-001",
+    "unsupported_inheritance_event": "UIE-SIM-03-001"
+  },
+  "semantic_mapping": {
+    "source_label": "PRELIMINARY_TRIAGE_REVIEWED",
+    "downstream_label": "APPROVED_OR_CLEARED_FOR_ONBOARDING",
+    "mapping_outcome": "EXPANDED_UNSUPPORTED"
+  },
+  "mapping_outcome": "MAPPED_WITH_SCOPE_EXPANSION_EXPOSED",
+  "authority_transfer": false,
+  "policy_approval_transfer": false,
+  "runtime_control_transfer": false,
+  "audit_authority_transfer": false,
+  "reconstruction_posture": "UNSUPPORTED_INHERITANCE_EXPOSED"
+}

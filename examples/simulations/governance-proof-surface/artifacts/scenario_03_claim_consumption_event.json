@@ -1,0 +1,51 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+  "event_id": "CCE-SIM-03-001",
+  "title": "Scenario 03 Claim Consumption Event",
+  "consumer": {
+    "system_id": "SYSTEM_D2_DOWNSTREAM_OPERATIONAL_LABELER",
+    "consumer_role": "SECOND_DOWNSTREAM_CONSUMER_OR_STATUS_LABELER"
+  },
+  "consumed_claim": {
+    "claim_id": "CLM-SIM-03-001",
+    "statement": "The memo was produced and reviewed for preliminary vendor-risk triage only.",
+    "recorded_scope": "PRELIMINARY_TRIAGE_ONLY"
+  },
+  "attempted_consumption": {
+    "attempted_claim": "Vendor is approved / cleared for onboarding.",
+    "attempted_scope": "FINAL_VENDOR_APPROVAL_OR_ONBOARDING_CLEARANCE",
+    "consumption_effect": "EXPANDED",
+    "semantic_shift": {
+      "from": "reviewed for preliminary triage",
+      "to": "approved / cleared for onboarding"
+    },
+    "new_authority_reference_present": false,
+    "new_evidence_reference_present": false,
+    "new_approval_record_present": false
+  },
+  "classification": {
+    "consumption_classification": "SCOPE_EXPANSION_UNSUPPORTED",
+    "unsupported_inheritance": true,
+    "primary_category": "CLAIM_SCOPE_EXPANSION",
+    "secondary_categories": [
+      "AUTHORITY_LEAKAGE"
+    ],
+    "reason": "The downstream onboarding approval / cleared label exceeds the recorded preliminary triage scope and lacks new approval authority, new evidence, or an explicit downstream decision record."
+  },
+  "preserved_non_claims": [
+    "Not final approval.",
+    "Not onboarding clearance.",
+    "Not compliance determination.",
+    "Not legal sufficiency.",
+    "Not production readiness.",
+    "Not factual correctness guarantee.",
+    "No authority transfer."
+  ],
+  "required_next_action": [
+    "Treat downstream approval / cleared label as unsupported unless separately authorized.",
+    "Request explicit approval authority and evidence before operational onboarding action."
+  ],
+  "fork_role": "RECORD_CONSUMPTION_AND_EXPOSE_SCOPE_EXPANSION"
+}

@@ -1,0 +1,83 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+  "record_id": "BDR-SIM-03-001",
+  "title": "Scenario 03 Boundary Delta Record",
+  "created_for": "Fork Governance Simulation Proof Surface",
+  "transition": {
+    "transition_id": "TRANSITION-SIM-03-001",
+    "from_systems": [
+      "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "SYSTEM_C_INSTITUTIONAL_REVIEW_CONTEXT",
+      "SYSTEM_D1_FIRST_DOWNSTREAM_CONSUMER"
+    ],
+    "through_system": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+    "to_system": "SYSTEM_D2_DOWNSTREAM_OPERATIONAL_LABELER",
+    "reconstruction_system": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+    "transition_kind": "PRELIMINARY_TRIAGE_TO_ONBOARDING_STATUS_LABEL"
+  },
+  "upstream_state": {
+    "artifact_id": "ART-SIM-03-VENDOR-RISK-MEMO",
+    "artifact_type": "AI_ASSISTED_VENDOR_RISK_MEMO",
+    "recorded_claims": [
+      {
+        "claim_id": "CLM-SIM-03-001",
+        "statement": "An AI-assisted vendor-risk memo was produced and reviewed for preliminary triage only.",
+        "scope": "PRELIMINARY_TRIAGE_ONLY",
+        "status": "RECORDED"
+      }
+    ],
+    "recorded_non_claims": [
+      "No final vendor approval is asserted.",
+      "No cleared onboarding status is asserted.",
+      "No compliance determination is asserted.",
+      "No legal sufficiency determination is asserted.",
+      "No production readiness determination is asserted.",
+      "No factual correctness guarantee is asserted.",
+      "No institutional authorization is asserted."
+    ],
+    "unresolved_state": [
+      {
+        "unresolved_id": "UNRESOLVED-SIM-03-001",
+        "description": "Approval authority not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-03-002",
+        "description": "Onboarding clearance not established."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-03-003",
+        "description": "Compliance status not determined."
+      }
+    ]
+  },
+  "downstream_semantic_change": {
+    "consumer_system": "SYSTEM_D2_DOWNSTREAM_OPERATIONAL_LABELER",
+    "change_id": "SEMANTIC-DRIFT-SIM-03-001",
+    "source_phrase": "reviewed for preliminary triage",
+    "downstream_phrase": "approved / cleared for onboarding",
+    "change_type": "STATUS_LABEL_EXPANSION",
+    "new_authority_reference_present": false,
+    "new_evidence_reference_present": false,
+    "new_compliance_determination_present": false
+  },
+  "delta_classification": {
+    "claim_scope": "EXPANDED",
+    "semantic_drift": "PRESENT",
+    "authority_context": "NOT_TRANSFERRED",
+    "policy_context": "REFERENCED_ONLY",
+    "non_claims": "PRESERVED",
+    "unresolved_state": "PRESERVED",
+    "overall_boundary_effect": "UNSUPPORTED_SCOPE_EXPANSION_EXPOSED"
+  },
+  "required_revalidation": [
+    "Obtain explicit approval authority before treating preliminary review as approval.",
+    "Obtain explicit onboarding clearance before labeling the vendor cleared.",
+    "Obtain separate compliance determination before treating the workflow as compliant.",
+    "Resolve or explicitly accept unresolved evidence gaps before downstream operational action."
+  ],
+  "inspectability_result": "INSPECTABLE",
+  "fork_role": "PRESERVE_HANDOFF_STATE_AND_EXPOSE_SCOPE_EXPANSION",
+  "fork_non_authority_statement": "Fork records the semantic boundary effect for inspection and reconstruction. Fork does not approve, clear, authorize, certify, or determine the downstream action."
+}

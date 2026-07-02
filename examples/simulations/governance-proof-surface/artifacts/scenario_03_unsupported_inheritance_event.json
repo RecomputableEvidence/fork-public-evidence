@@ -1,0 +1,35 @@
+{
+  "artifact_type": "UNSUPPORTED_INHERITANCE_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+  "event_id": "UIE-SIM-03-001",
+  "title": "Scenario 03 Unsupported Scope Expansion Event",
+  "condition": "SIMULATION_TREATMENT",
+  "workflow_id": "SIM-GOV-PROOF-SURFACE-03",
+  "category": "CLAIM_SCOPE_EXPANSION",
+  "secondary_categories": [
+    "AUTHORITY_LEAKAGE"
+  ],
+  "actor_or_artifact": "SYSTEM_D2_DOWNSTREAM_OPERATIONAL_LABELER",
+  "inferred_claim": "Vendor is approved / cleared for onboarding.",
+  "record_support": "The record supports only that an AI-assisted vendor-risk memo was produced and reviewed for preliminary triage.",
+  "why_unsupported": "The downstream approved / cleared label exceeds the recorded preliminary triage boundary and lacks separate approval authority, explicit onboarding clearance, or new supporting evidence.",
+  "semantic_drift": {
+    "from": "reviewed for preliminary triage",
+    "to": "approved / cleared for onboarding",
+    "drift_type": "NARROW_REVIEW_TO_OPERATIONAL_APPROVAL"
+  },
+  "evidence_refs": [
+    "BDR-SIM-03-001",
+    "CBC-SIM-03-001",
+    "CCE-SIM-03-001",
+    "SMR-SIM-03-001",
+    "APC-SIM-03-001",
+    "NCP-SIM-03-001"
+  ],
+  "coder_id": "SIMULATION_CODER",
+  "adjudication_status": "AGREED",
+  "adjudication_note": "Scenario 03 intentionally models a downstream status-label expansion from preliminary triage to onboarding approval / cleared status so Fork can expose the unsupported expansion without blocking it.",
+  "fork_result": "SCOPE_EXPANSION_EXPOSED",
+  "fork_non_authority_statement": "Fork exposes the boundary effect. Fork does not decide whether onboarding should occur."
+}
