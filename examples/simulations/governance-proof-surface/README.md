@@ -6,7 +6,7 @@ This example package contains initial scenarios for the Fork Governance Simulati
 
 The simulation is a calibration environment for testing claim boundaries, handoff semantics, artifact formats, interface contracts, delegation behavior, and failure modes.
 
-It is not a product demonstration, compliance proof, approval system, or correctness engine.
+It is not a product demonstration. It does not establish compliance, approval, or correctness.
 
 ## Scenario Set
 

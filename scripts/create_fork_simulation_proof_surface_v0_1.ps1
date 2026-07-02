@@ -167,11 +167,11 @@ Each scenario models accountable handoffs between independently accountable syst
 
 The scaled-down governance model uses five systems.
 
-### System A — AI-Assisted Production System
+### System A â€” AI-Assisted Production System
 
 Produces an artifact, memo, recommendation, summary, or decision-support object.
 
-### System B — Fork Boundary-Record Layer
+### System B â€” Fork Boundary-Record Layer
 
 Preserves transition state:
 
@@ -182,17 +182,17 @@ Preserves transition state:
 - what remained unresolved;
 - what downstream revalidation is required.
 
-### System C — Institutional Review / Policy Context System
+### System C â€” Institutional Review / Policy Context System
 
 Represents human review, policy context, and constrained acceptance.
 
 This is not Fork.
 
-### System D — Downstream Operational or Decision System
+### System D â€” Downstream Operational or Decision System
 
 Consumes the artifact for action, approval, routing, escalation, or later institutional reliance.
 
-### System E — Audit / Reconstruction / Oversight System
+### System E â€” Audit / Reconstruction / Oversight System
 
 Used later to determine what crossed the boundary and whether unsupported inheritance occurred.
 
@@ -204,12 +204,12 @@ Fork addresses that transition by preserving inspectable handoff state without b
 
 ## Scenario List
 
-1. Scenario 01 — Baseline unbounded handoff.
-2. Scenario 02 — Fork-preserved handoff.
-3. Scenario 03 — Scope expansion attempt.
-4. Scenario 04 — Authority leakage attempt.
-5. Scenario 05 — Policy-reference laundering attempt.
-6. Scenario 06 — Multi-system distributed handoff.
+1. Scenario 01 â€” Baseline unbounded handoff.
+2. Scenario 02 â€” Fork-preserved handoff.
+3. Scenario 03 â€” Scope expansion attempt.
+4. Scenario 04 â€” Authority leakage attempt.
+5. Scenario 05 â€” Policy-reference laundering attempt.
+6. Scenario 06 â€” Multi-system distributed handoff.
 
 ## Per-Scenario Evaluation Criteria
 
@@ -222,7 +222,7 @@ Each scenario must capture:
 - Did the downstream actor need new evidence or authority?
 - Was the transition inspectable without turning Fork into the authority layer?
 
-## Scenario 01 — Baseline Unbounded Handoff
+## Scenario 01 â€” Baseline Unbounded Handoff
 
 ### Goal
 
@@ -247,7 +247,7 @@ The downstream system may rely on more than the upstream systems established.
 - missing revalidation boundary;
 - ambiguity in later reconstruction.
 
-## Scenario 02 — Fork-Preserved Handoff
+## Scenario 02 â€” Fork-Preserved Handoff
 
 ### Goal
 
@@ -273,7 +273,7 @@ The downstream system can inspect the handoff boundary instead of silently expan
 - revalidation requirements;
 - comparison against Scenario 01.
 
-## Scenario 03 — Scope Expansion Attempt
+## Scenario 03 â€” Scope Expansion Attempt
 
 ### Goal
 
@@ -298,7 +298,7 @@ Fork makes expansion visible and inspectable.
 - whether the expansion had new authority or evidence;
 - whether the expansion was preserved as unsupported, unresolved, or newly justified.
 
-## Scenario 04 — Authority Leakage Attempt
+## Scenario 04 â€” Authority Leakage Attempt
 
 ### Goal
 
@@ -317,7 +317,7 @@ Show the difference between recorded authority context and actual authority.
 - evidence record not treated as authorization;
 - unsupported authority inference.
 
-## Scenario 05 — Policy-Reference Laundering Attempt
+## Scenario 05 â€” Policy-Reference Laundering Attempt
 
 ### Goal
 
@@ -335,7 +335,7 @@ Show how policy reference can be laundered into implied compliance.
 - compliance inference;
 - whether the downstream inference exceeded the recorded boundary.
 
-## Scenario 06 — Multi-System Distributed Handoff
+## Scenario 06 â€” Multi-System Distributed Handoff
 
 ### Goal
 
@@ -649,7 +649,7 @@ This example package contains initial scenarios for the Fork Governance Simulati
 
 The simulation is a calibration environment for testing claim boundaries, handoff semantics, artifact formats, interface contracts, delegation behavior, and failure modes.
 
-It is not a product demonstration, compliance proof, approval system, or correctness engine.
+It is not a product demonstration. It does not establish compliance, approval, or correctness.
 
 ## Scenario Set
 
