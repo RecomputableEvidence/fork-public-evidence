@@ -169,4 +169,61 @@ if ($violations.Count -gt 0) {
 
 Write-Host "PASS: no prohibited simulation overclaim language found."
 Write-Host ""
+
+Write-Host ""
+Write-Host "Checking Scenario 05 artifacts through main AHI checker..."
+# SCENARIO_05_MAIN_CHECKER_INTEGRATION_v0_2
+$scenario05RequiredFiles = @(
+    "examples/simulations/governance-proof-surface/scenario_05_policy_reference_laundering_attempt.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_original_non_claims_panel.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_policy_reference_context.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_downstream_memo_excerpt.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_non_claims_panel.md",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_boundary_delta_record.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_boundary_contract.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_consumption_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_system_mapping_receipt.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_suppressed_limitations_event.json"
+)
+
+foreach ($path in $scenario05RequiredFiles) {
+    if (-not (Test-Path $path)) {
+        Write-Host "FAIL: missing required Scenario 05 file: $path"
+        exit 1
+    }
+
+    Write-Host "FOUND: $path"
+}
+
+Write-Host ""
+Write-Host "Validating Scenario 05 JSON artifacts through main AHI checker..."
+$scenario05JsonFiles = @(
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_boundary_delta_record.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_boundary_contract.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_consumption_event.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_system_mapping_receipt.json",
+    "examples/simulations/governance-proof-surface/artifacts/scenario_05_suppressed_limitations_event.json"
+)
+
+foreach ($path in $scenario05JsonFiles) {
+    try {
+        Get-Content -Raw -Path $path | ConvertFrom-Json | Out-Null
+        Write-Host "VALID JSON: $path"
+    } catch {
+        Write-Host "FAIL: invalid Scenario 05 JSON: $path"
+        Write-Host $_.Exception.Message
+        exit 1
+    }
+}
+
+Write-Host ""
+Write-Host "Running Scenario 05 semantic checker through main AHI checker..."
+powershell -ExecutionPolicy Bypass -File scripts\check_scenario_05_non_claim_suppression_v0_1.ps1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "FAIL: Scenario 05 semantic checker failed inside main AHI checker"
+    exit 1
+}
+
+Write-Host "PASS: Scenario 05 validation completed inside main AHI checker."
+
 Write-Host "PASS: ahi-sim-v0.1.x simulation proof-surface checks completed."
