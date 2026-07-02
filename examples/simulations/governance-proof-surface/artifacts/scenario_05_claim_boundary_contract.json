@@ -1,0 +1,125 @@
+{
+  "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+  "contract_id": "CBC-SIM-05-001",
+  "title": "Scenario 05 Claim Boundary Contract",
+  "subject": {
+    "artifact_id": "ART-SIM-05-VENDOR-RISK-MEMO",
+    "artifact_type": "AI_ASSISTED_VENDOR_RISK_MEMO"
+  },
+  "boundary": {
+    "from": "SYSTEM_A_AI_ASSISTED_PRODUCTION_AND_SYSTEM_C_PRELIMINARY_REVIEW_CONTEXT",
+    "to": "SYSTEM_D_DOWNSTREAM_DECISION_MEMO",
+    "mediated_by": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER"
+  },
+  "claims_allowed_to_cross": [
+    {
+      "claim_id": "CLM-SIM-05-001",
+      "statement": "The memo was produced and reviewed for preliminary vendor-risk triage, with policy reference VR-PRELIM-REVIEW-v0.1 recorded.",
+      "scope": "PRELIMINARY_TRIAGE_WITH_POLICY_REFERENCE_ONLY",
+      "conditions": [
+        "May be used to understand what preliminary review occurred.",
+        "May be used to identify that a policy reference was recorded.",
+        "May be used to identify unresolved issues.",
+        "May be used to request additional review, approval, policy applicability determination, or revalidation."
+      ]
+    }
+  ],
+  "material_non_claims_required_to_cross": [
+    {
+      "non_claim_id": "NC-SIM-05-001",
+      "statement": "The policy reference does not establish policy applicability."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-002",
+      "statement": "The policy reference does not establish policy satisfaction."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-003",
+      "statement": "The policy reference does not establish compliance."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-004",
+      "statement": "The preliminary review does not establish legal sufficiency."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-005",
+      "statement": "The preliminary review does not establish final vendor approval."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-006",
+      "statement": "The preliminary review does not establish onboarding clearance."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-007",
+      "statement": "The preliminary review does not establish production readiness."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-008",
+      "statement": "The preliminary review does not establish factual correctness of underlying vendor data."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-009",
+      "statement": "The preliminary review does not establish closure of unresolved issues."
+    },
+    {
+      "non_claim_id": "NC-SIM-05-010",
+      "statement": "The preliminary review does not transfer institutional authorization."
+    }
+  ],
+  "claims_not_allowed_to_be_inferred": [
+    "Policy applied.",
+    "Policy was satisfied.",
+    "Workflow complied with the policy.",
+    "Vendor was approved.",
+    "Vendor was cleared for onboarding.",
+    "Legal sufficiency was determined.",
+    "Production readiness was established.",
+    "Underlying vendor data was verified as true.",
+    "Unresolved issues were closed.",
+    "Authority transferred."
+  ],
+  "suppression_guard": {
+    "policy_reference_may_be_treated_as_policy_satisfaction": false,
+    "omitted_non_claims_may_be_treated_as_resolved": false,
+    "preliminary_review_may_be_treated_as_downstream_clearance": false,
+    "positive_claim_may_be_preserved_without_material_limitations": false
+  },
+  "evidence_references": [
+    {
+      "evidence_id": "EVID-SIM-05-001",
+      "description": "AI-assisted vendor-risk memo artifact reference",
+      "status": "REFERENCED"
+    },
+    {
+      "evidence_id": "EVID-SIM-05-002",
+      "description": "Preliminary review context",
+      "status": "REFERENCED"
+    },
+    {
+      "evidence_id": "EVID-SIM-05-003",
+      "description": "Policy reference VR-PRELIM-REVIEW-v0.1",
+      "status": "REFERENCED_ONLY"
+    },
+    {
+      "evidence_id": "EVID-SIM-05-004",
+      "description": "Original non-claims panel",
+      "status": "REQUIRED_TO_PRESERVE"
+    }
+  ],
+  "revalidation_required_for": [
+    "policy applicability",
+    "policy satisfaction",
+    "compliance determination",
+    "legal sufficiency",
+    "final approval",
+    "onboarding clearance",
+    "production readiness",
+    "factual correctness",
+    "unresolved issue closure",
+    "authority transfer"
+  ],
+  "contract_result": "BOUNDARY_STRUCTURE_RECORDED_ONLY",
+  "non_claims_preserved": true
+}

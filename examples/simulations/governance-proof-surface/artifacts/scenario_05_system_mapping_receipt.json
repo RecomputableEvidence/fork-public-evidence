@@ -1,0 +1,64 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+  "receipt_id": "SMR-SIM-05-001",
+  "title": "Scenario 05 System Mapping Receipt",
+  "systems": [
+    {
+      "system_id": "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "native_responsibility": "Produce AI-assisted vendor-risk memo",
+      "fork_does_not_become": "model evaluator"
+    },
+    {
+      "system_id": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+      "native_responsibility": "Preserve handoff state and expose boundary effects",
+      "fork_does_not_become": "compliance authority"
+    },
+    {
+      "system_id": "SYSTEM_C_PRELIMINARY_REVIEW_POLICY_CONTEXT",
+      "native_responsibility": "Record preliminary review and policy reference context",
+      "fork_does_not_become": "policy interpreter"
+    },
+    {
+      "system_id": "SYSTEM_D_DOWNSTREAM_DECISION_MEMO",
+      "native_responsibility": "Consume artifact and produce downstream memo or routing action",
+      "fork_does_not_become": "runtime controller"
+    },
+    {
+      "system_id": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+      "native_responsibility": "Reconstruct transition later",
+      "fork_does_not_become": "legal authority"
+    }
+  ],
+  "mapping": {
+    "source_artifact": "ART-SIM-05-VENDOR-RISK-MEMO",
+    "boundary_artifacts": [
+      "BDR-SIM-05-001",
+      "CBC-SIM-05-001",
+      "CCE-SIM-05-001",
+      "PRC-SIM-05-001",
+      "ONCP-SIM-05-001",
+      "NCP-SIM-05-001"
+    ],
+    "consumer_event": "CCE-SIM-05-001",
+    "suppressed_limitations_event": "SLE-SIM-05-001"
+  },
+  "policy_reference_mapping": {
+    "recorded_policy_reference": "VR-PRELIM-REVIEW-v0.1",
+    "recorded_effect": "REFERENCED_ONLY",
+    "downstream_inferred_effect": "POLICY_APPLIED_SATISFIED_OR_COMPLIED_WITH",
+    "mapping_outcome": "POLICY_REFERENCE_LAUNDERING_UNSUPPORTED"
+  },
+  "non_claim_mapping": {
+    "original_non_claims_present": true,
+    "downstream_non_claims_preserved": false,
+    "suppression_outcome": "MATERIAL_NON_CLAIMS_DROPPED"
+  },
+  "mapping_outcome": "MAPPED_WITH_NON_CLAIM_SUPPRESSION_EXPOSED",
+  "authority_transfer": false,
+  "policy_approval_transfer": false,
+  "runtime_control_transfer": false,
+  "audit_authority_transfer": false,
+  "reconstruction_posture": "NON_CLAIM_SUPPRESSION_EXPOSED"
+}

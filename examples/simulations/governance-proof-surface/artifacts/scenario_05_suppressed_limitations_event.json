@@ -1,0 +1,49 @@
+{
+  "artifact_type": "SUPPRESSED_LIMITATIONS_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+  "event_id": "SLE-SIM-05-001",
+  "title": "Scenario 05 Suppressed Limitations Event",
+  "condition": "SIMULATION_TREATMENT",
+  "workflow_id": "SIM-GOV-PROOF-SURFACE-05",
+  "category": "NON_CLAIM_SUPPRESSION",
+  "secondary_categories": [
+    "POLICY_REFERENCE_LAUNDERING",
+    "COMPLIANCE_CERTIFICATION_CONFUSION",
+    "LIMITATION_LAUNDERING",
+    "UNSUPPORTED_INHERITANCE"
+  ],
+  "actor_or_artifact": "SYSTEM_D_DOWNSTREAM_DECISION_MEMO",
+  "downstream_excerpt_artifact": "DME-SIM-05-001",
+  "preserved_positive_claim": "The vendor-risk memo was reviewed and a policy reference was recorded.",
+  "suppressed_limitations": [
+    "No policy applicability determination.",
+    "No policy satisfaction determination.",
+    "No compliance determination.",
+    "No legal sufficiency determination.",
+    "No final vendor approval.",
+    "No onboarding clearance.",
+    "No production readiness.",
+    "No factual correctness guarantee.",
+    "No unresolved issue closure.",
+    "No authority transfer."
+  ],
+  "inferred_claim": "The workflow complied with the referenced vendor-risk policy and may be relied on for downstream onboarding.",
+  "record_support": "The record supports only preliminary review with a policy reference recorded.",
+  "why_unsupported": "The downstream artifact suppresses material limitations and treats policy reference as policy satisfaction or compliance without separate evidence or authority.",
+  "evidence_refs": [
+    "BDR-SIM-05-001",
+    "CBC-SIM-05-001",
+    "CCE-SIM-05-001",
+    "SMR-SIM-05-001",
+    "PRC-SIM-05-001",
+    "ONCP-SIM-05-001",
+    "NCP-SIM-05-001",
+    "DME-SIM-05-001"
+  ],
+  "coder_id": "SIMULATION_CODER",
+  "adjudication_status": "AGREED",
+  "adjudication_note": "Scenario 05 intentionally models non-claim suppression and policy-reference laundering so Fork can expose the unsupported boundary expansion without deciding compliance.",
+  "fork_result": "NON_CLAIM_SUPPRESSION_EXPOSED",
+  "fork_non_authority_statement": "Fork exposes the limitation-suppression boundary effect. Fork does not decide whether the policy applied, whether it was satisfied, or whether onboarding should occur."
+}
