@@ -1,0 +1,31 @@
+{
+  "artifact_type": "UNSUPPORTED_INHERITANCE_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+  "event_id": "UIE-SIM-02-001",
+  "title": "Scenario 02 Unsupported Inheritance Event",
+  "condition": "TREATMENT",
+  "workflow_id": "SIM-GOV-PROOF-SURFACE-02",
+  "category": "AUTHORITY_LEAKAGE",
+  "secondary_categories": [
+    "CLAIM_SCOPE_EXPANSION",
+    "PRODUCTION_READINESS_CONFUSION"
+  ],
+  "actor_or_artifact": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+  "inferred_claim": "Vendor is approved for onboarding.",
+  "record_support": "The record supports only that an AI-assisted vendor-risk memo was produced and reviewed for preliminary triage.",
+  "why_unsupported": "The inferred approval claim exceeds the recorded boundary and lacks separate approval authority, compliance determination, or new evidence.",
+  "evidence_refs": [
+    "BDR-SIM-02-001",
+    "CBC-SIM-02-001",
+    "CCE-SIM-02-001",
+    "SMR-SIM-02-001",
+    "APC-SIM-02-001",
+    "NCP-SIM-02-001"
+  ],
+  "coder_id": "SIMULATION_CODER",
+  "adjudication_status": "AGREED",
+  "adjudication_note": "Scenario 02 intentionally models the downstream approval inference as unsupported so the boundary-preservation artifacts can expose the inference without blocking it.",
+  "fork_result": "UNSUPPORTED_INHERITANCE_EXPOSED",
+  "fork_non_authority_statement": "Fork exposes the boundary effect. Fork does not decide whether onboarding should occur."
+}

@@ -1,0 +1,41 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+  "event_id": "CCE-SIM-02-001",
+  "title": "Scenario 02 Claim Consumption Event",
+  "consumer": {
+    "system_id": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+    "consumer_role": "DOWNSTREAM_OPERATIONAL_CONSUMER"
+  },
+  "consumed_claim": {
+    "claim_id": "CLM-SIM-02-001",
+    "statement": "The memo was produced and reviewed for preliminary vendor-risk triage.",
+    "recorded_scope": "PRELIMINARY_TRIAGE_ONLY"
+  },
+  "attempted_consumption": {
+    "attempted_claim": "Vendor is approved for onboarding.",
+    "attempted_scope": "FINAL_VENDOR_APPROVAL",
+    "consumption_effect": "EXPANDED",
+    "new_authority_reference_present": false,
+    "new_evidence_reference_present": false
+  },
+  "classification": {
+    "consumption_classification": "EXPANDED_UNSUPPORTED",
+    "unsupported_inheritance": true,
+    "reason": "The downstream attempted claim exceeds the recorded preliminary triage scope and lacks new approval authority or evidence."
+  },
+  "preserved_non_claims": [
+    "Not final approval.",
+    "Not compliance determination.",
+    "Not legal sufficiency.",
+    "Not production readiness.",
+    "Not factual correctness guarantee.",
+    "No authority transfer."
+  ],
+  "required_next_action": [
+    "Treat downstream approval claim as unsupported unless separately authorized.",
+    "Request explicit approval authority and evidence before operational action."
+  ],
+  "fork_role": "RECORD_CONSUMPTION_AND_EXPOSE_BOUNDARY_EFFECT"
+}

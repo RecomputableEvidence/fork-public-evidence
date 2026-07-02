@@ -1,0 +1,52 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+  "receipt_id": "SMR-SIM-02-001",
+  "title": "Scenario 02 System Mapping Receipt",
+  "systems": [
+    {
+      "system_id": "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "native_responsibility": "Produce AI-assisted vendor-risk memo",
+      "fork_does_not_become": "model_evaluator"
+    },
+    {
+      "system_id": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+      "native_responsibility": "Preserve handoff state",
+      "fork_does_not_become": "authority_layer"
+    },
+    {
+      "system_id": "SYSTEM_C_INSTITUTIONAL_REVIEW_CONTEXT",
+      "native_responsibility": "Represent preliminary human review and policy context",
+      "fork_does_not_become": "compliance_decision_maker"
+    },
+    {
+      "system_id": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+      "native_responsibility": "Consume artifact for routing or action",
+      "fork_does_not_become": "runtime_controller"
+    },
+    {
+      "system_id": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+      "native_responsibility": "Reconstruct transition later",
+      "fork_does_not_become": "legal_authority"
+    }
+  ],
+  "mapping": {
+    "source_artifact": "ART-SIM-02-VENDOR-RISK-MEMO",
+    "boundary_artifacts": [
+      "BDR-SIM-02-001",
+      "CBC-SIM-02-001",
+      "CCE-SIM-02-001",
+      "APC-SIM-02-001",
+      "NCP-SIM-02-001"
+    ],
+    "consumer_event": "CCE-SIM-02-001",
+    "unsupported_inheritance_event": "UIE-SIM-02-001"
+  },
+  "mapping_outcome": "MAPPED_WITH_NON_INHERITANCE_BOUNDARY",
+  "authority_transfer": false,
+  "policy_approval_transfer": false,
+  "runtime_control_transfer": false,
+  "audit_authority_transfer": false,
+  "reconstruction_posture": "RECONSTRUCTABLE_BOUNDARY"
+}

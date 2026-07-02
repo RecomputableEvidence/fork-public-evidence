@@ -1,0 +1,72 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+  "record_id": "BDR-SIM-02-001",
+  "title": "Scenario 02 Boundary Delta Record",
+  "created_for": "Fork Governance Simulation Proof Surface",
+  "transition": {
+    "transition_id": "TRANSITION-SIM-02-001",
+    "from_systems": [
+      "SYSTEM_A_AI_ASSISTED_PRODUCTION",
+      "SYSTEM_C_INSTITUTIONAL_REVIEW_CONTEXT"
+    ],
+    "through_system": "SYSTEM_B_FORK_BOUNDARY_RECORD_LAYER",
+    "to_system": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+    "reconstruction_system": "SYSTEM_E_AUDIT_RECONSTRUCTION_OVERSIGHT",
+    "transition_kind": "AI_ASSISTED_VENDOR_RISK_MEMO_TO_DOWNSTREAM_CONSUMPTION"
+  },
+  "upstream_state": {
+    "artifact_id": "ART-SIM-02-VENDOR-RISK-MEMO",
+    "artifact_type": "AI_ASSISTED_VENDOR_RISK_MEMO",
+    "recorded_claims": [
+      {
+        "claim_id": "CLM-SIM-02-001",
+        "statement": "An AI-assisted vendor-risk memo was produced and reviewed for preliminary triage.",
+        "scope": "PRELIMINARY_TRIAGE_ONLY",
+        "status": "RECORDED"
+      }
+    ],
+    "recorded_non_claims": [
+      "No final vendor approval is asserted.",
+      "No compliance determination is asserted.",
+      "No legal sufficiency determination is asserted.",
+      "No production readiness determination is asserted.",
+      "No factual correctness guarantee is asserted.",
+      "No institutional authorization is asserted."
+    ],
+    "unresolved_state": [
+      {
+        "unresolved_id": "UNRESOLVED-SIM-02-001",
+        "description": "Final approval authority not established in the handoff record."
+      },
+      {
+        "unresolved_id": "UNRESOLVED-SIM-02-002",
+        "description": "Compliance status not determined in the handoff record."
+      }
+    ]
+  },
+  "downstream_attempted_inference": {
+    "consumer_system": "SYSTEM_D_DOWNSTREAM_OPERATIONAL_DECISION",
+    "attempted_inference_id": "INF-SIM-02-001",
+    "statement": "Vendor is approved for onboarding.",
+    "inference_type": "APPROVAL_STATUS_EXPANSION",
+    "support_in_record": "NOT_SUPPORTED_BY_RECORDED_BOUNDARY"
+  },
+  "delta_classification": {
+    "claim_scope": "EXPANDED",
+    "authority_context": "NOT_TRANSFERRED",
+    "policy_context": "REFERENCED_ONLY",
+    "non_claims": "PRESERVED",
+    "unresolved_state": "PRESERVED",
+    "overall_boundary_effect": "UNSUPPORTED_INHERITANCE_EXPOSED"
+  },
+  "required_revalidation": [
+    "Obtain explicit institutional approval authority before treating the vendor as approved.",
+    "Obtain separate compliance determination before treating the workflow as compliant.",
+    "Resolve or explicitly accept unresolved evidence gaps before downstream action."
+  ],
+  "inspectability_result": "INSPECTABLE",
+  "fork_role": "PRESERVE_HANDOFF_STATE_ONLY",
+  "fork_non_authority_statement": "Fork records the boundary state for inspection and reconstruction. Fork does not approve, authorize, certify, or determine the downstream action."
+}
