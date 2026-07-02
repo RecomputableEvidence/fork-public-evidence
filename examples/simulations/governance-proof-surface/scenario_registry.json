@@ -1,0 +1,238 @@
+{
+  "artifact_type": "SCENARIO_POSTURE_REGISTRY",
+  "artifact_version": "0.1",
+  "registry_id": "SPR-AHI-SIM-v0.1",
+  "title": "Fork Governance Simulation Proof Surface Scenario Registry",
+  "created_for": "Fork Governance Simulation Proof Surface",
+  "scope": "Machine-readable registry of scenario purpose and current verification posture.",
+  "observed_repository_state": {
+    "main_checker": "scripts/run_ahi_sim_v0_1_checks.ps1",
+    "scenario_05_checker": "scripts/check_scenario_05_non_claim_suppression_v0_1.ps1",
+    "checker_integrated_tag": "ahi-sim-v0.1.5-checker-integrated",
+    "posture_basis": "Describes what the current repository checker paths enforce for each scenario."
+  },
+  "registry_non_claims": [
+    "This registry does not introduce new verification rules.",
+    "This registry does not change scenario design.",
+    "This registry does not certify correctness, compliance, legal sufficiency, institutional authority, production readiness, or truth.",
+    "This registry does not replace the checker scripts.",
+    "This registry is descriptive of current verification posture only."
+  ],
+  "posture_levels": [
+    {
+      "posture": "BASELINE",
+      "description": "Control or comparison case. The scenario may be required by the checker as a narrative file, but it is not a Fork claim being verified."
+    },
+    {
+      "posture": "STRUCTURAL",
+      "description": "The scenario has required files and JSON validity enforced by the main checker, but no scenario-specific semantic classification assertions."
+    },
+    {
+      "posture": "SEMANTICALLY_VERIFIED",
+      "description": "The scenario has structural checks plus explicit semantic classification assertions enforced by the main checker or a checker invoked by the main checker."
+    },
+    {
+      "posture": "SCAFFOLD",
+      "description": "Narrative or placeholder exists, but no artifact family or scenario-specific checker integration exists yet."
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_number": "01",
+      "scenario_id": "SCENARIO_01_BASELINE_UNBOUNDED_HANDOFF",
+      "title": "Baseline Unbounded Handoff",
+      "file": "examples/simulations/governance-proof-surface/scenario_01_baseline_unbounded_handoff.md",
+      "purpose": "Show failure mode without Fork.",
+      "verification_posture": "BASELINE",
+      "posture_description": "Control case, not a Fork claim.",
+      "artifact_family_present": false,
+      "main_checker": {
+        "narrative_file_required": true,
+        "artifact_files_required": false,
+        "json_validation": false,
+        "semantic_classification_assertions": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      },
+      "viewer_treatment": {
+        "display_group": "Control",
+        "display_weight": "context",
+        "should_present_as_verified_fork_claim": false
+      }
+    },
+    {
+      "scenario_number": "02",
+      "scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+      "title": "Fork-Preserved Handoff",
+      "file": "examples/simulations/governance-proof-surface/scenario_02_fork_preserved_handoff.md",
+      "purpose": "Show same workflow with Fork-style handoff records.",
+      "verification_posture": "STRUCTURAL",
+      "posture_description": "Required files and JSON validity are enforced by the main checker.",
+      "artifact_family_present": true,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_unsupported_inheritance_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_authority_policy_context.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_02_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      },
+      "viewer_treatment": {
+        "display_group": "Structurally Checked",
+        "display_weight": "artifact_backed",
+        "should_present_as_verified_fork_claim": false
+      }
+    },
+    {
+      "scenario_number": "03",
+      "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+      "title": "Scope Expansion Attempt",
+      "file": "examples/simulations/governance-proof-surface/scenario_03_scope_expansion_attempt.md",
+      "purpose": "Show downstream claim expansion.",
+      "verification_posture": "STRUCTURAL",
+      "posture_description": "Required files and JSON validity are enforced by the main checker.",
+      "artifact_family_present": true,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_authority_policy_context.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_03_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      },
+      "viewer_treatment": {
+        "display_group": "Structurally Checked",
+        "display_weight": "artifact_backed",
+        "should_present_as_verified_fork_claim": false
+      }
+    },
+    {
+      "scenario_number": "04",
+      "scenario_id": "SCENARIO_04_AUTHORITY_LEAKAGE_ATTEMPT",
+      "title": "Authority Leakage Attempt",
+      "file": "examples/simulations/governance-proof-surface/scenario_04_authority_leakage_attempt.md",
+      "purpose": "Show authority leakage.",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Structural checks plus explicit authority-leakage classification assertions are enforced by the main checker.",
+      "artifact_family_present": true,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_unsupported_inheritance_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_authority_policy_context.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_04_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": true,
+        "semantic_assertions": [
+          "Claim Consumption Event consumption_classification must equal AUTHORITY_LEAKAGE_UNSUPPORTED.",
+          "Unsupported Inheritance Event category must equal AUTHORITY_LEAKAGE.",
+          "Boundary Delta Record authority_context must equal LEAKED.",
+          "Boundary Delta Record downstream_authority_leakage.new_approval_record_present must equal false."
+        ],
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      },
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true
+      }
+    },
+    {
+      "scenario_number": "05",
+      "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+      "title": "Policy-Reference Laundering / Non-Claim Suppression",
+      "file": "examples/simulations/governance-proof-surface/scenario_05_policy_reference_laundering_attempt.md",
+      "purpose": "Show policy reference treated as compliance or approval.",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Structural checks, JSON validation, semantic classification assertions, and a dedicated Scenario 05 overclaim scan are enforced through the main checker.",
+      "artifact_family_present": true,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_suppressed_limitations_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_original_non_claims_panel.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_policy_reference_context.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_downstream_memo_excerpt.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_05_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": true,
+        "dedicated_checker_invoked": true,
+        "dedicated_checker": "scripts/check_scenario_05_non_claim_suppression_v0_1.ps1",
+        "semantic_assertions": [
+          "Boundary Delta Record delta_classification.non_claims must equal SUPPRESSED.",
+          "Boundary Delta Record delta_classification.policy_reference must equal LAUNDERED.",
+          "Boundary Delta Record downstream_suppression.new_compliance_determination_present must equal false.",
+          "Claim Boundary Contract suppression_guard.policy_reference_may_be_treated_as_policy_satisfaction must equal false.",
+          "Claim Boundary Contract suppression_guard.positive_claim_may_be_preserved_without_material_limitations must equal false.",
+          "Claim Consumption Event classification.primary_category must equal NON_CLAIM_SUPPRESSION.",
+          "Claim Consumption Event classification.consumption_classification must equal NON_CLAIM_SUPPRESSION_UNSUPPORTED.",
+          "System Mapping Receipt non_claim_mapping.downstream_non_claims_preserved must equal false.",
+          "Suppressed Limitations Event category must equal NON_CLAIM_SUPPRESSION.",
+          "Suppressed Limitations Event fork_result must equal NON_CLAIM_SUPPRESSION_EXPOSED."
+        ],
+        "overclaim_scan_covered": true,
+        "dedicated_overclaim_scan": true
+      },
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true
+      }
+    },
+    {
+      "scenario_number": "06",
+      "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "title": "Multi-System Distributed Handoff",
+      "file": "examples/simulations/governance-proof-surface/scenario_06_multi_system_distributed_handoff.md",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "verification_posture": "SCAFFOLD",
+      "posture_description": "Narrative file exists and is required by the main checker, but no artifact family, JSON validation, or semantic checker exists yet.",
+      "artifact_family_present": false,
+      "artifact_files": [],
+      "main_checker": {
+        "narrative_file_required": true,
+        "artifact_files_required": false,
+        "json_validation": false,
+        "semantic_classification_assertions": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      },
+      "viewer_treatment": {
+        "display_group": "Scaffold",
+        "display_weight": "placeholder",
+        "should_present_as_verified_fork_claim": false
+      }
+    }
+  ]
+}
