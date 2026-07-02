@@ -1,7 +1,674 @@
 {
   "artifact_type": "AHI_VIEWER_SCENARIOS_BUNDLE",
   "artifact_version": "0.1",
-  "generated": false,
-  "message": "Run scripts/build_ahi_viewer_data_v0_1.ps1 from the repository root to generate this bundle from scenario_registry.json.",
-  "scenarios": []
+  "generated": true,
+  "generated_at_utc": "2026-07-02T21:48:53.792273+00:00",
+  "source_registry": "examples/simulations/governance-proof-surface/scenario_registry.json",
+  "source_checker": "scripts/run_ahi_sim_v0_1_checks.ps1",
+  "non_authority_statement": "Fork Boundary Explorer is a read-only evidence viewer for accountable handoff records. It does not approve, certify, score, authorize, or judge correctness. It shows what the record supports, what it explicitly does not support, and what remains unresolved.",
+  "posture_enum": [
+    "BASELINE",
+    "STRUCTURAL",
+    "SEMANTICALLY_VERIFIED",
+    "SCAFFOLD"
+  ],
+  "posture_note": "Posture enum is the primary maturity layer. Failure-mode terms are categories or boundary effects, not verification posture.",
+  "scenarios": [
+    {
+      "scenario_number": "01",
+      "scenario_id": "SCENARIO_01_BASELINE_UNBOUNDED_HANDOFF",
+      "title": "Baseline Unbounded Handoff",
+      "purpose": "Show failure mode without Fork.",
+      "file": "examples/simulations/governance-proof-surface/scenario_01_baseline_unbounded_handoff.md",
+      "verification_posture": "BASELINE",
+      "posture_description": "Control case, not a Fork claim.",
+      "primary_category": null,
+      "secondary_categories": [],
+      "viewer_treatment": {
+        "display_group": "Control",
+        "display_weight": "context",
+        "should_present_as_verified_fork_claim": false
+      },
+      "narrative_markdown": "# Scenario 01: Baseline Unbounded Handoff\n\n## Purpose\n\nThis scenario models a vendor-risk handoff without Fork-style boundary records.\n\nThe goal is to expose how unsupported inheritance can occur when an AI-assisted artifact moves downstream without explicit handoff state.\n\n## Participating Systems\n\n| System | Role |\n|---|---|\n| System A | AI-assisted production system |\n| System C | Institutional review / policy context system |\n| System D | Downstream operational or decision system |\n| System E | Audit / reconstruction / oversight system |\n\nSystem B, the Fork boundary-record layer, is intentionally absent.\n\n## Flow\n\n1. System A produces an AI-assisted vendor-risk memo.\n2. System C human reviewer accepts or lightly edits the memo.\n3. The memo is sent to System D.\n4. System D treats the memo as sufficient for downstream action.\n5. System E later attempts reconstruction.\n\n## What Crossed the Boundary\n\n- AI-assisted vendor-risk memo.\n- Human-reviewed status.\n- Ordinary workflow notes.\n\n## What Did Not Cross the Boundary\n\n- Explicit non-claims.\n- Authority sufficiency record.\n- Policy applicability determination.\n- Compliance determination.\n- Revalidation requirements.\n- Unresolved evidence gaps.\n\n## Downstream Inference Attempt\n\nSystem D infers:\n\n- the vendor was approved;\n- the reviewer had sufficient authority;\n- the cited policy was satisfied;\n- unresolved issues were resolved or irrelevant.\n\n## Expected Failure Mode\n\nUnsupported inheritance occurs because downstream reliance exceeds the recorded evidence.\n\n## Reconstruction Result\n\nExpected outcome:\n\n`NOT_RECONSTRUCTABLE` or `PARTIALLY_RECONSTRUCTABLE_BOUNDARY`\n\n## Non-Claims\n\nThis scenario does not prove that Fork would prevent the failure.\n\nIt establishes a baseline failure mode for later comparison.",
+      "artifacts": [],
+      "selected_fields": {
+        "supports_summary": [],
+        "non_support_summary": [],
+        "requires_separate_evidence_summary": [],
+        "classifications": {}
+      },
+      "checker_coverage": {
+        "included_in_checker": true,
+        "json_validated": false,
+        "semantic_assertions_present": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      }
+    },
+    {
+      "scenario_number": "02",
+      "scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+      "title": "Fork-Preserved Handoff",
+      "purpose": "Show same workflow with Fork-style handoff records.",
+      "file": "examples/simulations/governance-proof-surface/scenario_02_fork_preserved_handoff.md",
+      "verification_posture": "STRUCTURAL",
+      "posture_description": "Required files and JSON validity are enforced by the main checker.",
+      "primary_category": null,
+      "secondary_categories": [],
+      "viewer_treatment": {
+        "display_group": "Structurally Checked",
+        "display_weight": "artifact_backed",
+        "should_present_as_verified_fork_claim": false
+      },
+      "narrative_markdown": "# Scenario 02: Fork-Preserved Handoff\n\n## Purpose\n\nThis scenario models the same vendor-risk handoff with Fork-style boundary records.\n\nThe goal is to test whether explicit handoff-state records make claim scope, non-claims, authority context, unresolved state, and revalidation requirements inspectable.\n\n## Participating Systems\n\n| System | Role |\n|---|---|\n| System A | AI-assisted production system |\n| System B | Fork boundary-record layer |\n| System C | Institutional review / policy context system |\n| System D | Downstream operational or decision system |\n| System E | Audit / reconstruction / oversight system |\n\n## Flow\n\n1. System A produces an AI-assisted vendor-risk memo.\n2. System C human reviewer accepts or modifies the memo.\n3. System B records handoff state.\n4. System D receives the memo and the bounded handoff record.\n5. System E later reconstructs the handoff.\n\n## Fork Records\n\nExpected artifacts:\n\n- Claim Boundary Contract;\n- Boundary Delta Record;\n- Claim Consumption Event;\n- System Mapping Receipt;\n- Authority Policy Context;\n- Non-Claims Panel.\n\n## What Crossed the Boundary\n\n- AI-assisted vendor-risk memo.\n- Recorded claim scope.\n- Evidence references.\n- Authority and policy context.\n- Non-claims.\n- Unresolved state.\n- Revalidation requirements.\n\n## What Did Not Cross the Boundary\n\n- Final approval authority.\n- Compliance determination.\n- Legal sufficiency.\n- Production readiness.\n- Factual correctness guarantee.\n- Institutional authorization.\n\n## Downstream Inference Attempt\n\nSystem D attempts to infer that the vendor was approved for onboarding.\n\n## Expected Fork Behavior\n\nFork does not block the inference.\n\nFork exposes that the inference exceeds recorded claim scope unless supported by separate authority and evidence.\n\n## Reconstruction Result\n\nExpected outcome:\n\n`UNSUPPORTED_INHERITANCE_EXPOSED`\n\n## Non-Claims\n\nThis scenario does not establish that the vendor-risk decision was correct.\n\nIt tests whether the handoff boundary is reconstructable.",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "UIE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_unsupported_inheritance_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "APC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_authority_policy_context.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_02_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
+      "selected_fields": {
+        "supports_summary": [
+          "An AI-assisted vendor-risk memo was produced and reviewed for preliminary triage. Scope: PRELIMINARY_TRIAGE_ONLY",
+          "The memo was produced and reviewed for preliminary vendor-risk triage. Scope: PRELIMINARY_TRIAGE_ONLY"
+        ],
+        "non_support_summary": [
+          "No final vendor approval is asserted.",
+          "No compliance determination is asserted.",
+          "No legal sufficiency determination is asserted.",
+          "No production readiness determination is asserted.",
+          "No factual correctness guarantee is asserted.",
+          "No institutional authorization is asserted.",
+          "The memo does not establish final vendor approval.",
+          "The memo does not establish compliance.",
+          "The memo does not establish legal sufficiency.",
+          "The memo does not establish production readiness.",
+          "The memo does not establish factual correctness of underlying vendor data.",
+          "The memo does not transfer institutional authority."
+        ],
+        "requires_separate_evidence_summary": [
+          "Final approval authority not established in the handoff record.",
+          "Compliance status not determined in the handoff record.",
+          "Obtain explicit institutional approval authority before treating the vendor as approved.",
+          "Obtain separate compliance determination before treating the workflow as compliant.",
+          "Resolve or explicitly accept unresolved evidence gaps before downstream action.",
+          "approval",
+          "authorization",
+          "compliance determination",
+          "legal sufficiency",
+          "production readiness",
+          "factual correctness",
+          "Treat downstream approval claim as unsupported unless separately authorized.",
+          "Request explicit approval authority and evidence before operational action."
+        ],
+        "classifications": {
+          "delta_classification": {
+            "claim_scope": "EXPANDED",
+            "authority_context": "NOT_TRANSFERRED",
+            "policy_context": "REFERENCED_ONLY",
+            "non_claims": "PRESERVED",
+            "unresolved_state": "PRESERVED",
+            "overall_boundary_effect": "UNSUPPORTED_INHERITANCE_EXPOSED"
+          },
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "PRESERVE_HANDOFF_STATE_ONLY",
+          "fork_non_authority_statement": "Fork records the boundary state for inspection and reconstruction. Fork does not approve, authorize, certify, or determine the downstream action.",
+          "claim_consumption_classification": {
+            "consumption_classification": "EXPANDED_UNSUPPORTED",
+            "unsupported_inheritance": true,
+            "reason": "The downstream attempted claim exceeds the recorded preliminary triage scope and lacks new approval authority or evidence."
+          },
+          "UIE": {
+            "category": "AUTHORITY_LEAKAGE",
+            "secondary_categories": [
+              "CLAIM_SCOPE_EXPANSION",
+              "PRODUCTION_READINESS_CONFUSION"
+            ],
+            "inferred_claim": "Vendor is approved for onboarding.",
+            "record_support": "The record supports only that an AI-assisted vendor-risk memo was produced and reviewed for preliminary triage.",
+            "why_unsupported": "The inferred approval claim exceeds the recorded boundary and lacks separate approval authority, compliance determination, or new evidence.",
+            "fork_result": "UNSUPPORTED_INHERITANCE_EXPOSED",
+            "fork_non_authority_statement": "Fork exposes the boundary effect. Fork does not decide whether onboarding should occur."
+          }
+        }
+      },
+      "checker_coverage": {
+        "included_in_checker": true,
+        "json_validated": true,
+        "semantic_assertions_present": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      }
+    },
+    {
+      "scenario_number": "03",
+      "scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+      "title": "Scope Expansion Attempt",
+      "purpose": "Show downstream claim expansion.",
+      "file": "examples/simulations/governance-proof-surface/scenario_03_scope_expansion_attempt.md",
+      "verification_posture": "STRUCTURAL",
+      "posture_description": "Required files and JSON validity are enforced by the main checker.",
+      "primary_category": null,
+      "secondary_categories": [],
+      "viewer_treatment": {
+        "display_group": "Structurally Checked",
+        "display_weight": "artifact_backed",
+        "should_present_as_verified_fork_claim": false
+      },
+      "narrative_markdown": "# Scenario 03: Scope Expansion Attempt\n\n## Purpose\n\nThis scenario tests whether Fork exposes downstream claim expansion.\n\nThe modeled expansion is:\n\n```text\nreviewed for preliminary triage\n        ->\napproved / cleared for onboarding\n```\n\nThe purpose is not to block the downstream actor. The purpose is to make the semantic expansion visible, classifiable, and reconstructable.\n\n## Participating Systems\n\n| System   | Role                                           |\n|---------|------------------------------------------------|\n| System A | AI-assisted production system                 |\n| System B | Fork boundary-record layer                    |\n| System C | Institutional review / policy context system  |\n| System D1 | First downstream consumer                    |\n| System D2 | Second downstream consumer / operational labeler |\n| System E | Audit / reconstruction / oversight system     |\n\n## Flow\n\n- System A produces an AI-assisted vendor-risk memo.\n- System C records preliminary review context.\n- System B preserves the original handoff boundary.\n- System D1 consumes the memo within the preliminary triage scope.\n- System D2 rephrases the status as \"approved for onboarding\" or \"cleared for onboarding.\"\n- System E reconstructs the transition and identifies scope expansion.\n\n## Original Claim\n\nThe vendor-risk memo was produced and reviewed for preliminary triage only.\n\n## Downstream Expanded Claim\n\nThe vendor is approved / cleared for onboarding.\n\n## Expected Classification\n\nPrimary:\n\n- CLAIM_SCOPE_EXPANSION\n\nSecondary:\n\n- AUTHORITY_LEAKAGE\n\n## Expected Fork Behavior\n\nFork does not block the downstream phrasing.  \nFork preserves the original claim boundary, records the attempted expanded consumption, and exposes that the downstream wording exceeds the recorded preliminary review scope unless supported by separate authority and evidence.\n\n## What Crossed the Boundary\n\n- AI-assisted vendor-risk memo.\n- Preliminary triage review claim.\n- Evidence references.\n- Authority and policy context.\n- Non-claims.\n- Unresolved state.\n- Revalidation requirements.\n\n## What Did Not Cross the Boundary\n\n- Final vendor approval.\n- Cleared onboarding status.\n- Compliance determination.\n- Legal sufficiency.\n- Production readiness.\n- Factual correctness guarantee.\n- Institutional authorization.\n\n## Reconstruction Result\n\nExpected outcome:\n\n`UNSUPPORTED_INHERITANCE_EXPOSED`\n\n## Non-Claims\n\nThis scenario does not establish correctness, compliance, legal sufficiency, institutional authority, production readiness, or general validity.  \nThis scenario tests whether a downstream scope expansion becomes inspectable.",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "UIE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_unsupported_inheritance_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "APC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_authority_policy_context.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_03_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
+      "selected_fields": {
+        "supports_summary": [
+          "An AI-assisted vendor-risk memo was produced and reviewed for preliminary triage only. Scope: PRELIMINARY_TRIAGE_ONLY",
+          "The memo was produced and reviewed for preliminary vendor-risk triage only. Scope: PRELIMINARY_TRIAGE_ONLY"
+        ],
+        "non_support_summary": [
+          "No final vendor approval is asserted.",
+          "No cleared onboarding status is asserted.",
+          "No compliance determination is asserted.",
+          "No legal sufficiency determination is asserted.",
+          "No production readiness determination is asserted.",
+          "No factual correctness guarantee is asserted.",
+          "No institutional authorization is asserted.",
+          "The preliminary triage record does not establish final vendor approval.",
+          "The preliminary triage record does not establish that the vendor is cleared for onboarding.",
+          "The preliminary triage record does not establish compliance.",
+          "The preliminary triage record does not establish legal sufficiency.",
+          "The preliminary triage record does not establish production readiness.",
+          "The preliminary triage record does not establish factual correctness of underlying vendor data.",
+          "The preliminary triage record does not transfer institutional authority."
+        ],
+        "requires_separate_evidence_summary": [
+          "Approval authority not established.",
+          "Onboarding clearance not established.",
+          "Compliance status not determined.",
+          "Obtain explicit approval authority before treating preliminary review as approval.",
+          "Obtain explicit onboarding clearance before labeling the vendor cleared.",
+          "Obtain separate compliance determination before treating the workflow as compliant.",
+          "Resolve or explicitly accept unresolved evidence gaps before downstream operational action.",
+          "approval",
+          "onboarding clearance",
+          "authorization",
+          "compliance determination",
+          "legal sufficiency",
+          "production readiness",
+          "factual correctness",
+          "Treat downstream approval / cleared label as unsupported unless separately authorized.",
+          "Request explicit approval authority and evidence before operational onboarding action."
+        ],
+        "classifications": {
+          "delta_classification": {
+            "claim_scope": "EXPANDED",
+            "semantic_drift": "PRESENT",
+            "authority_context": "NOT_TRANSFERRED",
+            "policy_context": "REFERENCED_ONLY",
+            "non_claims": "PRESERVED",
+            "unresolved_state": "PRESERVED",
+            "overall_boundary_effect": "UNSUPPORTED_SCOPE_EXPANSION_EXPOSED"
+          },
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "PRESERVE_HANDOFF_STATE_AND_EXPOSE_SCOPE_EXPANSION",
+          "fork_non_authority_statement": "Fork records the semantic boundary effect for inspection and reconstruction. Fork does not approve, clear, authorize, certify, or determine the downstream action.",
+          "claim_consumption_classification": {
+            "consumption_classification": "SCOPE_EXPANSION_UNSUPPORTED",
+            "unsupported_inheritance": true,
+            "primary_category": "CLAIM_SCOPE_EXPANSION",
+            "secondary_categories": [
+              "AUTHORITY_LEAKAGE"
+            ],
+            "reason": "The downstream onboarding approval / cleared label exceeds the recorded preliminary triage scope and lacks new approval authority, new evidence, or an explicit downstream decision record."
+          },
+          "UIE": {
+            "category": "CLAIM_SCOPE_EXPANSION",
+            "secondary_categories": [
+              "AUTHORITY_LEAKAGE"
+            ],
+            "inferred_claim": "Vendor is approved / cleared for onboarding.",
+            "record_support": "The record supports only that an AI-assisted vendor-risk memo was produced and reviewed for preliminary triage.",
+            "why_unsupported": "The downstream approved / cleared label exceeds the recorded preliminary triage boundary and lacks separate approval authority, explicit onboarding clearance, or new supporting evidence.",
+            "fork_result": "SCOPE_EXPANSION_EXPOSED",
+            "fork_non_authority_statement": "Fork exposes the boundary effect. Fork does not decide whether onboarding should occur."
+          }
+        }
+      },
+      "checker_coverage": {
+        "included_in_checker": true,
+        "json_validated": true,
+        "semantic_assertions_present": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      }
+    },
+    {
+      "scenario_number": "04",
+      "scenario_id": "SCENARIO_04_AUTHORITY_LEAKAGE_ATTEMPT",
+      "title": "Authority Leakage Attempt",
+      "purpose": "Show authority leakage.",
+      "file": "examples/simulations/governance-proof-surface/scenario_04_authority_leakage_attempt.md",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Structural checks plus explicit authority-leakage classification assertions are enforced by the main checker.",
+      "primary_category": null,
+      "secondary_categories": [],
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true
+      },
+      "narrative_markdown": "# Scenario 04: Authority Leakage Attempt\n\n## Purpose\n\nThis scenario tests whether Fork exposes downstream authority leakage.\n\nThe modeled drift is:\n\n```text\nreviewed by vendor-risk analyst\n        ->\nauthorized by vendor-risk function\n```\n\nThe purpose is not to block the downstream actor. The purpose is to make the authority leakage visible, classifiable, and reconstructable without converting role or policy context into transferred approval authority.\n\n## Participating Systems\n\n| System   | Role                                           |\n|---------|------------------------------------------------|\n| System A | AI-assisted production system                 |\n| System B | Fork boundary-record layer                    |\n| System C | Institutional review / policy context system  |\n| System D  | Downstream operational or decision system    |\n| System E | Audit / reconstruction / oversight system     |\n\n## Flow\n\n- System A produces an AI-assisted vendor-risk memo.\n- System C records preliminary review by a vendor-risk analyst, with policy references.\n- System B preserves the handoff boundary, including recorded role and policy context and explicit non-claims.\n- System D reads the memo and context and treats it as if the \"vendor-risk function\" has authorized onboarding or approved the vendor.\n- System E reconstructs the transition and identifies authority leakage.\n\n## Original Role and Context\n\nRecorded role:\n\n- Vendor-risk analyst / preliminary reviewer.\n\nRecorded policy context:\n\n- Vendor-risk preliminary review policy reference (for example, `VR-PRELIM-REVIEW-v0.1`).\n\nRecorded non-claims:\n\n- Role and policy references do not establish approval authority, onboarding clearance, compliance, legal sufficiency, or institutional authorization.\n\n## Downstream Authority Leakage Claim\n\nThe vendor-risk function (or equivalent) is treated as if it has:\n\n- authorized onboarding, or\n- issued final vendor approval.\n\n## Expected Classification\n\nPrimary category:\n\n- AUTHORITY_LEAKAGE\n\nSecondary categories:\n\n- CLAIM_SCOPE_EXPANSION\n- POLICY_APPROVAL_CONFUSION\n\n## Expected Fork Behavior\n\nFork does not block the downstream reliance attempt.  \nFork preserves the original role and policy context, records the attempted authority transfer, and exposes that no approval authority or policy-approval decision crossed the boundary.\n\n## What Crossed the Boundary\n\n- AI-assisted vendor-risk memo.\n- Preliminary triage review claim.\n- Recorded reviewer role.\n- Recorded policy reference.\n- Non-claims.\n- Unresolved authority and compliance state.\n- Revalidation requirements.\n\n## What Did Not Cross the Boundary\n\n- Final approval authority.\n- Onboarding clearance.\n- Compliance determination.\n- Legal sufficiency determination.\n- Production readiness.\n- Institutional authorization.\n\n## Reconstruction Result\n\nExpected outcome:\n\n`UNSUPPORTED_AUTHORITY_LEAKAGE_EXPOSED`\n\n## Non-Claims\n\nThis scenario does not establish correctness, compliance, legal sufficiency, institutional authority, production readiness, or general validity.  \nThis scenario tests whether downstream authority leakage becomes inspectable.",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "UIE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_unsupported_inheritance_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "APC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_authority_policy_context.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_04_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
+      "selected_fields": {
+        "supports_summary": [
+          "An AI-assisted vendor-risk memo was produced and reviewed by a vendor-risk analyst for preliminary triage. Scope: PRELIMINARY_TRIAGE_ONLY",
+          "The memo was produced and reviewed by a vendor-risk analyst for preliminary vendor-risk triage. Scope: PRELIMINARY_TRIAGE_ONLY"
+        ],
+        "non_support_summary": [
+          "The recorded reviewer role does not establish final approval authority.",
+          "The recorded reviewer role does not establish onboarding clearance.",
+          "The recorded policy reference does not establish policy applicability.",
+          "The recorded policy reference does not establish compliance.",
+          "The recorded preliminary review does not establish legal sufficiency.",
+          "The recorded preliminary review does not establish production readiness.",
+          "The recorded preliminary review does not transfer institutional authorization.",
+          "The preliminary triage record does not establish final vendor approval.",
+          "The preliminary triage record does not establish onboarding clearance.",
+          "The preliminary triage record does not establish that the vendor-risk function has issued authorization.",
+          "The preliminary triage record does not establish compliance.",
+          "The preliminary triage record does not establish legal sufficiency.",
+          "The preliminary triage record does not establish production readiness.",
+          "The preliminary triage record does not establish factual correctness of underlying vendor data.",
+          "The preliminary triage record does not transfer institutional authority."
+        ],
+        "requires_separate_evidence_summary": [
+          "Final approval authority not established.",
+          "Onboarding clearance not established.",
+          "Policy applicability and compliance not determined.",
+          "Obtain explicit approval authority before treating preliminary review as authorization.",
+          "Obtain explicit onboarding clearance before operational onboarding.",
+          "Obtain explicit policy-approval decision before treating policy reference as compliance.",
+          "Resolve unresolved authority and compliance state before downstream action.",
+          "approval authority",
+          "onboarding clearance",
+          "authorization",
+          "policy applicability",
+          "compliance determination",
+          "legal sufficiency",
+          "production readiness",
+          "factual correctness",
+          "Treat downstream authority inference as unsupported unless separately authorized.",
+          "Request explicit approval authority, decision record, and evidence before operational onboarding action."
+        ],
+        "classifications": {
+          "delta_classification": {
+            "authority_context": "LEAKED",
+            "claim_scope": "EXPANDED",
+            "policy_context": "REFERENCED_ONLY",
+            "non_claims": "PRESERVED",
+            "unresolved_state": "PRESERVED",
+            "overall_boundary_effect": "UNSUPPORTED_AUTHORITY_LEAKAGE_EXPOSED"
+          },
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "PRESERVE_HANDOFF_STATE_AND_EXPOSE_AUTHORITY_LEAKAGE",
+          "fork_non_authority_statement": "Fork records the role and policy context and exposes authority leakage for inspection and reconstruction. Fork does not approve, authorize, certify, or determine the downstream action.",
+          "claim_consumption_classification": {
+            "consumption_classification": "AUTHORITY_LEAKAGE_UNSUPPORTED",
+            "unsupported_inheritance": true,
+            "primary_category": "AUTHORITY_LEAKAGE",
+            "secondary_categories": [
+              "CLAIM_SCOPE_EXPANSION",
+              "POLICY_APPROVAL_CONFUSION"
+            ],
+            "reason": "The downstream authority inference exceeds the recorded preliminary triage scope and lacks explicit approval decision, identified approval authority, or policy-approval determination."
+          },
+          "UIE": {
+            "category": "AUTHORITY_LEAKAGE",
+            "secondary_categories": [
+              "CLAIM_SCOPE_EXPANSION",
+              "POLICY_APPROVAL_CONFUSION"
+            ],
+            "inferred_claim": "Vendor-risk function has authorized the vendor for onboarding.",
+            "record_support": "The record supports only that an AI-assisted vendor-risk memo was produced and reviewed by a vendor-risk analyst for preliminary triage, with a policy reference.",
+            "why_unsupported": "The downstream authority inference exceeds the recorded preliminary triage boundary and lacks explicit approval decision, identified approval authority, or policy-approval determination.",
+            "fork_result": "UNSUPPORTED_AUTHORITY_LEAKAGE_EXPOSED",
+            "fork_non_authority_statement": "Fork exposes the authority leakage boundary effect. Fork does not decide whether onboarding should occur."
+          }
+        }
+      },
+      "checker_coverage": {
+        "included_in_checker": true,
+        "json_validated": true,
+        "semantic_assertions_present": true,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      }
+    },
+    {
+      "scenario_number": "05",
+      "scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+      "title": "Policy-Reference Laundering / Non-Claim Suppression",
+      "purpose": "Show policy reference treated as compliance or approval.",
+      "file": "examples/simulations/governance-proof-surface/scenario_05_policy_reference_laundering_attempt.md",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Structural checks, JSON validation, semantic classification assertions, and a dedicated Scenario 05 overclaim scan are enforced through the main checker.",
+      "primary_category": null,
+      "secondary_categories": [],
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true
+      },
+      "narrative_markdown": "# Scenario 05: Policy-Reference Laundering / Non-Claim Suppression Attempt\n\n## Purpose\n\nThis scenario tests whether Fork exposes a downstream handoff failure in which a favorable upstream claim is preserved while the non-claims and limitations required to interpret that claim are dropped, compressed, or hidden.\n\nThe concrete subcase is policy-reference laundering:\n\n```text\npolicy referenced during preliminary review -> policy applied / policy satisfied / compliant\n```\n\nScenario 05 is therefore not a truth, safety, compliance, or legal-sufficiency test. It is a boundary-state test. The question is whether the handoff record makes limitation loss visible.\n\n## Participating Systems\n\n| System | Role |\n|---|---|\n| System A | AI-assisted vendor-risk memo production |\n| System B | Fork boundary-record layer |\n| System C | Preliminary human review / policy-reference context |\n| System D | Downstream decision memo / operational consumer |\n| System E | Audit / reconstruction / oversight system |\n\n## Flow\n\n1. System A produces an AI-assisted vendor-risk memo.\n2. System C performs preliminary review and references `VR-PRELIM-REVIEW-v0.1`.\n3. System B preserves the positive claim and the material non-claims attached to the handoff.\n4. System D drafts a downstream memo that keeps the positive claim but omits the limitations.\n5. System D treats a referenced policy as if the policy applied, was satisfied, or established compliance.\n6. System E reconstructs the transition and identifies non-claim suppression and policy-reference laundering.\n\n## Upstream Positive Claim\n\nThe upstream record supports only this bounded claim:\n\n```text\nAn AI-assisted vendor-risk memo was produced and reviewed for preliminary vendor-risk triage, with a preliminary review policy reference recorded.\n```\n\n## Material Non-Claims\n\nThe upstream record does not establish:\n\n- policy applicability,\n- policy satisfaction,\n- compliance,\n- legal sufficiency,\n- final vendor approval,\n- onboarding clearance,\n- production readiness,\n- factual correctness of underlying vendor data,\n- closure of unresolved issues,\n- authority transfer.\n\n## Downstream Laundered Inference\n\nThe downstream memo treats the record as if it supports:\n\n```text\nThe vendor-risk workflow complied with the referenced policy and is cleared for downstream reliance.\n```\n\n## Expected Classification\n\nPrimary category:\n\n- `NON_CLAIM_SUPPRESSION`\n\nSecondary categories:\n\n- `POLICY_REFERENCE_LAUNDERING`\n- `COMPLIANCE_CERTIFICATION_CONFUSION`\n- `LIMITATION_LAUNDERING`\n- `UNSUPPORTED_INHERITANCE`\n\n## Expected Fork Behavior\n\nFork does not block the downstream memo and does not decide whether the policy applied, whether the policy was satisfied, whether the vendor should be approved, or whether the final decision is compliant.\n\nFork preserves the original boundary state and exposes that material non-claims were suppressed during handoff.\n\n## What Crossed the Boundary\n\n- AI-assisted vendor-risk memo reference.\n- Preliminary review claim.\n- Policy reference.\n- Original non-claims.\n- Unresolved issues.\n- Revalidation requirements.\n\n## What Did Not Cross the Boundary\n\n- Policy applicability.\n- Policy satisfaction.\n- Compliance determination.\n- Legal sufficiency.\n- Final approval.\n- Onboarding clearance.\n- Production readiness.\n- Institutional authorization.\n- Truth certification.\n\n## Reconstruction Result\n\nExpected outcome:\n\n```text\nNON_CLAIM_SUPPRESSION_EXPOSED\n```\n\n## Non-Claims\n\nThis scenario does not establish correctness, compliance\n\n[truncated for viewer bundle]",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SLE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_suppressed_limitations_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "ONCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_original_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "PRC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_policy_reference_context.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "DME",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_downstream_memo_excerpt.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_05_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
+      "selected_fields": {
+        "supports_summary": [
+          "An AI-assisted vendor-risk memo was produced and reviewed for preliminary vendor-risk triage, with policy reference VR-PRELIM-REVIEW-v0.1 recorded. Scope: PRELIMINARY_TRIAGE_WITH_POLICY_REFERENCE_ONLY",
+          "The memo was produced and reviewed for preliminary vendor-risk triage, with policy reference VR-PRELIM-REVIEW-v0.1 recorded. Scope: PRELIMINARY_TRIAGE_WITH_POLICY_REFERENCE_ONLY"
+        ],
+        "non_support_summary": [
+          "The policy reference does not establish policy applicability.",
+          "The policy reference does not establish policy satisfaction.",
+          "The policy reference does not establish compliance.",
+          "The preliminary review does not establish legal sufficiency.",
+          "The preliminary review does not establish final vendor approval.",
+          "The preliminary review does not establish onboarding clearance.",
+          "The preliminary review does not establish production readiness.",
+          "The preliminary review does not establish factual correctness of underlying vendor data.",
+          "The preliminary review does not establish closure of unresolved issues.",
+          "The preliminary review does not transfer institutional authorization.",
+          "Policy applied.",
+          "Policy was satisfied.",
+          "Workflow complied with the policy.",
+          "Vendor was approved.",
+          "Vendor was cleared for onboarding.",
+          "Legal sufficiency was determined.",
+          "Production readiness was established.",
+          "Underlying vendor data was verified as true.",
+          "Unresolved issues were closed.",
+          "Authority transferred."
+        ],
+        "requires_separate_evidence_summary": [
+          "Policy applicability not established.",
+          "Policy satisfaction not established.",
+          "Compliance determination not established.",
+          "Onboarding clearance not established.",
+          "Establish policy applicability before treating the policy reference as applicable.",
+          "Establish policy satisfaction before treating the workflow as policy-satisfied.",
+          "Establish compliance before treating the workflow as compliant.",
+          "Establish approval authority before treating preliminary review as approval.",
+          "Resolve unresolved issues before treating downstream reliance as cleared.",
+          "policy applicability",
+          "policy satisfaction",
+          "compliance determination",
+          "legal sufficiency",
+          "final approval",
+          "onboarding clearance",
+          "production readiness",
+          "factual correctness",
+          "unresolved issue closure",
+          "authority transfer",
+          "Restore material non-claims to the downstream memo.",
+          "Obtain separate policy applicability evidence before asserting applicability.",
+          "Obtain separate policy satisfaction evidence before asserting satisfaction.",
+          "Obtain separate compliance determination before asserting compliance.",
+          "Obtain separate approval or clearance before downstream onboarding reliance."
+        ],
+        "classifications": {
+          "delta_classification": {
+            "claim_scope": "EXPANDED",
+            "non_claims": "SUPPRESSED",
+            "limitations": "DROPPED",
+            "policy_reference": "LAUNDERED",
+            "authority_context": "PRESERVED_NOT_TRANSFERRED",
+            "unresolved_state": "SUPPRESSED",
+            "overall_boundary_effect": "NON_CLAIM_SUPPRESSION_EXPOSED"
+          },
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "PRESERVE_HANDOFF_STATE_AND_EXPOSE_NON_CLAIM_SUPPRESSION",
+          "fork_non_authority_statement": "Fork exposes non-claim suppression and policy-reference laundering for inspection and reconstruction. Fork does not determine compliance, legal sufficiency, approval, or downstream permission.",
+          "claim_consumption_classification": {
+            "consumption_classification": "NON_CLAIM_SUPPRESSION_UNSUPPORTED",
+            "unsupported_inheritance": true,
+            "primary_category": "NON_CLAIM_SUPPRESSION",
+            "secondary_categories": [
+              "POLICY_REFERENCE_LAUNDERING",
+              "COMPLIANCE_CERTIFICATION_CONFUSION",
+              "LIMITATION_LAUNDERING",
+              "UNSUPPORTED_INHERITANCE"
+            ],
+            "reason": "The downstream memo preserves the favorable review and policy-reference claim while dropping material non-claims and treating a policy reference as policy satisfaction or compliance without a new determination."
+          },
+          "SLE": {
+            "category": "NON_CLAIM_SUPPRESSION",
+            "secondary_categories": [
+              "POLICY_REFERENCE_LAUNDERING",
+              "COMPLIANCE_CERTIFICATION_CONFUSION",
+              "LIMITATION_LAUNDERING",
+              "UNSUPPORTED_INHERITANCE"
+            ],
+            "inferred_claim": "The workflow complied with the referenced vendor-risk policy and may be relied on for downstream onboarding.",
+            "record_support": "The record supports only preliminary review with a policy reference recorded.",
+            "why_unsupported": "The downstream artifact suppresses material limitations and treats policy reference as policy satisfaction or compliance without separate evidence or authority.",
+            "fork_result": "NON_CLAIM_SUPPRESSION_EXPOSED",
+            "fork_non_authority_statement": "Fork exposes the limitation-suppression boundary effect. Fork does not decide whether the policy applied, whether it was satisfied, or whether onboarding should occur."
+          }
+        }
+      },
+      "checker_coverage": {
+        "included_in_checker": true,
+        "json_validated": true,
+        "semantic_assertions_present": true,
+        "dedicated_checker_invoked": true,
+        "overclaim_scan_covered": true
+      }
+    },
+    {
+      "scenario_number": "06",
+      "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "title": "Multi-System Distributed Handoff",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "file": "examples/simulations/governance-proof-surface/scenario_06_multi_system_distributed_handoff.md",
+      "verification_posture": "SCAFFOLD",
+      "posture_description": "Narrative file exists and is required by the main checker, but no artifact family, JSON validation, or semantic checker exists yet.",
+      "primary_category": null,
+      "secondary_categories": [],
+      "viewer_treatment": {
+        "display_group": "Scaffold",
+        "display_weight": "placeholder",
+        "should_present_as_verified_fork_claim": false
+      },
+      "narrative_markdown": "# Scenario 06: Multi-System Distributed Handoff\n\n## Purpose\n\nThis scenario tests whether Fork preserves handoff state across multiple independently accountable systems.\n\n## Flow\n\n1. System A produces an AI-assisted artifact.\n2. System B preserves handoff state.\n3. System C consumes the artifact and records constrained review context.\n4. System D routes the artifact or takes downstream action.\n5. System E reconstructs the transition later.\n\n## Systems\n\n| System | Native Responsibility | Fork Does Not Become |\n|---|---|---|\n| System A | Artifact production | Model evaluator |\n| System B | Boundary-state preservation | Authority layer |\n| System C | Institutional review context | Compliance oracle |\n| System D | Routing or operation | Runtime controller |\n| System E | Audit or reconstruction | Legal authority |\n\n## Expected Result\n\nThe handoff remains inspectable across multiple hops without any system inheriting authority from another system by default.\n\n## Expected Reconstruction Outcome\n\n`RECONSTRUCTABLE_BOUNDARY`\n\nPotential additional outcomes:\n\n- `UNSUPPORTED_INHERITANCE_EXPOSED`\n- `AUTHORITY_LEAKAGE_EXPOSED`\n- `NON_CLAIM_LOSS_EXPOSED`\n\n## What Remains Outside Fork\n\n- Whether the final downstream action was correct.\n- Whether governance authority was sufficient.\n- Whether the institution should have acted.\n- Whether compliance or legal requirements were satisfied.",
+      "artifacts": [],
+      "selected_fields": {
+        "supports_summary": [],
+        "non_support_summary": [],
+        "requires_separate_evidence_summary": [],
+        "classifications": {}
+      },
+      "checker_coverage": {
+        "included_in_checker": true,
+        "json_validated": false,
+        "semantic_assertions_present": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": true
+      }
+    }
+  ]
 }
