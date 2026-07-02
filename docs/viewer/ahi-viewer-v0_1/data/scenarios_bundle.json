@@ -2,7 +2,7 @@
   "artifact_type": "AHI_VIEWER_SCENARIOS_BUNDLE",
   "artifact_version": "0.1",
   "generated": true,
-  "generated_at_utc": "2026-07-02T21:48:53.792273+00:00",
+  "generation_mode": "deterministic",
   "source_registry": "examples/simulations/governance-proof-surface/scenario_registry.json",
   "source_checker": "scripts/run_ahi_sim_v0_1_checks.ps1",
   "non_authority_statement": "Fork Boundary Explorer is a read-only evidence viewer for accountable handoff records. It does not approve, certify, score, authorize, or judge correctness. It shows what the record supports, what it explicitly does not support, and what remains unresolved.",

@@ -4,7 +4,7 @@
 
 import json
 from pathlib import Path
-from datetime import datetime, timezone
+
 
 ROOT = Path.cwd()
 REGISTRY = ROOT / "examples/simulations/governance-proof-surface/scenario_registry.json"
@@ -221,7 +221,7 @@ def build():
         "artifact_type": "AHI_VIEWER_SCENARIOS_BUNDLE",
         "artifact_version": "0.1",
         "generated": True,
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "generation_mode": "deterministic",
         "source_registry": str(REGISTRY.relative_to(ROOT)).replace("\\", "/"),
         "source_checker": "scripts/run_ahi_sim_v0_1_checks.ps1",
         "non_authority_statement": "Fork Boundary Explorer is a read-only evidence viewer for accountable handoff records. It does not approve, certify, score, authorize, or judge correctness. It shows what the record supports, what it explicitly does not support, and what remains unresolved.",
