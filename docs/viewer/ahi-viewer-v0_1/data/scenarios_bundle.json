@@ -1,0 +1,7 @@
+{
+  "artifact_type": "AHI_VIEWER_SCENARIOS_BUNDLE",
+  "artifact_version": "0.1",
+  "generated": false,
+  "message": "Run scripts/build_ahi_viewer_data_v0_1.ps1 from the repository root to generate this bundle from scenario_registry.json.",
+  "scenarios": []
+}
