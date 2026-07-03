@@ -232,7 +232,8 @@ def build():
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(bundle, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    with OUT.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(bundle, indent=2, ensure_ascii=False) + "\n")
 
     print(f"WROTE: {OUT.relative_to(ROOT)}")
     print("")
