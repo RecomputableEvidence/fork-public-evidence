@@ -1,0 +1,30 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+  "claim_consumption_event_id": "CCE-S08-001",
+  "consumer_identity": "SYSTEM_C_DOWNSTREAM_RELIANCE_ACTOR",
+  "producer_identity": "SYSTEM_A_PRIOR_REVIEW_AUTHORITY",
+  "validity_change_source": "SYSTEM_B_VALIDITY_CHANGE_SOURCE",
+  "classification": "EXPANDED",
+  "boundary_effect": "EXPANDED_BEYOND_CURRENT_VALIDITY_SCOPE",
+  "consumption_attempt": "Downstream actor attempts to treat a prior valid or inspectable record as establishing current authority, policy satisfaction, evidence sufficiency, approval eligibility, compliance, legal sufficiency, acceptance, or execution eligibility.",
+  "relied_claims": [
+    "prior record was inspectable",
+    "prior authority context was recorded",
+    "prior validity window existed"
+  ],
+  "preserved_non_claims": [
+    "current authority",
+    "current policy satisfaction",
+    "current evidence sufficiency",
+    "current approval eligibility",
+    "current compliance",
+    "current legal sufficiency",
+    "current execution eligibility"
+  ],
+  "new_claim_boundary_contract_id": "REQUIRED_BUT_ABSENT",
+  "required_next_action": "Create a current-validity claim boundary contract or obtain current authority, evidence, policy, role, purpose, environment, and validity-window support before relying on the prior record for current action.",
+  "fork_result": "STALE_VALIDITY_CONSUMPTION_RECORDED_NOT_AUTHORIZED",
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, or judge correctness."
+}

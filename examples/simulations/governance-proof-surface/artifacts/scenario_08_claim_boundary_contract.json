@@ -1,0 +1,30 @@
+{
+  "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+  "claim_boundary_contract_id": "CBC-S08-001",
+  "title": "Scenario 08 Stale Validity / Authority Revocation Claim Boundary Contract",
+  "claim_supported": [
+    "A prior record may be inspected as evidence of a bounded T1 state.",
+    "A later validity-changing event may require current revalidation.",
+    "A downstream stale-validity reliance attempt may be recorded as unsupported by the prior record."
+  ],
+  "claims_not_allowed_to_be_inferred": [
+    "prior validity establishes current validity",
+    "prior authority establishes current authority",
+    "prior policy reference establishes current policy satisfaction",
+    "prior evidence establishes current evidence sufficiency",
+    "prior approval establishes current approval eligibility",
+    "prior compliance posture establishes current compliance",
+    "prior legal review establishes current legal sufficiency",
+    "prior acceptance establishes current external acceptance",
+    "prior execution eligibility establishes current execution eligibility"
+  ],
+  "non_inheritance_rule": "No current authority-bearing or validity-bearing property transfers merely because a prior record was valid, inspectable, or preserved.",
+  "temporal_boundary": {
+    "prior_validity_scope": "bounded to T1 authority, policy, evidence, role, purpose, environment, and validity window",
+    "current_validity_scope": "requires separate current support after revocation, expiry, supersession, narrowing, or changed context",
+    "bridge_result": "REQUIRES_CURRENT_REVALIDATION"
+  },
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, or judge correctness."
+}

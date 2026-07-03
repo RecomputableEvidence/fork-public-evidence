@@ -256,4 +256,14 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "PASS: Scenario 07 validation completed inside main AHI checker."
 # Scenario 07 external authority bridge validation END
+
+# Scenario 08 stale validity / authority revocation validation BEGIN
+Write-Host ""
+Write-Host "Checking Scenario 08 stale validity / authority revocation through main AHI checker..."
+& powershell -ExecutionPolicy Bypass -File scripts\check_scenario_08_stale_validity_authority_revocation_v0_1.ps1
+if ($LASTEXITCODE -ne 0) {
+    throw "Scenario 08 stale validity / authority revocation checker failed."
+}
+Write-Host "PASS: Scenario 08 validation completed inside main AHI checker."
+# Scenario 08 stale validity / authority revocation validation END
 Write-Host "PASS: ahi-sim-v0.1.x simulation proof-surface checks completed."
