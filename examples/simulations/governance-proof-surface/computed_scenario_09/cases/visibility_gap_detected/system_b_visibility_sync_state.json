@@ -1,0 +1,11 @@
+{
+  "case_id": "visibility_gap_detected",
+  "system": "B",
+  "state_role": "visibility_and_sync_boundary",
+  "claim_id": "CLAIM-S09-REVOCABLE-001",
+  "last_sync_at": "2026-07-03T11:55:00Z",
+  "known_state_as_of": "2026-07-03T11:55:00Z",
+  "visible_revocation_ids": [],
+  "local_validity_status": "VALID",
+  "sync_channel": "asynchronous_state_feed"
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "gap_closed_by_revalidation",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "computed_scenario_version": "v0.1",
+  "derivation_status": "NO_COMPUTED_GAP_RECORDED",
+  "inspectability": "INSPECTABLE",
+  "timeline": {
+    "revocation_effective_at": "2026-07-03T12:00:00Z",
+    "system_b_last_sync_at": "2026-07-03T12:03:00Z",
+    "system_b_known_state_as_of": "2026-07-03T12:03:00Z",
+    "system_c_attempted_at": "2026-07-03T12:10:00Z"
+  },
+  "derived_flags": {
+    "upstream_revocation_current_before_consumption": true,
+    "system_b_revocation_not_visible": false,
+    "system_b_sync_precedes_revocation": false,
+    "system_b_state_stale_at_consumption": false,
+    "system_c_consumed_without_revocation_visibility": false,
+    "current_revalidation_required": true,
+    "system_c_revalidation_present": true
+  },
+  "gap_types": [],
+  "closure_requirements": [],
+  "non_claims": [
+    "does_not_decide_negligence",
+    "does_not_decide_fault",
+    "does_not_decide_excuse",
+    "does_not_decide_legal_sufficiency",
+    "does_not_decide_compliance",
+    "does_not_decide_authorization",
+    "does_not_decide_correctness",
+    "does_not_decide_execution_eligibility"
+  ]
+}
