@@ -1,0 +1,32 @@
+{
+  "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
+  "claim_boundary_contract_id": "CBC-S07-001",
+  "title": "Scenario 07 External Authority Bridge Claim Boundary Contract",
+  "claim_supported": [
+    "A Fork-preserved internal workflow record can be inspected by an external recipient.",
+    "The record preserves internal claim scope, non-claims, referenced evidence, and unresolved requirements.",
+    "The record can show that external authority conclusions were not established by the internal record."
+  ],
+  "claims_not_allowed_to_be_inferred": [
+    "external admissibility",
+    "regulatory compliance determination",
+    "legal sufficiency",
+    "external approval authority",
+    "audit acceptance",
+    "customer acceptance",
+    "board authorization",
+    "insurance coverage",
+    "enforcement defense",
+    "execution eligibility",
+    "that a regulator, court, auditor, customer, insurer, or board must accept the record"
+  ],
+  "non_inheritance_rule": "No external authority-bearing property transfers merely because an internal Fork record is inspectable.",
+  "external_authority_boundary": {
+    "internal_record_scope": "record integrity, boundary state, non-claim preservation, reconstruction support",
+    "external_authority_scope": "admissibility, compliance, legal sufficiency, approval, acceptance, enforcement, coverage, or authorization",
+    "bridge_result": "REQUIRES_SEPARATE_EXTERNAL_AUTHORITY"
+  },
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, or judge correctness."
+}

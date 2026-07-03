@@ -1,0 +1,29 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
+  "claim_consumption_event_id": "CCE-S07-001",
+  "consumer_identity": "SYSTEM_C_EXTERNAL_AUTHORITY_CONTEXT",
+  "producer_identity": "SYSTEM_A_INTERNAL_WORKFLOW_OWNER",
+  "intermediate_consumer_identity": "SYSTEM_B_EXTERNAL_REVIEW_INTAKE",
+  "classification": "EXPANDED",
+  "boundary_effect": "EXPANDED_BEYOND_RECORDED_CLAIM_SCOPE",
+  "consumption_attempt": "External context attempts to treat an inspectable Fork record as establishing external admissibility, compliance, approval, legal sufficiency, acceptance, or authority.",
+  "relied_claims": [
+    "internal record is inspectable",
+    "internal boundary state is preserved",
+    "non-claims are visible"
+  ],
+  "preserved_non_claims": [
+    "external admissibility",
+    "compliance determination",
+    "legal sufficiency",
+    "external approval",
+    "customer acceptance",
+    "execution eligibility"
+  ],
+  "new_claim_boundary_contract_id": "REQUIRED_BUT_ABSENT",
+  "required_next_action": "Create a separate external-authority claim boundary contract or obtain an external authority decision before relying on admissibility, compliance, approval, legal sufficiency, acceptance, or execution eligibility.",
+  "fork_result": "EXPANDED_CONSUMPTION_RECORDED_NOT_AUTHORIZED",
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, or judge correctness."
+}
