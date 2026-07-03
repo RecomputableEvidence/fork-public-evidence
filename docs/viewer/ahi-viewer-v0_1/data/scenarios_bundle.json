@@ -645,8 +645,8 @@
       "title": "Multi-System Distributed Handoff",
       "purpose": "Show multi-system distributed handoff reconstruction.",
       "file": "examples/simulations/governance-proof-surface/scenario_06_multi_system_distributed_handoff.md",
-      "verification_posture": "STRUCTURAL",
-      "posture_description": "Artifact family present; dedicated checker verifies bounded structural classifications for a distributed multi-system handoff. This does not establish truth, approval, authority, compliance, or correctness.",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Artifact family present; dedicated structural checker and semantic invariant checker verify bounded distributed-handoff classifications. This does not establish truth, approval, authority, compliance, legal sufficiency, execution eligibility, or correctness.",
       "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
       "secondary_categories": [
         "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
