@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.local/schemas/ahi-viewer-v0.2/comparison_pairs.schema.json",
+  "title": "AHI Viewer v0.2 Comparison Pairs",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "artifact_version",
+    "generation_mode",
+    "source_bundle",
+    "viewer",
+    "non_authority_statement",
+    "comparison_pairs"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "AHI_VIEWER_COMPARISON_PAIRS"
+    },
+    "artifact_version": {
+      "const": "0.2"
+    },
+    "generation_mode": {
+      "const": "deterministic"
+    },
+    "source_bundle": {
+      "type": "string"
+    },
+    "viewer": {
+      "type": "string"
+    },
+    "non_authority_statement": {
+      "type": "string"
+    },
+    "comparison_pairs": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "pair_id",
+          "label",
+          "left_scenario_id",
+          "right_scenario_id",
+          "comparison_posture",
+          "purpose",
+          "boundary_movement",
+          "attempted_inference",
+          "required_revalidation",
+          "fork_can_show",
+          "fork_does_not_show",
+          "reviewer_use"
+        ],
+        "properties": {
+          "pair_id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "left_scenario_id": {
+            "type": "string"
+          },
+          "right_scenario_id": {
+            "type": "string"
+          },
+          "comparison_posture": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "boundary_movement": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "attempted_inference": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_revalidation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fork_can_show": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fork_does_not_show": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reviewer_use": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
