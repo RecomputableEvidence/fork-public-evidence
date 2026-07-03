@@ -218,7 +218,7 @@
       "purpose": "Show multi-system distributed handoff reconstruction.",
       "verification_posture": "SEMANTICALLY_VERIFIED",
       "posture_description": "Artifact family present; dedicated structural checker and semantic invariant checker verify bounded distributed-handoff classifications. This does not establish truth, approval, authority, compliance, legal sufficiency, execution eligibility, or correctness.",
-      "artifact_family_present": false,
+      "artifact_family_present": true,
       "artifact_files": [
         "examples/simulations/governance-proof-surface/artifacts/scenario_06_boundary_delta_record.json",
         "examples/simulations/governance-proof-surface/artifacts/scenario_06_claim_boundary_contract.json",
@@ -247,24 +247,56 @@
           "non_authority_posture_preserved"
         ]
       },
-      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true,
+        "notes": "Render as an artifact-backed distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance."
+      },
       "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
       "secondary_categories": [
         "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
         "CLAIM_SCOPE_EXPANSION",
         "AUTHORITY_CONTEXT_LOSS",
         "NON_INHERITANCE"
-      ]
+      ],
+      "checker_coverage": {
+        "required_files": true,
+        "json_validity": true,
+        "semantic_invariants": true,
+        "non_authority_scan": true,
+        "viewer_bundle": true
+      },
+      "failure_mode": null,
+      "core_invariant": null,
+      "selected_fields": {
+        "boundary_type": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+        "failure_mode": "UNSUPPORTED_DISTRIBUTED_AUTHORITY_INHERITANCE",
+        "required_revalidation": [
+          "authority context",
+          "claim scope",
+          "policy basis",
+          "downstream reliance basis"
+        ],
+        "fork_does_not_establish": [
+          "distributed authority",
+          "approval",
+          "compliance",
+          "legal sufficiency",
+          "execution eligibility",
+          "correctness"
+        ]
+      }
     },
     {
       "scenario_number": "07",
       "scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
-      "title": "Scenario 07 â€” External Authority Bridge",
+      "title": "Scenario 07 — External Authority Bridge",
       "file": "examples/simulations/governance-proof-surface/scenario_07_external_authority_bridge.md",
-      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "purpose": "Show an internally preserved record referenced across an external system boundary without external authority transfer.",
       "verification_posture": "SEMANTICALLY_VERIFIED",
       "posture_description": "Artifact family present; dedicated checker verifies bounded external-authority bridge invariants. This does not establish external admissibility, compliance, approval, legal sufficiency, acceptance, execution eligibility, or correctness.",
-      "artifact_family_present": false,
+      "artifact_family_present": true,
       "artifact_files": [
         "examples/simulations/governance-proof-surface/artifacts/scenario_07_boundary_delta_record.json",
         "examples/simulations/governance-proof-surface/artifacts/scenario_07_claim_boundary_contract.json",
@@ -287,14 +319,25 @@
           "external_failure_event_not_supported",
           "required_external_revalidation_preserved",
           "non_authority_posture_preserved"
-        ]
+        ],
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": true,
+        "dedicated_checker_invoked": true,
+        "overclaim_scan_covered": true
       },
-      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
-      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true,
+        "notes": "Render as an external-authority bridge simulation. Show external review context without implying external authority transfer, external acceptance, approval, compliance, or legal sufficiency."
+      },
+      "primary_category": "EXTERNAL_AUTHORITY_BRIDGE",
       "secondary_categories": [
-        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
-        "CLAIM_SCOPE_EXPANSION",
-        "AUTHORITY_CONTEXT_LOSS",
+        "EXTERNAL_AUTHORITY_BORROWING_ATTEMPT",
+        "AUTHORITY_CONTEXT_NON_INHERITANCE",
+        "EXTERNAL_REVALIDATION_REQUIRED",
         "NON_INHERITANCE"
       ],
       "checker_coverage": {
@@ -303,17 +346,40 @@
         "semantic_invariants": true,
         "non_authority_scan": true,
         "viewer_bundle": true
+      },
+      "failure_mode": "EXTERNAL_AUTHORITY_BRIDGE_ATTEMPT",
+      "core_invariant": "internal preservation does not imply external authority, external acceptance, external admissibility, or external legal sufficiency",
+      "selected_fields": {
+        "boundary_type": "EXTERNAL_AUTHORITY_BRIDGE",
+        "failure_mode": "EXTERNAL_AUTHORITY_BRIDGE_ATTEMPT",
+        "required_revalidation": [
+          "external authority",
+          "external admissibility",
+          "external acceptance",
+          "external policy basis",
+          "external evidence basis"
+        ],
+        "fork_does_not_establish": [
+          "external authority",
+          "external acceptance",
+          "external admissibility",
+          "approval",
+          "compliance",
+          "legal sufficiency",
+          "execution eligibility",
+          "correctness"
+        ]
       }
     },
     {
-      "scenario_number": 8,
+      "scenario_number": "08",
       "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
-      "title": "Scenario 08 â€” Stale Validity / Authority Revocation Boundary",
+      "title": "Scenario 08 — Stale Validity / Authority Revocation Boundary",
       "file": "examples/simulations/governance-proof-surface/scenario_08_stale_validity_authority_revocation_boundary.md",
-      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "purpose": "Show reliance on a prior validity or authority state after that state has changed or been revoked.",
       "verification_posture": "SEMANTICALLY_VERIFIED",
       "posture_description": "Artifact family present; dedicated checker verifies bounded stale-validity and authority-revocation invariants. This does not establish current authority, current compliance, current approval, current legal sufficiency, current acceptance, current execution eligibility, or correctness.",
-      "artifact_family_present": false,
+      "artifact_family_present": true,
       "artifact_files": [
         "examples/simulations/governance-proof-surface/artifacts/scenario_08_boundary_delta_record.json",
         "examples/simulations/governance-proof-surface/artifacts/scenario_08_claim_boundary_contract.json",
@@ -335,14 +401,25 @@
           "unsupported_current_authority_inference_recorded",
           "current_revalidation_required",
           "non_authority_posture_preserved"
-        ]
+        ],
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": true,
+        "dedicated_checker_invoked": true,
+        "overclaim_scan_covered": true
       },
-      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
-      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true,
+        "notes": "Render as a temporal-validity and authority-revocation simulation. Show prior validity, prior authority, and prior evidence state without implying current validity, current authority, approval, compliance, or legal sufficiency."
+      },
+      "primary_category": "STALE_VALIDITY_AUTHORITY_REVOCATION",
       "secondary_categories": [
-        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
-        "CLAIM_SCOPE_EXPANSION",
-        "AUTHORITY_CONTEXT_LOSS",
+        "TEMPORAL_VALIDITY_NON_INHERITANCE",
+        "STALE_AUTHORITY_RELIANCE_ATTEMPT",
+        "CURRENT_REVALIDATION_REQUIRED",
         "NON_INHERITANCE"
       ],
       "checker_coverage": {
@@ -351,17 +428,39 @@
         "semantic_invariants": true,
         "non_authority_scan": true,
         "viewer_bundle": true
+      },
+      "failure_mode": "STALE_VALIDITY_RELIANCE_ATTEMPT",
+      "core_invariant": "prior validity does not imply current validity; prior authority does not imply current authority; prior evidence sufficiency does not imply current evidence sufficiency",
+      "selected_fields": {
+        "boundary_type": "STALE_VALIDITY_AUTHORITY_REVOCATION",
+        "failure_mode": "STALE_VALIDITY_RELIANCE_ATTEMPT",
+        "required_revalidation": [
+          "current authority",
+          "current policy version",
+          "current evidence basis",
+          "current validity window",
+          "current execution eligibility"
+        ],
+        "fork_does_not_establish": [
+          "current authority",
+          "current validity",
+          "current approval",
+          "current compliance",
+          "legal sufficiency",
+          "current execution eligibility",
+          "correctness"
+        ]
       }
     },
     {
-      "scenario_number": 9,
+      "scenario_number": "09",
       "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
-      "title": "Scenario 09 â€” Revocation Visibility / Split-State Boundary",
+      "title": "Scenario 09 — Revocation Visibility / Split-State Boundary",
       "file": "examples/simulations/governance-proof-surface/scenario_09_revocation_visibility_split_state_boundary.md",
-      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "purpose": "Show a revocation recorded in one system that is not yet visible in another, producing a split validity state across systems.",
       "verification_posture": "SEMANTICALLY_VERIFIED",
       "posture_description": "Artifact family present; dedicated checker verifies bounded revocation visibility and split-state invariants. This does not establish global visibility, global consumption, current authority, current validity, compliance, legal sufficiency, negligence, excuse, execution eligibility, or correctness.",
-      "artifact_family_present": false,
+      "artifact_family_present": true,
       "artifact_files": [
         "examples/simulations/governance-proof-surface/artifacts/scenario_09_boundary_delta_record.json",
         "examples/simulations/governance-proof-surface/artifacts/scenario_09_claim_boundary_contract.json",
@@ -383,14 +482,26 @@
           "split_state_reliance_attempt_recorded",
           "current_revalidation_required",
           "non_authority_posture_preserved"
-        ]
+        ],
+        "narrative_file_required": true,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": true,
+        "dedicated_checker_invoked": true,
+        "overclaim_scan_covered": true
       },
-      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
-      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "viewer_treatment": {
+        "display_group": "Semantically Verified",
+        "display_weight": "classification_checked",
+        "should_present_as_verified_fork_claim": true,
+        "notes": "Render as a split-state visibility and consumption simulation. Show revocation visibility gaps and required synchronization or revalidation without implying global visibility, global consumption, approval, compliance, legal sufficiency, negligence, excuse, or correctness."
+      },
+      "primary_category": "REVOCATION_VISIBILITY_SPLIT_STATE",
       "secondary_categories": [
-        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
-        "CLAIM_SCOPE_EXPANSION",
-        "AUTHORITY_CONTEXT_LOSS",
+        "REVOCATION_VISIBILITY_GAP",
+        "SPLIT_STATE_CONSUMPTION_GAP",
+        "LOCAL_NON_AWARENESS_NOT_CURRENT_VALIDITY",
+        "CURRENT_REVALIDATION_REQUIRED",
         "NON_INHERITANCE"
       ],
       "checker_coverage": {
@@ -426,7 +537,7 @@
           "current policy satisfaction",
           "current evidence sufficiency",
           "current regulatory compliance",
-          "current legal sufficiency",
+          "legal sufficiency",
           "current execution eligibility",
           "current external acceptance",
           "negligence",
