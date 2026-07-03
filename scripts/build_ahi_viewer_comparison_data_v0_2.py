@@ -22,7 +22,7 @@ OUT = Path("docs/viewer/ahi-viewer-v0_2/data/comparison_pairs.json")
 CANONICAL_PAIRS: list[dict[str, Any]] = [
     {
         "pair_id": "PAIR-S01-S02",
-        "label": "Scenario 01 vs Scenario 02 â€” baseline versus preserved handoff",
+        "label": "Scenario 01 vs Scenario 02 Ã¢â‚¬â€ baseline versus preserved handoff",
         "left_scenario_id": "SCENARIO_01_BASELINE_UNBOUNDED_HANDOFF",
         "right_scenario_id": "SCENARIO_02_FORK_PRESERVED_HANDOFF",
         "comparison_posture": "BOUNDARY_PRESERVATION_COMPARISON",
@@ -56,7 +56,7 @@ CANONICAL_PAIRS: list[dict[str, Any]] = [
     },
     {
         "pair_id": "PAIR-S03-S04",
-        "label": "Scenario 03 vs Scenario 04 â€” scope expansion versus authority leakage",
+        "label": "Scenario 03 vs Scenario 04 Ã¢â‚¬â€ scope expansion versus authority leakage",
         "left_scenario_id": "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
         "right_scenario_id": "SCENARIO_04_AUTHORITY_LEAKAGE_ATTEMPT",
         "comparison_posture": "EXPANSION_AND_AUTHORITY_COMPARISON",
@@ -90,7 +90,7 @@ CANONICAL_PAIRS: list[dict[str, Any]] = [
     },
     {
         "pair_id": "PAIR-S05-S06",
-        "label": "Scenario 05 vs Scenario 06 â€” policy laundering versus distributed handoff",
+        "label": "Scenario 05 vs Scenario 06 Ã¢â‚¬â€ policy laundering versus distributed handoff",
         "left_scenario_id": "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
         "right_scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
         "comparison_posture": "POLICY_AND_DISTRIBUTED_AUTHORITY_COMPARISON",
@@ -126,7 +126,7 @@ CANONICAL_PAIRS: list[dict[str, Any]] = [
     },
     {
         "pair_id": "PAIR-S06-S07",
-        "label": "Scenario 06 vs Scenario 07 â€” internal distributed boundary versus external authority bridge",
+        "label": "Scenario 06 vs Scenario 07 Ã¢â‚¬â€ internal distributed boundary versus external authority bridge",
         "left_scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
         "right_scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
         "comparison_posture": "INTERNAL_TO_EXTERNAL_AUTHORITY_COMPARISON",
@@ -163,7 +163,7 @@ CANONICAL_PAIRS: list[dict[str, Any]] = [
     },
     {
         "pair_id": "PAIR-S07-S08",
-        "label": "Scenario 07 vs Scenario 08 â€” external authority bridge versus stale validity",
+        "label": "Scenario 07 vs Scenario 08 Ã¢â‚¬â€ external authority bridge versus stale validity",
         "left_scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
         "right_scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
         "comparison_posture": "EXTERNAL_AUTHORITY_AND_TEMPORAL_VALIDITY_COMPARISON",
@@ -235,7 +235,7 @@ def main() -> None:
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    OUT.write_bytes((json.dumps(output, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
 
 
 if __name__ == "__main__":
