@@ -6,11 +6,11 @@
 
 **Ryan Feller**  
 Fork / NGAST  
-Version 1.0 â€” June 11, 2026
+Version 1.0 — June 11, 2026
 
 AI systems are increasingly involved in consequential institutional work. They draft, classify, summarize, route, recommend, and support decisions in areas such as credit, employment, healthcare, supplier risk, security, legal review, and internal controls.
 
-They also changeâ€”frequently.
+They also change—frequently.
 
 Models are updated. Prompts and retrieval sources are revised. Product teams restructure workflows. Policies change. Staff move on. Vendors are replaced. Authority shifts among legal, risk, engineering, compliance, audit, and operations.
 
@@ -24,7 +24,7 @@ Months or years later, institutions still confront familiar questions:
 - Which policy, model, and workflow configuration were operative at the time?
 - What remained uncertain or unchecked?
 
-The technical environment in which these questions arise is different from the one in which many institutional evidence practices were designed. AI-assisted activity is expanding and changing faster than many organizationsâ€™ existing documentation, review, and evidence-preservation practices were built to accommodate.
+The technical environment in which these questions arise is different from the one in which many institutional evidence practices were designed. AI-assisted activity is expanding and changing faster than many organizations’ existing documentation, review, and evidence-preservation practices were built to accommodate.
 
 This creates a specific governance problem: not only controlling what an AI system may do today, but preserving enough structured evidence that a future reviewer can reconstruct what occurred without relying solely on what the institution later says about it.
 
@@ -36,9 +36,9 @@ That is the problem of reconstructive fidelity.
 
 Traceability is no longer peripheral to AI governance.
 
-NISTâ€™s voluntary Artificial Intelligence Risk Management Framework organizes AI risk management around four Core functionsâ€”GOVERN, MAP, MEASURE, and MANAGE. The Framework emphasizes documented accountability structures, clearly assigned human roles and responsibilities, ongoing monitoring, periodic review, incident response, recovery, and change management. [1]
+NIST’s voluntary Artificial Intelligence Risk Management Framework organizes AI risk management around four Core functions—GOVERN, MAP, MEASURE, and MANAGE. The Framework emphasizes documented accountability structures, clearly assigned human roles and responsibilities, ongoing monitoring, periodic review, incident response, recovery, and change management. [1]
 
-The European Unionâ€™s Artificial Intelligence Act imposes more specific requirements for high-risk AI systems. Article 12 requires those systems to technically support automatic event logging over their lifetime. Article 19(1) requires providers to retain automatically generated logs under their control for an appropriate period of at least six months, subject to applicable Union or national law. Article 26(6) establishes the corresponding retention obligation for deployers where those logs are under their control. [2]
+The European Union’s Artificial Intelligence Act imposes more specific requirements for high-risk AI systems. Article 12 requires those systems to technically support automatic event logging over their lifetime. Article 19(1) requires providers to retain automatically generated logs under their control for an appropriate period of at least six months, subject to applicable Union or national law. Article 26(6) establishes the corresponding retention obligation for deployers where those logs are under their control. [2]
 
 These frameworks reflect a clear direction:
 
@@ -52,7 +52,7 @@ But a deeper question sits beneath traceability:
 
 After models, prompts, workflows, policies, and personnel have changed, can anyone still reconstruct what the AI received, what it produced, what humans reviewed, what decision followed, and what the evidence actually established at that time?
 
-That is not merely a question of whether logs exist. It is a question of what those logs preserveâ€”and what they leave ambiguous.
+That is not merely a question of whether logs exist. It is a question of what those logs preserve—and what they leave ambiguous.
 
 ---
 
@@ -140,9 +140,9 @@ Activity history is necessary. But activity history is not automatically an inde
 
 ## Reconstructive Fidelity: A Proposed Definition
 
-In Forkâ€”a bounded evidence architecture being developed for AI-assisted workflowsâ€”**reconstructive fidelity** means:
+In Fork—a bounded evidence architecture being developed for AI-assisted workflows—**reconstructive fidelity** means:
 
-> The degree to which a later reviewer can recover the content, attribution, authority, temporal context, mechanical status, and unresolved boundaries of an earlier institutional event without relying solely on the institutionâ€™s current interpretation of it.
+> The degree to which a later reviewer can recover the content, attribution, authority, temporal context, mechanical status, and unresolved boundaries of an earlier institutional event without relying solely on the institution’s current interpretation of it.
 
 This is a proposed evidentiary concept, not a claim that the term already has a settled industry-wide definition.
 
@@ -207,7 +207,7 @@ Reconstructive fidelity requires more than detailed records. It requires earlier
 
 Fork proposes the **Invariant Distance Principle**:
 
-> The Invariant Distance Principle requires stable evidentiary anchors for each institutional state so that later changes in authority, interpretation, configuration, and time can be compared without being collapsed into the institutionâ€™s current account of itself.
+> The Invariant Distance Principle requires stable evidentiary anchors for each institutional state so that later changes in authority, interpretation, configuration, and time can be compared without being collapsed into the institution’s current account of itself.
 
 Two boundaries are essential.
 
@@ -237,7 +237,7 @@ It cannot, from integrity alone, establish:
 
 The governing distinction is:
 
-> **Invariant evidentiary anchor â‰  invariant truth**
+> **Invariant evidentiary anchor ≠  invariant truth**
 
 Integrity of the record and truth of the recorded claim are different questions.
 
@@ -262,7 +262,7 @@ The distance between two states should therefore not be silently compressed into
 It is better represented initially as a vector:
 
 ```text
-DISTANCE(A, Aâ€²) = {
+DISTANCE(A, A”²) = {
   textual_change,
   authority_change,
   scope_change,
@@ -290,9 +290,9 @@ A recurring pattern is:
 
 ```text
 STATE A
-â†’ STATE B
-â†’ CLAIM OF RETURN TO A
-â†’ STATE Aâ€²
+→ STATE B
+→ CLAIM OF RETURN TO A
+→ STATE A”²
 ```
 
 Where:
@@ -300,9 +300,9 @@ Where:
 - **A** is an original doctrine, policy, classification, or operating state;
 - **B** is an intervening rupture or replacement;
 - the institution later claims to restore or return to A;
-- **Aâ€²** is the newly authorized state established after B.
+- **A”²** is the newly authorized state established after B.
 
-It is tempting to describe Aâ€² as simply â€œA again.â€
+It is tempting to describe A”² as simply “A again.”
 
 But this is never historically exact.
 
@@ -310,7 +310,7 @@ The intervening state B occurred. It governed real conduct. It affected people, 
 
 The sharper formulation is:
 
-> **Aâ€² is not A restored. It is a new state that claims ancestry from A.**
+> **A”² is not A restored. It is a new state that claims ancestry from A.**
 
 This phenomenon may be described as **reformalization**: the reauthorization of an earlier formal order after an intervening state, producing not the original state again but a newly constituted state that claims continuity with it.
 
@@ -322,7 +322,7 @@ The restoration claim is itself an attributed institutional act. Fork may preser
 - which prior state it referenced;
 - what formal configuration was actually adopted.
 
-Fork does not need to adopt the institutionâ€™s theory of continuity.
+Fork does not need to adopt the institution’s theory of continuity.
 
 A prominent legal example is *Loper Bright Enterprises v. Raimondo*. The United States Supreme Court overruled the *Chevron* doctrine and held that courts must exercise independent judgment when interpreting statutes and determining whether agencies acted within their statutory authority. The Court also stated that overruling *Chevron* did not itself call prior holdings relying on that framework into question; those holdings remain subject to statutory stare decisis. [3]
 
@@ -333,12 +333,12 @@ A reformalization-aware evidence model therefore preserves:
 - A as it actually operated;
 - B as it actually operated;
 - the restoration claim as a separately attributed act;
-- Aâ€² as actually constituted;
+- A”² as actually constituted;
 - the observable differences among them.
 
 The invariant is:
 
-> Aâ€² may supersede B going forward, but it may not retroactively make B never have governed.
+> A”² may supersede B going forward, but it may not retroactively make B never have governed.
 
 ---
 
@@ -405,7 +405,7 @@ It was to preserve distinctions among:
 - what the institution decided;
 - what remained unresolved.
 
-Forkâ€™s reference architecture and declared test corpus demonstrate:
+Fork’s reference architecture and declared test corpus demonstrate:
 
 - explicit, declared packet membership;
 - canonical SHA-256 member and manifest digests;
@@ -438,7 +438,7 @@ It is a bounded evidentiary architecture designed to preserve enough content, at
 
 These layers correspond directly to the deficiencies identified in ordinary activity records. Content preserves what was present. Attribution preserves who supplied or changed it. Mechanical status separates recomputable checks from judgment. The inference boundary prevents integrity from becoming truth. Resolution authority identifies who may legitimately address what remains unresolved, and resolution history preserves later determinations without rewriting earlier states.
 
-Forkâ€™s broader doctrine can be expressed through six layers:
+Fork’s broader doctrine can be expressed through six layers:
 
 1. **Content**  
    What value, statement, artifact, or event was present?
@@ -493,7 +493,7 @@ Fork does not silently infer:
 
 ## The Earned Invariant and Its Limits
 
-Within Forkâ€™s governed evidence boundary, a strongâ€”but carefully scopedâ€”engineering statement becomes possible.
+Within Fork’s governed evidence boundary, a strong—but carefully scoped—engineering statement becomes possible.
 
 Given:
 
@@ -507,7 +507,7 @@ a preserved artifact cannot be mutated or substituted and still be represented a
 Under those conditions:
 
 - different bytes cannot verify as the original sealed artifact;
-- a later state cannot silently occupy an earlier stateâ€™s evidentiary identity;
+- a later state cannot silently occupy an earlier state’s evidentiary identity;
 - a new interpretation cannot become a prior fact without either mutation or a new attributed record.
 
 This is a claim about evidentiary identity, not universal truth.
@@ -563,9 +563,9 @@ AI systems will continue to change.
 
 Institutional interpretations will continue to shift.
 
-Policies and doctrines will be replaced, revised, and sometimes â€œrestored.â€
+Policies and doctrines will be replaced, revised, and sometimes “restored.”
 
-The record of what actually occurred must remain stable enough that those changes can be examined without allowing the institutionâ€™s current position to consume its history.
+The record of what actually occurred must remain stable enough that those changes can be examined without allowing the institution’s current position to consume its history.
 
 The Invariant Distance Principle provides one way to state that requirement.
 
@@ -591,11 +591,11 @@ https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
 Relevant locations:
 
 - Voluntary status: Executive Summary
-- AI RMF Core: Part 2, Â§5
-- GOVERN: Â§5.1
-- MAP: Â§5.2
-- MEASURE: Â§5.3
-- MANAGE: Â§5.4
+- AI RMF Core: Part 2, §5
+- GOVERN: §5.1
+- MAP: §5.2
+- MEASURE: §5.3
+- MANAGE: §5.4
 - Human roles and responsibilities: Appendix C
 
 ---
@@ -633,7 +633,7 @@ Relevant locations:
 
 **[4] Fork Public Technical Claims and Boundaries v0.1.1**
 
-Feller, Ryan. *Fork Public Technical Claims and Boundaries v0.1.1.* Public technical disclosure appendix, selected schemas, deterministic synthetic reference fixture, verification result, recomputation instructions, release receipt, and explicit non-claims for Forkâ€™s recomputable evidence architecture.
+Feller, Ryan. *Fork Public Technical Claims and Boundaries v0.1.1.* Public technical disclosure appendix, selected schemas, deterministic synthetic reference fixture, verification result, recomputation instructions, release receipt, and explicit non-claims for Fork’s recomputable evidence architecture.
 
 Public release:  
 https://github.com/RecomputableEvidence/fork-public-evidence/releases/tag/fork-public-disclosure-v0.1.1

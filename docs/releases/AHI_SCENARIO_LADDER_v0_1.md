@@ -8,7 +8,7 @@ Each scenario adds one governance failure mode without allowing Fork to become a
 
 ## Ladder
 
-### Scenario 01 â€” Baseline unbounded handoff
+### Scenario 01 — Baseline unbounded handoff
 
 Shows the baseline problem: AI-assisted work can move downstream without enough boundary state for later reconstruction.
 
@@ -18,7 +18,7 @@ Primary lesson:
 Without explicit boundary records, downstream reliance can inherit more than the upstream artifact actually supports.
 ```
 
-### Scenario 02 â€” Fork-preserved handoff
+### Scenario 02 — Fork-preserved handoff
 
 Introduces artifact-backed preservation.
 
@@ -38,7 +38,7 @@ Primary lesson:
 Fork can preserve what crossed, what did not cross, and what must not be inferred.
 ```
 
-### Scenario 03 â€” Scope expansion attempt
+### Scenario 03 — Scope expansion attempt
 
 Tests downstream expansion of a bounded claim.
 
@@ -48,7 +48,7 @@ Primary lesson:
 A bounded claim cannot silently become a broader claim merely because it moved downstream.
 ```
 
-### Scenario 04 â€” Authority leakage attempt
+### Scenario 04 — Authority leakage attempt
 
 Tests whether authority context is improperly inherited.
 
@@ -58,7 +58,7 @@ Primary lesson:
 Authority possessed and authority exercised are not the same claim.
 ```
 
-### Scenario 05 â€” Policy-reference laundering / non-claim suppression
+### Scenario 05 — Policy-reference laundering / non-claim suppression
 
 Tests the failure where a policy reference is treated as policy satisfaction, or limitations disappear downstream.
 
@@ -68,7 +68,7 @@ Primary lesson:
 Citing a policy does not establish that the policy was satisfied.
 ```
 
-### Scenario 06 â€” Multi-system distributed handoff
+### Scenario 06 — Multi-system distributed handoff
 
 Tests distributed authority inheritance across multiple independently accountable systems.
 
@@ -83,7 +83,7 @@ Scenario 06 has two major release steps:
 - `ahi-sim-v0.1.6`: structural simulation
 - `ahi-sim-v0.1.7`: semantic invariant verification
 
-### Scenario 07 â€” External authority bridge
+### Scenario 07 — External authority bridge
 
 Tests the external boundary where an internal Fork-preserved record is provided to an external reviewer, auditor, regulator, customer, board, insurer, legal process, or other authority-bearing context.
 

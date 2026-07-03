@@ -1,4 +1,4 @@
-# AHI Simulation v0.1.10 â€” Scenario 09 Revocation Visibility / Split-State Boundary
+# AHI Simulation v0.1.10 — Scenario 09 Revocation Visibility / Split-State Boundary
 
 Scenario 09 adds split-state visibility coverage to the AHI simulation proof surface.
 

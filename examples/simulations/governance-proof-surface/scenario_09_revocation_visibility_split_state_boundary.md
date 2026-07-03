@@ -1,4 +1,4 @@
-# Scenario 09 â€” Revocation Visibility / Split-State Boundary
+# Scenario 09 — Revocation Visibility / Split-State Boundary
 
 ## Scenario ID
 
@@ -14,22 +14,22 @@ A downstream actor relies on stale, partial, or locally visible state and treats
 
 ```text
 Revocation recorded in System A
-â‰  revocation visible to System B
-â‰  revocation consumed by System C
-â‰  downstream reliance resolved
+≠ revocation visible to System B
+≠ revocation consumed by System C
+≠ downstream reliance resolved
 ```
 
 ## Systems
 
-### System A â€” Revocation Source
+### System A — Revocation Source
 
 Records a revocation, expiry, supersession, narrowing, policy update, role change, or other validity-changing event.
 
-### System B â€” Intermediate State Holder
+### System B — Intermediate State Holder
 
 Has a local state view that may not include the revocation or validity-changing event.
 
-### System C â€” Downstream Reliance Actor
+### System C — Downstream Reliance Actor
 
 Attempts to rely on the prior or locally visible state.
 

@@ -106,7 +106,7 @@ def normalize_text(value: Any) -> str:
     text = unicodedata.normalize("NFKC", text)
     text = text.replace("\u2010", "-").replace("\u2011", "-").replace("\u2012", "-").replace("\u2013", "-").replace("\u2014", "-")
     text = text.replace("\u2212", "-").replace("_", " ")
-    # Strip combining marks so c\u0308ompliance and cÃ¶mpliance normalize closer to compliance.
+    # Strip combining marks so c\u0308ompliance and cömpliance normalize closer to compliance.
     decomposed = unicodedata.normalize("NFKD", text)
     text = "".join(ch for ch in decomposed if not unicodedata.combining(ch))
     text = text.lower()

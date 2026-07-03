@@ -48,7 +48,7 @@ Golden workflow
 
 The current golden workflow is:
 
-> AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt.
+> AI-assisted vendor-risk recommendation → internal decision memo → downstream reliance attempt.
 
 This workflow demonstrates the moment an AI-assisted artifact becomes eligible for institutional reliance and the downstream risk that a bounded record may be silently expanded into a broader claim.
 

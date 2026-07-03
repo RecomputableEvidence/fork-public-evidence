@@ -11,7 +11,7 @@ Fork's current evidence supports an engineering pattern and a motivated hypothes
 ### 1. Character Encoding
 
 - [ ] Search for mojibake artifacts.
-- [ ] Repair `Ã`, ``, `'`, `"`, `â€`, `-`, `--`, and corrupted arrow artifacts.
+- [ ] Repair documented encoding artifacts by codepoint sequence, including U+00C3, U+00C2, U+00E2-prefixed mojibake, and corrupted arrow artifacts.
 - [ ] Confirm files are UTF-8 without BOM where practical.
 - [ ] Confirm no unintended semantic changes were introduced.
 
