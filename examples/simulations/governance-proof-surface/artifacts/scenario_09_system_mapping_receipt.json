@@ -1,0 +1,40 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "system_mapping_receipt_id": "SMR-S09-001",
+  "title": "Scenario 09 Revocation Visibility / Split-State System Mapping Receipt",
+  "overall_mapping_classification": "MIXED_WITH_UNSUPPORTED_VISIBILITY_AND_CONSUMPTION_INFERENCE",
+  "fork_result": "STRUCTURAL_MAPPING_RECORDED",
+  "visibility_mapping_status": "REVOCATION_VISIBILITY_GAP_RECORDED",
+  "unsupported_mappings": [
+    {
+      "from": "revocation recorded in System A",
+      "to": "revocation visible in System B",
+      "classification": "EXPANDED",
+      "reason": "source recording does not establish downstream visibility"
+    },
+    {
+      "from": "revocation visible in System B",
+      "to": "revocation consumed by System C",
+      "classification": "EXPANDED",
+      "reason": "visibility does not establish downstream consumption"
+    },
+    {
+      "from": "revocation absent from local state",
+      "to": "prior validity remains current",
+      "classification": "EXPANDED",
+      "reason": "local non-awareness does not establish current validity"
+    }
+  ],
+  "required_current_support": [
+    "visibility evidence",
+    "consumption evidence",
+    "state synchronization evidence",
+    "current authority",
+    "current policy version",
+    "current evidence basis",
+    "current validity window"
+  ],
+  "fork_non_authority_statement": "Fork records mapping state without approving, certifying, scoring, authorizing, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, judging correctness, determining negligence, or determining excuse."
+}

@@ -1,0 +1,58 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "bdr_id": "BDR-S09-001",
+  "title": "Scenario 09 Revocation Visibility / Split-State Boundary Delta Record",
+  "boundary_type": "REVOCATION_VISIBILITY_AND_SPLIT_STATE",
+  "inspectability_result": "INSPECTABLE",
+  "delta_classification": "REVOCATION_VISIBILITY_GAP_RECORDED",
+  "split_state_invariant": "recorded_in_A_does_not_imply_visible_in_B_or_consumed_by_C",
+  "boundary_sequence": [
+    {
+      "boundary_id": "S09-B01",
+      "transition_effect": "VALIDITY_CHANGE_RECORDED",
+      "visibility_effect": "NOT_AUTOMATICALLY_GLOBAL",
+      "claim_state_after_transition": "The validity-changing event is recorded in System A, but this does not establish visibility or consumption in System B."
+    },
+    {
+      "boundary_id": "S09-B02",
+      "transition_effect": "VISIBILITY_GAP_RECORDED",
+      "visibility_effect": "LOCAL_NON_AWARENESS_NOT_CURRENT_VALIDITY",
+      "claim_state_after_transition": "System B's stale or partial local state does not establish current validity for System C."
+    },
+    {
+      "boundary_id": "S09-B03",
+      "transition_effect": "SPLIT_STATE_RELIANCE_ATTEMPT_RECORDED",
+      "visibility_effect": "CURRENT_REVALIDATION_REQUIRED",
+      "claim_state_after_transition": "Downstream reliance on stale or partial state is recorded as requiring visibility, consumption, synchronization, or current revalidation support."
+    }
+  ],
+  "not_supported_after_transition": [
+    "global visibility",
+    "global consumption",
+    "current authority",
+    "current validity",
+    "current approval",
+    "current policy satisfaction",
+    "current evidence sufficiency",
+    "current regulatory compliance",
+    "current legal sufficiency",
+    "current execution eligibility",
+    "current external acceptance",
+    "negligence determination",
+    "excuse determination",
+    "correctness determination"
+  ],
+  "required_revalidation_for": [
+    "revocation visibility",
+    "revocation consumption",
+    "state synchronization",
+    "current authority",
+    "current policy version",
+    "current evidence basis",
+    "current validity window",
+    "current execution eligibility"
+  ],
+  "fork_role": "Fork records revocation visibility and split-state boundary state without approving, certifying, scoring, authorizing, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, judging correctness, or deciding negligence or excuse."
+}

@@ -1,0 +1,36 @@
+{
+  "artifact_type": "VISIBILITY_GAP_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "visibility_gap_event_id": "VGE-S09-001",
+  "category": "REVOCATION_VISIBILITY_GAP",
+  "record_support": "NOT_SUPPORTED",
+  "boundary_effect": "EXPANDED",
+  "gap_type": "SPLIT_STATE_VISIBILITY_AND_CONSUMPTION_GAP",
+  "source_state": {
+    "state": "VALIDITY_CHANGE_RECORDED"
+  },
+  "intermediate_state": {
+    "state": "VISIBILITY_NOT_CONFIRMED",
+    "consumption": "NOT_CONFIRMED"
+  },
+  "downstream_state": {
+    "state": "SPLIT_STATE_RELIANCE_ATTEMPT",
+    "attempted_inference": "Local non-awareness or stale intermediate state establishes current validity, or source revocation is globally visible and consumed without visibility and consumption evidence."
+  },
+  "fork_result": "UNSUPPORTED_VISIBILITY_AND_CONSUMPTION_INFERENCE_RECORDED",
+  "required_revalidation": [
+    "visibility evidence",
+    "consumption evidence",
+    "state synchronization evidence",
+    "current authority",
+    "current policy version",
+    "current evidence basis",
+    "current validity window",
+    "current execution eligibility"
+  ],
+  "failure_mode": {
+    "type": "revocation_visibility_gap"
+  },
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, judge correctness, determine negligence, or determine excuse."
+}
