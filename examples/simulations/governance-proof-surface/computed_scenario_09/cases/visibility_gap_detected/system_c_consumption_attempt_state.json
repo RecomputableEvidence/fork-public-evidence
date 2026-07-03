@@ -1,0 +1,14 @@
+{
+  "case_id": "visibility_gap_detected",
+  "system": "C",
+  "state_role": "downstream_consumption_attempt",
+  "claim_id": "CLAIM-S09-REVOCABLE-001",
+  "attempted_at": "2026-07-03T12:10:00Z",
+  "basis_seen_by_consumer": {
+    "visible_revocation_ids": [],
+    "local_validity_status": "VALID",
+    "revalidation_event_id": null,
+    "revalidated_at": null
+  },
+  "attempt_type": "downstream_reliance_attempt"
+}

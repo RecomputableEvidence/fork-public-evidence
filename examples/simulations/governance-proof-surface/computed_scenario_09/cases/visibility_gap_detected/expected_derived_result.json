@@ -1,0 +1,43 @@
+{
+  "case_id": "visibility_gap_detected",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "computed_scenario_version": "v0.1",
+  "derivation_status": "COMPUTED_GAP_RECORDED",
+  "inspectability": "INSPECTABLE",
+  "timeline": {
+    "revocation_effective_at": "2026-07-03T12:00:00Z",
+    "system_b_last_sync_at": "2026-07-03T11:55:00Z",
+    "system_b_known_state_as_of": "2026-07-03T11:55:00Z",
+    "system_c_attempted_at": "2026-07-03T12:10:00Z"
+  },
+  "derived_flags": {
+    "upstream_revocation_current_before_consumption": true,
+    "system_b_revocation_not_visible": true,
+    "system_b_sync_precedes_revocation": true,
+    "system_b_state_stale_at_consumption": true,
+    "system_c_consumed_without_revocation_visibility": true,
+    "current_revalidation_required": true,
+    "system_c_revalidation_present": false
+  },
+  "gap_types": [
+    "REVOCATION_VISIBILITY_GAP",
+    "SPLIT_STATE_CONSUMPTION_GAP",
+    "CURRENT_REVALIDATION_REQUIRED"
+  ],
+  "closure_requirements": [
+    "revocation_visible_to_system_b",
+    "system_b_sync_after_revocation_effective_at",
+    "system_c_revalidation_after_visibility",
+    "new_boundary_record_for_downstream_reliance"
+  ],
+  "non_claims": [
+    "does_not_decide_negligence",
+    "does_not_decide_fault",
+    "does_not_decide_excuse",
+    "does_not_decide_legal_sufficiency",
+    "does_not_decide_compliance",
+    "does_not_decide_authorization",
+    "does_not_decide_correctness",
+    "does_not_decide_execution_eligibility"
+  ]
+}

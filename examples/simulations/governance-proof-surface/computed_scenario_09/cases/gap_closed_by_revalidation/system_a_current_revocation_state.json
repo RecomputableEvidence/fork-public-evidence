@@ -1,0 +1,20 @@
+{
+  "case_id": "gap_closed_by_revalidation",
+  "system": "A",
+  "state_role": "current_revocation_source",
+  "claim_id": "CLAIM-S09-REVOCABLE-001",
+  "revocation_event": {
+    "revocation_id": "REV-S09-001",
+    "effective_at": "2026-07-03T12:00:00Z",
+    "recorded_at": "2026-07-03T12:00:30Z",
+    "revoked_scope": [
+      "may_rely_without_current_revalidation"
+    ],
+    "reason_code": "authority_context_changed"
+  },
+  "current_validity": {
+    "as_of": "2026-07-03T12:05:00Z",
+    "status": "REVOKED",
+    "requires_current_revalidation": true
+  }
+}

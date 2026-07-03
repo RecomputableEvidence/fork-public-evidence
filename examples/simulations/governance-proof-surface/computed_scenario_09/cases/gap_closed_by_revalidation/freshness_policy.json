@@ -1,0 +1,11 @@
+{
+  "case_id": "gap_closed_by_revalidation",
+  "policy_id": "FRESHNESS-POLICY-S09-001",
+  "max_visibility_age_minutes": 10,
+  "require_revalidation_after_upstream_revocation": true,
+  "gap_closure_conditions": [
+    "revocation_visible_to_system_b",
+    "system_b_sync_after_revocation_effective_at",
+    "system_c_revalidation_after_visibility"
+  ]
+}

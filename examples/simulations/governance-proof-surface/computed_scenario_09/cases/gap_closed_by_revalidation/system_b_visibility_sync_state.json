@@ -1,0 +1,13 @@
+{
+  "case_id": "gap_closed_by_revalidation",
+  "system": "B",
+  "state_role": "visibility_and_sync_boundary",
+  "claim_id": "CLAIM-S09-REVOCABLE-001",
+  "last_sync_at": "2026-07-03T12:03:00Z",
+  "known_state_as_of": "2026-07-03T12:03:00Z",
+  "visible_revocation_ids": [
+    "REV-S09-001"
+  ],
+  "local_validity_status": "REVOKED",
+  "sync_channel": "asynchronous_state_feed"
+}

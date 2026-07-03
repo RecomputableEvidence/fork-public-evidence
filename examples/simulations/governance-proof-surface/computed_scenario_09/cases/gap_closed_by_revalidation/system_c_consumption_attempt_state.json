@@ -1,0 +1,16 @@
+{
+  "case_id": "gap_closed_by_revalidation",
+  "system": "C",
+  "state_role": "downstream_consumption_attempt",
+  "claim_id": "CLAIM-S09-REVOCABLE-001",
+  "attempted_at": "2026-07-03T12:10:00Z",
+  "basis_seen_by_consumer": {
+    "visible_revocation_ids": [
+      "REV-S09-001"
+    ],
+    "local_validity_status": "REVOKED",
+    "revalidation_event_id": "REVALIDATION-S09-001",
+    "revalidated_at": "2026-07-03T12:04:00Z"
+  },
+  "attempt_type": "downstream_reliance_attempt_after_revalidation"
+}
