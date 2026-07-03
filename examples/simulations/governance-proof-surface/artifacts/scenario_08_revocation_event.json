@@ -1,0 +1,54 @@
+{
+  "artifact_type": "REVOCATION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+  "revocation_event_id": "REV-S08-001",
+  "category": "STALE_VALIDITY_RELIANCE_ATTEMPT",
+  "record_support": "NOT_SUPPORTED",
+  "boundary_effect": "EXPANDED",
+  "validity_change_type": "REVOCATION_OR_EXPIRY_OR_SUPERSESSION_OR_NARROWING",
+  "prior_state": {
+    "time_label": "T1",
+    "status": "PRIOR_VALIDITY_RECORDED",
+    "scope": [
+      "prior authority",
+      "prior policy version",
+      "prior evidence basis",
+      "prior role",
+      "prior purpose",
+      "prior operating environment",
+      "prior validity window"
+    ]
+  },
+  "changed_state": {
+    "time_label": "T2",
+    "status": "VALIDITY_STATE_CHANGED",
+    "change_mechanisms": [
+      "authority revoked",
+      "validity window expired",
+      "policy superseded",
+      "evidence basis superseded",
+      "role changed",
+      "purpose narrowed",
+      "operating environment changed"
+    ]
+  },
+  "attempted_inference": "Prior validity or inspectability establishes current validity, current authority, current policy satisfaction, current evidence sufficiency, current approval eligibility, current compliance, current legal sufficiency, current acceptance, or current execution eligibility.",
+  "fork_result": "UNSUPPORTED_STALE_VALIDITY_INFERENCE_RECORDED",
+  "required_revalidation": [
+    "current authority",
+    "current policy version",
+    "current evidence basis",
+    "current role or permission",
+    "current purpose",
+    "current operating environment",
+    "current validity window",
+    "current execution eligibility"
+  ],
+  "failure_mode": {
+    "type": "stale_validity_reliance",
+    "mechanism": "prior validity treated as current validity",
+    "why_invalid": "A changed or revoked validity state requires current revalidation before current reliance."
+  },
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, or judge correctness."
+}

@@ -1,0 +1,76 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+  "bdr_id": "BDR-S08-001",
+  "title": "Scenario 08 Stale Validity / Authority Revocation Boundary Delta Record",
+  "boundary_type": "TEMPORAL_VALIDITY_AND_AUTHORITY_REVOCATION",
+  "temporal_invariant": "valid_at_T1_does_not_imply_valid_at_T3",
+  "inspectability_result": "INSPECTABLE",
+  "delta_classification": "STALE_VALIDITY_RELIANCE_ATTEMPT_RECORDED",
+  "source_record": {
+    "prior_record_holder": "SYSTEM_A_PRIOR_REVIEW_AUTHORITY",
+    "validity_change_source": "SYSTEM_B_VALIDITY_CHANGE_SOURCE",
+    "downstream_consumer": "SYSTEM_C_DOWNSTREAM_RELIANCE_ACTOR",
+    "prior_record_context": "Fork-preserved record created or relied on inside an earlier validity window"
+  },
+  "boundary_sequence": [
+    {
+      "boundary_id": "S08-B01",
+      "from_context": "PRIOR_VALIDITY_WINDOW_T1",
+      "to_context": "RECORDED_PRIOR_RELIANCE_STATE",
+      "transition_effect": "PRIOR_VALIDITY_RECORDED",
+      "authority_effect": "AUTHORITY_CONTEXT_BOUNDED_TO_T1",
+      "claim_state_after_transition": "The prior record remains inspectable as evidence of the T1 state; it does not establish current authority outside the recorded validity conditions."
+    },
+    {
+      "boundary_id": "S08-B02",
+      "from_context": "RECORDED_PRIOR_RELIANCE_STATE",
+      "to_context": "POST_REVOCATION_OR_CHANGED_VALIDITY_STATE_T2",
+      "transition_effect": "VALIDITY_STATE_CHANGED",
+      "authority_effect": "PRIOR_AUTHORITY_NOT_CURRENT_AUTHORITY",
+      "claim_state_after_transition": "A revocation, expiry, policy change, evidence supersession, role change, purpose narrowing, or environment change requires current revalidation."
+    },
+    {
+      "boundary_id": "S08-B03",
+      "from_context": "POST_REVOCATION_OR_CHANGED_VALIDITY_STATE_T2",
+      "to_context": "DOWNSTREAM_RELIANCE_ATTEMPT_T3",
+      "transition_effect": "STALE_VALIDITY_RELIANCE_ATTEMPT_RECORDED",
+      "authority_effect": "UNSUPPORTED_CURRENT_AUTHORITY_INFERENCE",
+      "claim_state_after_transition": "The downstream actor attempts to treat prior validity as current validity; the preserved record does not support that inference."
+    }
+  ],
+  "supported_after_transition": [
+    "The prior record can be inspected as a bounded T1 record.",
+    "The validity-changing event can be inspected.",
+    "The downstream stale-validity reliance attempt can be recorded.",
+    "Required current revalidation can be preserved."
+  ],
+  "not_supported_after_transition": [
+    "current authority",
+    "current approval",
+    "current policy satisfaction",
+    "current regulatory compliance",
+    "current legal sufficiency",
+    "current evidence sufficiency",
+    "current execution eligibility",
+    "current external acceptance"
+  ],
+  "required_revalidation_for": [
+    "current authority",
+    "current policy version",
+    "current evidence basis",
+    "current role or delegation",
+    "current purpose",
+    "current operating environment",
+    "current approval eligibility",
+    "current execution eligibility"
+  ],
+  "fork_role": "Fork records stale-validity and revocation boundary state without transferring authority, approving current reliance, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, or judging correctness.",
+  "limitations": [
+    "This BDR records temporal validity boundary state only.",
+    "This BDR does not decide whether the prior claim was true or correct.",
+    "This BDR does not decide whether current reliance is allowed.",
+    "Current reliance requires separate current authority, evidence, policy, role, purpose, and environment support."
+  ]
+}

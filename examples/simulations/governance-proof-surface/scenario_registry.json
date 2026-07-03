@@ -304,6 +304,54 @@
         "non_authority_scan": true,
         "viewer_bundle": true
       }
+    },
+    {
+      "scenario_number": 8,
+      "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+      "title": "Scenario 08 â€” Stale Validity / Authority Revocation Boundary",
+      "file": "examples/simulations/governance-proof-surface/scenario_08_stale_validity_authority_revocation_boundary.md",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded stale-validity and authority-revocation invariants. This does not establish current authority, current compliance, current approval, current legal sufficiency, current acceptance, current execution eligibility, or correctness.",
+      "artifact_family_present": false,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_revocation_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_validity_timeline.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_transition_graph.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_08_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "invoked_by": "scripts/run_ahi_sim_v0_1_checks.ps1",
+        "dedicated_checker": "scripts/check_scenario_08_stale_validity_authority_revocation_v0_1.ps1",
+        "semantic_invariants_checked": [
+          "prior_validity_recorded",
+          "validity_state_changed",
+          "prior_authority_not_current_authority",
+          "stale_validity_reliance_attempt_recorded",
+          "unsupported_current_authority_inference_recorded",
+          "current_revalidation_required",
+          "non_authority_posture_preserved"
+        ]
+      },
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ],
+      "checker_coverage": {
+        "required_files": true,
+        "json_validity": true,
+        "semantic_invariants": true,
+        "non_authority_scan": true,
+        "viewer_bundle": true
+      }
     }
   ]
 }

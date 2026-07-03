@@ -1,0 +1,59 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+  "system_mapping_receipt_id": "SMR-S08-001",
+  "title": "Scenario 08 Stale Validity / Authority Revocation System Mapping Receipt",
+  "systems": [
+    "SYSTEM_A_PRIOR_REVIEW_AUTHORITY",
+    "SYSTEM_B_VALIDITY_CHANGE_SOURCE",
+    "SYSTEM_C_DOWNSTREAM_RELIANCE_ACTOR"
+  ],
+  "overall_mapping_classification": "MIXED_WITH_UNSUPPORTED_STALE_VALIDITY_INHERITANCE",
+  "fork_result": "STRUCTURAL_MAPPING_RECORDED",
+  "temporal_mapping_status": "STALE_VALIDITY_INFERENCE_NOT_SUPPORTED",
+  "preserved_mappings": [
+    {
+      "from": "prior Fork record",
+      "to": "prior validity-state inspection",
+      "classification": "PRESERVED",
+      "effect": "record available for T1 reconstruction"
+    },
+    {
+      "from": "validity change event",
+      "to": "current revalidation requirement",
+      "classification": "PRESERVED",
+      "effect": "changed validity state remains visible"
+    }
+  ],
+  "unsupported_mappings": [
+    {
+      "from": "prior validity",
+      "to": "current validity",
+      "classification": "EXPANDED",
+      "reason": "current validity requires current support after revocation, expiry, supersession, narrowing, or changed context"
+    },
+    {
+      "from": "prior authority",
+      "to": "current authority",
+      "classification": "EXPANDED",
+      "reason": "current authority is not inherited from prior authority context"
+    },
+    {
+      "from": "prior evidence basis",
+      "to": "current evidence sufficiency",
+      "classification": "EXPANDED",
+      "reason": "current evidence sufficiency requires current evidence support"
+    }
+  ],
+  "required_current_support": [
+    "current authority or delegation",
+    "current policy version",
+    "current evidence basis",
+    "current role or permission",
+    "current purpose",
+    "current operating environment",
+    "current validity window"
+  ],
+  "fork_non_authority_statement": "Fork records mapping state without approving, certifying, scoring, authorizing, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, or judging correctness."
+}

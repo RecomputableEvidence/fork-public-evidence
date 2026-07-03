@@ -888,6 +888,113 @@
         "dedicated_checker_invoked": false,
         "overclaim_scan_covered": false
       }
+    },
+    {
+      "scenario_number": 8,
+      "scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+      "title": "Scenario 08 â€” Stale Validity / Authority Revocation Boundary",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "file": "examples/simulations/governance-proof-surface/scenario_08_stale_validity_authority_revocation_boundary.md",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded stale-validity and authority-revocation invariants. This does not establish current authority, current compliance, current approval, current legal sufficiency, current acceptance, current execution eligibility, or correctness.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ],
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "narrative_markdown": "# Scenario 08 — Stale Validity / Authority Revocation Boundary\n\n## Scenario ID\n\n`SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY`\n\n## Summary\n\nA bounded claim, authority context, policy reference, evidence basis, or role permission was valid at an earlier time.\n\nLater, one or more validity conditions changed:\n\n- the authority was revoked;\n- the role changed;\n- the time window expired;\n- the policy version changed;\n- the evidence basis was superseded;\n- the allowed purpose narrowed;\n- the operating environment changed.\n\nA downstream actor attempts to reuse the prior Fork-preserved record as if the earlier validity state remained current.\n\nFork records that prior validity does not establish current validity. It preserves the stale-validity boundary and required revalidation.\n\n## Systems\n\n### System A — Prior Review Authority\n\nCreates or relies on a bounded record during an earlier valid window.\n\n### System B — Validity Change Source\n\nRecords a later validity-changing event such as revocation, expiry, policy change, evidence supersession, or role change.\n\n### System C — Downstream Reliance Actor\n\nAttempts to rely on the prior record after the validity state changed.\n\n## Boundary under test\n\n```text\nvalid at T1\n≠ valid at T2\n```\n\nScenario 08 tests whether prior validity is silently promoted into current validity after revocation, expiry, supersession, or narrowing.\n\n## Expected failure mode\n\n`STALE_VALIDITY_RELIANCE_ATTEMPT`\n\nThe downstream actor treats the earlier record as if it still supports current authority, policy satisfaction, evidence sufficiency, approval eligibility, compliance posture, legal sufficiency, external acceptance, or execution eligibility.\n\n## Fork result\n\nFork records the stale-validity reliance attempt and preserves required revalidation.\n\nFork does not decide whether the earlier claim was true, whether the current claim is valid, whether the revocation was correct, whether an external authority should accept the record, or whether execution is allowed.\n\n## Verification\n\n```powershell\npowershell -ExecutionPolicy Bypass -File scripts\\check_scenario_08_stale_validity_authority_revocation_v0_1.ps1\n```\n",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "JSON",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_revocation_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "MD",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_validity_timeline.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "MD",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_transition_graph.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_08_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
+      "selected_fields": {
+        "supports_summary": [],
+        "non_support_summary": [
+          "prior validity establishes current validity",
+          "prior authority establishes current authority",
+          "prior policy reference establishes current policy satisfaction",
+          "prior evidence establishes current evidence sufficiency",
+          "prior approval establishes current approval eligibility",
+          "prior compliance posture establishes current compliance",
+          "prior legal review establishes current legal sufficiency",
+          "prior acceptance establishes current external acceptance",
+          "prior execution eligibility establishes current execution eligibility"
+        ],
+        "requires_separate_evidence_summary": [
+          "current authority",
+          "current policy version",
+          "current evidence basis",
+          "current role or delegation",
+          "current purpose",
+          "current operating environment",
+          "current approval eligibility",
+          "current execution eligibility",
+          "Create a current-validity claim boundary contract or obtain current authority, evidence, policy, role, purpose, environment, and validity-window support before relying on the prior record for current action."
+        ],
+        "classifications": {
+          "delta_classification": "STALE_VALIDITY_RELIANCE_ATTEMPT_RECORDED",
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "Fork records stale-validity and revocation boundary state without transferring authority, approving current reliance, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, or judging correctness.",
+          "fork_non_authority_statement": null,
+          "claim_consumption_classification": "EXPANDED"
+        }
+      },
+      "checker_coverage": {
+        "included_in_checker": false,
+        "json_validated": false,
+        "semantic_assertions_present": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": false
+      }
     }
   ]
 }
