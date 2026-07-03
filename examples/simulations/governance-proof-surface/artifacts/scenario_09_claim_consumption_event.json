@@ -1,0 +1,25 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "claim_consumption_event_id": "CCE-S09-001",
+  "consumer_identity": "SYSTEM_C_DOWNSTREAM_RELIANCE_ACTOR",
+  "classification": "EXPANDED",
+  "boundary_effect": "EXPANDED_BEYOND_VISIBLE_AND_CONSUMED_STATE",
+  "consumption_attempt": "Downstream actor treats stale or partial local state as establishing current validity, or treats a source revocation as globally visible and consumed without visibility and consumption evidence.",
+  "preserved_non_claims": [
+    "global visibility",
+    "global consumption",
+    "current validity",
+    "current authority",
+    "current evidence sufficiency",
+    "current execution eligibility",
+    "negligence",
+    "excuse",
+    "correctness"
+  ],
+  "new_claim_boundary_contract_id": "REQUIRED_BUT_ABSENT",
+  "required_next_action": "Provide explicit visibility, consumption, synchronization, or current revalidation evidence before relying on stale or partial state for current action.",
+  "fork_result": "SPLIT_STATE_CONSUMPTION_RECORDED_NOT_AUTHORIZED",
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, judge correctness, determine negligence, or determine excuse."
+}

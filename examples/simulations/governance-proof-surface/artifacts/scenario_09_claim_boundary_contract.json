@@ -1,0 +1,26 @@
+{
+  "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+  "claim_boundary_contract_id": "CBC-S09-001",
+  "title": "Scenario 09 Revocation Visibility / Split-State Claim Boundary Contract",
+  "claims_not_allowed_to_be_inferred": [
+    "recorded revocation establishes global visibility",
+    "recorded revocation establishes global consumption",
+    "local non-awareness establishes current validity",
+    "stale intermediate state establishes current authority",
+    "stale intermediate state establishes current policy satisfaction",
+    "stale intermediate state establishes current evidence sufficiency",
+    "stale intermediate state establishes current execution eligibility",
+    "split-state record establishes negligence",
+    "split-state record establishes excuse",
+    "split-state record establishes compliance",
+    "split-state record establishes legal sufficiency",
+    "split-state record establishes correctness"
+  ],
+  "non_inheritance_rule": "No validity-changing event becomes globally visible, globally consumed, or globally operative merely because it exists in one system; and no local non-awareness establishes current validity.",
+  "visibility_boundary": {
+    "bridge_result": "REQUIRES_VISIBILITY_AND_CONSUMPTION_EVIDENCE"
+  },
+  "fork_non_authority_statement": "Fork does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, judge correctness, determine negligence, or determine excuse."
+}
