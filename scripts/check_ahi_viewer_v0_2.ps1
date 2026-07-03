@@ -12,6 +12,22 @@ function Fail($Message) { Write-Host "FAIL: $Message" -ForegroundColor Red; exit
 function Pass($Message) { Write-Host "PASS: $Message" -ForegroundColor Green }
 function Require-File($Path) { if (-not (Test-Path $Path)) { Fail "missing required file: $Path" }; Write-Host "FOUND: $Path" }
 function Read-Json($Path) { try { Get-Content -Raw -Path $Path | ConvertFrom-Json } catch { Fail "invalid JSON: $Path :: $($_.Exception.Message)" } }
+function Get-NormalizedTextHash($Path) {
+    $text = Get-Content -Raw -Path $Path
+    $text = $text -replace "`r`n", "`n"
+    $text = $text -replace "`r", "`n"
+
+    $bytes = [System.Text.Encoding]::UTF8.GetBytes($text)
+    $sha = [System.Security.Cryptography.SHA256]::Create()
+
+    try {
+        $hash = $sha.ComputeHash($bytes)
+    } finally {
+        $sha.Dispose()
+    }
+
+    return -join ($hash | ForEach-Object { $_.ToString("x2") })
+}
 function Arr($Value) { if ($null -eq $Value) { @() } elseif ($Value -is [System.Array]) { @($Value) } else { @($Value) } }
 function Has($Text, $Pattern, $Label) { if ($Text -notmatch $Pattern) { Fail "$Label expected pattern '$Pattern'" } }
 
@@ -148,14 +164,14 @@ if ($CheckDeterminism) {
         Fail "working tree must be clean before determinism check"
     }
 
-    $before = Get-FileHash -Algorithm SHA256 "docs/viewer/ahi-viewer-v0_2/data/comparison_pairs.json"
+    $before = Get-NormalizedTextHash "docs/viewer/ahi-viewer-v0_2/data/comparison_pairs.json"
 
     powershell -ExecutionPolicy Bypass -File scripts\build_ahi_viewer_comparison_data_v0_2.ps1 -ForceOverwrite
     if ($LASTEXITCODE -ne 0) { Fail "comparison data builder failed" }
 
-    $after = Get-FileHash -Algorithm SHA256 "docs/viewer/ahi-viewer-v0_2/data/comparison_pairs.json"
-    if ($before.Hash -ne $after.Hash) {
-        Fail "comparison data builder changed output hash"
+    $after = Get-NormalizedTextHash "docs/viewer/ahi-viewer-v0_2/data/comparison_pairs.json"
+    if ($before -ne $after) {
+        Fail "comparison data builder changed normalized output hash"
     }
 
     $statusAfter = git status --porcelain
