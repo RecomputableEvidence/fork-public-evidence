@@ -4,8 +4,8 @@
   "generation_mode": "deterministic",
   "source_bundle": "docs/viewer/ahi-viewer-v0_1/data/scenarios_bundle.json",
   "viewer": "docs/viewer/ahi-viewer-v0_2/index.html",
-  "source_scenario_count": 7,
-  "comparison_pair_count": 4,
+  "source_scenario_count": 8,
+  "comparison_pair_count": 5,
   "non_authority_statement": "Viewer v0.2 does not approve, certify, score, authorize, determine compliance, determine admissibility, establish legal sufficiency, decide acceptance, or judge correctness.",
   "comparison_pairs": [
     {
@@ -147,6 +147,43 @@
       ],
       "reviewer_use": [
         "Use this pair to distinguish internal transition-state failure from external authority-bridge overclaim."
+      ]
+    },
+    {
+      "pair_id": "PAIR-S07-S08",
+      "label": "Scenario 07 vs Scenario 08 — external authority bridge versus stale validity",
+      "left_scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
+      "right_scenario_id": "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+      "comparison_posture": "EXTERNAL_AUTHORITY_AND_TEMPORAL_VALIDITY_COMPARISON",
+      "purpose": "Compare external authority bridge overclaim with stale-validity reliance after revocation, expiry, supersession, narrowing, or changed context.",
+      "boundary_movement": [
+        "Scenario 07 tests whether internal record inspectability is treated as external authority.",
+        "Scenario 08 tests whether prior validity is treated as current validity after the validity state changes."
+      ],
+      "attempted_inference": [
+        "Inspectable Fork record treated as external admissibility, compliance, approval, legal sufficiency, acceptance, or execution eligibility.",
+        "Prior validity or prior authority treated as current validity or current authority."
+      ],
+      "required_revalidation": [
+        "External authority conclusions require separate external authority, rule, standard, or decision process.",
+        "Current reliance requires current authority, current policy, current evidence, current role, current purpose, current environment, and current validity-window support."
+      ],
+      "fork_can_show": [
+        "whether external authority bridge inference was attempted",
+        "whether stale-validity reliance was attempted",
+        "whether required current revalidation remained visible"
+      ],
+      "fork_does_not_show": [
+        "external admissibility",
+        "current regulatory compliance",
+        "current legal sufficiency",
+        "current approval",
+        "current evidence sufficiency",
+        "current execution eligibility",
+        "correctness"
+      ],
+      "reviewer_use": [
+        "Use this pair to distinguish external authority non-transfer from temporal validity non-inheritance."
       ]
     }
   ]
