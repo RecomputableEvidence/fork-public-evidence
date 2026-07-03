@@ -1,4 +1,4 @@
-# Boundary Delta Record v0.1 â€” hardened technical review candidate
+# Boundary Delta Record v0.1 — hardened technical review candidate
 
 ## Summary
 

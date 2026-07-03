@@ -1,0 +1,26 @@
+# Encoding cleanup allowlist v0.1
+# One repo-relative path per line.
+# Generated from detector output after public-surface-cleanup-computed-s09-plan-v0.1.
+# app.js is intentionally not present.
+
+README_SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_v0_1.md
+README_SURFACE_TOP_LAYER_DRAFT.md
+docs/PUBLIC_SURFACE_CLEANUP_CHECKLIST_v0_1.md
+docs/releases/AHI_SCENARIO_LADDER_v0_1.md
+docs/releases/AHI_SCENARIO_LADDER_v0_2.md
+docs/releases/AHI_SIM_v0_1_10_SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE.md
+docs/simulations/FORK_GOVERNANCE_SIMULATION_SEQUENCE_v0_1.md
+docs/viewer/ahi-viewer-v0_1/data/scenarios_bundle.json
+docs/viewer/ahi-viewer-v0_2/data/comparison_pairs.json
+examples/simulations/governance-proof-surface/scenario_09_revocation_visibility_split_state_boundary.md
+output/boundary_delta_record/review/bdr_v0_1_pr_description.md
+output/boundary_delta_record/review/bdr_v0_1_review_share_note.md
+outreach/templates/OUTREACH_TARGET_MAP_TEMPLATE_v0_1.md
+scripts/add_surface_top_layer_to_readme.ps1
+scripts/apply_non_claim_panel_surface_repair_v0_1.ps1
+scripts/build_ahi_viewer_comparison_data_v0_2.py
+scripts/create_fork_simulation_proof_surface_v0_1.ps1
+scripts/create_public_surface_cleanup_files_v0_1.py
+spec/BDR-ESAL-v0.1.md
+tools/check_ai_governance_system_placement_profile_v0_1.py
+white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md

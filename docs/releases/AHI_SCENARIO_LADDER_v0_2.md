@@ -6,7 +6,7 @@ This ladder explains the conceptual progression from basic unbounded handoff to 
 
 ## Ladder
 
-### Scenario 01 â€” Baseline Unbounded Handoff
+### Scenario 01 — Baseline Unbounded Handoff
 
 Shows the uncontrolled baseline: an AI-assisted artifact moves downstream without explicit boundary state.
 
@@ -16,7 +16,7 @@ Risk:
 unbounded reliance
 ```
 
-### Scenario 02 â€” Fork-Preserved Handoff
+### Scenario 02 — Fork-Preserved Handoff
 
 Shows the bounded contrast: Fork preserves claim boundary, non-claims, and inspectable transition context.
 
@@ -26,7 +26,7 @@ Result:
 bounded inspectability
 ```
 
-### Scenario 03 â€” Scope Expansion Attempt
+### Scenario 03 — Scope Expansion Attempt
 
 Tests whether a downstream actor expands a bounded claim into a broader claim.
 
@@ -36,7 +36,7 @@ Failure mode:
 SCOPE_EXPANSION_ATTEMPT
 ```
 
-### Scenario 04 â€” Authority Leakage Attempt
+### Scenario 04 — Authority Leakage Attempt
 
 Tests whether authority context leaks beyond the scope in which authority was exercised.
 
@@ -46,7 +46,7 @@ Failure mode:
 AUTHORITY_LEAKAGE_ATTEMPT
 ```
 
-### Scenario 05 â€” Policy-Reference Laundering / Non-Claim Suppression
+### Scenario 05 — Policy-Reference Laundering / Non-Claim Suppression
 
 Tests whether a policy reference is laundered into a policy-satisfaction claim, or non-claims are suppressed downstream.
 
@@ -56,7 +56,7 @@ Failure mode:
 POLICY_REFERENCE_LAUNDERING_ATTEMPT
 ```
 
-### Scenario 06 â€” Multi-System Distributed Handoff
+### Scenario 06 — Multi-System Distributed Handoff
 
 Tests whether distributed systems silently inherit authority across multiple transitions.
 
@@ -66,7 +66,7 @@ Failure mode:
 UNSUPPORTED_DISTRIBUTED_AUTHORITY_INHERITANCE
 ```
 
-### Scenario 07 â€” External Authority Bridge
+### Scenario 07 — External Authority Bridge
 
 Tests whether internal inspectability is converted into external authority, admissibility, compliance, acceptance, legal sufficiency, or execution eligibility.
 
@@ -76,7 +76,7 @@ Failure mode:
 EXTERNAL_AUTHORITY_BRIDGE_ATTEMPT
 ```
 
-### Scenario 08 â€” Stale Validity / Authority Revocation Boundary
+### Scenario 08 — Stale Validity / Authority Revocation Boundary
 
 Tests whether prior validity, prior authority, prior evidence, prior policy version, or prior role context is reused as if it remained current after expiry, revocation, supersession, narrowing, or changed context.
 

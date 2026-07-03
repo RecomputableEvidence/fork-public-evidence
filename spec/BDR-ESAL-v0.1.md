@@ -1,12 +1,12 @@
-﻿# Boundary Delta Record (BDR) / ESAL v0.1 â€” Formal Specification
+# Boundary Delta Record (BDR) / ESAL v0.1 — Formal Specification
 
-Status: Draft â€” Experimental
+Status: Draft — Experimental
 Attribution: Fork: Recomputable Evidence for AI-Assisted Workflows
 Repository: RecomputableEvidence/fork-public-evidence
 Branch: boundary-delta-record-v0.1
 
 This document defines:
-- ESAL system model (E, C, F, H, Sâ‚€)
+- ESAL system model (E, C, F, H, S₀)
 - BDR data model and authority containment
 - Constraint model and evaluation semantics
 - Canonicalization function C

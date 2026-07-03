@@ -16,7 +16,7 @@ Target count:
 
 ## Target scoring
 
-Score each target 0â€“3.
+Score each target 0–3.
 
 | Dimension        | 0              | 1                 | 2                            | 3                                   |
 |------------------|----------------|--------------------|------------------------------|-------------------------------------|
@@ -33,10 +33,10 @@ Priority score:
 
 Priority bands:
 
-- 15â€“18: first wave
-- 11â€“14: second wave
-- 7â€“10: hold / research
-- 0â€“6: do not send
+- 15–18: first wave
+- 11–14: second wave
+- 7–10: hold / research
+- 0–6: do not send
 
 ## Target map
 

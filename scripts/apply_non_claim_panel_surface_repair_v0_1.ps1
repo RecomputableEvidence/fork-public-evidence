@@ -140,13 +140,13 @@ function Repair-CommonReadmeIssues {
     $updated = $updated -replace 'pass establishes only', 'pass indicates only'
 
     # Repair common mojibake if present.
-    $updated = $updated -replace 'â€™', "'"
-    $updated = $updated -replace 'â€œ', '"'
-    $updated = $updated -replace 'â€', '"'
-    $updated = $updated -replace 'â€“', '-'
-    $updated = $updated -replace 'â€”', '-'
-    $updated = $updated -replace 'â†’', '->'
-    $updated = $updated -replace 'Â©', '(c)'
+    $updated = $updated -replace '’', "'"
+    $updated = $updated -replace '“', '"'
+    $updated = $updated -replace '”', '"'
+    $updated = $updated -replace '–', '-'
+    $updated = $updated -replace '—', '-'
+    $updated = $updated -replace '→', '->'
+    $updated = $updated -replace '©', '(c)'
 
     Save-TextIfChanged -Path $path -Content $updated
 }
@@ -161,13 +161,13 @@ function Repair-PilotIssues {
     $updated = $text
 
     # Repair common mojibake if present.
-    $updated = $updated -replace 'â€™', "'"
-    $updated = $updated -replace 'â€œ', '"'
-    $updated = $updated -replace 'â€', '"'
-    $updated = $updated -replace 'â€“', '-'
-    $updated = $updated -replace 'â€”', '-'
-    $updated = $updated -replace 'â†’', '->'
-    $updated = $updated -replace 'Â©', '(c)'
+    $updated = $updated -replace '’', "'"
+    $updated = $updated -replace '“', '"'
+    $updated = $updated -replace '”', '"'
+    $updated = $updated -replace '–', '-'
+    $updated = $updated -replace '—', '-'
+    $updated = $updated -replace '→', '->'
+    $updated = $updated -replace '©', '(c)'
 
     if ($updated -notmatch 'Indicative pricing and readiness boundary') {
         $section = @'

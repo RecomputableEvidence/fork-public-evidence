@@ -8,4 +8,4 @@ Does BDR v0.1 mechanically expose declared boundary expansion and transition mis
 
 The key adversarial behavior is that a fixture can author INSPECTABLE, but if the declared transition uses an incompatible transition kind / transformation rule pairing, the checker recomputes NOT_INSPECTABLE and emits TRANSITION_KIND_RULE_MISMATCH.
 
-The branch is intentionally frozen for review. Iâ€™m not looking to add features in this pass, only to confirm whether the v0.1 mechanics hold under inspection.
+The branch is intentionally frozen for review. I’m not looking to add features in this pass, only to confirm whether the v0.1 mechanics hold under inspection.

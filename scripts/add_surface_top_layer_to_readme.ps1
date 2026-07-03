@@ -88,7 +88,7 @@ Fork's doctrine is:
 
 The current golden workflow is:
 
-> AI-assisted vendor-risk recommendation â†’ internal decision memo â†’ downstream reliance attempt.
+> AI-assisted vendor-risk recommendation -> internal decision memo -> downstream reliance attempt.
 
 This workflow demonstrates the moment an AI-assisted artifact becomes eligible for institutional reliance and the downstream risk that a bounded record may be silently expanded into a broader claim.
 
@@ -251,7 +251,7 @@ if ($text -match $routingPattern) {
 }
 
 # Repair common mojibake introduced by encoding mismatch.
-$text = $text -replace "CopyrightÃ‚Â©", "CopyrightÂ©"
+$text = $text -replace ("Copyright" + [char]0x00C3 + [char]0x0082 + [char]0x00C2 + [char]0x00A9), ("Copyright" + [char]0x00A9)
 
 Write-Utf8NoBomFile -Path $FullReadmePath -Content ($text.TrimEnd() + "`n")
 
