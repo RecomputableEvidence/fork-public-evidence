@@ -1,0 +1,47 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "mapping_receipt_id": "SMR-S06-DISTRIBUTED-HANDOFF-001",
+  "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+  "systems": [
+    {
+      "system_id": "SYSTEM_A_INTAKE_ANALYZER",
+      "role": "Produces bounded source-backed triage summary."
+    },
+    {
+      "system_id": "SYSTEM_B_RISK_SUMMARIZER",
+      "role": "Narrows triage summary into routing context."
+    },
+    {
+      "system_id": "SYSTEM_C_APPROVAL_ROUTER",
+      "role": "Consumes routed summary and attempts authority-bearing interpretation."
+    }
+  ],
+  "mappings": [
+    {
+      "mapping_id": "S06-M01",
+      "from_system": "SYSTEM_A_INTAKE_ANALYZER",
+      "to_system": "SYSTEM_B_RISK_SUMMARIZER",
+      "mapping_effect": "NARROWED",
+      "mapped_claim": "source-backed triage summary -> routing-relevant risk summary",
+      "authority_status": "NO_AUTHORITY_TRANSFER"
+    },
+    {
+      "mapping_id": "S06-M02",
+      "from_system": "SYSTEM_B_RISK_SUMMARIZER",
+      "to_system": "SYSTEM_C_APPROVAL_ROUTER",
+      "mapping_effect": "EXPANDED",
+      "mapped_claim": "routing-relevant risk summary -> approval-routing authority",
+      "authority_status": "UNSUPPORTED_AUTHORITY_INHERITANCE"
+    }
+  ],
+  "unsupported_mappings": [
+    {
+      "mapping_id": "S06-M02",
+      "reason": "The receiving system treated a narrowed routing summary as authority-bearing without a new authority claim boundary contract."
+    }
+  ],
+  "overall_mapping_classification": "MIXED_WITH_UNSUPPORTED_DISTRIBUTED_AUTHORITY_INHERITANCE",
+  "fork_result": "STRUCTURAL_MAPPING_RECORDED",
+  "fork_non_authority_statement": "Fork records the mapping and unsupported expansion. It does not approve, certify, score, authorize, determine compliance, or judge correctness."
+}

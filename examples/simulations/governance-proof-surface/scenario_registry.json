@@ -216,23 +216,34 @@
       "title": "Multi-System Distributed Handoff",
       "file": "examples/simulations/governance-proof-surface/scenario_06_multi_system_distributed_handoff.md",
       "purpose": "Show multi-system distributed handoff reconstruction.",
-      "verification_posture": "SCAFFOLD",
-      "posture_description": "Narrative file exists and is required by the main checker, but no artifact family, JSON validation, or semantic checker exists yet.",
+      "verification_posture": "STRUCTURAL",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded structural classifications for a distributed multi-system handoff. This does not establish truth, approval, authority, compliance, or correctness.",
       "artifact_family_present": false,
-      "artifact_files": [],
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_distributed_authority_failure_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_transition_graph.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_06_non_claims_panel.md"
+      ],
       "main_checker": {
         "narrative_file_required": true,
-        "artifact_files_required": false,
-        "json_validation": false,
-        "semantic_classification_assertions": false,
-        "dedicated_checker_invoked": false,
+        "artifact_files_required": true,
+        "json_validation": true,
+        "semantic_classification_assertions": true,
+        "dedicated_checker_invoked": true,
         "overclaim_scan_covered": true
       },
-      "viewer_treatment": {
-        "display_group": "Scaffold",
-        "display_weight": "placeholder",
-        "should_present_as_verified_fork_claim": false
-      }
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ]
     }
   ]
 }

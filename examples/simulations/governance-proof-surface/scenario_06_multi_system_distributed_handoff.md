@@ -1,44 +1,44 @@
-# Scenario 06: Multi-System Distributed Handoff
+# Scenario 06 — Multi-System Distributed Handoff
 
 ## Purpose
 
-This scenario tests whether Fork preserves handoff state across multiple independently accountable systems.
+This scenario turns the Scenario 06 scaffold into an artifact-backed structural simulation of a distributed AI-assisted handoff across independently accountable systems.
 
-## Flow
+The scenario models a three-system chain:
 
-1. System A produces an AI-assisted artifact.
-2. System B preserves handoff state.
-3. System C consumes the artifact and records constrained review context.
-4. System D routes the artifact or takes downstream action.
-5. System E reconstructs the transition later.
+1. **System A — Intake Analyzer** creates a bounded, source-backed triage summary.
+2. **System B — Risk Summarizer** narrows that summary into a routing recommendation.
+3. **System C — Approval Router** incorrectly treats the routed summary as if approval authority crossed the boundary.
 
-## Systems
+The failure mode is not that any individual system is necessarily defective inside its own boundary. The failure is that the downstream system treats a narrowed artifact as carrying a new authority-bearing claim that no prior record established.
 
-| System | Native Responsibility | Fork Does Not Become |
-|---|---|---|
-| System A | Artifact production | Model evaluator |
-| System B | Boundary-state preservation | Authority layer |
-| System C | Institutional review context | Compliance oracle |
-| System D | Routing or operation | Runtime controller |
-| System E | Audit or reconstruction | Legal authority |
+## Structural claim
 
-## Expected Result
+Fork records the transition state between independently accountable systems:
 
-The handoff remains inspectable across multiple hops without any system inheriting authority from another system by default.
+- what crossed,
+- what was narrowed,
+- what did not cross,
+- what remained unresolved,
+- what required separate authority or evidence,
+- and where downstream reliance exceeded the preserved record.
 
-## Expected Reconstruction Outcome
+## Artifact family
 
-`RECONSTRUCTABLE_BOUNDARY`
+Scenario 06 is backed by:
 
-Potential additional outcomes:
+- `scenario_06_boundary_delta_record.json`
+- `scenario_06_claim_boundary_contract.json`
+- `scenario_06_claim_consumption_event.json`
+- `scenario_06_system_mapping_receipt.json`
+- `scenario_06_distributed_authority_failure_event.json`
+- `scenario_06_transition_graph.md`
+- `scenario_06_non_claims_panel.md`
 
-- `UNSUPPORTED_INHERITANCE_EXPOSED`
-- `AUTHORITY_LEAKAGE_EXPOSED`
-- `NON_CLAIM_LOSS_EXPOSED`
+## Expected result
 
-## What Remains Outside Fork
+The dedicated Scenario 06 checker should report that the multi-system handoff is structurally inspectable and that the distributed authority inheritance attempt is recorded as unsupported.
 
-- Whether the final downstream action was correct.
-- Whether governance authority was sufficient.
-- Whether the institution should have acted.
-- Whether compliance or legal requirements were satisfied.
+## Non-authority boundary
+
+Fork does not approve the case, certify the downstream decision, authorize the routed action, score the risk, determine compliance, or judge correctness. Fork preserves a bounded handoff record showing which claims crossed, which claims did not cross, and which downstream inference required separate evidence or authority.

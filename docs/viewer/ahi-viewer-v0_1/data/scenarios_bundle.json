@@ -645,28 +645,138 @@
       "title": "Multi-System Distributed Handoff",
       "purpose": "Show multi-system distributed handoff reconstruction.",
       "file": "examples/simulations/governance-proof-surface/scenario_06_multi_system_distributed_handoff.md",
-      "verification_posture": "SCAFFOLD",
-      "posture_description": "Narrative file exists and is required by the main checker, but no artifact family, JSON validation, or semantic checker exists yet.",
-      "primary_category": null,
-      "secondary_categories": [],
-      "viewer_treatment": {
-        "display_group": "Scaffold",
-        "display_weight": "placeholder",
-        "should_present_as_verified_fork_claim": false
-      },
-      "narrative_markdown": "# Scenario 06: Multi-System Distributed Handoff\n\n## Purpose\n\nThis scenario tests whether Fork preserves handoff state across multiple independently accountable systems.\n\n## Flow\n\n1. System A produces an AI-assisted artifact.\n2. System B preserves handoff state.\n3. System C consumes the artifact and records constrained review context.\n4. System D routes the artifact or takes downstream action.\n5. System E reconstructs the transition later.\n\n## Systems\n\n| System | Native Responsibility | Fork Does Not Become |\n|---|---|---|\n| System A | Artifact production | Model evaluator |\n| System B | Boundary-state preservation | Authority layer |\n| System C | Institutional review context | Compliance oracle |\n| System D | Routing or operation | Runtime controller |\n| System E | Audit or reconstruction | Legal authority |\n\n## Expected Result\n\nThe handoff remains inspectable across multiple hops without any system inheriting authority from another system by default.\n\n## Expected Reconstruction Outcome\n\n`RECONSTRUCTABLE_BOUNDARY`\n\nPotential additional outcomes:\n\n- `UNSUPPORTED_INHERITANCE_EXPOSED`\n- `AUTHORITY_LEAKAGE_EXPOSED`\n- `NON_CLAIM_LOSS_EXPOSED`\n\n## What Remains Outside Fork\n\n- Whether the final downstream action was correct.\n- Whether governance authority was sufficient.\n- Whether the institution should have acted.\n- Whether compliance or legal requirements were satisfied.",
-      "artifacts": [],
+      "verification_posture": "STRUCTURAL",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded structural classifications for a distributed multi-system handoff. This does not establish truth, approval, authority, compliance, or correctness.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ],
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "narrative_markdown": "# Scenario 06 — Multi-System Distributed Handoff\n\n## Purpose\n\nThis scenario turns the Scenario 06 scaffold into an artifact-backed structural simulation of a distributed AI-assisted handoff across independently accountable systems.\n\nThe scenario models a three-system chain:\n\n1. **System A — Intake Analyzer** creates a bounded, source-backed triage summary.\n2. **System B — Risk Summarizer** narrows that summary into a routing recommendation.\n3. **System C — Approval Router** incorrectly treats the routed summary as if approval authority crossed the boundary.\n\nThe failure mode is not that any individual system is necessarily defective inside its own boundary. The failure is that the downstream system treats a narrowed artifact as carrying a new authority-bearing claim that no prior record established.\n\n## Structural claim\n\nFork records the transition state between independently accountable systems:\n\n- what crossed,\n- what was narrowed,\n- what did not cross,\n- what remained unresolved,\n- what required separate authority or evidence,\n- and where downstream reliance exceeded the preserved record.\n\n## Artifact family\n\nScenario 06 is backed by:\n\n- `scenario_06_boundary_delta_record.json`\n- `scenario_06_claim_boundary_contract.json`\n- `scenario_06_claim_consumption_event.json`\n- `scenario_06_system_mapping_receipt.json`\n- `scenario_06_distributed_authority_failure_event.json`\n- `scenario_06_transition_graph.md`\n- `scenario_06_non_claims_panel.md`\n\n## Expected result\n\nThe dedicated Scenario 06 checker should report that the multi-system handoff is structurally inspectable and that the distributed authority inheritance attempt is recorded as unsupported.\n\n## Non-authority boundary\n\nFork does not approve the case, certify the downstream decision, authorize the routed action, score the risk, determine compliance, or judge correctness. Fork preserves a bounded handoff record showing which claims crossed, which claims did not cross, and which downstream inference required separate evidence or authority.\n",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "DAFE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_distributed_authority_failure_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "MD",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_transition_graph.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_06_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
       "selected_fields": {
-        "supports_summary": [],
-        "non_support_summary": [],
-        "requires_separate_evidence_summary": [],
-        "classifications": {}
+        "supports_summary": [
+          "System A produced a source-backed triage summary. Scope: Limited to intake review and routing preparation; not an approval, authorization, compliance determination, or final decision.",
+          "System B produced a narrowed risk-routing summary. Scope: Limited to routing context; not authority to approve or execute downstream action.",
+          "System A produced a source-backed triage summary. Scope: Evidence of intake triage artifact existence and stated source references only.",
+          "System B produced a narrowed risk-routing summary. Scope: Evidence of routing-summary artifact existence and narrowed routing context only.",
+          "System C received the routed summary. Scope: Evidence of receipt only; not evidence of approval authority."
+        ],
+        "non_support_summary": [
+          "System A did not approve the case.",
+          "System A did not transfer approval authority to System B.",
+          "System B did not establish approval authority for System C.",
+          "The routed summary did not determine compliance.",
+          "The routed summary did not certify correctness.",
+          "The routed summary did not establish legal, operational, or institutional sufficiency.",
+          "No approval authority crossed the boundary.",
+          "No compliance determination crossed the boundary.",
+          "No certification of correctness crossed the boundary.",
+          "No downstream execution eligibility crossed the boundary.",
+          "approval authority",
+          "case approval",
+          "policy satisfaction",
+          "compliance determination",
+          "legal sufficiency",
+          "operational authorization",
+          "truth certification",
+          "quantified risk determination",
+          "approval-or-execution decision"
+        ],
+        "requires_separate_evidence_summary": [
+          "Whether the case could be approved under the governing authority remained unresolved.",
+          "Whether a downstream approver had the required delegated authority remained unresolved.",
+          "Whether any policy-specific approval criteria were satisfied remained unresolved.",
+          "approval authority",
+          "policy satisfaction",
+          "compliance determination",
+          "case approval",
+          "execution eligibility",
+          "any approval decision",
+          "any downstream execution action",
+          "any compliance claim",
+          "any authority-bearing routing decision",
+          "any institutional reliance beyond routing context",
+          "Obtain and bind a separate approval-authority claim boundary contract before any downstream approval or execution reliance."
+        ],
+        "classifications": {
+          "delta_classification": "DISTRIBUTED_SCOPE_AND_AUTHORITY_EXPANSION_ATTEMPT_RECORDED",
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "Fork records the boundary state across independently accountable systems without transferring authority between them.",
+          "fork_non_authority_statement": "Fork records the unsupported authority-inheritance attempt. Fork does not approve, certify, score, authorize, determine compliance, or judge correctness.",
+          "claim_consumption_classification": "EXPANDED",
+          "DAFE": {
+            "category": "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+            "secondary_categories": [
+              "CLAIM_SCOPE_EXPANSION",
+              "AUTHORITY_CONTEXT_LOSS",
+              "MULTI_SYSTEM_HANDOFF_DRIFT",
+              "NON_CLAIM_SUPPRESSION"
+            ],
+            "inferred_claim": "System C may rely on System B's routed summary as authority to approve or route for execution.",
+            "record_support": "NOT_SUPPORTED",
+            "why_unsupported": [
+              "The upstream records preserve triage and routing claims only.",
+              "The claim boundary contract explicitly withholds approval authority.",
+              "No new approval-authority claim boundary contract is present.",
+              "The handoff chain records receipt and narrowing, not authority transfer."
+            ],
+            "fork_result": "UNSUPPORTED_DISTRIBUTED_AUTHORITY_INFERENCE_RECORDED",
+            "fork_non_authority_statement": "Fork records the unsupported inference and required revalidation. Fork does not approve, certify, score, authorize, determine compliance, or judge correctness."
+          }
+        }
       },
       "checker_coverage": {
         "included_in_checker": true,
-        "json_validated": false,
-        "semantic_assertions_present": false,
-        "dedicated_checker_invoked": false,
+        "json_validated": true,
+        "semantic_assertions_present": true,
+        "dedicated_checker_invoked": true,
         "overclaim_scan_covered": true
       }
     }

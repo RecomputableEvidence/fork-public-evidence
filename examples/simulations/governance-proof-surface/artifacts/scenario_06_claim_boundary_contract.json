@@ -1,0 +1,55 @@
+{
+  "artifact_type": "CLAIM_BOUNDARY_CONTRACT",
+  "artifact_version": "0.1",
+  "contract_id": "CBC-S06-DISTRIBUTED-HANDOFF-001",
+  "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+  "subject": "System A to System B to System C distributed handoff",
+  "claims_allowed_to_cross": [
+    {
+      "statement": "System A produced a source-backed triage summary.",
+      "scope": "Evidence of intake triage artifact existence and stated source references only."
+    },
+    {
+      "statement": "System B produced a narrowed risk-routing summary.",
+      "scope": "Evidence of routing-summary artifact existence and narrowed routing context only."
+    },
+    {
+      "statement": "System C received the routed summary.",
+      "scope": "Evidence of receipt only; not evidence of approval authority."
+    }
+  ],
+  "material_non_claims_required_to_cross": [
+    {
+      "statement": "No approval authority crossed the boundary."
+    },
+    {
+      "statement": "No compliance determination crossed the boundary."
+    },
+    {
+      "statement": "No certification of correctness crossed the boundary."
+    },
+    {
+      "statement": "No downstream execution eligibility crossed the boundary."
+    }
+  ],
+  "claims_not_allowed_to_be_inferred": [
+    "approval authority",
+    "case approval",
+    "policy satisfaction",
+    "compliance determination",
+    "legal sufficiency",
+    "operational authorization",
+    "truth certification",
+    "quantified risk determination",
+    "approval-or-execution decision"
+  ],
+  "revalidation_required_for": [
+    "any approval decision",
+    "any downstream execution action",
+    "any compliance claim",
+    "any authority-bearing routing decision",
+    "any institutional reliance beyond routing context"
+  ],
+  "non_inheritance_rule": "No authority-bearing property transfers across System A, System B, or System C merely because a neighboring artifact exists or was routed.",
+  "fork_non_authority_statement": "Fork preserves the claim boundary contract and non-claims. It does not approve, certify, score, authorize, determine compliance, or judge correctness."
+}
