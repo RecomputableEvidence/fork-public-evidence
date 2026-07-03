@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/ahi_viewer_scenarios_bundle.schema.json",
+  "title": "Fork AHI Viewer Scenarios Bundle",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_type",
+    "artifact_version",
+    "generated",
+    "generation_mode",
+    "source_registry",
+    "source_checker",
+    "non_authority_statement",
+    "posture_enum",
+    "posture_note",
+    "scenarios"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "AHI_VIEWER_SCENARIOS_BUNDLE"
+    },
+    "artifact_version": {
+      "const": "0.1"
+    },
+    "generated": {
+      "const": true
+    },
+    "generation_mode": {
+      "const": "deterministic"
+    },
+    "source_registry": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_checker": {
+      "type": "string",
+      "minLength": 1
+    },
+    "non_authority_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "posture_enum": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "contains": {
+        "const": "BASELINE"
+      }
+    },
+    "posture_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "scenario_number",
+          "scenario_id",
+          "title",
+          "purpose",
+          "file",
+          "verification_posture",
+          "viewer_treatment",
+          "artifacts",
+          "selected_fields",
+          "checker_coverage"
+        ],
+        "properties": {
+          "scenario_number": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "scenario_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_posture": {
+            "type": "string",
+            "enum": [
+              "BASELINE",
+              "STRUCTURAL",
+              "SEMANTICALLY_VERIFIED",
+              "SCAFFOLD"
+            ]
+          },
+          "posture_description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "primary_category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "secondary_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "viewer_treatment": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narrative_markdown": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "artifact_type",
+                "path",
+                "format",
+                "exists"
+              ],
+              "properties": {
+                "artifact_type": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "json",
+                    "markdown",
+                    "text"
+                  ]
+                },
+                "exists": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "selected_fields": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "supports_summary",
+              "non_support_summary",
+              "requires_separate_evidence_summary",
+              "classifications"
+            ],
+            "properties": {
+              "supports_summary": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "non_support_summary": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "requires_separate_evidence_summary": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "classifications": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          },
+          "checker_coverage": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "included_in_checker",
+              "json_validated",
+              "semantic_assertions_present",
+              "dedicated_checker_invoked",
+              "overclaim_scan_covered"
+            ],
+            "properties": {
+              "included_in_checker": {
+                "type": "boolean"
+              },
+              "json_validated": {
+                "type": "boolean"
+              },
+              "semantic_assertions_present": {
+                "type": "boolean"
+              },
+              "dedicated_checker_invoked": {
+                "type": "boolean"
+              },
+              "overclaim_scan_covered": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
