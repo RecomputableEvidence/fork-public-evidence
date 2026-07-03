@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/scenario_registry.schema.json",
+  "title": "Fork AHI Scenario Registry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "scenarios"
+  ],
+  "properties": {
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "scenario_number",
+          "scenario_id",
+          "title",
+          "purpose",
+          "file",
+          "verification_posture",
+          "viewer_treatment"
+        ],
+        "properties": {
+          "scenario_number": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              }
+            ]
+          },
+          "scenario_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification_posture": {
+            "type": "string",
+            "enum": [
+              "BASELINE",
+              "STRUCTURAL",
+              "SEMANTICALLY_VERIFIED",
+              "SCAFFOLD"
+            ]
+          },
+          "posture_description": {
+            "type": "string"
+          },
+          "primary_category": {
+            "type": "string"
+          },
+          "secondary_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "viewer_treatment": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_files": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "main_checker": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  }
+}
