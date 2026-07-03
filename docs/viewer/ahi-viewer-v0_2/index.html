@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AHI Viewer v0.2 — Comparison Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Fork AHI Viewer v0.2</p>
+      <h1>Comparison Mode</h1>
+      <p class="lede">
+        Compare AHI scenarios by boundary movement, attempted inference, required revalidation,
+        and Fork non-claims.
+      </p>
+    </div>
+    <div class="status-card">
+      <div class="status-label">Viewer posture</div>
+      <div class="status-value">Static · repo-local · read-only</div>
+    </div>
+  </header>
+
+  <section class="notice">
+    <strong>Non-authority boundary:</strong>
+    This viewer does not approve, certify, score, authorize, determine compliance, determine admissibility,
+    establish legal sufficiency, decide acceptance, or judge correctness.
+  </section>
+
+  <main>
+    <section class="controls" aria-label="Comparison controls">
+      <label for="pairSelect">Comparison pair</label>
+      <select id="pairSelect"></select>
+    </section>
+
+    <section id="summary" class="summary-grid" aria-label="Comparison summary"></section>
+
+    <section class="compare-grid" aria-label="Scenario comparison">
+      <article class="panel">
+        <h2 id="leftTitle">Left scenario</h2>
+        <div id="leftScenario"></div>
+      </article>
+
+      <article class="panel">
+        <h2 id="rightTitle">Right scenario</h2>
+        <div id="rightScenario"></div>
+      </article>
+    </section>
+
+    <section class="panel full-width">
+      <h2>Boundary comparison</h2>
+      <div id="boundaryComparison"></div>
+    </section>
+
+    <section class="panel full-width">
+      <h2>Fork-supported comparison</h2>
+      <div id="supportedComparison"></div>
+    </section>
+
+    <section class="panel full-width warning-panel">
+      <h2>Fork non-claims retained</h2>
+      <div id="nonClaimsComparison"></div>
+    </section>
+
+    <section class="panel full-width">
+      <h2>Artifact and checker coverage</h2>
+      <div id="coverageComparison"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      AHI Viewer v0.2 presents bounded scenario comparison data. It is not a runtime control,
+      policy engine, approval system, compliance oracle, admissibility engine, or correctness judge.
+    </p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
