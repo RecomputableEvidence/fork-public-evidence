@@ -1,0 +1,29 @@
+{
+  "artifact_type": "DISTRIBUTED_AUTHORITY_FAILURE_EVENT",
+  "artifact_version": "0.1",
+  "failure_event_id": "DAFE-S06-DISTRIBUTED-HANDOFF-001",
+  "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+  "category": "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+  "secondary_categories": [
+    "CLAIM_SCOPE_EXPANSION",
+    "AUTHORITY_CONTEXT_LOSS",
+    "MULTI_SYSTEM_HANDOFF_DRIFT",
+    "NON_CLAIM_SUPPRESSION"
+  ],
+  "inferred_claim": "System C may rely on System B's routed summary as authority to approve or route for execution.",
+  "record_support": "NOT_SUPPORTED",
+  "why_unsupported": [
+    "The upstream records preserve triage and routing claims only.",
+    "The claim boundary contract explicitly withholds approval authority.",
+    "No new approval-authority claim boundary contract is present.",
+    "The handoff chain records receipt and narrowing, not authority transfer."
+  ],
+  "boundary_effect": "EXPANDED",
+  "fork_result": "UNSUPPORTED_DISTRIBUTED_AUTHORITY_INFERENCE_RECORDED",
+  "required_revalidation": [
+    "approval authority",
+    "policy satisfaction",
+    "downstream execution eligibility"
+  ],
+  "fork_non_authority_statement": "Fork records the unsupported inference and required revalidation. Fork does not approve, certify, score, authorize, determine compliance, or judge correctness."
+}

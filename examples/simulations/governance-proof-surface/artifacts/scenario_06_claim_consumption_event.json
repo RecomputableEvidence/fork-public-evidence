@@ -1,0 +1,31 @@
+{
+  "artifact_type": "CLAIM_CONSUMPTION_EVENT",
+  "artifact_version": "0.1",
+  "consumption_event_id": "CCE-S06-DISTRIBUTED-HANDOFF-001",
+  "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+  "consumer_identity": "SYSTEM_C_APPROVAL_ROUTER",
+  "consumed_from": "SYSTEM_B_RISK_SUMMARIZER",
+  "relied_claims": [
+    "System B produced a narrowed risk-routing summary.",
+    "System A source-backed triage context existed upstream."
+  ],
+  "preserved_non_claims": [
+    "System B did not establish approval authority for System C.",
+    "System A did not transfer approval authority.",
+    "The routed summary did not determine compliance.",
+    "The routed summary did not certify correctness."
+  ],
+  "attempted_downstream_use": "Treat the narrowed routing summary as sufficient basis for approval-routing authority.",
+  "classification": "EXPANDED",
+  "boundary_effect": "EXPANDED_BEYOND_RECORDED_CLAIM_SCOPE",
+  "expansion_reason": "System C attempted to rely on a routing summary as if authority to approve had been inherited through the distributed handoff.",
+  "new_claim_reference": "approval_authority_for_system_c",
+  "new_claim_boundary_contract_id": "REQUIRED_BUT_ABSENT",
+  "unresolved_unknowns": [
+    "whether the delegated approval authority exists",
+    "whether policy criteria have been satisfied",
+    "whether downstream execution is permitted"
+  ],
+  "required_next_action": "Obtain and bind a separate approval-authority claim boundary contract before any downstream approval or execution reliance.",
+  "fork_non_authority_statement": "Fork records the expanded consumption event and required revalidation. It does not decide whether the downstream decision is acceptable."
+}

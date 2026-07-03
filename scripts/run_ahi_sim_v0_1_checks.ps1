@@ -226,4 +226,14 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host "PASS: Scenario 05 validation completed inside main AHI checker."
 
+
+# Scenario 06 structuralization validation BEGIN
+Write-Host ""
+Write-Host "Checking Scenario 06 multi-system distributed handoff through main AHI checker..."
+& powershell -ExecutionPolicy Bypass -File scripts\check_scenario_06_multi_system_distributed_handoff_v0_1.ps1
+if ($LASTEXITCODE -ne 0) {
+    throw "Scenario 06 checker failed."
+}
+Write-Host "PASS: Scenario 06 validation completed inside main AHI checker."
+# Scenario 06 structuralization validation END
 Write-Host "PASS: ahi-sim-v0.1.x simulation proof-surface checks completed."

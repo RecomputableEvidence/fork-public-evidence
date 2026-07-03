@@ -49,6 +49,7 @@ def artifact_type(path_string: str):
         ("system_mapping_receipt", "SMR"),
         ("unsupported_inheritance_event", "UIE"),
         ("suppressed_limitations_event", "SLE"),
+        ("distributed_authority_failure_event", "DAFE"),
         ("authority_policy_context", "APC"),
         ("policy_reference_context", "PRC"),
         ("original_non_claims_panel", "ONCP"),
@@ -183,7 +184,7 @@ def build():
                 collect_from_cbc(obj, supports, nonsupports, unresolved)
             elif atype == "CCE":
                 collect_from_cce(obj, unresolved, classifications)
-            elif atype in ("UIE", "SLE"):
+            elif atype in ("UIE", "SLE", "DAFE"):
                 collect_from_event(obj, atype, classifications)
 
         main_checker = scenario.get("main_checker") or {}

@@ -1,0 +1,86 @@
+{
+  "artifact_type": "BOUNDARY_DELTA_RECORD",
+  "artifact_version": "0.1",
+  "record_id": "BDR-S06-DISTRIBUTED-HANDOFF-001",
+  "scenario_id": "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+  "scenario_title": "Multi-System Distributed Handoff",
+  "transition_kind": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+  "source_system": "SYSTEM_A_INTAKE_ANALYZER",
+  "intermediate_system": "SYSTEM_B_RISK_SUMMARIZER",
+  "downstream_system": "SYSTEM_C_APPROVAL_ROUTER",
+  "boundary_sequence": [
+    {
+      "boundary_id": "S06-B01",
+      "from_system": "SYSTEM_A_INTAKE_ANALYZER",
+      "to_system": "SYSTEM_B_RISK_SUMMARIZER",
+      "transition_effect": "PRESERVED_WITH_NARROWING",
+      "claim_state_after_transition": "A source-backed triage summary was narrowed into a routing-relevant risk summary.",
+      "authority_effect": "NO_AUTHORITY_TRANSFER"
+    },
+    {
+      "boundary_id": "S06-B02",
+      "from_system": "SYSTEM_B_RISK_SUMMARIZER",
+      "to_system": "SYSTEM_C_APPROVAL_ROUTER",
+      "transition_effect": "EXPANSION_ATTEMPT_RECORDED",
+      "claim_state_after_transition": "System C attempted to treat the routed risk summary as approval authority.",
+      "authority_effect": "UNSUPPORTED_AUTHORITY_INHERITANCE_ATTEMPT"
+    }
+  ],
+  "upstream_state": {
+    "recorded_claims": [
+      {
+        "statement": "System A produced a source-backed triage summary.",
+        "scope": "Limited to intake review and routing preparation; not an approval, authorization, compliance determination, or final decision."
+      },
+      {
+        "statement": "System B produced a narrowed risk-routing summary.",
+        "scope": "Limited to routing context; not authority to approve or execute downstream action."
+      }
+    ],
+    "recorded_non_claims": [
+      "System A did not approve the case.",
+      "System A did not transfer approval authority to System B.",
+      "System B did not establish approval authority for System C.",
+      "The routed summary did not determine compliance.",
+      "The routed summary did not certify correctness.",
+      "The routed summary did not establish legal, operational, or institutional sufficiency."
+    ],
+    "unresolved_state": [
+      {
+        "description": "Whether the case could be approved under the governing authority remained unresolved."
+      },
+      {
+        "description": "Whether a downstream approver had the required delegated authority remained unresolved."
+      },
+      {
+        "description": "Whether any policy-specific approval criteria were satisfied remained unresolved."
+      }
+    ]
+  },
+  "downstream_state": {
+    "attempted_inference": "System C treated System B's routed summary as a sufficient basis for approval-routing authority.",
+    "supported_after_transition": [
+      "A source-backed triage summary existed.",
+      "A narrowed risk-routing summary existed.",
+      "The handoff chain from System A to System B to System C is inspectable."
+    ],
+    "not_supported_after_transition": [
+      "Approval authority crossed from System A or System B to System C.",
+      "The case was approved.",
+      "Compliance was determined.",
+      "Correctness was certified.",
+      "Policy criteria were satisfied."
+    ]
+  },
+  "delta_classification": "DISTRIBUTED_SCOPE_AND_AUTHORITY_EXPANSION_ATTEMPT_RECORDED",
+  "inspectability_result": "INSPECTABLE",
+  "required_revalidation_for": [
+    "approval authority",
+    "policy satisfaction",
+    "compliance determination",
+    "case approval",
+    "execution eligibility"
+  ],
+  "fork_role": "Fork records the boundary state across independently accountable systems without transferring authority between them.",
+  "fork_non_authority_statement": "Fork records the unsupported authority-inheritance attempt. Fork does not approve, certify, score, authorize, determine compliance, or judge correctness."
+}
