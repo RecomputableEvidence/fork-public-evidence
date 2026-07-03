@@ -352,6 +352,88 @@
         "non_authority_scan": true,
         "viewer_bundle": true
       }
+    },
+    {
+      "scenario_number": 9,
+      "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+      "title": "Scenario 09 â€” Revocation Visibility / Split-State Boundary",
+      "file": "examples/simulations/governance-proof-surface/scenario_09_revocation_visibility_split_state_boundary.md",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded revocation visibility and split-state invariants. This does not establish global visibility, global consumption, current authority, current validity, compliance, legal sufficiency, negligence, excuse, execution eligibility, or correctness.",
+      "artifact_family_present": false,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_visibility_gap_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_split_state_timeline.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_transition_graph.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_09_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "invoked_by": "scripts/run_ahi_sim_v0_1_checks.ps1",
+        "dedicated_checker": "scripts/check_scenario_09_revocation_visibility_split_state_v0_1.ps1",
+        "semantic_invariants_checked": [
+          "validity_change_recorded",
+          "not_automatically_global",
+          "visibility_gap_recorded",
+          "local_non_awareness_not_current_validity",
+          "split_state_reliance_attempt_recorded",
+          "current_revalidation_required",
+          "non_authority_posture_preserved"
+        ]
+      },
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ],
+      "checker_coverage": {
+        "required_files": true,
+        "json_validity": true,
+        "semantic_invariants": true,
+        "non_authority_scan": true,
+        "viewer_bundle": true
+      },
+      "failure_mode": "REVOCATION_VISIBILITY_GAP",
+      "core_invariant": "recorded_in_A does not imply visible_in_B; visible_in_B does not imply consumed_by_C; not_visible_locally does not imply still_valid_currently",
+      "selected_fields": {
+        "boundary_type": "REVOCATION_VISIBILITY_AND_SPLIT_STATE",
+        "delta_classification": "REVOCATION_VISIBILITY_GAP_RECORDED",
+        "record_support": "NOT_SUPPORTED",
+        "boundary_effect": "EXPANDED",
+        "required_revalidation": [
+          "visibility evidence",
+          "consumption evidence",
+          "state synchronization evidence",
+          "current authority",
+          "current policy version",
+          "current evidence basis",
+          "current validity window",
+          "current execution eligibility"
+        ],
+        "fork_does_not_establish": [
+          "global visibility",
+          "global consumption",
+          "current validity",
+          "current authority",
+          "current approval",
+          "current policy satisfaction",
+          "current evidence sufficiency",
+          "current regulatory compliance",
+          "current legal sufficiency",
+          "current execution eligibility",
+          "current external acceptance",
+          "negligence",
+          "excuse",
+          "correctness"
+        ]
+      }
     }
   ]
 }

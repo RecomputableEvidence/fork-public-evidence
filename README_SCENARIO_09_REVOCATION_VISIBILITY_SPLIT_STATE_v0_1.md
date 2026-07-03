@@ -1,4 +1,4 @@
-# Scenario 09 — Revocation Visibility / Split-State Boundary v0.1
+# Scenario 09 â€” Revocation Visibility / Split-State Boundary v0.1
 
 ## Purpose
 

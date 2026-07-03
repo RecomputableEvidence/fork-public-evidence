@@ -266,4 +266,14 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Host "PASS: Scenario 08 validation completed inside main AHI checker."
 # Scenario 08 stale validity / authority revocation validation END
+
+# Scenario 09 revocation visibility / split-state validation BEGIN
+Write-Host ""
+Write-Host "Checking Scenario 09 revocation visibility / split-state through main AHI checker..."
+& powershell -ExecutionPolicy Bypass -File scripts\check_scenario_09_revocation_visibility_split_state_v0_1.ps1
+if ($LASTEXITCODE -ne 0) {
+    throw "Scenario 09 revocation visibility / split-state checker failed."
+}
+Write-Host "PASS: Scenario 09 validation completed inside main AHI checker."
+# Scenario 09 revocation visibility / split-state validation END
 Write-Host "PASS: ahi-sim-v0.1.x simulation proof-surface checks completed."

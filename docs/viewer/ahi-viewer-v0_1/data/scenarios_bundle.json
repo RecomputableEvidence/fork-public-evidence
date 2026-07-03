@@ -995,6 +995,116 @@
         "dedicated_checker_invoked": false,
         "overclaim_scan_covered": false
       }
+    },
+    {
+      "scenario_number": 9,
+      "scenario_id": "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY",
+      "title": "Scenario 09 â€” Revocation Visibility / Split-State Boundary",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "file": "examples/simulations/governance-proof-surface/scenario_09_revocation_visibility_split_state_boundary.md",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded revocation visibility and split-state invariants. This does not establish global visibility, global consumption, current authority, current validity, compliance, legal sufficiency, negligence, excuse, execution eligibility, or correctness.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ],
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "narrative_markdown": "# Scenario 09 â€” Revocation Visibility / Split-State Boundary\n\n## Scenario ID\n\n`SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY`\n\n## Summary\n\nA validity-changing event exists in one system, but another system has not consumed it.\n\nA downstream actor relies on stale, partial, or locally visible state and treats local non-awareness as current validity.\n\n## Core invariant\n\n```text\nRevocation recorded in System A\nâ‰  revocation visible to System B\nâ‰  revocation consumed by System C\nâ‰  downstream reliance resolved\n```\n\n## Systems\n\n### System A â€” Revocation Source\n\nRecords a revocation, expiry, supersession, narrowing, policy update, role change, or other validity-changing event.\n\n### System B â€” Intermediate State Holder\n\nHas a local state view that may not include the revocation or validity-changing event.\n\n### System C â€” Downstream Reliance Actor\n\nAttempts to rely on the prior or locally visible state.\n\n## Expected failure mode\n\n`REVOCATION_VISIBILITY_GAP`\n\n## Fork result\n\nFork records the revocation visibility gap and split-state boundary.\n\nFork can preserve where the validity-changing event was recorded, where it was not yet visible, where it was not yet consumed, what state a downstream actor relied on, and what revalidation or synchronization remained unresolved.\n\nFork does not decide whether the downstream actor was negligent, excused, authorized, compliant, legal-sufficiency-establishing, accepted, correct, or eligible to execute.\n\n## Relationship to Scenario 08\n\nScenario 08 tested stale validity after a validity change.\n\nScenario 09 tests whether the validity change was visible, consumed, and operative across systems.\n",
+      "artifacts": [
+        {
+          "artifact_type": "BDR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_boundary_delta_record.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CBC",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_claim_boundary_contract.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "CCE",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_claim_consumption_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "SMR",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_system_mapping_receipt.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "JSON",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_visibility_gap_event.json",
+          "format": "json",
+          "exists": true
+        },
+        {
+          "artifact_type": "MD",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_split_state_timeline.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "MD",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_transition_graph.md",
+          "format": "markdown",
+          "exists": true
+        },
+        {
+          "artifact_type": "NCP",
+          "path": "examples/simulations/governance-proof-surface/artifacts/scenario_09_non_claims_panel.md",
+          "format": "markdown",
+          "exists": true
+        }
+      ],
+      "selected_fields": {
+        "supports_summary": [],
+        "non_support_summary": [
+          "recorded revocation establishes global visibility",
+          "recorded revocation establishes global consumption",
+          "local non-awareness establishes current validity",
+          "stale intermediate state establishes current authority",
+          "stale intermediate state establishes current policy satisfaction",
+          "stale intermediate state establishes current evidence sufficiency",
+          "stale intermediate state establishes current execution eligibility",
+          "split-state record establishes negligence",
+          "split-state record establishes excuse",
+          "split-state record establishes compliance",
+          "split-state record establishes legal sufficiency",
+          "split-state record establishes correctness"
+        ],
+        "requires_separate_evidence_summary": [
+          "revocation visibility",
+          "revocation consumption",
+          "state synchronization",
+          "current authority",
+          "current policy version",
+          "current evidence basis",
+          "current validity window",
+          "current execution eligibility",
+          "Provide explicit visibility, consumption, synchronization, or current revalidation evidence before relying on stale or partial state for current action."
+        ],
+        "classifications": {
+          "delta_classification": "REVOCATION_VISIBILITY_GAP_RECORDED",
+          "inspectability_result": "INSPECTABLE",
+          "fork_role": "Fork records revocation visibility and split-state boundary state without approving, certifying, scoring, authorizing, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, judging correctness, or deciding negligence or excuse.",
+          "fork_non_authority_statement": null,
+          "claim_consumption_classification": "EXPANDED"
+        }
+      },
+      "checker_coverage": {
+        "included_in_checker": false,
+        "json_validated": false,
+        "semantic_assertions_present": false,
+        "dedicated_checker_invoked": false,
+        "overclaim_scan_covered": false
+      }
     }
   ]
 }

@@ -1,4 +1,4 @@
-# Scenario 09 — Revocation Visibility / Split-State Boundary
+# Scenario 09 â€” Revocation Visibility / Split-State Boundary
 
 ## Scenario ID
 
@@ -14,22 +14,22 @@ A downstream actor relies on stale, partial, or locally visible state and treats
 
 ```text
 Revocation recorded in System A
-≠ revocation visible to System B
-≠ revocation consumed by System C
-≠ downstream reliance resolved
+â‰  revocation visible to System B
+â‰  revocation consumed by System C
+â‰  downstream reliance resolved
 ```
 
 ## Systems
 
-### System A — Revocation Source
+### System A â€” Revocation Source
 
 Records a revocation, expiry, supersession, narrowing, policy update, role change, or other validity-changing event.
 
-### System B — Intermediate State Holder
+### System B â€” Intermediate State Holder
 
 Has a local state view that may not include the revocation or validity-changing event.
 
-### System C — Downstream Reliance Actor
+### System C â€” Downstream Reliance Actor
 
 Attempts to rely on the prior or locally visible state.
 
@@ -43,7 +43,7 @@ Fork records the revocation visibility gap and split-state boundary.
 
 Fork can preserve where the validity-changing event was recorded, where it was not yet visible, where it was not yet consumed, what state a downstream actor relied on, and what revalidation or synchronization remained unresolved.
 
-Fork does not decide whether the downstream actor was negligent, excused, authorized, compliant, legally sufficient, accepted, correct, or eligible to execute.
+Fork does not decide whether the downstream actor was negligent, excused, authorized, compliant, legal-sufficiency-establishing, accepted, correct, or eligible to execute.
 
 ## Relationship to Scenario 08
 
