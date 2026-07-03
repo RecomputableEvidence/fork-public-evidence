@@ -1,0 +1,50 @@
+{
+  "artifact_type": "SYSTEM_MAPPING_RECEIPT",
+  "artifact_version": "0.1",
+  "scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
+  "system_mapping_receipt_id": "SMR-S07-001",
+  "title": "Scenario 07 External Authority Bridge System Mapping Receipt",
+  "systems": [
+    "SYSTEM_A_INTERNAL_WORKFLOW_OWNER",
+    "SYSTEM_B_EXTERNAL_REVIEW_INTAKE",
+    "SYSTEM_C_EXTERNAL_AUTHORITY_CONTEXT"
+  ],
+  "overall_mapping_classification": "MIXED_WITH_UNSUPPORTED_EXTERNAL_AUTHORITY_INHERITANCE",
+  "fork_result": "STRUCTURAL_MAPPING_RECORDED",
+  "external_mapping_status": "EXTERNAL_AUTHORITY_INFERENCE_NOT_SUPPORTED",
+  "preserved_mappings": [
+    {
+      "from": "internal Fork record",
+      "to": "external review intake",
+      "classification": "PRESERVED",
+      "effect": "record available for inspection"
+    }
+  ],
+  "unsupported_mappings": [
+    {
+      "from": "inspectable Fork record",
+      "to": "external admissibility",
+      "classification": "EXPANDED",
+      "reason": "admissibility requires separate external rule or authority"
+    },
+    {
+      "from": "inspectable Fork record",
+      "to": "regulatory compliance determination",
+      "classification": "EXPANDED",
+      "reason": "compliance requires separate authority, standard, or determination"
+    },
+    {
+      "from": "inspectable Fork record",
+      "to": "legal sufficiency or approval",
+      "classification": "EXPANDED",
+      "reason": "legal sufficiency and approval are not inherited from record inspectability"
+    }
+  ],
+  "required_external_authority": [
+    "applicable rule or standard",
+    "external reviewer determination",
+    "legal or regulatory authority where applicable",
+    "separate claim boundary contract for any authority-bearing conclusion"
+  ],
+  "fork_non_authority_statement": "Fork records mapping state without approving, certifying, scoring, authorizing, determining compliance, determining admissibility, establishing legal sufficiency, deciding acceptance, or judging correctness."
+}

@@ -255,6 +255,55 @@
         "AUTHORITY_CONTEXT_LOSS",
         "NON_INHERITANCE"
       ]
+    },
+    {
+      "scenario_number": "07",
+      "scenario_id": "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
+      "title": "Scenario 07 â€” External Authority Bridge",
+      "file": "examples/simulations/governance-proof-surface/scenario_07_external_authority_bridge.md",
+      "purpose": "Show multi-system distributed handoff reconstruction.",
+      "verification_posture": "SEMANTICALLY_VERIFIED",
+      "posture_description": "Artifact family present; dedicated checker verifies bounded external-authority bridge invariants. This does not establish external admissibility, compliance, approval, legal sufficiency, acceptance, execution eligibility, or correctness.",
+      "artifact_family_present": false,
+      "artifact_files": [
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_boundary_delta_record.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_claim_boundary_contract.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_claim_consumption_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_system_mapping_receipt.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_external_authority_failure_event.json",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_external_review_context.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_transition_graph.md",
+        "examples/simulations/governance-proof-surface/artifacts/scenario_07_non_claims_panel.md"
+      ],
+      "main_checker": {
+        "invoked_by": "scripts/run_ahi_sim_v0_1_checks.ps1",
+        "dedicated_checker": "scripts/check_scenario_07_external_authority_bridge_v0_1.ps1",
+        "semantic_invariants_checked": [
+          "internal_record_preserved_for_external_inspection",
+          "no_external_authority_transfer",
+          "unsupported_external_authority_inference_recorded",
+          "expanded_external_consumption_requires_separate_authority",
+          "unsupported_external_mapping_recorded",
+          "external_failure_event_not_supported",
+          "required_external_revalidation_preserved",
+          "non_authority_posture_preserved"
+        ]
+      },
+      "viewer_treatment": "Render as an artifact-backed structural distributed-handoff simulation. Show unsupported authority inheritance and required revalidation without implying approval or compliance.",
+      "primary_category": "MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+      "secondary_categories": [
+        "DISTRIBUTED_AUTHORITY_INHERITANCE_ATTEMPT",
+        "CLAIM_SCOPE_EXPANSION",
+        "AUTHORITY_CONTEXT_LOSS",
+        "NON_INHERITANCE"
+      ],
+      "checker_coverage": {
+        "required_files": true,
+        "json_validity": true,
+        "semantic_invariants": true,
+        "non_authority_scan": true,
+        "viewer_bundle": true
+      }
     }
   ]
 }

@@ -246,4 +246,14 @@ Write-Host "PASS: Scenario 06 semantic invariant validation completed inside mai
 # Scenario 06 semantic invariant validation END
 
 # Scenario 06 structuralization validation END
+
+# Scenario 07 external authority bridge validation BEGIN
+Write-Host ""
+Write-Host "Checking Scenario 07 external authority bridge through main AHI checker..."
+& powershell -ExecutionPolicy Bypass -File scripts\check_scenario_07_external_authority_bridge_v0_1.ps1
+if ($LASTEXITCODE -ne 0) {
+    throw "Scenario 07 external authority bridge checker failed."
+}
+Write-Host "PASS: Scenario 07 validation completed inside main AHI checker."
+# Scenario 07 external authority bridge validation END
 Write-Host "PASS: ahi-sim-v0.1.x simulation proof-surface checks completed."
