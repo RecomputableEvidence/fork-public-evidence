@@ -654,3 +654,7 @@ Outer disclosure ZIP SHA-256:
 ```
 
 The disclosed fixture is synthetic. Live institutional deployment, source truth or completeness, legal admissibility, third-party verifier independence, and production readiness remain unestablished.
+
+## Commercial package
+
+- [Post-v0.1 commercial package](commercial/)

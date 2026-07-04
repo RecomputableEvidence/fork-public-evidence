@@ -1,4 +1,6 @@
-﻿# Post-v0.1 Commercial Surface Review
+> Internal review note. This file records post-v0.1 commercial-surface review context for maintainers. It is not part of the buyer-facing commercial package.
+
+# Post-v0.1 Commercial Surface Review
 
 Fork's Computed Proof Surface v0.1 is now closed, tagged, and branch-aligned.
 

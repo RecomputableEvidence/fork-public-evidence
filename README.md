@@ -1,4 +1,4 @@
-﻿# Fork
+# Fork
 
 Fork is a research implementation exploring whether explicit handoff-state artifacts reduce unsupported inheritance in AI-assisted institutional workflows.
 
@@ -115,3 +115,9 @@ The following non-claims are invariant:
 - This system does not approve production use.
 - This system does not replace institutional review.
 - This system does not verify correctness of underlying workflow data.
+
+## Commercial surface
+
+A buyer-facing post-v0.1 commercial package is available at:
+
+- [Commercial package](docs/commercial/)

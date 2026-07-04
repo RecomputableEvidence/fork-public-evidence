@@ -1,4 +1,4 @@
-﻿# Fork
+# Fork
 
 ## Buyer Overview v0.1
 
@@ -45,6 +45,7 @@ Fork records can preserve:
 - claim boundaries
 - explicit non-claims
 - transition records across workflow handoffs
+- CISO / security leadership
 - downstream reliance events
 - structural verification status
 

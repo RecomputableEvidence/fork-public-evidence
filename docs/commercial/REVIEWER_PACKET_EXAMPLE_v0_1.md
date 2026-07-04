@@ -1,4 +1,6 @@
-﻿# Reviewer Packet Example v0.1
+# Reviewer Packet Example v0.1
+
+This is an illustrative reviewer packet example. It is not a production customer record, legal opinion, compliance determination, or evidence of an actual vendor-risk decision.
 
 ## Illustrative AI-Assisted Vendor Risk Assessment
 
