@@ -1,0 +1,101 @@
+{
+  "manifest_id": "COMPUTED_PROOF_SURFACE_v0_1",
+  "version": "v0.1",
+  "status": "reviewer_facing_consolidation",
+  "purpose": "Classify the current Fork public evidence surface into fixture-declared, structurally checked, computed, reconstructed, preserved, and explicit non-conclusion layers.",
+  "bounded_claim": "Fork can preserve and compute selected governance-state divergence records in a way that supports later reviewer reconstruction.",
+  "surface_layers": [
+    {
+      "layer_id": "primitive_layer",
+      "classification": "fixture_and_schema_foundation",
+      "examples": [
+        "BDR",
+        "CBC",
+        "CCE",
+        "SMR",
+        "ESAL",
+        "transition_state"
+      ],
+      "claim_boundary": "Defines record types and boundary semantics."
+    },
+    {
+      "layer_id": "scenario_layer",
+      "classification": "fixture_declared",
+      "examples": [
+        "SCENARIO_01_BASELINE_UNBOUNDED_HANDOFF",
+        "SCENARIO_02_FORK_PRESERVED_HANDOFF",
+        "SCENARIO_03_SCOPE_EXPANSION_ATTEMPT",
+        "SCENARIO_04_AUTHORITY_LEAKAGE_ATTEMPT",
+        "SCENARIO_05_POLICY_REFERENCE_LAUNDERING_ATTEMPT",
+        "SCENARIO_06_MULTI_SYSTEM_DISTRIBUTED_HANDOFF",
+        "SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE",
+        "SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_BOUNDARY",
+        "SCENARIO_09_REVOCATION_VISIBILITY_SPLIT_STATE_BOUNDARY"
+      ],
+      "claim_boundary": "Demonstrates failure taxonomy and expected bounded artifacts."
+    },
+    {
+      "layer_id": "viewer_layer",
+      "classification": "structurally_checked_reviewer_surface",
+      "examples": [
+        "AHI_VIEWER_v0_1",
+        "AHI_VIEWER_v0_2"
+      ],
+      "claim_boundary": "Supports reviewer navigation and comparison without becoming an authority layer."
+    },
+    {
+      "layer_id": "computed_layer",
+      "classification": "computed_derivation",
+      "examples": [
+        "computed_scenario_09_revocation_split_state_v0_1"
+      ],
+      "claim_boundary": "Derives bounded state-divergence classifications from supplied fixture states."
+    },
+    {
+      "layer_id": "computed_proof_surface_layer",
+      "classification": "reviewer_surface",
+      "examples": [
+        "COMPUTED_PROOF_SURFACE_v0_1"
+      ],
+      "claim_boundary": "Explains which evidence surfaces are fixture-declared, structurally checked, computed, reconstructed, preserved, and explicitly outside Fork's conclusions."
+    }
+  ],
+  "computed_derivations": [
+    {
+      "derivation_id": "computed_scenario_09_revocation_split_state_v0_1",
+      "inputs": [
+        "system_a_current_revocation_state",
+        "system_b_visibility_sync_state",
+        "system_c_consumption_attempt_state",
+        "freshness_policy"
+      ],
+      "outputs": [
+        "COMPUTED_GAP_RECORDED",
+        "NO_COMPUTED_GAP_RECORDED",
+        "REVOCATION_VISIBILITY_GAP",
+        "SPLIT_STATE_CONSUMPTION_GAP",
+        "CURRENT_REVALIDATION_REQUIRED"
+      ],
+      "source_path": "examples/simulations/governance-proof-surface/computed_scenario_09",
+      "checker_path": "scripts/check_computed_scenario_09_revocation_split_state_v0_1.ps1"
+    }
+  ],
+  "non_conclusions": [
+    "truth_of_underlying_claim",
+    "external_validity_of_underlying_claim",
+    "legal_sufficiency",
+    "compliance_status",
+    "safety_status",
+    "fault_allocation",
+    "approval_status",
+    "execution_eligibility",
+    "business_suitability",
+    "policy_correctness",
+    "regulatory_adequacy"
+  ],
+  "recommended_next_step": {
+    "name": "Scenario 10 Resolution / Synchronization Boundary",
+    "question": "What observable evidence closes a previously detected gap?",
+    "boundary": "Closure evidence must not be silently converted into approval."
+  }
+}
