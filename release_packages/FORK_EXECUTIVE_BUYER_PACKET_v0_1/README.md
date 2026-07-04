@@ -62,6 +62,7 @@ It does not support deployment claims.
 - `QUESTIONS_FOR_BUYERS.md`
 - `RELEASE_NOTES.md`
 - `NEXT_STEPS.md`
+- ENTERPRISE_DISCOVERY_POV_v0_1.md — bounded 90-day enterprise discovery PoV structure.
 - `SHA256SUMS.txt`
 
 ## Use guidance

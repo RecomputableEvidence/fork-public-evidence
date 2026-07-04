@@ -137,9 +137,8 @@ Typical stakeholders include:
 - Vendor Risk teams
 - Enterprise Architecture
 - Public-sector governance programs
-
----
 - CISO / Security Leadership
+---
 
 ## Why Fork is different
 

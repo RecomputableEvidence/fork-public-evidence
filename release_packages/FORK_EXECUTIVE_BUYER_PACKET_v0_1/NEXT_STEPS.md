@@ -35,7 +35,7 @@ A pilot-ready implementation packet requires prior discovery, source-system revi
 
 ## Bounded discovery contact
 
-To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
+To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.
 
 A discovery conversation may identify:
 
@@ -80,4 +80,4 @@ For the bounded PoV packet, see:
 - docs/BOUNDED_WORKFLOW_POV_SCOPE_TEMPLATE_v0_1.md
 - release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/ENTERPRISE_DISCOVERY_POV_v0_1.md
 
-To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
+To discuss a bounded discovery conversation for a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.

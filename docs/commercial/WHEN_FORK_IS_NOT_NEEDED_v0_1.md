@@ -1,4 +1,4 @@
-﻿# When Fork Is Not Needed v0.1
+# When Fork Is Not Needed v0.1
 
 Fork is designed for AI-assisted workflows where later reconstruction of reliance matters.
 

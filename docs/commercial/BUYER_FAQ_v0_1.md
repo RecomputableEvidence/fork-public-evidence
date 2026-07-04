@@ -85,9 +85,8 @@ Organizations where AI-assisted artifacts influence operational or institutional
 - Vendor Risk
 - Enterprise Architecture
 - AI Governance
-
----
 - CISO / Security Leadership
+---
 
 ## What stage is Fork in?
 

@@ -139,4 +139,4 @@ Explicitly excluded:
 
 ## 9. Contact
 
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-ACTUAL-SLUG/.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.
