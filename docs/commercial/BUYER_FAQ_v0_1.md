@@ -1,4 +1,4 @@
-﻿# Buyer FAQ v0.1
+# Buyer FAQ v0.1
 
 ## What is Fork?
 
@@ -60,6 +60,8 @@ No.
 
 Fork is intentionally fail-open.
 
+Fail-open means Fork does not block the host workflow if Fork is unavailable; it does not mean a complete Fork record exists when required capture or sealing did not occur.
+
 It does not block prompts, enforce runtime policy, or approve model execution.
 
 ---
@@ -85,6 +87,7 @@ Organizations where AI-assisted artifacts influence operational or institutional
 - AI Governance
 
 ---
+- CISO / Security Leadership
 
 ## What stage is Fork in?
 

@@ -1,4 +1,7 @@
-﻿# Fork Commercial Artifacts
+# Fork Commercial Artifacts
+
+This folder is the narrative buyer-orientation set for Fork's post-v0.1 commercial surface. For the formal checksummed executive buyer packet, including the stakeholder map, claims/non-claims contract, package manifest, and SHA256 sums, see [
+elease_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1](../../release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/).
 
 This directory contains early commercial-facing materials for Fork's post-v0.1 phase.
 

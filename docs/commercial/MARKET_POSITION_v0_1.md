@@ -1,4 +1,4 @@
-﻿# Market Position v0.1
+# Market Position v0.1
 
 # Where Fork Fits
 
@@ -51,6 +51,8 @@ Fork is:
 
 - read-only
 - fail-open
+
+Fail-open means Fork does not block the host workflow if Fork is unavailable; it does not mean a complete Fork record exists when required capture or sealing did not occur.
 - out-of-band
 - independently verifiable
 - composable with existing governance systems

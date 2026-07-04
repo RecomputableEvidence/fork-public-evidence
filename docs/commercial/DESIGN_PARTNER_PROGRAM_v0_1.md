@@ -1,4 +1,4 @@
-﻿# Design Partner Program v0.1
+# Design Partner Program v0.1
 
 ## Purpose
 
@@ -26,7 +26,7 @@ Suitable workflows include:
 
 Together we seek to understand:
 
-- where AI-assisted artifacts become eligible for institutional reliance
+- where AI-assisted artifacts become subject to institutional reliance
 - what governance context must survive downstream
 - which claim boundaries require explicit preservation
 - where transition records improve later reconstruction

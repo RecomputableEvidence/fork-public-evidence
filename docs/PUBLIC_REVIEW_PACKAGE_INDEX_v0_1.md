@@ -77,3 +77,9 @@ Send the smallest package that truthfully answers the recipient's question.
 Do not send a later-stage package merely to appear more mature.
 
 Do not let a package imply a broader claim than its `CLAIMS_AND_NON_CLAIMS.md` supports.
+
+## Commercial buyer orientation
+
+- [docs/commercial/](commercial/) — narrative buyer-facing commercial package for post-v0.1 design-partner and reviewer conversations.
+- [
+elease_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/](../release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/) — formal checksummed executive buyer packet.

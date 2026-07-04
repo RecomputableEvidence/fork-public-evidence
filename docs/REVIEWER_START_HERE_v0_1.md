@@ -122,3 +122,14 @@ This helps a reviewer distinguish:
 - any downstream narrowing or expansion of that authority context.
 
 Fork does not establish that the stated authority was sufficient, that the policy was adequate, or that the resulting reliance was legally, commercially, operationally, or regulatorily sufficient.
+
+## Commercial buyer orientation
+
+For the narrative buyer-facing commercial package, see:
+
+- [docs/commercial/](commercial/)
+
+This path is a lightweight buyer-orientation surface. The formal checksummed executive buyer packet remains available under:
+
+- [
+elease_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/](../release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/)

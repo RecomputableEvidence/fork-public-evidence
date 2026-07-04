@@ -1,4 +1,4 @@
-﻿# Vendor Risk Walkthrough v0.1
+# Vendor Risk Walkthrough v0.1
 
 ## Demonstrating Recomputable Evidence for an AI-Assisted Vendor Review
 
@@ -192,3 +192,7 @@ Fork preserves enough governance context for later reviewers to independently un
 - what claims remained outside scope
 - how the artifact moved through the workflow
 - whether the preserved record continues to verify
+
+---
+
+> Illustrative example only. This document is not a production customer record, legal opinion, compliance determination, or evidence of an actual vendor-risk decision.

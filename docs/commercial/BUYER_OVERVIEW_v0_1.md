@@ -16,7 +16,7 @@ Most AI governance solutions focus on governing model behavior, enforcing policy
 
 A different problem emerges after an artifact is produced:
 
-**Can a later reviewer independently reconstruct the basis on which this AI-assisted artifact became eligible for institutional reliance?**
+**Can a later reviewer independently reconstruct the basis on which this AI-assisted artifact became subject to institutional reliance?**
 
 If this artifact were challenged tomorrow by audit, legal, or a regulator, could the organization show what was actually relied upon, and what was not?
 
@@ -45,7 +45,6 @@ Fork records can preserve:
 - claim boundaries
 - explicit non-claims
 - transition records across workflow handoffs
-- CISO / security leadership
 - downstream reliance events
 - structural verification status
 
@@ -140,6 +139,7 @@ Typical stakeholders include:
 - Public-sector governance programs
 
 ---
+- CISO / Security Leadership
 
 ## Why Fork is different
 

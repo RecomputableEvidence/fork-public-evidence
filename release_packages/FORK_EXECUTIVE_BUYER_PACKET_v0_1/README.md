@@ -1,5 +1,7 @@
 # Fork Executive Buyer Packet v0.1
 
+For the lighter narrative buyer-orientation set, see [docs/commercial](../../docs/commercial/). This release package remains the formal checksummed executive buyer packet.
+
 ## Purpose
 
 This package provides the executive buyer orientation packet for Fork.

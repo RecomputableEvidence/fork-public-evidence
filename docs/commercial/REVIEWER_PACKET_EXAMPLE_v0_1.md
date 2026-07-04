@@ -210,3 +210,7 @@ These questions can be answered without inferring institutional intent from inco
 Fork preserves the evidence boundary surrounding AI-assisted reliance.
 
 Institutional decisions remain the responsibility of the organizations performing review, approval, procurement, legal analysis, compliance evaluation, and audit.
+
+---
+
+> Illustrative example only. This document is not a production customer record, legal opinion, compliance determination, or evidence of an actual vendor-risk decision.
