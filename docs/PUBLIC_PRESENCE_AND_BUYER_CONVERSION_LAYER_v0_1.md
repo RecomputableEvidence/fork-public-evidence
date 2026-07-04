@@ -51,4 +51,4 @@ A reader must not treat these materials as establishing that Fork is deployed, p
 
 Contact routing
 
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/YOUR-LINKEDIN-SLUG/.
+For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.
