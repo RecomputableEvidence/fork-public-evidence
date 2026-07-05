@@ -99,4 +99,4 @@ Fork's value is that it preserves a bounded evidence record so the later review 
 
 ## Contact
 
-For a bounded discovery conversation about applying this pattern to a specific AI-assisted workflow, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.
+For bounded technical review, design-partner discussion, or enterprise discovery around this worked example, start with https://github.com/RecomputableEvidence/fork-public-evidence and, if needed, contact via LinkedIn at https://www.linkedin.com/in/ryan-whittemore-feller-b3570b390/.

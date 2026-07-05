@@ -51,4 +51,4 @@ A reader must not treat these materials as establishing that Fork is deployed, p
 
 Contact routing
 
-For bounded technical review, design-partner discussion, or enterprise discovery, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.
+For bounded technical review, design-partner discussion, or enterprise discovery, start with https://github.com/RecomputableEvidence/fork-public-evidence and, if needed, contact via LinkedIn at https://www.linkedin.com/in/ryan-whittemore-feller-b3570b390/.

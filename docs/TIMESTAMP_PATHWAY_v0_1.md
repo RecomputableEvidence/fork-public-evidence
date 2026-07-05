@@ -72,4 +72,4 @@ It does not by itself establish that the underlying event was true, complete, la
 
 ## Contact
 
-For bounded technical review or enterprise discovery around timestamp-pathway requirements, contact Ryan Feller via LinkedIn at https://www.linkedin.com/in/ryan-feller/.
+For bounded technical review or enterprise discovery around timestamp-pathway requirements, start with https://github.com/RecomputableEvidence/fork-public-evidence and, if needed, contact via LinkedIn at https://www.linkedin.com/in/ryan-whittemore-feller-b3570b390/.
