@@ -25,7 +25,7 @@
     "docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md"
   ],
   "limitations": [
-    "Invalid fixture intentionally attempts semantic adoption of an external artifact.",
+    "Invalid fixture intentionally attempts authority absorption through external authority import.",
     "Fork may reference external artifacts but may not internalize them as Fork-native truth or authority.",
     "Fixture intentionally isolates authority absorption from semantic adoption."
   ]
