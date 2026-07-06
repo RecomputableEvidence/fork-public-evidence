@@ -121,3 +121,28 @@ The following non-claims are invariant:
 A buyer-facing post-v0.1 commercial package is available at:
 
 - [Commercial package](docs/commercial/)
+
+<!-- FORK-MODULAR-SURFACE-README:START -->
+## Fork Modular Surface
+
+Fork's current architecture is organized through a modular evidence-boundary surface.
+
+The six functional surfaces are:
+
+- Evidence Boundary
+- Transition
+- Reliance
+- Interoperability
+- Simulation
+- Commercial
+
+These surfaces are governed by a single constraint: preservation without inheritance.
+
+Fork may preserve, reference, inspect, and reconstruct evidence-boundary records, but it does not absorb external authority or convert structural verification into truth, approval, compliance, admissibility, legal sufficiency, or downstream decision correctness.
+
+Start here:
+
+- `docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md`
+- `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
+- `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
+<!-- FORK-MODULAR-SURFACE-README:END -->

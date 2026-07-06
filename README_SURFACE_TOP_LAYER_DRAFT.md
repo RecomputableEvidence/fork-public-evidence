@@ -1,3 +1,13 @@
+<!-- FORK-SUPERSEDED-DRAFT-NOTE:START -->
+> Status: Superseded public-surface draft.
+>
+> This root-level draft is retained only as historical drafting material. For the current modular evidence-boundary architecture, use:
+>
+> - `docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md`
+> - `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
+> - `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
+<!-- FORK-SUPERSEDED-DRAFT-NOTE:END -->
+
 Fork
 
 Fork is evidence-boundary infrastructure for AI-assisted workflows. It preserves a reviewer-operable record of what was requested, what AI produced, what humans reviewed or changed, what evidence was referenced, what was explicitly not claimed, and whether the sealed packet still verifies later.

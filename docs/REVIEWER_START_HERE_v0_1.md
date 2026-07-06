@@ -133,3 +133,21 @@ This path is a lightweight buyer-orientation surface. The formal checksummed exe
 
 - [
 elease_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/](../release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/)
+
+<!-- FORK-MODULAR-SURFACE-REVIEWER-PATH:START -->
+## Modular Surface Reading Path
+
+Fork now includes a dedicated modular surface architecture.
+
+Reviewers should read these documents as the current functional map of Fork's evidence-boundary architecture:
+
+1. `docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md`
+2. `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
+3. `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
+
+The Modular Surface does not replace existing Fork artifacts.
+
+It explains how existing doctrine, checkers, simulations, review packets, interoperability materials, and commercial-facing documents relate across six functional surfaces: Evidence Boundary, Transition, Reliance, Interoperability, Simulation, and Commercial.
+
+Its governing constraint is preservation without inheritance.
+<!-- FORK-MODULAR-SURFACE-REVIEWER-PATH:END -->

@@ -52,3 +52,21 @@ Fork packets should preserve not only what was claimed and what evidence was ref
 This does not make Fork an authority validator. Fork does not establish that the reviewer had sufficient authority, that the policy was adequate, or that the resulting reliance was legally, commercially, operationally, or regulatorily sufficient.
 
 The purpose is preservation without inheritance: a later reviewer should not be forced to reconstruct authority context that should have survived with the artifact.
+
+<!-- FORK-MODULAR-SURFACE-RECONCILIATION:START -->
+## Audience Surfaces and Functional Surfaces
+
+This document describes audience-facing lanes: Reviewer, Pilot, and Proof.
+
+The Modular Surface describes functional architecture: Evidence Boundary, Transition, Reliance, Interoperability, Simulation, and Commercial.
+
+These are different axes.
+
+A reviewer-facing proof artifact may exercise one or more functional surfaces, but audience routing does not define Fork's internal modular architecture.
+
+See:
+
+- `docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md`
+- `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
+- `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
+<!-- FORK-MODULAR-SURFACE-RECONCILIATION:END -->

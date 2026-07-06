@@ -83,3 +83,17 @@ Do not let a package imply a broader claim than its `CLAIMS_AND_NON_CLAIMS.md` s
 - [docs/commercial/](commercial/) — narrative buyer-facing commercial package for post-v0.1 design-partner and reviewer conversations.
 - [
 elease_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/](../release_packages/FORK_EXECUTIVE_BUYER_PACKET_v0_1/) — formal checksummed executive buyer packet.
+
+<!-- FORK-MODULAR-SURFACE-PUBLIC-INDEX:START -->
+## Modular Surface Package
+
+The Modular Surface package provides the current functional map for Fork's evidence-boundary architecture.
+
+Reviewers should use it to understand how Fork separates Evidence Boundary, Transition, Reliance, Interoperability, Simulation, and Commercial surfaces without transferring authority across them.
+
+Package files:
+
+- `docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md`
+- `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
+- `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
+<!-- FORK-MODULAR-SURFACE-PUBLIC-INDEX:END -->
