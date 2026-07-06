@@ -151,3 +151,13 @@ It explains how existing doctrine, checkers, simulations, review packets, intero
 
 Its governing constraint is preservation without inheritance.
 <!-- FORK-MODULAR-SURFACE-REVIEWER-PATH:END -->
+
+<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:START -->
+## Maturity and Terminology Boundary
+
+Before treating Fork materials as production, compliance, approval, or authority infrastructure, reviewers should read:
+
+- `docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md`
+
+Fork is research-grade and pilot-discovery ready for bounded AI-assisted evidence-boundary workflows. It is not a general production governance platform, compliance engine, runtime control plane, approval system, or authority layer.
+<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->

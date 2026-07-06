@@ -146,3 +146,13 @@ Start here:
 - `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
 - `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
 <!-- FORK-MODULAR-SURFACE-README:END -->
+
+<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:START -->
+## Maturity and Terminology Boundary
+
+Fork is research-grade and pilot-discovery ready for bounded AI-assisted evidence-boundary workflows. It is not a general production governance platform, compliance engine, runtime control plane, approval system, or authority layer.
+
+For terminology guardrails and maturity boundaries, see:
+
+- `docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md`
+<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->

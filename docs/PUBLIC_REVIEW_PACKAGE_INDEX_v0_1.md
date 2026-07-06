@@ -97,3 +97,11 @@ Package files:
 - `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
 - `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
 <!-- FORK-MODULAR-SURFACE-PUBLIC-INDEX:END -->
+
+<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:START -->
+## Maturity and Terminology Boundary
+
+This package defines Fork's current maturity posture and terminology guardrails so reviewers do not confuse evidence-boundary preservation with authority, approval, compliance, correctness, continuation validity, or production governance.
+
+- `docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md`
+<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->
