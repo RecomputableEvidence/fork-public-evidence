@@ -74,6 +74,25 @@ These are different axes.
 
 A reviewer-facing proof artifact may exercise one or more functional surfaces, but audience routing does not define Fork's internal modular architecture.
 
+<!-- FORK-PROOF-SURFACE-TERMINOLOGY:START -->
+## Proof Surface Terminology Reconciliation
+
+The phrase "proof surface" appears historically in two bounded senses inside the Fork repository.
+
+First, in audience-facing surface doctrine, the Proof Surface is a technical-review lane: the schemas, checkers, fixtures, receipts, and verification commands a diligence reviewer can inspect.
+
+Second, in simulation doctrine, the Governance Simulation Proof Surface is a falsifiability mechanism: scenarios that test whether claim boundaries, non-claims, handoff rules, and reliance semantics remain inspectable under recomposition, altered conditions, invalid handoffs, or adversarial interpretation.
+
+Under the modular surface model, these meanings reconcile as follows:
+
+| Historical phrase | Modular-surface mapping | Boundary |
+|---|---|---|
+| Proof Surface as reviewer lane | Reviewer access to Evidence Boundary, Transition, Reliance, Interoperability, and Simulation artifacts through schemas, checkers, fixtures, receipts, and verification commands. | Does not mean proof of correctness, compliance, safety, legal sufficiency, or authority. |
+| Governance Simulation Proof Surface | Primarily maps to the Simulation Surface. | Tests whether boundary failures are inspectable; does not certify real-world correctness or policy sufficiency. |
+
+Accordingly, "proof surface" should be read as bounded structural inspectability, not truth certification or authority.
+<!-- FORK-PROOF-SURFACE-TERMINOLOGY:END -->
+
 ## Surface Doctrine Reconciliation
 
 The earlier Surface Doctrine remains useful as an audience-lane model.
@@ -87,18 +106,27 @@ The important distinction is:
 - Surface Doctrine answers: who is this material for?
 - Modular Surface answers: what functional role does this material play?
 
-## Next Hardening Milestone
+## Surface Interaction Hardening Status
 
-The next natural hardening step is to convert the Surface Interaction Contract into a minimal schema and fixture set.
+The first Surface Interaction Contract hardening pass has now been added.
 
-A small first pass should include:
+Current artifacts include:
 
-1. A valid interaction fixture.
-2. A Rule 1 Evidence Boundary immutability violation.
-3. A Non-Absorption Test failure.
-4. A checker that returns structural outcomes only.
+- `schemas/surface_interaction_v0_1.schema.json`
+- `tools/check_surface_interaction_v0_1.py`
+- A valid reliance-to-evidence-boundary fixture.
+- A boundary-mutation invalid fixture.
+- A semantic-adoption invalid fixture.
+- An authority-absorption invalid fixture.
+- `tests/test_surface_interaction_v0_1.py`
+- `.github/workflows/surface-interaction-v0-1.yml`
 
-This should remain bounded. The checker should not produce truth, approval, compliance, safety, admissibility, legal sufficiency, or authority outcomes.
+The remaining hardening work is narrower:
+
+- Expand fixture coverage across additional surface pairs.
+- Keep each invalid fixture focused on a single failure mode unless a fixture is explicitly testing multi-trigger precedence.
+- Keep the checker outcome bounded to structural inspectability and non-absorption failures.
+- Continue syncing this crosswalk when checker coverage changes.
 
 ## Status Boundary
 

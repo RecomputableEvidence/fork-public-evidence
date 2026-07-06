@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Fork has matured from a bounded proof surface into modular evidence-boundary infrastructure.
+Fork has matured from a bounded technical proof-surface package into modular evidence-boundary infrastructure.
 
 Its surfaces are separable so each can be inspected, tested, and integrated without transferring authority across them.
 

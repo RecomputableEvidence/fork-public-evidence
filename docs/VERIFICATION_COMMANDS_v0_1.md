@@ -104,3 +104,40 @@ They do not establish:
 - institutional authority;
 - independent third-party verification;
 - commercial pilot readiness.
+
+<!-- FORK-SURFACE-INTERACTION-VERIFY:START -->
+## Surface Interaction Contract v0.1
+
+Run the Surface Interaction Contract checker against the valid fixture:
+
+```powershell
+python .\tools\check_surface_interaction_v0_1.py `
+  .\examples\surface-interaction\valid\valid_reliance_references_evidence_boundary_v0_1.json
+```
+
+Expected outcome:
+
+```text
+SURFACE_INTERACTION_CONFORMS
+```
+
+Run the checker against the invalid fixtures with expected-invalid handling:
+
+```powershell
+python .\tools\check_surface_interaction_v0_1.py `
+  .\examples\surface-interaction\invalid\invalid_evidence_boundary_mutation_attempt_v0_1.json `
+  .\examples\surface-interaction\invalid\invalid_interop_semantic_adoption_attempt_v0_1.json `
+  .\examples\surface-interaction\invalid\invalid_authority_absorption_attempt_v0_1.json `
+  --expect-invalid
+```
+
+Expected outcomes include:
+
+```text
+SURFACE_INTERACTION_NOT_INSPECTABLE
+SEMANTIC_ADOPTION_ATTEMPTED
+AUTHORITY_ABSORPTION_ATTEMPTED
+```
+
+The checker remains bounded to structural inspectability and non-absorption outcomes. It does not establish truth, correctness, compliance, safety, legal sufficiency, or authority.
+<!-- FORK-SURFACE-INTERACTION-VERIFY:END -->

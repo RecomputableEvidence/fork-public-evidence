@@ -1,0 +1,49 @@
+name: Surface Interaction v0.1
+
+on:
+  push:
+    paths:
+      - "schemas/surface_interaction_v0_1.schema.json"
+      - "tools/check_surface_interaction_v0_1.py"
+      - "examples/surface-interaction/**"
+      - "tests/test_surface_interaction_v0_1.py"
+      - ".github/workflows/surface-interaction-v0-1.yml"
+  pull_request:
+    paths:
+      - "schemas/surface_interaction_v0_1.schema.json"
+      - "tools/check_surface_interaction_v0_1.py"
+      - "examples/surface-interaction/**"
+      - "tests/test_surface_interaction_v0_1.py"
+      - ".github/workflows/surface-interaction-v0-1.yml"
+
+jobs:
+  surface-interaction:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install pytest
+        run: python -m pip install pytest
+
+      - name: Run Surface Interaction valid fixture
+        run: |
+          python tools/check_surface_interaction_v0_1.py \
+            examples/surface-interaction/valid/valid_reliance_references_evidence_boundary_v0_1.json
+
+      - name: Run Surface Interaction invalid fixtures
+        run: |
+          python tools/check_surface_interaction_v0_1.py \
+            examples/surface-interaction/invalid/invalid_evidence_boundary_mutation_attempt_v0_1.json \
+            examples/surface-interaction/invalid/invalid_interop_semantic_adoption_attempt_v0_1.json \
+            examples/surface-interaction/invalid/invalid_authority_absorption_attempt_v0_1.json \
+            --expect-invalid
+
+      - name: Run Surface Interaction pytest coverage
+        run: python -m pytest tests/test_surface_interaction_v0_1.py -q

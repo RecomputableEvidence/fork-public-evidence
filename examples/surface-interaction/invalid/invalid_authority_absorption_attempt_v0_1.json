@@ -1,14 +1,14 @@
 {
   "surface_interaction_contract_version": "v0.1",
-  "interaction_id": "surface-interaction-invalid-interop-semantic-adoption-v0-1",
-  "description": "Invalid Interoperability Surface interaction: attempts to adopt an external assertion as Fork-native semantics without borrowing authority.",
+  "interaction_id": "surface-interaction-invalid-authority-absorption-v0-1",
+  "description": "Invalid Interoperability Surface interaction: attempts to import external authority into Fork's evidence-boundary surface without semantic adoption.",
   "source_surface": "INTEROPERABILITY_SURFACE",
   "target_surface": "EXTERNAL_ARTIFACT:SCQOS/admission-record/example",
   "reference_type": "EXTERNAL_ARTIFACT_REFERENCE",
   "permitted_operations": [
     "REFERENCE",
     "PRESERVE_CONTEXT",
-    "ADOPT_EXTERNAL_ASSERTION"
+    "IMPORT_EXTERNAL_AUTHORITY"
   ],
   "prohibited_operations": [
     "ASSIGN_TRUTH_VALUE",
@@ -16,10 +16,10 @@
     "ASSERT_ADMISSIBILITY",
     "EXPAND_VERIFICATION_SCOPE"
   ],
-  "authority_effect": "NO_AUTHORITY_TRANSFER",
-  "semantic_effect": "SEMANTIC_ADOPTION_ATTEMPTED",
+  "authority_effect": "AUTHORITY_BORROWING_ATTEMPTED",
+  "semantic_effect": "REFERENCE_ONLY",
   "verification_effect": "NO_NEW_VERIFICATION",
-  "declared_outcome": "SEMANTIC_ADOPTION_ATTEMPTED",
+  "declared_outcome": "AUTHORITY_ABSORPTION_ATTEMPTED",
   "evidence_refs": [
     "docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md",
     "docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md"
@@ -27,6 +27,6 @@
   "limitations": [
     "Invalid fixture intentionally attempts semantic adoption of an external artifact.",
     "Fork may reference external artifacts but may not internalize them as Fork-native truth or authority.",
-    "Fixture intentionally isolates semantic adoption from authority absorption."
+    "Fixture intentionally isolates authority absorption from semantic adoption."
   ]
 }
