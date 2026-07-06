@@ -1,0 +1,32 @@
+{
+  "surface_interaction_contract_version": "v0.1",
+  "interaction_id": "surface-interaction-invalid-interop-semantic-adoption-attempt-v0-1",
+  "description": "Interoperability Surface attempts to adopt an external artifact as Fork-native truth or authority.",
+  "source_surface": "INTEROPERABILITY_SURFACE",
+  "target_surface": "EXTERNAL_ARTIFACT:SCQOS/admission-record/example",
+  "reference_type": "EXTERNAL_ARTIFACT_REFERENCE",
+  "permitted_operations": [
+    "REFERENCE",
+    "BIND_EXTERNAL_REFERENCE",
+    "ADOPT_EXTERNAL_ASSERTION",
+    "IMPORT_EXTERNAL_AUTHORITY"
+  ],
+  "prohibited_operations": [
+    "ASSIGN_TRUTH_VALUE",
+    "ASSERT_APPROVAL",
+    "ASSERT_ADMISSIBILITY",
+    "EXPAND_VERIFICATION_SCOPE"
+  ],
+  "authority_effect": "AUTHORITY_BORROWING_ATTEMPTED",
+  "semantic_effect": "SEMANTIC_ADOPTION_ATTEMPTED",
+  "verification_effect": "NO_NEW_VERIFICATION",
+  "declared_outcome": "SEMANTIC_ADOPTION_ATTEMPTED",
+  "evidence_refs": [
+    "docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md",
+    "docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md"
+  ],
+  "limitations": [
+    "Invalid fixture intentionally attempts semantic adoption of an external artifact.",
+    "Fork may reference external artifacts but may not internalize them as Fork-native truth or authority."
+  ]
+}

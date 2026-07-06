@@ -1,0 +1,32 @@
+{
+  "surface_interaction_contract_version": "v0.1",
+  "interaction_id": "surface-interaction-valid-reliance-references-evidence-boundary-v0-1",
+  "description": "Reliance Surface references an Evidence Boundary record without mutating the boundary, reinterpreting semantics, or expanding verification scope.",
+  "source_surface": "RELIANCE_SURFACE",
+  "target_surface": "EVIDENCE_BOUNDARY_SURFACE",
+  "reference_type": "BOUNDARY_REFERENCE",
+  "permitted_operations": [
+    "REFERENCE",
+    "PRESERVE_CONTEXT"
+  ],
+  "prohibited_operations": [
+    "MUTATE_BOUNDARY",
+    "REINTERPRET_SEMANTICS",
+    "EXPAND_VERIFICATION_SCOPE",
+    "ASSERT_APPROVAL",
+    "ASSERT_COMPLIANCE",
+    "ASSIGN_TRUTH_VALUE"
+  ],
+  "authority_effect": "NO_AUTHORITY_TRANSFER",
+  "semantic_effect": "REFERENCE_ONLY",
+  "verification_effect": "NO_NEW_VERIFICATION",
+  "declared_outcome": "SURFACE_INTERACTION_CONFORMS",
+  "evidence_refs": [
+    "docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md",
+    "docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md"
+  ],
+  "limitations": [
+    "This record verifies only declared surface-interaction structure.",
+    "This record does not establish approval, compliance, truth, admissibility, legal sufficiency, safety, or authority."
+  ]
+}

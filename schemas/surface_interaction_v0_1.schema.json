@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RecomputableEvidence/fork-public-evidence/schemas/surface_interaction_v0_1.schema.json",
+  "title": "Fork Surface Interaction Contract Record v0.1",
+  "description": "Structural record for interactions among Fork modular surfaces. The schema records declared surface references, permitted/prohibited operations, authority effect, semantic effect, verification effect, and expected checker outcome. It does not establish truth, approval, compliance, admissibility, legal sufficiency, safety, or institutional authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "surface_interaction_contract_version",
+    "interaction_id",
+    "source_surface",
+    "target_surface",
+    "reference_type",
+    "permitted_operations",
+    "prohibited_operations",
+    "authority_effect",
+    "semantic_effect",
+    "verification_effect",
+    "declared_outcome",
+    "evidence_refs",
+    "limitations"
+  ],
+  "properties": {
+    "surface_interaction_contract_version": {
+      "type": "string",
+      "const": "v0.1"
+    },
+    "interaction_id": {
+      "type": "string",
+      "pattern": "^surface-interaction-[A-Za-z0-9._:-]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_surface": {
+      "$ref": "#/$defs/surface_id"
+    },
+    "target_surface": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/surface_id"
+        },
+        {
+          "$ref": "#/$defs/external_target_id"
+        }
+      ]
+    },
+    "reference_type": {
+      "type": "string",
+      "enum": [
+        "BOUNDARY_REFERENCE",
+        "TRANSITION_REFERENCE",
+        "RELIANCE_REFERENCE",
+        "EXTERNAL_ARTIFACT_REFERENCE",
+        "SIMULATION_REFERENCE",
+        "COMMERCIAL_COMPOSITION_REFERENCE"
+      ]
+    },
+    "permitted_operations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/operation_id"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "prohibited_operations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/operation_id"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "authority_effect": {
+      "$ref": "#/$defs/authority_effect"
+    },
+    "semantic_effect": {
+      "$ref": "#/$defs/semantic_effect"
+    },
+    "verification_effect": {
+      "$ref": "#/$defs/verification_effect"
+    },
+    "declared_outcome": {
+      "$ref": "#/$defs/checker_outcome"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "surface_id": {
+      "type": "string",
+      "enum": [
+        "EVIDENCE_BOUNDARY_SURFACE",
+        "TRANSITION_SURFACE",
+        "RELIANCE_SURFACE",
+        "INTEROPERABILITY_SURFACE",
+        "SIMULATION_SURFACE",
+        "COMMERCIAL_SURFACE"
+      ]
+    },
+    "external_target_id": {
+      "type": "string",
+      "pattern": "^EXTERNAL_ARTIFACT:[A-Za-z0-9._:/#-]+$"
+    },
+    "operation_id": {
+      "type": "string",
+      "enum": [
+        "REFERENCE",
+        "PRESERVE_CONTEXT",
+        "COMPARE_BOUNDARY_STATE",
+        "RECONSTRUCT",
+        "COMPOSE_FOR_REVIEW",
+        "BIND_EXTERNAL_REFERENCE",
+        "MUTATE_BOUNDARY",
+        "REINTERPRET_SEMANTICS",
+        "EXPAND_VERIFICATION_SCOPE",
+        "ASSIGN_TRUTH_VALUE",
+        "ASSERT_APPROVAL",
+        "ASSERT_COMPLIANCE",
+        "ASSERT_ADMISSIBILITY",
+        "ASSERT_LEGAL_SUFFICIENCY",
+        "ASSERT_SAFETY",
+        "IMPORT_EXTERNAL_AUTHORITY",
+        "ADOPT_EXTERNAL_ASSERTION",
+        "DROP_NON_CLAIMS",
+        "DROP_LIMITATIONS",
+        "RETROACTIVE_AUTHORIZATION"
+      ]
+    },
+    "authority_effect": {
+      "type": "string",
+      "enum": [
+        "NO_AUTHORITY_TRANSFER",
+        "AUTHORITY_REFERENCE_ONLY",
+        "AUTHORITY_EXPANSION_ATTEMPTED",
+        "AUTHORITY_BORROWING_ATTEMPTED",
+        "AUTHORITY_EFFECT_UNRESOLVED"
+      ]
+    },
+    "semantic_effect": {
+      "type": "string",
+      "enum": [
+        "REFERENCE_ONLY",
+        "PRESERVATION_ONLY",
+        "DELTA_INSPECTION_ONLY",
+        "RECONSTRUCTION_ONLY",
+        "WORKFLOW_COMPOSITION_ONLY",
+        "SEMANTIC_ADOPTION_ATTEMPTED",
+        "SEMANTIC_EXPANSION_ATTEMPTED",
+        "SEMANTIC_COMPRESSION_DETECTED"
+      ]
+    },
+    "verification_effect": {
+      "type": "string",
+      "enum": [
+        "NO_NEW_VERIFICATION",
+        "STRUCTURAL_VERIFICATION_ONLY",
+        "VERIFICATION_SCOPE_REFERENCED",
+        "VERIFICATION_SCOPE_EXPANSION_ATTEMPTED",
+        "TRUTH_VERIFICATION_ATTEMPTED",
+        "COMPLIANCE_VERIFICATION_ATTEMPTED",
+        "APPROVAL_VERIFICATION_ATTEMPTED"
+      ]
+    },
+    "checker_outcome": {
+      "type": "string",
+      "enum": [
+        "SURFACE_INTERACTION_RECORDED",
+        "SURFACE_INTERACTION_CONFORMS",
+        "SURFACE_INTERACTION_NOT_INSPECTABLE",
+        "AUTHORITY_ABSORPTION_ATTEMPTED",
+        "SEMANTIC_ADOPTION_ATTEMPTED",
+        "VERIFICATION_SCOPE_EXPANSION_ATTEMPTED",
+        "COMMERCIAL_SURFACE_EXPANSION_ATTEMPTED",
+        "NON_CLAIM_COMPRESSION_DETECTED"
+      ]
+    }
+  }
+}
