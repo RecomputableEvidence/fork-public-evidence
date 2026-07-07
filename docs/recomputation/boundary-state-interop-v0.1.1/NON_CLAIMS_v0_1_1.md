@@ -1,4 +1,4 @@
-# Non-Claims â€” Human Recomputation Sandbox v0.1.1
+# Non-Claims — Human Recomputation Sandbox v0.1.1
 
 This sandbox does not establish:
 

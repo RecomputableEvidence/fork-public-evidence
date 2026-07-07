@@ -1,4 +1,4 @@
-# Human Recomputation Sandbox â€” Boundary-State Interop v0.1.1
+# Human Recomputation Sandbox — Boundary-State Interop v0.1.1
 
 This sandbox invites human reviewers to independently inspect, run, annotate, and recompute the Boundary-State Interoperability v0.1.1 evidence package without inheriting authority from the original verifier, the packaged receipts, or Fork's public repository.
 

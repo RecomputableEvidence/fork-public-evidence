@@ -1,4 +1,4 @@
-# Candidate Regression Payloads â€” Boundary-State Interop v0.1.1
+# Candidate Regression Payloads — Boundary-State Interop v0.1.1
 
 These payloads are human-review candidates derived from the exterior verification report. They are intentionally separated from the shipped v0.1.1 regression suite.
 
