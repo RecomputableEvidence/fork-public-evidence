@@ -6,11 +6,11 @@ This note files the exterior report's Q5/Q6 findings as triage candidates rather
 
 The exterior report describes five schema-valid paraphrases that were accepted by the unmodified checker while carrying reliance/no-further-review semantics to a human reader:
 
-1. 	humbsup_asfinal
+1. thumbsup_asfinal
 2. checkpoint_noholdback
 3. comfortable_asis
 4. shipit_nonotes
-5. ar_met
+5. bar_met
 
 These should be reviewed as possible future regression payloads.
 
@@ -19,9 +19,9 @@ These should be reviewed as possible future regression payloads.
 The exterior report describes four schema-valid benign technical metadata sentences that were rejected because trigger words appeared in unrelated technical senses:
 
 1. JSON-schema compliant.
-2. URI uthority component.
+2. URI authority component.
 3. Syntactically correct JSON.
-4. Boolean 	rue flag.
+4. Boolean true flag.
 
 These should be reviewed as possible precision tests before broadening free-text semantic linting.
 

@@ -4,9 +4,11 @@ These payloads are human-review candidates derived from the exterior verificatio
 
 ## Categories
 
-- ypass-candidates/: schema-valid paraphrases that should be treated as semantic expansion attempts but are expected to be accepted by the unmodified v0.1.1 checker.
-- alse-positive-candidates/: schema-valid benign technical metadata that should be accepted but is expected to be rejected by the unmodified v0.1.1 checker.
+- `bypass-candidates/`: schema-valid paraphrases that the current checker accepts, but which may carry reliance/no-further-review semantics to a human reader.
+- `false-positive-candidates/`: schema-valid benign technical metadata sentences that the current checker rejects because trigger words appear in unrelated technical senses.
 
-## Review posture
+## Status
 
-These files are not normative profile changes and should not be wired into required CI until triaged. They preserve human-reviewable cases for reviewer recomputation and patch discussion.
+These files are triage candidates, not normative conformance fixtures.
+
+They should not be wired into required CI until the project decides whether the intended checker posture is strict phrase-list linting, context-scoped linting, or explicitly best-effort semantic linting.
