@@ -1,0 +1,171 @@
+{
+    "artifact_kind":  "boundary_state_handoff_fixture",
+    "profile_revision":  "v0.1.4",
+    "handoff_profile":  "RUNTIME_ATTESTATION_TO_EVIDENCE_BOUNDARY_HANDOFF_PROFILE_v0_1_4",
+    "source_role_class":  "RUNTIME_ATTESTATION_LAYER",
+    "target_role_class":  "EVIDENCE_BOUNDARY_LAYER",
+    "semantic_class_table_ref":  "SEMANTIC_CLASS_TABLE_v0_1_4",
+    "free_text_policy":  {
+                             "template_bound_fields":  [
+                                                           "source_claims.statement",
+                                                           "source_non_claims.statement",
+                                                           "downstream_claims.statement",
+                                                           "expected_checker_result.violations.details",
+                                                           "consumer_declared_use_statement"
+                                                       ],
+                             "consumer_supplied_free_text_fields":  [
+
+                                                                    ],
+                             "disallowed_free_text_fields_in_v0_1":  [
+                                                                         "consumer_notes",
+                                                                         "label",
+                                                                         "status_text",
+                                                                         "description"
+                                                                     ]
+                         },
+    "source_artifact_refs":  [
+                                 {
+                                     "artifact_ref":  "artifact://example-output",
+                                     "artifact_hash":  "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+                                     "attestation_timestamp":  "2026-07-06T00:00:00Z",
+                                     "signature_ref":  "sig://example-signature",
+                                     "seal_ref":  "seal://example-seal"
+                                 }
+                             ],
+    "source_claims":  [
+                          {
+                              "claim_id":  "claim.artifact_existed_at_time",
+                              "claim_type":  "ARTIFACT_EXISTENCE",
+                              "statement":  "Template-bound rendering of ARTIFACT_EXISTENCE.",
+                              "verification_scope":  "HASH_TIMESTAMP_SIGNATURE_BINDING_ONLY"
+                          },
+                          {
+                              "claim_id":  "claim.artifact_integrity_binding",
+                              "claim_type":  "ARTIFACT_INTEGRITY_BINDING",
+                              "statement":  "Template-bound rendering of ARTIFACT_INTEGRITY_BINDING.",
+                              "verification_scope":  "HASH_BINDING_ONLY"
+                          }
+                      ],
+    "source_non_claims":  [
+                              {
+                                  "non_claim_id":  "nonclaim.truth",
+                                  "non_claim_type":  "TRUTH_NOT_ESTABLISHED",
+                                  "statement":  "Template-bound rendering of TRUTH_NOT_ESTABLISHED."
+                              },
+                              {
+                                  "non_claim_id":  "nonclaim.correctness",
+                                  "non_claim_type":  "CORRECTNESS_NOT_ESTABLISHED",
+                                  "statement":  "Template-bound rendering of CORRECTNESS_NOT_ESTABLISHED."
+                              },
+                              {
+                                  "non_claim_id":  "nonclaim.compliance",
+                                  "non_claim_type":  "COMPLIANCE_NOT_ESTABLISHED",
+                                  "statement":  "Template-bound rendering of COMPLIANCE_NOT_ESTABLISHED."
+                              },
+                              {
+                                  "non_claim_id":  "nonclaim.authority",
+                                  "non_claim_type":  "AUTHORITY_NOT_TRANSFERRED",
+                                  "statement":  "Template-bound rendering of AUTHORITY_NOT_TRANSFERRED."
+                              },
+                              {
+                                  "non_claim_id":  "nonclaim.reliance_sufficiency",
+                                  "non_claim_type":  "RELIANCE_SUFFICIENCY_NOT_ESTABLISHED",
+                                  "statement":  "Template-bound rendering of RELIANCE_SUFFICIENCY_NOT_ESTABLISHED."
+                              }
+                          ],
+    "prohibited_inferences":  [
+                                  "ATTESTATION_IMPLIES_AUTHORITY",
+                                  "ATTESTATION_IMPLIES_COMPLIANCE",
+                                  "ATTESTATION_IMPLIES_CORRECTNESS",
+                                  "ATTESTATION_IMPLIES_RELIANCE_SUFFICIENCY",
+                                  "ATTESTATION_IMPLIES_TRUTH",
+                                  "HASH_IMPLIES_COMPLIANCE",
+                                  "HASH_IMPLIES_RELIANCE_READY",
+                                  "HASH_IMPLIES_TRUTH",
+                                  "SEAL_IMPLIES_APPROVAL",
+                                  "SEAL_IMPLIES_COMPLIANCE",
+                                  "SEAL_IMPLIES_RELIANCE_READY",
+                                  "SIGNATURE_IMPLIES_APPROVAL",
+                                  "SIGNATURE_IMPLIES_COMPLIANCE",
+                                  "SIGNATURE_IMPLIES_CORRECTNESS",
+                                  "SIGNATURE_IMPLIES_RELIANCE_READY",
+                                  "TIMESTAMP_IMPLIES_AUTHORITY",
+                                  "TIMESTAMP_IMPLIES_COMPLIANCE"
+                              ],
+    "downstream_use_constraints":  [
+                                       "May reference attestation as artifact-existence evidence.",
+                                       "May reference hash as artifact-integrity binding.",
+                                       "Must not use attestation as truth evidence.",
+                                       "Must not use attestation as correctness evidence.",
+                                       "Must not use attestation as compliance evidence.",
+                                       "Must not use attestation as authority evidence.",
+                                       "Must not use attestation as approval evidence.",
+                                       "Must not use attestation as readiness evidence.",
+                                       "Must not use attestation as reliance-sufficiency evidence."
+                                   ],
+    "enabled_extension_namespaces":  [
+                                         {
+                                             "namespace":  "x-review",
+                                             "status":  "non_normative_compatibility_extension",
+                                             "allowed_fields":  [
+                                                                    {
+                                                                        "field_name":  "review_note",
+                                                                        "field_type":  "string",
+                                                                        "operative":  false,
+                                                                        "lint_as_consumer_supplied_free_text":  true
+                                                                    }
+                                                                ]
+                                         }
+                                     ],
+    "extensions":  {
+                       "x-review":  {
+                                        "review_note":  "Nothing further stands in the way here -- the team gave this a thumbs up and downstream consumers can build on it as final."
+                                    }
+                   },
+    "fixture_type":  "invalid",
+    "handoff_id":  "RWF_HUMAN_ADV_B_thumbsup_asfinal",
+    "declared_boundary_effect":  "REFERENCED_ONLY",
+    "consumer_acknowledgement":  {
+                                     "acknowledged_non_claim_ids":  [
+                                                                        "nonclaim.truth",
+                                                                        "nonclaim.correctness",
+                                                                        "nonclaim.compliance",
+                                                                        "nonclaim.authority",
+                                                                        "nonclaim.reliance_sufficiency"
+                                                                    ],
+                                     "consumer_declared_use_type":  "EXISTENCE_AND_INTEGRITY_EVIDENCE_ONLY",
+                                     "consumer_declared_use_statement":  "Template-bound rendering of EXISTENCE_AND_INTEGRITY_EVIDENCE_ONLY.",
+                                     "consumer_will_not_import_authority":  true,
+                                     "consumer_will_not_expand_verification_scope":  true
+                                 },
+    "downstream_claims":  [
+
+                          ],
+    "downstream_inferences":  [
+
+                              ],
+    "expansion_authority_ref":  null,
+    "new_claim_boundary_ref":  null,
+    "policy_context":  null,
+    "external_evidence_refs":  [
+
+                               ],
+    "downstream_non_claims":  [
+
+                              ],
+    "expected_validation_phase":  "SEMANTIC",
+    "expected_checker_result":  {
+                                    "status":  "HANDOFF_REJECTED",
+                                    "outcome":  "UNDECLARED_EXTENSION_SEMANTIC_EXPANSION_ATTEMPTED",
+                                    "violations":  [
+                                                       {
+                                                           "violation_type":  "NONOPERATIVE_EXTENSION_FIELD_CONTAINS_PROTECTED_SEMANTICS",
+                                                           "details":  "candidate paraphrase -- probing residual bypass class"
+                                                       },
+                                                       {
+                                                           "violation_type":  "UNDECLARED_EXTENSION_SEMANTIC_EXPANSION_ATTEMPTED",
+                                                           "details":  "candidate paraphrase -- probing residual bypass class"
+                                                       }
+                                                   ]
+                                }
+}

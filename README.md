@@ -156,3 +156,13 @@ For terminology guardrails and maturity boundaries, see:
 
 - `docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md`
 <!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->
+
+<!--  -->
+## Human recomputation sandbox â€” Boundary-State Interop v0.1.1
+
+A bounded human recomputation sandbox is available at:
+
+docs/recomputation/boundary-state-interop-v0.1.1/README.md
+
+It files an exterior verification receipt and gives independent reviewers a branch-local way to recompute the v0.1.1 evidence packet without treating the original receipt, checker, or Fork repository as authority.
+<!--  -->
