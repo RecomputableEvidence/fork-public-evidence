@@ -1,0 +1,28 @@
+{
+    "receipt_id":  "EXTERIOR_RECEIPT_FOREIGN_VERIFIER_BOUNDARY_STATE_INTEROP_v0_1_1",
+    "filed_at_utc":  "2026-07-07T18:54:45Z",
+    "receipt_file":  "exterior-receipts/INDEPENDENT_VERIFICATION_REPORT_v0_1_1.md",
+    "receipt_sha256":  "e4f87f102738d398a4857df8a3a02769fd4177fb4596e4a2aec02a21e161f91b",
+    "posture":  "exterior_receipt_not_authority",
+    "verified_claims_reported":  {
+                                     "top_level_sha256_entries":  "87/87 OK per exterior report",
+                                     "canonical_suite":  "18/18 reproduced per exterior report",
+                                     "adversarial_suite":  "15/15 reproduced per exterior report",
+                                     "reviewer_regression_suite":  "1/1 reproduced per exterior report",
+                                     "methodology_probes":  "accept-outcome echo and PYTHONHASHSEED determinism confirmed per exterior report"
+                                 },
+    "triage_findings_reported":  [
+                                     "residual paraphrase bypass candidates",
+                                     "false-positive over-rejection candidates"
+                                 ],
+    "non_claims":  [
+                       "does not establish legal sufficiency",
+                       "does not establish compliance sufficiency",
+                       "does not establish safety",
+                       "does not establish truth or correctness",
+                       "does not establish production readiness",
+                       "does not establish reliance sufficiency",
+                       "does not establish adversarial exhaustiveness",
+                       "does not transfer reviewer authority to Fork"
+                   ]
+}
