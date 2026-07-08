@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 804,
+  "document_id": "WF-TEMPLATE",
+  "document_path": "workflows/ENTERPRISE_COMPOSITION_TEMPLATE.md",
+  "document_sha256": "6f2e8e7c281e2a17c7003275a38349254aa6c032a44a99328ee0a9ea7ded95fc",
+  "handoff_state": "phase4_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_4_workflow",
+  "previous_receipt_sha256": "c9d24ad6d2cc6414dac01ecf3429a1792dd2ffbaa5a006d045db5e447da10305",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0014-WF-TEMPLATE",
+  "receipt_sha256": "bd01ced3e075e9d01f51bff864f6eab228642a48cb0b4377fe2d81df6750f20b",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 14,
+  "summary": "Generated enterprise composition template."
+}

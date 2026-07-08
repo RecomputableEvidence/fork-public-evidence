@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 1987,
+  "document_id": "BC-100-PROFILE-TEMPLATE",
+  "document_path": "BC-100/profile_template.md",
+  "document_sha256": "75e72287c12ecf611dbfb8de5295541dbe7f951863a6c29a94b6003f6bd25b25",
+  "handoff_state": "phase2_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_2_boundary_language",
+  "previous_receipt_sha256": "c29535ee6d02c5dbf3ab8ffca9c6abe2bda30014d5730b1b628d7e536e8b5c95",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0009-PROFILE-TEMPLATE",
+  "receipt_sha256": "b8d96a5580ef7c0c5e37c5a04a046ace7dd2354b25212b7762504fa0092aa6f5",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 9,
+  "summary": "Generated BC-100 profile template."
+}

@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 2612,
+  "document_id": "FHC-VERIFY-v0.1.1",
+  "document_path": "scripts/verify_handoff_chain.py",
+  "document_sha256": "6a326ab56d61ddb565a146bd40e2c8aea085e918711a25e2d3ecda1ea64c4996",
+  "handoff_state": "verifier_updated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_2_reconciliation",
+  "previous_receipt_sha256": "5c47bc985ce4febc2b91f53d5992343ade699744a039ee9924d734f8ff8c89ab",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0018-VERIFIER",
+  "receipt_sha256": "293bd4ebc07004ff2b6cad69568d9820e7dc96be6dd5cdc26f116290faa4f371",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 18,
+  "summary": "Updated handoff chain verifier to verify byte counts and extended chain."
+}

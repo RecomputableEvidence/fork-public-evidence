@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 605,
+  "document_id": "BC-103-TEMPLATE",
+  "document_path": "profiles/BC-103_TEMPLATE.md",
+  "document_sha256": "84001aec8464aff40eaf2456e8ee858b2fcdb4b9bb0738129b2e5513db7fa1cf",
+  "handoff_state": "reserved_template",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_3_profile",
+  "previous_receipt_sha256": "d4bc955a7ab3e3e97d05139f602e64cd67392a9e5b6a5265d1ee1cee29f6b725",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0012-BC-103-TEMPLATE",
+  "receipt_sha256": "872d039198b2c4e7ffd716fc7140624c9a07b181b8e7ea16bd3369a7ff70c5dc",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 12,
+  "summary": "Generated BC-103 reserved template."
+}

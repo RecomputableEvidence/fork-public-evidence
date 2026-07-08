@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 1095,
+  "document_id": "IRC-100",
+  "document_path": "comparative/INTEROPERABILITY_READINESS_CHECKLIST.md",
+  "document_sha256": "3a7d78288e327081eda6128b7a3cae8e376be522abd7afce1079adb02a507375",
+  "handoff_state": "phase5_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_5_review_infrastructure",
+  "previous_receipt_sha256": "c2d1c2d7fca8b517b01e9b94d9da25ee7837c6633cf642297c4fbdd238f0b70f",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0017-IRC-CHECKLIST",
+  "receipt_sha256": "5c47bc985ce4febc2b91f53d5992343ade699744a039ee9924d734f8ff8c89ab",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 17,
+  "summary": "Generated interoperability readiness checklist."
+}

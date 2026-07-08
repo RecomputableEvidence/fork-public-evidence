@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:12:02Z",
+  "document_bytes": null,
+  "document_id": null,
+  "document_path": null,
+  "document_sha256": null,
+  "handoff_state": "chain_genesis",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_1_foundation",
+  "previous_receipt_sha256": null,
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0000-GENESIS",
+  "receipt_sha256": "719cf6bdf91fec4c770d6077a34911a63270f1eba500785cbb3f0f397273378f",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 0,
+  "summary": "Genesis receipt for Phase 1."
+}

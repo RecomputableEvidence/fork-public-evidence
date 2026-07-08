@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 696,
+  "document_id": "PSC-100",
+  "document_path": "comparative/PROOF_SURFACE_COMPARISON_TEMPLATE.md",
+  "document_sha256": "68c7a43551ddc82ad2f63d2b9334927b2a4bfd71d0015967331ac1ed8dd3f4d9",
+  "handoff_state": "phase5_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_5_review_infrastructure",
+  "previous_receipt_sha256": "bd01ced3e075e9d01f51bff864f6eab228642a48cb0b4377fe2d81df6750f20b",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0015-PSC-TEMPLATE",
+  "receipt_sha256": "5489958681c04d483e7d57f47510c8abc82c7bb55532ddfbfe446d45b1c93f9b",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 15,
+  "summary": "Generated proof surface comparison template."
+}

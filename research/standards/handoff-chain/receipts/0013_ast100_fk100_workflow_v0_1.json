@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 2532,
+  "document_id": "WF-101",
+  "document_path": "workflows/AST100_FK100_EXAMPLE_v0_1.md",
+  "document_sha256": "3af23909da26c97f83c4fb8da7b50e28938225ff21f6f339bce2dfc601d0a4d8",
+  "handoff_state": "phase4_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_4_workflow",
+  "previous_receipt_sha256": "872d039198b2c4e7ffd716fc7140624c9a07b181b8e7ea16bd3369a7ff70c5dc",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0013-WF-AST100-FK100",
+  "receipt_sha256": "c9d24ad6d2cc6414dac01ecf3429a1792dd2ffbaa5a006d045db5e447da10305",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 13,
+  "summary": "Generated AST-100 to FK-100 enterprise workflow example."
+}

@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 6359,
+  "document_id": "BC-101",
+  "document_path": "profiles/BC-101_AST100_FK100_PROFILE_v0_1.md",
+  "document_sha256": "934eced8374ccaae8232f4c0363033dfb5e9fbff703299f73856412310833580",
+  "handoff_state": "phase3_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_3_profile",
+  "previous_receipt_sha256": "b8d96a5580ef7c0c5e37c5a04a046ace7dd2354b25212b7762504fa0092aa6f5",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0010-BC-101",
+  "receipt_sha256": "0b0b288a6b23138cd58545866ce59ddf7230564e519e2a5fb9904d81b79f864f",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 10,
+  "summary": "Generated BC-101 AST-100 to FK-100 Profile v0.1."
+}

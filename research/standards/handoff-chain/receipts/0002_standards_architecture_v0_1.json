@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:12:02Z",
+  "document_bytes": 7915,
+  "document_id": "FSA-0.1",
+  "document_path": "FORK_STANDARDS_ARCHITECTURE_v0_1.md",
+  "document_sha256": "ce5ccb49dd6a536a4cd490474e07b09d49fcd37a495033e7f5e921071ead0cb8",
+  "handoff_state": "phase1_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_1_foundation",
+  "previous_receipt_sha256": "c23b200d2da76577d5686049176ccc5d47460872dfdbbe00de1dfd4c40dab59c",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0002-STANDARDS-ARCHITECTURE",
+  "receipt_sha256": "b2c5c62f53d6d00f105a2203927029588108a78efd66efc4e10e4bc5fd8d969c",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 2,
+  "summary": "Generated Fork Standards Architecture v0.1."
+}

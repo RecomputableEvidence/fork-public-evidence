@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 11071,
+  "document_id": "BC-100",
+  "document_path": "BC-100/BC-100_BOUNDARY_CONTRACT_MODEL_v0_1.md",
+  "document_sha256": "5b0f39c51ccbdf881e347ebc854de7dfe94cc63ffbd95fee680ff874d952d366",
+  "handoff_state": "phase2_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_2_boundary_language",
+  "previous_receipt_sha256": "450e9bb8950efc0208a1bfb1573d490112a9b509435b7a0203fe76fde6be5bd7",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0007-BC-100",
+  "receipt_sha256": "08f2c1d18dfe635ed38950febea6ecbcf278d891f9c9e83881b1440401c4bdf1",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 7,
+  "summary": "Generated BC-100 Boundary Contract Model v0.1."
+}

@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:12:02Z",
+  "document_bytes": 4712,
+  "document_id": "FSPC-0.1",
+  "document_path": "FORK_STANDARDS_PROGRAM_CHARTER_v0_1.md",
+  "document_sha256": "d962908f5d8ff7bf5a8ee20e0d3ad0c53ab50a748fb9ac3f845805b4a421aeb8",
+  "handoff_state": "phase1_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_1_foundation",
+  "previous_receipt_sha256": "719cf6bdf91fec4c770d6077a34911a63270f1eba500785cbb3f0f397273378f",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0001-PROGRAM-CHARTER",
+  "receipt_sha256": "c23b200d2da76577d5686049176ccc5d47460872dfdbbe00de1dfd4c40dab59c",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 1,
+  "summary": "Generated Fork Standards Program Charter v0.1."
+}
