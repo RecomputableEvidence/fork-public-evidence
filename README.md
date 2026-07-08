@@ -166,3 +166,35 @@ docs/recomputation/boundary-state-interop-v0.1.1/README.md
 
 It files an exterior verification receipt and gives independent reviewers a branch-local way to recompute the v0.1.1 evidence packet without treating the original receipt, checker, or Fork repository as authority.
 <!--  -->
+
+## Exterior Observance Experiment v0.1
+
+Fork is entering an Exterior Observance Experiment v0.1.
+
+The purpose is not endorsement, promotion, validation, production adoption, certification, approval, consensus, or praise.
+
+The purpose is to expose a bounded evidence-boundary experiment to practitioners who can observe, challenge, misunderstand, refine, or pressure-test its surfaces without becoming authority for Fork's claims.
+
+Fork is no longer only asking:
+
+- Can this evidence surface be internally specified and recomputed?
+
+It can now also ask:
+
+- How do exterior observers from different governance positions interpret the surface, its limits, its failure modes, and its adjacent responsibilities?
+
+In this phase:
+
+- the repository is the observance surface;
+- the sandbox is the controlled environment;
+- contributors are exterior observers, not authorities;
+- observations are preserved with scope, limitations, interaction type, and non-endorsement;
+- exterior commentary is not converted into validation, endorsement, or inherited authority.
+
+The current sandbox question is:
+
+> Does the evidence surface continue to preserve distinguishability between structural reproduction, unresolved state, evidentiary sufficiency, authority, and truth-claims under adverse conditions?
+
+Exterior observations are preserved under `docs/exterior-observations/`.
+
+Fork now has enough articulated form to be observed without asking observers to believe in it.
