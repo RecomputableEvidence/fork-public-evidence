@@ -149,3 +149,93 @@ Expected observation: The apparatus identifies the scrubbed version as context l
 Boundary preserved: Non-endorsement is part of the preserved observation context, not optional decoration.
 
 Residual risk: External systems may continue to circulate scrubbed excerpts. The apparatus can preserve and correct the loss but cannot control external redistribution.
+
+## Artifact-Boundary and Access-Interpretation Pressure Cases v0.1.4
+
+These cases extend the v0.1.3 input-integrity cases.
+
+They do not imply endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, compliance conclusion, audit sufficiency, or consensus.
+
+### Case 24: Analyst-Output Excerpting
+
+**Setup:**
+
+An LLM-generated exterior observance review is quoted downstream without its non-endorsement statement and is framed as evidence that an AI reviewer validated Fork.
+
+**Expected observation:**
+
+The apparatus must preserve the analyst output as a bounded exterior observation only.
+
+Participation by an analyst, LLM, reviewer, or observer does not imply validation, endorsement, certification, approval, compliance sufficiency, legal sufficiency, audit sufficiency, production readiness, or consensus.
+
+### Case 25: Divergent or Contradictory Coding
+
+**Setup:**
+
+Two observers review the same artifact and assign conflicting classifications.
+
+One observer codes a passage as EVIDENCE_AUTHORITY_DISTINCTION.
+
+Another observer codes the same passage as MISUNDERSTANDING_SIGNAL.
+
+**Expected observation:**
+
+The apparatus must preserve divergent coding as disagreement or classification variance.
+
+It must not collapse disagreement into consensus.
+
+It must not treat either code as authoritative without further bounded analysis.
+
+### Case 26: Coding Volume Misread as Audit Rigor
+
+**Setup:**
+
+A downstream summary states that because many observations were coded, the apparatus has undergone extensive audit or validation.
+
+**Expected observation:**
+
+The apparatus must distinguish coded observation volume from audit rigor, validation, certification, approval, legal sufficiency, compliance sufficiency, production readiness, or consensus.
+
+Observation volume is not audit rigor.
+
+Coding volume is not validation.
+
+### Case 27: Synthesis Boundary Violation
+
+**Setup:**
+
+A synthesis artifact is exported or quoted without non-endorsement language at the top and bottom.
+
+**Expected observation:**
+
+The apparatus must flag the missing boundary as synthesis context loss.
+
+The synthesis must not be treated as complete or safely reusable until the boundary is restored.
+
+### Case 28: Packet Inclusion Misread as Sufficiency
+
+**Setup:**
+
+A downstream reader treats inclusion of an artifact in a plaintext packet as proof that the artifact is sufficient for compliance, legal, production-readiness, certification, approval, validation, or endorsement conclusions.
+
+**Expected observation:**
+
+The apparatus must preserve the distinction between apparatus relevance and external sufficiency.
+
+Packet inclusion indicates relevance to the observance apparatus only.
+
+It does not imply sufficiency for any external determination.
+
+### Case 29: Source Contamination After Failed Retrieval
+
+**Setup:**
+
+An observer fails to retrieve the requested packet or linked source but proceeds to provide generic governance analysis, unrelated citations, inferred claims, or design recommendations as though a source-grounded review occurred.
+
+**Expected observation:**
+
+The apparatus must classify this as source contamination after failed retrieval or conceptual-only analysis.
+
+The response may be preserved as a pressure signal.
+
+It must not be treated as packet review, source-grounded review, validation, endorsement, approval, compliance sufficiency, legal sufficiency, audit sufficiency, production-readiness evidence, or consensus.
