@@ -58,3 +58,13 @@ Keep SIEM, logging, GRC, compliance, detection, telemetry, and security-control 
 This sweep is intended to reduce buyer misclassification risk.
 
 It does not establish compliance, non-compliance, legal sufficiency, legal insufficiency, admissibility, inadmissibility, security sufficiency, production readiness, or control effectiveness.
+
+## Round 003 CISO exception guidance
+
+Do not qualify the core CISO / security denial with trailing exception language.
+
+Preferred buyer-facing sentence:
+
+Fork does not integrate with, replace, operate, or evaluate SIEM, logging, GRC, compliance, detection, telemetry, or security-control systems.
+
+Any future integration, adapter, export, or customer-specific implementation would require a separate artifact, separate review, and separate claims. It should not be implied by the Buyer Quick Start.

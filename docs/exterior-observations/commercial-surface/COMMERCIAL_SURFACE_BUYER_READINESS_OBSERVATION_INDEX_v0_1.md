@@ -31,3 +31,10 @@ Both exterior commercial-surface reviews converged on the same high-level postur
 These exterior reviews may be cited only as evidence that external systems/readers identified buyer-facing clarity issues and suggested bounded commercial-surface improvements.
 
 They must not be cited as proof that Fork is ready for production, legally sufficient, compliant, secure, endorsed, certified, validated, approved, or procurement-ready.
+
+## Buyer Quick Start review rounds
+
+- [Buyer Quick Start Review Round 002 Summary v0.1](BUYER_QUICK_START_REVIEW_ROUND_002_SUMMARY_v0_1.md)
+- [Buyer Quick Start Review Round 003 Summary v0.1](BUYER_QUICK_START_REVIEW_ROUND_003_SUMMARY_v0_1.md)
+
+Review round summaries are exterior observations only. Each review round must stand on its own direct read of the pinned commit it claims to review. A later summary must not inherit evidentiary weight from an earlier summary.

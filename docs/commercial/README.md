@@ -41,7 +41,7 @@ Fork does not assess the quality, correctness, reasonableness, or sufficiency of
 
 Security leadership may use Fork to reconstruct the context around AI-assisted artifacts that were referenced during investigations, postmortems, risk reviews, or control-design discussions.
 
-Fork does not integrate with, replace, operate, or evaluate SIEM, logging, GRC, compliance, detection, telemetry, or security-control systems unless separately implemented outside this buyer-facing posture.
+Fork does not integrate with, replace, operate, or evaluate SIEM, logging, GRC, compliance, detection, telemetry, or security-control systems.
 
 ## Legal-scope distinction
 
