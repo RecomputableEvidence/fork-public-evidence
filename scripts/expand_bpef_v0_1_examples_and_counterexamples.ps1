@@ -1,117 +1,84 @@
-# BPEF v0.1 — Boundary Pressure Evaluation Framework
+# scripts/expand_bpef_v0_1_examples_and_counterexamples.ps1
+# Expands BPEF v0.1 Sections 6-8 with concrete minimal failing examples,
+# non-failing counterexamples, and cross-class pressure cases.
+# PowerShell 5.1 compatible. Writes UTF-8 without BOM and LF line endings.
 
-## 1. Purpose
+param(
+    [switch]$Commit,
+    [switch]$Push
+)
 
-BPEF, the Boundary Pressure Evaluation Framework, evaluates whether an evidence-preserving architecture continues to preserve distinguishable boundaries under pressure.
+$ErrorActionPreference = "Stop"
+$Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
-The primary research question for BPEF v0.1 is:
+function Assert-RepoRoot {
+    if (-not (Test-Path ".git")) {
+        throw "Run this script from the fork-public-evidence repository root."
+    }
+}
 
-> Under what conditions can independent reviewers no longer reliably distinguish preserved evidence, preserved boundaries, and external interpretation?
+function Read-Utf8 {
+    param([Parameter(Mandatory = $true)][string]$Path)
 
-BPEF is intended to support empirical evaluation of boundary preservation. It is not intended to expand the authority of the evidence layer.
+    $full = [System.IO.Path]::GetFullPath($Path)
+    if (-not (Test-Path $full)) {
+        throw "Missing file: $Path"
+    }
 
-## 2. Non-Claims
+    return [System.IO.File]::ReadAllText($full, $Utf8NoBom)
+}
 
-BPEF does not determine whether an execution, workflow, artifact, or decision was:
+function Write-Utf8Lf {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$Content
+    )
 
-- lawful;
-- compliant;
-- legitimate;
-- safe;
-- correct;
-- authorized;
-- approved;
-- admissible;
-- production-ready; or
-- sufficient for any legal, regulatory, operational, or procurement purpose.
+    $full = [System.IO.Path]::GetFullPath($Path)
+    $dir = Split-Path -Parent $full
 
-BPEF evaluates whether the evidence and boundaries needed for later independent inspection remain distinguishable.
+    if ($dir -and -not (Test-Path $dir)) {
+        New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    }
 
-A BPEF result is not an endorsement, certification, compliance determination, legal conclusion, safety finding, or production-readiness assessment.
+    $normalized = $Content -replace "`r`n", "`n"
+    [System.IO.File]::WriteAllText($full, $normalized, $Utf8NoBom)
+}
 
-## 3. Responsibility Boundary
+function Assert-Contains {
+    param(
+        [Parameter(Mandatory = $true)][string]$Text,
+        [Parameter(Mandatory = $true)][string]$Needle,
+        [Parameter(Mandatory = $true)][string]$Message
+    )
 
-BPEF preserves a strict separation between pressure and responsibility.
+    if (-not $Text.Contains($Needle)) {
+        throw $Message
+    }
+}
 
-The fact that a pressure case reveals authorization, governance, compliance, or legitimacy risk does not mean the evidence layer is responsible for resolving that risk.
+Assert-RepoRoot
 
-Canonical responsibility boundary:
+$docPath = "docs/research/BPEF_BOUNDARY_PRESSURE_EVALUATION_FRAMEWORK_v0_1.md"
 
-```text
-Fork / Evidence Layer:
-Preserve → Expose → Enable Independent Verification
+$existing = Read-Utf8 -Path $docPath
 
-Governance / Admission Layer:
-Interpret → Decide → Act
-```
+Assert-Contains `
+    -Text $existing `
+    -Needle "# BPEF v0.1" `
+    -Message "Target file does not appear to be the BPEF v0.1 framework document."
 
-The evidence layer may preserve, expose, and enable independent verification of records.
-The governance or admission layer may interpret evidence, decide whether execution is justified, and act on that decision.
+Assert-Contains `
+    -Text $existing `
+    -Needle "## 6. Minimal Failing Examples" `
+    -Message "Could not find Section 6 heading."
 
-Fork must not absorb responsibility for interpretation, authorization, compliance, approval, renewal, enforcement, or action.
+Assert-Contains `
+    -Text $existing `
+    -Needle "## 9. Evaluation Outcomes" `
+    -Message "Could not find Section 9 heading."
 
-A BPEF boundary failure occurs when an evidence-preserving system either:
-- loses inspectable boundary clarity; or
-- absorbs responsibility for interpretation, authorization, compliance, approval, renewal, enforcement, or action.
-
-## 4. Pressure Classes
-
-BPEF v0.1 defines three primary pressure classes.
-
-- Information Pressure — Can independent reviewers reconstruct what was observable? (Epistemic Fidelity)
-- Structural Pressure — Do evidence, authority, reliance, and interpretation remain distinguishable? (Boundary Integrity)
-- Temporal Pressure — Can historical context still be inspected after time, policy, schema, or authority changes? (Context Inspectability)
-
-## 4.1 Information Pressure
-
-Information pressure tests whether independent reviewers can reconstruct what was actually observable from the preserved record.
-
-Typical examples include:
-- retrieval distortion;
-- incomplete packets;
-- missing referenced artifacts;
-- conflicting available evidence;
-- overread from summaries, receipts, or exterior observations.
-
-The evidence layer may report observability limits.
-The evidence layer must not infer missing authority, reconstruct absent facts as if observed, or upgrade partial access into complete verification.
-
-## 4.2 Structural Pressure
-
-Structural pressure tests whether architectural roles remain distinguishable under stress.
-
-Typical examples include:
-- exterior observations treated as authority;
-- reviewer receipts treated as endorsement;
-- evidence references treated as compliance findings;
-- preserved claims treated as validated truth;
-- downstream reliance expanding upstream authority.
-
-The evidence layer may preserve how a claim, receipt, or observation was used.
-The evidence layer must not convert observation into validation, validation into approval, or evidence into authority.
-
-## 4.3 Temporal Pressure
-
-Temporal pressure tests whether historical context remains inspectable after time passes or surrounding conditions change.
-
-Typical examples include:
-- policy changes after admission;
-- deprecated schemas;
-- authority changes;
-- expired approvals;
-- stale reliance on historical records;
-- unavailable referenced context.
-
-The evidence layer may preserve the historical reference and expose whether the referenced context remains available.
-The evidence layer must not decide whether historical authorization remains valid in the present.
-
-## 5. Supporting Invariants
-
-- Reference Continuity — References remain resolvable or explicitly unresolved.
-- Canonical Identity — Artifacts retain stable identity across recomputation.
-- Deterministic Replay — Equivalent inputs produce the same structural result.
-- Non-Authority Absorption — The evidence layer does not act as authority.
-
+$replacement = @'
 ## 6. Minimal Failing Examples
 
 BPEF v0.1 uses minimal failing examples to make pressure observable without requiring a large harness.
@@ -371,7 +338,7 @@ Real-world failures often arise from interaction between pressure classes.
 
 BPEF v0.1 identifies cross-class pressure cases for later fixture development. These examples are not yet executable fixtures. They define the intended pressure shape for future schema and checker work.
 
-## 8.1 Information Ã— Structural: Partial Retrieval Causes Authority Inference
+## 8.1 Information × Structural: Partial Retrieval Causes Authority Inference
 
 Pressure classes: Information Pressure and Structural Pressure
 Invariants under stress: Epistemic Fidelity / Boundary Integrity / Non-Authority Absorption
@@ -404,7 +371,7 @@ Fork must not decide:
 - That the downstream reliance was justified.
 - That the underlying decision was correct, compliant, lawful, safe, or authorized.
 
-## 8.2 Structural Ã— Temporal: Prior Admission Treated As Continuing Authorization
+## 8.2 Structural × Temporal: Prior Admission Treated As Continuing Authorization
 
 Pressure classes: Structural Pressure and Temporal Pressure
 Invariants under stress: Boundary Integrity / Context Inspectability / Non-Authority Absorption
@@ -437,7 +404,7 @@ Fork must not decide:
 - Whether the workflow should stop or continue.
 - Whether the governance layer should approve, revoke, renew, or constrain execution.
 
-## 8.3 Information Ã— Temporal: Schema Meaning Changes After Preservation
+## 8.3 Information × Temporal: Schema Meaning Changes After Preservation
 
 Pressure classes: Information Pressure and Temporal Pressure
 Invariants under stress: Epistemic Fidelity / Context Inspectability / Reference Continuity
@@ -469,22 +436,44 @@ Fork must not decide:
 - Which schema meaning should control if the reference is unresolved.
 - Whether the artifact remains substantively valid under the later schema.
 - Whether the original decision should be accepted, rejected, renewed, or escalated.
+'@
 
-## 9. Evaluation Outcomes
+# Regex pattern: multi-line (Singleline) from section 6 heading up to before section 9 heading
+$pattern = "(?s)## 6\. Minimal Failing Examples.*?(?=## 9\. Evaluation Outcomes)"
 
-Representative outcomes include:
-- BOUNDARY_PRESERVED
-- REFERENCE_CONTINUITY_FAILURE_RECORDED
-- AUTHORITY_ABSORPTION_ATTEMPT_RECORDED
-- TEMPORAL_CONTEXT_INSPECTABLE
-- TEMPORAL_CONTEXT_INSPECTABILITY_FAILURE_RECORDED
-- OBSERVATION_RECORDED_WITHOUT_AUTHORITY_INHERITANCE
-- INCOMPLETE_OBSERVABILITY_RECORDED
-- DETERMINISTIC_REPLAY_CONFIRMED
-- DETERMINISTIC_REPLAY_DIVERGENCE_RECORDED
+if (-not [regex]::IsMatch($existing, $pattern)) {
+    throw "Could not isolate Sections 6-8 for replacement."
+}
 
-## 10. Future Work
+# Replace once, and append a single blank line before section 9
+$updated = [regex]::Replace(
+    $existing,
+    $pattern,
+    $replacement.TrimEnd() + "`n`n",
+    1
+)
 
-Future work may include schema, fixtures, structural checkers, and recomputation receipts.
+Write-Utf8Lf -Path $docPath -Content $updated
 
-BPEF should continue to evaluate boundary inspectability without becoming a governance mechanism.
+Write-Host "Rewrote Sections 6-8 in: $docPath"
+Write-Host ""
+Write-Host "Changed files:"
+git status --short
+Write-Host ""
+Write-Host "Review commands:"
+Write-Host " git diff -- $docPath"
+Write-Host " git diff --check"
+
+if ($Commit) {
+    git add $docPath
+    git add "scripts/expand_bpef_v0_1_examples_and_counterexamples.ps1"
+    git diff --cached --check
+    git commit -m "Expand BPEF v0.1 examples and counterexamples"
+
+    if ($Push) {
+        git push
+    }
+}
+
+Write-Host ""
+Write-Host "Done."
