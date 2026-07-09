@@ -122,3 +122,21 @@ Success may include:
 - marking a proposed surface as out of scope.
 
 The experiment must not assume that every observation resolves into a wording improvement. Some observations may require claim reduction, scope reduction, or explicit non-adoption.
+
+## v0.1.3 Packet Inclusion Boundary
+
+Inclusion of an artifact in the plaintext packet indicates apparatus relevance only.
+
+Inclusion does not imply:
+
+* endorsement;
+* validation;
+* certification;
+* approval;
+* compliance sufficiency;
+* legal sufficiency;
+* production readiness;
+* audit completion;
+* consensus.
+
+The packet is a portability surface. It is not a checklist for legal, compliance, or production readiness.
