@@ -15,7 +15,7 @@ interaction_type:
   - consulting scope signal
 scope_requested:
 scope_performed:
-execution_performed:
+execution_status:
 artifacts_reviewed:
 endorsement: none
 limitations:
@@ -73,3 +73,26 @@ No endorsement, certification, approval, validation, production-readiness conclu
 `classification` describes the analytical content of the observation.
 
 These fields should not be treated as a single taxonomy.
+
+## Access Mode Reporting v0.1.2
+
+Observers should report access mode results explicitly:
+
+```yaml
+execution_status: not_performed
+access_modes:
+  github_rendered: succeeded
+  raw: failed
+  plaintext_packet: not_attempted
+  repository_clone: not_attempted
+  pasted_content: not_attempted
+artifacts_requested:
+  - EXPERIMENT_PROTOCOL_v0_1.md
+  - OBSERVER_INSTRUCTIONS_v0_1.md
+artifacts_inspected:
+  - EXPERIMENT_PROTOCOL_v0_1.md
+```
+
+`execution_status` is not the same as access status.
+
+Missing execution status, unknown execution status, failed retrieval, and not-performed execution must remain distinguishable.

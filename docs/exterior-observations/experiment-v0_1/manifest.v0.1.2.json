@@ -1,0 +1,112 @@
+{
+    "identifier":  "EXTERIOR_OBSERVANCE_MANIFEST_v0_1_2",
+    "status":  "draft",
+    "apparatus_version":  "v0.1.2",
+    "date":  "\u0027+$Today+\u0027",
+    "artifacts":  [
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\EXPERIMENT_PROTOCOL_v0_1.md",
+                          "role":  "experiment_protocol",
+                          "sha256":  "61735d9b41870b7232ec54feacd0141346646b29c8151296b19e547a61ced897",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/EXPERIMENT_PROTOCOL_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/EXPERIMENT_PROTOCOL_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\OBSERVER_INSTRUCTIONS_v0_1.md",
+                          "role":  "observer_instructions",
+                          "sha256":  "c4901fa0ed8ef5ed4ac360fcf8a19cd46cda6c337f632caec05d5b41803f6443",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/OBSERVER_INSTRUCTIONS_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/OBSERVER_INSTRUCTIONS_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\templates\\OBSERVATION_INTAKE_TEMPLATE_v0_1.md",
+                          "role":  "intake_template",
+                          "sha256":  "aacab4a6a8e05f0e02ebf9822b06010b4783430643f4642b4469035c7195ec9c",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/templates/OBSERVATION_INTAKE_TEMPLATE_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/templates/OBSERVATION_INTAKE_TEMPLATE_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\DATA_DICTIONARY_v0_1.md",
+                          "role":  "data_dictionary",
+                          "sha256":  "646fdc1d792a62493da662b513cb3d35bb749f2e564c9a149c720f99be14f79b",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/DATA_DICTIONARY_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/DATA_DICTIONARY_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\CODING_GUIDE_v0_1.md",
+                          "role":  "coding_guide",
+                          "sha256":  "a7b978e8dab0d989da4423857e784f9933e9d003f3bba41a82a8fcd0302be654",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/CODING_GUIDE_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/CODING_GUIDE_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\ANALYSIS_PLAN_v0_1.md",
+                          "role":  "analysis_plan",
+                          "sha256":  "3c2d8e01bc5864c22a8894405e0ba3ceaa0a2067e3e62d5c3bad301da8484b6d",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/ANALYSIS_PLAN_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/ANALYSIS_PLAN_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\sandbox-v0_2\\SANDBOX_FAILURE_CASES_v0_2_DRAFT.md",
+                          "role":  "sandbox_failure_cases",
+                          "sha256":  "d8e6b90e9ecf83a766e34e64fa8658bbf6de935eac5e8dcf334d881132342727",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/sandbox-v0_2/SANDBOX_FAILURE_CASES_v0_2_DRAFT.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/sandbox-v0_2/SANDBOX_FAILURE_CASES_v0_2_DRAFT.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\LLM_PLAINTEXT_REVIEW_PACKET_v0_1_2.md",
+                          "role":  "plaintext_review_packet",
+                          "sha256":  "abf3c8927f2815d69c8b93017ed5b121d97c7db4079947d2e85554d545cfba60",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/LLM_PLAINTEXT_REVIEW_PACKET_v0_1_2.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/LLM_PLAINTEXT_REVIEW_PACKET_v0_1_2.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\RETRIEVAL_FIDELITY_GUIDE_v0_1_2.md",
+                          "role":  "retrieval_fidelity_guide",
+                          "sha256":  "800d9346dbf7ffbf34e5c91482ef242ad22d1a51ac7a72909dd50eeb723a8761",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/RETRIEVAL_FIDELITY_GUIDE_v0_1_2.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/RETRIEVAL_FIDELITY_GUIDE_v0_1_2.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\EXCERPTING_AND_CONTEXT_LOSS_APPENDIX_v0_1.md",
+                          "role":  "excerpting_context_loss_appendix",
+                          "sha256":  "9e5a01b648766aa0b47660d696ff07d027e454e1595013ca9e432e648ee6c4c2",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/EXCERPTING_AND_CONTEXT_LOSS_APPENDIX_v0_1.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/EXCERPTING_AND_CONTEXT_LOSS_APPENDIX_v0_1.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\schema\\observation_intake_v0_1_2.schema.json",
+                          "role":  "intake_schema",
+                          "sha256":  "be7e921c8d8ff9d510c5686c15ff09e430d243c1b62ddd02b90ab5124913fbad",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/schema/observation_intake_v0_1_2.schema.json",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/schema/observation_intake_v0_1_2.schema.json",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\LLM_REVIEWER_ACCESS_INDEX_v0_1_2.md",
+                          "role":  "access_index_v0_1_2",
+                          "sha256":  "43efc319adb5c5351e1cbeceb1d1123f68c79d9f582b4b7339ed1b4a4eb43ffb",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/LLM_REVIEWER_ACCESS_INDEX_v0_1_2.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/LLM_REVIEWER_ACCESS_INDEX_v0_1_2.md",
+                          "required":  true
+                      },
+                      {
+                          "path":  "docs\\exterior-observations\\experiment-v0_1\\README.md",
+                          "role":  "experiment_readme",
+                          "sha256":  "535a4348c07b9b012ff8622220d9663c8de7a17aff708171d737cdbeabdb5c3f",
+                          "github_url":  "https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/exterior-observations/experiment-v0_1/README.md",
+                          "raw_url":  "https://raw.githubusercontent.com/RecomputableEvidence/fork-public-evidence/main/docs/exterior-observations/experiment-v0_1/README.md",
+                          "required":  true
+                      }
+                  ]
+}

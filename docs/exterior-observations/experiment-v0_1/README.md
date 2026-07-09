@@ -57,3 +57,25 @@ Primary intake artifact:
 Next-pass request:
 
 - `NEXT_PASS_LLM_OBSERVANCE_REQUEST_v0_1_1.md`
+
+## v0.1.2 Portability Artifacts
+
+v0.1.2 adds portability across unreliable LLM retrieval environments.
+
+New artifacts:
+
+* `LLM_PLAINTEXT_REVIEW_PACKET_v0_1_2.md`
+* `manifest.v0.1.2.json`
+* `schema/observation_intake_v0_1_2.schema.json`
+* `RETRIEVAL_FIDELITY_GUIDE_v0_1_2.md`
+* `EXCERPTING_AND_CONTEXT_LOSS_APPENDIX_v0_1.md`
+
+Supported access modes:
+
+1. GitHub-rendered links
+2. raw GitHub links
+3. plaintext review packet
+4. repository clone
+5. pasted content
+
+If a reviewer cannot access raw or rendered GitHub content, use the plaintext packet.

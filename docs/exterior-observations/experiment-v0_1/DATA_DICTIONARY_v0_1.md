@@ -79,3 +79,41 @@ Examples:
 Example:
 
 An observer may provide an `architectural observation` as the interaction type while the classification may include `boundary interpretation`, `semantic pressure surface`, and `failure-case proposal`.
+
+## Retrieval and Execution Status v0.1.2
+
+The observance apparatus distinguishes execution status from retrieval status.
+
+`execution_status` describes whether code, scripts, checkers, or recomputation steps were performed.
+
+Allowed values:
+
+- `not_performed`
+- `performed`
+- `attempted_failed`
+- `partial`
+- `unknown`
+
+Access mode reporting describes whether the observer could access the requested files.
+
+Access modes:
+
+- GitHub-rendered links
+- raw links
+- plaintext packet
+- repository clone
+- pasted content
+
+A failed access mode is observance data. It must not be treated as a completed full-surface pass.
+
+`interaction_type` and `classification` remain orthogonal axes. Any interaction type may pair with any classification when the observation supports it.
+
+## Retrieval Fidelity v0.1.2
+
+Retrieval fidelity is encoded using:
+
+- classification tokens (e.g., `source_substitution`, `stale_or_partial_retrieval`, `LLM_accessibility_gap`);
+- access-mode reporting (github_rendered/raw/plaintext_packet/repository_clone/pasted_content);
+- manifest digests.
+
+Retrieval fidelity observations are apparatus data. They do not assert endorsement, validation, certification, approval, production readiness, legal sufficiency, or compliance sufficiency.

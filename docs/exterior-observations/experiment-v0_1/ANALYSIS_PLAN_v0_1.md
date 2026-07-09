@@ -83,3 +83,20 @@ Avoid evaluative or authority-converting phrases, including:
 - "Exterior reviewers established..."
 
 A recurring theme is an observation pattern. It is not consensus, endorsement, validation, proof, approval, certification, legal sufficiency, compliance sufficiency, or production readiness.
+
+## Retrieval-Fidelity Analysis v0.1.2
+
+Second-pass LLM observation showed that access can fail even when raw and GitHub-rendered links are provided.
+
+Analysis should preserve retrieval fidelity before interpreting substantive findings.
+
+Before coding boundary or overclaim findings, record:
+
+* what files were requested;
+* what files were actually inspected;
+* what access modes succeeded;
+* what access modes failed;
+* whether the observer relied on top-level, release, mirror, landing-page, or search-result surfaces;
+* whether any finding is stale, partial, or misattributed.
+
+A response that fails to inspect the requested files may still be useful as retrieval-fidelity data, but it should not be treated as a completed full-surface observance pass.

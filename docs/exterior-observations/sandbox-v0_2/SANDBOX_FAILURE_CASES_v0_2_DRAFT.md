@@ -91,3 +91,41 @@ Expected observation: The corpus preserves this as a misinterpretation signal, n
 Setup: An LLM observer reports inability to access directory views or only reviews a subset of direct files.
 
 Expected observation: The access limitation is preserved explicitly and does not become a full-surface review.
+
+## Additional Retrieval-Fidelity Pressure Cases v0.1.2
+
+### Case 16: Reviewer source substitution
+
+Setup: An observer is asked to inspect the experiment apparatus but instead inspects top-level repository material, release notes, mirror pages, search snippets, or public landing pages.
+
+Expected observation: The intake process preserves the substitution as a retrieval-fidelity limitation and does not treat the response as a completed full-surface observance pass.
+
+### Case 17: Reviewer access-mode failure
+
+Setup: An LLM observer is provided GitHub-rendered links and raw links but cannot retrieve underlying markdown text.
+
+Expected observation: The access failure is preserved as an access-scope limitation. The observer is offered a plaintext packet fallback.
+
+### Case 18: Stale or partial retrieval
+
+Setup: An observer reports full-surface access but misses content that exists in the current apparatus version.
+
+Expected observation: The observation is preserved with a stale-or-partial retrieval classification.
+
+### Case 19: Prompt echo with misattribution
+
+Setup: An observer repeats the prompt's requested checks as findings and attributes them to files that were not actually inspected.
+
+Expected observation: The response is coded as prompt-echo risk and surface misattribution.
+
+### Case 20: Model-to-model propagation context loss
+
+Setup: An LLM-generated observation is later summarized by another model without scope, limitation, or non-endorsement.
+
+Expected observation: The context loss is preserved and corrected before any downstream use.
+
+### Case 21: Compression or summarization drift
+
+Setup: A downstream summary compresses a bounded observation into a flat claim.
+
+Expected observation: The apparatus identifies the drift and restores the original scope, limitation, and non-endorsement.
