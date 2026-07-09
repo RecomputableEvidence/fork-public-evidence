@@ -407,3 +407,14 @@ Before approving a Fork contribution, confirm:
 Fork review is a boundary discipline.
 
 The review question is not only whether an artifact works. The review question is whether the artifact can be inspected, recomputed, cited, and reused later without allowing preserved evidence to become inherited authority.
+
+<!-- FORK_BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_CASE:START -->
+
+Boundary Pressure Review / Retrieval Distortion Test Case
+A first Boundary Pressure Review test case is maintained here:
+Boundary Pressure Review / Retrieval Distortion Test Case v0.1
+The case evaluates whether failed retrieval, partial access, commentary, observation, recomputation, structural reproduction, approval, endorsement, compliance, legal sufficiency, and truth remain distinguishable under pressure.
+Run the checker from repo root:
+python .\tools\check_boundary_pressure_review_cases_v0_1.py
+
+<!-- FORK_BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_CASE:END -->

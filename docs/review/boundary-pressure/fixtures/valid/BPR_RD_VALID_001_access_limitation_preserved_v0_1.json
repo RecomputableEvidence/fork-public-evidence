@@ -1,0 +1,46 @@
+{
+  "case_id": "BPR-RD-VALID-001",
+  "case_version": "v0.1",
+  "expected_result": "STRUCTURAL_PASS",
+  "source_access": {
+    "status": "PARTIAL_ACCESS",
+    "raw_artifacts_accessed": false,
+    "execution_performed": false,
+    "access_limitation_recorded": true,
+    "notes": "Reviewer had partial access and preserved the limitation rather than claiming full review or recomputation."
+  },
+  "claims": {
+    "content_review_completed": false,
+    "structural_reproduction_completed": false,
+    "approval_claimed": false,
+    "compliance_claimed": false,
+    "legal_sufficiency_claimed": false,
+    "truth_claimed": false,
+    "asserted_meaning": "Partial access was recorded as an access limitation. No content review, execution, recomputation, approval, compliance, legal sufficiency, or truth conclusion is claimed."
+  },
+  "non_claims": [
+    "does_not_establish_truth",
+    "does_not_establish_approval",
+    "does_not_establish_compliance",
+    "does_not_establish_legal_sufficiency",
+    "does_not_establish_production_readiness",
+    "does_not_convert_observation_into_endorsement",
+    "does_not_convert_failed_retrieval_into_review"
+  ],
+  "boundary_pressure": {
+    "pressure_type": "RETRIEVAL_DISTORTION",
+    "prohibited_collapses": [
+      "failed_retrieval_to_review",
+      "partial_access_to_complete_access",
+      "observation_to_endorsement",
+      "commentary_to_execution",
+      "structural_pass_to_truth",
+      "recomputation_to_validation"
+    ]
+  },
+  "interpretation": {
+    "observation_status": "ACCESS_LIMITATION_RECORDED",
+    "permitted_use": "May be cited only as evidence that partial access was encountered and preserved as unresolved access state.",
+    "prohibited_use": "Must not be cited as content review, structural reproduction, endorsement, approval, compliance, legal sufficiency, truth, or production readiness."
+  }
+}

@@ -117,3 +117,13 @@ Fork's repository-specific review posture is maintained here:
 This guide explains how reviewers and contributors should interpret Fork artifacts, recomputation receipts, exterior observations, PR history, non-claims, and boundary-pressure concerns without converting evidence into authority, endorsement, certification, production readiness, legal sufficiency, or compliance conclusions.
 
 <!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_END -->
+
+<!-- FORK_BOUNDARY_PRESSURE_REVIEW_PUBLIC_INDEX:START -->
+
+Boundary Pressure Review
+Boundary Pressure Review artifacts exercise failure cases where structural evidence, unresolved state, authority, sufficiency, truth, endorsement, and compliance may be incorrectly collapsed.
+Boundary Pressure Review / Retrieval Distortion Test Case v0.1
+Checker: tools/check_boundary_pressure_review_cases_v0_1.py
+Fixtures: docs/review/boundary-pressure/fixtures/
+
+<!-- FORK_BOUNDARY_PRESSURE_REVIEW_PUBLIC_INDEX:END -->
