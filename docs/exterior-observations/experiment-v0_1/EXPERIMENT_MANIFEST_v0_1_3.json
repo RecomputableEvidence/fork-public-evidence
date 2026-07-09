@@ -1,0 +1,21 @@
+{
+  "version": "v0.1.3",
+  "status": "draft",
+  "date": "2026-07-08",
+  "components": {
+    "protocol": "docs/exterior-observations/experiment-v0_1/EXPERIMENT_PROTOCOL_v0_1.md",
+    "observer_instructions": "docs/exterior-observations/experiment-v0_1/OBSERVER_INSTRUCTIONS_v0_1.md",
+    "intake_template": "docs/exterior-observations/experiment-v0_1/templates/OBSERVATION_INTAKE_TEMPLATE_v0_1.md",
+    "data_dictionary": "docs/exterior-observations/experiment-v0_1/DATA_DICTIONARY_v0_1.md",
+    "coding_guide": "docs/exterior-observations/experiment-v0_1/CODING_GUIDE_v0_1.md",
+    "analysis_plan": "docs/exterior-observations/experiment-v0_1/ANALYSIS_PLAN_v0_1.md",
+    "sandbox_failure_cases": "docs/exterior-observations/sandbox-v0_2/SANDBOX_FAILURE_CASES_v0_2_DRAFT.md",
+    "intake_schema": "docs/exterior-observations/experiment-v0_1/schema/observation_intake_v0_1_2.schema.json",
+    "observation_registry": "docs/exterior-observations/experiment-v0_1/data/OBSERVATION_REGISTRY_v0_1.csv",
+    "retrieval_fidelity_matrix": "docs/exterior-observations/experiment-v0_1/data/RETRIEVAL_FIDELITY_MATRIX_v0_1_2.csv",
+    "input_integrity_matrix": "docs/exterior-observations/experiment-v0_1/data/INPUT_INTEGRITY_MATRIX_v0_1_3.csv",
+    "access_index": "docs/exterior-observations/experiment-v0_1/ACCESS_INDEX_v0_1_3.md",
+    "plaintext_packet": "docs/exterior-observations/experiment-v0_1/LLM_PLAINTEXT_REVIEW_PACKET_v0_1_3.md"
+  },
+  "non_endorsement": "No endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, or compliance conclusion is implied."
+}

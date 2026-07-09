@@ -100,3 +100,26 @@ Before coding boundary or overclaim findings, record:
 * whether any finding is stale, partial, or misattributed.
 
 A response that fails to inspect the requested files may still be useful as retrieval-fidelity data, but it should not be treated as a completed full-surface observance pass.
+
+## Synthesis Export Boundary Rule v0.1.3
+
+Any exported synthesis document must embed the canonical non-endorsement statement at both the top and bottom of the file.
+
+Top-of-file statement:
+
+> No endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, or compliance conclusion is implied.
+
+Bottom-of-file statement:
+
+> No endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, or compliance conclusion is implied by this synthesis or by any recurring observation pattern described within it.
+
+Reason: downstream excerpting often strips context. Duplicating the boundary at both ends creates structural friction against context loss.
+
+Synthesis must also preserve:
+
+* scope of observations included;
+* access modes used;
+* execution status;
+* known stale or partial retrieval limitations;
+* dissent, mismatch, or non-response where relevant;
+* the distinction between recurring observation and consensus.
