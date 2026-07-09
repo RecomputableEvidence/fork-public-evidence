@@ -129,3 +129,19 @@ Boundary Pressure Review artifacts exercise failure cases where structural evide
 - Fixtures: `docs/review/boundary-pressure/fixtures/`
 
 <!-- FORK_BOUNDARY_PRESSURE_REVIEW_PUBLIC_INDEX:END -->
+
+<!-- FORK_COMMERCIAL_SURFACE_BUYER_READINESS_ROUTING:START -->
+
+## Buyer-facing commercial surface
+
+For GC, CISO, risk, compliance, audit-adjacent, procurement-adjacent, and design-partner readers:
+
+- [Buyer Quick Start for GC / CISO / Risk v0.1](commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md)
+
+Commercial-surface exterior observations are preserved here:
+
+- [Commercial Surface Buyer Readiness Observation Index v0.1](exterior-observations/commercial-surface/COMMERCIAL_SURFACE_BUYER_READINESS_OBSERVATION_INDEX_v0_1.md)
+
+These observations are buyer-surface interpretation reviews only. They are not endorsements, validations, certifications, approvals, production-readiness assessments, legal conclusions, compliance conclusions, procurement conclusions, audit conclusions, or control-effectiveness conclusions.
+
+<!-- FORK_COMMERCIAL_SURFACE_BUYER_READINESS_ROUTING:END -->

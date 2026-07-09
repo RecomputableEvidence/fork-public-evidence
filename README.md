@@ -210,3 +210,15 @@ Fork's repository-specific review posture is maintained here:
 This guide explains how reviewers and contributors should interpret Fork artifacts, recomputation receipts, exterior observations, PR history, non-claims, and boundary-pressure concerns without converting evidence into authority, endorsement, certification, production readiness, legal sufficiency, or compliance conclusions.
 
 <!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_END -->
+
+<!-- FORK_BUYER_QUICK_START_GC_CISO_RISK:START -->
+
+## Buyer-facing overview (GC / CISO / Risk)
+
+For legal, security, risk, compliance, audit-adjacent, and design-partner readers, start here:
+
+- [Buyer Quick Start for GC / CISO / Risk v0.1](docs/commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md)
+
+Fork preserves reconstructable evidence context for AI-assisted reliance. It does not certify compliance, establish legal admissibility, replace institutional controls, operate detection systems, function as a GRC system, replace SIEM or logging platforms, or act as a runtime control plane.
+
+<!-- FORK_BUYER_QUICK_START_GC_CISO_RISK:END -->

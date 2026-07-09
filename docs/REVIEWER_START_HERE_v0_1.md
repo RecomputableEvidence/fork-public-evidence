@@ -185,3 +185,17 @@ Fork includes an experimental Boundary Pressure Review case for retrieval distor
 This case tests whether failed retrieval or partial access is preserved as unresolved access state rather than upgraded into review, execution, recomputation, endorsement, approval, compliance, legal sufficiency, or truth.
 
 <!-- FORK_BOUNDARY_PRESSURE_REVIEW_REVIEWER_START:END -->
+
+<!-- FORK_COMMERCIAL_BUYER_REVIEW_PATH:START -->
+
+## Commercial / buyer-facing review path
+
+For GC, CISO, risk, compliance, audit-adjacent, procurement-adjacent, and design-partner readers:
+
+- [Buyer Quick Start for GC / CISO / Risk v0.1](commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md)
+
+Exterior commercial-surface reviews are preserved as observations, not endorsements or certifications:
+
+- [Commercial Surface Buyer Readiness Observation Index v0.1](exterior-observations/commercial-surface/COMMERCIAL_SURFACE_BUYER_READINESS_OBSERVATION_INDEX_v0_1.md)
+
+<!-- FORK_COMMERCIAL_BUYER_REVIEW_PATH:END -->
