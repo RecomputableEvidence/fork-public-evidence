@@ -79,3 +79,18 @@ Supported access modes:
 5. pasted content
 
 If a reviewer cannot access raw or rendered GitHub content, use the plaintext packet.
+
+## v0.1.3 Input Integrity Hardening
+
+v0.1.3 introduces:
+
+- active non-endorsement attestation in the intake template;
+- synthesis export boundary rule with top and bottom non-endorsement;
+- coding-volume non-authority guidance;
+- packet inclusion boundary language;
+- input integrity matrix;
+- hostile endorsement injection and automated non-endorsement scrubbing sandbox cases;
+- intake schema attestation and enumerated input-integrity codes;
+- updated access index and plaintext packet.
+
+These changes harden input integrity without converting observations into endorsement, validation, certification, approval, compliance sufficiency, legal sufficiency, or production readiness.

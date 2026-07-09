@@ -96,3 +96,17 @@ artifacts_inspected:
 `execution_status` is not the same as access status.
 
 Missing execution status, unknown execution status, failed retrieval, and not-performed execution must remain distinguishable.
+
+## Active Non-Endorsement Attestation v0.1.3
+
+Observers should actively acknowledge the non-endorsement boundary when submitting an observation.
+
+Recommended structured field:
+
+```yaml
+non_endorsement_attestation:
+  acknowledged: true
+  statement: "By submitting this observation, the observer acknowledges that no endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, or compliance conclusion is implied."
+```
+
+This attestation is an intake boundary. It does not make the observation authoritative. It records that the observer understands the observation is exterior commentary and not authority for Fork's claims.

@@ -1,0 +1,6 @@
+identifier,hostile_endorsement_injection,non_endorsement_scrubbing,coding_accumulation_risk,active_attestation_needed,packet_inclusion_boundary_needed,synthesis_top_bottom_boundary_needed,notes
+INTERNAL_OBSERVATION_GEMINI_V012_PLAINTEXT_PACKET_PASS_v0_1,yes,no,yes,yes,no,yes,"Proposed hostile endorsement case, active attestation, and top/bottom synthesis non-endorsement."
+INTERNAL_OBSERVATION_PERPLEXITY_V012_PLAINTEXT_PACKET_PASS_v0_1,no,no,no,no,yes,no,"Proposed packet inclusion boundary clarification."
+INTERNAL_OBSERVATION_COPILOT_V012_STALE_SURFACE_DRIFT_v0_1,no,no,no,no,no,no,"Preserved as stale or partial retrieval evidence."
+INTERNAL_OBSERVATION_VIBE_STALE_V011_SURFACE_REPLAY_v0_1,no,no,no,no,no,no,"Preserved as stale v0.1.1 replay evidence."
+INTERNAL_OBSERVATION_CLAUDE_RETRIEVAL_FIDELITY_RECOMPUTE_v0_1,no,no,no,no,no,no,"Demonstrated retrieval-fidelity recomputation through diff and SHA-256 comparison."

@@ -117,3 +117,19 @@ Retrieval fidelity is encoded using:
 - manifest digests.
 
 Retrieval fidelity observations are apparatus data. They do not assert endorsement, validation, certification, approval, production readiness, legal sufficiency, or compliance sufficiency.
+
+## Input Integrity Matrix v0.1.3
+
+The INPUT_INTEGRITY_MATRIX_v0_1_3.csv file records input-integrity pressure signals and hardening directions derived from v0.1.2 plaintext-packet observance.
+
+Fields include:
+
+* hostile_endorsement_injection;
+* non_endorsement_scrubbing;
+* coding_accumulation_risk;
+* active_attestation_needed;
+* packet_inclusion_boundary_needed;
+* synthesis_top_bottom_boundary_needed;
+* notes.
+
+The matrix is descriptive. It does not represent consensus, endorsement, validation, certification, approval, compliance sufficiency, legal sufficiency, or production readiness.

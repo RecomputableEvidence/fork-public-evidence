@@ -129,3 +129,23 @@ Expected observation: The context loss is preserved and corrected before any dow
 Setup: A downstream summary compresses a bounded observation into a flat claim.
 
 Expected observation: The apparatus identifies the drift and restores the original scope, limitation, and non-endorsement.
+
+### Case 22: Hostile Endorsement Injection
+
+Setup: An observer ignores the observer instructions and attempts to inject validation, certification, approval, endorsement, production-readiness, legal, or compliance language into the intake template.
+
+Expected observation: The intake process preserves the attempted injection as an input-integrity pressure signal. The endorsement language is not adopted as Fork authority, consensus, validation, approval, certification, legal sufficiency, compliance sufficiency, or production-readiness evidence.
+
+Boundary preserved: Observer commentary remains exterior commentary. Even hostile or enthusiastic observer language does not become authority for Fork's claims.
+
+Residual risk: Downstream users may still quote the injected language outside the repository. This requires excerpting and context-loss controls.
+
+### Case 23: Automated Non-Endorsement Scrubbing
+
+Setup: An automated parser, summarizer, marketing tool, or downstream LLM extracts observation text while removing the non-endorsement statement, scope limitation, execution status, or access-mode limitation.
+
+Expected observation: The apparatus identifies the scrubbed version as context loss. The preserved source observation remains bounded by its original scope, limitations, and non-endorsement. The scrubbed derivative is not treated as authority, validation, consensus, approval, certification, legal sufficiency, compliance sufficiency, or production-readiness evidence.
+
+Boundary preserved: Non-endorsement is part of the preserved observation context, not optional decoration.
+
+Residual risk: External systems may continue to circulate scrubbed excerpts. The apparatus can preserve and correct the loss but cannot control external redistribution.

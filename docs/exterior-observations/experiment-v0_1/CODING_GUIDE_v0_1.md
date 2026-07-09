@@ -101,3 +101,24 @@ Use when an observer attributes a finding to a file or surface that does not con
 ### PROMPT_ECHO_RISK
 
 Use when an observer repeats the prompt's framing as a finding without grounding it in inspected files.
+
+## Coding Volume Non-Authority Rule v0.1.3
+
+Observation volume is not audit rigor.
+
+Coding volume is not validation.
+
+The number of `FAILURE_CASE_CANDIDATE`, `MISUNDERSTANDING_SIGNAL`, `BOUNDARY_INTERPRETATION`, or other coded observations must not be used to imply:
+
+* endorsement;
+* consensus;
+* certification;
+* approval;
+* compliance sufficiency;
+* legal sufficiency;
+* production readiness;
+* statistically representative testing;
+* audit completion;
+* validation of Fork's claims.
+
+Codes structure exterior observations. They do not create authority for the observations or for Fork's claims.

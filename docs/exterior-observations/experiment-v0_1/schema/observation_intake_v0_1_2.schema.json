@@ -18,7 +18,8 @@
     "artifacts_inspected",
     "endorsement",
     "limitations",
-    "non_endorsement_statement"
+    "non_endorsement_statement",
+    "non_endorsement_attestation"
   ],
   "properties": {
     "identifier": {
@@ -79,6 +80,13 @@
           "overclaim risk",
           "instrumentation gap",
           "schema proposal",
+          "retrieval fidelity sufficient",
+          "hash comparison",
+          "source identity confirmation",
+          "input integrity gap",
+          "hostile endorsement injection",
+          "non-endorsement scrubbing",
+          "coding accumulation risk",
           "manifest proposal"
         ]
       },
@@ -151,7 +159,8 @@
       "type": "string",
       "minLength": 1
     },
-    "non_endorsement_statement": {
+    "non_endorsement_statement",
+    "non_endorsement_attestation": {
       "type": "string",
       "minLength": 1
     }
