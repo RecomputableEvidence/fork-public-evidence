@@ -198,3 +198,15 @@ The current sandbox question is:
 Exterior observations are preserved under `docs/exterior-observations/`.
 
 Fork now has enough articulated form to be observed without asking observers to believe in it.
+
+<!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_START -->
+
+## Repository review posture
+
+Fork's repository-specific review posture is maintained here:
+
+- [Fork Repository Review Posture v0.1](docs/review/FORK_REPOSITORY_REVIEW_POSTURE_v0_1.md)
+
+This guide explains how reviewers and contributors should interpret Fork artifacts, recomputation receipts, exterior observations, PR history, non-claims, and boundary-pressure concerns without converting evidence into authority, endorsement, certification, production readiness, legal sufficiency, or compliance conclusions.
+
+<!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_END -->

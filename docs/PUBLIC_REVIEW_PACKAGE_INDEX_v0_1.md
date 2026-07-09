@@ -105,3 +105,15 @@ This package defines Fork's current maturity posture and terminology guardrails 
 
 - `docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md`
 <!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->
+
+<!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_START -->
+
+## Repository review posture
+
+Fork's repository-specific review posture is maintained here:
+
+- [Fork Repository Review Posture v0.1](review/FORK_REPOSITORY_REVIEW_POSTURE_v0_1.md)
+
+This guide explains how reviewers and contributors should interpret Fork artifacts, recomputation receipts, exterior observations, PR history, non-claims, and boundary-pressure concerns without converting evidence into authority, endorsement, certification, production readiness, legal sufficiency, or compliance conclusions.
+
+<!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_END -->
