@@ -1,1 +1,6 @@
 identifier,evidence_authority_distinction,recomputation_sufficiency_distinction,truth_claim_boundary,semantic_pressure,upstream_admission_mapping,downstream_review_mapping,role_separation,failure_case_candidate,misunderstanding_signal,notes
+"INTERNAL_OBSERVATION_COPILOT_PUBLIC_SURFACE_BOUNDARY_READ_v0_1","yes","yes","partial","yes","no","yes","no","yes","yes","Raised overclaim, terminology, navigation, and pressure-case issues."
+"INTERNAL_OBSERVATION_GEMINI_ACCESS_CONSTRAINED_v0_1","not assessed","not assessed","not assessed","not assessed","not assessed","not assessed","not assessed","no","yes","Access-constrained observation; motivates file-level direct links."
+"INTERNAL_OBSERVATION_PERPLEXITY_ACCESS_CONSTRAINED_v0_1","not assessed","not assessed","not assessed","not assessed","not assessed","not assessed","not assessed","no","yes","Access-constrained observation; motivates raw links."
+"INTERNAL_OBSERVATION_VIBE_FULL_SURFACE_BOUNDARY_READ_v0_1","yes","yes","yes","yes","partial","yes","yes","yes","yes","Full-surface reading pass with terminology and sandbox additions."
+"INTERNAL_OBSERVATION_CLAUDE_FOUR_FILE_BOUNDARY_READ_v0_1","yes","yes","yes","yes","yes","yes","yes","yes","yes","Identified truth-claim inconsistency, synthesis risk, taxonomy ambiguity, and access gaps."

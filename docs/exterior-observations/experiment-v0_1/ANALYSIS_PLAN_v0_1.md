@@ -60,3 +60,26 @@ Reviewers agreed that...
 or:
 
 This proves that...
+
+## Synthesis Aggregation Guardrails v0.1.1
+
+Synthesis is a high-risk overclaim point because repeated observations can visually resemble consensus.
+
+Synthesis artifacts must carry their own non-endorsement statement.
+
+Recurring themes should use descriptive, non-consensus phrasing, such as:
+
+- "Several observations independently raised..."
+- "Across preserved observations, the following theme appeared..."
+- "N observations used similar language regarding..."
+- "This theme appeared in multiple bounded observations..."
+
+Avoid evaluative or authority-converting phrases, including:
+
+- "Observers agreed..."
+- "This proves..."
+- "The review confirmed..."
+- "The corpus validates..."
+- "Exterior reviewers established..."
+
+A recurring theme is an observation pattern. It is not consensus, endorsement, validation, proof, approval, certification, legal sufficiency, compliance sufficiency, or production readiness.

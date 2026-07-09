@@ -1,11 +1,11 @@
-﻿Identifier: SANDBOX_FAILURE_CASES_v0_2_DRAFT
+Identifier: SANDBOX_FAILURE_CASES_v0_2_DRAFT
 Status: Draft v0_2
 Classification: Experimental sandbox design
 Question answered: Under adverse conditions, does Fork's evidence surface preserve distinguishability between structural reproduction, unresolved state, evidentiary sufficiency, and authority?
 
 ## Governing objective
 
-> Does the evidence surface continue to preserve distinguishability between structural reproduction, unresolved state, evidentiary sufficiency, and authority under adverse conditions?
+> Does the evidence surface continue to preserve distinguishability between structural reproduction, unresolved state, evidentiary sufficiency, authority, and truth-claims under adverse conditions?
 
 ## Scenario set (v0.2)
 
@@ -27,3 +27,67 @@ Each scenario is evaluated against the governing objective. For every case, an i
 - What the evidence packet is explicitly not allowed to prove.
 
 Detailed fixtures and expected observations will be added in subsequent iterations.
+
+## v0.1.1 Truth-Claim Consistency Note
+
+The governing sandbox question includes five distinguishability targets:
+
+- structural reproduction;
+- unresolved state;
+- evidentiary sufficiency;
+- authority;
+- truth-claims.
+
+Truth-claims are not folded silently into evidentiary sufficiency. A structurally reproducible and evidentially well-supported packet may still be paired with a natural-language claim that is false. The sandbox should preserve that distinction visibly.
+
+## Additional Process-Failure Pressure Cases v0.1.1
+
+The v0.2 sandbox should include observer-process and downstream-use failures in addition to artifact-level failures.
+
+### Case 8: Downstream excerpt without non-endorsement
+
+Setup: An exterior observation is reproduced in a downstream document with the non-endorsement clause removed.
+
+Expected observation: The corpus preserves the original bounded observation and its non-endorsement; downstream excerpting does not convert the observation into authority.
+
+### Case 9: Convergent language misread as consensus
+
+Setup: Multiple independent observations use similar language around a boundary.
+
+Expected observation: Synthesis describes recurring language without saying observers agreed, validated, confirmed, or proved the claim.
+
+### Case 10: Adjacent-system misattribution
+
+Setup: An adjacent system cites a Fork evidence packet as though Fork made the adjacent system's determination.
+
+Expected observation: Fork preserves the referenced evidence boundary without inheriting the adjacent system's determination, authority, or responsibility.
+
+### Case 11: Reproducible packet paired with false natural-language claim
+
+Setup: A packet is structurally reproducible and evidentially sufficient for a narrow record, but a related natural-language statement is false.
+
+Expected observation: Structural reproduction and evidentiary sufficiency do not become truth.
+
+### Case 12: Observer-boundary violation
+
+Setup: Observer commentary is copied into Fork-facing claims as if it were authority.
+
+Expected observation: The observation remains exterior commentary and must not become authority for Fork's claims.
+
+### Case 13: Template non-compliance
+
+Setup: An observer submits useful commentary without using the template and without an explicit non-endorsement statement.
+
+Expected observation: Intake records the limitation and requests or appends a boundary note before preservation.
+
+### Case 14: Downstream legal or compliance misinterpretation
+
+Setup: A downstream legal, compliance, procurement, or ATO reader treats recomputation as legal proof or compliance approval.
+
+Expected observation: The corpus preserves this as a misinterpretation signal, not as Fork's claim.
+
+### Case 15: Automated observer with uncertain access scope
+
+Setup: An LLM observer reports inability to access directory views or only reviews a subset of direct files.
+
+Expected observation: The access limitation is preserved explicitly and does not become a full-surface review.

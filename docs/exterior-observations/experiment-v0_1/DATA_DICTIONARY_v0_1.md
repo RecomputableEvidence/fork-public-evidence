@@ -48,3 +48,34 @@ Status: Draft
 | role_separation | Whether observer preserved boundaries between projects or roles |
 | failure_case_candidate | Whether observer proposed a testable failure case |
 | misunderstanding | Whether observer revealed a misunderstanding useful for refinement |
+
+## Taxonomy Axis Clarification v0.1.1
+
+`interaction_type` and `classification` are separate axes.
+
+`interaction_type` describes the mode of engagement: what kind of interaction occurred.
+
+Examples:
+
+- technical recomputation;
+- architectural observation;
+- governance observation;
+- access constraint observation;
+- scope declination;
+- consulting scope signal.
+
+`classification` describes the analytical content of the observation: what the observation is about.
+
+Examples:
+
+- boundary interpretation;
+- semantic pressure surface;
+- upstream admission;
+- downstream procurement;
+- role separation;
+- failure-case proposal;
+- navigation friction.
+
+Example:
+
+An observer may provide an `architectural observation` as the interaction type while the classification may include `boundary interpretation`, `semantic pressure surface`, and `failure-case proposal`.
