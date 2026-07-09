@@ -38,3 +38,22 @@ The corpus preserves ambiguity, partiality, disagreement, correction, misunderst
 - Ethics and boundaries note
 - Event runbook
 - Observation registry
+
+## v0.1.1 Access and Data Artifacts
+
+For LLM and automated reviewers that cannot reliably inspect GitHub directory views, use:
+
+- `LLM_REVIEWER_ACCESS_INDEX_v0_1_1.md`
+
+Primary data artifacts:
+
+- `data/OBSERVATION_REGISTRY_v0_1.csv`
+- `data/OBSERVATION_CODING_MATRIX_v0_1.csv`
+
+Primary intake artifact:
+
+- `templates/OBSERVATION_INTAKE_TEMPLATE_v0_1.md`
+
+Next-pass request:
+
+- `NEXT_PASS_LLM_OBSERVANCE_REQUEST_v0_1_1.md`

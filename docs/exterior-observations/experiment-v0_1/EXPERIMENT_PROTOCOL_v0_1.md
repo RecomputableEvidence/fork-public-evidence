@@ -104,3 +104,21 @@ Each observation should capture:
 ## 10. Success condition
 
 The experiment succeeds if it produces structured exterior observation data that improves Fork's boundary language, failure-case design, semantic triage, and adjacent-system mapping without converting observer commentary into authority for Fork's claims.
+
+## Success Condition Hardening v0.1.1
+
+The experiment succeeds if it produces structured exterior observation data that improves or narrows Fork's boundary language, failure-case design, semantic triage, and adjacent-system mapping without converting observer commentary into authority for Fork's claims.
+
+Success may include:
+
+- refining boundary language;
+- adding failure cases;
+- improving navigation;
+- identifying overloaded terms;
+- narrowing a claim;
+- retracting a claim;
+- identifying a claim as unsupported;
+- marking a term as unstable;
+- marking a proposed surface as out of scope.
+
+The experiment must not assume that every observation resolves into a wording improvement. Some observations may require claim reduction, scope reduction, or explicit non-adoption.

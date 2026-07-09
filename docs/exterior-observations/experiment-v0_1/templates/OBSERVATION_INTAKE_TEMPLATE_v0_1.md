@@ -15,7 +15,7 @@ interaction_type:
   - consulting scope signal
 scope_requested:
 scope_performed:
-execution_performed: unknown
+execution_performed:
 artifacts_reviewed:
 endorsement: none
 limitations:
@@ -65,3 +65,11 @@ Which responsibilities should remain outside Fork?
 ## 6. Non-endorsement
 
 No endorsement, certification, approval, validation, production-readiness conclusion, legal conclusion, or compliance conclusion is implied.
+
+## Taxonomy Clarification v0.1.1
+
+`interaction_type` describes the mode of engagement.
+
+`classification` describes the analytical content of the observation.
+
+These fields should not be treated as a single taxonomy.

@@ -55,3 +55,23 @@ Use when an observer misreads or conflates a Fork boundary in a way useful for f
 - Do not treat repeated themes as proof.
 - Preserve limits, corrections, and uncertainty.
 - Prefer under-coding to over-coding when ambiguous.
+
+## What Coding Is Not v0.1.1
+
+Coding is not endorsement.
+
+Coding is not consensus.
+
+Coding is not proof.
+
+Coding is not validation.
+
+Coding is not certification.
+
+Coding is not approval.
+
+Coding is not production-readiness assessment.
+
+Coding is not legal or compliance judgment.
+
+Coding describes patterns in bounded observations. It must not convert those observations into authority for Fork's claims.
