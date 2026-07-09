@@ -21,9 +21,9 @@ These artifacts translate Fork's technical proof surface into buyer-facing, revi
 
 ## Buyer note
 
-Fork preserves reconstructable evidence context for AI-assisted reliance.
+Fork preserves reconstructable evidence context around AI-assisted artifacts that may later be relied upon.
 
-Fork does not certify compliance, establish legal admissibility, replace institutional controls, operate detection systems, function as a GRC system, replace SIEM or logging platforms, or act as a runtime control plane.
+Fork does not certify compliance, establish legal admissibility, establish legal sufficiency, replace institutional controls, operate detection systems, function as a GRC system, replace SIEM or logging platforms, or act as a runtime control plane.
 
 Start here:
 
@@ -35,10 +35,18 @@ A reliance boundary is the point at which an AI-assisted artifact is treated as 
 
 Fork does not decide what should be relied upon. Fork preserves the reconstructable context around what was in fact relied upon, what was not relied upon, and whether the sealed record still structurally verifies later.
 
+Fork does not assess the quality, correctness, reasonableness, or sufficiency of any reliance decision.
+
 ## CISO / security distinction
 
-Fork does not collect security telemetry, operate detection controls, replace SIEM tooling, or function as a GRC system.
+Security leadership may use Fork to reconstruct the context around AI-assisted artifacts that were referenced during investigations, postmortems, risk reviews, or control-design discussions.
 
-Security leadership may use Fork to reconstruct AI-assisted reliance context during investigations, postmortems, risk reviews, and control-design discussions, alongside existing SIEM, logging, GRC, and compliance systems.
+Fork does not integrate with, replace, operate, or evaluate SIEM, logging, GRC, compliance, detection, telemetry, or security-control systems unless separately implemented outside this buyer-facing posture.
+
+## Legal-scope distinction
+
+Fork does not establish legal admissibility or legal sufficiency.
+
+Legal admissibility and legal sufficiency are separate legal determinations outside Fork's scope. Fork preserves reconstructable context; it does not decide whether that context is admissible, sufficient, persuasive, complete, or legally operative.
 
 <!-- FORK_COMMERCIAL_BUYER_NOTE_AND_RELIANCE_BOUNDARY:END -->
