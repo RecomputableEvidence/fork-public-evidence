@@ -17,6 +17,110 @@ Inclusion does not make any artifact sufficient for compliance, legal, productio
 
 No endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, or compliance conclusion is implied.
 
+## v0.1.4 Candidate Addendum: Artifact-Boundary Hardening
+
+This addendum records candidate v0.1.4 hardening pressure surfaces identified after the v0.1.3 input-integrity observance batch.
+
+This packet remains a v0.1.3 plaintext review packet.
+
+The addendum does not convert v0.1.3 observations into endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, compliance conclusion, audit sufficiency, or consensus.
+
+### v0.1.3 batch synthesis
+
+The v0.1.3 batch surfaced heterogeneous access and interpretation behavior:
+
+- clean access failure with no substantive source claim;
+- access failure followed by generic or conceptual analysis;
+- raw packet success with documentation-layer limitation;
+- direct multi-file access with artifact-level findings;
+- second-order observance of batch writeups.
+
+These differences must be preserved.
+
+They must not be collapsed into uniform review quality.
+
+### Access and interpretation classification excerpt
+
+Recommended observation classifications include:
+
+```yaml
+access_status: attempted_failed | performed | partial | not_performed | unknown
+retrieval_fidelity: zero | prompt_only | plaintext_packet | packet_only | multi_file | repository_clone | executable | unknown
+interpretation_scope: none | conceptual_only | documentation_layer_only | data_schema_layer | direct_raw_multi_file_review | second_order_observance | unknown
+source_contamination: true | false | partial | unknown
+substantive_packet_review: true | false | unknown
+recommended_preservation: access_mode_failure | source_contamination_after_failed_retrieval | conceptual_only_after_failed_retrieval | raw_packet_success_documentation_layer_only | direct_file_review_with_artifact_boundary_findings | second_order_observance_not_packet_review | unknown
+```
+
+### Plaintext schema excerpt
+
+Plaintext-only observers should be able to see the minimum intake structure even when schema retrieval fails.
+
+Minimum intake fields include:
+
+```yaml
+observer_identity: string
+observer_type: human | llm | tool | unknown
+access_mode:
+  github_rendered: performed | attempted_failed | not_performed | partial | unknown
+  raw: performed | attempted_failed | not_performed | partial | unknown
+  plaintext_packet: performed | attempted_failed | not_performed | partial | unknown
+  repository_clone: performed | attempted_failed | not_performed | partial | unknown
+  pasted_content: performed | attempted_failed | not_performed | partial | unknown
+execution_performed: true | false | unknown
+retrieval_fidelity: zero | prompt_only | plaintext_packet | packet_only | multi_file | repository_clone | executable | unknown
+interpretation_scope: none | conceptual_only | documentation_layer_only | data_schema_layer | direct_raw_multi_file_review | second_order_observance | unknown
+non_endorsement_attestation:
+  acknowledged: true | false
+  statement: string
+non_endorsement_statement: string
+observations: list
+limitations: list
+```
+
+This excerpt is descriptive.
+
+It is not a substitute for the canonical schema artifact.
+
+### CSV matrix summary excerpt
+
+The v0.1.3 and v0.1.4 matrix summaries are descriptive only.
+
+They are not substitutes for canonical CSV artifacts.
+
+They do not imply endorsement, validation, certification, approval, production-readiness assessment, legal conclusion, compliance conclusion, audit sufficiency, or consensus.
+
+Relevant matrix concepts include:
+
+- observation registry entries;
+- retrieval fidelity tracking;
+- input-integrity pressure classification;
+- active non-endorsement attestation needs;
+- source contamination after failed retrieval;
+- coding volume non-authority;
+- packet inclusion boundary preservation;
+- synthesis top-and-bottom boundary preservation.
+
+### Artifact-local boundary rule
+
+A boundary at the packet level is necessary but insufficient.
+
+Artifacts that may be retrieved independently should preserve an artifact-local boundary appropriate to their format.
+
+For CSV files, do not add comment rows unless the file format explicitly allows them.
+
+Prefer adjacent README files, data dictionary descriptions, schema descriptions, access-index notes, or plaintext summaries marked as descriptive only.
+
+### v0.1.4 sandbox case summary
+
+Candidate v0.1.4 sandbox cases:
+
+- Case 24: Analyst-output excerpting;
+- Case 25: Divergent or contradictory coding;
+- Case 26: Coding volume misread as audit rigor;
+- Case 27: Synthesis boundary violation;
+- Case 28: Packet inclusion misread as sufficiency;
+- Case 29: Source contamination after failed retrieval.
 
 ----- BEGIN FILE: docs/exterior-observations/experiment-v0_1/NEXT_PASS_LLM_OBSERVANCE_REQUEST_v0_1_3.md -----
 
