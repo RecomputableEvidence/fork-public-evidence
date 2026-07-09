@@ -25,7 +25,7 @@ This research track contains proposed Fork standards-family artifacts for review
 The Phase 2 bundle extends the Phase 1 SHA-256 receipt chain. Verify with:
 
 ```powershell
-python .esearch\standards\scriptserify_handoff_chain.py
+python .\research\standards\scripts\verify_handoff_chain.py
 ```
 
 ## Non-Claims
