@@ -176,9 +176,12 @@ This guide explains how reviewers and contributors should interpret Fork artifac
 
 <!-- FORK_BOUNDARY_PRESSURE_REVIEW_REVIEWER_START:START -->
 
-Boundary Pressure Review
-Fork now includes an experimental Boundary Pressure Review case for retrieval distortion:
-Boundary Pressure Review / Retrieval Distortion Test Case v0.1
+## Boundary Pressure Review
+
+Fork includes an experimental Boundary Pressure Review case for retrieval distortion:
+
+- [Boundary Pressure Review / Retrieval Distortion Test Case v0.1](review/boundary-pressure/BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_TEST_CASE_v0_1.md)
+
 This case tests whether failed retrieval or partial access is preserved as unresolved access state rather than upgraded into review, execution, recomputation, endorsement, approval, compliance, legal sufficiency, or truth.
 
 <!-- FORK_BOUNDARY_PRESSURE_REVIEW_REVIEWER_START:END -->

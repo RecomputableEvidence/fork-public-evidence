@@ -410,11 +410,16 @@ The review question is not only whether an artifact works. The review question i
 
 <!-- FORK_BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_CASE:START -->
 
-Boundary Pressure Review / Retrieval Distortion Test Case
+## Boundary Pressure Review / Retrieval Distortion Test Case
+
 A first Boundary Pressure Review test case is maintained here:
-Boundary Pressure Review / Retrieval Distortion Test Case v0.1
+
+- [Boundary Pressure Review / Retrieval Distortion Test Case v0.1](boundary-pressure/BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_TEST_CASE_v0_1.md)
+
 The case evaluates whether failed retrieval, partial access, commentary, observation, recomputation, structural reproduction, approval, endorsement, compliance, legal sufficiency, and truth remain distinguishable under pressure.
+
 Run the checker from repo root:
-python .\tools\check_boundary_pressure_review_cases_v0_1.py
+
+    python .\tools\check_boundary_pressure_review_cases_v0_1.py
 
 <!-- FORK_BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_CASE:END -->

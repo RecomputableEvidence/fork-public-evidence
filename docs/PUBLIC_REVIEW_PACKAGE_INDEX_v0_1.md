@@ -120,10 +120,12 @@ This guide explains how reviewers and contributors should interpret Fork artifac
 
 <!-- FORK_BOUNDARY_PRESSURE_REVIEW_PUBLIC_INDEX:START -->
 
-Boundary Pressure Review
+## Boundary Pressure Review
+
 Boundary Pressure Review artifacts exercise failure cases where structural evidence, unresolved state, authority, sufficiency, truth, endorsement, and compliance may be incorrectly collapsed.
-Boundary Pressure Review / Retrieval Distortion Test Case v0.1
-Checker: tools/check_boundary_pressure_review_cases_v0_1.py
-Fixtures: docs/review/boundary-pressure/fixtures/
+
+- [Boundary Pressure Review / Retrieval Distortion Test Case v0.1](review/boundary-pressure/BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_TEST_CASE_v0_1.md)
+- Checker: `tools/check_boundary_pressure_review_cases_v0_1.py`
+- Fixtures: `docs/review/boundary-pressure/fixtures/`
 
 <!-- FORK_BOUNDARY_PRESSURE_REVIEW_PUBLIC_INDEX:END -->
