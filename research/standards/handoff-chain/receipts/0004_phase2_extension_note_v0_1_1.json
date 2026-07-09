@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:57:00Z",
+  "document_bytes": 2389,
+  "document_id": "FHC-PHASE2-EXTENSION-v0.1.1",
+  "document_path": "handoff-chain/PHASE2_HANDOFF_EXTENSION_NOTE_v0_1_1.md",
+  "document_sha256": "95c4c469422c8c103fdfe6eba0b8c8864fd1dcc1736542745587bcb40df47f15",
+  "handoff_state": "phase2_reconciled",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_2_reconciliation",
+  "previous_receipt_sha256": "b2622db7ede904c87a4630096947c6daae70b6bdb9085ca940407c59f4ceaee0",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0004-PHASE2-EXTENSION-NOTE",
+  "receipt_sha256": "f00c13d59194dd270e7776c29e939345733f72c7c595cf002aa3386651aaeab9",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 4,
+  "summary": "Recorded Phase 2 reconciliation and supersession handling."
+}

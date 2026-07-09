@@ -1,0 +1,234 @@
+{
+  "chain_head_sha256": "091f23c418dc91eb3ce026383a8a6a7ebb6f56d1060733f28818e78ff0c82cb4",
+  "classification": "informative_evidentiary",
+  "created_utc": "2026-07-08T06:57:00Z",
+  "documents": [
+    {
+      "document_id": "FSPC-0.1",
+      "path": "FORK_STANDARDS_PROGRAM_CHARTER_v0_1.md",
+      "sha256": "d962908f5d8ff7bf5a8ee20e0d3ad0c53ab50a748fb9ac3f845805b4a421aeb8"
+    },
+    {
+      "document_id": "FSA-0.1",
+      "path": "FORK_STANDARDS_ARCHITECTURE_v0_1.md",
+      "sha256": "ce5ccb49dd6a536a4cd490474e07b09d49fcd37a495033e7f5e921071ead0cb8"
+    },
+    {
+      "document_id": "FK-100",
+      "path": "FK-100/FK-100_FORK_PROOF_SURFACE_SPECIFICATION_v0_1.md",
+      "sha256": "dff5fe9f8efb88eb8da5b6c54834866a5172fd83328beb4e47eccc11ccc73ac8"
+    },
+    {
+      "document_id": "FHC-PHASE2-EXTENSION-v0.1.1",
+      "path": "handoff-chain/PHASE2_HANDOFF_EXTENSION_NOTE_v0_1_1.md",
+      "sha256": "95c4c469422c8c103fdfe6eba0b8c8864fd1dcc1736542745587bcb40df47f15"
+    },
+    {
+      "document_id": "FSA-0.1.1",
+      "path": "FORK_STANDARDS_ARCHITECTURE_v0_1_1.md",
+      "sha256": "a492fc84e8d66a052230a110cc581abf9377b639d2d005e34c2ceb833fee78dc"
+    },
+    {
+      "document_id": "FK-100-v0.1.1",
+      "path": "FK-100/FK-100_FORK_PROOF_SURFACE_SPECIFICATION_v0_1_1.md",
+      "sha256": "448da14bed74c804091e5c28f93207d2e57ec7a1bfefb55c0806cd45b40b303c"
+    },
+    {
+      "document_id": "BC-100",
+      "path": "BC-100/BC-100_BOUNDARY_CONTRACT_MODEL_v0_1.md",
+      "sha256": "5b0f39c51ccbdf881e347ebc854de7dfe94cc63ffbd95fee680ff874d952d366"
+    },
+    {
+      "document_id": "BC-100-INV",
+      "path": "BC-100/invariants.md",
+      "sha256": "500431fe109468f3c8c0ef505d242dcfc3ee9bb4f989f4ce2586da38d6a57abd"
+    },
+    {
+      "document_id": "BC-100-PROFILE-TEMPLATE",
+      "path": "BC-100/profile_template.md",
+      "sha256": "75e72287c12ecf611dbfb8de5295541dbe7f951863a6c29a94b6003f6bd25b25"
+    },
+    {
+      "document_id": "BC-101",
+      "path": "profiles/BC-101_AST100_FK100_PROFILE_v0_1.md",
+      "sha256": "934eced8374ccaae8232f4c0363033dfb5e9fbff703299f73856412310833580"
+    },
+    {
+      "document_id": "BC-102-TEMPLATE",
+      "path": "profiles/BC-102_TEMPLATE.md",
+      "sha256": "5cf81c3c83b202a07460e400398c45834258a3077b2c81c4411b043f9b32d993"
+    },
+    {
+      "document_id": "BC-103-TEMPLATE",
+      "path": "profiles/BC-103_TEMPLATE.md",
+      "sha256": "84001aec8464aff40eaf2456e8ee858b2fcdb4b9bb0738129b2e5513db7fa1cf"
+    },
+    {
+      "document_id": "WF-101",
+      "path": "workflows/AST100_FK100_EXAMPLE_v0_1.md",
+      "sha256": "3af23909da26c97f83c4fb8da7b50e28938225ff21f6f339bce2dfc601d0a4d8"
+    },
+    {
+      "document_id": "WF-TEMPLATE",
+      "path": "workflows/ENTERPRISE_COMPOSITION_TEMPLATE.md",
+      "sha256": "6f2e8e7c281e2a17c7003275a38349254aa6c032a44a99328ee0a9ea7ded95fc"
+    },
+    {
+      "document_id": "PSC-100",
+      "path": "comparative/PROOF_SURFACE_COMPARISON_TEMPLATE.md",
+      "sha256": "68c7a43551ddc82ad2f63d2b9334927b2a4bfd71d0015967331ac1ed8dd3f4d9"
+    },
+    {
+      "document_id": "BCR-100",
+      "path": "comparative/BOUNDARY_CONTRACT_REVIEW_TEMPLATE.md",
+      "sha256": "d79b34a0c1f1ad449e67f4e20ce9e92cc829e3c05f02ec78c21eac67d03717ab"
+    },
+    {
+      "document_id": "IRC-100",
+      "path": "comparative/INTEROPERABILITY_READINESS_CHECKLIST.md",
+      "sha256": "3a7d78288e327081eda6128b7a3cae8e376be522abd7afce1079adb02a507375"
+    },
+    {
+      "document_id": "FHC-VERIFY-v0.1.1",
+      "path": "scripts/verify_handoff_chain.py",
+      "sha256": "6a326ab56d61ddb565a146bd40e2c8aea085e918711a25e2d3ecda1ea64c4996"
+    },
+    {
+      "document_id": "FHC-INSTALL-v0.1.1",
+      "path": "scripts/install_phase2_reconciled_to_repo.ps1",
+      "sha256": "4e6549fefdf47c7308a3ed578dbd5c030623c5a45547e7e67ad271863ed76bf6"
+    }
+  ],
+  "manifest_id": "FHC-MANIFEST-PHASE2-RECONCILED-v0.1.1",
+  "non_claims": [
+    "The manifest does not prove correctness.",
+    "The manifest does not imply external adoption or endorsement.",
+    "The manifest does not transfer authority.",
+    "The manifest does not establish implementation conformance.",
+    "The manifest records a hash-chained handoff sequence only."
+  ],
+  "phase": "phase_2_reconciled_extension",
+  "receipts": [
+    {
+      "path": "handoff-chain/receipts/0000_genesis.json",
+      "receipt_id": "FHC-0000-GENESIS",
+      "receipt_sha256": "719cf6bdf91fec4c770d6077a34911a63270f1eba500785cbb3f0f397273378f",
+      "sequence": 0
+    },
+    {
+      "path": "handoff-chain/receipts/0001_program_charter_v0_1.json",
+      "receipt_id": "FHC-0001-PROGRAM-CHARTER",
+      "receipt_sha256": "c23b200d2da76577d5686049176ccc5d47460872dfdbbe00de1dfd4c40dab59c",
+      "sequence": 1
+    },
+    {
+      "path": "handoff-chain/receipts/0002_standards_architecture_v0_1.json",
+      "receipt_id": "FHC-0002-STANDARDS-ARCHITECTURE",
+      "receipt_sha256": "b2c5c62f53d6d00f105a2203927029588108a78efd66efc4e10e4bc5fd8d969c",
+      "sequence": 2
+    },
+    {
+      "path": "handoff-chain/receipts/0003_fk100_v0_1.json",
+      "receipt_id": "FHC-0003-FK-100",
+      "receipt_sha256": "b2622db7ede904c87a4630096947c6daae70b6bdb9085ca940407c59f4ceaee0",
+      "sequence": 3
+    },
+    {
+      "path": "handoff-chain/receipts/0004_phase2_extension_note_v0_1_1.json",
+      "receipt_id": "FHC-0004-PHASE2-EXTENSION-NOTE",
+      "receipt_sha256": "f00c13d59194dd270e7776c29e939345733f72c7c595cf002aa3386651aaeab9",
+      "sequence": 4
+    },
+    {
+      "path": "handoff-chain/receipts/0005_standards_architecture_v0_1_1.json",
+      "receipt_id": "FHC-0005-STANDARDS-ARCHITECTURE-v0.1.1",
+      "receipt_sha256": "0a2f795494b9e2c42ba5782aef7ff549e47b82faf41f61b418660676933dfa4e",
+      "sequence": 5
+    },
+    {
+      "path": "handoff-chain/receipts/0006_fk100_v0_1_1.json",
+      "receipt_id": "FHC-0006-FK-100-v0.1.1",
+      "receipt_sha256": "450e9bb8950efc0208a1bfb1573d490112a9b509435b7a0203fe76fde6be5bd7",
+      "sequence": 6
+    },
+    {
+      "path": "handoff-chain/receipts/0007_bc100_v0_1.json",
+      "receipt_id": "FHC-0007-BC-100",
+      "receipt_sha256": "08f2c1d18dfe635ed38950febea6ecbcf278d891f9c9e83881b1440401c4bdf1",
+      "sequence": 7
+    },
+    {
+      "path": "handoff-chain/receipts/0008_bc100_invariants_v0_1.json",
+      "receipt_id": "FHC-0008-BCI-INVARIANTS",
+      "receipt_sha256": "c29535ee6d02c5dbf3ab8ffca9c6abe2bda30014d5730b1b628d7e536e8b5c95",
+      "sequence": 8
+    },
+    {
+      "path": "handoff-chain/receipts/0009_bc100_profile_template_v0_1.json",
+      "receipt_id": "FHC-0009-PROFILE-TEMPLATE",
+      "receipt_sha256": "b8d96a5580ef7c0c5e37c5a04a046ace7dd2354b25212b7762504fa0092aa6f5",
+      "sequence": 9
+    },
+    {
+      "path": "handoff-chain/receipts/0010_bc101_ast100_fk100_profile_v0_1.json",
+      "receipt_id": "FHC-0010-BC-101",
+      "receipt_sha256": "0b0b288a6b23138cd58545866ce59ddf7230564e519e2a5fb9904d81b79f864f",
+      "sequence": 10
+    },
+    {
+      "path": "handoff-chain/receipts/0011_bc102_template.json",
+      "receipt_id": "FHC-0011-BC-102-TEMPLATE",
+      "receipt_sha256": "d4bc955a7ab3e3e97d05139f602e64cd67392a9e5b6a5265d1ee1cee29f6b725",
+      "sequence": 11
+    },
+    {
+      "path": "handoff-chain/receipts/0012_bc103_template.json",
+      "receipt_id": "FHC-0012-BC-103-TEMPLATE",
+      "receipt_sha256": "872d039198b2c4e7ffd716fc7140624c9a07b181b8e7ea16bd3369a7ff70c5dc",
+      "sequence": 12
+    },
+    {
+      "path": "handoff-chain/receipts/0013_ast100_fk100_workflow_v0_1.json",
+      "receipt_id": "FHC-0013-WF-AST100-FK100",
+      "receipt_sha256": "c9d24ad6d2cc6414dac01ecf3429a1792dd2ffbaa5a006d045db5e447da10305",
+      "sequence": 13
+    },
+    {
+      "path": "handoff-chain/receipts/0014_enterprise_composition_template.json",
+      "receipt_id": "FHC-0014-WF-TEMPLATE",
+      "receipt_sha256": "bd01ced3e075e9d01f51bff864f6eab228642a48cb0b4377fe2d81df6750f20b",
+      "sequence": 14
+    },
+    {
+      "path": "handoff-chain/receipts/0015_proof_surface_comparison_template.json",
+      "receipt_id": "FHC-0015-PSC-TEMPLATE",
+      "receipt_sha256": "5489958681c04d483e7d57f47510c8abc82c7bb55532ddfbfe446d45b1c93f9b",
+      "sequence": 15
+    },
+    {
+      "path": "handoff-chain/receipts/0016_boundary_contract_review_template.json",
+      "receipt_id": "FHC-0016-BCR-TEMPLATE",
+      "receipt_sha256": "c2d1c2d7fca8b517b01e9b94d9da25ee7837c6633cf642297c4fbdd238f0b70f",
+      "sequence": 16
+    },
+    {
+      "path": "handoff-chain/receipts/0017_interoperability_readiness_checklist.json",
+      "receipt_id": "FHC-0017-IRC-CHECKLIST",
+      "receipt_sha256": "5c47bc985ce4febc2b91f53d5992343ade699744a039ee9924d734f8ff8c89ab",
+      "sequence": 17
+    },
+    {
+      "path": "handoff-chain/receipts/0018_verify_handoff_chain_py.json",
+      "receipt_id": "FHC-0018-VERIFIER",
+      "receipt_sha256": "293bd4ebc07004ff2b6cad69568d9820e7dc96be6dd5cdc26f116290faa4f371",
+      "sequence": 18
+    },
+    {
+      "path": "handoff-chain/receipts/0019_install_phase2_reconciled_ps1.json",
+      "receipt_id": "FHC-0019-INSTALLER",
+      "receipt_sha256": "091f23c418dc91eb3ce026383a8a6a7ebb6f56d1060733f28818e78ff0c82cb4",
+      "sequence": 19
+    }
+  ],
+  "schema_version": "fork.handoff_chain.manifest.v0.1"
+}

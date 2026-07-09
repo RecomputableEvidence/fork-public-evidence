@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-07-08T06:12:02Z",
+  "document_bytes": 18528,
+  "document_id": "FK-100",
+  "document_path": "FK-100/FK-100_FORK_PROOF_SURFACE_SPECIFICATION_v0_1.md",
+  "document_sha256": "dff5fe9f8efb88eb8da5b6c54834866a5172fd83328beb4e47eccc11ccc73ac8",
+  "handoff_state": "phase1_generated",
+  "non_claims": [
+    "This receipt does not prove document correctness.",
+    "This receipt does not imply external adoption or endorsement.",
+    "This receipt does not transfer authority.",
+    "This receipt does not establish implementation conformance.",
+    "This receipt is a hash-chain record only, not a consensus blockchain."
+  ],
+  "phase": "phase_1_foundation",
+  "previous_receipt_sha256": "b2c5c62f53d6d00f105a2203927029588108a78efd66efc4e10e4bc5fd8d969c",
+  "receipt_hash_method": "sha256(canonical_json_without_receipt_sha256)",
+  "receipt_id": "FHC-0003-FK-100",
+  "receipt_sha256": "b2622db7ede904c87a4630096947c6daae70b6bdb9085ca940407c59f4ceaee0",
+  "schema_version": "fork.handoff_chain.receipt.v0.1",
+  "sequence": 3,
+  "summary": "Generated FK-100 Fork Proof Surface Specification v0.1."
+}
