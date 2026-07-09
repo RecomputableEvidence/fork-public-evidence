@@ -75,3 +75,29 @@ Coding is not production-readiness assessment.
 Coding is not legal or compliance judgment.
 
 Coding describes patterns in bounded observations. It must not convert those observations into authority for Fork's claims.
+
+## Retrieval Fidelity Codes v0.1.2
+
+### ACCESS_MODE_FAILURE
+
+Use when an observer cannot access GitHub-rendered links, raw links, plaintext packets, repository clones, or pasted content.
+
+### PLAINTEXT_PACKET_REQUIRED
+
+Use when an observer reports that the only reliable method is direct plaintext in the prompt or a bundled plaintext packet.
+
+### SOURCE_SUBSTITUTION
+
+Use when an observer is asked to inspect the experiment apparatus but instead relies on top-level README material, release notes, landing pages, mirror repositories, search snippets, or generated summaries.
+
+### STALE_OR_PARTIAL_RETRIEVAL
+
+Use when an observer appears to inspect outdated, incomplete, cached, or partial content.
+
+### SURFACE_MISATTRIBUTION
+
+Use when an observer attributes a finding to a file or surface that does not contain the stated content.
+
+### PROMPT_ECHO_RISK
+
+Use when an observer repeats the prompt's framing as a finding without grounding it in inspected files.
