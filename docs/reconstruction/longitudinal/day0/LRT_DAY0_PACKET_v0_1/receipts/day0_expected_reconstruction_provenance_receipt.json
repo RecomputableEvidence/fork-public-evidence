@@ -1,0 +1,12 @@
+{
+    "receipt_id":  "LRT_DAY0_EXPECTED_RECONSTRUCTION_PROVENANCE_RECEIPT_v0_1",
+    "receipt_type":  "expected_reconstruction_provenance_receipt",
+    "trial_id":  "fork_longitudinal_reconstruction_trial_v0_1",
+    "packet_id":  "LRT_DAY0_PACKET_v0_1",
+    "created_at_fixed_fixture_time":  "2026-07-09T00:00:00Z",
+    "provenance_status":  "author_declared_day0_fixture_baseline",
+    "independence_status":  "not_independent_external_reviewer_provenance_in_v0_1",
+    "boundary_note":  "The Day-0 expected reconstruction is a declared fixture baseline. Later Day-7, Day-30, and Day-90 replay should not treat this as independent validation.",
+    "required_future_upgrade":  "Future rounds should obtain independent expected reconstruction provenance from an exterior reviewer or separate implementation.",
+    "non_authority_statement":  "This Day-0 packet preserves a bounded synthetic evidence state for later longitudinal reconstruction testing. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority. Later reconstruction may verify packet integrity, manifest continuity, hash consistency, and declared boundary state; it must not convert preserved evidence into authority."
+}

@@ -362,3 +362,41 @@ Run:
 A pass remains bounded. It means required public review artifacts are present and included structural checkers passed. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, or institutional authority.
 
 <!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:START -->
+
+## Longitudinal Reconstruction Trial Day-0 packet
+
+The Day-0 packet for the longitudinal reconstruction trial is now present at:
+
+- docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/
+
+The Day-0 packet includes:
+
+- packet manifest;
+- manifest SHA-256 sidecar;
+- outer receipt binding the manifest hash;
+- request record;
+- AI output record;
+- human review record;
+- boundary state record;
+- non-claims record;
+- expected reconstruction;
+- environment manifest;
+- non-authority boundary statement;
+- Day-0 receipts.
+
+Checker:
+
+- python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json
+
+Current limitation:
+
+- the expected reconstruction provenance is an author-declared Day-0 fixture baseline, not independent external reviewer provenance.
+
+Boundary:
+
+- Day-0 packet verification checks presence, hashes, manifest binding, and boundary statements only.
+- It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->

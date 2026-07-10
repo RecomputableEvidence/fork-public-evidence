@@ -252,3 +252,33 @@ Use one or more:
 A public verifier pass means the bounded public review package is present and the included structural checkers passed under the reviewer environment.
 
 It does not mean Fork is true, compliant, legally sufficient, safe, authorized, approved, certified, endorsed, production ready, or institutionally authoritative.
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:START -->
+
+## Longitudinal Day-0 packet
+
+The Day-0 packet is the first sealed object for later Day-7, Day-30, and Day-90 replay.
+
+Read:
+
+- docs/reconstruction/LONGITUDINAL_RECONSTRUCTION_DAY0_PACKET_RECEIPT_v0_1.md
+- docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/README.md
+
+Run:
+
+- python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json
+
+Record:
+
+- packet manifest hash;
+- outer receipt manifest hash;
+- expected reconstruction hash;
+- environment manifest hash;
+- non-authority boundary statement hash;
+- checker result.
+
+Current limitation:
+
+- expected reconstruction provenance is author-declared fixture baseline in v0.1, not independent external reviewer provenance.
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->

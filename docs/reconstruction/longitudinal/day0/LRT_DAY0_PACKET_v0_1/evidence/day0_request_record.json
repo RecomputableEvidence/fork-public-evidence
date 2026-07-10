@@ -1,0 +1,18 @@
+{
+    "record_id":  "LRT_DAY0_REQUEST_RECORD_v0_1",
+    "record_type":  "synthetic_ai_assisted_workflow_request",
+    "trial_id":  "fork_longitudinal_reconstruction_trial_v0_1",
+    "packet_id":  "LRT_DAY0_PACKET_v0_1",
+    "created_at_fixed_fixture_time":  "2026-07-09T00:00:00Z",
+    "request_text":  "Create a bounded evidence-state fixture that later reviewers can reconstruct without relying on the authority of the author, the model, or the original environment.",
+    "requester_role":  "fixture_author",
+    "declared_purpose":  "longitudinal reconstruction trial Day-0 packet",
+    "requested_output":  {
+                             "evidence_state_record":  true,
+                             "boundary_state_record":  true,
+                             "non_claims_record":  true,
+                             "expected_reconstruction":  true,
+                             "manifest_and_outer_receipt":  true
+                         },
+    "non_authority_statement":  "This Day-0 packet preserves a bounded synthetic evidence state for later longitudinal reconstruction testing. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority. Later reconstruction may verify packet integrity, manifest continuity, hash consistency, and declared boundary state; it must not convert preserved evidence into authority."
+}

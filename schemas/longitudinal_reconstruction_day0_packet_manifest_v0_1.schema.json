@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/longitudinal_reconstruction_day0_packet_manifest_v0_1.schema.json",
+  "title": "Fork Longitudinal Reconstruction Day-0 Packet Manifest v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "manifest_schema_version",
+    "trial_id",
+    "packet_id",
+    "created_at_fixed_fixture_time",
+    "generated_from_base_commit",
+    "canonicalization_method",
+    "artifact_hashes",
+    "expected_reconstruction_hash",
+    "environment_manifest_hash",
+    "non_authority_boundary_statement_hash",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "manifest_schema_version": { "type": "string" },
+    "trial_id": { "type": "string" },
+    "packet_id": { "type": "string" },
+    "created_at_fixed_fixture_time": { "type": "string" },
+    "generated_from_base_commit": { "type": "string" },
+    "canonicalization_method": { "type": "string" },
+    "artifact_hashes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [ "path", "role", "sha256" ],
+        "properties": {
+          "path": { "type": "string" },
+          "role": { "type": "string" },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "expected_reconstruction_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "environment_manifest_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "non_authority_boundary_statement_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "non_authority_statement": { "type": "string" }
+  }
+}

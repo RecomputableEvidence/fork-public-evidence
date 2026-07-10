@@ -1,0 +1,22 @@
+{
+    "record_id":  "LRT_DAY0_NON_CLAIMS_RECORD_v0_1",
+    "record_type":  "non_claims_record",
+    "trial_id":  "fork_longitudinal_reconstruction_trial_v0_1",
+    "packet_id":  "LRT_DAY0_PACKET_v0_1",
+    "created_at_fixed_fixture_time":  "2026-07-09T00:00:00Z",
+    "explicit_non_claims":  [
+                                "Fork does not establish truth.",
+                                "Fork does not establish legal sufficiency.",
+                                "Fork does not establish compliance.",
+                                "Fork does not establish safety.",
+                                "Fork does not authorize execution.",
+                                "Fork does not approve deployment.",
+                                "Fork does not certify the workflow.",
+                                "Fork does not endorse the underlying content.",
+                                "Fork does not establish production readiness.",
+                                "Fork does not transfer institutional authority.",
+                                "Fork does not replace source evidence.",
+                                "Fork does not convert later reconstruction into retroactive permission."
+                            ],
+    "non_authority_statement":  "This Day-0 packet preserves a bounded synthetic evidence state for later longitudinal reconstruction testing. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority. Later reconstruction may verify packet integrity, manifest continuity, hash consistency, and declared boundary state; it must not convert preserved evidence into authority."
+}

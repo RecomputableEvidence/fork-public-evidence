@@ -118,7 +118,26 @@ $requiredPaths = @(
     "schemas/public_review_round_004_interaction_v0_1.schema.json",
     "tools/check_public_review_round_004_interactions_v0_1.py",
 
-    "scripts/verify_public_review_package_v0_1.ps1"
+    "scripts/verify_public_review_package_v0_1.ps1",
+
+    "docs/reconstruction/LONGITUDINAL_RECONSTRUCTION_DAY0_PACKET_RECEIPT_v0_1.md",
+    "schemas/longitudinal_reconstruction_day0_packet_manifest_v0_1.schema.json",
+    "tools/check_longitudinal_reconstruction_day0_packet_v0_1.py",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/README.md",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/packet_manifest.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/packet_manifest.sha256",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/packet_manifest_outer_receipt.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/boundary/day0_non_authority_boundary_statement.txt",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_request_record.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_ai_output_record.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_human_review_record.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_boundary_state_record.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_non_claims_record.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/expected/day0_expected_reconstruction.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/environment/day0_environment_manifest.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/receipts/day0_generation_receipt.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/receipts/day0_expected_reconstruction_provenance_receipt.json",
+    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/receipts/day0_packet_scope_receipt.json"
 )
 
 foreach ($path in $requiredPaths) {
@@ -186,6 +205,25 @@ if (-not $pythonCommand) {
         -Passed $roundPassed `
         -Detail "python tools/check_public_review_round_004_interactions_v0_1.py --json" `
         -Data $roundData))
+    $day0Args = @("tools/check_longitudinal_reconstruction_day0_packet_v0_1.py", "--json")
+    $day0Run = Invoke-External -Name "longitudinal-day0" -Command $pythonCommand -Arguments $day0Args
+    $day0Passed = $false
+    $day0Data = $null
+
+    if ($day0Run.exit_code -eq 0) {
+        $day0Data = Convert-JsonOutput -Text $day0Run.output -Name "Longitudinal Day-0 checker"
+
+        $day0Passed = (
+            $day0Data.failed -eq 0 -and
+            $day0Data.passed -eq $day0Data.total
+        )
+    }
+
+    [void]$results.Add((New-Result `
+        -Name "checker:longitudinal-day0" `
+        -Passed $day0Passed `
+        -Detail "python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json" `
+        -Data $day0Data))
 }
 
 if (-not $SkipGitChecks) {
@@ -291,6 +329,20 @@ if ($Json) {
         Write-Host "  total: $($roundResult.data.total)"
         Write-Host "  passed: $($roundResult.data.passed)"
         Write-Host "  failed: $($roundResult.data.failed)"
+    }
+    $day0Result = $null
+    foreach ($result in $results) {
+        if ($result.name -eq "checker:longitudinal-day0") {
+            $day0Result = $result
+        }
+    }
+
+    if ($day0Result -and $day0Result.data) {
+        Write-Host ""
+        Write-Host "Longitudinal Day-0 checker:"
+        Write-Host "  total: $($day0Result.data.total)"
+        Write-Host "  passed: $($day0Result.data.passed)"
+        Write-Host "  failed: $($day0Result.data.failed)"
     }
 }
 

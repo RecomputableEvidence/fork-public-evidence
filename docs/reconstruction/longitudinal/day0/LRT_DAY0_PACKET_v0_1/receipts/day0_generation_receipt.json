@@ -1,0 +1,22 @@
+{
+    "receipt_id":  "LRT_DAY0_GENERATION_RECEIPT_v0_1",
+    "receipt_type":  "day0_packet_generation_receipt",
+    "trial_id":  "fork_longitudinal_reconstruction_trial_v0_1",
+    "packet_id":  "LRT_DAY0_PACKET_v0_1",
+    "created_at_fixed_fixture_time":  "2026-07-09T00:00:00Z",
+    "generation_method":  "scripts/add_longitudinal_reconstruction_day0_packet_v0_1.ps1",
+    "generated_from_base_commit":  "e4555b93e8ce25d974de1c6a300049021862ba90",
+    "generated_artifact_roles":  [
+                                     "request record",
+                                     "AI output record",
+                                     "human review record",
+                                     "boundary state record",
+                                     "non-claims record",
+                                     "expected reconstruction",
+                                     "environment manifest",
+                                     "manifest",
+                                     "manifest hash",
+                                     "outer receipt"
+                                 ],
+    "non_authority_statement":  "This Day-0 packet preserves a bounded synthetic evidence state for later longitudinal reconstruction testing. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority. Later reconstruction may verify packet integrity, manifest continuity, hash consistency, and declared boundary state; it must not convert preserved evidence into authority."
+}

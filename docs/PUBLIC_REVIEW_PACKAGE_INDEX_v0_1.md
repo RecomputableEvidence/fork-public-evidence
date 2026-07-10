@@ -224,3 +224,25 @@ Expanded public verifier:
 The verifier checks core proof-surface files, boundary-pressure fixtures, adversarial regression fixtures, Round 004 interaction filings, longitudinal protocol presence, BPEF presence, and Git whitespace checks.
 
 <!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:START -->
+
+## Longitudinal Reconstruction Trial Day-0 packet
+
+Receipt:
+
+- docs/reconstruction/LONGITUDINAL_RECONSTRUCTION_DAY0_PACKET_RECEIPT_v0_1.md
+
+Packet root:
+
+- docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/
+
+Checker:
+
+- tools/check_longitudinal_reconstruction_day0_packet_v0_1.py
+
+Run:
+
+- python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->

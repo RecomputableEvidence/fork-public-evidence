@@ -1,0 +1,84 @@
+{
+    "manifest_schema_version":  "0.1",
+    "trial_id":  "fork_longitudinal_reconstruction_trial_v0_1",
+    "packet_id":  "LRT_DAY0_PACKET_v0_1",
+    "created_at_fixed_fixture_time":  "2026-07-09T00:00:00Z",
+    "generated_from_base_commit":  "e4555b93e8ce25d974de1c6a300049021862ba90",
+    "canonicalization_method":  "file-byte SHA-256 over UTF-8 LF artifacts; JSON emitted by PowerShell ConvertTo-Json with ordered fixture fields; not JCS",
+    "schema_versions":  {
+                            "day0_packet_manifest":  "schemas/longitudinal_reconstruction_day0_packet_manifest_v0_1.schema.json"
+                        },
+    "checker_versions":  {
+                             "day0_packet_checker":  "tools/check_longitudinal_reconstruction_day0_packet_v0_1.py",
+                             "public_review_verifier":  "scripts/verify_public_review_package_v0_1.ps1"
+                         },
+    "artifact_hashes":  [
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/README.md",
+                                "role":  "packet_readme",
+                                "sha256":  "4945520086e171e76c497569ac5c67f36490033c899bf689e84f194817fa70a5"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/boundary/day0_non_authority_boundary_statement.txt",
+                                "role":  "non_authority_boundary_statement",
+                                "sha256":  "d8333d8737b73516a0a23d06ecb083e7dadc885a6032fd998447a7680d1862b0"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_request_record.json",
+                                "role":  "request_record",
+                                "sha256":  "14812359549e17bb238331de4f2933be5ba02043a1f174155ecba11ceaadce34"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_ai_output_record.json",
+                                "role":  "ai_output_record",
+                                "sha256":  "c106af8ec61f47fa29a6b2acb93be7e58577c38800d5e59981ed663b9629e008"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_human_review_record.json",
+                                "role":  "human_review_record",
+                                "sha256":  "2419a53091fcd8bfa349dcc79f81854e80ff4734a5079539c2dc0f839db7e236"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_boundary_state_record.json",
+                                "role":  "boundary_state_record",
+                                "sha256":  "4ed05ff4e72bb5e06acd33d96c43b6d534c8b55457e2ed1fcf6465b6f6cd025b"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/evidence/day0_non_claims_record.json",
+                                "role":  "non_claims_record",
+                                "sha256":  "947e7bb39839d9777c044afdf1637463af67274991b3ea35216108eb2dfc5547"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/expected/day0_expected_reconstruction.json",
+                                "role":  "expected_reconstruction",
+                                "sha256":  "f2da860ecbb0f88d1e2a3daa3422e224605792f042a725d2231e6e04008d26b8"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/environment/day0_environment_manifest.json",
+                                "role":  "environment_manifest",
+                                "sha256":  "9ff3e4c3d457c8d1dbb4f983a7ba3de8c025fe562b20d61211b6cdae2de7dea7"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/receipts/day0_generation_receipt.json",
+                                "role":  "generation_receipt",
+                                "sha256":  "56f01e83166039fd87a54fb5ea2c22879e7ca5b6d6b48bcaae7238ddd40a80ab"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/receipts/day0_expected_reconstruction_provenance_receipt.json",
+                                "role":  "expected_reconstruction_provenance_receipt",
+                                "sha256":  "d75ba74a771ad1906a851c04f09dcdd366b5250ea6b564fcd1bf5b3ede121a1d"
+                            },
+                            {
+                                "path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/receipts/day0_packet_scope_receipt.json",
+                                "role":  "packet_scope_receipt",
+                                "sha256":  "37ad6ec9902f018ca75f2ef98f8d927b60dc4f53aef4fe26e8691bda600f00c5"
+                            }
+                        ],
+    "expected_reconstruction_path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/expected/day0_expected_reconstruction.json",
+    "expected_reconstruction_hash":  "f2da860ecbb0f88d1e2a3daa3422e224605792f042a725d2231e6e04008d26b8",
+    "environment_manifest_path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/environment/day0_environment_manifest.json",
+    "environment_manifest_hash":  "9ff3e4c3d457c8d1dbb4f983a7ba3de8c025fe562b20d61211b6cdae2de7dea7",
+    "non_authority_boundary_statement_path":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/boundary/day0_non_authority_boundary_statement.txt",
+    "non_authority_boundary_statement_hash":  "d8333d8737b73516a0a23d06ecb083e7dadc885a6032fd998447a7680d1862b0",
+    "non_authority_statement":  "This Day-0 packet preserves a bounded synthetic evidence state for later longitudinal reconstruction testing. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority. Later reconstruction may verify packet integrity, manifest continuity, hash consistency, and declared boundary state; it must not convert preserved evidence into authority."
+}

@@ -261,3 +261,19 @@ Primary verifier:
 The verifier now includes expanded coverage for boundary-pressure adversarial regression and Round 004 interaction filings.
 
 <!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:START -->
+
+## Longitudinal Day-0 reconstruction packet
+
+The Day-0 packet for later longitudinal replay is available at:
+
+- docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/
+
+Run:
+
+- python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json
+
+This verifies packet presence, artifact hashes, manifest sidecar, outer receipt binding, and boundary statement presence. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or authority.
+
+<!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->
