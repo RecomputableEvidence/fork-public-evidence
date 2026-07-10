@@ -129,6 +129,9 @@ $requiredPaths = @(
     "docs/reconstruction/adversarial/LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md",
     "docs/reconstruction/adversarial/fixtures/LRT_DAY0_ADV_002_lexical_non_authority_limit_v0_1.json",
     "docs/review/public-rounds/round-005/ROUND005_RESPONSE_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md",
+    "docs/reconstruction/LONGITUDINAL_DAY0_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md",
+    "docs/review/public-rounds/round-005/ROUND005_RESPONSE_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md",
+    "tools/check_longitudinal_day0_schema_scope_v0_1.py",
     "scripts/verify_public_review_package_v0_1.ps1",
 
     "docs/reconstruction/LONGITUDINAL_RECONSTRUCTION_DAY0_PACKET_RECEIPT_v0_1.md",
@@ -256,6 +259,25 @@ if (-not $pythonCommand) {
         -Passed $day0AdvPassed `
         -Detail "python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json" `
         -Data $day0AdvData))
+    $day0SchemaScopeArgs = @("tools/check_longitudinal_day0_schema_scope_v0_1.py", "--json")
+    $day0SchemaScopeRun = Invoke-External -Name "longitudinal-day0-schema-scope" -Command $pythonCommand -Arguments $day0SchemaScopeArgs
+    $day0SchemaScopePassed = $false
+    $day0SchemaScopeData = $null
+
+    if ($day0SchemaScopeRun.exit_code -eq 0) {
+        $day0SchemaScopeData = Convert-JsonOutput -Text $day0SchemaScopeRun.output -Name "Longitudinal Day-0 schema-scope checker"
+
+        $day0SchemaScopePassed = (
+            $day0SchemaScopeData.failed -eq 0 -and
+            $day0SchemaScopeData.passed -eq $day0SchemaScopeData.total
+        )
+    }
+
+    [void]$results.Add((New-Result `
+        -Name "checker:longitudinal-day0-schema-scope" `
+        -Passed $day0SchemaScopePassed `
+        -Detail "python tools/check_longitudinal_day0_schema_scope_v0_1.py --json" `
+        -Data $day0SchemaScopeData))
 if (-not $SkipGitChecks) {
     $git = Get-Command git -ErrorAction SilentlyContinue
     if (-not $git) {

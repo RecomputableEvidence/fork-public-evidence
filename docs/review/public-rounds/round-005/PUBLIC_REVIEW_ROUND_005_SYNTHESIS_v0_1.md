@@ -112,3 +112,25 @@ Checker:
 This response records a lexical checker limitation. It does not mean the clean Day-0 packet asserts authority.
 
 <!-- FORK_ROUND005_LEXICAL_NON_AUTHORITY_LIMIT_RESPONSE:END -->
+
+<!-- FORK_ROUND005_SCHEMA_SCOPE_RESPONSE:START -->
+
+## Round 005 response: schema presence versus schema enforcement
+
+The schema-presence finding from Round 005 is now clarified.
+
+Response receipt:
+
+- `docs/review/public-rounds/round-005/ROUND005_RESPONSE_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md`
+
+Clarification:
+
+- `docs/reconstruction/LONGITUDINAL_DAY0_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md`
+
+Checker:
+
+- `python tools/check_longitudinal_day0_schema_scope_v0_1.py --json`
+
+This response clarifies that the Day-0 schema is present and routed, but not mechanically enforced by the Day-0 checker in v0.1.
+
+<!-- FORK_ROUND005_SCHEMA_SCOPE_RESPONSE:END -->

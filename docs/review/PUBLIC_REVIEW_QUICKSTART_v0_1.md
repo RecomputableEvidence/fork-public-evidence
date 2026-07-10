@@ -361,3 +361,36 @@ Interpretation:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_SCHEMA_SCOPE:START -->
+
+## Day-0 schema presence versus schema enforcement
+
+Round 005 found that the Day-0 schema is present but not mechanically enforced by the Day-0 checker.
+
+Clarification:
+
+- `docs/reconstruction/LONGITUDINAL_DAY0_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md`
+
+Response receipt:
+
+- `docs/review/public-rounds/round-005/ROUND005_RESPONSE_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md`
+
+Checker:
+
+- `tools/check_longitudinal_day0_schema_scope_v0_1.py`
+
+Run:
+
+- `python tools/check_longitudinal_day0_schema_scope_v0_1.py --json`
+
+Correct language:
+
+- schema file present;
+- public verifier path coverage present;
+- Day-0 checker required-field/hash checks present;
+- mechanical JSON Schema enforcement not implemented in v0.1.
+
+Do not describe the Day-0 manifest as schema-validated unless a future schema-enforcement upgrade is added.
+
+<!-- FORK_LONGITUDINAL_DAY0_SCHEMA_SCOPE:END -->
