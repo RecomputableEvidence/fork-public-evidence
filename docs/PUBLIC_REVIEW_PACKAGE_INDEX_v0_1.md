@@ -265,3 +265,12 @@ Run:
 - python tools/check_public_review_round_005_interactions_v0_1.py --json
 
 <!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->
+<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:START -->
+
+Public verifier platform fallback
+Fallback guidance for reviewers without PowerShell / pwsh:
+docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
+Round 005 response receipt:
+docs/review/public-rounds/round-005/ROUND005_RESPONSE_STATUS_AND_VERIFIER_FALLBACK_v0_1.md
+
+<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:END -->

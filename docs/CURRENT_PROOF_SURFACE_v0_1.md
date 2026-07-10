@@ -140,7 +140,7 @@ Current status:
 
 - protocol defined;
 - schemas not yet implemented;
-- Day-0 fixture not yet implemented;
+- Day-0 packet implemented; replay receipts not yet implemented;
 - longitudinal replay receipts not yet produced.
 
 Do not cite the longitudinal protocol as evidence that Fork has already demonstrated delayed replay over time.
@@ -424,3 +424,21 @@ The filed review confirmed Day-0 checker execution and also found access-path an
 This filing does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, or institutional authority.
 
 <!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->
+<!-- FORK_ROUND005_STATUS_AND_VERIFIER_FALLBACK_RESPONSE:START -->
+
+Day-0 status and verifier fallback repair
+Round 005 identified stale Day-0 status language and a PowerShell-only verifier access gap.
+Current status:
+Day-0 packet: implemented.
+Day-0 checker: implemented.
+Day-0 replay receipt: not yet implemented.
+Day-7 / Day-30 / Day-90 replay receipts: not yet implemented.
+Platform fallback:
+docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
+Response receipt:
+docs/review/public-rounds/round-005/ROUND005_RESPONSE_STATUS_AND_VERIFIER_FALLBACK_v0_1.md
+Boundary:
+manual public-verifier reconstruction is useful evidence but not identical to executing scripts/verify_public_review_package_v0_1.ps1.
+neither path establishes truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, or institutional authority.
+
+<!-- FORK_ROUND005_STATUS_AND_VERIFIER_FALLBACK_RESPONSE:END -->

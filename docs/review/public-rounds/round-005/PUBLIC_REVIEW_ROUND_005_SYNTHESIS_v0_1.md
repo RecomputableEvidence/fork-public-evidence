@@ -58,3 +58,13 @@ First-order response sequence:
 ## 5. Non-authority statement
 
 This synthesis records exterior review findings. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, or institutional authority.
+<!-- FORK_ROUND005_STATUS_AND_VERIFIER_FALLBACK_RESPONSE:START -->
+
+Round 005 response: status repair and verifier fallback
+Response receipt:
+docs/review/public-rounds/round-005/ROUND005_RESPONSE_STATUS_AND_VERIFIER_FALLBACK_v0_1.md
+Public verifier fallback:
+docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
+This response fixes stale Day-0 status language and documents manual public-verifier reconstruction for reviewers who cannot execute the PowerShell verifier.
+
+<!-- FORK_ROUND005_STATUS_AND_VERIFIER_FALLBACK_RESPONSE:END -->

@@ -179,7 +179,7 @@ Read:
 Current status:
 
 - protocol exists;
-- Day-0 packet is not yet implemented;
+- Day-0 packet is implemented; replay receipts are not yet implemented;
 - Day-7/30/90 replay receipts are not yet produced.
 
 Reviewer question:
@@ -300,3 +300,16 @@ Key preserved findings:
 - Schema-present versus schema-enforced behavior needs clarification.
 
 <!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->
+<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:START -->
+
+Platform fallback for public verifier
+Primary verifier path:
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+If PowerShell / pwsh is unavailable, use:
+docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
+Classification rule:
+PowerShell verifier ran: public verifier execution.
+Fallback commands ran: manual public-verifier reconstruction.
+Do not describe fallback reconstruction as execution of the named PowerShell verifier.
+
+<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:END -->

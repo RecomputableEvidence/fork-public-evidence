@@ -118,6 +118,8 @@ $requiredPaths = @(
     "schemas/public_review_round_004_interaction_v0_1.schema.json",
     "tools/check_public_review_round_004_interactions_v0_1.py",
 
+    "docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md",
+    "docs/review/public-rounds/round-005/ROUND005_RESPONSE_STATUS_AND_VERIFIER_FALLBACK_v0_1.md",
     "scripts/verify_public_review_package_v0_1.ps1",
 
     "docs/reconstruction/LONGITUDINAL_RECONSTRUCTION_DAY0_PACKET_RECEIPT_v0_1.md",

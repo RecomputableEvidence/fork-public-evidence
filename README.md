@@ -255,3 +255,16 @@ Run from repo root:
 This path is for public inspection, structural verification, and exterior review. It is not endorsement, certification, compliance approval, legal sufficiency, safety approval, production readiness, or authority transfer.
 
 <!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->
+<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:START -->
+
+Public verifier platform fallback
+Primary public verifier:
+scripts/verify_public_review_package_v0_1.ps1
+For Linux/macOS reviewers without PowerShell or pwsh, use:
+docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
+Important distinction:
+executing the PowerShell verifier is public verifier execution;
+running the documented cross-platform commands is manual public-verifier reconstruction.
+Manual reconstruction is useful review evidence, but it is not identical to executing the named verifier artifact.
+
+<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:END -->
