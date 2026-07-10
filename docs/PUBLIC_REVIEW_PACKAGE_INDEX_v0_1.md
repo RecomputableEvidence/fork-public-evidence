@@ -246,3 +246,22 @@ Run:
 - python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json
 
 <!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:START -->
+
+## Public Review Round 005
+
+Round 005 files an exterior review of the Longitudinal Reconstruction Day-0 packet.
+
+Read:
+
+- docs/review/public-rounds/round-005/README.md
+- docs/review/public-rounds/round-005/PUBLIC_REVIEW_ROUND_005_SYNTHESIS_v0_1.md
+- docs/review/public-rounds/round-005/observations/ROUND005_OBS_001_claude_lrt_day0_exterior_review_v0_1.json
+- docs/review/public-rounds/round-005/sources/EXTERIOR_REVIEW_LRT_DAY0_PACKET_v0_1.md
+
+Run:
+
+- python tools/check_public_review_round_005_interactions_v0_1.py --json
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->

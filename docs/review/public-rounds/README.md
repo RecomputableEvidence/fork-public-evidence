@@ -17,3 +17,23 @@ Each review round should preserve:
 Current round:
 
 - round-004/
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:START -->
+
+## Round 005
+
+Longitudinal Day-0 Packet Accessibility, Reconstruction Boundary, and Replay Readiness Review.
+
+Round directory:
+
+- docs/review/public-rounds/round-005/
+
+Initial filed observation:
+
+- docs/review/public-rounds/round-005/observations/ROUND005_OBS_001_claude_lrt_day0_exterior_review_v0_1.json
+
+Checker:
+
+- python tools/check_public_review_round_005_interactions_v0_1.py --json
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->

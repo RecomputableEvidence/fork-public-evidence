@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/public_review_round_005_interaction_v0_1.schema.json",
+  "title": "Fork Public Review Round 005 Interaction v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "review_round",
+    "observation_id",
+    "reviewer_id",
+    "reviewer_type",
+    "reviewed_object",
+    "reviewed_commit",
+    "environment",
+    "review_classification",
+    "evidence_weight",
+    "verifier_execution",
+    "checker_results",
+    "findings",
+    "adversarial_cases",
+    "recommended_next_actions",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "review_round": { "type": "string" },
+    "observation_id": { "type": "string" },
+    "reviewer_id": { "type": "string" },
+    "reviewer_type": { "type": "string" },
+    "reviewed_object": { "type": "string" },
+    "reviewed_commit": {
+      "type": "object",
+      "required": [ "short", "full", "subject" ],
+      "properties": {
+        "short": { "type": "string" },
+        "full": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "subject": { "type": "string" }
+      }
+    },
+    "environment": { "type": "object" },
+    "review_classification": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence_weight": { "type": "string" },
+    "verifier_execution": { "type": "object" },
+    "checker_results": { "type": "object" },
+    "findings": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "adversarial_cases": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "recommended_next_actions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "non_authority_statement": { "type": "string" }
+  }
+}

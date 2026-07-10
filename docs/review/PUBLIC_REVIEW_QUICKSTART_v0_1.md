@@ -282,3 +282,21 @@ Current limitation:
 - expected reconstruction provenance is author-declared fixture baseline in v0.1, not independent external reviewer provenance.
 
 <!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:START -->
+
+## Round 005 Day-0 exterior review
+
+Round 005 filed a Day-0 exterior review that should be read before designing the Day-0 replay checker:
+
+- docs/review/public-rounds/round-005/PUBLIC_REVIEW_ROUND_005_SYNTHESIS_v0_1.md
+
+Key preserved findings:
+
+- PowerShell-only verifier access needs a cross-platform fallback.
+- Day-0 status contradictions need repair.
+- Coordinated re-seal risk needs an adverse longitudinal fixture.
+- Lexical non-authority checking needs a limit receipt or adversarial fixture.
+- Schema-present versus schema-enforced behavior needs clarification.
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->

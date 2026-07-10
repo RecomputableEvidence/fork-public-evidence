@@ -277,3 +277,19 @@ Run:
 This verifies packet presence, artifact hashes, manifest sidecar, outer receipt binding, and boundary statement presence. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:START -->
+
+## Public Review Round 005
+
+A Day-0 exterior review filing is available:
+
+- docs/review/public-rounds/round-005/README.md
+
+The filing records a Linux access-path review where the PowerShell public verifier could not run, but the reviewer manually reconstructed the verifier's underlying checks and executed the Day-0 checker directly.
+
+Run:
+
+- python tools/check_public_review_round_005_interactions_v0_1.py --json
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->

@@ -1,0 +1,183 @@
+{
+    "review_round":  "public_review_round_005_longitudinal_day0_packet_accessibility_reconstruction_boundary_replay_readiness",
+    "observation_id":  "ROUND005_OBS_001_claude_lrt_day0_exterior_review_v0_1",
+    "reviewer_id":  "claude",
+    "reviewer_type":  "outside_ai_reviewer_no_repository_write_access",
+    "source_document":  "docs/review/public-rounds/round-005/sources/EXTERIOR_REVIEW_LRT_DAY0_PACKET_v0_1.md",
+    "reviewed_object":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/",
+    "reviewed_commit":  {
+                            "short":  "03f25f0",
+                            "full":  "03f25f0e52109e8545c188c2bcc329fac4f701f7",
+                            "subject":  "Add longitudinal reconstruction Day-0 packet",
+                            "branch":  "main",
+                            "working_tree":  "clean",
+                            "generated_from_base_commit":  "e4555b93e8ce25d974de1c6a300049021862ba90",
+                            "generated_from_base_commit_relation":  "immediate_parent_of_reviewed_commit_confirmed_by_reviewer"
+                        },
+    "environment":  {
+                        "os":  "Ubuntu 24.04.4 LTS container, kernel 6.18.5",
+                        "shell":  "bash 5.2.21",
+                        "python":  "3.12.3",
+                        "git":  "2.43.0",
+                        "powershell_available":  false,
+                        "powershell_note":  "pwsh not present and not installable from the review session"
+                    },
+    "review_classification":  [
+                                  "exterior access-path review",
+                                  "execution receipt",
+                                  "manual verifier reconstruction receipt",
+                                  "longitudinal Day-0 packet inspection",
+                                  "adversarial reconstruction observation",
+                                  "mixed review"
+                              ],
+    "evidence_weight":  "execution_receipt_plus_manual_reconstruction_plus_adversarial_observation",
+    "verifier_execution":  {
+                               "public_verifier_executed":  false,
+                               "verifier_path":  "scripts/verify_public_review_package_v0_1.ps1",
+                               "non_execution_reason":  "PowerShell/pwsh unavailable in Linux review container",
+                               "manual_reconstruction_performed":  true,
+                               "manual_reconstruction_scope":  [
+                                                                   "required path list extracted from ps1 verifier source",
+                                                                   "boundary-pressure checker executed directly",
+                                                                   "Round 004 checker executed directly",
+                                                                   "Day-0 checker executed directly",
+                                                                   "git diff checks executed directly"
+                                                               ],
+                               "manual_reconstruction_result":  {
+                                                                    "required_paths_present":  "50/50",
+                                                                    "underlying_conditions_satisfied":  true,
+                                                                    "classification":  "manual reconstruction, not verifier execution"
+                                                                }
+                           },
+    "checker_results":  {
+                            "longitudinal_day0":  {
+                                                      "command":  "python3 tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json",
+                                                      "executed":  true,
+                                                      "passed":  27,
+                                                      "failed":  0,
+                                                      "total":  27
+                                                  },
+                            "boundary_pressure":  {
+                                                      "command":  "python3 tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial",
+                                                      "executed":  true,
+                                                      "default_passed":  4,
+                                                      "default_failed":  0,
+                                                      "adversarial_passed":  4,
+                                                      "adversarial_failed":  0
+                                                  },
+                            "round004":  {
+                                             "command":  "python3 tools/check_public_review_round_004_interactions_v0_1.py --json",
+                                             "executed":  true,
+                                             "passed":  4,
+                                             "failed":  0,
+                                             "total":  4
+                                         },
+                            "git_checks":  {
+                                               "diff_check_exit_code":  0,
+                                               "diff_cached_check_exit_code":  0
+                                           }
+                        },
+    "positive_confirmations":  [
+                                   "Day-0 checker executed successfully at 27/27.",
+                                   "Manifest, sidecar, and outer receipt binding chain was understandable.",
+                                   "Artifact byte hashes and manifest hash bindings are real SHA-256 checks.",
+                                   "Expected reconstruction is clearly marked author-declared, not independent.",
+                                   "Direct overclaim in current Day-0 packet artifacts was low."
+                               ],
+    "findings":  [
+                     {
+                         "finding_id":  "ROUND005_FINDING_001_POWERSHELL_ONLY_PRIMARY_VERIFIER",
+                         "severity":  "accessibility_gap",
+                         "summary":  "The primary one-command public verifier path is PowerShell-only, and the Linux reviewer could not execute it without pwsh.",
+                         "reviewer_evidence":  "Reviewer manually reconstructed verifier behavior because pwsh was unavailable.",
+                         "recommended_response":  "Add cross-platform Python public verifier parity path and document Linux/macOS fallback."
+                     },
+                     {
+                         "finding_id":  "ROUND005_FINDING_002_STALE_DAY0_STATUS_CONTRADICTIONS",
+                         "severity":  "documentation_consistency_defect",
+                         "summary":  "Read-first documents still contain stale text saying Day-0 fixture is not yet implemented while later sections say the Day-0 packet is present.",
+                         "affected_paths":  [
+                                                "docs/CURRENT_PROOF_SURFACE_v0_1.md",
+                                                "docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md"
+                                            ],
+                         "recommended_response":  "Patch stale status language before building replay claims."
+                     },
+                     {
+                         "finding_id":  "ROUND005_FINDING_003_PROTOCOL_VS_ARTIFACT_PROVENANCE_GAP",
+                         "severity":  "protocol_alignment_gap",
+                         "summary":  "Day-0 expected reconstruction is honestly disclosed as author-declared, but it is narrower than the protocol section 8 expected-reconstruction methods and named artifacts.",
+                         "recommended_response":  "Record author-declared baseline as v0.1 limitation and decide whether to add section 8 artifacts or revise protocol language."
+                     },
+                     {
+                         "finding_id":  "ROUND005_FINDING_004_SCHEMA_DECLARED_NOT_ENFORCED",
+                         "severity":  "checker_scope_gap",
+                         "summary":  "The Day-0 manifest schema is declared and required-present, but the Day-0 checker does not mechanically load or enforce it.",
+                         "recommended_response":  "Clarify schema-present versus schema-enforced, or add schema enforcement."
+                     },
+                     {
+                         "finding_id":  "ROUND005_FINDING_005_LEXICAL_NON_AUTHORITY_LIMIT",
+                         "severity":  "semantic_boundary_gap",
+                         "summary":  "Non-authority checks are substring presence checks, not semantic or negation-aware checks.",
+                         "recommended_response":  "Add lexical-limit receipt and adversarial fixture for authority-asserting text containing required terms."
+                     },
+                     {
+                         "finding_id":  "ROUND005_FINDING_006_COORDINATED_RESEAL_UNDETECTED",
+                         "severity":  "root_of_trust_limitation_confirmed",
+                         "summary":  "A falsified provenance receipt plus recomputed manifest, sidecar, and outer receipt still passed the Day-0 checker 27/27.",
+                         "recommended_response":  "Add coordinated re-seal adversarial case and preserve root-of-trust limitation until external anchoring exists."
+                     },
+                     {
+                         "finding_id":  "ROUND005_FINDING_007_EVIDENCE_FILE_HASH_VERIFICATION_OVERREAD_RISK",
+                         "severity":  "receipt_overread_risk",
+                         "summary":  "The checker verifies evidence-file bytes against the manifest but does not semantically verify each evidence record\u0027s content.",
+                         "recommended_response":  "Clarify that evidence-file verification is byte continuity only, not content validation."
+                     }
+                 ],
+    "adversarial_cases":  [
+                              {
+                                  "case_id":  "ROUND005_ADV_001_COORDINATED_RESEAL",
+                                  "executed":  true,
+                                  "summary":  "Reviewer changed expected reconstruction provenance to falsely claim independent review, recomputed artifact hash into manifest, recomputed manifest sidecar and outer receipt, then ran the unmodified Day-0 checker.",
+                                  "result":  "27/27 passed, 0 failed",
+                                  "interpretation":  "Checker cannot distinguish never-tampered from tampered-and-consistently-resealed without an external root of trust.",
+                                  "suggested_outcome_codes":  [
+                                                                  "MANIFEST_INTERNALLY_CONSISTENT_BUT_UNANCHORED",
+                                                                  "SEMANTIC_CONTENT_CHANGE_UNDETECTED_BY_LEXICAL_CHECK",
+                                                                  "ROOT_OF_TRUST_SCOPE_LIMIT_CONFIRMED"
+                                                              ]
+                              },
+                              {
+                                  "case_id":  "ROUND005_ADV_002_KEYWORD_PRESENT_AUTHORITY_ASSERTION",
+                                  "executed":  true,
+                                  "summary":  "Reviewer imported the checker\u0027s own has_boundary_terms function and tested a sentence containing all required terms while asserting authority.",
+                                  "result":  "zero missing terms",
+                                  "interpretation":  "Non-authority check is keyword-presence only and can be gamed by authority-asserting language.",
+                                  "suggested_outcome_codes":  [
+                                                                  "LEXICAL_BOUNDARY_CHECK_LIMIT_CONFIRMED",
+                                                                  "NEGATION_AWARENESS_ABSENT",
+                                                                  "AUTHORITY_ASSERTION_WITH_REQUIRED_TERMS_ACCEPTED"
+                                                              ]
+                              }
+                          ],
+    "future_day7_day30_day90_needs":  [
+                                          "pinned Day-0 replay checker",
+                                          "Day-7 replay receipt",
+                                          "Day-30 replay receipt",
+                                          "Day-90 replay receipt",
+                                          "independent expected-reconstruction provenance",
+                                          "protocol section 8 named artifacts or protocol revision",
+                                          "external anchoring for manifest chain",
+                                          "field-name reconciliation between protocol and manifest",
+                                          "adverse longitudinal fixtures"
+                                      ],
+    "recommended_next_actions":  [
+                                     "File this Round 005 observation before patching findings.",
+                                     "Fix stale Day-0 status contradictions.",
+                                     "Add or document cross-platform Python public verifier parity path.",
+                                     "Add coordinated re-seal adversarial case.",
+                                     "Add lexical non-authority limit receipt or fixture.",
+                                     "Clarify schema-present versus schema-enforced.",
+                                     "Then build Day-0 replay checker and replay receipt."
+                                 ],
+    "non_authority_statement":  "This filing records an exterior access-path review, execution receipt, manual verifier reconstruction receipt, longitudinal Day-0 packet inspection, and adversarial reconstruction observation. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, validation, or institutional authority."
+}

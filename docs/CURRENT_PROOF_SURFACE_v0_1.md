@@ -400,3 +400,27 @@ Boundary:
 - It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_PACKET:END -->
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:START -->
+
+## Public Review Round 005 filed observation
+
+Round 005 now preserves an exterior Day-0 packet review.
+
+Filed observation:
+
+- docs/review/public-rounds/round-005/observations/ROUND005_OBS_001_claude_lrt_day0_exterior_review_v0_1.json
+
+Source receipt:
+
+- docs/review/public-rounds/round-005/sources/EXTERIOR_REVIEW_LRT_DAY0_PACKET_v0_1.md
+
+Checker:
+
+- python tools/check_public_review_round_005_interactions_v0_1.py --json
+
+The filed review confirmed Day-0 checker execution and also found access-path and boundary limitations, including PowerShell-only verifier access, stale Day-0 status contradictions, lexical non-authority checking, schema-present-but-not-enforced behavior, and coordinated re-seal risk.
+
+This filing does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, or institutional authority.
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->
