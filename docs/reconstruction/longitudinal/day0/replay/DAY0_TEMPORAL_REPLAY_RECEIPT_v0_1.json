@@ -1,0 +1,70 @@
+{
+    "receipt_id":  "LRT_DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1",
+    "receipt_version":  "v0.1",
+    "receipt_classification":  "temporal_replay_receipt",
+    "generated_at_utc":  "2026-07-10T08:58:47.6438801Z",
+    "replay_subject":  {
+                           "repository":  "RecomputableEvidence/fork-public-evidence",
+                           "branch_at_generation":  "main",
+                           "subject_commit":  "7f2e6266f7573cca12c5f7c1cc60ee9139a37c0f",
+                           "subject_commit_short":  "7f2e626",
+                           "worktree_commit":  "7f2e6266f7573cca12c5f7c1cc60ee9139a37c0f",
+                           "replay_worktree_mode":  "detached_git_worktree_at_subject_commit",
+                           "replay_worktree_clean_status":  "",
+                           "generator_worktree_status_before_receipt":  "M README.md\n M docs/CURRENT_PROOF_SURFACE_v0_1.md\n M docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md\n M docs/REVIEWER_START_HERE_v0_1.md\n M docs/reconstruction/FORK_LONGITUDINAL_RECONSTRUCTION_TRIAL_v0_1.md\n M docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md\n M docs/review/public-rounds/round-005/PUBLIC_REVIEW_ROUND_005_SYNTHESIS_v0_1.md\n M docs/review/public-rounds/round-005/README.md\n M scripts/verify_public_review_package_v0_1.ps1\n?? docs/reconstruction/longitudinal/day0/replay/\n?? docs/review/public-rounds/round-005/ROUND005_RESPONSE_DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.md\n?? schemas/longitudinal_day0_temporal_replay_receipt_v0_1.schema.json\n?? scripts/add_day0_temporal_replay_receipt_v0_1.ps1\n?? tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py"
+                       },
+    "replay_scope":  {
+                         "packet_root":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1",
+                         "replayed_checker":  "tools/check_longitudinal_reconstruction_day0_packet_v0_1.py",
+                         "replayed_artifact_class":  "longitudinal_reconstruction_day0_packet",
+                         "replay_does_not_mutate_packet":  true,
+                         "replay_does_not_claim_external_anchor":  true,
+                         "replay_does_not_claim_truth_or_authority":  true
+                     },
+    "observed_hashes":  {
+                            "packet_manifest_sha256":  "333e4bc0c27c7cb701ad06f9fbd8de75fd043ac81c7f416d19e12189e42ea748",
+                            "packet_manifest_sidecar_text":  "333e4bc0c27c7cb701ad06f9fbd8de75fd043ac81c7f416d19e12189e42ea748  packet_manifest.json",
+                            "outer_receipt_packet_manifest_sha256":  "333e4bc0c27c7cb701ad06f9fbd8de75fd043ac81c7f416d19e12189e42ea748"
+                        },
+    "observed_execution":  {
+                               "day0_checker_command":  "python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json",
+                               "day0_checker_exit_code":  0,
+                               "day0_checker_total":  27,
+                               "day0_checker_passed":  27,
+                               "day0_checker_failed":  0,
+                               "day0_checker_name":  "check_longitudinal_reconstruction_day0_packet_v0_1.py",
+                               "git_diff_check_exit_code":  0,
+                               "git_diff_check_output":  ""
+                           },
+    "interpretation":  {
+                           "replay_result":  "day0_replay_passed",
+                           "evidence_weight":  "temporal_replay_receipt",
+                           "proves":  [
+                                          "the Day-0 checker replayed successfully against the detached subject commit",
+                                          "the Day-0 packet remained internally consistent under the Day-0 checker at replay time",
+                                          "the replayed checker result was structurally reproducible in this environment"
+                                      ],
+                           "does_not_prove":  [
+                                                  "truth",
+                                                  "compliance",
+                                                  "legal sufficiency",
+                                                  "safety",
+                                                  "authorization",
+                                                  "approval",
+                                                  "certification",
+                                                  "endorsement",
+                                                  "validation",
+                                                  "schema conformance",
+                                                  "production readiness",
+                                                  "procurement approval",
+                                                  "institutional authority",
+                                                  "external original-sealing anchor"
+                                              ]
+                       },
+    "expected_current_result":  {
+                                    "day0_checker_total":  27,
+                                    "day0_checker_passed":  27,
+                                    "day0_checker_failed":  0
+                                },
+    "non_authority_statement":  "This temporal replay receipt records replay execution against a detached subject commit only; it does not validate truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority."
+}

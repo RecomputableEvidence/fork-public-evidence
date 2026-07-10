@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/longitudinal_day0_temporal_replay_receipt_v0_1.schema.json",
+  "title": "Fork Longitudinal Day-0 Temporal Replay Receipt v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "receipt_id",
+    "receipt_version",
+    "receipt_classification",
+    "generated_at_utc",
+    "replay_subject",
+    "replay_scope",
+    "observed_hashes",
+    "observed_execution",
+    "interpretation",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "receipt_id": { "type": "string" },
+    "receipt_version": { "type": "string" },
+    "receipt_classification": { "const": "temporal_replay_receipt" },
+    "generated_at_utc": { "type": "string" },
+    "replay_subject": { "type": "object" },
+    "replay_scope": { "type": "object" },
+    "observed_hashes": { "type": "object" },
+    "observed_execution": { "type": "object" },
+    "interpretation": { "type": "object" },
+    "non_authority_statement": { "type": "string" }
+  }
+}

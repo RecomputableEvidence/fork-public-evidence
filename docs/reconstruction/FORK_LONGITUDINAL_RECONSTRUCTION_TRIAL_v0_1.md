@@ -646,3 +646,30 @@ Future work must preserve the core boundary:
 - Structural verification is not truth.
 - Reference continuity is not compliance.
 - Replay success is not approval.
+
+<!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:START -->
+
+## Day-0 temporal replay receipt
+
+Day-0 temporal replay receipt:
+
+- `docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.json`
+
+Interpretation:
+
+- `docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_INTERPRETATION_v0_1.md`
+
+Checker:
+
+- `tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py`
+
+Run:
+
+- `python tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py --json`
+
+Boundary:
+
+- temporal replay evidence means the Day-0 checker replayed successfully against the recorded subject commit;
+- it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
+
+<!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->

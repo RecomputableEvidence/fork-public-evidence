@@ -134,3 +134,25 @@ Checker:
 This response clarifies that the Day-0 schema is present and routed, but not mechanically enforced by the Day-0 checker in v0.1.
 
 <!-- FORK_ROUND005_SCHEMA_SCOPE_RESPONSE:END -->
+
+<!-- FORK_ROUND005_DAY0_TEMPORAL_REPLAY_RESPONSE:START -->
+
+## Round 005 response: Day-0 temporal replay receipt
+
+The first Day-0 temporal replay receipt is now filed.
+
+Response receipt:
+
+- `docs/review/public-rounds/round-005/ROUND005_RESPONSE_DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.md`
+
+Replay receipt:
+
+- `docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.json`
+
+Checker:
+
+- `python tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py --json`
+
+This response records temporal replay evidence. It does not resolve external anchoring, coordinated re-seal, lexical non-authority, or schema-enforcement limitations.
+
+<!-- FORK_ROUND005_DAY0_TEMPORAL_REPLAY_RESPONSE:END -->

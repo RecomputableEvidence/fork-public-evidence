@@ -132,6 +132,12 @@ $requiredPaths = @(
     "docs/reconstruction/LONGITUDINAL_DAY0_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md",
     "docs/review/public-rounds/round-005/ROUND005_RESPONSE_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md",
     "tools/check_longitudinal_day0_schema_scope_v0_1.py",
+    "docs/reconstruction/longitudinal/day0/replay/README.md",
+    "docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.json",
+    "docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_INTERPRETATION_v0_1.md",
+    "schemas/longitudinal_day0_temporal_replay_receipt_v0_1.schema.json",
+    "tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py",
+    "docs/review/public-rounds/round-005/ROUND005_RESPONSE_DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.md",
     "scripts/verify_public_review_package_v0_1.ps1",
 
     "docs/reconstruction/LONGITUDINAL_RECONSTRUCTION_DAY0_PACKET_RECEIPT_v0_1.md",
@@ -278,6 +284,25 @@ if (-not $pythonCommand) {
         -Passed $day0SchemaScopePassed `
         -Detail "python tools/check_longitudinal_day0_schema_scope_v0_1.py --json" `
         -Data $day0SchemaScopeData))
+    $day0ReplayArgs = @("tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py", "--json")
+    $day0ReplayRun = Invoke-External -Name "longitudinal-day0-temporal-replay" -Command $pythonCommand -Arguments $day0ReplayArgs
+    $day0ReplayPassed = $false
+    $day0ReplayData = $null
+
+    if ($day0ReplayRun.exit_code -eq 0) {
+        $day0ReplayData = Convert-JsonOutput -Text $day0ReplayRun.output -Name "Longitudinal Day-0 temporal replay checker"
+
+        $day0ReplayPassed = (
+            $day0ReplayData.failed -eq 0 -and
+            $day0ReplayData.passed -eq $day0ReplayData.total
+        )
+    }
+
+    [void]$results.Add((New-Result `
+        -Name "checker:longitudinal-day0-temporal-replay" `
+        -Passed $day0ReplayPassed `
+        -Detail "python tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py --json" `
+        -Data $day0ReplayData))
 if (-not $SkipGitChecks) {
     $git = Get-Command git -ErrorAction SilentlyContinue
     if (-not $git) {
