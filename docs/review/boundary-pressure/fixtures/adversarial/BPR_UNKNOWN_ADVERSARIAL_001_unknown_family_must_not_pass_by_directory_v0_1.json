@@ -1,0 +1,14 @@
+{
+  "case_id": "BPR_UNKNOWN_ADVERSARIAL_001_unknown_family_must_not_pass_by_directory_v0_1",
+  "case_family": "unknown_boundary_pressure_family",
+  "case_version": "0.1",
+  "expected_valid": true,
+  "adversarial_expected_suite_pass": false,
+  "title": "Unknown family must not pass by directory or self-declaration",
+  "description": "This fixture is intentionally shaped as a plausible valid fixture but uses an unknown family. The checker must reject unknown families rather than passing them by placement or expected_valid value.",
+  "expected_outcome_codes": [
+    "UNKNOWN_FAMILY_MUST_NOT_PASS"
+  ],
+  "non_authority_statement": "This adversarial fixture does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority.",
+  "adversarial_expectation": "Hardened checker should reject this unknown family."
+}

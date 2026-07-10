@@ -190,3 +190,21 @@ Checker:
 - python tools/check_public_review_round_004_interactions_v0_1.py --json
 
 <!-- FORK_PUBLIC_REVIEW_ROUND_004_INTERACTION_FILINGS:END -->
+
+<!-- FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING:START -->
+
+## Boundary-pressure checker invalid-fixture hardening
+
+Hardening receipt:
+
+- `docs/review/boundary-pressure/BOUNDARY_PRESSURE_CHECKER_INVALID_FIXTURE_HARDENING_RECEIPT_v0_1.md`
+
+Adversarial regression fixtures:
+
+- `docs/review/boundary-pressure/fixtures/adversarial/`
+
+Run default plus adversarial regression:
+
+- `python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial`
+
+<!-- FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING:END -->

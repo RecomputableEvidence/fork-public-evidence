@@ -1,34 +1,52 @@
 {
-  "case_id": "BPR-RD-INVALID-001",
-  "case_version": "v0.1",
-  "expected_result": "STRUCTURAL_FAIL",
-  "source_access": {
-    "status": "NO_ACCESS",
-    "raw_artifacts_accessed": false,
-    "execution_performed": false,
-    "access_limitation_recorded": false,
-    "notes": "Reviewer could not access the raw artifacts, but the case claims review completion anyway."
-  },
-  "claims": {
-    "content_review_completed": true,
-    "structural_reproduction_completed": true,
-    "approval_claimed": true,
-    "compliance_claimed": false,
-    "legal_sufficiency_claimed": false,
-    "truth_claimed": false,
-    "asserted_meaning": "Review completed. Structural reproduction confirmed. The artifact is approved based on available commentary."
-  },
-  "non_claims": [],
-  "boundary_pressure": {
-    "pressure_type": "RETRIEVAL_DISTORTION",
-    "prohibited_collapses": [
-      "failed_retrieval_to_review",
-      "observation_to_endorsement"
-    ]
-  },
-  "interpretation": {
-    "observation_status": "REVIEW_COMPLETED",
-    "permitted_use": "May be cited as completed review.",
-    "prohibited_use": "No limitations recorded."
-  }
+    "case_id":  "BPR-RD-INVALID-001",
+    "case_version":  "v0.1",
+    "expected_result":  "STRUCTURAL_FAIL",
+    "source_access":  {
+                          "status":  "NO_ACCESS",
+                          "raw_artifacts_accessed":  false,
+                          "execution_performed":  false,
+                          "access_limitation_recorded":  false,
+                          "notes":  "Reviewer could not access the raw artifacts, but the case claims review completion anyway."
+                      },
+    "claims":  {
+                   "content_review_completed":  true,
+                   "structural_reproduction_completed":  true,
+                   "approval_claimed":  true,
+                   "compliance_claimed":  false,
+                   "legal_sufficiency_claimed":  false,
+                   "truth_claimed":  false,
+                   "asserted_meaning":  "Review completed. Structural reproduction confirmed. The artifact is approved based on available commentary."
+               },
+    "non_claims":  [
+
+                   ],
+    "boundary_pressure":  {
+                              "pressure_type":  "RETRIEVAL_DISTORTION",
+                              "prohibited_collapses":  [
+                                                           "failed_retrieval_to_review",
+                                                           "observation_to_endorsement"
+                                                       ]
+                          },
+    "interpretation":  {
+                           "observation_status":  "REVIEW_COMPLETED",
+                           "permitted_use":  "May be cited as completed review.",
+                           "prohibited_use":  "No limitations recorded."
+                       },
+    "case_family":  "boundary_pressure_retrieval_distortion",
+    "expected_valid":  false,
+    "distortion_attempt":  {
+                               "failed_retrieval_treated_as_review":  true,
+                               "treated_as_review":  true,
+                               "retrieval_failure_treated_as_review":  true,
+                               "review_completed":  true,
+                               "invalid_inference":  "Failed or partial retrieval was treated as completed review despite unresolved source access.",
+                               "boundary_error":  "Access limitation was upgraded into review completion."
+                           },
+    "expected_outcome_codes":  [
+                                   "RETRIEVAL_DISTORTION_ATTEMPT_RECORDED",
+                                   "FAILED_RETRIEVAL_MUST_NOT_BECOME_REVIEW",
+                                   "BOUNDARY_PRESSURE_REJECTED"
+                               ],
+    "non_authority_statement":  "This invalid fixture records a retrieval-distortion attempt. It does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority."
 }

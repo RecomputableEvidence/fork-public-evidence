@@ -97,7 +97,7 @@ $pythonCmd = Get-PythonCommand
 $boundaryChecker = Invoke-External `
     -Name "boundary-pressure-checker" `
     -Command $pythonCmd `
-    -Arguments @("tools/check_boundary_pressure_review_cases_v0_1.py", "--json")
+    -Arguments @("tools/check_boundary_pressure_review_cases_v0_1.py", "--json", "--run-adversarial")
 
 $checkerPassed = $boundaryChecker.exit_code -eq 0
 $checkerData = $null
@@ -184,6 +184,14 @@ if ($Json) {
         Write-Host "  total: $($checkerData.total)"
         Write-Host "  passed: $($checkerData.passed)"
         Write-Host "  failed: $($checkerData.failed)"
+    }
+
+    if ($checkerData -and $checkerData.adversarial -and $checkerData.adversarial.total -ne $null) {
+        Write-Host ""
+        Write-Host "Adversarial boundary pressure regression:"
+        Write-Host "  total: $($checkerData.adversarial.total)"
+        Write-Host "  passed: $($checkerData.adversarial.passed)"
+        Write-Host "  failed: $($checkerData.adversarial.failed)"
     }
 }
 

@@ -1,0 +1,7 @@
+{
+  "case_id": "BPR_RR_ADVERSARIAL_001_near_empty_invalid_overread_v0_1",
+  "case_family": "boundary_pressure_recomputation_receipt_overread",
+  "expected_valid": false,
+  "adversarial_expected_suite_pass": false,
+  "adversarial_expectation": "Hardened checker should reject this as malformed rather than count it as a successful invalid overread fixture."
+}

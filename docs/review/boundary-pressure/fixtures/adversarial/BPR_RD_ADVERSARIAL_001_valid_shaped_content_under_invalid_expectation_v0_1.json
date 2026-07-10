@@ -1,0 +1,16 @@
+{
+  "case_id": "BPR_RD_ADVERSARIAL_001_valid_shaped_content_under_invalid_expectation_v0_1",
+  "case_family": "boundary_pressure_retrieval_distortion",
+  "case_version": "0.1",
+  "expected_valid": false,
+  "adversarial_expected_suite_pass": false,
+  "title": "Valid-shaped retrieval limitation content must not pass as invalid distortion",
+  "description": "This fixture preserves access limitation state but does not contain explicit retrieval-to-review or retrieval-to-authority upgrade language. It must not be counted as a successful invalid retrieval-distortion negative test.",
+  "access_state": {
+    "retrieval": "partial",
+    "source": "unavailable",
+    "review_status": "not completed"
+  },
+  "non_authority_statement": "This adversarial fixture does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority.",
+  "adversarial_expectation": "Hardened checker should reject this as an invalid fixture lacking explicit upgrade signal."
+}

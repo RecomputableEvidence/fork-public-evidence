@@ -1,3 +1,121 @@
+# scripts/harden_boundary_pressure_invalid_fixture_semantics_v0_1.ps1
+# Hardens boundary-pressure checker invalid-fixture semantics after Round 004 adversarial review.
+# PowerShell 5.1 compatible. Writes UTF-8 without BOM and LF.
+
+param(
+    [switch]$Commit,
+    [switch]$Push
+)
+
+$ErrorActionPreference = "Stop"
+$Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+
+function Assert-RepoRoot {
+    if (-not (Test-Path ".git")) {
+        throw "Run this script from the fork-public-evidence repository root."
+    }
+}
+
+function Write-Utf8Lf {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$Content
+    )
+
+    $full = [System.IO.Path]::GetFullPath($Path)
+    $dir = Split-Path -Parent $full
+
+    if ($dir -and -not (Test-Path $dir)) {
+        New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    }
+
+    $normalized = $Content -replace "`r`n", "`n"
+    [System.IO.File]::WriteAllText($full, $normalized, $Utf8NoBom)
+}
+
+function Read-Utf8 {
+    param([Parameter(Mandatory = $true)][string]$Path)
+    return [System.IO.File]::ReadAllText((Resolve-Path $Path).Path, $Utf8NoBom)
+}
+
+function Replace-OrAppendBlock {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$BlockId,
+        [Parameter(Mandatory = $true)][string]$Content
+    )
+
+    if (-not (Test-Path $Path)) {
+        Write-Host "Skipping missing routing target: $Path"
+        return
+    }
+
+    $start = "<!-- $($BlockId):START -->"
+    $end = "<!-- $($BlockId):END -->"
+    $existing = Read-Utf8 -Path $Path
+
+    $block = @"
+
+$start
+
+$Content
+
+$end
+"@
+
+    $pattern = "(?s)" + [regex]::Escape($start) + ".*?" + [regex]::Escape($end)
+
+    if ($existing -match $pattern) {
+        $updated = [regex]::Replace($existing, $pattern, $block.Trim())
+        Write-Host "Replaced routing block in $Path"
+    } else {
+        $updated = $existing.TrimEnd() + "`n" + $block + "`n"
+        Write-Host "Added routing block in $Path"
+    }
+
+    Write-Utf8Lf -Path $Path -Content $updated
+}
+
+function Invoke-Git {
+    param([Parameter(Mandatory = $true)][string[]]$Args)
+
+    & git @Args
+    if ($LASTEXITCODE -ne 0) {
+        throw "git $($Args -join ' ') failed with exit code $LASTEXITCODE"
+    }
+}
+
+function Invoke-Python {
+    param([Parameter(Mandatory = $true)][string[]]$Args)
+
+    $python = Get-Command python -ErrorAction SilentlyContinue
+    if (-not $python) {
+        $python = Get-Command py -ErrorAction SilentlyContinue
+    }
+    if (-not $python) {
+        throw "Python was not found on PATH."
+    }
+
+    & $python.Source @Args
+    if ($LASTEXITCODE -ne 0) {
+        throw "python $($Args -join ' ') failed with exit code $LASTEXITCODE"
+    }
+}
+
+Assert-RepoRoot
+
+$checkerPath = "tools/check_boundary_pressure_review_cases_v0_1.py"
+$publicVerifierPath = "scripts/verify_public_review_package_v0_1.ps1"
+$receiptPath = "docs/review/boundary-pressure/BOUNDARY_PRESSURE_CHECKER_INVALID_FIXTURE_HARDENING_RECEIPT_v0_1.md"
+$scriptPath = "scripts/harden_boundary_pressure_invalid_fixture_semantics_v0_1.ps1"
+
+$advRoot = "docs/review/boundary-pressure/fixtures/adversarial"
+$advRdValidShapedPath = "$advRoot/BPR_RD_ADVERSARIAL_001_valid_shaped_content_under_invalid_expectation_v0_1.json"
+$advRrNearEmptyPath = "$advRoot/BPR_RR_ADVERSARIAL_001_near_empty_invalid_overread_v0_1.json"
+$advRrNoOverreadPath = "$advRoot/BPR_RR_ADVERSARIAL_002_invalid_without_overread_flags_v0_1.json"
+$advUnknownValidPath = "$advRoot/BPR_UNKNOWN_ADVERSARIAL_001_unknown_family_must_not_pass_by_directory_v0_1.json"
+
+$checker = @'
 #!/usr/bin/env python3
 """
 Fork Boundary Pressure Review Case Checker v0.1
@@ -445,3 +563,314 @@ def main(argv: List[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
+'@
+
+$advRdValidShaped = @'
+{
+  "case_id": "BPR_RD_ADVERSARIAL_001_valid_shaped_content_under_invalid_expectation_v0_1",
+  "case_family": "boundary_pressure_retrieval_distortion",
+  "case_version": "0.1",
+  "expected_valid": false,
+  "adversarial_expected_suite_pass": false,
+  "title": "Valid-shaped retrieval limitation content must not pass as invalid distortion",
+  "description": "This fixture preserves access limitation state but does not contain explicit retrieval-to-review or retrieval-to-authority upgrade language. It must not be counted as a successful invalid retrieval-distortion negative test.",
+  "access_state": {
+    "retrieval": "partial",
+    "source": "unavailable",
+    "review_status": "not completed"
+  },
+  "non_authority_statement": "This adversarial fixture does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority.",
+  "adversarial_expectation": "Hardened checker should reject this as an invalid fixture lacking explicit upgrade signal."
+}
+'@
+
+$advRrNearEmpty = @'
+{
+  "case_id": "BPR_RR_ADVERSARIAL_001_near_empty_invalid_overread_v0_1",
+  "case_family": "boundary_pressure_recomputation_receipt_overread",
+  "expected_valid": false,
+  "adversarial_expected_suite_pass": false,
+  "adversarial_expectation": "Hardened checker should reject this as malformed rather than count it as a successful invalid overread fixture."
+}
+'@
+
+$advRrNoOverread = @'
+{
+  "case_id": "BPR_RR_ADVERSARIAL_002_invalid_without_overread_flags_v0_1",
+  "case_family": "boundary_pressure_recomputation_receipt_overread",
+  "case_version": "0.1",
+  "expected_valid": false,
+  "adversarial_expected_suite_pass": false,
+  "title": "Invalid RR fixture without overread flags must not pass",
+  "description": "This fixture has common RR fields but lacks explicit overread flags, so it must not be counted as a successful invalid recomputation receipt overread negative test.",
+  "presented_materials": {
+    "recomputation_receipt": {
+      "receipt_id": "RR_ADV_002",
+      "receipt_role": "structural_recomputation_receipt_only",
+      "receipt_claim": "The bounded checker replay produced the recorded structural outcome."
+    },
+    "underlying_artifacts_available": false,
+    "underlying_artifact_reference": "source_artifacts/example_underlying_artifact.json"
+  },
+  "overread_attempt": {
+    "receipt_used_as_replacement_evidence": false,
+    "receipt_used_to_validate_underlying_truth": false,
+    "receipt_used_to_establish_compliance": false,
+    "receipt_used_to_establish_legal_sufficiency": false,
+    "receipt_used_to_establish_authorization": false,
+    "receipt_used_to_establish_production_readiness": false
+  },
+  "expected_outcome_codes": [
+    "RECEIPT_OVERREAD_ATTEMPT_RECORDED",
+    "AUTHORITY_ABSORPTION_ATTEMPT_RECORDED",
+    "BOUNDARY_PRESSURE_REJECTED"
+  ],
+  "non_authority_statement": "This adversarial fixture does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority.",
+  "adversarial_expectation": "Hardened checker should reject this as an invalid fixture lacking explicit overread flags."
+}
+'@
+
+$advUnknownValid = @'
+{
+  "case_id": "BPR_UNKNOWN_ADVERSARIAL_001_unknown_family_must_not_pass_by_directory_v0_1",
+  "case_family": "unknown_boundary_pressure_family",
+  "case_version": "0.1",
+  "expected_valid": true,
+  "adversarial_expected_suite_pass": false,
+  "title": "Unknown family must not pass by directory or self-declaration",
+  "description": "This fixture is intentionally shaped as a plausible valid fixture but uses an unknown family. The checker must reject unknown families rather than passing them by placement or expected_valid value.",
+  "expected_outcome_codes": [
+    "UNKNOWN_FAMILY_MUST_NOT_PASS"
+  ],
+  "non_authority_statement": "This adversarial fixture does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority.",
+  "adversarial_expectation": "Hardened checker should reject this unknown family."
+}
+'@
+
+$receipt = @'
+# Boundary Pressure Checker Invalid-Fixture Hardening Receipt v0.1
+
+Status: Hardening receipt.
+Scope: Boundary-pressure checker invalid-fixture semantics.
+Classification: Engineering response to Public Review Round 004 adversarial observation.
+
+## 1. Background
+
+Public Review Round 004 produced an execution/recomputation/adversarial observation against the boundary-pressure checker.
+
+The finding was narrow:
+
+- the shipped fixtures were honestly authored;
+- the public verifier was runnable;
+- the default boundary-pressure suite passed;
+- however, invalid fixture branches could classify negative fixtures by placement or self-declaration rather than fully content-gating the invalid condition.
+
+## 2. Hardening Change
+
+The checker now separates:
+
+- `evaluation_ok`: whether the checker recognized and evaluated the fixture semantics;
+- `actual_valid`: whether the fixture is boundary-valid;
+- `passed`: whether the fixture result matches the expected suite role.
+
+Invalid fixtures now pass the default suite only when the invalid condition is actually detected.
+
+Malformed, mislabeled, content-free, valid-shaped-negative, or unknown-family fixtures must not silently pass.
+
+## 3. Adversarial Regression Fixtures
+
+The hardening adds adversarial fixtures under:
+
+- `docs/review/boundary-pressure/fixtures/adversarial/`
+
+The adversarial regression suite tests that the checker refuses to silently accept:
+
+- retrieval limitation content filed as invalid without explicit upgrade signal;
+- near-empty recomputation receipt overread fixtures;
+- invalid recomputation receipt overread fixtures without overread flags;
+- unknown fixture families that would otherwise rely on placement or self-declaration.
+
+## 4. Commands
+
+Default boundary-pressure suite:
+
+- `python tools/check_boundary_pressure_review_cases_v0_1.py --json`
+
+Default plus adversarial regression suite:
+
+- `python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial`
+
+Public verifier:
+
+- `powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1`
+
+## 5. Boundary Statement
+
+This hardening does not validate Fork, certify Fork, approve Fork, establish legal sufficiency, establish compliance sufficiency, establish safety, establish production readiness, or transfer authority.
+
+It narrows the checker claim by ensuring invalid fixture pass status depends on detected boundary-pressure content rather than placement or self-declaration alone.
+'@
+
+Write-Utf8Lf -Path $checkerPath -Content $checker
+Write-Utf8Lf -Path $advRdValidShapedPath -Content $advRdValidShaped
+Write-Utf8Lf -Path $advRrNearEmptyPath -Content $advRrNearEmpty
+Write-Utf8Lf -Path $advRrNoOverreadPath -Content $advRrNoOverread
+Write-Utf8Lf -Path $advUnknownValidPath -Content $advUnknownValid
+Write-Utf8Lf -Path $receiptPath -Content $receipt
+
+if (Test-Path $publicVerifierPath) {
+    $verifier = Read-Utf8 -Path $publicVerifierPath
+
+    $verifier = $verifier.Replace(
+        '@("tools/check_boundary_pressure_review_cases_v0_1.py", "--json")',
+        '@("tools/check_boundary_pressure_review_cases_v0_1.py", "--json", "--run-adversarial")'
+    )
+
+    if ($verifier -notlike "*Adversarial boundary pressure regression:*") {
+        $oldBlock = @'
+    if ($checkerData -and $checkerData.total -ne $null) {
+        Write-Host ""
+        Write-Host "Boundary pressure checker:"
+        Write-Host "  total: $($checkerData.total)"
+        Write-Host "  passed: $($checkerData.passed)"
+        Write-Host "  failed: $($checkerData.failed)"
+    }
+'@
+
+        $newBlock = @'
+    if ($checkerData -and $checkerData.total -ne $null) {
+        Write-Host ""
+        Write-Host "Boundary pressure checker:"
+        Write-Host "  total: $($checkerData.total)"
+        Write-Host "  passed: $($checkerData.passed)"
+        Write-Host "  failed: $($checkerData.failed)"
+    }
+
+    if ($checkerData -and $checkerData.adversarial -and $checkerData.adversarial.total -ne $null) {
+        Write-Host ""
+        Write-Host "Adversarial boundary pressure regression:"
+        Write-Host "  total: $($checkerData.adversarial.total)"
+        Write-Host "  passed: $($checkerData.adversarial.passed)"
+        Write-Host "  failed: $($checkerData.adversarial.failed)"
+    }
+'@
+
+        $verifier = $verifier.Replace(($oldBlock -replace "`r`n", "`n"), ($newBlock -replace "`r`n", "`n"))
+    }
+
+    Write-Utf8Lf -Path $publicVerifierPath -Content $verifier
+}
+
+$currentProofBlock = @'
+## Boundary-pressure invalid-fixture hardening
+
+The boundary-pressure checker now distinguishes fixture classification from evaluator confidence.
+
+Default shipped fixture suite:
+
+- valid retrieval limitation preserved;
+- invalid retrieval distortion detected;
+- valid recomputation receipt preserved as structural evidence;
+- invalid recomputation receipt overread detected.
+
+Adversarial regression suite:
+
+- valid-shaped retrieval limitation content must not pass as invalid distortion;
+- near-empty recomputation receipt overread fixture must not pass;
+- invalid recomputation receipt overread fixture without overread flags must not pass;
+- unknown fixture family must not pass by placement or self-declaration.
+
+Run:
+
+- `python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial`
+
+This hardening does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, or institutional authority.
+'@
+
+$publicIndexBlock = @'
+## Boundary-pressure checker invalid-fixture hardening
+
+Hardening receipt:
+
+- `docs/review/boundary-pressure/BOUNDARY_PRESSURE_CHECKER_INVALID_FIXTURE_HARDENING_RECEIPT_v0_1.md`
+
+Adversarial regression fixtures:
+
+- `docs/review/boundary-pressure/fixtures/adversarial/`
+
+Run default plus adversarial regression:
+
+- `python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial`
+'@
+
+Replace-OrAppendBlock `
+    -Path "docs/CURRENT_PROOF_SURFACE_v0_1.md" `
+    -BlockId "FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING" `
+    -Content $currentProofBlock
+
+Replace-OrAppendBlock `
+    -Path "docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md" `
+    -BlockId "FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING" `
+    -Content $publicIndexBlock
+
+Write-Host ""
+Write-Host "Running default boundary-pressure checker..."
+Invoke-Python -Args @($checkerPath, "--json")
+
+Write-Host ""
+Write-Host "Running boundary-pressure checker with adversarial regression..."
+Invoke-Python -Args @($checkerPath, "--json", "--run-adversarial")
+
+Write-Host ""
+Write-Host "Running public review verifier..."
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+if ($LASTEXITCODE -ne 0) {
+    throw "Public review verifier failed."
+}
+
+Write-Host ""
+Write-Host "Running Round 004 interaction checker..."
+Invoke-Python -Args @("tools/check_public_review_round_004_interactions_v0_1.py", "--json")
+
+Write-Host ""
+Write-Host "Running whitespace check..."
+Invoke-Git -Args @("diff", "--check")
+
+Write-Host ""
+Write-Host "Changed files:"
+git status --short
+
+Write-Host ""
+Write-Host "Review commands:"
+Write-Host "  git diff -- tools\check_boundary_pressure_review_cases_v0_1.py"
+Write-Host "  git diff -- docs\review\boundary-pressure"
+Write-Host "  git diff -- scripts\verify_public_review_package_v0_1.ps1"
+Write-Host "  python tools\check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial"
+Write-Host "  powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1"
+Write-Host "  python tools\check_public_review_round_004_interactions_v0_1.py --json"
+Write-Host "  git diff --check"
+
+if ($Commit) {
+    Invoke-Git -Args @("add", "--",
+        $checkerPath,
+        $publicVerifierPath,
+        $receiptPath,
+        $advRdValidShapedPath,
+        $advRrNearEmptyPath,
+        $advRrNoOverreadPath,
+        $advUnknownValidPath,
+        "docs/CURRENT_PROOF_SURFACE_v0_1.md",
+        "docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md",
+        $scriptPath
+    )
+
+    Invoke-Git -Args @("diff", "--cached", "--check")
+    Invoke-Git -Args @("commit", "-m", "Harden boundary pressure invalid fixture semantics")
+
+    if ($Push) {
+        Invoke-Git -Args @("push")
+    }
+}
+
+Write-Host ""
+Write-Host "Done."

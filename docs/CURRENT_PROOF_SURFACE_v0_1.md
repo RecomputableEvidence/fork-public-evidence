@@ -308,3 +308,31 @@ Recommended reading path:
 This current proof-surface index does not validate Fork, certify Fork, endorse Fork, approve Fork, establish compliance, establish legal sufficiency, establish safety, establish production readiness, or assert that any underlying AI-assisted workflow was correct.
 
 It exists to make the public proof surface inspectable and to reduce overread.
+
+<!-- FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING:START -->
+
+## Boundary-pressure invalid-fixture hardening
+
+The boundary-pressure checker now distinguishes fixture classification from evaluator confidence.
+
+Default shipped fixture suite:
+
+- valid retrieval limitation preserved;
+- invalid retrieval distortion detected;
+- valid recomputation receipt preserved as structural evidence;
+- invalid recomputation receipt overread detected.
+
+Adversarial regression suite:
+
+- valid-shaped retrieval limitation content must not pass as invalid distortion;
+- near-empty recomputation receipt overread fixture must not pass;
+- invalid recomputation receipt overread fixture without overread flags must not pass;
+- unknown fixture family must not pass by placement or self-declaration.
+
+Run:
+
+- `python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial`
+
+This hardening does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, or institutional authority.
+
+<!-- FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING:END -->

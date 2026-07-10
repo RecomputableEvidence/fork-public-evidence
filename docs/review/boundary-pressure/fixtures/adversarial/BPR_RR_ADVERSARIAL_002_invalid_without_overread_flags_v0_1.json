@@ -1,0 +1,33 @@
+{
+  "case_id": "BPR_RR_ADVERSARIAL_002_invalid_without_overread_flags_v0_1",
+  "case_family": "boundary_pressure_recomputation_receipt_overread",
+  "case_version": "0.1",
+  "expected_valid": false,
+  "adversarial_expected_suite_pass": false,
+  "title": "Invalid RR fixture without overread flags must not pass",
+  "description": "This fixture has common RR fields but lacks explicit overread flags, so it must not be counted as a successful invalid recomputation receipt overread negative test.",
+  "presented_materials": {
+    "recomputation_receipt": {
+      "receipt_id": "RR_ADV_002",
+      "receipt_role": "structural_recomputation_receipt_only",
+      "receipt_claim": "The bounded checker replay produced the recorded structural outcome."
+    },
+    "underlying_artifacts_available": false,
+    "underlying_artifact_reference": "source_artifacts/example_underlying_artifact.json"
+  },
+  "overread_attempt": {
+    "receipt_used_as_replacement_evidence": false,
+    "receipt_used_to_validate_underlying_truth": false,
+    "receipt_used_to_establish_compliance": false,
+    "receipt_used_to_establish_legal_sufficiency": false,
+    "receipt_used_to_establish_authorization": false,
+    "receipt_used_to_establish_production_readiness": false
+  },
+  "expected_outcome_codes": [
+    "RECEIPT_OVERREAD_ATTEMPT_RECORDED",
+    "AUTHORITY_ABSORPTION_ATTEMPT_RECORDED",
+    "BOUNDARY_PRESSURE_REJECTED"
+  ],
+  "non_authority_statement": "This adversarial fixture does not establish truth, compliance, legal sufficiency, authorization, approval, safety, production readiness, endorsement, certification, validation, or authority.",
+  "adversarial_expectation": "Hardened checker should reject this as an invalid fixture lacking explicit overread flags."
+}
