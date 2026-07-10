@@ -157,3 +157,16 @@ Checker: tools/check_boundary_pressure_review_cases_v0_1.py
 The case does not validate Fork, certify Fork, approve Fork, establish legal sufficiency, establish compliance sufficiency, or prove the truth of any underlying artifact.
 
 <!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_PUBLIC_INDEX:END -->
+
+<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:START -->
+
+Current proof surface and verifier
+Start here for the current public proof surface:
+docs/CURRENT_PROOF_SURFACE_v0_1.md
+
+Run the public review verifier:
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+The verifier checks the current public-review routing surface and runs the stable boundary-pressure checker. Passing verification is not certification, endorsement, legal sufficiency, compliance sufficiency, safety, production readiness, procurement approval, or institutional authority.
+
+<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->

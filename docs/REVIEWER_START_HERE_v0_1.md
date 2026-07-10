@@ -212,3 +212,16 @@ python tools/check_boundary_pressure_review_cases_v0_1.py --json
 
 
 <!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_REVIEWER_START:END -->
+
+<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:START -->
+
+One-command public verification
+From the repository root, run:
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+Then read:
+docs/CURRENT_PROOF_SURFACE_v0_1.md
+
+The verifier checks the public review package surface and the stable boundary-pressure checker only. It does not validate truth, compliance, legal sufficiency, authorization, approval, safety, or production readiness.
+
+<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->

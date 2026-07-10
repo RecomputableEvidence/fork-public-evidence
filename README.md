@@ -222,3 +222,16 @@ For legal, security, risk, compliance, audit-adjacent, and design-partner reader
 Fork preserves reconstructable evidence context for AI-assisted reliance. It does not certify compliance, establish legal admissibility, replace institutional controls, operate detection systems, function as a GRC system, replace SIEM or logging platforms, or act as a runtime control plane.
 
 <!-- FORK_BUYER_QUICK_START_GC_CISO_RISK:END -->
+
+<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:START -->
+
+Current proof surface and public verifier
+Reviewers can inspect the current bounded proof surface here:
+docs/CURRENT_PROOF_SURFACE_v0_1.md
+
+Run the current public review verifier from the repository root:
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+The verifier checks required public-review files and executes the stable boundary-pressure checker. It does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, or institutional authority.
+
+<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->
