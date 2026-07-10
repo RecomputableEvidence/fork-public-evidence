@@ -48,3 +48,25 @@ docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
 This response fixes stale Day-0 status language and documents manual public-verifier reconstruction for reviewers who cannot execute the PowerShell verifier.
 
 <!-- FORK_ROUND005_STATUS_AND_VERIFIER_FALLBACK_RESPONSE:END -->
+
+<!-- FORK_ROUND005_COORDINATED_RESEAL_RESPONSE:START -->
+
+## Round 005 response: coordinated re-seal adversarial case
+
+The coordinated re-seal finding from Round 005 is now preserved as a reproducible adversarial case.
+
+Response receipt:
+
+- `docs/review/public-rounds/round-005/ROUND005_RESPONSE_COORDINATED_RESEAL_ADVERSARIAL_CASE_v0_1.md`
+
+Case:
+
+- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL_CASE_v0_1.md`
+
+Checker:
+
+- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
+
+This response records a root-of-trust limitation. It does not validate the adversarially mutated packet.
+
+<!-- FORK_ROUND005_COORDINATED_RESEAL_RESPONSE:END -->

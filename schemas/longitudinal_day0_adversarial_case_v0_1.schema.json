@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/longitudinal_day0_adversarial_case_v0_1.schema.json",
+  "title": "Fork Longitudinal Day-0 Adversarial Case v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "case_id",
+    "case_family",
+    "review_round_source",
+    "reviewed_packet",
+    "mutation_target",
+    "mutation_summary",
+    "expected_observation",
+    "expected_outcome_codes",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "case_id": { "type": "string" },
+    "case_family": { "type": "string" },
+    "review_round_source": { "type": "string" },
+    "reviewed_packet": { "type": "string" },
+    "mutation_target": { "type": "string" },
+    "mutation_summary": { "type": "string" },
+    "expected_observation": { "type": "string" },
+    "expected_outcome_codes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "non_authority_statement": { "type": "string" }
+  }
+}

@@ -274,3 +274,25 @@ Round 005 response receipt:
 docs/review/public-rounds/round-005/ROUND005_RESPONSE_STATUS_AND_VERIFIER_FALLBACK_v0_1.md
 
 <!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_ADVERSARIAL_CASES:START -->
+
+## Longitudinal Day-0 adversarial cases
+
+Adversarial reconstruction surface:
+
+- `docs/reconstruction/adversarial/README.md`
+
+Coordinated re-seal case:
+
+- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL_CASE_v0_1.md`
+
+Checker:
+
+- `tools/check_longitudinal_day0_adversarial_cases_v0_1.py`
+
+Run:
+
+- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
+
+<!-- FORK_LONGITUDINAL_DAY0_ADVERSARIAL_CASES:END -->

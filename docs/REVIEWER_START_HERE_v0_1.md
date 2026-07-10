@@ -306,3 +306,27 @@ running the documented cross-platform commands is manual public-verifier reconst
 Manual reconstruction is useful review evidence, but it is not identical to executing the named verifier artifact.
 
 <!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL:START -->
+
+## Longitudinal Day-0 coordinated re-seal adversarial case
+
+Round 005 found that coordinated re-sealing could falsify provenance, recompute internal hashes, and still pass the current Day-0 checker.
+
+This finding is now preserved as a reproducible adversarial case:
+
+- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL_CASE_v0_1.md`
+- `docs/reconstruction/adversarial/fixtures/LRT_DAY0_ADV_001_coordinated_reseal_v0_1.json`
+- `tools/check_longitudinal_day0_adversarial_cases_v0_1.py`
+
+Run:
+
+- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
+
+Interpretation:
+
+- a pass confirms the root-of-trust limitation is reproducible under the current v0.1 checker;
+- it does not validate the mutated packet;
+- it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
+
+<!-- FORK_LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL:END -->

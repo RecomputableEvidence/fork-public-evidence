@@ -1,0 +1,21 @@
+{
+    "case_id":  "LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1",
+    "case_family":  "longitudinal_day0_coordinated_reseal",
+    "review_round_source":  "public_review_round_005_longitudinal_day0_packet_accessibility_reconstruction_boundary_replay_readiness",
+    "reviewed_packet":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/",
+    "mutation_target":  "receipts/day0_expected_reconstruction_provenance_receipt.json",
+    "mutation_summary":  "Falsify provenance to independent external reviewer provenance, recompute target receipt hash into packet_manifest.json, recompute packet_manifest.sha256, and update packet_manifest_outer_receipt.json.",
+    "expected_observation":  "The re-sealed scratch packet remains accepted by the current Day-0 checker because the checker verifies internal consistency relative to the current manifest rather than an external original-sealing anchor.",
+    "expected_outcome_codes":  [
+                                   "MANIFEST_INTERNALLY_CONSISTENT_BUT_UNANCHORED",
+                                   "COORDINATED_RESEAL_CONFIRMED",
+                                   "ROOT_OF_TRUST_SCOPE_LIMIT_CONFIRMED",
+                                   "SEMANTIC_CONTENT_CHANGE_UNDETECTED_AFTER_CONSISTENT_RESEAL"
+                               ],
+    "expected_suite_result":  {
+                                  "suite_passes_when_limitation_reproduced":  true,
+                                  "clean_packet_day0_checker_expected_failed":  0,
+                                  "resealed_scratch_packet_day0_checker_expected_failed":  0
+                              },
+    "non_authority_statement":  "This adversarial case records a root-of-trust limitation for the Day-0 packet checker. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority."
+}
