@@ -336,3 +336,29 @@ Run:
 This hardening does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, or institutional authority.
 
 <!-- FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING:END -->
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:START -->
+
+## Public review quickstart and expanded verifier coverage
+
+A one-page reviewer path is now available:
+
+- docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md
+
+The public verifier now includes expanded coverage for:
+
+- current proof-surface routing;
+- boundary-pressure default fixtures;
+- boundary-pressure adversarial regression fixtures;
+- Round 004 structured interaction filings;
+- longitudinal reconstruction protocol presence;
+- BPEF framework presence;
+- Git whitespace checks.
+
+Run:
+
+- powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+A pass remains bounded. It means required public review artifacts are present and included structural checkers passed. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, or institutional authority.
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->

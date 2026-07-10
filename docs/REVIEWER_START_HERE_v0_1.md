@@ -245,3 +245,19 @@ Validate filed interactions with:
 These filings preserve access-path reviews, no-access observations, exterior governance articulations, and execution/recomputation observations. They are not endorsements, certifications, approvals, legal opinions, compliance opinions, production-readiness assessments, or authority transfers.
 
 <!-- FORK_PUBLIC_REVIEW_ROUND_004_INTERACTION_FILINGS:END -->
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:START -->
+
+## Public review quickstart
+
+Use this first when reviewing the repository from the outside:
+
+- docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md
+
+Primary verifier:
+
+- powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+The verifier now includes expanded coverage for boundary-pressure adversarial regression and Round 004 interaction filings.
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->

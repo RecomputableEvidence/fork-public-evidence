@@ -235,3 +235,23 @@ powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_
 The verifier checks required public-review files and executes the stable boundary-pressure checker. It does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, or institutional authority.
 
 <!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:START -->
+
+## Public review quickstart
+
+For a one-page reviewer path, use:
+
+- docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md
+
+The public verifier is:
+
+- scripts/verify_public_review_package_v0_1.ps1
+
+Run from repo root:
+
+- powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+This path is for public inspection, structural verification, and exterior review. It is not endorsement, certification, compliance approval, legal sufficiency, safety approval, production readiness, or authority transfer.
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->

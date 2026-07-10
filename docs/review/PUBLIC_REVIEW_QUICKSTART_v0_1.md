@@ -1,0 +1,254 @@
+# Fork Public Review Quickstart v0.1
+
+Status: Reviewer quickstart.
+Scope: Public GitHub review path, verification commands, expected outputs, and objective review data.
+
+## 1. Purpose
+
+This quickstart gives outside reviewers a short path through Fork's current public proof surface.
+
+It is intended for:
+
+- access-path reviewers;
+- exterior governance reviewers;
+- recomputation reviewers;
+- no-access reviewers documenting execution barriers;
+- reviewers proposing adversarial fixtures.
+
+This quickstart is not an endorsement request, certification request, compliance request, legal sufficiency request, safety request, production-readiness request, procurement approval request, or authority-transfer request.
+
+## 2. Start from a clean clone
+
+From a working directory outside the repo:
+
+- git clone https://github.com/RecomputableEvidence/fork-public-evidence.git
+- cd fork-public-evidence
+- git status -sb
+- git log -1 --oneline
+
+Record:
+
+- commit hash;
+- operating system;
+- shell;
+- Python version;
+- Git version;
+- whether PowerShell was already available.
+
+## 3. Primary proof surface
+
+Read first:
+
+- docs/CURRENT_PROOF_SURFACE_v0_1.md
+
+Then read:
+
+- docs/REVIEWER_START_HERE_v0_1.md
+- docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md
+- docs/review/FORK_REPOSITORY_REVIEW_POSTURE_v0_1.md
+
+Reviewer question:
+
+Can you tell what Fork currently demonstrates and what it explicitly does not demonstrate?
+
+## 4. One-command public verifier
+
+From repo root, run:
+
+- powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+
+Expected signal:
+
+- PUBLIC_REVIEW_PACKAGE_VERIFY_PASS
+
+The verifier now checks:
+
+- core public proof-surface files;
+- boundary-pressure checker and fixtures;
+- boundary-pressure adversarial regression fixtures;
+- Round 004 interaction filing schema and observations;
+- longitudinal reconstruction protocol presence;
+- BPEF framework presence;
+- Git whitespace checks.
+
+This verifier checks public review package presence and bounded checker execution. It does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, or institutional authority.
+
+## 5. JSON verifier output
+
+For structured output:
+
+- powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1 -Json
+
+Record:
+
+- total;
+- passed;
+- failed;
+- boundary-pressure default count;
+- boundary-pressure adversarial count;
+- Round 004 filing count;
+- any failure reason.
+
+## 6. Run the boundary-pressure checker directly
+
+Default suite:
+
+- python tools/check_boundary_pressure_review_cases_v0_1.py --json
+
+Expected current signal:
+
+- total: 4
+- passed: 4
+- failed: 0
+
+Default plus adversarial regression:
+
+- python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial
+
+Expected current adversarial signal:
+
+- adversarial.total: 4
+- adversarial.passed: 4
+- adversarial.failed: 0
+
+Boundary-pressure fixtures are under:
+
+- docs/review/boundary-pressure/fixtures/
+
+Adversarial fixtures are under:
+
+- docs/review/boundary-pressure/fixtures/adversarial/
+
+## 7. Run the Round 004 interaction checker directly
+
+Run:
+
+- python tools/check_public_review_round_004_interactions_v0_1.py --json
+
+Expected current signal:
+
+- total: 4
+- passed: 4
+- failed: 0
+
+Filed observations are under:
+
+- docs/review/public-rounds/round-004/observations/
+
+Round 004 synthesis is:
+
+- docs/review/public-rounds/round-004/PUBLIC_REVIEW_ROUND_004_SYNTHESIS_v0_1.md
+
+## 8. Inspect one experiment
+
+Recommended first inspection:
+
+- docs/review/boundary-pressure/BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_TEST_CASE_v0_1.md
+- docs/review/boundary-pressure/BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_TEST_CASE_v0_1.md
+- docs/review/boundary-pressure/BOUNDARY_PRESSURE_CHECKER_INVALID_FIXTURE_HARDENING_RECEIPT_v0_1.md
+
+Reviewer question:
+
+Can you explain why the valid fixture remains valid and why the invalid fixture is rejected without treating rejection as approval, truth, compliance, legal sufficiency, safety, or production readiness?
+
+## 9. Optional adversarial interaction
+
+The boundary-pressure checker supports an adversarial regression mode.
+
+A reviewer may construct a separate fixture root and run:
+
+- python tools/check_boundary_pressure_review_cases_v0_1.py --fixtures-root path\to\scratch_fixtures --json --run-adversarial
+
+Suggested adversarial fixture types:
+
+- valid-shaped content placed under invalid expectation;
+- invalid fixture without explicit boundary-pressure signal;
+- malformed or content-free fixture;
+- unknown fixture family;
+- receipt overread without overread flags;
+- retrieval limitation upgraded into review, approval, authorization, validation, or compliance.
+
+Do not edit shipped fixtures unless the review purpose is to test a proposed patch.
+
+## 10. Longitudinal reconstruction protocol
+
+Read:
+
+- docs/reconstruction/FORK_LONGITUDINAL_RECONSTRUCTION_TRIAL_v0_1.md
+
+Current status:
+
+- protocol exists;
+- Day-0 packet is not yet implemented;
+- Day-7/30/90 replay receipts are not yet produced.
+
+Reviewer question:
+
+What would Fork need to preserve today so that a future reviewer could answer the same question later without inheriting today's authority?
+
+## 11. Objective review data to record
+
+Recommended fields:
+
+- review round;
+- reviewer role;
+- operating system;
+- shell;
+- Python version;
+- Git version;
+- PowerShell version, if used;
+- whether repo clone succeeded;
+- whether current proof surface was found;
+- whether verifier was found;
+- whether boundary-pressure cases were found;
+- whether longitudinal protocol was found;
+- verifier attempted;
+- verifier passed;
+- failure reason, if any;
+- time to first verifier run;
+- whether command was run unmodified;
+- whether underlying Python checker was run directly;
+- whether adversarial fixture was constructed;
+- points of confusion;
+- overclaim risks noticed;
+- what an exterior governance model would consume;
+- what it would refuse to inherit;
+- required boundary state;
+- missing longitudinal artifacts;
+- checker drift concerns;
+- packet failure concerns;
+- final review classification.
+
+## 12. Filing template
+
+Use:
+
+- docs/templates/PUBLIC_REVIEW_ROUND_004_INTERACTION_TEMPLATE_v0_1.json
+
+Schema:
+
+- schemas/public_review_round_004_interaction_v0_1.schema.json
+
+Checker:
+
+- python tools/check_public_review_round_004_interactions_v0_1.py --json
+
+## 13. Review classifications
+
+Use one or more:
+
+- access-path review;
+- no-access observation;
+- execution receipt;
+- recomputation receipt;
+- adversarial boundary-pressure observation;
+- exterior governance articulation;
+- usability review;
+- longitudinal readiness observation;
+- mixed review.
+
+## 14. Boundary statement
+
+A public verifier pass means the bounded public review package is present and the included structural checkers passed under the reviewer environment.
+
+It does not mean Fork is true, compliant, legally sufficient, safe, authorized, approved, certified, endorsed, production ready, or institutionally authoritative.

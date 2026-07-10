@@ -208,3 +208,19 @@ Run default plus adversarial regression:
 - `python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial`
 
 <!-- FORK_BOUNDARY_PRESSURE_INVALID_FIXTURE_HARDENING:END -->
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:START -->
+
+## Public review quickstart and expanded verifier coverage
+
+Quickstart:
+
+- docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md
+
+Expanded public verifier:
+
+- scripts/verify_public_review_package_v0_1.ps1
+
+The verifier checks core proof-surface files, boundary-pressure fixtures, adversarial regression fixtures, Round 004 interaction filings, longitudinal protocol presence, BPEF presence, and Git whitespace checks.
+
+<!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->
