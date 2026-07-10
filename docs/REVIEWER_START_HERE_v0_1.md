@@ -225,3 +225,23 @@ docs/CURRENT_PROOF_SURFACE_v0_1.md
 The verifier checks the public review package surface and the stable boundary-pressure checker only. It does not validate truth, compliance, legal sufficiency, authorization, approval, safety, or production readiness.
 
 <!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_004_INTERACTION_FILINGS:START -->
+
+## Public Review Round 004 interaction filings
+
+Round 004 filings are preserved here:
+
+- docs/review/public-rounds/round-004/
+
+The interaction schema is:
+
+- schemas/public_review_round_004_interaction_v0_1.schema.json
+
+Validate filed interactions with:
+
+- python tools/check_public_review_round_004_interactions_v0_1.py --json
+
+These filings preserve access-path reviews, no-access observations, exterior governance articulations, and execution/recomputation observations. They are not endorsements, certifications, approvals, legal opinions, compliance opinions, production-readiness assessments, or authority transfers.
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_004_INTERACTION_FILINGS:END -->

@@ -1,0 +1,99 @@
+{
+    "review_round":  "public_review_round_004_accessibility_exterior_governance_longitudinal_readiness",
+    "reviewer_id":  "claude",
+    "reviewer_role":  "AI exterior reviewer; execution, recomputation, access-path, usability, and adversarial boundary reviewer",
+    "evidence_weight":  "execution_recomputation_receipt",
+    "source_interaction_type":  "execution receipt; recomputation receipt; adversarial counter-fixture observation; access-path review; usability review; governance articulation",
+    "reviewer_environment":  {
+                                 "os":  "Ubuntu 24.04 sandbox",
+                                 "shell":  "bash plus PowerShell 7.6.3 installed fresh from official GitHub release tarball",
+                                 "python_version":  "Python 3.12.3",
+                                 "git_available":  true,
+                                 "git_version":  "2.43.0",
+                                 "powershell_version":  "7.6.3",
+                                 "environment_notes":  "PowerShell was not preinstalled. Release tarball was downloaded and sha256-verified before extraction."
+                             },
+    "access_path":  {
+                        "started_from_repo_root":  true,
+                        "found_current_proof_surface":  true,
+                        "found_verifier":  true,
+                        "found_boundary_pressure_cases":  true,
+                        "found_longitudinal_protocol":  true,
+                        "repo_url":  "https://github.com/RecomputableEvidence/fork-public-evidence",
+                        "head_commit":  "7e8f29913e364f73ef86cd942be2472a0109c036",
+                        "notes":  "Clean clone without authentication. README routes cold visitor to REVIEWER_START_HERE first; CURRENT_PROOF_SURFACE is one extra hop for README-first reviewers."
+                    },
+    "verifier_run":  {
+                         "attempted":  true,
+                         "passed":  true,
+                         "failure_reason":  "",
+                         "documented_command_passed":  true,
+                         "direct_python_checker_passed":  true,
+                         "public_verifier_status":  "PUBLIC_REVIEW_PACKAGE_VERIFY_PASS",
+                         "public_verifier_passed_count":  17,
+                         "public_verifier_failed_count":  0,
+                         "boundary_pressure_total":  4,
+                         "boundary_pressure_passed":  4,
+                         "boundary_pressure_failed":  0,
+                         "working_tree_unmodified_after_run":  true
+                     },
+    "comprehension":  {
+                          "understood_current_claims":  true,
+                          "understood_non_claims":  true,
+                          "identified_overclaim_risk":  "Documentation and implementation diverge for invalid-fixture semantics. The checker demonstrates the shipped negative fixtures are correctly labeled, not that it would catch arbitrary mislabeled or content-free negative fixtures."
+                      },
+    "governance_articulation":  {
+                                    "external_model_name":  "AI exterior reviewer operating under tool-result-versus-truth separation",
+                                    "what_it_would_consume":  "Checker C, commit H, fixture set F, pass/fail result, direct verifier output, direct Python checker output, and reproducible execution receipt.",
+                                    "what_it_would_not_inherit":  "Any reading of passed:true as correctness, compliance, truth, safety, authorization, production readiness, or validation of the underlying workflow.",
+                                    "required_boundary_state":  "Explicit statement of which valid/invalid split is content-gated versus label-trusted; checker version/hash; fixture set; commit; command; environment; non-authority statement."
+                                },
+    "longitudinal_readiness":  {
+                                   "missing_artifacts":  [
+                                                             "schema implementations",
+                                                             "fixture packets",
+                                                             "reconstruction scripts",
+                                                             "checker scripts for longitudinal trial",
+                                                             "Day-0 receipt",
+                                                             "adverse fixtures",
+                                                             "reviewer instructions",
+                                                             "Day 7, Day 30, and Day 90 replay receipts"
+                                                         ],
+                                   "required_receipts":  [
+                                                             "packet_manifest.sha256",
+                                                             "packet_manifest_outer_receipt.json",
+                                                             "manifest carrying trial_id, packet_id, schema_versions, checker_versions, pinned_commit, canonicalization_method, artifact_hashes, expected_reconstruction_hash, environment_manifest_hash, non_authority_boundary_statement_hash, and created_at_fixed_fixture_time",
+                                                             "independently produced expected reconstruction provenance receipt"
+                                                         ],
+                                   "checker_drift_concerns":  [
+                                                                  "Need pinned-checker replay versus current-checker replay tracks.",
+                                                                  "Need outcomes for documented semantic change, undocumented semantic drift, and match confirmed.",
+                                                                  "Expected reconstruction must not be generated and later proved by the same implementation."
+                                                              ],
+                                   "packet_failure_concerns":  [
+                                                                   "Payload hash mismatch.",
+                                                                   "Manifest-level tamper.",
+                                                                   "Missing or corrupted preserved packet under pinned checker is packet failure, not checker drift."
+                                                               ]
+                               },
+    "adversarial_findings":  [
+                                 {
+                                     "finding_id":  "ROUND004_CLAUDE_FINDING_001_INVALID_FIXTURE_CONTENT_GATING",
+                                     "summary":  "Invalid-side branches can pass negative tests by placement or self-declaration rather than proving the invalid condition is detected.",
+                                     "details":  "Constructed scratch fixtures showed content shaped like a valid retrieval limitation could be placed under invalid/ and pass as rejected; a near-empty recomputation receipt overread fixture also passed as an invalid negative test while reporting missing required fields.",
+                                     "impact":  "Narrows current proof claim. The shipped fixtures are honestly authored, but the checker should not yet be claimed to reject arbitrary malformed, mislabeled, or content-free negative fixtures.",
+                                     "recommended_followup":  "Harden boundary-pressure checker invalid fixture semantics and add adversarial counterfixtures."
+                                 }
+                             ],
+    "objective_data_suggested":  [
+                                     "pwsh-on-PATH boolean",
+                                     "PowerShell install path taken",
+                                     "outbound HTTPS reachability to github.com and release-assets.githubusercontent.com",
+                                     "documented command unmodified versus adapted",
+                                     "direct checker rerun independent of wrapper",
+                                     "adversarial fixture constructed by reviewer",
+                                     "whether working tree remained unmodified"
+                                 ],
+    "review_classification":  "mixed: execution receipt; recomputation receipt; access-path review; usability review; governance articulation; adversarial boundary-pressure observation",
+    "non_authority_statement":  "This filing records execution, recomputation, and adversarial observations. It is not an endorsement, validation, certification, legal opinion, compliance opinion, production-readiness assessment, procurement approval, safety assessment, or authority transfer. It does not certify, validate, approve, endorse, establish compliance, establish legal sufficiency, establish safety, establish production readiness, or transfer authority."
+}

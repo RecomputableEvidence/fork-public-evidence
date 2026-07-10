@@ -170,3 +170,23 @@ powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_
 The verifier checks the current public-review routing surface and runs the stable boundary-pressure checker. Passing verification is not certification, endorsement, legal sufficiency, compliance sufficiency, safety, production readiness, procurement approval, or institutional authority.
 
 <!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_004_INTERACTION_FILINGS:START -->
+
+## Public Review Round 004
+
+Round 004 preserves structured interaction filings for GitHub accessibility, exterior governance articulation, objective data capture, and longitudinal recomputation readiness.
+
+Start here:
+
+- docs/review/public-rounds/round-004/PUBLIC_REVIEW_ROUND_004_SYNTHESIS_v0_1.md
+
+Schema:
+
+- schemas/public_review_round_004_interaction_v0_1.schema.json
+
+Checker:
+
+- python tools/check_public_review_round_004_interactions_v0_1.py --json
+
+<!-- FORK_PUBLIC_REVIEW_ROUND_004_INTERACTION_FILINGS:END -->

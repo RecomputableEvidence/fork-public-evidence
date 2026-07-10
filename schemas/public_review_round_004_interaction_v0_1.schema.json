@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/public_review_round_004_interaction_v0_1.schema.json",
+  "title": "Fork Public Review Round 004 Interaction Filing v0.1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "review_round",
+    "reviewer_role",
+    "reviewer_environment",
+    "access_path",
+    "verifier_run",
+    "comprehension",
+    "governance_articulation",
+    "longitudinal_readiness",
+    "review_classification"
+  ],
+  "properties": {
+    "review_round": {
+      "const": "public_review_round_004_accessibility_exterior_governance_longitudinal_readiness"
+    },
+    "reviewer_id": {
+      "type": "string"
+    },
+    "reviewer_role": {
+      "type": "string"
+    },
+    "evidence_weight": {
+      "type": "string",
+      "enum": [
+        "execution_recomputation_receipt",
+        "access_path_observation",
+        "exterior_governance_observation",
+        "no_access_observation",
+        "mixed_observation"
+      ]
+    },
+    "reviewer_environment": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "os",
+        "shell",
+        "python_version",
+        "git_available"
+      ],
+      "properties": {
+        "os": { "type": "string" },
+        "shell": { "type": "string" },
+        "python_version": { "type": "string" },
+        "git_available": { "type": "boolean" }
+      }
+    },
+    "access_path": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "started_from_repo_root",
+        "found_current_proof_surface",
+        "found_verifier",
+        "found_boundary_pressure_cases",
+        "found_longitudinal_protocol"
+      ],
+      "properties": {
+        "started_from_repo_root": { "type": "boolean" },
+        "found_current_proof_surface": { "type": "boolean" },
+        "found_verifier": { "type": "boolean" },
+        "found_boundary_pressure_cases": { "type": "boolean" },
+        "found_longitudinal_protocol": { "type": "boolean" }
+      }
+    },
+    "verifier_run": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "attempted",
+        "passed",
+        "failure_reason"
+      ],
+      "properties": {
+        "attempted": { "type": "boolean" },
+        "passed": { "type": "boolean" },
+        "failure_reason": { "type": "string" }
+      }
+    },
+    "comprehension": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "understood_current_claims",
+        "understood_non_claims",
+        "identified_overclaim_risk"
+      ],
+      "properties": {
+        "understood_current_claims": { "type": "boolean" },
+        "understood_non_claims": { "type": "boolean" },
+        "identified_overclaim_risk": { "type": "string" }
+      }
+    },
+    "governance_articulation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "external_model_name",
+        "what_it_would_consume",
+        "what_it_would_not_inherit",
+        "required_boundary_state"
+      ],
+      "properties": {
+        "external_model_name": { "type": "string" },
+        "what_it_would_consume": { "type": "string" },
+        "what_it_would_not_inherit": { "type": "string" },
+        "required_boundary_state": { "type": "string" }
+      }
+    },
+    "longitudinal_readiness": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "missing_artifacts",
+        "required_receipts",
+        "checker_drift_concerns",
+        "packet_failure_concerns"
+      ],
+      "properties": {
+        "missing_artifacts": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "required_receipts": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "checker_drift_concerns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "packet_failure_concerns": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "review_classification": {
+      "type": "string"
+    },
+    "non_authority_statement": {
+      "type": "string"
+    }
+  }
+}
