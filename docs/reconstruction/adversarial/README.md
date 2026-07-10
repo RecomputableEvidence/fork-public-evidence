@@ -20,3 +20,14 @@ Run from repository root:
 ## Boundary
 
 These cases do not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
+
+<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:START -->
+
+## Lexical non-authority limit
+
+- `LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md`
+- `fixtures/LRT_DAY0_ADV_002_lexical_non_authority_limit_v0_1.json`
+
+This case confirms that keyword presence is not semantic non-authority verification.
+
+<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:END -->

@@ -330,3 +330,27 @@ Interpretation:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:START -->
+
+## Longitudinal Day-0 lexical non-authority limit adversarial case
+
+Round 005 found that the Day-0 non-authority check is lexical, not semantic or negation-aware.
+
+This finding is now preserved as a reproducible adversarial case:
+
+- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md`
+- `docs/reconstruction/adversarial/fixtures/LRT_DAY0_ADV_002_lexical_non_authority_limit_v0_1.json`
+- `tools/check_longitudinal_day0_adversarial_cases_v0_1.py`
+
+Run:
+
+- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
+
+Interpretation:
+
+- a pass confirms the lexical limit is reproducible under the current v0.1 checker;
+- it does not mean the clean Day-0 packet asserts authority;
+- it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
+
+<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:END -->

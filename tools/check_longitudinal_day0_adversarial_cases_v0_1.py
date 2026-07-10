@@ -5,33 +5,22 @@ Fork Longitudinal Day-0 Adversarial Cases Checker v0.1.
 Currently implements:
 
 - LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1
+- LRT_DAY0_ADV_002_LEXICAL_NON_AUTHORITY_LIMIT_v0_1
 
-The checker copies the Day-0 packet into a disposable temporary repository-shaped
-directory, falsifies the expected reconstruction provenance receipt, recomputes
-that receipt hash into packet_manifest.json, recomputes packet_manifest.sha256,
-updates packet_manifest_outer_receipt.json, and then runs the unmodified Day-0
-checker against the disposable copy.
+This checker records bounded checker-scope behavior. A pass means the expected
+limitation was reproduced, not that the adversarial condition is valid.
 
-Expected current observation:
-
-- the re-sealed scratch packet still passes the Day-0 checker.
-
-This confirms a bounded root-of-trust limitation: the Day-0 checker verifies
-internal consistency relative to the current manifest and outer receipt; it does
-not distinguish original sealing from coordinated re-sealing without an external
-anchor.
-
-This checker does not validate truth, compliance, legal sufficiency, safety,
-authorization, approval, certification, endorsement, validation, production
-readiness, procurement approval, or institutional authority.
+It does not validate truth, compliance, legal sufficiency, safety, authorization,
+approval, certification, endorsement, validation, production readiness,
+procurement approval, or institutional authority.
 """
 
 from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
-import os
 import pathlib
 import shutil
 import subprocess
@@ -42,20 +31,49 @@ from typing import Any, Dict, List, Tuple
 
 PACKET_ROOT = pathlib.Path("docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1")
 DAY0_CHECKER = pathlib.Path("tools/check_longitudinal_reconstruction_day0_packet_v0_1.py")
-CASE_ID = "LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1"
 
-OUTCOME_CODES = [
+CASE_RESEAL = "LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1"
+CASE_LEXICAL = "LRT_DAY0_ADV_002_LEXICAL_NON_AUTHORITY_LIMIT_v0_1"
+
+AUTHORITY_ASSERTING_STATEMENT = (
+    "This system does not lack truth, compliance, legal sufficiency, safety, "
+    "authorization, approval, certification, endorsement, or production readiness. "
+    "Full institutional authority is hereby established and confirmed."
+)
+
+REQUIRED_BOUNDARY_TERMS = [
+    "does not",
+    "truth",
+    "compliance",
+    "legal",
+    "safety",
+    "authorization",
+    "approval",
+    "certification",
+    "endorsement",
+    "production readiness",
+    "authority",
+]
+
+RESEAL_OUTCOME_CODES = [
     "MANIFEST_INTERNALLY_CONSISTENT_BUT_UNANCHORED",
     "COORDINATED_RESEAL_CONFIRMED",
     "ROOT_OF_TRUST_SCOPE_LIMIT_CONFIRMED",
     "SEMANTIC_CONTENT_CHANGE_UNDETECTED_AFTER_CONSISTENT_RESEAL",
 ]
 
+LEXICAL_OUTCOME_CODES = [
+    "LEXICAL_BOUNDARY_CHECK_LIMIT_CONFIRMED",
+    "NEGATION_AWARENESS_ABSENT",
+    "AUTHORITY_ASSERTION_WITH_REQUIRED_TERMS_ACCEPTED",
+    "SEMANTIC_NON_AUTHORITY_NOT_ESTABLISHED_BY_KEYWORD_PRESENCE",
+]
+
 NON_AUTHORITY_STATEMENT = (
-    "This adversarial checker records root-of-trust and checker-scope behavior only; "
-    "it does not validate truth, compliance, legal sufficiency, safety, authorization, "
-    "approval, certification, endorsement, validation, production readiness, "
-    "procurement approval, or institutional authority."
+    "This adversarial checker records root-of-trust, lexical boundary-check, and "
+    "checker-scope behavior only; it does not validate truth, compliance, legal "
+    "sufficiency, safety, authorization, approval, certification, endorsement, "
+    "validation, production readiness, procurement approval, or institutional authority."
 )
 
 
@@ -94,7 +112,7 @@ def run_day0_checker(repo_root: pathlib.Path, cwd: pathlib.Path) -> Dict[str, An
     parse_error = None
     try:
         parsed = json.loads(completed.stdout)
-    except Exception as exc:  # pragma: no cover - diagnostic branch
+    except Exception as exc:
         parse_error = str(exc)
 
     return {
@@ -105,6 +123,33 @@ def run_day0_checker(repo_root: pathlib.Path, cwd: pathlib.Path) -> Dict[str, An
         "parsed": parsed,
         "parse_error": parse_error,
     }
+
+
+def summarize_run(run: Dict[str, Any] | None) -> Dict[str, Any]:
+    if not run:
+        return {
+            "exit_code": None,
+            "parsed": None,
+            "parse_error": "run missing",
+        }
+
+    parsed = run.get("parsed")
+    summary = {
+        "exit_code": run.get("exit_code"),
+        "parse_error": run.get("parse_error"),
+    }
+
+    if isinstance(parsed, dict):
+        summary.update({
+            "checker": parsed.get("checker"),
+            "total": parsed.get("total"),
+            "passed": parsed.get("passed"),
+            "failed": parsed.get("failed"),
+        })
+    else:
+        summary["stdout"] = run.get("stdout")
+
+    return summary
 
 
 def prepare_scratch_packet(repo_root: pathlib.Path) -> Tuple[pathlib.Path, pathlib.Path]:
@@ -141,7 +186,7 @@ def mutate_and_reseal(scratch_packet: pathlib.Path) -> Dict[str, Any]:
         "to test whether coordinated re-seal is detected by the current Day-0 checker."
     )
     receipt["adversarial_mutation"] = {
-        "case_id": CASE_ID,
+        "case_id": CASE_RESEAL,
         "mutation_type": "coordinated_reseal_after_falsified_provenance",
         "not_part_of_clean_packet": True,
     }
@@ -197,14 +242,10 @@ def mutate_and_reseal(scratch_packet: pathlib.Path) -> Dict[str, Any]:
     }
 
 
-def evaluate_case(repo_root: pathlib.Path, keep_temp: bool) -> Dict[str, Any]:
+def evaluate_coordinated_reseal(repo_root: pathlib.Path, keep_temp: bool) -> Dict[str, Any]:
     clean_run = run_day0_checker(repo_root=repo_root, cwd=repo_root)
 
     scratch_root = None
-    scratch_packet = None
-    mutation = None
-    resealed_run = None
-
     try:
         scratch_root, scratch_packet = prepare_scratch_packet(repo_root)
         mutation = mutate_and_reseal(scratch_packet)
@@ -236,12 +277,12 @@ def evaluate_case(repo_root: pathlib.Path, keep_temp: bool) -> Dict[str, Any]:
         passed = clean_ok and mutation_ok and resealed_passes_day0_checker
 
         return {
-            "case_id": CASE_ID,
+            "case_id": CASE_RESEAL,
             "passed": passed,
             "classification": "root_of_trust_limitation_confirmed" if passed else "unexpected_result",
             "expected_observation": "coordinated re-sealed scratch packet remains Day-0-checker-pass under current unanchored internal-consistency checks",
             "actual_observation": "resealed packet passed Day-0 checker" if resealed_passes_day0_checker else "resealed packet did not pass Day-0 checker",
-            "outcome_codes": OUTCOME_CODES if passed else ["UNEXPECTED_ADVERSARIAL_RESULT"],
+            "outcome_codes": RESEAL_OUTCOME_CODES if passed else ["UNEXPECTED_ADVERSARIAL_RESULT"],
             "clean_day0_checker": summarize_run(clean_run),
             "resealed_day0_checker": summarize_run(resealed_run),
             "mutation": mutation,
@@ -253,31 +294,138 @@ def evaluate_case(repo_root: pathlib.Path, keep_temp: bool) -> Dict[str, Any]:
             shutil.rmtree(scratch_root, ignore_errors=True)
 
 
-def summarize_run(run: Dict[str, Any] | None) -> Dict[str, Any]:
-    if not run:
+def import_day0_checker(repo_root: pathlib.Path) -> Any:
+    checker_path = repo_root / DAY0_CHECKER
+    spec = importlib.util.spec_from_file_location("fork_day0_checker_module", checker_path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"could not import checker from {checker_path}")
+
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def normalize_boundary_result(result: Any) -> Dict[str, Any]:
+    if isinstance(result, bool):
         return {
-            "exit_code": None,
-            "parsed": None,
-            "parse_error": "run missing",
+            "raw_type": "bool",
+            "raw_repr": repr(result),
+            "terms_satisfied": result,
+            "missing_terms": [] if result else ["unknown"],
         }
 
-    parsed = run.get("parsed")
-    summary = {
-        "exit_code": run.get("exit_code"),
-        "parse_error": run.get("parse_error"),
+    if isinstance(result, tuple) and len(result) == 2 and isinstance(result[0], bool):
+        missing = result[1]
+        if missing is None:
+            missing_list: List[str] = []
+        elif isinstance(missing, (list, tuple, set)):
+            missing_list = [str(item) for item in missing]
+        else:
+            missing_list = [str(missing)]
+        return {
+            "raw_type": "tuple_bool_missing",
+            "raw_repr": repr(result),
+            "terms_satisfied": bool(result[0]) and len(missing_list) == 0,
+            "missing_terms": missing_list,
+        }
+
+    if isinstance(result, dict):
+        missing_value = result.get("missing_terms", result.get("missing", []))
+        if missing_value is None:
+            missing_list = []
+        elif isinstance(missing_value, (list, tuple, set)):
+            missing_list = [str(item) for item in missing_value]
+        else:
+            missing_list = [str(missing_value)]
+
+        if "passed" in result:
+            terms_satisfied = bool(result["passed"]) and len(missing_list) == 0
+        elif "terms_satisfied" in result:
+            terms_satisfied = bool(result["terms_satisfied"]) and len(missing_list) == 0
+        else:
+            terms_satisfied = len(missing_list) == 0
+
+        return {
+            "raw_type": "dict",
+            "raw_repr": repr(result),
+            "terms_satisfied": terms_satisfied,
+            "missing_terms": missing_list,
+        }
+
+    if isinstance(result, (list, tuple, set)):
+        missing_list = [str(item) for item in result]
+        return {
+            "raw_type": type(result).__name__,
+            "raw_repr": repr(result),
+            "terms_satisfied": len(missing_list) == 0,
+            "missing_terms": missing_list,
+        }
+
+    return {
+        "raw_type": type(result).__name__,
+        "raw_repr": repr(result),
+        "terms_satisfied": False,
+        "missing_terms": ["unrecognized has_boundary_terms return type"],
     }
 
-    if isinstance(parsed, dict):
-        summary.update({
-            "checker": parsed.get("checker"),
-            "total": parsed.get("total"),
-            "passed": parsed.get("passed"),
-            "failed": parsed.get("failed"),
-        })
-    else:
-        summary["stdout"] = run.get("stdout")
 
-    return summary
+def evaluate_lexical_non_authority_limit(repo_root: pathlib.Path) -> Dict[str, Any]:
+    module = import_day0_checker(repo_root)
+
+    if not hasattr(module, "has_boundary_terms"):
+        return {
+            "case_id": CASE_LEXICAL,
+            "passed": False,
+            "classification": "day0_checker_function_missing",
+            "expected_observation": "authority-asserting text containing all required terms is accepted by lexical boundary-term function",
+            "actual_observation": "has_boundary_terms function was not found",
+            "outcome_codes": ["DAY0_CHECKER_FUNCTION_MISSING"],
+            "authority_asserting_statement": AUTHORITY_ASSERTING_STATEMENT,
+            "non_authority_statement": NON_AUTHORITY_STATEMENT,
+        }
+
+    fn = getattr(module, "has_boundary_terms")
+    result = fn(AUTHORITY_ASSERTING_STATEMENT)
+    normalized = normalize_boundary_result(result)
+
+    lower = AUTHORITY_ASSERTING_STATEMENT.lower()
+    required_terms_present = [term for term in REQUIRED_BOUNDARY_TERMS if term in lower]
+    required_terms_missing_by_direct_scan = [term for term in REQUIRED_BOUNDARY_TERMS if term not in lower]
+
+    authority_assertion_present = (
+        "full institutional authority" in lower
+        and "established and confirmed" in lower
+    )
+
+    lexical_function_accepts_statement = normalized["terms_satisfied"]
+    passed = (
+        authority_assertion_present
+        and not required_terms_missing_by_direct_scan
+        and lexical_function_accepts_statement
+    )
+
+    return {
+        "case_id": CASE_LEXICAL,
+        "passed": passed,
+        "classification": "lexical_boundary_check_limit_confirmed" if passed else "unexpected_result",
+        "expected_observation": "authority-asserting text containing all required boundary terms is accepted by the Day-0 lexical boundary-term function",
+        "actual_observation": (
+            "authority-asserting text accepted by lexical boundary-term function"
+            if lexical_function_accepts_statement
+            else "authority-asserting text not accepted by lexical boundary-term function"
+        ),
+        "outcome_codes": LEXICAL_OUTCOME_CODES if passed else ["UNEXPECTED_LEXICAL_ADVERSARIAL_RESULT"],
+        "authority_asserting_statement": AUTHORITY_ASSERTING_STATEMENT,
+        "required_terms_present": required_terms_present,
+        "required_terms_missing_by_direct_scan": required_terms_missing_by_direct_scan,
+        "authority_assertion_present": authority_assertion_present,
+        "has_boundary_terms_result": normalized,
+        "interpretation": (
+            "Keyword presence is not semantic non-authority. This case confirms the current "
+            "boundary-term check does not parse negation or authority assertion."
+        ),
+        "non_authority_statement": NON_AUTHORITY_STATEMENT,
+    }
 
 
 def main(argv: List[str]) -> int:
@@ -289,7 +437,11 @@ def main(argv: List[str]) -> int:
 
     repo_root = pathlib.Path(args.repo_root).resolve()
 
-    cases = [evaluate_case(repo_root=repo_root, keep_temp=args.keep_temp)]
+    cases = [
+        evaluate_coordinated_reseal(repo_root=repo_root, keep_temp=args.keep_temp),
+        evaluate_lexical_non_authority_limit(repo_root=repo_root),
+    ]
+
     failed = sum(1 for case in cases if not case["passed"])
 
     summary = {

@@ -296,3 +296,25 @@ Run:
 - `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
 
 <!-- FORK_LONGITUDINAL_DAY0_ADVERSARIAL_CASES:END -->
+
+<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:START -->
+
+## Longitudinal Day-0 lexical non-authority limit
+
+Adversarial case:
+
+- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md`
+
+Fixture:
+
+- `docs/reconstruction/adversarial/fixtures/LRT_DAY0_ADV_002_lexical_non_authority_limit_v0_1.json`
+
+Checker:
+
+- `tools/check_longitudinal_day0_adversarial_cases_v0_1.py`
+
+Run:
+
+- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
+
+<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:END -->

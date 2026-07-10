@@ -90,3 +90,25 @@ Checker:
 This response records a root-of-trust limitation. It does not validate the adversarially mutated packet.
 
 <!-- FORK_ROUND005_COORDINATED_RESEAL_RESPONSE:END -->
+
+<!-- FORK_ROUND005_LEXICAL_NON_AUTHORITY_LIMIT_RESPONSE:START -->
+
+## Round 005 response: lexical non-authority limit adversarial case
+
+The lexical non-authority finding from Round 005 is now preserved as a reproducible adversarial case.
+
+Response receipt:
+
+- `docs/review/public-rounds/round-005/ROUND005_RESPONSE_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md`
+
+Case:
+
+- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md`
+
+Checker:
+
+- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
+
+This response records a lexical checker limitation. It does not mean the clean Day-0 packet asserts authority.
+
+<!-- FORK_ROUND005_LEXICAL_NON_AUTHORITY_LIMIT_RESPONSE:END -->

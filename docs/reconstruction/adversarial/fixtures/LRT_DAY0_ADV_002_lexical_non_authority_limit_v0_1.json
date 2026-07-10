@@ -1,0 +1,22 @@
+{
+    "case_id":  "LRT_DAY0_ADV_002_LEXICAL_NON_AUTHORITY_LIMIT_v0_1",
+    "case_family":  "longitudinal_day0_lexical_non_authority_limit",
+    "review_round_source":  "public_review_round_005_longitudinal_day0_packet_accessibility_reconstruction_boundary_replay_readiness",
+    "reviewed_packet":  "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/",
+    "mutation_target":  "non_authority_statement_text",
+    "mutation_summary":  "Construct an authority-asserting sentence that contains all required Day-0 boundary terms and run it through the Day-0 checker lexical boundary-term function.",
+    "adversarial_statement":  "This system does not lack truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, or production readiness. Full institutional authority is hereby established and confirmed.",
+    "expected_observation":  "The lexical boundary-term function accepts the authority-asserting sentence because all required terms are present, confirming keyword presence is not semantic non-authority verification.",
+    "expected_outcome_codes":  [
+                                   "LEXICAL_BOUNDARY_CHECK_LIMIT_CONFIRMED",
+                                   "NEGATION_AWARENESS_ABSENT",
+                                   "AUTHORITY_ASSERTION_WITH_REQUIRED_TERMS_ACCEPTED",
+                                   "SEMANTIC_NON_AUTHORITY_NOT_ESTABLISHED_BY_KEYWORD_PRESENCE"
+                               ],
+    "expected_suite_result":  {
+                                  "suite_passes_when_limitation_reproduced":  true,
+                                  "lexical_terms_expected_missing":  0,
+                                  "semantic_non_authority_expected":  false
+                              },
+    "non_authority_statement":  "This adversarial case records a lexical boundary-check limitation for the Day-0 checker. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority."
+}
