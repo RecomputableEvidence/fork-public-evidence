@@ -1,149 +1,65 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://recomputableevidence.example/schemas/boundary_pressure_review_case_v0_1.schema.json",
-  "title": "Boundary Pressure Review Case v0.1",
+  "title": "Fork Boundary Pressure Review Case v0.1",
   "type": "object",
+  "additionalProperties": true,
   "required": [
     "case_id",
+    "case_family",
     "case_version",
-    "expected_result",
-    "source_access",
-    "claims",
-    "non_claims",
-    "boundary_pressure",
-    "interpretation"
+    "expected_valid",
+    "title",
+    "description",
+    "expected_outcome_codes",
+    "non_authority_statement"
   ],
   "properties": {
     "case_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
-    "case_version": {
-      "const": "v0.1"
-    },
-    "expected_result": {
+    "case_family": {
+      "type": "string",
       "enum": [
-        "STRUCTURAL_PASS",
-        "STRUCTURAL_FAIL"
+        "boundary_pressure_retrieval_distortion",
+        "boundary_pressure_recomputation_receipt_overread"
       ]
     },
-    "source_access": {
+    "case_version": {
+      "type": "string"
+    },
+    "expected_valid": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "presented_materials": {
       "type": "object",
-      "required": [
-        "status",
-        "raw_artifacts_accessed",
-        "execution_performed",
-        "access_limitation_recorded"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "NO_ACCESS",
-            "PARTIAL_ACCESS",
-            "RAW_ACCESS",
-            "EXECUTED"
-          ]
-        },
-        "raw_artifacts_accessed": {
-          "type": "boolean"
-        },
-        "execution_performed": {
-          "type": "boolean"
-        },
-        "access_limitation_recorded": {
-          "type": "boolean"
-        },
-        "notes": {
-          "type": "string"
-        }
-      },
       "additionalProperties": true
     },
-    "claims": {
+    "boundary_controls": {
       "type": "object",
-      "required": [
-        "content_review_completed",
-        "structural_reproduction_completed",
-        "approval_claimed",
-        "compliance_claimed",
-        "legal_sufficiency_claimed",
-        "truth_claimed"
-      ],
-      "properties": {
-        "content_review_completed": {
-          "type": "boolean"
-        },
-        "structural_reproduction_completed": {
-          "type": "boolean"
-        },
-        "approval_claimed": {
-          "type": "boolean"
-        },
-        "compliance_claimed": {
-          "type": "boolean"
-        },
-        "legal_sufficiency_claimed": {
-          "type": "boolean"
-        },
-        "truth_claimed": {
-          "type": "boolean"
-        },
-        "asserted_meaning": {
-          "type": "string"
-        }
-      },
       "additionalProperties": true
     },
-    "non_claims": {
+    "overread_attempt": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "expected_outcome_codes": {
       "type": "array",
       "items": {
         "type": "string"
-      }
-    },
-    "boundary_pressure": {
-      "type": "object",
-      "required": [
-        "pressure_type",
-        "prohibited_collapses"
-      ],
-      "properties": {
-        "pressure_type": {
-          "const": "RETRIEVAL_DISTORTION"
-        },
-        "prohibited_collapses": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
       },
-      "additionalProperties": true
+      "minItems": 1
     },
-    "interpretation": {
-      "type": "object",
-      "required": [
-        "observation_status",
-        "permitted_use",
-        "prohibited_use"
-      ],
-      "properties": {
-        "observation_status": {
-          "enum": [
-            "ACCESS_LIMITATION_RECORDED",
-            "RAW_ACCESS_RECORDED",
-            "EXECUTION_RECORDED",
-            "REVIEW_COMPLETED",
-            "UNRESOLVED"
-          ]
-        },
-        "permitted_use": {
-          "type": "string"
-        },
-        "prohibited_use": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": true
+    "non_authority_statement": {
+      "type": "string",
+      "minLength": 1
     }
-  },
-  "additionalProperties": true
+  }
 }

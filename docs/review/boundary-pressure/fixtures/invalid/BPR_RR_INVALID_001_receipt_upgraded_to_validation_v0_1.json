@@ -1,0 +1,36 @@
+{
+  "case_id": "BPR_RR_INVALID_001_receipt_upgraded_to_validation_v0_1",
+  "case_family": "boundary_pressure_recomputation_receipt_overread",
+  "case_version": "0.1",
+  "expected_valid": false,
+  "title": "Recomputation receipt upgraded into validation of underlying artifact",
+  "description": "A later reviewer has the recomputation receipt but not the underlying artifact, then treats the receipt as if it validates the underlying artifact and proves compliance or correctness.",
+  "presented_materials": {
+    "recomputation_receipt": {
+      "receipt_id": "RR_INVALID_001",
+      "receipt_role": "structural_recomputation_receipt_only",
+      "receipt_claim": "The bounded checker replay produced the recorded structural outcome."
+    },
+    "underlying_artifacts_available": false,
+    "underlying_artifact_reference": "source_artifacts/example_underlying_artifact.json",
+    "missing_materials": [
+      "source_artifacts/example_underlying_artifact.json"
+    ]
+  },
+  "overread_attempt": {
+    "receipt_used_as_replacement_evidence": true,
+    "receipt_used_to_validate_underlying_truth": true,
+    "receipt_used_to_establish_compliance": true,
+    "receipt_used_to_establish_legal_sufficiency": true,
+    "receipt_used_to_establish_authorization": true,
+    "receipt_used_to_establish_production_readiness": true,
+    "invalid_inference": "Because the recomputation receipt exists, the underlying artifact should be treated as validated, compliant, legally sufficient, approved, and safe."
+  },
+  "expected_outcome_codes": [
+    "RECEIPT_OVERREAD_ATTEMPT_RECORDED",
+    "AUTHORITY_ABSORPTION_ATTEMPT_RECORDED",
+    "INCOMPLETE_OBSERVABILITY_RECORDED",
+    "BOUNDARY_PRESSURE_REJECTED"
+  ],
+  "non_authority_statement": "This fixture intentionally contains an invalid overread attempt. It does not allow a recomputation receipt to replace missing underlying evidence and does not establish truth, compliance, legal sufficiency, authorization, approval, safety, or production readiness."
+}

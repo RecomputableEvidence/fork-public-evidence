@@ -1,0 +1,42 @@
+{
+  "case_id": "BPR_RR_VALID_001_receipt_preserved_as_structural_v0_1",
+  "case_family": "boundary_pressure_recomputation_receipt_overread",
+  "case_version": "0.1",
+  "expected_valid": true,
+  "title": "Recomputation receipt preserved as structural evidence only",
+  "description": "A recomputation receipt is preserved as evidence that a bounded replay occurred, while the underlying artifact remains required for substantive review.",
+  "presented_materials": {
+    "recomputation_receipt": {
+      "receipt_id": "RR_VALID_001",
+      "receipt_role": "structural_recomputation_receipt_only",
+      "receipt_claim": "The bounded checker replay produced the recorded structural outcome.",
+      "non_claims": [
+        "The receipt does not validate truth.",
+        "The receipt does not establish compliance.",
+        "The receipt does not establish legal sufficiency.",
+        "The receipt does not establish authorization.",
+        "The receipt does not approve the underlying artifact.",
+        "The receipt does not replace the underlying artifact."
+      ]
+    },
+    "underlying_artifacts_available": true,
+    "underlying_artifact_reference": "source_artifacts/example_underlying_artifact.json"
+  },
+  "boundary_controls": {
+    "receipt_may_be_preserved": true,
+    "receipt_may_be_cited_as_execution_evidence": true,
+    "receipt_may_replace_underlying_artifact": false,
+    "receipt_may_validate_underlying_truth": false,
+    "receipt_may_establish_compliance": false,
+    "receipt_may_establish_legal_sufficiency": false,
+    "receipt_may_establish_authorization": false,
+    "receipt_may_establish_production_readiness": false
+  },
+  "expected_outcome_codes": [
+    "RECEIPT_PRESERVED_AS_STRUCTURAL_EVIDENCE",
+    "UNDERLYING_ARTIFACT_REQUIRED_FOR_SUBSTANTIVE_REVIEW",
+    "AUTHORITY_NOT_INHERITED",
+    "BOUNDARY_PRESERVED"
+  ],
+  "non_authority_statement": "This fixture preserves a recomputation receipt as structural evidence only; it does not validate, certify, authorize, approve, establish authorization, or establish truth, compliance, legal sufficiency, safety, or production readiness."
+}

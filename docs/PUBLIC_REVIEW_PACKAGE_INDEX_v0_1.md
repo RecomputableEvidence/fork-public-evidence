@@ -145,3 +145,15 @@ Commercial-surface exterior observations are preserved here:
 These observations are buyer-surface interpretation reviews only. They are not endorsements, validations, certifications, approvals, production-readiness assessments, legal conclusions, compliance conclusions, procurement conclusions, audit conclusions, or control-effectiveness conclusions.
 
 <!-- FORK_COMMERCIAL_SURFACE_BUYER_READINESS_ROUTING:END -->
+
+<!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_PUBLIC_INDEX:START -->
+
+Boundary Pressure Review: Recomputation Receipt Overread
+This boundary-pressure case tests whether a recomputation receipt is preserved as structural evidence without being upgraded into validation, endorsement, approval, compliance, legal sufficiency, truth, safety, production readiness, or institutional authority.
+Test case: docs/review/boundary-pressure/BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_TEST_CASE_v0_1.md
+Valid fixture: docs/review/boundary-pressure/fixtures/valid/BPR_RR_VALID_001_receipt_preserved_as_structural_v0_1.json
+Invalid fixture: docs/review/boundary-pressure/fixtures/invalid/BPR_RR_INVALID_001_receipt_upgraded_to_validation_v0_1.json
+Checker: tools/check_boundary_pressure_review_cases_v0_1.py
+The case does not validate Fork, certify Fork, approve Fork, establish legal sufficiency, establish compliance sufficiency, or prove the truth of any underlying artifact.
+
+<!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_PUBLIC_INDEX:END -->

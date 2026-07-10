@@ -423,3 +423,12 @@ Run the checker from repo root:
     python .\tools\check_boundary_pressure_review_cases_v0_1.py
 
 <!-- FORK_BOUNDARY_PRESSURE_RETRIEVAL_DISTORTION_CASE:END -->
+
+<!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_REVIEW_POSTURE:START -->
+
+Boundary Pressure: Recomputation Receipt Overread
+A recomputation receipt is not authority.
+A receipt may show that a bounded replay or checker execution occurred and produced a particular structural result. It does not validate the underlying artifact, replace missing source evidence, establish legal sufficiency, establish compliance, prove truth, approve a decision, establish safety, or demonstrate production readiness.
+The recomputation receipt overread case tests this pressure directly by preserving one valid fixture where the receipt remains structural evidence and one invalid fixture where the receipt is upgraded into validation or authority.
+
+<!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_REVIEW_POSTURE:END -->

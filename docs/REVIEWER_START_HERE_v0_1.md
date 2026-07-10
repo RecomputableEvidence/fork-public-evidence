@@ -199,3 +199,16 @@ Exterior commercial-surface reviews are preserved as observations, not endorseme
 - [Commercial Surface Buyer Readiness Observation Index v0.1](exterior-observations/commercial-surface/COMMERCIAL_SURFACE_BUYER_READINESS_OBSERVATION_INDEX_v0_1.md)
 
 <!-- FORK_COMMERCIAL_BUYER_REVIEW_PATH:END -->
+
+<!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_REVIEWER_START:START -->
+
+Boundary Pressure Case: Recomputation Receipt Overread
+Fork includes an experimental boundary-pressure case for recomputation receipt overread.
+This case tests whether a recomputation receipt remains evidence of bounded structural replay rather than becoming replacement evidence, validation, approval, compliance, legal sufficiency, truth, safety, production readiness, or authority.
+Start with:
+docs/review/boundary-pressure/BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_TEST_CASE_v0_1.md
+Then run:
+python tools/check_boundary_pressure_review_cases_v0_1.py --json
+
+
+<!-- FORK_BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_REVIEWER_START:END -->
