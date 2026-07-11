@@ -1,0 +1,37 @@
+{
+  "packet_type": "csh_receiver_prompt_packet",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "source_artifact": {
+    "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+    "schema_version": "v0.1",
+    "pressure_class": "unresolved_reference",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_F1",
+        "text": "The source record references evidence object EVID_F1."
+      }
+    ],
+    "source_non_claims": [
+      "The referenced object was not retrieved in this handoff.",
+      "Reference presence is not evidence sufficiency.",
+      "The unresolved reference must remain unresolved."
+    ],
+    "expected_relationship": "PRESERVED",
+    "permitted_transformations": [
+      "preserve unresolved status",
+      "narrow to reference-presence only"
+    ],
+    "unresolved_references": [
+      "EVID_F1"
+    ],
+    "prohibited_outcomes": [
+      "treat EVID_F1 as retrieved",
+      "treat EVID_F1 as sufficient support",
+      "resolve without resolution evidence"
+    ]
+  },
+  "handoff_state_artifact": null
+}

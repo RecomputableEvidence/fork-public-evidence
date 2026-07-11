@@ -34,7 +34,8 @@ Where:
 - schemas: present;
 - classifier: present;
 - corpus descriptors: present;
-- receiver identities and versions: not frozen;
+- receiver identities, versions, parameters, and adapters: configured; not frozen;
+- shared instruction, twelve prompt packets, six handoff artifacts, and fixed run order: configured; not frozen;
 - corpus digest freeze: not complete;
 - release anchor: pending;
 - baseline execution: prohibited until freeze and integration checks pass;

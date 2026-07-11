@@ -82,6 +82,10 @@ def evaluate(root: Path) -> dict[str, Any]:
             Path("docs/experiments/cross-system-claim-handoff-v0.1/SYSTEM_REGISTRY_v0_1.json"),
         ),
         (
+            Path("schemas/cross_system_claim_handoff_run_order_v0_1.schema.json"),
+            Path("docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json"),
+        ),
+        (
             Path("schemas/unsupported_inheritance_classifier_input_v0_1.schema.json"),
             Path("tests/fixtures/csh/classifier_input_clean.json"),
         ),
@@ -130,6 +134,20 @@ def evaluate(root: Path) -> dict[str, Any]:
             root,
             "schemas/cross_system_claim_handoff_scenario_v0_1.schema.json",
             "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_*.json",
+        )
+    )
+    pairs.extend(
+        glob_pairs(
+            root,
+            "schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
+            "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_*_v0_1.json",
+        )
+    )
+    pairs.extend(
+        glob_pairs(
+            root,
+            "schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
+            "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_*_v0_1.json",
         )
     )
     pairs.extend(

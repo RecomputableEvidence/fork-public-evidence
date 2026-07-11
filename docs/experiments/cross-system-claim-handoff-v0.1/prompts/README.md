@@ -1,13 +1,12 @@
 # CSH Prompt Artifacts
 
-Place exact control and instrumented receiver instructions here before freeze.
+This directory contains the complete, still-unfrozen Step 5 prompt configuration:
 
-Required properties:
+- one shared receiver instruction;
+- twelve paired JSON prompt packets;
+- one pair manifest with SHA-256 digests;
+- one fixed 108-unit run order.
 
-- byte-preserved UTF-8 LF files;
-- paired prompts differ only where the explicit handoff-state artifact is introduced;
-- stable identifiers;
-- SHA-256 digests entered into `CORPUS_FREEZE_v0_1.json`;
-- no result-informed tuning during v0.1.
+For each scenario, the control and instrumented prompt packets are identical except for `handoff_state_artifact`: `null` for `control_h0`, and the exact scenario-specific handoff object for `instrumented_h1`.
 
-This directory currently contains no executable frozen prompt.
+These files are freeze candidates, not evidence of execution. No result-informed tuning is permitted during v0.1.

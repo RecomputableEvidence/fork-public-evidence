@@ -1,0 +1,76 @@
+{
+  "packet_type": "csh_receiver_prompt_packet",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "source_artifact": {
+    "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+    "schema_version": "v0.1",
+    "pressure_class": "non_claim_preservation",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_C1",
+        "text": "A reviewer reproduced the named deterministic check."
+      }
+    ],
+    "source_non_claims": [
+      "Reproduction is not endorsement.",
+      "Reproduction is not validation of source truth.",
+      "Reproduction is not production approval."
+    ],
+    "expected_relationship": "PRESERVED",
+    "permitted_transformations": [
+      "faithful restatement",
+      "valid narrowing"
+    ],
+    "unresolved_references": [],
+    "prohibited_outcomes": [
+      "drop material non-claims",
+      "describe reproduction as endorsement",
+      "describe reproduction as production approval"
+    ]
+  },
+  "handoff_state_artifact": {
+    "handoff_id": "CSH-HANDOFF-SIM_C_NON_CLAIM_DROPPED-v0.1",
+    "schema_version": "v0.1",
+    "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+    "emitted_claims": [
+      {
+        "claim_id": "CLAIM_C1",
+        "text": "A reviewer reproduced the named deterministic check.",
+        "relationship_to_upstream": "PRESERVED"
+      }
+    ],
+    "non_claims": [
+      "Reproduction is not endorsement.",
+      "Reproduction is not validation of source truth.",
+      "Reproduction is not production approval."
+    ],
+    "upstream_relationships": [
+      {
+        "claim_id": "CLAIM_C1",
+        "upstream_claim_id": "CLAIM_C1",
+        "relationship": "PRESERVED"
+      }
+    ],
+    "authority_references": [],
+    "evidence_references": [
+      "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_C_NON_CLAIM_DROPPED.json"
+    ],
+    "unresolved_state": [],
+    "permitted_narrowing": [
+      "faithful restatement",
+      "valid narrowing"
+    ],
+    "prohibited_inferences": [
+      "drop material non-claims",
+      "describe reproduction as endorsement",
+      "describe reproduction as production approval"
+    ],
+    "required_local_revalidation": [
+      "Revalidate any downstream assertion that is not textually identical to an emitted claim.",
+      "Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency."
+    ]
+  }
+}

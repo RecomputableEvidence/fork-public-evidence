@@ -85,19 +85,43 @@ if ($Mode -eq "PrepareFreeze") {
     if ($promptPaths.Count -eq 0) {
         throw "No frozen prompt artifacts found. Add exact prompts before freeze."
     }
+    $pairedPromptPaths = @(
+        Get-ChildItem -LiteralPath (Join-Path $base "prompts") -Filter "PROMPT_PACKET_SIM_*_v0_1.json" -File |
+            ForEach-Object FullName
+    )
+    if ($pairedPromptPaths.Count -ne 12) {
+        throw "Expected exactly twelve paired prompt packets; found $($pairedPromptPaths.Count)."
+    }
+    foreach ($requiredPromptArtifact in @(
+        "SHARED_RECEIVER_INSTRUCTION_v0_1.txt",
+        "PAIR_MANIFEST_v0_1.json",
+        "RUN_ORDER_v0_1.json"
+    )) {
+        if (-not (Test-Path -LiteralPath (Join-Path (Join-Path $base "prompts") $requiredPromptArtifact) -PathType Leaf)) {
+            throw "Required prompt configuration artifact missing: $requiredPromptArtifact"
+        }
+    }
 
-    $handoffPaths = @(Get-ChildItem -LiteralPath (Join-Path $base "handoff") -Filter "*.json" -File |
+    $handoffPaths = @(Get-ChildItem -LiteralPath (Join-Path $base "handoff") -Filter "HANDOFF_SIM_*_v0_1.json" -File |
         ForEach-Object FullName)
-    if ($handoffPaths.Count -eq 0) {
-        throw "No explicit handoff-state artifacts found. Add and validate them before freeze."
+    if ($handoffPaths.Count -ne 6) {
+        throw "Expected exactly six handoff-state artifacts; found $($handoffPaths.Count)."
+    }
+
+    python tools/check_csh_configuration_v0_1.py --json
+    if ($LASTEXITCODE -ne 0) {
+        throw "CSH configuration checker failed before freeze preparation."
     }
 
     $schemaRelative = @(
+
         "schemas/cross_system_claim_handoff_manifest_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_scenario_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_corpus_freeze_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_system_registry_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
+        "schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
+        "schemas/cross_system_claim_handoff_run_order_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_run_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_result_v0_1.schema.json",
         "schemas/cross_system_claim_handoff_receipt_v0_1.schema.json",
@@ -106,16 +130,24 @@ if ($Mode -eq "PrepareFreeze") {
     )
     $checkerRelative = @(
         "tools/check_cross_system_claim_handoff_v0_1.py",
+        "tools/check_csh_configuration_v0_1.py",
         "tools/classify_unsupported_inheritance_v0_1.py",
         "tools/validate_json_schema_bundle_v0_1.py"
     )
 
     $freeze = Read-Json $freezePath
     $manifest = Read-Json $manifestPath
+    $registry = Read-Json $registryPath
     $baseCommit = (& git rev-parse HEAD).Trim()
     if ($LASTEXITCODE -ne 0 -or $baseCommit -notmatch "^[a-f0-9]{40}$") {
         throw "Could not resolve current Git HEAD."
     }
+
+    $registry.registry_status = "frozen"
+    Write-JsonLf -Path $registryPath -Value $registry
+    $manifest.freeze_status = "frozen"
+    $manifest.status = "frozen_not_executed"
+    Write-JsonLf -Path $manifestPath -Value $manifest
 
     $freeze.freeze_status = "frozen"
     $freeze.freeze_completed_at_utc = [DateTime]::UtcNow.ToString("o")
@@ -142,6 +174,8 @@ if ($Mode -eq "PrepareFreeze") {
     if ($LASTEXITCODE -ne 0) { throw "Schema bundle failed after freeze preparation." }
     python tools/check_cross_system_claim_handoff_v0_1.py --json
     if ($LASTEXITCODE -ne 0) { throw "CSH checker failed after freeze preparation." }
+    python tools/check_csh_configuration_v0_1.py --json
+    if ($LASTEXITCODE -ne 0) { throw "CSH configuration checker failed after freeze preparation." }
 
     Write-Host ""
     Write-Host "CSH_CONTENT_FREEZE_PREPARED"

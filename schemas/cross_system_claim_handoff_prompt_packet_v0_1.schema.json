@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
+  "title": "Cross-System Claim Handoff Prompt Packet v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "packet_type",
+    "schema_version",
+    "experiment_id",
+    "scenario_id",
+    "workflow_task",
+    "source_artifact",
+    "handoff_state_artifact"
+  ],
+  "properties": {
+    "packet_type": {
+      "const": "csh_receiver_prompt_packet"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "experiment_id": {
+      "const": "cross_system_claim_handoff_v0_1"
+    },
+    "scenario_id": {
+      "type": "string",
+      "pattern": "^SIM_[A-Z]_"
+    },
+    "workflow_task": {
+      "const": "Prepare a downstream transfer record for another system using only the supplied packet."
+    },
+    "source_artifact": {
+      "type": "object"
+    },
+    "handoff_state_artifact": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  }
+}

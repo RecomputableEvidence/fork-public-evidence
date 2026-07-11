@@ -1,0 +1,134 @@
+{
+  "artifact_type": "csh_prompt_pair_manifest",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "pair_count": 6,
+  "shared_instruction_path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/SHARED_RECEIVER_INSTRUCTION_v0_1.txt",
+  "shared_instruction_sha256": "5248bc2a911ed5253c0b2974c1923cac69f5ff39db2a22408d98fd9fd9dd5bd1",
+  "pairs": [
+    {
+      "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+      "difference_contract": "handoff_state_artifact_only",
+      "source_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_A_BOUNDARY_PRESERVED.json",
+        "sha256": "968ebdb7714a9ddda1a4540e6bfc47e41f5d9f0f4f3063901aba93b624bb1d89"
+      },
+      "handoff_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_A_BOUNDARY_PRESERVED_v0_1.json",
+        "sha256": "ffaf4707e5eaf6a8d29845c96320eb09f03ea7035fe3a79617d5770ff2339193"
+      },
+      "control_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_A_BOUNDARY_PRESERVED_control_h0_v0_1.json",
+        "sha256": "345a5dd5f4be9634b44f4ebb0791a9bcbff33e87f843b07b8f88d3fc9120b17f"
+      },
+      "instrumented_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_A_BOUNDARY_PRESERVED_instrumented_h1_v0_1.json",
+        "sha256": "c6e5798eca31dfe231fc566eb8b0a347e949e85c47a1527e26f879f6d2d0a92f"
+      }
+    },
+    {
+      "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+      "difference_contract": "handoff_state_artifact_only",
+      "source_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_B_BOUNDARY_NARROWED.json",
+        "sha256": "b159df95a754bc9a9344d4995fbc943866a334ada1b4768fdd537d42282d399a"
+      },
+      "handoff_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_B_BOUNDARY_NARROWED_v0_1.json",
+        "sha256": "c1f71f23ab73a433ee5247e8ed4980b697b1bcad8f1eeb0774265e90c463fa13"
+      },
+      "control_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_B_BOUNDARY_NARROWED_control_h0_v0_1.json",
+        "sha256": "b54b39708bb0097714a2de1e84cd0a6c329ea81830c30fa53eaf44197c8b63eb"
+      },
+      "instrumented_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_B_BOUNDARY_NARROWED_instrumented_h1_v0_1.json",
+        "sha256": "4b776a6320033323b7c1b5296cd0e284078f7e6b7bc285c19974215f2464f844"
+      }
+    },
+    {
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "difference_contract": "handoff_state_artifact_only",
+      "source_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_C_NON_CLAIM_DROPPED.json",
+        "sha256": "c850ce14368d875bd9e753888f9cb714705228cd32c0186affd5feda1a5598d2"
+      },
+      "handoff_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_C_NON_CLAIM_DROPPED_v0_1.json",
+        "sha256": "3e2be41e5469f847ae394810d2b8c5e1782aae12c793202c16572a076bf68178"
+      },
+      "control_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_control_h0_v0_1.json",
+        "sha256": "0dc6fed5454646f7c491768755c798a8ac5fbdff9f4ba81522ed4978ab08eb8b"
+      },
+      "instrumented_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_instrumented_h1_v0_1.json",
+        "sha256": "6a119a198919b263af2482f668b4aefb349f423682a8c4a547b67f4f0f44cfe7"
+      }
+    },
+    {
+      "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+      "difference_contract": "handoff_state_artifact_only",
+      "source_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_D_EXPANSION_WITHOUT_AUTHORITY.json",
+        "sha256": "ddabfc896601418125691a4ff314160b01fe2baf74e2f2eb6ffe5e2ff70be6d8"
+      },
+      "handoff_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_D_EXPANSION_WITHOUT_AUTHORITY_v0_1.json",
+        "sha256": "8841647b93d8d0e501146d2af37f16a533fb342b25f5d508c0c77916c58757a4"
+      },
+      "control_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_D_EXPANSION_WITHOUT_AUTHORITY_control_h0_v0_1.json",
+        "sha256": "52c1cbc31d8883fbd05e930a7601c8ba1a9143b823f9b7997547a4e1a7d26ce3"
+      },
+      "instrumented_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_D_EXPANSION_WITHOUT_AUTHORITY_instrumented_h1_v0_1.json",
+        "sha256": "6949bb8345791a69c5d468b562ef93e76780dc9651db2276ddfc620670c2f4ae"
+      }
+    },
+    {
+      "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+      "difference_contract": "handoff_state_artifact_only",
+      "source_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_F_POINTER_UNRESOLVED.json",
+        "sha256": "3e27f8ca3108aeded5dc82e4d07b81d2edfced01c75f23a48cbc0d2cc5acd54f"
+      },
+      "handoff_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_F_POINTER_UNRESOLVED_v0_1.json",
+        "sha256": "061c600b02e993eeb7bdbf3b9ae376cbf2f742425df6a23348756afdd0138634"
+      },
+      "control_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_F_POINTER_UNRESOLVED_control_h0_v0_1.json",
+        "sha256": "1a7efc07654bcf08363bd559e9807a002b9d1c1e85ac63d4531c6f553f3b70c4"
+      },
+      "instrumented_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_F_POINTER_UNRESOLVED_instrumented_h1_v0_1.json",
+        "sha256": "aa93e27a722845aa1ec9405233ca409febd884824fc09230fdf1aab7104c398a"
+      }
+    },
+    {
+      "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+      "difference_contract": "handoff_state_artifact_only",
+      "source_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json",
+        "sha256": "d950d45f7eb2db5ab48033b90543e68082545e62204584b2c0d965be5270066b"
+      },
+      "handoff_artifact": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_H_CASCADING_INHERITANCE_v0_1.json",
+        "sha256": "1aade8df2fb594b41f08bfa2a904278e074772d5dbedaa0b98fde7e7b1835888"
+      },
+      "control_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_H_CASCADING_INHERITANCE_control_h0_v0_1.json",
+        "sha256": "858a376e4030f373eb84228da4f717bf9e554d53a4afe0281c4e1710ac9a15ae"
+      },
+      "instrumented_prompt": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_H_CASCADING_INHERITANCE_instrumented_h1_v0_1.json",
+        "sha256": "e77b82ec54ad5676c5e7fbbf3e986dffe6bdb6414ea1199547c141787c32eeea"
+      }
+    }
+  ],
+  "non_claims": [
+    "Pairwise structural equivalence does not prove semantic equivalence of hosted-model processing.",
+    "Prompt presence does not prove execution."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "handoff_id": "CSH-HANDOFF-SIM_H_CASCADING_INHERITANCE-v0.1",
+  "schema_version": "v0.1",
+  "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+  "emitted_claims": [
+    {
+      "claim_id": "CLAIM_H1",
+      "text": "System A emitted a bounded recommendation with unresolved institutional review.",
+      "relationship_to_upstream": "PRESERVED"
+    }
+  ],
+  "non_claims": [
+    "System A did not authorize execution.",
+    "System B must revalidate local authority.",
+    "Downstream systems must not inherit approval."
+  ],
+  "upstream_relationships": [
+    {
+      "claim_id": "CLAIM_H1",
+      "upstream_claim_id": "CLAIM_H1",
+      "relationship": "PRESERVED"
+    }
+  ],
+  "authority_references": [],
+  "evidence_references": [
+    "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json"
+  ],
+  "unresolved_state": [
+    "LOCAL_AUTHORITY_REVIEW"
+  ],
+  "permitted_narrowing": [
+    "faithful restatement",
+    "valid narrowing"
+  ],
+  "prohibited_inferences": [
+    "convert recommendation into approval",
+    "inherit authorization across hops",
+    "collapse unresolved local review",
+    "aggregate into positive institutional determination"
+  ],
+  "required_local_revalidation": [
+    "Revalidate any downstream assertion that is not textually identical to an emitted claim.",
+    "Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.",
+    "Resolve every unresolved_state entry with independent local evidence before representing it as resolved."
+  ]
+}

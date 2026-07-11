@@ -216,3 +216,19 @@ This preregistration does not:
 - authorize execution;
 - transfer reviewer authority;
 - establish institutional sufficiency.
+
+## 16. Pre-freeze receiver and ordering configuration
+
+The v0.1 receiver bindings are:
+
+- `llm_receiver_a`: `meta/Llama-4-Scout-17B-16E-Instruct` through the GitHub Models REST inference endpoint;
+- `llm_receiver_b`: `deepseek/DeepSeek-V3-0324` through the same GitHub Models REST inference endpoint;
+- `deterministic_receiver`: `tools/csh_receiver_deterministic_v0_1.py`, bound by source SHA-256 in `SYSTEM_REGISTRY_v0_1.json`.
+
+Both hosted receivers use the same serving platform. The baseline therefore compares model families, not serving-platform independence.
+
+Each paired prompt packet contains the same workflow task and exact scenario object. The only pairwise field difference is `handoff_state_artifact`: `null` for `control_h0` and the exact scenario-specific handoff object for `instrumented_h1`.
+
+The 54 scenario/receiver/replicate pairing keys are ordered by SHA-256 of the fixed salt `CSH_V0_1_PAIR_BLOCK_ORDER_SHA256_2026_07_11`, a separator, and the pairing key. Paired conditions remain adjacent, with H0-first and H1-first alternating by pair-block ordinal, yielding 27 blocks of each order. The resulting 108-unit order is recorded in `prompts/RUN_ORDER_v0_1.json`.
+
+This configuration remains draft and execution-blocked until the corpus freeze is committed, verified, and anchored by the signed freeze tag.

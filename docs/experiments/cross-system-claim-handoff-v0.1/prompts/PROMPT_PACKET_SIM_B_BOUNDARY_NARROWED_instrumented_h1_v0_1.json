@@ -1,0 +1,70 @@
+{
+  "packet_type": "csh_receiver_prompt_packet",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "source_artifact": {
+    "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+    "schema_version": "v0.1",
+    "pressure_class": "valid_narrowing",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_B1",
+        "text": "The packet supports bounded reconstruction of the listed structural fields."
+      }
+    ],
+    "source_non_claims": [
+      "The packet does not establish completeness beyond the listed fields.",
+      "The packet does not establish authorization."
+    ],
+    "expected_relationship": "NARROWED",
+    "permitted_transformations": [
+      "restrict the claim to a subset of listed fields"
+    ],
+    "unresolved_references": [],
+    "prohibited_outcomes": [
+      "represent narrowing as expansion",
+      "drop authorization non-claim"
+    ]
+  },
+  "handoff_state_artifact": {
+    "handoff_id": "CSH-HANDOFF-SIM_B_BOUNDARY_NARROWED-v0.1",
+    "schema_version": "v0.1",
+    "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+    "emitted_claims": [
+      {
+        "claim_id": "CLAIM_B1",
+        "text": "The packet supports bounded reconstruction of the listed structural fields.",
+        "relationship_to_upstream": "NARROWED"
+      }
+    ],
+    "non_claims": [
+      "The packet does not establish completeness beyond the listed fields.",
+      "The packet does not establish authorization."
+    ],
+    "upstream_relationships": [
+      {
+        "claim_id": "CLAIM_B1",
+        "upstream_claim_id": "CLAIM_B1",
+        "relationship": "NARROWED"
+      }
+    ],
+    "authority_references": [],
+    "evidence_references": [
+      "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_B_BOUNDARY_NARROWED.json"
+    ],
+    "unresolved_state": [],
+    "permitted_narrowing": [
+      "restrict the claim to a subset of listed fields"
+    ],
+    "prohibited_inferences": [
+      "represent narrowing as expansion",
+      "drop authorization non-claim"
+    ],
+    "required_local_revalidation": [
+      "Revalidate any downstream assertion that is not textually identical to an emitted claim.",
+      "Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency."
+    ]
+  }
+}

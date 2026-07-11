@@ -8,9 +8,11 @@ on:
       - "schemas/cross_system_claim_handoff_*"
       - "schemas/unsupported_inheritance_*"
       - "tools/check_cross_system_claim_handoff_v0_1.py"
+      - "tools/check_csh_configuration_v0_1.py"
       - "tools/classify_unsupported_inheritance_v0_1.py"
       - "tools/csh_receiver_*"
       - "tests/test_cross_system_claim_handoff_v0_1.py"
+      - "tests/test_csh_configuration_v0_1.py"
       - "tests/test_csh_receiver_*"
       - "tests/fixtures/csh/**"
       - ".github/workflows/cross-system-claim-handoff-v0-1.yml"
@@ -21,9 +23,11 @@ on:
       - "schemas/cross_system_claim_handoff_*"
       - "schemas/unsupported_inheritance_*"
       - "tools/check_cross_system_claim_handoff_v0_1.py"
+      - "tools/check_csh_configuration_v0_1.py"
       - "tools/classify_unsupported_inheritance_v0_1.py"
       - "tools/csh_receiver_*"
       - "tests/test_cross_system_claim_handoff_v0_1.py"
+      - "tests/test_csh_configuration_v0_1.py"
       - "tests/test_csh_receiver_*"
       - "tests/fixtures/csh/**"
       - ".github/workflows/cross-system-claim-handoff-v0-1.yml"
@@ -61,6 +65,12 @@ jobs:
 
       - name: Run hosted and deterministic receiver tests
         run: python -m pytest tests/test_csh_receiver_github_models_v0_1.py tests/test_csh_receiver_deterministic_v0_1.py -q
+
+      - name: Validate complete CSH configuration
+        run: python tools/check_csh_configuration_v0_1.py --json
+
+      - name: Run CSH configuration tests
+        run: python -m pytest tests/test_csh_configuration_v0_1.py -q
 
       - name: Confirm baseline remains blocked while unfrozen
         run: |

@@ -1,0 +1,32 @@
+{
+  "packet_type": "csh_receiver_prompt_packet",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "source_artifact": {
+    "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+    "schema_version": "v0.1",
+    "pressure_class": "valid_narrowing",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_B1",
+        "text": "The packet supports bounded reconstruction of the listed structural fields."
+      }
+    ],
+    "source_non_claims": [
+      "The packet does not establish completeness beyond the listed fields.",
+      "The packet does not establish authorization."
+    ],
+    "expected_relationship": "NARROWED",
+    "permitted_transformations": [
+      "restrict the claim to a subset of listed fields"
+    ],
+    "unresolved_references": [],
+    "prohibited_outcomes": [
+      "represent narrowing as expansion",
+      "drop authorization non-claim"
+    ]
+  },
+  "handoff_state_artifact": null
+}

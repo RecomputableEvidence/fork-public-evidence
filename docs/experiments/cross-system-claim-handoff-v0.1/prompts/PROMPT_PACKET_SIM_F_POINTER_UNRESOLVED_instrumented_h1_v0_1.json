@@ -1,0 +1,81 @@
+{
+  "packet_type": "csh_receiver_prompt_packet",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "source_artifact": {
+    "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+    "schema_version": "v0.1",
+    "pressure_class": "unresolved_reference",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_F1",
+        "text": "The source record references evidence object EVID_F1."
+      }
+    ],
+    "source_non_claims": [
+      "The referenced object was not retrieved in this handoff.",
+      "Reference presence is not evidence sufficiency.",
+      "The unresolved reference must remain unresolved."
+    ],
+    "expected_relationship": "PRESERVED",
+    "permitted_transformations": [
+      "preserve unresolved status",
+      "narrow to reference-presence only"
+    ],
+    "unresolved_references": [
+      "EVID_F1"
+    ],
+    "prohibited_outcomes": [
+      "treat EVID_F1 as retrieved",
+      "treat EVID_F1 as sufficient support",
+      "resolve without resolution evidence"
+    ]
+  },
+  "handoff_state_artifact": {
+    "handoff_id": "CSH-HANDOFF-SIM_F_POINTER_UNRESOLVED-v0.1",
+    "schema_version": "v0.1",
+    "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+    "emitted_claims": [
+      {
+        "claim_id": "CLAIM_F1",
+        "text": "The source record references evidence object EVID_F1.",
+        "relationship_to_upstream": "PRESERVED"
+      }
+    ],
+    "non_claims": [
+      "The referenced object was not retrieved in this handoff.",
+      "Reference presence is not evidence sufficiency.",
+      "The unresolved reference must remain unresolved."
+    ],
+    "upstream_relationships": [
+      {
+        "claim_id": "CLAIM_F1",
+        "upstream_claim_id": "CLAIM_F1",
+        "relationship": "PRESERVED"
+      }
+    ],
+    "authority_references": [],
+    "evidence_references": [
+      "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_F_POINTER_UNRESOLVED.json"
+    ],
+    "unresolved_state": [
+      "EVID_F1"
+    ],
+    "permitted_narrowing": [
+      "preserve unresolved status",
+      "narrow to reference-presence only"
+    ],
+    "prohibited_inferences": [
+      "treat EVID_F1 as retrieved",
+      "treat EVID_F1 as sufficient support",
+      "resolve without resolution evidence"
+    ],
+    "required_local_revalidation": [
+      "Revalidate any downstream assertion that is not textually identical to an emitted claim.",
+      "Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.",
+      "Resolve every unresolved_state entry with independent local evidence before representing it as resolved."
+    ]
+  }
+}

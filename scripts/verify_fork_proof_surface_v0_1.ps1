@@ -101,6 +101,11 @@ Invoke-PythonStep -Name "Cross-System Claim Handoff scaffold" -Arguments @(
     "tools/check_cross_system_claim_handoff_v0_1.py", "--json"
 )
 
+Invoke-PythonStep -Name "Cross-System Claim Handoff configuration" -Arguments @(
+    "tools/check_csh_configuration_v0_1.py",
+    "--json"
+)
+
 # ASI_POWERSHELL_INTEGRATION_START
 Invoke-PythonStep -Name "Authority State Invariance and Transition Model" -Arguments @(
     "tools/check_authority_state_invariance_v0_1.py", "--json"
@@ -141,6 +146,7 @@ Invoke-PythonStep -Name "New convergence regression tests" -Arguments @(
     "tests/test_reviewer_access_path_integrity_v0_1.py",
     "tests/test_public_review_round_006_observations_v0_1.py",
     "tests/test_cross_system_claim_handoff_v0_1.py",
+    "tests/test_csh_configuration_v0_1.py",
     "tests/test_experimental_convergence_v0_1.py",
     "tests/test_authority_state_invariance_v0_1.py",
     "-q"
