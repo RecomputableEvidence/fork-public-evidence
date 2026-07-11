@@ -18,6 +18,7 @@ white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md text eol=lf
 *.cff text eol=lf
 *.csv text eol=lf
 *.tsv text eol=lf
+*.log text eol=lf
 *.html text eol=lf
 *.css text eol=lf
 *.js text eol=lf
