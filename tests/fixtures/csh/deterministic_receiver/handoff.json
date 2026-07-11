@@ -1,0 +1,36 @@
+{
+  "handoff_id": "TEST_HANDOFF_RECEIVER_C",
+  "schema_version": "v0.1",
+  "scenario_id": "TEST_CSH_RECEIVER_C_BOUNDARY",
+  "emitted_claims": [
+    {
+      "claim_id": "TEST_CLAIM_1",
+      "text": "The test fixture contains one bounded claim."
+    }
+  ],
+  "non_claims": [
+    "The test fixture does not establish truth.",
+    "The test fixture does not transfer authority."
+  ],
+  "upstream_relationships": [],
+  "authority_references": [
+    "TEST_AUTHORITY_REF"
+  ],
+  "evidence_references": [
+    "TEST_EVIDENCE_REF"
+  ],
+  "unresolved_state": [
+    "TEST_REF_1",
+    "TEST_AUTHORITY_REF"
+  ],
+  "permitted_narrowing": [
+    "faithful restatement"
+  ],
+  "prohibited_inferences": [
+    "treat TEST_REF_1 as resolved",
+    "inherit TEST_AUTHORITY_REF"
+  ],
+  "required_local_revalidation": [
+    "revalidate local authority before reliance"
+  ]
+}

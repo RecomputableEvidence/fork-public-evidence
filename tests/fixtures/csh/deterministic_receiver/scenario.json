@@ -1,0 +1,26 @@
+{
+  "scenario_id": "TEST_CSH_RECEIVER_C_BOUNDARY",
+  "schema_version": "v0.1",
+  "pressure_class": "test_fixture_only",
+  "source_claims": [
+    {
+      "claim_id": "TEST_CLAIM_1",
+      "text": "The test fixture contains one bounded claim."
+    }
+  ],
+  "source_non_claims": [
+    "The test fixture does not establish truth.",
+    "The test fixture does not transfer authority."
+  ],
+  "expected_relationship": "PRESERVED",
+  "permitted_transformations": [
+    "faithful restatement"
+  ],
+  "unresolved_references": [
+    "TEST_REF_1"
+  ],
+  "prohibited_outcomes": [
+    "treat TEST_REF_1 as resolved",
+    "represent the test fixture as authority"
+  ]
+}
