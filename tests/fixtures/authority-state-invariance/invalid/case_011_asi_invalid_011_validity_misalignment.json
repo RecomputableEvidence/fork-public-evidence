@@ -1,0 +1,115 @@
+{
+  "case_id": "ASI_INVALID_011_VALIDITY_MISALIGNMENT",
+  "case_version": "ASI_CASE_v0_1",
+  "description": "Expired claim is used where CURRENT was required.",
+  "events": [
+    {
+      "accepted_validity_states": [
+        "CURRENT"
+      ],
+      "authority_state_after": {
+        "context_refs": [
+          "context://internal-risk"
+        ],
+        "permitted_reliance_classes": [
+          "INFORMATIONAL_REFERENCE",
+          "ANALYTICAL_INPUT",
+          "DECISION_SUPPORT"
+        ],
+        "status": "ACTIVE"
+      },
+      "authority_state_before": {
+        "context_refs": [
+          "context://internal-risk"
+        ],
+        "permitted_reliance_classes": [
+          "INFORMATIONAL_REFERENCE",
+          "ANALYTICAL_INPUT",
+          "DECISION_SUPPORT"
+        ],
+        "status": "ACTIVE"
+      },
+      "claim_id": "claim://supplier-x-control-y",
+      "claim_permitted_context_refs": [
+        "context://internal-risk"
+      ],
+      "claim_permitted_reliance_classes": [
+        "INFORMATIONAL_REFERENCE",
+        "ANALYTICAL_INPUT",
+        "DECISION_SUPPORT"
+      ],
+      "consumer": {
+        "subject_id": "system://planning-agent",
+        "subject_type": "SYSTEM"
+      },
+      "declared_governance_profile_evaluation": "NOT_EVALUABLE",
+      "event_family": "reliance_event",
+      "event_id": "reliance://invalid-011",
+      "fork_enforcement_action": "NONE",
+      "governance_profile": null,
+      "lineage": {
+        "apparent_supporting_references": [
+          {
+            "reference_id": "ref://1",
+            "root_claim_id": "claim://supplier-x-control-y"
+          }
+        ],
+        "declared_independent_root_count": 0,
+        "derivation_depth": 1,
+        "independent_validation_count": 0,
+        "independent_validation_records": [],
+        "root_claim_ids": [
+          "claim://supplier-x-control-y"
+        ],
+        "validation_chain_depth": 0
+      },
+      "observed_context_ref": "context://internal-risk",
+      "observed_non_claims": [
+        "No independent verification was performed.",
+        "No execution authorization was granted."
+      ],
+      "observed_reliance_class": "ANALYTICAL_INPUT",
+      "occurred_at": "2026-07-11T01:00:00Z",
+      "schema_version": "v0.1",
+      "source_non_claims": [
+        "No independent verification was performed.",
+        "No execution authorization was granted."
+      ],
+      "validity_state_after": "EXPIRED",
+      "validity_state_before": "EXPIRED"
+    }
+  ],
+  "expected": {
+    "error_codes": [
+      "VALIDITY_STATE_MISALIGNMENT"
+    ],
+    "structurally_conformant": false
+  },
+  "source_claim": {
+    "authority_state": {
+      "context_refs": [
+        "context://internal-risk"
+      ],
+      "permitted_reliance_classes": [
+        "INFORMATIONAL_REFERENCE",
+        "ANALYTICAL_INPUT",
+        "DECISION_SUPPORT"
+      ],
+      "status": "ACTIVE"
+    },
+    "claim_id": "claim://supplier-x-control-y",
+    "non_claims": [
+      "No independent verification was performed.",
+      "No execution authorization was granted."
+    ],
+    "permitted_context_refs": [
+      "context://internal-risk"
+    ],
+    "permitted_reliance_classes": [
+      "INFORMATIONAL_REFERENCE",
+      "ANALYTICAL_INPUT",
+      "DECISION_SUPPORT"
+    ],
+    "validity_state": "EXPIRED"
+  }
+}

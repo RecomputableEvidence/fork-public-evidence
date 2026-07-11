@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_manifest_v0_1.schema.json",
+  "title": "Cross-System Claim Handoff Experiment Manifest v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experiment_id",
+    "schema_version",
+    "status",
+    "governing_protocol",
+    "preregistration",
+    "hypothesis",
+    "design",
+    "scenario_ids",
+    "schemas",
+    "checkers",
+    "freeze_status",
+    "baseline_run_status",
+    "optimization_status",
+    "non_claims"
+  ],
+  "properties": {
+    "experiment_id": {
+      "const": "cross_system_claim_handoff_v0_1"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "status": {
+      "enum": [
+        "preregistered_not_executed",
+        "frozen_not_executed",
+        "baseline_in_progress",
+        "baseline_complete",
+        "recomputation_in_progress",
+        "recomputed"
+      ]
+    },
+    "governing_protocol": {
+      "type": "string"
+    },
+    "preregistration": {
+      "type": "string"
+    },
+    "hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expression",
+        "u_definition",
+        "h_definition"
+      ],
+      "properties": {
+        "expression": {
+          "const": "E[U | H = 1] < E[U | H = 0]"
+        },
+        "u_definition": {
+          "type": "string"
+        },
+        "h_definition": {
+          "type": "string"
+        }
+      }
+    },
+    "design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenarios",
+        "conditions",
+        "receiver_classes",
+        "replicates_per_cell",
+        "planned_receiver_runs",
+        "pairing_keys"
+      ],
+      "properties": {
+        "scenarios": {
+          "const": 6
+        },
+        "conditions": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "control_h0"
+            },
+            {
+              "const": "instrumented_h1"
+            }
+          ],
+          "items": false
+        },
+        "receiver_classes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "replicates_per_cell": {
+          "const": 3
+        },
+        "planned_receiver_runs": {
+          "const": 108
+        },
+        "pairing_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scenario_ids": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "schemas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "checkers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "freeze_status": {
+      "enum": [
+        "draft_unfrozen",
+        "frozen"
+      ]
+    },
+    "baseline_run_status": {
+      "enum": [
+        "not_started",
+        "in_progress",
+        "complete"
+      ]
+    },
+    "optimization_status": {
+      "enum": [
+        "prohibited_until_baseline_and_independent_recomputation",
+        "admitted"
+      ]
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

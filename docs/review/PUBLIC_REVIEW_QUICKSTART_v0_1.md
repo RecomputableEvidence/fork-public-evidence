@@ -421,3 +421,22 @@ Boundary:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->
+
+<!-- BEGIN FORK_CONVERGENCE_QUICKSTART_V0_1 -->
+## Current convergence verification
+
+Run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify_fork_proof_surface_v0_1.ps1
+```
+
+Then inspect:
+
+- `docs/state/FORK_PROOF_SURFACE_STATE_SUMMARY_v0_1.md`
+- `docs/review/public-rounds/round-006/README.md`
+- `docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md`
+- `docs/experiments/cross-system-claim-handoff-v0.1/README.md`
+
+The CSH surface is preregistered but unfrozen and unexecuted.
+<!-- END FORK_CONVERGENCE_QUICKSTART_V0_1 -->

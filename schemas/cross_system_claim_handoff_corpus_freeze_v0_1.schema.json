@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_corpus_freeze_v0_1.schema.json",
+  "title": "Cross-System Claim Handoff Corpus Freeze v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experiment_id",
+    "schema_version",
+    "freeze_id",
+    "freeze_status",
+    "freeze_completed_at_utc",
+    "base_commit_before_freeze",
+    "release_commit",
+    "preregistration_sha256",
+    "manifest_sha256",
+    "system_registry_sha256",
+    "scenario_artifacts",
+    "prompt_artifacts",
+    "handoff_artifacts",
+    "schema_artifacts",
+    "checker_artifacts",
+    "blocking_unresolved_items",
+    "baseline_execution_permitted",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "experiment_id": {
+      "const": "cross_system_claim_handoff_v0_1"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "freeze_id": {
+      "const": "CSH_CORPUS_FREEZE_v0_1"
+    },
+    "freeze_status": {
+      "enum": [
+        "draft_unfrozen",
+        "frozen"
+      ]
+    },
+    "freeze_completed_at_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "preregistration_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "manifest_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "system_registry_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "scenario_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "prompt_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "handoff_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "schema_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "checker_artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      }
+    },
+    "blocking_unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "baseline_execution_permitted": {
+      "type": "boolean"
+    },
+    "non_authority_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "base_commit_before_freeze": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "release_commit": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{40}$"
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "freeze_status": {
+            "const": "frozen"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "baseline_execution_permitted": {
+            "const": true
+          },
+          "blocking_unresolved_items": {
+            "maxItems": 0
+          },
+          "preregistration_sha256": {
+            "type": "string"
+          },
+          "manifest_sha256": {
+            "type": "string"
+          },
+          "system_registry_sha256": {
+            "type": "string"
+          },
+          "base_commit_before_freeze": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "freeze_status": {
+            "const": "draft_unfrozen"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "baseline_execution_permitted": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}

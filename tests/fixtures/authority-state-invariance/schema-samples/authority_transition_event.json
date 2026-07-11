@@ -1,0 +1,35 @@
+{
+  "authority_basis_refs": [
+    "policy://procurement/approval/v2"
+  ],
+  "claim_id": "claim://supplier-x-control-y",
+  "effective_at": "2026-07-11T00:45:00Z",
+  "event_family": "authority_transition_event",
+  "event_id": "authority://schema-sample",
+  "event_type": "GRANTED",
+  "expires_at": null,
+  "granting_subject": {
+    "subject_id": "role://procurement-approver",
+    "subject_type": "ROLE"
+  },
+  "occurred_at": "2026-07-11T00:45:00Z",
+  "prior_authority_state": {
+    "context_refs": [],
+    "permitted_reliance_classes": [],
+    "status": "NONE"
+  },
+  "resulting_authority_state": {
+    "context_refs": [
+      "context://internal-risk"
+    ],
+    "permitted_reliance_classes": [
+      "DECISION_SUPPORT"
+    ],
+    "status": "ACTIVE"
+  },
+  "revocation_conditions": [],
+  "schema_version": "v0.1",
+  "validity_change_declared": false,
+  "validity_state_after": "CURRENT",
+  "validity_state_before": "CURRENT"
+}

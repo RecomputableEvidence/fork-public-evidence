@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/reviewer_access_path_observation_v0_1.schema.json",
+  "title": "Reviewer Access Path Observation v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "observation_id",
+    "schema_version",
+    "fixture_family",
+    "expected_valid",
+    "access_state",
+    "retrieval_fidelity",
+    "interpreter_state",
+    "execution_state",
+    "content_assessment_permitted",
+    "content_findings",
+    "review_claims",
+    "non_claims"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "fixture_family": {
+      "const": "reviewer_access_path_integrity"
+    },
+    "expected_valid": {
+      "type": "boolean"
+    },
+    "access_state": {
+      "enum": [
+        "full_repository",
+        "packet_only",
+        "partial_artifact",
+        "transformed_or_excerpted",
+        "retrieval_failed"
+      ]
+    },
+    "retrieval_fidelity": {
+      "enum": [
+        "complete",
+        "bounded_complete",
+        "partial",
+        "transformed",
+        "none",
+        "unresolved"
+      ]
+    },
+    "interpreter_state": {
+      "enum": [
+        "compatible",
+        "incompatible",
+        "not_attempted"
+      ]
+    },
+    "execution_state": {
+      "enum": [
+        "successful",
+        "failed",
+        "unavailable",
+        "not_attempted"
+      ]
+    },
+    "content_assessment_permitted": {
+      "type": "boolean"
+    },
+    "content_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

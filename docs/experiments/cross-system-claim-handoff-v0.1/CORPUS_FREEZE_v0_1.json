@@ -1,0 +1,26 @@
+{
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "schema_version": "v0.1",
+  "freeze_id": "CSH_CORPUS_FREEZE_v0_1",
+  "freeze_status": "draft_unfrozen",
+  "freeze_completed_at_utc": null,
+  "base_commit_before_freeze": null,
+  "release_commit": null,
+  "preregistration_sha256": null,
+  "manifest_sha256": null,
+  "system_registry_sha256": null,
+  "scenario_artifacts": [],
+  "prompt_artifacts": [],
+  "handoff_artifacts": [],
+  "schema_artifacts": [],
+  "checker_artifacts": [],
+  "blocking_unresolved_items": [
+    "receiver identities and versions not assigned",
+    "receiver parameters not assigned",
+    "exact prompts not frozen",
+    "scenario and treatment artifact digests not sealed",
+    "subject commit not bound"
+  ],
+  "baseline_execution_permitted": false,
+  "non_authority_statement": "A completed freeze binds experiment artifacts for mutation detection; it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
+}

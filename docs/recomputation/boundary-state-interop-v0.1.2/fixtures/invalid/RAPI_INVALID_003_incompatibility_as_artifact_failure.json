@@ -1,0 +1,21 @@
+{
+  "observation_id": "RAPI_INVALID_003",
+  "schema_version": "v0.1",
+  "fixture_family": "reviewer_access_path_integrity",
+  "expected_valid": false,
+  "access_state": "packet_only",
+  "retrieval_fidelity": "bounded_complete",
+  "interpreter_state": "incompatible",
+  "execution_state": "unavailable",
+  "content_assessment_permitted": true,
+  "content_findings": [
+    "artifact checker failed"
+  ],
+  "review_claims": [
+    "package failure established"
+  ],
+  "non_claims": [
+    "not endorsement"
+  ],
+  "notes": "Invalid: interpreter incompatibility was attributed to the artifact."
+}

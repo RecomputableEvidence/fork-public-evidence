@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_result_v0_1.schema.json",
+  "title": "Cross-System Claim Handoff Result v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "result_id",
+    "schema_version",
+    "experiment_id",
+    "receiver_run_id",
+    "classification_run_ids",
+    "primary_event_count",
+    "events_by_type",
+    "human_coding",
+    "disagreements",
+    "interpretation",
+    "non_claims"
+  ],
+  "properties": {
+    "result_id": {
+      "type": "string",
+      "pattern": "^CSH-RESULT-"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "experiment_id": {
+      "const": "cross_system_claim_handoff_v0_1"
+    },
+    "receiver_run_id": {
+      "type": "string",
+      "pattern": "^CSH-RUN-"
+    },
+    "classification_run_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "primary_event_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "events_by_type": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "human_coding": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "disagreements": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "interpretation": {
+      "type": "object"
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

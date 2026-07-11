@@ -1,0 +1,41 @@
+{
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "schema_version": "v0.1",
+  "registry_status": "draft_unfrozen",
+  "receiver_classes": [
+    {
+      "receiver_class_id": "llm_receiver_a",
+      "receiver_type": "llm",
+      "provider": "UNASSIGNED",
+      "model_or_system": "UNASSIGNED",
+      "version": "UNASSIGNED",
+      "parameters": {},
+      "access_path": "UNASSIGNED"
+    },
+    {
+      "receiver_class_id": "llm_receiver_b",
+      "receiver_type": "llm",
+      "provider": "UNASSIGNED",
+      "model_or_system": "UNASSIGNED",
+      "version": "UNASSIGNED",
+      "parameters": {},
+      "access_path": "UNASSIGNED"
+    },
+    {
+      "receiver_class_id": "deterministic_receiver",
+      "receiver_type": "deterministic",
+      "provider": "local",
+      "model_or_system": "UNASSIGNED",
+      "version": "UNASSIGNED",
+      "parameters": {},
+      "access_path": "local_execution"
+    }
+  ],
+  "freeze_requirements": [
+    "replace every UNASSIGNED value",
+    "record exact versions and parameters",
+    "record wrappers and tools",
+    "record retrieval and interpreter path",
+    "compute registry digest"
+  ]
+}

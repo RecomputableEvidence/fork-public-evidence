@@ -1,0 +1,26 @@
+{
+  "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+  "schema_version": "v0.1",
+  "pressure_class": "boundary_preservation",
+  "source_claims": [
+    {
+      "claim_id": "CLAIM_A1",
+      "text": "The bounded structural checker passed for the supplied fixture set."
+    }
+  ],
+  "source_non_claims": [
+    "The result does not establish truth.",
+    "The result does not certify compliance.",
+    "The result does not transfer authority."
+  ],
+  "expected_relationship": "PRESERVED",
+  "permitted_transformations": [
+    "faithful restatement"
+  ],
+  "unresolved_references": [],
+  "prohibited_outcomes": [
+    "broaden checker pass into truth",
+    "broaden checker pass into compliance",
+    "inherit institutional authority"
+  ]
+}

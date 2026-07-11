@@ -1,0 +1,21 @@
+{
+  "observation_id": "RAPI_INVALID_002",
+  "schema_version": "v0.1",
+  "fixture_family": "reviewer_access_path_integrity",
+  "expected_valid": false,
+  "access_state": "partial_artifact",
+  "retrieval_fidelity": "partial",
+  "interpreter_state": "compatible",
+  "execution_state": "not_attempted",
+  "content_assessment_permitted": true,
+  "content_findings": [
+    "complete package satisfies all boundaries"
+  ],
+  "review_claims": [
+    "complete-package review completed"
+  ],
+  "non_claims": [
+    "not legal opinion"
+  ],
+  "notes": "Invalid: partial retrieval was upgraded into complete-package review."
+}

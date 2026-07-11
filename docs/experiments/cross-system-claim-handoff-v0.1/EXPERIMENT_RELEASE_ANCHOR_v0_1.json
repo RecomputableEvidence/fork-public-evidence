@@ -1,0 +1,13 @@
+{
+  "anchor_id": "CSH_EXPERIMENT_RELEASE_ANCHOR_v0_1",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "anchor_status": "pending_post_commit_seal",
+  "subject_commit": null,
+  "tag_name": "csh-v0.1-baseline-freeze",
+  "tag_created": false,
+  "tag_pushed": false,
+  "external_digest_recorded": false,
+  "artifacts": [],
+  "non_authority_statement": "This anchor, when completed, supports mutation detection and signer-controlled continuity only. It does not establish truth, correctness, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
+}

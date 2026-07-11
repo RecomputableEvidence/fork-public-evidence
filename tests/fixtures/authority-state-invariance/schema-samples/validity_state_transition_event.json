@@ -1,0 +1,29 @@
+{
+  "actor": {
+    "subject_id": "role://risk-analyst",
+    "subject_type": "ROLE"
+  },
+  "authority_change_declared": false,
+  "authority_state_after": {
+    "context_refs": [],
+    "permitted_reliance_classes": [],
+    "status": "NONE"
+  },
+  "authority_state_before": {
+    "context_refs": [],
+    "permitted_reliance_classes": [],
+    "status": "NONE"
+  },
+  "claim_id": "claim://supplier-x-control-y",
+  "context_ref": "context://internal-risk",
+  "event_family": "validity_state_transition_event",
+  "event_id": "validity://schema-sample",
+  "event_type": "REVALIDATED_CURRENT",
+  "evidence_refs": [
+    "evidence://review-1"
+  ],
+  "occurred_at": "2026-07-11T00:30:00Z",
+  "prior_validity_state": "UNRESOLVED",
+  "resulting_validity_state": "CURRENT",
+  "schema_version": "v0.1"
+}

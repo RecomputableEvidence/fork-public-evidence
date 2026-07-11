@@ -1,0 +1,30 @@
+{
+  "observation_id": "ROUND006_OBS_002",
+  "schema_version": "v0.1",
+  "round_id": "round-006",
+  "source_class": "user_supplied_exterior_architectural_analysis",
+  "access_state": "full_supplied_text",
+  "preserved_interpretation": [
+    "Fork's own experiment should be governed by Fork's claim-boundary discipline.",
+    "Classification must remain independently rerunnable from preserved raw outputs.",
+    "Optimization eligibility should be mechanically bounded."
+  ],
+  "recommendations": [
+    "Define a normative hierarchy from protocol through synthesis.",
+    "Preserve separate receiver-run, classification-run, and method identifiers.",
+    "Classify amendments by their effect on baseline validity.",
+    "Do not overwrite original classifications or interpretations.",
+    "Require independent recomputation before optimized variants are admitted."
+  ],
+  "citation_treatment": "require_independent_source_specific_verification",
+  "authority_transferred": false,
+  "endorsement_claimed": false,
+  "repository_claims_require_recomputation": true,
+  "non_claims": [
+    "not endorsement",
+    "not external citation authority",
+    "not production-readiness assessment",
+    "not compliance or legal conclusion"
+  ],
+  "source_summary_path": "docs/review/public-rounds/round-006/sources/EXTERIOR_REVIEW_SYNTHESIS_002_v0_1.md"
+}

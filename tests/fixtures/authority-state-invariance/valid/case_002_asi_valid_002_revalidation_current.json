@@ -1,0 +1,61 @@
+{
+  "case_id": "ASI_VALID_002_REVALIDATION_CURRENT",
+  "case_version": "ASI_CASE_v0_1",
+  "description": "Explicit revalidation changes validity without authority change.",
+  "events": [
+    {
+      "actor": {
+        "subject_id": "role://risk-analyst",
+        "subject_type": "ROLE"
+      },
+      "authority_change_declared": false,
+      "authority_state_after": {
+        "context_refs": [],
+        "permitted_reliance_classes": [],
+        "status": "NONE"
+      },
+      "authority_state_before": {
+        "context_refs": [],
+        "permitted_reliance_classes": [],
+        "status": "NONE"
+      },
+      "claim_id": "claim://supplier-x-control-y",
+      "context_ref": "context://internal-risk",
+      "event_family": "validity_state_transition_event",
+      "event_id": "validity://valid-002",
+      "event_type": "REVALIDATED_CURRENT",
+      "evidence_refs": [
+        "evidence://review-1"
+      ],
+      "occurred_at": "2026-07-11T00:30:00Z",
+      "prior_validity_state": "UNRESOLVED",
+      "resulting_validity_state": "CURRENT",
+      "schema_version": "v0.1"
+    }
+  ],
+  "expected": {
+    "error_codes": [],
+    "structurally_conformant": true
+  },
+  "source_claim": {
+    "authority_state": {
+      "context_refs": [],
+      "permitted_reliance_classes": [],
+      "status": "NONE"
+    },
+    "claim_id": "claim://supplier-x-control-y",
+    "non_claims": [
+      "No independent verification was performed.",
+      "No execution authorization was granted."
+    ],
+    "permitted_context_refs": [
+      "context://internal-risk"
+    ],
+    "permitted_reliance_classes": [
+      "INFORMATIONAL_REFERENCE",
+      "ANALYTICAL_INPUT",
+      "DECISION_SUPPORT"
+    ],
+    "validity_state": "UNRESOLVED"
+  }
+}

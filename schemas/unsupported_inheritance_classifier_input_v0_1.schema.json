@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/unsupported_inheritance_classifier_input_v0_1.schema.json",
+  "title": "Unsupported Inheritance Classifier Input v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receiver_run_id",
+    "classification_run_id",
+    "classification_method_id",
+    "scenario",
+    "condition",
+    "raw_output_binding",
+    "normalized_output"
+  ],
+  "properties": {
+    "receiver_run_id": {
+      "type": "string"
+    },
+    "classification_run_id": {
+      "type": "string"
+    },
+    "classification_method_id": {
+      "const": "fork_deterministic_unsupported_inheritance_v0_1"
+    },
+    "scenario": {
+      "type": "object",
+      "required": [
+        "scenario_id",
+        "source_claims",
+        "source_non_claims",
+        "expected_relationship",
+        "unresolved_references"
+      ],
+      "properties": {
+        "scenario_id": {
+          "type": "string"
+        },
+        "source_claims": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "source_non_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expected_relationship": {
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "EXPANDED",
+            "UNRESOLVED",
+            "MIXED"
+          ]
+        },
+        "unresolved_references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "condition": {
+      "enum": [
+        "control_h0",
+        "instrumented_h1"
+      ]
+    },
+    "raw_output_binding": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "normalized_output": {
+      "type": "object",
+      "required": [
+        "downstream_claims",
+        "preserved_non_claims",
+        "reference_resolutions",
+        "authority_inherited",
+        "evidence_promotions",
+        "verification_upgrades",
+        "aggregate_state"
+      ],
+      "properties": {
+        "downstream_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "claim_id",
+              "text",
+              "relationship_to_source",
+              "source_claim_id",
+              "new_boundary_contract_id",
+              "authority_references",
+              "evidence_references"
+            ],
+            "properties": {
+              "claim_id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "relationship_to_source": {
+                "enum": [
+                  "PRESERVED",
+                  "NARROWED",
+                  "EXPANDED",
+                  "UNRESOLVED",
+                  "MIXED"
+                ]
+              },
+              "source_claim_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "new_boundary_contract_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "authority_references": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidence_references": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "preserved_non_claims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference_resolutions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "reference_id",
+              "status",
+              "resolution_evidence"
+            ],
+            "properties": {
+              "reference_id": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "unresolved",
+                  "resolved",
+                  "not_applicable"
+                ]
+              },
+              "resolution_evidence": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "authority_inherited": {
+          "type": "boolean"
+        },
+        "verification_upgrades": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "approval",
+              "truth",
+              "compliance",
+              "legal_sufficiency",
+              "production_readiness",
+              "institutional_authority"
+            ]
+          }
+        },
+        "aggregate_state": {
+          "enum": [
+            "bounded",
+            "mixed",
+            "unresolved",
+            "collapsed_positive",
+            "not_applicable"
+          ]
+        },
+        "evidence_promotions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "reference_id",
+              "asserted_role"
+            ],
+            "properties": {
+              "reference_id": {
+                "type": "string"
+              },
+              "asserted_role": {
+                "enum": [
+                  "support",
+                  "proof",
+                  "authority_basis",
+                  "compliance_basis"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

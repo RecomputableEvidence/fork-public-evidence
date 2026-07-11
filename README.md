@@ -158,7 +158,7 @@ For terminology guardrails and maturity boundaries, see:
 <!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->
 
 <!--  -->
-## Human recomputation sandbox â€” Boundary-State Interop v0.1.1
+## Human recomputation sandbox — Boundary-State Interop v0.1.1
 
 A bounded human recomputation sandbox is available at:
 
@@ -376,3 +376,33 @@ Boundary:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->
+
+<!-- BEGIN FORK_EXPERIMENTAL_CONVERGENCE_V0_1 -->
+## Experimental extension and Cross-System Claim Handoff status
+
+The governed transition from exterior observation into controlled experimentation is defined by:
+
+- `docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md`
+
+Canonical machine-readable implementation state:
+
+- `docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json`
+
+Current recomputation/access-path surface:
+
+- `docs/recomputation/boundary-state-interop-v0.1.2/`
+
+Current bounded public-review round:
+
+- `docs/review/public-rounds/round-006/`
+
+Cross-System Claim Handoff v0.1 is preregistered as a scaffold, but its baseline has not started. The corpus/configuration freeze remains incomplete and optimization remains prohibited.
+
+Canonical integration verification:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify_fork_proof_surface_v0_1.ps1
+```
+
+A pass means only that the declared bounded structural surfaces passed their applicable checks. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.
+<!-- END FORK_EXPERIMENTAL_CONVERGENCE_V0_1 -->

@@ -1,0 +1,30 @@
+{
+  "observation_id": "ROUND006_OBS_001",
+  "schema_version": "v0.1",
+  "round_id": "round-006",
+  "source_class": "user_supplied_exterior_architectural_analysis",
+  "access_state": "full_supplied_text",
+  "preserved_interpretation": [
+    "Fork's bottleneck is integration and measurement rather than additional doctrine.",
+    "Cross-System Claim Handoff should follow a repository convergence pass.",
+    "The unoptimized baseline should be preserved before result-informed optimization."
+  ],
+  "recommendations": [
+    "Create a machine-readable canonical proof-surface state.",
+    "Add an integrated proof-surface verification gate.",
+    "Make preregistration authoritative for the experiment.",
+    "Separate receiver execution from unsupported-inheritance classification.",
+    "Bind the frozen experiment surface without treating the anchor as truth or authority."
+  ],
+  "citation_treatment": "require_independent_source_specific_verification",
+  "authority_transferred": false,
+  "endorsement_claimed": false,
+  "repository_claims_require_recomputation": true,
+  "non_claims": [
+    "not certification",
+    "not repository-state validation",
+    "not authority transfer",
+    "not proof of the CSH hypothesis"
+  ],
+  "source_summary_path": "docs/review/public-rounds/round-006/sources/EXTERIOR_REVIEW_SYNTHESIS_001_v0_1.md"
+}

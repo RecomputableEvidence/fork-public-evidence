@@ -1,0 +1,188 @@
+{
+  "$id": "https://recomputableevidence.example/schemas/validity_state_transition_event_v0_1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "additionalProperties": false,
+      "properties": {
+        "subject_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "subject_type": {
+          "enum": [
+            "PERSON",
+            "ROLE",
+            "SYSTEM",
+            "ORGANIZATION",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "subject_id",
+        "subject_type"
+      ],
+      "type": "object"
+    },
+    "authority_change_declared": {
+      "const": false
+    },
+    "authority_state_after": {
+      "additionalProperties": false,
+      "properties": {
+        "context_refs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "permitted_reliance_classes": {
+          "items": {
+            "enum": [
+              "INFORMATIONAL_REFERENCE",
+              "ANALYTICAL_INPUT",
+              "DECISION_SUPPORT",
+              "EXECUTION_JUSTIFICATION"
+            ]
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "NONE",
+            "ACTIVE",
+            "EXPIRED",
+            "REVOKED",
+            "SUPERSEDED"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "permitted_reliance_classes",
+        "context_refs"
+      ],
+      "type": "object"
+    },
+    "authority_state_before": {
+      "additionalProperties": false,
+      "properties": {
+        "context_refs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "permitted_reliance_classes": {
+          "items": {
+            "enum": [
+              "INFORMATIONAL_REFERENCE",
+              "ANALYTICAL_INPUT",
+              "DECISION_SUPPORT",
+              "EXECUTION_JUSTIFICATION"
+            ]
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "NONE",
+            "ACTIVE",
+            "EXPIRED",
+            "REVOKED",
+            "SUPERSEDED"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "permitted_reliance_classes",
+        "context_refs"
+      ],
+      "type": "object"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_family": {
+      "const": "validity_state_transition_event"
+    },
+    "event_id": {
+      "pattern": "^[A-Za-z0-9._:/-]+$",
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "REVALIDATED_CURRENT",
+        "MARKED_EXPIRED",
+        "MARKED_SUPERSEDED",
+        "MARKED_UNRESOLVED"
+      ]
+    },
+    "evidence_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "notes": {
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "prior_validity_state": {
+      "enum": [
+        "CURRENT",
+        "EXPIRED",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ]
+    },
+    "resulting_validity_state": {
+      "enum": [
+        "CURRENT",
+        "EXPIRED",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ]
+    },
+    "schema_version": {
+      "const": "v0.1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_family",
+    "event_id",
+    "event_type",
+    "claim_id",
+    "occurred_at",
+    "actor",
+    "prior_validity_state",
+    "resulting_validity_state",
+    "authority_state_before",
+    "authority_state_after",
+    "authority_change_declared",
+    "context_ref",
+    "evidence_refs"
+  ],
+  "title": "Fork Validity State Transition Event v0.1",
+  "type": "object"
+}

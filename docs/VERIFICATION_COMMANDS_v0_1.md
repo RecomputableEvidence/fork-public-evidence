@@ -141,3 +141,25 @@ AUTHORITY_ABSORPTION_ATTEMPTED
 
 The checker remains bounded to structural inspectability and non-absorption outcomes. It does not establish truth, correctness, compliance, safety, legal sufficiency, or authority.
 <!-- FORK-SURFACE-INTERACTION-VERIFY:END -->
+
+<!-- BEGIN FORK_PROOF_SURFACE_INTEGRATION_V0_1 -->
+## Integrated proof-surface verification
+
+Run on Windows PowerShell 5.1:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify_fork_proof_surface_v0_1.ps1
+```
+
+Cross-platform component checks:
+
+```bash
+python tools/check_fork_proof_surface_state_v0_1.py --json --check-summary
+python tools/validate_json_schema_bundle_v0_1.py --json
+python tools/check_reviewer_access_path_integrity_v0_1.py --json
+python tools/check_public_review_round_006_observations_v0_1.py --json
+python tools/check_cross_system_claim_handoff_v0_1.py --json
+```
+
+A passing integration gate is a bounded structural result. It is not truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.
+<!-- END FORK_PROOF_SURFACE_INTEGRATION_V0_1 -->

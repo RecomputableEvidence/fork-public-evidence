@@ -414,3 +414,17 @@ Boundary:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->
+
+<!-- BEGIN FORK_CONTROLLED_EXPERIMENT_TRANSITION_V0_1 -->
+## Controlled-experiment transition
+
+For the current experimental transition, review in this order:
+
+1. `docs/state/FORK_PROOF_SURFACE_STATE_SUMMARY_v0_1.md`
+2. `docs/recomputation/boundary-state-interop-v0.1.2/README.md`
+3. `docs/review/public-rounds/round-006/README.md`
+4. `docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md`
+5. `docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md`
+
+The CSH baseline has not started. Review of its scaffold is not a result, endorsement, or production-readiness assessment.
+<!-- END FORK_CONTROLLED_EXPERIMENT_TRANSITION_V0_1 -->

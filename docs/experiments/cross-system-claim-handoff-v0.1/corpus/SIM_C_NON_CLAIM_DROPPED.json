@@ -1,0 +1,27 @@
+{
+  "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+  "schema_version": "v0.1",
+  "pressure_class": "non_claim_preservation",
+  "source_claims": [
+    {
+      "claim_id": "CLAIM_C1",
+      "text": "A reviewer reproduced the named deterministic check."
+    }
+  ],
+  "source_non_claims": [
+    "Reproduction is not endorsement.",
+    "Reproduction is not validation of source truth.",
+    "Reproduction is not production approval."
+  ],
+  "expected_relationship": "PRESERVED",
+  "permitted_transformations": [
+    "faithful restatement",
+    "valid narrowing"
+  ],
+  "unresolved_references": [],
+  "prohibited_outcomes": [
+    "drop material non-claims",
+    "describe reproduction as endorsement",
+    "describe reproduction as production approval"
+  ]
+}

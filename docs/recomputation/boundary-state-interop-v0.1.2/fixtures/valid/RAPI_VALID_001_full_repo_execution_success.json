@@ -1,0 +1,23 @@
+{
+  "observation_id": "RAPI_VALID_001",
+  "schema_version": "v0.1",
+  "fixture_family": "reviewer_access_path_integrity",
+  "expected_valid": true,
+  "access_state": "full_repository",
+  "retrieval_fidelity": "complete",
+  "interpreter_state": "compatible",
+  "execution_state": "successful",
+  "content_assessment_permitted": true,
+  "content_findings": [
+    "bounded structural execution observation"
+  ],
+  "review_claims": [
+    "named verifier executed successfully"
+  ],
+  "non_claims": [
+    "not endorsement",
+    "not truth validation",
+    "not authority transfer"
+  ],
+  "notes": "Full access and compatible execution permit a bounded content/structural observation."
+}

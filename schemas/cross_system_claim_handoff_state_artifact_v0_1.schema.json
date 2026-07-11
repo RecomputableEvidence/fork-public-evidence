@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
+  "title": "Fork Explicit Handoff-State Artifact v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "handoff_id",
+    "schema_version",
+    "scenario_id",
+    "emitted_claims",
+    "non_claims",
+    "upstream_relationships",
+    "authority_references",
+    "evidence_references",
+    "unresolved_state",
+    "permitted_narrowing",
+    "prohibited_inferences",
+    "required_local_revalidation"
+  ],
+  "properties": {
+    "handoff_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "emitted_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "upstream_relationships": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "authority_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unresolved_state": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permitted_narrowing": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_inferences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_local_revalidation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

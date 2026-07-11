@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/unsupported_inheritance_classification_v0_1.schema.json",
+  "title": "Unsupported Inheritance Classification v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "classification_run_id",
+    "schema_version",
+    "classification_method_id",
+    "receiver_run_id",
+    "scenario_id",
+    "condition",
+    "events",
+    "event_count",
+    "events_by_type",
+    "non_claims"
+  ],
+  "properties": {
+    "classification_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "classification_method_id": {
+      "const": "fork_deterministic_unsupported_inheritance_v0_1"
+    },
+    "receiver_run_id": {
+      "type": "string"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "condition": {
+      "enum": [
+        "control_h0",
+        "instrumented_h1"
+      ]
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "event_type",
+          "detail",
+          "evidence"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string"
+          },
+          "event_type": {
+            "enum": [
+              "claim_expansion_without_boundary",
+              "material_non_claim_loss",
+              "authority_inheritance",
+              "unresolved_reference_collapse",
+              "evidence_reference_promotion",
+              "verification_upgrade",
+              "aggregate_collapse",
+              "declared_observed_mismatch"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "event_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "events_by_type": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+name: Cross-System Claim Handoff v0.1
+
+on:
+  pull_request:
+    paths:
+      - "docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md"
+      - "docs/experiments/cross-system-claim-handoff-v0.1/**"
+      - "schemas/cross_system_claim_handoff_*"
+      - "schemas/unsupported_inheritance_*"
+      - "tools/check_cross_system_claim_handoff_v0_1.py"
+      - "tools/classify_unsupported_inheritance_v0_1.py"
+      - "tests/test_cross_system_claim_handoff_v0_1.py"
+      - "tests/fixtures/csh/**"
+      - ".github/workflows/cross-system-claim-handoff-v0-1.yml"
+  push:
+    paths:
+      - "docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md"
+      - "docs/experiments/cross-system-claim-handoff-v0.1/**"
+      - "schemas/cross_system_claim_handoff_*"
+      - "schemas/unsupported_inheritance_*"
+      - "tools/check_cross_system_claim_handoff_v0_1.py"
+      - "tools/classify_unsupported_inheritance_v0_1.py"
+      - "tests/test_cross_system_claim_handoff_v0_1.py"
+      - "tests/fixtures/csh/**"
+      - ".github/workflows/cross-system-claim-handoff-v0-1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  csh-preregistered-surface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
+
+      - name: Validate scaffold and available records
+        run: python tools/check_cross_system_claim_handoff_v0_1.py --json
+
+      - name: Validate clean classifier fixture
+        run: python tools/classify_unsupported_inheritance_v0_1.py tests/fixtures/csh/classifier_input_clean.json --json
+
+      - name: Validate unsupported-inheritance fixture
+        run: python tools/classify_unsupported_inheritance_v0_1.py tests/fixtures/csh/classifier_input_unsupported.json --json
+
+      - name: Run CSH tests
+        run: python -m pytest tests/test_cross_system_claim_handoff_v0_1.py -q
+
+      - name: Confirm baseline remains blocked while unfrozen
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          freeze = json.loads(Path("docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json").read_text())
+          if freeze["freeze_status"] == "draft_unfrozen":
+              assert freeze["baseline_execution_permitted"] is False
+              assert freeze["blocking_unresolved_items"]
+          PY

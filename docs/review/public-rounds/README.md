@@ -37,3 +37,19 @@ Checker:
 - python tools/check_public_review_round_005_interactions_v0_1.py --json
 
 <!-- FORK_PUBLIC_REVIEW_ROUND_005:END -->
+
+<!-- BEGIN FORK_PUBLIC_REVIEW_ROUND_006 -->
+## Round 006 — Experimental Convergence, Preregistration, and Classification Independence
+
+Current round:
+
+- `round-006/`
+
+Round 006 preserves two supplied exterior architectural analyses as bounded, non-authoritative design pressure. It records convergence on protocol-first admission, canonical-state normalization, preregistration, independent classification, baseline protection, citation non-inheritance, and optimization gating.
+
+Run:
+
+```bash
+python tools/check_public_review_round_006_observations_v0_1.py --json
+```
+<!-- END FORK_PUBLIC_REVIEW_ROUND_006 -->

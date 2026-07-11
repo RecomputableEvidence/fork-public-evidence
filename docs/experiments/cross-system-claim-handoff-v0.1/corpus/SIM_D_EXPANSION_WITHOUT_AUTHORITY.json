@@ -1,0 +1,28 @@
+{
+  "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+  "schema_version": "v0.1",
+  "pressure_class": "claim_expansion",
+  "source_claims": [
+    {
+      "claim_id": "CLAIM_D1",
+      "text": "The artifact preserves a policy reference asserted by the source workflow."
+    }
+  ],
+  "source_non_claims": [
+    "Policy reference presence does not establish applicability.",
+    "Policy reference presence does not establish compliance.",
+    "No authority is transferred."
+  ],
+  "expected_relationship": "PRESERVED",
+  "permitted_transformations": [
+    "faithful restatement",
+    "valid narrowing"
+  ],
+  "unresolved_references": [],
+  "prohibited_outcomes": [
+    "assert policy applicability",
+    "assert compliance",
+    "expand without a new boundary contract",
+    "inherit authority"
+  ]
+}

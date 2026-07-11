@@ -106,4 +106,30 @@ Hardening scope:
 
 Non-claims preserved: no semantic truth validation, legal sufficiency, compliance sufficiency, audit sufficiency, model safety validation, runtime enforcement, external artifact resolution, cross-record graph validation, or institutional authority.
 
+<!-- BEGIN FORK_EXPERIMENTAL_CONVERGENCE_CHANGELOG_V0_1 -->
+## 2026-07-10 — Experimental convergence and CSH admission surface
 
+Added:
+
+- canonical machine-readable proof-surface state and synchronization checker;
+- Human Recomputation Sandbox v0.1.2 access-path integrity fixtures and checker;
+- Public Review Round 006 bounded exterior-review filing;
+- Fork Experimental Extension Protocol v0.1;
+- Cross-System Claim Handoff v0.1 preregistration, manifest, draft corpus descriptors, schemas, classifier, tests, and workflows;
+- mechanical JSON Schema bundle validation;
+- integrated Windows/Linux proof-surface CI;
+- content-freeze and optional signed-tag tooling that does not commit or push.
+
+Corrected:
+
+- stale Day-0 replay status language;
+- ambiguous current public-review round routing;
+- schema-presence versus schema-enforcement wording;
+- selected README encoding mojibake.
+
+No CSH baseline result is claimed. The corpus/configuration freeze remains incomplete.
+<!-- END FORK_EXPERIMENTAL_CONVERGENCE_CHANGELOG_V0_1 -->
+
+<!-- ASI_CHANGELOG_START -->
+- Added Authority State Invariance and Transition Model v0.1: four event schemas, deterministic checker, valid/invalid fixture corpus, regression tests, and deferred Historical Authority Accretion experiment draft. This structural surface is detect-only and does not alter the CSH v0.1 baseline.
+<!-- ASI_CHANGELOG_END -->

@@ -1,0 +1,13 @@
+{
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "schema_version": "v0.1",
+  "register_status": "open",
+  "amendments": [],
+  "classes": {
+    "administrative": "may preserve baseline if non-substantive",
+    "instrumentation_repair": "requires patch version and repetition of affected units",
+    "experimental_change": "requires new experiment version",
+    "interpretive_change": "preserves original result and adds new interpretation",
+    "integrity_repair": "requires explicit baseline-validity reassessment"
+  }
+}

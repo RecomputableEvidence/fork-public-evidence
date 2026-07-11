@@ -1,0 +1,29 @@
+{
+  "authority_scope_compatible": true,
+  "checker_version": "AUTHORITY_STATE_INVARIANCE_CHECKER_v0_1",
+  "claim_id": "claim://supplier-x-control-y",
+  "computed_at": "2026-07-11T00:00:00Z",
+  "event_family": "reliance_authority_misalignment_event",
+  "event_id": "misalignment::schema-sample",
+  "fork_enforcement_action": "NONE",
+  "governance_profile_evaluation": "NOT_EVALUABLE",
+  "lineage_independence_compatible": true,
+  "lineage_metrics": {
+    "apparent_supporting_reference_count": 1,
+    "derivation_depth": 1,
+    "dvg": 1,
+    "dvr": 1.0,
+    "independent_validation_count": 0,
+    "independently_validated_root_count": 0,
+    "pci_count": 1,
+    "pci_ratio": 1.0,
+    "validation_chain_depth": 0
+  },
+  "misalignment_dimensions": [],
+  "non_claim_survival_compatible": true,
+  "permitted_reliance_compatible": true,
+  "schema_version": "v0.1",
+  "source_reliance_event_id": "reliance://schema-sample",
+  "structural_misalignment_detected": false,
+  "validity_state_compatible": true
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_system_registry_v0_1.schema.json",
+  "title": "Cross-System Claim Handoff System Registry v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experiment_id",
+    "schema_version",
+    "registry_status",
+    "receiver_classes",
+    "freeze_requirements"
+  ],
+  "properties": {
+    "experiment_id": {
+      "const": "cross_system_claim_handoff_v0_1"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "registry_status": {
+      "enum": [
+        "draft_unfrozen",
+        "frozen"
+      ]
+    },
+    "receiver_classes": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "receiver_class_id",
+          "receiver_type",
+          "provider",
+          "model_or_system",
+          "version",
+          "parameters",
+          "access_path"
+        ],
+        "properties": {
+          "receiver_class_id": {
+            "type": "string"
+          },
+          "receiver_type": {
+            "enum": [
+              "llm",
+              "deterministic",
+              "agent",
+              "other"
+            ]
+          },
+          "provider": {
+            "type": "string"
+          },
+          "model_or_system": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object"
+          },
+          "access_path": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "freeze_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

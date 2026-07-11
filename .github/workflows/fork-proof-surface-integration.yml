@@ -1,0 +1,128 @@
+name: Fork Proof-Surface Integration
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "v0_*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python-proof-surface:
+    name: Python proof surface (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install proof-surface dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
+
+      - name: Canonical proof-surface state
+        run: python tools/check_fork_proof_surface_state_v0_1.py --json --check-summary
+
+      - name: Mechanical JSON Schema bundle
+        run: python tools/validate_json_schema_bundle_v0_1.py --json
+
+      - name: Reviewer access-path integrity
+        run: python tools/check_reviewer_access_path_integrity_v0_1.py --json
+
+      - name: Public Review Round 006
+        run: python tools/check_public_review_round_006_observations_v0_1.py --json
+
+      - name: Cross-System Claim Handoff preregistered scaffold
+        run: python tools/check_cross_system_claim_handoff_v0_1.py --json
+
+      - name: Classifier clean fixture
+        run: python tools/classify_unsupported_inheritance_v0_1.py tests/fixtures/csh/classifier_input_clean.json --json
+
+      - name: Classifier unsupported-inheritance fixture
+        run: python tools/classify_unsupported_inheritance_v0_1.py tests/fixtures/csh/classifier_input_unsupported.json --json
+
+      # ASI_WORKFLOW_START
+      - name: Authority State Invariance and Transition Model
+        run: python tools/check_authority_state_invariance_v0_1.py --json
+
+      - name: Authority-state invariance tests
+        run: python -m pytest tests/test_authority_state_invariance_v0_1.py -q
+
+      # ASI_WORKFLOW_END      - name: Boundary-pressure suite
+        run: python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial
+
+      - name: Longitudinal Day-0 packet
+        run: python tools/check_longitudinal_reconstruction_day0_packet_v0_1.py --json
+
+      - name: Longitudinal Day-0 adversarial cases
+        run: python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json
+
+      - name: Longitudinal Day-0 schema scope
+        run: python tools/check_longitudinal_day0_schema_scope_v0_1.py --json
+
+      - name: Longitudinal Day-0 temporal replay receipt
+        run: python tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py --json
+
+      - name: Public Review Round 005
+        run: python tools/check_public_review_round_005_interactions_v0_1.py --json
+
+      - name: Claim-inheritance simulation valid bundle
+        run: >-
+          python tools/check_claim_inheritance_simulation_model.py
+          examples/claim_inheritance_simulation_model/synthetic_claim_inheritance_simulation_bundle_v0_1.json
+          --pretty
+
+      - name: Claim-inheritance simulation invalid harness
+        run: python tools/check_claim_inheritance_simulation_model.py --invalid-manifest --pretty
+
+      - name: Full Python regression suite
+        run: python -m pytest -q
+
+  powershell-proof-surface:
+    name: PowerShell 5.1 proof-surface entry point
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install proof-surface dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
+
+      - name: Execute integrated PowerShell verifier
+        shell: powershell
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify_fork_proof_surface_v0_1.ps1

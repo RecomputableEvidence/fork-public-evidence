@@ -1,0 +1,155 @@
+{
+    "state_version":  "v0.1",
+    "state_classification":  "canonical_proof_surface_state",
+    "as_of_date":  "2026-07-11",
+    "repository":  "RecomputableEvidence/fork-public-evidence",
+    "current_public_review_round":  "round-006",
+    "current_recomputation_surface":  "boundary-state-interop-v0.1.2",
+    "current_experimental_phase":  "controlled_experiment_admission",
+    "hypothesis_expression":  "E[U | H = 1] \u003c E[U | H = 0]",
+    "surfaces":  [
+                     {
+                         "surface_id":  "boundary_pressure_review_v0_1",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "checker_specific",
+                         "external_recomputation_status":  "partially_observed",
+                         "required_artifacts":  [
+                                                    "tools/check_boundary_pressure_review_cases_v0_1.py",
+                                                    "docs/review/boundary-pressure"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "human_recomputation_boundary_state_interop_v0_1_2",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "integrated",
+                         "external_recomputation_status":  "pending_for_v0_1_2",
+                         "required_artifacts":  [
+                                                    "docs/recomputation/boundary-state-interop-v0.1.2/README.md",
+                                                    "tools/check_reviewer_access_path_integrity_v0_1.py",
+                                                    "schemas/reviewer_access_path_observation_v0_1.schema.json"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "longitudinal_day0_packet",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "integration_validator_added_original_checker_remains_custom",
+                         "external_recomputation_status":  "bounded_review_observed",
+                         "required_artifacts":  [
+                                                    "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/packet_manifest.json",
+                                                    "schemas/longitudinal_reconstruction_day0_packet_manifest_v0_1.schema.json",
+                                                    "tools/check_longitudinal_reconstruction_day0_packet_v0_1.py"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "longitudinal_day0_temporal_replay",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "integration_validator_added",
+                         "external_recomputation_status":  "pending",
+                         "required_artifacts":  [
+                                                    "docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.json",
+                                                    "schemas/longitudinal_day0_temporal_replay_receipt_v0_1.schema.json",
+                                                    "tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "longitudinal_delayed_replay",
+                         "implementation_status":  "protocol_only",
+                         "schema_status":  "partial",
+                         "schema_enforcement_status":  "not_applicable_until_receipts_exist",
+                         "external_recomputation_status":  "not_started",
+                         "required_artifacts":  [
+                                                    "docs/reconstruction/FORK_LONGITUDINAL_RECONSTRUCTION_TRIAL_v0_1.md"
+                                                ],
+                         "pending_items":  [
+                                               "Day-7 replay receipt",
+                                               "Day-30 replay receipt",
+                                               "Day-90 replay receipt"
+                                           ]
+                     },
+                     {
+                         "surface_id":  "public_review_round_006",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "integrated",
+                         "external_recomputation_status":  "not_applicable_review_filing",
+                         "required_artifacts":  [
+                                                    "docs/review/public-rounds/round-006/README.md",
+                                                    "tools/check_public_review_round_006_observations_v0_1.py",
+                                                    "schemas/public_review_round_006_observation_v0_1.schema.json"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "experimental_extension_protocol_v0_1",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "not_applicable_document_protocol",
+                         "schema_enforcement_status":  "path_and_state_checked",
+                         "external_recomputation_status":  "not_applicable",
+                         "required_artifacts":  [
+                                                    "docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "cross_system_claim_handoff_v0_1",
+                         "implementation_status":  "preregistered_scaffold",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "integrated",
+                         "external_recomputation_status":  "not_started",
+                         "baseline_run_status":  "not_started",
+                         "corpus_freeze_status":  "draft_unfrozen",
+                         "optimization_status":  "prohibited_until_gate",
+                         "required_artifacts":  [
+                                                    "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md",
+                                                    "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json",
+                                                    "tools/check_cross_system_claim_handoff_v0_1.py",
+                                                    "tools/classify_unsupported_inheritance_v0_1.py"
+                                                ]
+                     },
+                     {
+                         "surface_id":  "authority_state_invariance_transition_v0_1",
+                         "implementation_status":  "implemented",
+                         "schema_status":  "present",
+                         "schema_enforcement_status":  "integrated",
+                         "external_recomputation_status":  "not_started",
+                         "required_artifacts":  [
+                                                    "docs/specifications/AUTHORITY_STATE_INVARIANCE_AND_TRANSITION_MODEL_v0_1.md",
+                                                    "schemas/validity_state_transition_event_v0_1.schema.json",
+                                                    "schemas/authority_transition_event_v0_1.schema.json",
+                                                    "schemas/reliance_event_v0_1.schema.json",
+                                                    "schemas/reliance_authority_misalignment_event_v0_1.schema.json",
+                                                    "tools/check_authority_state_invariance_v0_1.py",
+                                                    "tests/test_authority_state_invariance_v0_1.py",
+                                                    "docs/experiments/HISTORICAL_AUTHORITY_ACCRETION_EXPERIMENT_DRAFT_v0_1.md"
+                                                ]
+                     }
+                 ],
+    "known_limitations":  [
+                              {
+                                  "limitation_id":  "internal_reseal_root_of_trust",
+                                  "status":  "preserved_reproducible_limitation",
+                                  "summary":  "Coordinated mutation and internal re-sealing may satisfy current internal hash checks without an independent external anchor."
+                              },
+                              {
+                                  "limitation_id":  "lexical_non_authority_detection",
+                                  "status":  "preserved_reproducible_limitation",
+                                  "summary":  "The Day-0 non-authority check is lexical rather than a semantic or negation-aware authority adjudicator."
+                              },
+                              {
+                                  "limitation_id":  "receiver_nondeterminism",
+                                  "status":  "experiment_design_constraint",
+                                  "summary":  "Receiver outputs may be nondeterministic; raw outputs, parameters, versions, and replicates must be preserved."
+                              }
+                          ],
+    "invariant_non_claims":  [
+                                 "No truth validation",
+                                 "No compliance certification",
+                                 "No legal sufficiency",
+                                 "No execution authorization",
+                                 "No production approval",
+                                 "No institutional authority transfer",
+                                 "No reviewer endorsement inheritance"
+                             ]
+}

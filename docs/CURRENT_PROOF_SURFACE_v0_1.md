@@ -139,9 +139,9 @@ Fork can reconstruct a preserved AI-assisted reliance event over time from seale
 Current status:
 
 - protocol defined;
-- schemas not yet implemented;
-- Day-0 packet implemented; replay receipts not yet implemented;
-- longitudinal replay receipts not yet produced.
+- Day-0 packet and temporal replay schemas are present; mechanical schema enforcement is exercised by `tools/validate_json_schema_bundle_v0_1.py`;
+- Day-0 packet implemented; Day-0 temporal replay receipt implemented;
+- delayed Day-7 / Day-30 / Day-90 replay receipts not yet produced.
 
 Do not cite the longitudinal protocol as evidence that Fork has already demonstrated delayed replay over time.
 
@@ -431,7 +431,7 @@ Round 005 identified stale Day-0 status language and a PowerShell-only verifier 
 Current status:
 Day-0 packet: implemented.
 Day-0 checker: implemented.
-Day-0 replay receipt: not yet implemented.
+Day-0 replay receipt: implemented.
 Day-7 / Day-30 / Day-90 replay receipts: not yet implemented.
 Platform fallback:
 docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
@@ -518,9 +518,9 @@ Correct language:
 - schema file present;
 - public verifier path coverage present;
 - Day-0 checker required-field/hash checks present;
-- mechanical JSON Schema enforcement not implemented in v0.1.
+- mechanical JSON Schema enforcement is provided by the integrated schema-bundle validator; the original Day-0 checker remains a custom required-field/hash checker.
 
-Do not describe the Day-0 manifest as schema-validated unless a future schema-enforcement upgrade is added.
+Describe the Day-0 manifest as schema-validated only when the integrated schema-bundle validator has passed; do not attribute that enforcement to the original Day-0 checker.
 
 <!-- FORK_LONGITUDINAL_DAY0_SCHEMA_SCOPE:END -->
 
@@ -550,3 +550,28 @@ Boundary:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->
+
+<!-- BEGIN FORK_CANONICAL_STATE_AND_CSH_V0_1 -->
+## Canonical state and controlled-experiment admission
+
+Machine-readable canonical state:
+
+- `docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json`
+
+State checker:
+
+- `python tools/check_fork_proof_surface_state_v0_1.py --json --check-summary`
+
+Current normalized status:
+
+- Public Review Round 006 is the current bounded review round.
+- Human Recomputation Sandbox v0.1.2 implements Reviewer Access Path Integrity / Retrieval Distortion / Interpreter Compatibility fixtures and a deterministic checker.
+- The Longitudinal Day-0 packet is implemented.
+- The Day-0 temporal replay receipt is implemented.
+- Day-7, Day-30, and Day-90 delayed replay receipts are not yet implemented.
+- Mechanical JSON Schema enforcement for the listed Day-0, replay, Round 006, canonical-state, access-path, and CSH artifacts is exercised by `tools/validate_json_schema_bundle_v0_1.py`.
+- Cross-System Claim Handoff v0.1 has a preregistered scaffold; its corpus/configuration freeze is incomplete and its baseline has not started.
+- Optimization is prohibited until baseline completion and independent classification recomputation.
+
+The machine-readable state file controls implementation-status summaries. It does not convert implementation into validation, truth, compliance, legal sufficiency, production readiness, or authority.
+<!-- END FORK_CANONICAL_STATE_AND_CSH_V0_1 -->

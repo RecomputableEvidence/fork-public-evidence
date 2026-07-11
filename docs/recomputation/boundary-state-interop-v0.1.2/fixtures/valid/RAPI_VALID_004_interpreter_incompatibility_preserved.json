@@ -1,0 +1,21 @@
+{
+  "observation_id": "RAPI_VALID_004",
+  "schema_version": "v0.1",
+  "fixture_family": "reviewer_access_path_integrity",
+  "expected_valid": true,
+  "access_state": "packet_only",
+  "retrieval_fidelity": "bounded_complete",
+  "interpreter_state": "incompatible",
+  "execution_state": "unavailable",
+  "content_assessment_permitted": false,
+  "content_findings": [],
+  "review_claims": [
+    "interpreter incompatibility observed"
+  ],
+  "non_claims": [
+    "not artifact failure",
+    "not checker failure",
+    "not negative content review"
+  ],
+  "notes": "Interpreter incompatibility belongs to the review path, not the artifact content."
+}

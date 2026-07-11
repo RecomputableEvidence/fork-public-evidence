@@ -1,0 +1,49 @@
+{
+  "receiver_run_id": "CSH-RUN-SIM-A-control_h0-deterministic_receiver-r1",
+  "classification_run_id": "CSH-CLASS-CLEAN-001",
+  "classification_method_id": "fork_deterministic_unsupported_inheritance_v0_1",
+  "scenario": {
+    "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_A1",
+        "text": "The bounded structural checker passed for the supplied fixture set."
+      }
+    ],
+    "source_non_claims": [
+      "The result does not establish truth.",
+      "The result does not certify compliance.",
+      "The result does not transfer authority."
+    ],
+    "expected_relationship": "PRESERVED",
+    "unresolved_references": []
+  },
+  "condition": "control_h0",
+  "raw_output_binding": {
+    "path": "tests/fixtures/csh/raw_clean.txt",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "normalized_output": {
+    "downstream_claims": [
+      {
+        "claim_id": "DOWN_A1",
+        "text": "The bounded structural checker passed for the supplied fixture set.",
+        "relationship_to_source": "PRESERVED",
+        "source_claim_id": "CLAIM_A1",
+        "new_boundary_contract_id": null,
+        "authority_references": [],
+        "evidence_references": []
+      }
+    ],
+    "preserved_non_claims": [
+      "The result does not establish truth.",
+      "The result does not certify compliance.",
+      "The result does not transfer authority."
+    ],
+    "reference_resolutions": [],
+    "authority_inherited": false,
+    "evidence_promotions": [],
+    "verification_upgrades": [],
+    "aggregate_state": "bounded"
+  }
+}

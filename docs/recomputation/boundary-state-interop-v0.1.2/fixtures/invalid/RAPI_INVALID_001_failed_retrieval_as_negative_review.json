@@ -1,0 +1,21 @@
+{
+  "observation_id": "RAPI_INVALID_001",
+  "schema_version": "v0.1",
+  "fixture_family": "reviewer_access_path_integrity",
+  "expected_valid": false,
+  "access_state": "retrieval_failed",
+  "retrieval_fidelity": "none",
+  "interpreter_state": "not_attempted",
+  "execution_state": "not_attempted",
+  "content_assessment_permitted": true,
+  "content_findings": [
+    "repository is structurally defective"
+  ],
+  "review_claims": [
+    "negative content review completed"
+  ],
+  "non_claims": [
+    "not endorsement"
+  ],
+  "notes": "Invalid: failed retrieval was upgraded into a content conclusion."
+}

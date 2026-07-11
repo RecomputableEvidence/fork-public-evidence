@@ -378,3 +378,16 @@ Boundary:
 - it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
 
 <!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->
+
+<!-- BEGIN FORK_EXPERIMENTAL_CONVERGENCE_ROUTING_V0_1 -->
+## Experimental convergence and CSH routing
+
+- Canonical state: `docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json`
+- Experimental Extension Protocol: `docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md`
+- Human Recomputation Sandbox v0.1.2: `docs/recomputation/boundary-state-interop-v0.1.2/README.md`
+- Public Review Round 006: `docs/review/public-rounds/round-006/README.md`
+- Cross-System Claim Handoff v0.1: `docs/experiments/cross-system-claim-handoff-v0.1/README.md`
+- Integrated verifier: `scripts/verify_fork_proof_surface_v0_1.ps1`
+
+The CSH baseline is not started and no result claim is made.
+<!-- END FORK_EXPERIMENTAL_CONVERGENCE_ROUTING_V0_1 -->

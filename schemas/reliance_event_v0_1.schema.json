@@ -1,0 +1,394 @@
+{
+  "$id": "https://recomputableevidence.example/schemas/reliance_event_v0_1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_validity_states": {
+      "items": {
+        "enum": [
+          "CURRENT",
+          "EXPIRED",
+          "SUPERSEDED",
+          "UNRESOLVED"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority_state_after": {
+      "additionalProperties": false,
+      "properties": {
+        "context_refs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "permitted_reliance_classes": {
+          "items": {
+            "enum": [
+              "INFORMATIONAL_REFERENCE",
+              "ANALYTICAL_INPUT",
+              "DECISION_SUPPORT",
+              "EXECUTION_JUSTIFICATION"
+            ]
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "NONE",
+            "ACTIVE",
+            "EXPIRED",
+            "REVOKED",
+            "SUPERSEDED"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "permitted_reliance_classes",
+        "context_refs"
+      ],
+      "type": "object"
+    },
+    "authority_state_before": {
+      "additionalProperties": false,
+      "properties": {
+        "context_refs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "permitted_reliance_classes": {
+          "items": {
+            "enum": [
+              "INFORMATIONAL_REFERENCE",
+              "ANALYTICAL_INPUT",
+              "DECISION_SUPPORT",
+              "EXECUTION_JUSTIFICATION"
+            ]
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "NONE",
+            "ACTIVE",
+            "EXPIRED",
+            "REVOKED",
+            "SUPERSEDED"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "permitted_reliance_classes",
+        "context_refs"
+      ],
+      "type": "object"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "claim_permitted_context_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "claim_permitted_reliance_classes": {
+      "items": {
+        "enum": [
+          "INFORMATIONAL_REFERENCE",
+          "ANALYTICAL_INPUT",
+          "DECISION_SUPPORT",
+          "EXECUTION_JUSTIFICATION"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "consumer": {
+      "additionalProperties": false,
+      "properties": {
+        "subject_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "subject_type": {
+          "enum": [
+            "PERSON",
+            "ROLE",
+            "SYSTEM",
+            "ORGANIZATION",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "required": [
+        "subject_id",
+        "subject_type"
+      ],
+      "type": "object"
+    },
+    "declared_governance_profile_evaluation": {
+      "enum": [
+        "SATISFIED",
+        "NOT_SATISFIED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "event_family": {
+      "const": "reliance_event"
+    },
+    "event_id": {
+      "pattern": "^[A-Za-z0-9._:/-]+$",
+      "type": "string"
+    },
+    "fork_enforcement_action": {
+      "const": "NONE"
+    },
+    "governance_profile": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "profile_id": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "required_authority_statuses": {
+              "items": {
+                "enum": [
+                  "NONE",
+                  "ACTIVE",
+                  "EXPIRED",
+                  "REVOKED",
+                  "SUPERSEDED"
+                ]
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "required_context_refs": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "required_reliance_classes": {
+              "items": {
+                "enum": [
+                  "INFORMATIONAL_REFERENCE",
+                  "ANALYTICAL_INPUT",
+                  "DECISION_SUPPORT",
+                  "EXECUTION_JUSTIFICATION"
+                ]
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "required_validity_states": {
+              "items": {
+                "enum": [
+                  "CURRENT",
+                  "EXPIRED",
+                  "SUPERSEDED",
+                  "UNRESOLVED"
+                ]
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "profile_id",
+            "required_reliance_classes",
+            "required_authority_statuses",
+            "required_validity_states",
+            "required_context_refs"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "apparent_supporting_references": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "reference_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "root_claim_id": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "reference_id",
+              "root_claim_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "declared_independent_root_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "derivation_depth": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "independent_validation_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "independent_validation_records": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "root_claim_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "validation_id": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "validation_id",
+              "root_claim_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "root_claim_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "validation_chain_depth": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "derivation_depth",
+        "independent_validation_count",
+        "validation_chain_depth",
+        "declared_independent_root_count",
+        "root_claim_ids",
+        "apparent_supporting_references",
+        "independent_validation_records"
+      ],
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "observed_context_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "observed_non_claims": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "observed_reliance_class": {
+      "enum": [
+        "INFORMATIONAL_REFERENCE",
+        "ANALYTICAL_INPUT",
+        "DECISION_SUPPORT",
+        "EXECUTION_JUSTIFICATION"
+      ]
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "source_non_claims": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "validity_state_after": {
+      "enum": [
+        "CURRENT",
+        "EXPIRED",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ]
+    },
+    "validity_state_before": {
+      "enum": [
+        "CURRENT",
+        "EXPIRED",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_family",
+    "event_id",
+    "claim_id",
+    "occurred_at",
+    "consumer",
+    "observed_reliance_class",
+    "observed_context_ref",
+    "accepted_validity_states",
+    "claim_permitted_reliance_classes",
+    "claim_permitted_context_refs",
+    "validity_state_before",
+    "validity_state_after",
+    "authority_state_before",
+    "authority_state_after",
+    "source_non_claims",
+    "observed_non_claims",
+    "lineage",
+    "governance_profile",
+    "declared_governance_profile_evaluation",
+    "fork_enforcement_action"
+  ],
+  "title": "Fork Reliance Event v0.1",
+  "type": "object"
+}

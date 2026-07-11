@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/public_review_round_006_observation_v0_1.schema.json",
+  "title": "Fork Public Review Round 006 Observation v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "observation_id",
+    "schema_version",
+    "round_id",
+    "source_class",
+    "access_state",
+    "preserved_interpretation",
+    "recommendations",
+    "citation_treatment",
+    "authority_transferred",
+    "endorsement_claimed",
+    "repository_claims_require_recomputation",
+    "non_claims"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string",
+      "pattern": "^ROUND006_OBS_[0-9]{3}$"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "round_id": {
+      "const": "round-006"
+    },
+    "source_class": {
+      "const": "user_supplied_exterior_architectural_analysis"
+    },
+    "access_state": {
+      "enum": [
+        "full_supplied_text",
+        "partial_supplied_text",
+        "summary_only"
+      ]
+    },
+    "preserved_interpretation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "citation_treatment": {
+      "enum": [
+        "require_independent_source_specific_verification"
+      ]
+    },
+    "authority_transferred": {
+      "const": false
+    },
+    "endorsement_claimed": {
+      "const": false
+    },
+    "repository_claims_require_recomputation": {
+      "const": true
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_summary_path": {
+      "type": "string"
+    }
+  }
+}

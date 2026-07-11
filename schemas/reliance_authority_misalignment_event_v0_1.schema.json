@@ -1,0 +1,146 @@
+{
+  "$id": "https://recomputableevidence.example/schemas/reliance_authority_misalignment_event_v0_1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_scope_compatible": {
+      "type": "boolean"
+    },
+    "checker_version": {
+      "const": "AUTHORITY_STATE_INVARIANCE_CHECKER_v0_1"
+    },
+    "claim_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "computed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "event_family": {
+      "const": "reliance_authority_misalignment_event"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fork_enforcement_action": {
+      "const": "NONE"
+    },
+    "governance_profile_evaluation": {
+      "enum": [
+        "SATISFIED",
+        "NOT_SATISFIED",
+        "NOT_EVALUABLE"
+      ]
+    },
+    "lineage_independence_compatible": {
+      "type": "boolean"
+    },
+    "lineage_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "apparent_supporting_reference_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "derivation_depth": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "dvg": {
+          "type": "integer"
+        },
+        "dvr": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "independent_validation_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "independently_validated_root_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "pci_count": {
+          "type": "integer"
+        },
+        "pci_ratio": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "validation_chain_depth": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "derivation_depth",
+        "independent_validation_count",
+        "validation_chain_depth",
+        "independently_validated_root_count",
+        "apparent_supporting_reference_count",
+        "dvg",
+        "dvr",
+        "pci_count",
+        "pci_ratio"
+      ],
+      "type": "object"
+    },
+    "misalignment_dimensions": {
+      "items": {
+        "enum": [
+          "VALIDITY_STATE",
+          "PERMITTED_RELIANCE",
+          "AUTHORITY_SCOPE",
+          "GOVERNANCE_PROFILE",
+          "NON_CLAIM_SURVIVAL",
+          "LINEAGE_INDEPENDENCE"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "non_claim_survival_compatible": {
+      "type": "boolean"
+    },
+    "permitted_reliance_compatible": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "source_reliance_event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "structural_misalignment_detected": {
+      "type": "boolean"
+    },
+    "validity_state_compatible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_family",
+    "event_id",
+    "source_reliance_event_id",
+    "claim_id",
+    "computed_at",
+    "checker_version",
+    "validity_state_compatible",
+    "permitted_reliance_compatible",
+    "authority_scope_compatible",
+    "governance_profile_evaluation",
+    "non_claim_survival_compatible",
+    "lineage_independence_compatible",
+    "structural_misalignment_detected",
+    "misalignment_dimensions",
+    "lineage_metrics",
+    "fork_enforcement_action"
+  ],
+  "title": "Fork Reliance Authority Misalignment Event v0.1",
+  "type": "object"
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_receipt_v0_1.schema.json",
+  "title": "Cross-System Claim Handoff Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "receipt_id",
+    "schema_version",
+    "experiment_id",
+    "receipt_classification",
+    "generated_at_utc",
+    "subject",
+    "observed_execution",
+    "observed_hashes",
+    "interpretation",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "receipt_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "experiment_id": {
+      "const": "cross_system_claim_handoff_v0_1"
+    },
+    "receipt_classification": {
+      "enum": [
+        "receiver_execution_receipt",
+        "classification_recomputation_receipt",
+        "baseline_synthesis_receipt",
+        "temporal_replay_receipt"
+      ]
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "object"
+    },
+    "observed_execution": {
+      "type": "object"
+    },
+    "observed_hashes": {
+      "type": "object"
+    },
+    "interpretation": {
+      "type": "object",
+      "required": [
+        "proves",
+        "does_not_prove"
+      ],
+      "properties": {
+        "proves": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "does_not_prove": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "non_authority_statement": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
