@@ -1,0 +1,47 @@
+{
+  "artifact_type": "csh_hosted_receiver_configuration",
+  "schema_version": "v0.1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "receiver_class_id": "llm_receiver_a",
+  "receiver_type": "llm",
+  "provider": "Meta",
+  "serving_platform": "GitHub Models",
+  "endpoint": "https://models.github.ai/inference/chat/completions",
+  "displayed_model_name": "Llama 4 Scout 17B 16E Instruct",
+  "requested_model_id": "meta/Llama-4-Scout-17B-16E-Instruct",
+  "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
+  "parameters": {
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048,
+    "presence_penalty": 0,
+    "frequency_penalty": 0,
+    "stream": false
+  },
+  "capabilities": {
+    "tools": "omitted",
+    "retrieval": "disabled",
+    "memory": "disabled",
+    "conversation_history": "none",
+    "seed": "omitted"
+  },
+  "authentication": {
+    "environment_variable": "GITHUB_TOKEN",
+    "required_permission": "models: read",
+    "secret_persisted": false
+  },
+  "smoke_test": {
+    "status": "passed",
+    "date": "2026-07-11",
+    "classification": "PILOT_CONFIGURATION_TEST",
+    "baseline_inclusion": false,
+    "hypothesis_test_inclusion": false,
+    "response_literal": "CSH_RECEIVER_A_SMOKE_PASS"
+  },
+  "baseline_status": "blocked_until_frozen",
+  "limitations": [
+    "backend deployment immutability is not proven",
+    "bit-identical hosted-model output is not guaranteed",
+    "receiver A and receiver B share the GitHub Models serving platform"
+  ]
+}
