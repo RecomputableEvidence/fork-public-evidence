@@ -1,25 +1,199 @@
 {
-  "experiment_id": "cross_system_claim_handoff_v0_1",
-  "schema_version": "v0.1",
-  "freeze_id": "CSH_CORPUS_FREEZE_v0_1",
-  "freeze_status": "draft_unfrozen",
-  "freeze_completed_at_utc": null,
-  "base_commit_before_freeze": null,
-  "release_commit": null,
-  "preregistration_sha256": null,
-  "manifest_sha256": null,
-  "system_registry_sha256": null,
-  "scenario_artifacts": [],
-  "prompt_artifacts": [],
-  "handoff_artifacts": [],
-  "schema_artifacts": [],
-  "checker_artifacts": [],
-  "blocking_unresolved_items": [
-    "complete Step 5 configuration is present but has not been corpus-frozen",
-    "scenario, prompt, handoff, registry, schema, checker, and run-order digests are not sealed",
-    "subject commit is not bound to the freeze receipt",
-    "verified signed freeze tag has not been created and pushed"
-  ],
-  "baseline_execution_permitted": false,
-  "non_authority_statement": "A completed freeze binds experiment artifacts for mutation detection; it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "schema_version":  "v0.1",
+    "freeze_id":  "CSH_CORPUS_FREEZE_v0_1",
+    "freeze_status":  "frozen",
+    "freeze_completed_at_utc":  "2026-07-11T19:39:55.5382831Z",
+    "base_commit_before_freeze":  "ce52bbddb5fac0de46b23ae64e733d5358725914",
+    "release_commit":  null,
+    "preregistration_sha256":  "25758e5ed0aa0691318797286b9e65fe274ada02d9e83f860cf439518e69ac39",
+    "manifest_sha256":  "6d2729a185d06f798354c803e796a72d04a24a5b9c3d243eb46440c2efd3290c",
+    "system_registry_sha256":  "43811d51099ef571aeb8c8d2878091db7dac18eccc3262d30833b4953cfe2b35",
+    "scenario_artifacts":  [
+                               {
+                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_A_BOUNDARY_PRESERVED.json",
+                                   "sha256":  "968ebdb7714a9ddda1a4540e6bfc47e41f5d9f0f4f3063901aba93b624bb1d89"
+                               },
+                               {
+                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_B_BOUNDARY_NARROWED.json",
+                                   "sha256":  "b159df95a754bc9a9344d4995fbc943866a334ada1b4768fdd537d42282d399a"
+                               },
+                               {
+                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_C_NON_CLAIM_DROPPED.json",
+                                   "sha256":  "c850ce14368d875bd9e753888f9cb714705228cd32c0186affd5feda1a5598d2"
+                               },
+                               {
+                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_D_EXPANSION_WITHOUT_AUTHORITY.json",
+                                   "sha256":  "ddabfc896601418125691a4ff314160b01fe2baf74e2f2eb6ffe5e2ff70be6d8"
+                               },
+                               {
+                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_F_POINTER_UNRESOLVED.json",
+                                   "sha256":  "3e27f8ca3108aeded5dc82e4d07b81d2edfced01c75f23a48cbc0d2cc5acd54f"
+                               },
+                               {
+                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json",
+                                   "sha256":  "d950d45f7eb2db5ab48033b90543e68082545e62204584b2c0d965be5270066b"
+                               }
+                           ],
+    "prompt_artifacts":  [
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PAIR_MANIFEST_v0_1.json",
+                                 "sha256":  "d663e8cd2d1cc177fd1f897628aa37e44fb31c8e2cdafbb8aabc008566a2e04b"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_A_BOUNDARY_PRESERVED_control_h0_v0_1.json",
+                                 "sha256":  "345a5dd5f4be9634b44f4ebb0791a9bcbff33e87f843b07b8f88d3fc9120b17f"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_A_BOUNDARY_PRESERVED_instrumented_h1_v0_1.json",
+                                 "sha256":  "c6e5798eca31dfe231fc566eb8b0a347e949e85c47a1527e26f879f6d2d0a92f"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_B_BOUNDARY_NARROWED_control_h0_v0_1.json",
+                                 "sha256":  "b54b39708bb0097714a2de1e84cd0a6c329ea81830c30fa53eaf44197c8b63eb"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_B_BOUNDARY_NARROWED_instrumented_h1_v0_1.json",
+                                 "sha256":  "4b776a6320033323b7c1b5296cd0e284078f7e6b7bc285c19974215f2464f844"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_control_h0_v0_1.json",
+                                 "sha256":  "0dc6fed5454646f7c491768755c798a8ac5fbdff9f4ba81522ed4978ab08eb8b"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_instrumented_h1_v0_1.json",
+                                 "sha256":  "6a119a198919b263af2482f668b4aefb349f423682a8c4a547b67f4f0f44cfe7"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_D_EXPANSION_WITHOUT_AUTHORITY_control_h0_v0_1.json",
+                                 "sha256":  "52c1cbc31d8883fbd05e930a7601c8ba1a9143b823f9b7997547a4e1a7d26ce3"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_D_EXPANSION_WITHOUT_AUTHORITY_instrumented_h1_v0_1.json",
+                                 "sha256":  "6949bb8345791a69c5d468b562ef93e76780dc9651db2276ddfc620670c2f4ae"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_F_POINTER_UNRESOLVED_control_h0_v0_1.json",
+                                 "sha256":  "1a7efc07654bcf08363bd559e9807a002b9d1c1e85ac63d4531c6f553f3b70c4"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_F_POINTER_UNRESOLVED_instrumented_h1_v0_1.json",
+                                 "sha256":  "aa93e27a722845aa1ec9405233ca409febd884824fc09230fdf1aab7104c398a"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_H_CASCADING_INHERITANCE_control_h0_v0_1.json",
+                                 "sha256":  "858a376e4030f373eb84228da4f717bf9e554d53a4afe0281c4e1710ac9a15ae"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_H_CASCADING_INHERITANCE_instrumented_h1_v0_1.json",
+                                 "sha256":  "e77b82ec54ad5676c5e7fbbf3e986dffe6bdb6414ea1199547c141787c32eeea"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json",
+                                 "sha256":  "362da15627c796187bd9d06f806f32f408e68e66cb41186628a4e3a636aa7295"
+                             },
+                             {
+                                 "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/SHARED_RECEIVER_INSTRUCTION_v0_1.txt",
+                                 "sha256":  "5248bc2a911ed5253c0b2974c1923cac69f5ff39db2a22408d98fd9fd9dd5bd1"
+                             }
+                         ],
+    "handoff_artifacts":  [
+                              {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_A_BOUNDARY_PRESERVED_v0_1.json",
+                                  "sha256":  "ffaf4707e5eaf6a8d29845c96320eb09f03ea7035fe3a79617d5770ff2339193"
+                              },
+                              {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_B_BOUNDARY_NARROWED_v0_1.json",
+                                  "sha256":  "c1f71f23ab73a433ee5247e8ed4980b697b1bcad8f1eeb0774265e90c463fa13"
+                              },
+                              {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_C_NON_CLAIM_DROPPED_v0_1.json",
+                                  "sha256":  "3e2be41e5469f847ae394810d2b8c5e1782aae12c793202c16572a076bf68178"
+                              },
+                              {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_D_EXPANSION_WITHOUT_AUTHORITY_v0_1.json",
+                                  "sha256":  "8841647b93d8d0e501146d2af37f16a533fb342b25f5d508c0c77916c58757a4"
+                              },
+                              {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_F_POINTER_UNRESOLVED_v0_1.json",
+                                  "sha256":  "061c600b02e993eeb7bdbf3b9ae376cbf2f742425df6a23348756afdd0138634"
+                              },
+                              {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_H_CASCADING_INHERITANCE_v0_1.json",
+                                  "sha256":  "1aade8df2fb594b41f08bfa2a904278e074772d5dbedaa0b98fde7e7b1835888"
+                              }
+                          ],
+    "schema_artifacts":  [
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_corpus_freeze_v0_1.schema.json",
+                                 "sha256":  "4519f8e9f38ec8509c4ad5290a5dc53eafd24fe572a87e73fccd82eb4693aefe"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_manifest_v0_1.schema.json",
+                                 "sha256":  "b0c7f035639b41348f3c055f72ef2f99a8ce7ca221eb15d0b128be45b7f383ad"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
+                                 "sha256":  "b13d243a26411f640be11f4371541a641b52d59940986e2f08e00dac3ee99d54"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_receipt_v0_1.schema.json",
+                                 "sha256":  "2b8605a3a4b490c216ab26a7f7a1a04d98483aff14198fddc9867d39f681ee00"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_result_v0_1.schema.json",
+                                 "sha256":  "3e71635819cd0ded05fc04052f54e743b0d4988e6090405d799deb4d3e980914"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_run_order_v0_1.schema.json",
+                                 "sha256":  "09a1f5be310336e60f00ac9929b679acf6f73c7c266b0a3270613a6955ee5fab"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_run_v0_1.schema.json",
+                                 "sha256":  "64fac66c8ae8a6fa43b98b50db0a510d4a895622ff126002f45261ff36400487"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_scenario_v0_1.schema.json",
+                                 "sha256":  "b871653ca52e8f2121c87306deada7a9a30cec54909620955fd8c3051c56e709"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
+                                 "sha256":  "a0e1e5d191f08edda86984208de15a64e443e957b97156b383f0ed3c37ffff70"
+                             },
+                             {
+                                 "path":  "schemas/cross_system_claim_handoff_system_registry_v0_1.schema.json",
+                                 "sha256":  "04ec512d63fa11124f8e5eb9d95da4a45b58e0fc5698a693103425b13bf0eb00"
+                             },
+                             {
+                                 "path":  "schemas/unsupported_inheritance_classification_v0_1.schema.json",
+                                 "sha256":  "e8a470f36e82ae063ed253472ee2b38aff50b58599149782dffa8c7749ea6274"
+                             },
+                             {
+                                 "path":  "schemas/unsupported_inheritance_classifier_input_v0_1.schema.json",
+                                 "sha256":  "c4e9fac6b85b55b76a853a6cc0ef2780e55cca207ca24d39c74fc5aa8c3c6652"
+                             }
+                         ],
+    "checker_artifacts":  [
+                              {
+                                  "path":  "tools/check_cross_system_claim_handoff_v0_1.py",
+                                  "sha256":  "57435bd86d9b515cfcc06dcf437ec4ed3712d770acd880d95e87bf08aa6250a0"
+                              },
+                              {
+                                  "path":  "tools/check_csh_configuration_v0_1.py",
+                                  "sha256":  "8e4314d402336e9adabe8361a85e067b56865667c8bd6695bc81bb9b40faef8f"
+                              },
+                              {
+                                  "path":  "tools/classify_unsupported_inheritance_v0_1.py",
+                                  "sha256":  "0860dbecb70097d6e87a52e16566bcef7533d46096a06e76a7b038709d6ff7ce"
+                              },
+                              {
+                                  "path":  "tools/validate_json_schema_bundle_v0_1.py",
+                                  "sha256":  "b127d57b3eb2c9021ba49e70c1171d2d001b71b386df19607a7d1101e390f1a1"
+                              }
+                          ],
+    "blocking_unresolved_items":  [
+
+                                  ],
+    "baseline_execution_permitted":  true,
+    "non_authority_statement":  "A completed freeze binds experiment artifacts for mutation detection; it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
 }

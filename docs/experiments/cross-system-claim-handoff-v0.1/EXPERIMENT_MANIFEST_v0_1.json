@@ -1,66 +1,66 @@
 {
-  "experiment_id": "cross_system_claim_handoff_v0_1",
-  "schema_version": "v0.1",
-  "status": "preregistered_not_executed",
-  "governing_protocol": "docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md",
-  "preregistration": "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md",
-  "hypothesis": {
-    "expression": "E[U | H = 1] < E[U | H = 0]",
-    "u_definition": "unsupported-inheritance events per receiver run",
-    "h_definition": "presence of explicit Fork handoff-state artifact"
-  },
-  "design": {
-    "scenarios": 6,
-    "conditions": [
-      "control_h0",
-      "instrumented_h1"
-    ],
-    "receiver_classes": [
-      "llm_receiver_a",
-      "llm_receiver_b",
-      "deterministic_receiver"
-    ],
-    "replicates_per_cell": 3,
-    "planned_receiver_runs": 108,
-    "pairing_keys": [
-      "scenario_id",
-      "receiver_class_id",
-      "replicate_id"
-    ]
-  },
-  "scenario_ids": [
-    "SIM_A_BOUNDARY_PRESERVED",
-    "SIM_B_BOUNDARY_NARROWED",
-    "SIM_C_NON_CLAIM_DROPPED",
-    "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
-    "SIM_F_POINTER_UNRESOLVED",
-    "SIM_H_CASCADING_INHERITANCE"
-  ],
-  "schemas": [
-    "schemas/cross_system_claim_handoff_manifest_v0_1.schema.json",
-    "schemas/cross_system_claim_handoff_run_v0_1.schema.json",
-    "schemas/cross_system_claim_handoff_result_v0_1.schema.json",
-    "schemas/cross_system_claim_handoff_receipt_v0_1.schema.json",
-    "schemas/unsupported_inheritance_classification_v0_1.schema.json",
-    "schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
-    "schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
-    "schemas/cross_system_claim_handoff_run_order_v0_1.schema.json"
-  ],
-  "checkers": [
-    "tools/check_cross_system_claim_handoff_v0_1.py",
-    "tools/classify_unsupported_inheritance_v0_1.py",
-    "tools/validate_json_schema_bundle_v0_1.py",
-    "tools/check_csh_configuration_v0_1.py"
-  ],
-  "freeze_status": "draft_unfrozen",
-  "baseline_run_status": "not_started",
-  "optimization_status": "prohibited_until_baseline_and_independent_recomputation",
-  "non_claims": [
-    "not proof of the hypothesis",
-    "not production readiness",
-    "not compliance certification",
-    "not legal sufficiency",
-    "not execution authorization",
-    "not institutional authority"
-  ]
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "schema_version":  "v0.1",
+    "status":  "frozen_not_executed",
+    "governing_protocol":  "docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md",
+    "preregistration":  "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md",
+    "hypothesis":  {
+                       "expression":  "E[U | H = 1] \u003c E[U | H = 0]",
+                       "u_definition":  "unsupported-inheritance events per receiver run",
+                       "h_definition":  "presence of explicit Fork handoff-state artifact"
+                   },
+    "design":  {
+                   "scenarios":  6,
+                   "conditions":  [
+                                      "control_h0",
+                                      "instrumented_h1"
+                                  ],
+                   "receiver_classes":  [
+                                            "llm_receiver_a",
+                                            "llm_receiver_b",
+                                            "deterministic_receiver"
+                                        ],
+                   "replicates_per_cell":  3,
+                   "planned_receiver_runs":  108,
+                   "pairing_keys":  [
+                                        "scenario_id",
+                                        "receiver_class_id",
+                                        "replicate_id"
+                                    ]
+               },
+    "scenario_ids":  [
+                         "SIM_A_BOUNDARY_PRESERVED",
+                         "SIM_B_BOUNDARY_NARROWED",
+                         "SIM_C_NON_CLAIM_DROPPED",
+                         "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+                         "SIM_F_POINTER_UNRESOLVED",
+                         "SIM_H_CASCADING_INHERITANCE"
+                     ],
+    "schemas":  [
+                    "schemas/cross_system_claim_handoff_manifest_v0_1.schema.json",
+                    "schemas/cross_system_claim_handoff_run_v0_1.schema.json",
+                    "schemas/cross_system_claim_handoff_result_v0_1.schema.json",
+                    "schemas/cross_system_claim_handoff_receipt_v0_1.schema.json",
+                    "schemas/unsupported_inheritance_classification_v0_1.schema.json",
+                    "schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
+                    "schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
+                    "schemas/cross_system_claim_handoff_run_order_v0_1.schema.json"
+                ],
+    "checkers":  [
+                     "tools/check_cross_system_claim_handoff_v0_1.py",
+                     "tools/classify_unsupported_inheritance_v0_1.py",
+                     "tools/validate_json_schema_bundle_v0_1.py",
+                     "tools/check_csh_configuration_v0_1.py"
+                 ],
+    "freeze_status":  "frozen",
+    "baseline_run_status":  "not_started",
+    "optimization_status":  "prohibited_until_baseline_and_independent_recomputation",
+    "non_claims":  [
+                       "not proof of the hypothesis",
+                       "not production readiness",
+                       "not compliance certification",
+                       "not legal sufficiency",
+                       "not execution authorization",
+                       "not institutional authority"
+                   ]
 }

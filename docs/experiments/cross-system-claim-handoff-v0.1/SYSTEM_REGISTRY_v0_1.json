@@ -1,93 +1,93 @@
 {
-  "experiment_id": "cross_system_claim_handoff_v0_1",
-  "schema_version": "v0.1",
-  "registry_status": "draft_unfrozen",
-  "receiver_classes": [
-    {
-      "receiver_class_id": "llm_receiver_a",
-      "receiver_type": "llm",
-      "provider": "Meta via GitHub Models",
-      "model_or_system": "meta/Llama-4-Scout-17B-16E-Instruct",
-      "version": "requested model ID meta/Llama-4-Scout-17B-16E-Instruct; expected returned model Llama-4-Scout-17B-16E-Instruct",
-      "parameters": {
-        "endpoint": "https://models.github.ai/inference/chat/completions",
-        "temperature": 0,
-        "top_p": 1,
-        "max_tokens": 2048,
-        "presence_penalty": 0,
-        "frequency_penalty": 0,
-        "stream": false,
-        "tools": "omitted",
-        "retrieval": "disabled",
-        "memory": "disabled",
-        "conversation_history": "none",
-        "seed": "omitted",
-        "authentication_environment_variable": "GITHUB_TOKEN",
-        "required_permission": "models: read",
-        "secret_persisted": false,
-        "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
-        "adapter_path": "tools/csh_receiver_a_llama_v0_1.py",
-        "adapter_sha256": "43d161d5234a0a69454c58dd7ac565bc3a2f9b7b669c142d161a903c4a92c548",
-        "configuration_path": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json",
-        "configuration_sha256": "c25328711e165d8aa841dd0c95a93e46cc5acaa96b8ed1d75fa02cfe7a5487a9"
-      },
-      "access_path": "GitHub Models REST inference through tools/csh_receiver_a_llama_v0_1.py"
-    },
-    {
-      "receiver_class_id": "llm_receiver_b",
-      "receiver_type": "llm",
-      "provider": "DeepSeek via GitHub Models",
-      "model_or_system": "deepseek/DeepSeek-V3-0324",
-      "version": "requested model ID deepseek/DeepSeek-V3-0324; expected returned model DeepSeek-V3-0324",
-      "parameters": {
-        "endpoint": "https://models.github.ai/inference/chat/completions",
-        "temperature": 0,
-        "top_p": 1,
-        "max_tokens": 2048,
-        "presence_penalty": 0,
-        "frequency_penalty": 0,
-        "stream": false,
-        "tools": "omitted",
-        "retrieval": "disabled",
-        "memory": "disabled",
-        "conversation_history": "none",
-        "seed": "omitted",
-        "authentication_environment_variable": "GITHUB_TOKEN",
-        "required_permission": "models: read",
-        "secret_persisted": false,
-        "expected_returned_model": "DeepSeek-V3-0324",
-        "adapter_path": "tools/csh_receiver_b_deepseek_v0_1.py",
-        "adapter_sha256": "4295bd125c47ca83a1d83b4095c4666fb42b0a449f9c7117fafb51dce0738077",
-        "configuration_path": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json",
-        "configuration_sha256": "71fb1726da1c494b122fe2b3d6d49ff668d707cbe2395ac082d6732d933d9df7"
-      },
-      "access_path": "GitHub Models REST inference through tools/csh_receiver_b_deepseek_v0_1.py"
-    },
-    {
-      "receiver_class_id": "deterministic_receiver",
-      "receiver_type": "deterministic",
-      "provider": "local",
-      "model_or_system": "tools/csh_receiver_deterministic_v0_1.py",
-      "version": "v0.1 source_sha256=647016cea04c9934cfd7ada4ab8ccf5a9a9932a0ab25113eae5514576c3e15e9",
-      "parameters": {
-        "network_calls": false,
-        "model_calls": false,
-        "randomness": false,
-        "clock_input": false,
-        "environment_input": false,
-        "ordered_rules": true,
-        "canonical_utf8_lf_json": true,
-        "byte_identical_for_identical_inputs_and_source": true,
-        "python_requirement": ">=3.11",
-        "source_sha256": "647016cea04c9934cfd7ada4ab8ccf5a9a9932a0ab25113eae5514576c3e15e9"
-      },
-      "access_path": "local_execution through tools/csh_receiver_deterministic_v0_1.py"
-    }
-  ],
-  "freeze_requirements": [
-    "verify tools/check_csh_configuration_v0_1.py passes",
-    "compute the system registry digest during PrepareFreeze",
-    "bind scenario, prompt, handoff, schema, checker, and fixed run-order artifacts",
-    "bind the subject commit and verify the signed freeze tag before baseline execution"
-  ]
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "schema_version":  "v0.1",
+    "registry_status":  "frozen",
+    "receiver_classes":  [
+                             {
+                                 "receiver_class_id":  "llm_receiver_a",
+                                 "receiver_type":  "llm",
+                                 "provider":  "Meta via GitHub Models",
+                                 "model_or_system":  "meta/Llama-4-Scout-17B-16E-Instruct",
+                                 "version":  "requested model ID meta/Llama-4-Scout-17B-16E-Instruct; expected returned model Llama-4-Scout-17B-16E-Instruct",
+                                 "parameters":  {
+                                                    "endpoint":  "https://models.github.ai/inference/chat/completions",
+                                                    "temperature":  0,
+                                                    "top_p":  1,
+                                                    "max_tokens":  2048,
+                                                    "presence_penalty":  0,
+                                                    "frequency_penalty":  0,
+                                                    "stream":  false,
+                                                    "tools":  "omitted",
+                                                    "retrieval":  "disabled",
+                                                    "memory":  "disabled",
+                                                    "conversation_history":  "none",
+                                                    "seed":  "omitted",
+                                                    "authentication_environment_variable":  "GITHUB_TOKEN",
+                                                    "required_permission":  "models: read",
+                                                    "secret_persisted":  false,
+                                                    "expected_returned_model":  "Llama-4-Scout-17B-16E-Instruct",
+                                                    "adapter_path":  "tools/csh_receiver_a_llama_v0_1.py",
+                                                    "adapter_sha256":  "43d161d5234a0a69454c58dd7ac565bc3a2f9b7b669c142d161a903c4a92c548",
+                                                    "configuration_path":  "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json",
+                                                    "configuration_sha256":  "c25328711e165d8aa841dd0c95a93e46cc5acaa96b8ed1d75fa02cfe7a5487a9"
+                                                },
+                                 "access_path":  "GitHub Models REST inference through tools/csh_receiver_a_llama_v0_1.py"
+                             },
+                             {
+                                 "receiver_class_id":  "llm_receiver_b",
+                                 "receiver_type":  "llm",
+                                 "provider":  "DeepSeek via GitHub Models",
+                                 "model_or_system":  "deepseek/DeepSeek-V3-0324",
+                                 "version":  "requested model ID deepseek/DeepSeek-V3-0324; expected returned model DeepSeek-V3-0324",
+                                 "parameters":  {
+                                                    "endpoint":  "https://models.github.ai/inference/chat/completions",
+                                                    "temperature":  0,
+                                                    "top_p":  1,
+                                                    "max_tokens":  2048,
+                                                    "presence_penalty":  0,
+                                                    "frequency_penalty":  0,
+                                                    "stream":  false,
+                                                    "tools":  "omitted",
+                                                    "retrieval":  "disabled",
+                                                    "memory":  "disabled",
+                                                    "conversation_history":  "none",
+                                                    "seed":  "omitted",
+                                                    "authentication_environment_variable":  "GITHUB_TOKEN",
+                                                    "required_permission":  "models: read",
+                                                    "secret_persisted":  false,
+                                                    "expected_returned_model":  "DeepSeek-V3-0324",
+                                                    "adapter_path":  "tools/csh_receiver_b_deepseek_v0_1.py",
+                                                    "adapter_sha256":  "4295bd125c47ca83a1d83b4095c4666fb42b0a449f9c7117fafb51dce0738077",
+                                                    "configuration_path":  "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json",
+                                                    "configuration_sha256":  "71fb1726da1c494b122fe2b3d6d49ff668d707cbe2395ac082d6732d933d9df7"
+                                                },
+                                 "access_path":  "GitHub Models REST inference through tools/csh_receiver_b_deepseek_v0_1.py"
+                             },
+                             {
+                                 "receiver_class_id":  "deterministic_receiver",
+                                 "receiver_type":  "deterministic",
+                                 "provider":  "local",
+                                 "model_or_system":  "tools/csh_receiver_deterministic_v0_1.py",
+                                 "version":  "v0.1 source_sha256=647016cea04c9934cfd7ada4ab8ccf5a9a9932a0ab25113eae5514576c3e15e9",
+                                 "parameters":  {
+                                                    "network_calls":  false,
+                                                    "model_calls":  false,
+                                                    "randomness":  false,
+                                                    "clock_input":  false,
+                                                    "environment_input":  false,
+                                                    "ordered_rules":  true,
+                                                    "canonical_utf8_lf_json":  true,
+                                                    "byte_identical_for_identical_inputs_and_source":  true,
+                                                    "python_requirement":  "\u003e=3.11",
+                                                    "source_sha256":  "647016cea04c9934cfd7ada4ab8ccf5a9a9932a0ab25113eae5514576c3e15e9"
+                                                },
+                                 "access_path":  "local_execution through tools/csh_receiver_deterministic_v0_1.py"
+                             }
+                         ],
+    "freeze_requirements":  [
+                                "verify tools/check_csh_configuration_v0_1.py passes",
+                                "compute the system registry digest during PrepareFreeze",
+                                "bind scenario, prompt, handoff, schema, checker, and fixed run-order artifacts",
+                                "bind the subject commit and verify the signed freeze tag before baseline execution"
+                            ]
 }

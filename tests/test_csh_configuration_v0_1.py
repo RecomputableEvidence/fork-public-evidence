@@ -17,7 +17,7 @@ def load_checker():
     return module
 
 
-def test_complete_configuration_passes_while_unfrozen():
+def test_complete_configuration_passes_in_current_freeze_state():
     checker = load_checker()
     result = checker.evaluate(Path.cwd())
     assert result["failed"] == 0, result
@@ -65,12 +65,32 @@ def test_registry_binds_exact_adapter_and_configuration_hashes():
     assert registry == checker.expected_registry(Path.cwd(), registry["registry_status"])
     assert "UNASSIGNED" not in json.dumps(registry)
 
+def test_prebaseline_execution_gate_matches_freeze_state():
+    freeze = json.loads(
+        (BASE / "CORPUS_FREEZE_v0_1.json").read_text(encoding="utf-8")
+    )
+    manifest = json.loads(
+        (BASE / "EXPERIMENT_MANIFEST_v0_1.json").read_text(encoding="utf-8")
+    )
 
-def test_baseline_remains_blocked_before_freeze():
-    freeze = json.loads((BASE / "CORPUS_FREEZE_v0_1.json").read_text(encoding="utf-8"))
-    manifest = json.loads((BASE / "EXPERIMENT_MANIFEST_v0_1.json").read_text(encoding="utf-8"))
-    assert freeze["freeze_status"] == "draft_unfrozen"
-    assert freeze["baseline_execution_permitted"] is False
-    assert freeze["blocking_unresolved_items"]
-    assert manifest["freeze_status"] == "draft_unfrozen"
     assert manifest["baseline_run_status"] == "not_started"
+
+    if freeze["freeze_status"] == "draft_unfrozen":
+        assert freeze["baseline_execution_permitted"] is False
+        assert freeze["blocking_unresolved_items"]
+        assert manifest["freeze_status"] == "draft_unfrozen"
+        assert manifest["status"] == "preregistered_not_executed"
+    elif freeze["freeze_status"] == "frozen":
+        assert freeze["baseline_execution_permitted"] is True
+        assert freeze["blocking_unresolved_items"] == []
+        assert freeze["freeze_completed_at_utc"]
+        assert freeze["base_commit_before_freeze"]
+        assert freeze["preregistration_sha256"]
+        assert freeze["manifest_sha256"]
+        assert freeze["system_registry_sha256"]
+        assert manifest["freeze_status"] == "frozen"
+        assert manifest["status"] == "frozen_not_executed"
+    else:
+        raise AssertionError(
+            f"Unexpected freeze status: {freeze['freeze_status']}"
+        )
