@@ -1,13 +1,30 @@
 {
-  "anchor_id": "CSH_EXPERIMENT_RELEASE_ANCHOR_v0_1",
-  "schema_version": "v0.1",
-  "experiment_id": "cross_system_claim_handoff_v0_1",
-  "anchor_status": "pending_post_commit_seal",
-  "subject_commit": null,
-  "tag_name": "csh-v0.1-baseline-freeze",
-  "tag_created": false,
-  "tag_pushed": false,
-  "external_digest_recorded": false,
-  "artifacts": [],
-  "non_authority_statement": "This anchor, when completed, supports mutation detection and signer-controlled continuity only. It does not establish truth, correctness, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
+    "anchor_id":  "CSH_EXPERIMENT_RELEASE_ANCHOR_v0_1",
+    "schema_version":  "v0.1",
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "anchor_status":  "signed_tag_created_not_pushed",
+    "subject_commit":  "910333b88348f8212e8568f3a53710e4f7b1f9dd",
+    "tag_name":  "csh-v0.1-baseline-freeze",
+    "tag_created":  true,
+    "tag_pushed":  false,
+    "external_digest_recorded":  false,
+    "artifacts":  [
+                      {
+                          "path":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json",
+                          "sha256":  "35dca2a290033f6297924449a80297155c9c93e530be0cb7c3dfebffe9354822"
+                      },
+                      {
+                          "path":  "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json",
+                          "sha256":  "6d2729a185d06f798354c803e796a72d04a24a5b9c3d243eb46440c2efd3290c"
+                      },
+                      {
+                          "path":  "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md",
+                          "sha256":  "25758e5ed0aa0691318797286b9e65fe274ada02d9e83f860cf439518e69ac39"
+                      },
+                      {
+                          "path":  "docs/experiments/cross-system-claim-handoff-v0.1/SYSTEM_REGISTRY_v0_1.json",
+                          "sha256":  "43811d51099ef571aeb8c8d2878091db7dac18eccc3262d30833b4953cfe2b35"
+                      }
+                  ],
+    "non_authority_statement":  "This anchor, when completed, supports mutation detection and signer-controlled continuity only. It does not establish truth, correctness, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
 }
