@@ -34,11 +34,11 @@ Where:
 - schemas: present;
 - classifier: present;
 - corpus descriptors: present;
-- receiver identities, versions, parameters, and adapters: configured; not frozen;
-- shared instruction, twelve prompt packets, six handoff artifacts, and fixed run order: configured; not frozen;
-- corpus digest freeze: not complete;
-- release anchor: pending;
-- baseline execution: prohibited until freeze and integration checks pass;
+- receiver identities, versions, parameters, and adapters: configured and frozen;
+- shared instruction, twelve prompt packets, six handoff artifacts, and fixed run order: configured and frozen;
+- corpus digest freeze: complete;
+- release anchor: signed tag published and GitHub-verified;
+- baseline execution: structurally admitted but not started;
 - optimization: prohibited until baseline completion and independent recomputation.
 
 ## Verification

@@ -2,7 +2,44 @@
   "experiment_id": "cross_system_claim_handoff_v0_1",
   "schema_version": "v0.1",
   "register_status": "open",
-  "amendments": [],
+  "amendments": [
+    {
+      "amendment_id": "CSH-AMEND-001",
+      "recorded_at_utc": "2026-07-12T05:42:48.773235Z",
+      "class": "integrity_repair",
+      "status": "closed_before_baseline",
+      "summary": "Replaced the initially published signed freeze-tag object after GitHub reported bad_email; the corrected signed tag retains the same name and freeze-commit target.",
+      "affected_surface": [
+        "signed_freeze_tag_publication",
+        "experiment_release_anchor"
+      ],
+      "initial_github_verification_reason": "bad_email",
+      "superseded_tag_object_sha": "d040637bc3848953f72b4938b1cac61f7b1b97f1",
+      "corrected_tag_object_sha": "fb69491d952ad3f74b6907ae9dbe9eef7ab7d05c",
+      "tag_name": "csh-v0.1-baseline-freeze",
+      "tag_target_commit": "910333b88348f8212e8568f3a53710e4f7b1f9dd",
+      "corrected_tagger_email": "nextgensystemsandtechnology@gmail.com",
+      "corrected_github_verification": {
+        "verified": true,
+        "reason": "valid",
+        "verified_at_utc": "2026-07-12T05:15:13Z"
+      },
+      "substantive_experiment_change": false,
+      "frozen_artifacts_changed": false,
+      "receiver_configuration_changed": false,
+      "prompt_or_handoff_changed": false,
+      "classification_or_scoring_changed": false,
+      "baseline_validity_reassessment": {
+        "baseline_started": false,
+        "terminal_runs_observed": 0,
+        "freeze_commit_unchanged": true,
+        "tag_target_unchanged": true,
+        "frozen_artifact_digests_reverified": true,
+        "baseline_admission_effect": "Preserved after corrected tag publication, GitHub signature verification, amendment recording, and final anchor commit."
+      },
+      "non_authority_statement": "This repair establishes only corrected signer-controlled continuity and mutation-detection evidence. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
+    }
+  ],
   "classes": {
     "administrative": "may preserve baseline if non-substantive",
     "instrumentation_repair": "requires patch version and repetition of affected units",
