@@ -1,0 +1,308 @@
+{
+    "schema_version":  "v0.1.1",
+    "report_id":  "CSH-V0-1-FREEZE-BYTE-IDENTITY-v0.1.1",
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "captured_at_utc":  "2026-07-13T01:30:07.4453368Z",
+    "source_head":  "828501761ac382ca18fa62cc0b2c54439c674755",
+    "status":  "byte_identical_after_repair_install",
+    "records":  [
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_A_BOUNDARY_PRESERVED.json",
+                        "sha256":  "968ebdb7714a9ddda1a4540e6bfc47e41f5d9f0f4f3063901aba93b624bb1d89",
+                        "size_bytes":  729,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_B_BOUNDARY_NARROWED.json",
+                        "sha256":  "b159df95a754bc9a9344d4995fbc943866a334ada1b4768fdd537d42282d399a",
+                        "size_bytes":  700,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_C_NON_CLAIM_DROPPED.json",
+                        "sha256":  "c850ce14368d875bd9e753888f9cb714705228cd32c0186affd5feda1a5598d2",
+                        "size_bytes":  748,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_D_EXPANSION_WITHOUT_AUTHORITY.json",
+                        "sha256":  "ddabfc896601418125691a4ff314160b01fe2baf74e2f2eb6ffe5e2ff70be6d8",
+                        "size_bytes":  800,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_F_POINTER_UNRESOLVED.json",
+                        "sha256":  "3e27f8ca3108aeded5dc82e4d07b81d2edfced01c75f23a48cbc0d2cc5acd54f",
+                        "size_bytes":  813,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json",
+                        "sha256":  "d950d45f7eb2db5ab48033b90543e68082545e62204584b2c0d965be5270066b",
+                        "size_bytes":  870,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json",
+                        "sha256":  "35dca2a290033f6297924449a80297155c9c93e530be0cb7c3dfebffe9354822",
+                        "size_bytes":  14563,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_RELEASE_ANCHOR_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json",
+                        "sha256":  "6d2729a185d06f798354c803e796a72d04a24a5b9c3d243eb46440c2efd3290c",
+                        "size_bytes":  3410,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_A_BOUNDARY_PRESERVED_v0_1.json",
+                        "sha256":  "ffaf4707e5eaf6a8d29845c96320eb09f03ea7035fe3a79617d5770ff2339193",
+                        "size_bytes":  1331,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_B_BOUNDARY_NARROWED_v0_1.json",
+                        "sha256":  "c1f71f23ab73a433ee5247e8ed4980b697b1bcad8f1eeb0774265e90c463fa13",
+                        "size_bytes":  1305,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_C_NON_CLAIM_DROPPED_v0_1.json",
+                        "sha256":  "3e2be41e5469f847ae394810d2b8c5e1782aae12c793202c16572a076bf68178",
+                        "size_bytes":  1347,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_D_EXPANSION_WITHOUT_AUTHORITY_v0_1.json",
+                        "sha256":  "8841647b93d8d0e501146d2af37f16a533fb342b25f5d508c0c77916c58757a4",
+                        "size_bytes":  1426,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_F_POINTER_UNRESOLVED_v0_1.json",
+                        "sha256":  "061c600b02e993eeb7bdbf3b9ae376cbf2f742425df6a23348756afdd0138634",
+                        "size_bytes":  1528,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/handoff/HANDOFF_SIM_H_CASCADING_INHERITANCE_v0_1.json",
+                        "sha256":  "1aade8df2fb594b41f08bfa2a904278e074772d5dbedaa0b98fde7e7b1835888",
+                        "size_bytes":  1590,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md",
+                        "sha256":  "25758e5ed0aa0691318797286b9e65fe274ada02d9e83f860cf439518e69ac39",
+                        "size_bytes":  7933,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PAIR_MANIFEST_v0_1.json",
+                        "sha256":  "d663e8cd2d1cc177fd1f897628aa37e44fb31c8e2cdafbb8aabc008566a2e04b",
+                        "size_bytes":  7277,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_A_BOUNDARY_PRESERVED_control_h0_v0_1.json",
+                        "sha256":  "345a5dd5f4be9634b44f4ebb0791a9bcbff33e87f843b07b8f88d3fc9120b17f",
+                        "size_bytes":  1122,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_A_BOUNDARY_PRESERVED_instrumented_h1_v0_1.json",
+                        "sha256":  "c6e5798eca31dfe231fc566eb8b0a347e949e85c47a1527e26f879f6d2d0a92f",
+                        "size_bytes":  2528,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_B_BOUNDARY_NARROWED_control_h0_v0_1.json",
+                        "sha256":  "b54b39708bb0097714a2de1e84cd0a6c329ea81830c30fa53eaf44197c8b63eb",
+                        "size_bytes":  1088,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_B_BOUNDARY_NARROWED_instrumented_h1_v0_1.json",
+                        "sha256":  "4b776a6320033323b7c1b5296cd0e284078f7e6b7bc285c19974215f2464f844",
+                        "size_bytes":  2464,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_control_h0_v0_1.json",
+                        "sha256":  "0dc6fed5454646f7c491768755c798a8ac5fbdff9f4ba81522ed4978ab08eb8b",
+                        "size_bytes":  1142,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_instrumented_h1_v0_1.json",
+                        "sha256":  "6a119a198919b263af2482f668b4aefb349f423682a8c4a547b67f4f0f44cfe7",
+                        "size_bytes":  2566,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_D_EXPANSION_WITHOUT_AUTHORITY_control_h0_v0_1.json",
+                        "sha256":  "52c1cbc31d8883fbd05e930a7601c8ba1a9143b823f9b7997547a4e1a7d26ce3",
+                        "size_bytes":  1206,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_D_EXPANSION_WITHOUT_AUTHORITY_instrumented_h1_v0_1.json",
+                        "sha256":  "6949bb8345791a69c5d468b562ef93e76780dc9651db2276ddfc620670c2f4ae",
+                        "size_bytes":  2711,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_F_POINTER_UNRESOLVED_control_h0_v0_1.json",
+                        "sha256":  "1a7efc07654bcf08363bd559e9807a002b9d1c1e85ac63d4531c6f553f3b70c4",
+                        "size_bytes":  1212,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_F_POINTER_UNRESOLVED_instrumented_h1_v0_1.json",
+                        "sha256":  "aa93e27a722845aa1ec9405233ca409febd884824fc09230fdf1aab7104c398a",
+                        "size_bytes":  2823,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_H_CASCADING_INHERITANCE_control_h0_v0_1.json",
+                        "sha256":  "858a376e4030f373eb84228da4f717bf9e554d53a4afe0281c4e1710ac9a15ae",
+                        "size_bytes":  1274,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PROMPT_PACKET_SIM_H_CASCADING_INHERITANCE_instrumented_h1_v0_1.json",
+                        "sha256":  "e77b82ec54ad5676c5e7fbbf3e986dffe6bdb6414ea1199547c141787c32eeea",
+                        "size_bytes":  2949,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json",
+                        "sha256":  "362da15627c796187bd9d06f806f32f408e68e66cb41186628a4e3a636aa7295",
+                        "size_bytes":  100909,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/prompts/SHARED_RECEIVER_INSTRUCTION_v0_1.txt",
+                        "sha256":  "5248bc2a911ed5253c0b2974c1923cac69f5ff39db2a22408d98fd9fd9dd5bd1",
+                        "size_bytes":  675,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/SYSTEM_REGISTRY_v0_1.json",
+                        "sha256":  "43811d51099ef571aeb8c8d2878091db7dac18eccc3262d30833b4953cfe2b35",
+                        "size_bytes":  7496,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_corpus_freeze_v0_1.schema.json",
+                        "sha256":  "4519f8e9f38ec8509c4ad5290a5dc53eafd24fe572a87e73fccd82eb4693aefe",
+                        "size_bytes":  4027,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_manifest_v0_1.schema.json",
+                        "sha256":  "b0c7f035639b41348f3c055f72ef2f99a8ce7ca221eb15d0b128be45b7f383ad",
+                        "size_bytes":  3508,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_prompt_packet_v0_1.schema.json",
+                        "sha256":  "b13d243a26411f640be11f4371541a641b52d59940986e2f08e00dac3ee99d54",
+                        "size_bytes":  1062,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_receipt_v0_1.schema.json",
+                        "sha256":  "2b8605a3a4b490c216ab26a7f7a1a04d98483aff14198fddc9867d39f681ee00",
+                        "size_bytes":  1662,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_result_v0_1.schema.json",
+                        "sha256":  "3e71635819cd0ded05fc04052f54e743b0d4988e6090405d799deb4d3e980914",
+                        "size_bytes":  1598,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_run_order_v0_1.schema.json",
+                        "sha256":  "09a1f5be310336e60f00ac9929b679acf6f73c7c266b0a3270613a6955ee5fab",
+                        "size_bytes":  3522,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_run_v0_1.schema.json",
+                        "sha256":  "64fac66c8ae8a6fa43b98b50db0a510d4a895622ff126002f45261ff36400487",
+                        "size_bytes":  5047,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_scenario_v0_1.schema.json",
+                        "sha256":  "b871653ca52e8f2121c87306deada7a9a30cec54909620955fd8c3051c56e709",
+                        "size_bytes":  1835,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_state_artifact_v0_1.schema.json",
+                        "sha256":  "a0e1e5d191f08edda86984208de15a64e443e957b97156b383f0ed3c37ffff70",
+                        "size_bytes":  1825,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/cross_system_claim_handoff_system_registry_v0_1.schema.json",
+                        "sha256":  "04ec512d63fa11124f8e5eb9d95da4a45b58e0fc5698a693103425b13bf0eb00",
+                        "size_bytes":  1818,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/unsupported_inheritance_classification_v0_1.schema.json",
+                        "sha256":  "e8a470f36e82ae063ed253472ee2b38aff50b58599149782dffa8c7749ea6274",
+                        "size_bytes":  2205,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "schemas/unsupported_inheritance_classifier_input_v0_1.schema.json",
+                        "sha256":  "c4e9fac6b85b55b76a853a6cc0ef2780e55cca207ca24d39c74fc5aa8c3c6652",
+                        "size_bytes":  5927,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "tools/check_cross_system_claim_handoff_v0_1.py",
+                        "sha256":  "57435bd86d9b515cfcc06dcf437ec4ed3712d770acd880d95e87bf08aa6250a0",
+                        "size_bytes":  10776,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "tools/check_csh_configuration_v0_1.py",
+                        "sha256":  "8e4314d402336e9adabe8361a85e067b56865667c8bd6695bc81bb9b40faef8f",
+                        "size_bytes":  25011,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "tools/classify_unsupported_inheritance_v0_1.py",
+                        "sha256":  "0860dbecb70097d6e87a52e16566bcef7533d46096a06e76a7b038709d6ff7ce",
+                        "size_bytes":  7945,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    },
+                    {
+                        "path":  "tools/validate_json_schema_bundle_v0_1.py",
+                        "sha256":  "b127d57b3eb2c9021ba49e70c1171d2d001b71b386df19607a7d1101e390f1a1",
+                        "size_bytes":  8599,
+                        "binding_source":  "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+                    }
+                ],
+    "interpretation":  {
+                           "proves":  [
+                                          "the listed v0.1 freeze-bound and core artifacts matched their expected or pre-patch digests before the repair"
+                                      ],
+                           "does_not_prove":  [
+                                                  "semantic truth",
+                                                  "experimental validity",
+                                                  "compliance",
+                                                  "legal sufficiency",
+                                                  "authorization",
+                                                  "approval",
+                                                  "production readiness",
+                                                  "institutional authority"
+                                              ]
+                       },
+    "verified_after_install_at_utc":  "2026-07-13T01:30:21.7209148Z"
+}

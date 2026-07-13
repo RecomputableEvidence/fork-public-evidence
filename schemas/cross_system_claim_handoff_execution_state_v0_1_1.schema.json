@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/cross_system_claim_handoff_execution_state_v0_1_1.schema.json",
+  "title": "Cross-System Claim Handoff Mutable Execution State v0.1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "record_kind",
+    "experiment_id",
+    "pair_id",
+    "amendment_id",
+    "mutable",
+    "mutation_policy",
+    "semantic_freeze",
+    "original_attempt_seal",
+    "current_phase",
+    "publication",
+    "original_attempts",
+    "repeat_runs",
+    "transitions",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": { "const": "v0.1.1" },
+    "record_id": { "const": "CSH-EXECUTION-STATE-PAIR-001-v0.1.1" },
+    "record_kind": { "const": "mutable_execution_state" },
+    "experiment_id": { "const": "cross_system_claim_handoff_v0_1" },
+    "pair_id": { "const": "PAIR-001" },
+    "amendment_id": { "const": "CSH-AMEND-002" },
+    "mutable": { "const": true },
+    "mutation_policy": {
+      "type": "object",
+      "required": ["permitted_changes", "prohibited_changes"],
+      "properties": {
+        "permitted_changes": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "prohibited_changes": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "semantic_freeze": { "$ref": "#/$defs/artifactReference" },
+    "original_attempt_seal": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "current_phase": { "type": "string", "minLength": 1 },
+    "publication": {
+      "type": "object",
+      "required": ["status", "patch_commit", "patch_ci", "anchor_commit", "anchor_ci"],
+      "properties": {
+        "status": { "enum": ["not_published", "patch_ci_green", "anchor_ci_green"] },
+        "patch_commit": { "type": ["string", "null"], "pattern": "^[a-f0-9]{40}$" },
+        "patch_ci": { "type": "array", "items": { "type": "object" } },
+        "anchor_commit": { "type": ["string", "null"], "pattern": "^[a-f0-9]{40}$" },
+        "anchor_ci": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "original_attempts": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "$ref": "#/$defs/attempt" }
+    },
+    "repeat_runs": { "type": "array", "items": { "$ref": "#/$defs/attempt" } },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["transition_id", "occurred_at_utc", "cause", "from_phase", "to_phase", "evidence", "non_claim"],
+        "properties": {
+          "transition_id": { "type": "string", "minLength": 1 },
+          "occurred_at_utc": { "type": "string", "format": "date-time" },
+          "cause": { "type": "string", "minLength": 1 },
+          "from_phase": { "type": "string", "minLength": 1 },
+          "to_phase": { "type": "string", "minLength": 1 },
+          "evidence": { "type": "array", "items": { "type": "string" } },
+          "non_claim": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "non_claims": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256", "size_bytes"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "size_bytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": ["path", "sha256", "version", "mutable"],
+      "properties": {
+        "path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "version": { "type": "string" },
+        "mutable": { "type": "boolean" }
+      }
+    },
+    "attempt": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "run_id",
+        "role",
+        "linked_original_run_id",
+        "artifact_directory",
+        "exact_request_source_run_id",
+        "declared_http_status",
+        "execution_state",
+        "terminal_disposition",
+        "immutable",
+        "replaced",
+        "superseded",
+        "artifacts"
+      ],
+      "properties": {
+        "run_id": { "type": "string", "pattern": "^CSH-RUN-" },
+        "role": { "enum": ["original_affected_attempt", "post_repair_repetition"] },
+        "linked_original_run_id": { "type": ["string", "null"] },
+        "artifact_directory": { "type": "string" },
+        "exact_request_source_run_id": { "type": "string" },
+        "declared_http_status": { "type": ["integer", "null"] },
+        "execution_state": { "type": "string", "minLength": 1 },
+        "terminal_disposition": { "type": "string", "minLength": 1 },
+        "immutable": { "type": "boolean" },
+        "replaced": { "type": "boolean" },
+        "superseded": { "type": "boolean" },
+        "artifacts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/artifact" } }
+      }
+    }
+  }
+}

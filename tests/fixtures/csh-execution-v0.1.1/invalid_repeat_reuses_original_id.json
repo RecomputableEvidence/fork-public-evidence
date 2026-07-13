@@ -1,0 +1,161 @@
+{
+    "schema_version":  "v0.1.1",
+    "record_id":  "CSH-EXECUTION-STATE-PAIR-001-v0.1.1",
+    "record_kind":  "mutable_execution_state",
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "pair_id":  "PAIR-001",
+    "amendment_id":  "CSH-AMEND-002",
+    "mutable":  true,
+    "mutation_policy":  {
+                            "permitted_changes":  [
+                                                      "append transition records",
+                                                      "append new linked repetition run records",
+                                                      "update publication status from observed Git and CI events",
+                                                      "update current_phase as a derived summary"
+                                                  ],
+                            "prohibited_changes":  [
+                                                       "modify or delete original attempt bytes",
+                                                       "reuse an original run identifier for a repetition",
+                                                       "mark an original attempt replaced or superseded",
+                                                       "modify the v0.1 semantic freeze",
+                                                       "convert execution availability into an experimental outcome"
+                                                   ]
+                        },
+    "semantic_freeze":  {
+                            "path":  "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json",
+                            "sha256":  "6d2729a185d06f798354c803e796a72d04a24a5b9c3d243eb46440c2efd3290c",
+                            "version":  "v0.1",
+                            "mutable":  false
+                        },
+    "original_attempt_seal":  {
+                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/ORIGINAL_ATTEMPT_SEAL_v0_1_1.json",
+                                  "sha256":  "5f0e2ba294d1fa3cf9dff6ee84b9a5b444c4739cec74d8ad4180028746fc8de6"
+                              },
+    "current_phase":  "instrumentation_repair_installed_not_published",
+    "publication":  {
+                        "status":  "not_published",
+                        "patch_commit":  null,
+                        "patch_ci":  [
+
+                                     ],
+                        "anchor_commit":  null,
+                        "anchor_ci":  [
+
+                                      ]
+                    },
+    "original_attempts":  [
+                              {
+                                  "run_id":  "CSH-RUN-001",
+                                  "role":  "original_affected_attempt",
+                                  "linked_original_run_id":  null,
+                                  "artifact_directory":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001",
+                                  "exact_request_source_run_id":  "CSH-RUN-001",
+                                  "declared_http_status":  200,
+                                  "execution_state":  "provider_response_preserved",
+                                  "terminal_disposition":  "completed_response_preserved",
+                                  "immutable":  true,
+                                  "replaced":  false,
+                                  "superseded":  false,
+                                  "artifacts":  [
+                                                    {
+                                                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/exact-request.json",
+                                                        "sha256":  "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+                                                        "size_bytes":  2192
+                                                    },
+                                                    {
+                                                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/execution-metadata.json",
+                                                        "sha256":  "7e310188bdc195189fc06e966a433a850146c4d2daea0c08aca40519c59dc0f6",
+                                                        "size_bytes":  3237
+                                                    },
+                                                    {
+                                                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/raw-provider-response.json",
+                                                        "sha256":  "7e67a0fa62b578913281e72f039154822bcc5e82b129bdc4d5e9aec6a0269f05",
+                                                        "size_bytes":  1038
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "run_id":  "CSH-RUN-002",
+                                  "role":  "original_affected_attempt",
+                                  "linked_original_run_id":  null,
+                                  "artifact_directory":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002",
+                                  "exact_request_source_run_id":  "CSH-RUN-002",
+                                  "declared_http_status":  429,
+                                  "execution_state":  "rate_limited_response_preserved",
+                                  "terminal_disposition":  "provider_error_response_preserved",
+                                  "immutable":  true,
+                                  "replaced":  false,
+                                  "superseded":  false,
+                                  "artifacts":  [
+                                                    {
+                                                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002/exact-request.json",
+                                                        "sha256":  "de81b4c41e4a9085ac085beb52a5218106f7d504bc5ae58c899ff6f02b052272",
+                                                        "size_bytes":  3733
+                                                    },
+                                                    {
+                                                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002/execution-metadata.json",
+                                                        "sha256":  "832d83c78cd53983133a3f5e77256fb335f1a4c64837b43e1de1a2645b3ee8b6",
+                                                        "size_bytes":  2975
+                                                    },
+                                                    {
+                                                        "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002/raw-provider-response.json",
+                                                        "sha256":  "bc4dacfa037827e4b84455063f889bd3ff0eb9e1c88dac0a5fa62e29577889fc",
+                                                        "size_bytes":  196
+                                                    }
+                                                ]
+                              }
+                          ],
+    "repeat_runs":  [
+                        {
+                            "run_id":  "CSH-RUN-001",
+                            "role":  "post_repair_repetition",
+                            "linked_original_run_id":  "CSH-RUN-001",
+                            "artifact_directory":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001",
+                            "exact_request_source_run_id":  "CSH-RUN-001",
+                            "declared_http_status":  200,
+                            "execution_state":  "provider_response_preserved",
+                            "terminal_disposition":  "completed_response_preserved",
+                            "immutable":  true,
+                            "replaced":  false,
+                            "superseded":  false,
+                            "artifacts":  [
+                                              {
+                                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/exact-request.json",
+                                                  "sha256":  "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+                                                  "size_bytes":  2192
+                                              },
+                                              {
+                                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/execution-metadata.json",
+                                                  "sha256":  "7e310188bdc195189fc06e966a433a850146c4d2daea0c08aca40519c59dc0f6",
+                                                  "size_bytes":  3237
+                                              },
+                                              {
+                                                  "path":  "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/raw-provider-response.json",
+                                                  "sha256":  "7e67a0fa62b578913281e72f039154822bcc5e82b129bdc4d5e9aec6a0269f05",
+                                                  "size_bytes":  1038
+                                              }
+                                          ]
+                        }
+                    ],
+    "transitions":  [
+                        {
+                            "transition_id":  "CSH-TRANSITION-AMEND-002-INSTALL",
+                            "occurred_at_utc":  "2026-07-13T01:30:16.8118836Z",
+                            "cause":  "instrumentation_repair",
+                            "from_phase":  "contradictory_frozen_execution_state_detected",
+                            "to_phase":  "instrumentation_repair_installed_not_published",
+                            "evidence":  [
+                                             "CSH-AMEND-002",
+                                             "ORIGINAL_ATTEMPT_SEAL_v0_1_1.json",
+                                             "V0_1_FREEZE_BYTE_IDENTITY_REPORT_v0_1_1.json"
+                                         ],
+                            "non_claim":  "This transition records an instrumentation change; it does not establish an experimental result."
+                        }
+                    ],
+    "non_claims":  [
+                       "This mutable record does not modify the immutable v0.1 semantic freeze.",
+                       "Preserved execution records do not establish truth, approval, compliance, legal sufficiency, safety, production readiness, or institutional authority.",
+                       "An HTTP response status is an execution observation, not a classification of semantic content.",
+                       "A later repetition does not replace either original attempt."
+                   ]
+}

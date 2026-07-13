@@ -8,10 +8,12 @@ on:
       - "schemas/cross_system_claim_handoff_*"
       - "schemas/unsupported_inheritance_*"
       - "tools/check_cross_system_claim_handoff_v0_1.py"
+      - "tools/check_cross_system_claim_handoff_execution_v0_1_1.py"
       - "tools/check_csh_configuration_v0_1.py"
       - "tools/classify_unsupported_inheritance_v0_1.py"
       - "tools/csh_receiver_*"
       - "tests/test_cross_system_claim_handoff_v0_1.py"
+      - "tests/test_cross_system_claim_handoff_execution_v0_1_1.py"
       - "tests/test_csh_configuration_v0_1.py"
       - "tests/test_csh_receiver_*"
       - "tests/fixtures/csh/**"
@@ -23,10 +25,12 @@ on:
       - "schemas/cross_system_claim_handoff_*"
       - "schemas/unsupported_inheritance_*"
       - "tools/check_cross_system_claim_handoff_v0_1.py"
+      - "tools/check_cross_system_claim_handoff_execution_v0_1_1.py"
       - "tools/check_csh_configuration_v0_1.py"
       - "tools/classify_unsupported_inheritance_v0_1.py"
       - "tools/csh_receiver_*"
       - "tests/test_cross_system_claim_handoff_v0_1.py"
+      - "tests/test_cross_system_claim_handoff_execution_v0_1_1.py"
       - "tests/test_csh_configuration_v0_1.py"
       - "tests/test_csh_receiver_*"
       - "tests/fixtures/csh/**"
@@ -82,3 +86,34 @@ jobs:
               assert freeze["baseline_execution_permitted"] is False
               assert freeze["blocking_unresolved_items"]
           PY
+
+# BEGIN CSH_EXECUTION_INSTRUMENTATION_V0_1_1_JOB
+  csh-execution-instrumentation-v0-1-1:
+    name: CSH execution instrumentation v0.1.1
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install proof-surface dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
+      - name: Verify CSH execution instrumentation
+        run: python tools/check_cross_system_claim_handoff_execution_v0_1_1.py --json
+      - name: Run CSH execution instrumentation tests
+        run: python -m pytest tests/test_cross_system_claim_handoff_execution_v0_1_1.py -q
+# END CSH_EXECUTION_INSTRUMENTATION_V0_1_1_JOB

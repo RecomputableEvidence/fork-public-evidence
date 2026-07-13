@@ -1,0 +1,80 @@
+{
+  "adapter_source_sha256": "542b110210a51ab0e57ead029782ce9c43250fa3364cf9bea0cfcb112bba2909",
+  "adapter_version": "0.1.0",
+  "authentication": {
+    "environment_variable": "GITHUB_TOKEN",
+    "secret_persisted": false
+  },
+  "classification_performed": false,
+  "completed_at_utc": "2026-07-12T06:48:15.976855+00:00",
+  "conversation_history": "NONE",
+  "endpoint": "https://models.github.ai/inference/chat/completions",
+  "entrypoint_source_sha256": "4295bd125c47ca83a1d83b4095c4666fb42b0a449f9c7117fafb51dce0738077",
+  "execution_status": "success",
+  "freeze_gate": {
+    "baseline_execution_permitted": true,
+    "freeze_file": "C:\\N\\fork-public-evidence\\docs\\experiments\\cross-system-claim-handoff-v0.1\\CORPUS_FREEZE_v0_1.json",
+    "freeze_status": "frozen",
+    "subject_commit": null
+  },
+  "http_status": 200,
+  "metadata_schema_version": "v0.1",
+  "normalization_performed": false,
+  "parameters": {
+    "frequency_penalty": 0,
+    "max_tokens": 2048,
+    "presence_penalty": 0,
+    "stream": false,
+    "temperature": 0,
+    "top_p": 1
+  },
+  "prompt": {
+    "byte_length": 1142,
+    "path": "C:\\N\\fork-public-evidence\\docs\\experiments\\cross-system-claim-handoff-v0.1\\prompts\\PROMPT_PACKET_SIM_C_NON_CLAIM_DROPPED_control_h0_v0_1.json",
+    "sha256": "0dc6fed5454646f7c491768755c798a8ac5fbdff9f4ba81522ed4978ab08eb8b"
+  },
+  "provider": "DeepSeek",
+  "receiver_class_id": "llm_receiver_b",
+  "request": {
+    "body_byte_length": 2192,
+    "body_path": "C:\\N\\fork-public-evidence\\docs\\experiments\\cross-system-claim-handoff-v0.1\\receipts\\baseline\\pair-001\\CSH-RUN-001\\exact-request.json",
+    "body_sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+    "headers_preserved_without_secret": {
+      "accept": "application/vnd.github+json",
+      "content-type": "application/json",
+      "x-github-api-version": "2022-11-28"
+    }
+  },
+  "requested_model": "deepseek/DeepSeek-V3-0324",
+  "response": {
+    "body_byte_length": 1038,
+    "body_path": "C:\\N\\fork-public-evidence\\docs\\experiments\\cross-system-claim-handoff-v0.1\\receipts\\baseline\\pair-001\\CSH-RUN-001\\raw-provider-response.json",
+    "body_sha256": "7e67a0fa62b578913281e72f039154822bcc5e82b129bdc4d5e9aec6a0269f05",
+    "body_written": true,
+    "selected_headers": {
+      "content-type": "application/json",
+      "date": "Sun, 12 Jul 2026 06:48:15 GMT",
+      "x-github-request-id": "FC7B:2A82EB:B2DBCD:DE4BB2:6A5338AD"
+    },
+    "text_byte_length": 650,
+    "text_sha256": "df8eaa26b527f91d338528053f915bd6004793f724c373d70acd21733b376dce"
+  },
+  "retrieval_enabled": false,
+  "retry_count": 0,
+  "returned_model": "DeepSeek-V3-0324",
+  "serving_platform": "GitHub Models",
+  "silent_retries_permitted": false,
+  "started_at_utc": "2026-07-12T06:48:13.738698+00:00",
+  "system_prompt": {
+    "byte_length": 675,
+    "path": "C:\\N\\fork-public-evidence\\docs\\experiments\\cross-system-claim-handoff-v0.1\\prompts\\SHARED_RECEIVER_INSTRUCTION_v0_1.txt",
+    "sha256": "5248bc2a911ed5253c0b2974c1923cac69f5ff39db2a22408d98fd9fd9dd5bd1"
+  },
+  "tools_enabled": false,
+  "usage": {
+    "audio_prompt_tokens": 0,
+    "completion_tokens": 154,
+    "prompt_tokens": 481,
+    "total_tokens": 635
+  }
+}

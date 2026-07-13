@@ -1,0 +1,45 @@
+{
+    "schema_version":  "v0.1.1",
+    "amendment_id":  "CSH-AMEND-002",
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "amendment_class":  "instrumentation_repair",
+    "status":  "final",
+    "adopted_at_utc":  "2026-07-13T01:30:10.1797574Z",
+    "affected_pair_id":  "PAIR-001",
+    "affected_original_run_ids":  [
+                                      "CSH-RUN-001",
+                                      "CSH-RUN-002"
+                                  ],
+    "contradiction":  {
+                          "frozen_model":  "The immutable v0.1 experiment manifest represented receiver execution as not started.",
+                          "observed_state":  "Provider requests occurred and terminal records were preserved for CSH-RUN-001 and CSH-RUN-002.",
+                          "defect":  "Mutable execution state was represented inside or derived from an immutable frozen semantic/configuration model."
+                      },
+    "repair":  {
+                   "creates_separate_mutable_execution_state":  true,
+                   "creates_patch_checker":  "tools/check_cross_system_claim_handoff_execution_v0_1_1.py",
+                   "preserves_original_attempts":  true,
+                   "requires_new_ids_for_repetition":  true,
+                   "requires_publication_and_ci_green_before_repetition":  true
+               },
+    "scope_constraints":  {
+                              "mutates_v0_1_freeze":  false,
+                              "changes_hypothesis":  false,
+                              "changes_prompt_text":  false,
+                              "changes_handoff_artifacts":  false,
+                              "changes_receiver_configuration":  false,
+                              "changes_scoring_or_classification_rules":  false,
+                              "replaces_original_attempts":  false
+                          },
+    "disposition":  {
+                        "CSH_RUN_001":  "preserved_original_attempt_http_200",
+                        "CSH_RUN_002":  "preserved_original_attempt_http_429",
+                        "pair_001":  "affected_units_must_be_repeated_after_instrumentation_patch_is_published_and_ci_green"
+                    },
+    "non_claims":  [
+                       "This amendment does not determine whether either receiver output is correct.",
+                       "This amendment does not convert HTTP 200 into semantic success or HTTP 429 into a negative content finding.",
+                       "This amendment does not establish the CSH hypothesis.",
+                       "This amendment does not establish truth, approval, compliance, legal sufficiency, safety, production readiness, or institutional authority."
+                   ]
+}

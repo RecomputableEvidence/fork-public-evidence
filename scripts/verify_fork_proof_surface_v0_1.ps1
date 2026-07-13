@@ -157,3 +157,16 @@ Write-Host "FORK_PROOF_SURFACE_INTEGRATION_PASS"
 Write-Host "Bounded interpretation: required convergence artifacts and available structural checkers passed."
 Write-Host "No truth, compliance, legal sufficiency, safety, authorization, approval, certification,"
 Write-Host "endorsement, production readiness, or institutional authority is established."
+
+# BEGIN CSH_EXECUTION_INSTRUMENTATION_V0_1_1
+Write-Host ""
+Write-Host "== CSH v0.1.1 execution instrumentation =="
+& python tools/check_cross_system_claim_handoff_execution_v0_1_1.py --json
+if ($LASTEXITCODE -ne 0) {
+    throw "CSH v0.1.1 execution instrumentation checker failed with exit code $LASTEXITCODE."
+}
+& python -m pytest tests/test_cross_system_claim_handoff_execution_v0_1_1.py -q
+if ($LASTEXITCODE -ne 0) {
+    throw "CSH v0.1.1 execution instrumentation tests failed with exit code $LASTEXITCODE."
+}
+# END CSH_EXECUTION_INSTRUMENTATION_V0_1_1
