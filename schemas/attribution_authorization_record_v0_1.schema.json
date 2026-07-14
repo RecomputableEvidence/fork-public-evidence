@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attribution_authorization_id": {
+      "maxLength": 256,
+      "minLength": 5,
+      "pattern": "^AAR-[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "authorization_status": {
+      "enum": [
+        "PRIVATE_ONLY",
+        "ANONYMOUS_PUBLICATION",
+        "NAMED_PARAPHRASE_AUTHORIZED",
+        "NAMED_QUOTATION_AUTHORIZED",
+        "NAMED_TECHNICAL_ATTRIBUTION_AUTHORIZED",
+        "CO_DEVELOPED_ARTIFACT_ATTRIBUTION_AUTHORIZED",
+        "NOT_AUTHORIZED",
+        "WITHDRAWN"
+      ],
+      "type": "string"
+    },
+    "authorized_at": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorized_person_name": {
+      "maxLength": 512,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authorized_publication_surface": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorized_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorized_wording_ref": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "authorized_work_or_contribution": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "expiration_or_review_date": {
+      "maxLength": 64,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "participant_context_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "prohibited_inferences": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_disclaimer": {
+      "maxLength": 4096,
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1"
+    }
+  },
+  "required": [
+    "attribution_authorization_id",
+    "schema_version",
+    "participant_context_id",
+    "authorization_status",
+    "authorized_person_name",
+    "authorized_work_or_contribution",
+    "authorized_wording_ref",
+    "authorized_publication_surface",
+    "authorized_version",
+    "authorized_at",
+    "expiration_or_review_date",
+    "required_disclaimer",
+    "prohibited_inferences"
+  ],
+  "title": "Fork Attribution Authorization Record v0.1",
+  "type": "object"
+}

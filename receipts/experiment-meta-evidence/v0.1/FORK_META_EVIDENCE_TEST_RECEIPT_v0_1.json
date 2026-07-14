@@ -1,0 +1,64 @@
+{
+  "executed_at": "2026-07-14T00:17:54Z",
+  "non_claims": [
+    "Passing tests establish bounded implementation behavior only.",
+    "They do not establish compliance, legal sufficiency, institutional authority, truth, safety, or production readiness."
+  ],
+  "package_id": "FORK-META-EVIDENCE-v0.1",
+  "passed": true,
+  "python_version": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
+  "receipt_id": "FORK-META-EVIDENCE-TEST-RECEIPT-v0.1",
+  "results": [
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.532s\n\nOK\n",
+      "stdout": "",
+      "test_file": "tests/test_attribution_authorization_record_v0_1.py"
+    },
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 1.625s\n\nOK\n",
+      "stdout": "{\n  \"checker\": \"check_experiment_meta_evidence_v0_1.py\",\n  \"defect_count\": 0,\n  \"defects\": [],\n  \"kind\": \"registry\",\n  \"record_id\": \"EMR-VALID-002\",\n  \"schema_version\": \"0.1\",\n  \"state\": \"CONFORMING\"\n}\n{\n  \"checker\": \"check_experiment_meta_evidence_v0_1.py\",\n  \"defect_count\": 1,\n  \"defects\": [\n    {\n      \"code\": \"HISTORICAL_OUTCOME_OVERWRITTEN\",\n      \"detail\": \"Historical outcomes must be append-only or linked by correction/supersession\",\n      \"path\": \"EOR-INVALID-003.history_treatment\"\n    }\n  ],\n  \"kind\": \"registry\",\n  \"record_id\": \"EMR-INVALID-003\",\n  \"schema_version\": \"0.1\",\n  \"state\": \"NON_CONFORMING\"\n}\n",
+      "test_file": "tests/test_experiment_meta_evidence_v0_1.py"
+    },
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.246s\n\nOK\n",
+      "stdout": "",
+      "test_file": "tests/test_experiment_outcome_record_v0_1.py"
+    },
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.263s\n\nOK\n",
+      "stdout": "",
+      "test_file": "tests/test_external_context_reference_set_v0_1.py"
+    },
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.237s\n\nOK\n",
+      "stdout": "",
+      "test_file": "tests/test_interaction_provenance_record_v0_1.py"
+    },
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.240s\n\nOK\n",
+      "stdout": "",
+      "test_file": "tests/test_participant_context_receipt_v0_1.py"
+    },
+    {
+      "passed": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checker\": \"check_experiment_meta_evidence_v0_1.py\",\n  \"defect_count\": 0,\n  \"defects\": [],\n  \"kind\": \"registry\",\n  \"record_id\": \"EMR-FORK-META-EVIDENCE-v0.1\",\n  \"schema_version\": \"0.1\",\n  \"state\": \"CONFORMING\"\n}\n",
+      "test_file": "integrated_registry_check"
+    }
+  ],
+  "schema_version": "0.1",
+  "tests_skipped": false
+}

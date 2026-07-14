@@ -1,0 +1,92 @@
+{
+  "attribution_authorization_records": [],
+  "experiment_outcome_records": [],
+  "external_context_reference_sets": [
+    {
+      "aims_process_phase": {
+        "origin": "NOT_SUPPLIED",
+        "owner": null,
+        "source": null,
+        "status": "NOT_SUPPLIED",
+        "value": null,
+        "version": null
+      },
+      "external_context_observed_at": "2026-07-13T00:00:00Z",
+      "external_context_owner": null,
+      "external_context_set_id": "ECR-CONSERVATIVE-NOT-SUPPLIED",
+      "external_context_source": null,
+      "external_context_status": "NOT_SUPPLIED",
+      "external_context_version": null,
+      "impact_assessment_id": {
+        "origin": "NOT_SUPPLIED",
+        "owner": null,
+        "source": null,
+        "status": "NOT_SUPPLIED",
+        "value": null,
+        "version": null
+      },
+      "required_provenance_profile_id": {
+        "origin": "NOT_SUPPLIED",
+        "owner": null,
+        "source": null,
+        "status": "NOT_SUPPLIED",
+        "value": null,
+        "version": null
+      },
+      "risk_tier_ref": {
+        "origin": "NOT_SUPPLIED",
+        "owner": null,
+        "source": null,
+        "status": "NOT_SUPPLIED",
+        "value": null,
+        "version": null
+      },
+      "schema_version": "0.1"
+    }
+  ],
+  "generated_at": "2026-07-13T00:00:00Z",
+  "historical_wrappers": [],
+  "interaction_provenance_records": [],
+  "participant_context_receipts": [],
+  "provenance_profiles": [
+    {
+      "applicability_assigned_by": "EXTERNAL_CONTEXT_ONLY",
+      "created_at": "2026-07-13T00:00:00Z",
+      "exception_authority_ref": null,
+      "minimum_provenance_tier": "P2",
+      "permitted_exceptions": [],
+      "profile_id": "PPR-FORK-P2-TRIAGE",
+      "profile_owner": "Fork Experiment Protocol",
+      "profile_owner_type": "FORK_EXPERIMENT_PROTOCOL",
+      "profile_version": "0.1",
+      "required_integrity_checks": [],
+      "required_observation_methods": [
+        "RENDERED_ARTIFACT",
+        "PARTIAL_ARTIFACT"
+      ],
+      "required_reproduction_count": 0,
+      "schema_version": "0.1"
+    },
+    {
+      "applicability_assigned_by": "EXTERNAL_CONTEXT_ONLY",
+      "created_at": "2026-07-13T00:00:00Z",
+      "exception_authority_ref": null,
+      "minimum_provenance_tier": "P4",
+      "permitted_exceptions": [],
+      "profile_id": "PPR-FORK-P4-EXECUTION",
+      "profile_owner": "Fork Experiment Protocol",
+      "profile_owner_type": "FORK_EXPERIMENT_PROTOCOL",
+      "profile_version": "0.1",
+      "required_integrity_checks": [
+        "SHA256"
+      ],
+      "required_observation_methods": [
+        "DIRECT_EXECUTION"
+      ],
+      "required_reproduction_count": 1,
+      "schema_version": "0.1"
+    }
+  ],
+  "registry_id": "EMR-FORK-META-EVIDENCE-v0.1",
+  "schema_version": "0.1"
+}

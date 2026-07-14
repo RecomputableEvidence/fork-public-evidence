@@ -1,0 +1,180 @@
+{
+  "attribution_authorization_records": [],
+  "experiment_outcome_records": [
+    {
+      "affected_hypothesis_ids": [
+        "HYP-OUTCOME-POLARITY-INDEPENDENCE"
+      ],
+      "attribution_authorization_id": null,
+      "corrective_action_status": "PROPOSED",
+      "evidence_standing": "INDEPENDENTLY_REPRODUCED",
+      "experiment_id": "FORK-META-EVIDENCE-TEST",
+      "external_context": {
+        "external_context_set_id": "ECR-INVALID-RISK",
+        "status": "REFERENCED"
+      },
+      "history_treatment": "APPEND_ONLY",
+      "integrity_checks": [
+        "SHA256"
+      ],
+      "interaction_provenance_id": "IPR-REVIEW-001",
+      "lineage": [],
+      "notes": "Synthetic fixture preserving an unfavorable result with high evidentiary standing.",
+      "observation_assertion_type": "EXECUTION_BEHAVIOR",
+      "observation_method": "DIRECT_EXECUTION",
+      "observation_timestamp": "2026-07-13T00:30:00Z",
+      "outcome_polarity": "UNFAVORABLE",
+      "outcome_type": "IMPLEMENTATION_DEFECT",
+      "participant_context_id": "PCR-REVIEWER-001",
+      "prohibited_inferences": [
+        "TRUTH",
+        "LEGALITY",
+        "COMPLIANCE",
+        "ENDORSEMENT",
+        "PRODUCTION_READINESS"
+      ],
+      "provenance_tier": "P4",
+      "public_use_status": "INTERNAL",
+      "record_id": "EOR-INVALID-007",
+      "reproduction_count": 1,
+      "reproduction_status": "REPRODUCED",
+      "schema_version": "0.1",
+      "source_relationship": "PARTICIPANT",
+      "standing_basis": {
+        "basis_type": "PROVENANCE_METHOD_REPRODUCIBILITY",
+        "derived_from_outcome_polarity": false,
+        "evidence_refs": [
+          "fixture://execution/001"
+        ]
+      },
+      "supported_claims": [
+        "DEFECT_REPRODUCED_UNDER_DECLARED_FIXTURE"
+      ]
+    }
+  ],
+  "external_context_reference_sets": [
+    {
+      "aims_process_phase": {
+        "origin": "EXTERNAL",
+        "owner": "Example Organization",
+        "source": "urn:example:aims:phase",
+        "status": "SUPPLIED",
+        "value": "MONITOR",
+        "version": "2026.1"
+      },
+      "external_context_observed_at": "2026-07-13T00:00:00Z",
+      "external_context_owner": "Example Organization AIMS",
+      "external_context_set_id": "ECR-INVALID-RISK",
+      "external_context_source": "urn:example:aims:context:001",
+      "external_context_status": "SUPPLIED",
+      "external_context_version": "2026.1",
+      "impact_assessment_id": {
+        "origin": "EXTERNAL",
+        "owner": "Example Organization",
+        "source": "urn:example:impact:17",
+        "status": "SUPPLIED",
+        "value": "IA-2026-017",
+        "version": "1"
+      },
+      "required_provenance_profile_id": {
+        "origin": "EXTERNAL",
+        "owner": "Example Organization",
+        "source": "urn:example:evidence-profile",
+        "status": "SUPPLIED",
+        "value": "PPR-FORK-P4-EXECUTION",
+        "version": "1"
+      },
+      "risk_tier_ref": {
+        "origin": "FORK_INFERRED",
+        "owner": "Fork",
+        "source": "urn:fork:inferred",
+        "status": "SUPPLIED",
+        "value": "HIGH",
+        "version": "1"
+      },
+      "schema_version": "0.1"
+    }
+  ],
+  "generated_at": "2026-07-13T00:00:00Z",
+  "historical_wrappers": [],
+  "interaction_provenance_records": [
+    {
+      "artifact_refs_accessed": [
+        "fixture://package/001"
+      ],
+      "artifact_refs_supplied_before_observation": [
+        "fixture://package/001"
+      ],
+      "channel_limitations": [],
+      "exclusion_reason": null,
+      "experiment_id": "FORK-META-EVIDENCE-TEST",
+      "fork_corrections_before_final_observation": [],
+      "inclusion_status": "INCLUDED",
+      "initiating_message_ref": "fixture://invitation/001",
+      "interaction_end": "2026-07-13T00:30:00Z",
+      "interaction_id": "IPR-REVIEW-001",
+      "interaction_start": "2026-07-13T00:00:00Z",
+      "non_response_status": "RESPONDED_WITH_OBSERVATION",
+      "number_of_explanatory_turns": 1,
+      "observation_spontaneity": "SOLICITED",
+      "participant_context_id": "PCR-REVIEWER-001",
+      "participant_corrections": [],
+      "question_or_prompt": "Recompute the bounded fixture and report what reproduced and what remained unresolved.",
+      "question_selected_by": "FORK",
+      "response_mode": "EXECUTION_RECEIPT",
+      "retrieval_provenance_tier": "P4",
+      "schema_version": "0.1",
+      "selection_rationale": "Synthetic reviewer role for deterministic fixture coverage."
+    }
+  ],
+  "participant_context_receipts": [
+    {
+      "artifact_access_level": "P4_EXECUTION",
+      "attribution_status": "AUTHORIZED",
+      "collaboration_interest_status": "POTENTIAL",
+      "commercial_interest_status": "NONE_DECLARED",
+      "compensation_status": "NONE",
+      "correction_status": "NONE",
+      "execution_access": true,
+      "interaction_channel": "GITHUB",
+      "interaction_role": "Bounded technical execution reviewer",
+      "interaction_visibility": "PRIVATE",
+      "non_endorsement_status": "EXPLICITLY_NOT_ENDORSED",
+      "notes": "Synthetic fixture; no real person or endorsement is represented.",
+      "paraphrase_status": "AUTHORIZED",
+      "participant_context_id": "PCR-REVIEWER-001",
+      "participant_identifier": "Synthetic Reviewer",
+      "participant_identifier_type": "PSEUDONYMOUS",
+      "prior_relationship_status": "PROFESSIONAL_CONTACT",
+      "quotation_status": "AUTHORIZED",
+      "recorded_at": "2026-07-13T00:00:00Z",
+      "relationship_to_fork": "INDEPENDENT_TECHNICAL_REVIEWER",
+      "schema_version": "0.1",
+      "solicitation_status": "SOLICITED",
+      "withdrawal_status": "NOT_WITHDRAWN"
+    }
+  ],
+  "provenance_profiles": [
+    {
+      "applicability_assigned_by": "EXTERNAL_CONTEXT_ONLY",
+      "created_at": "2026-07-13T00:00:00Z",
+      "exception_authority_ref": null,
+      "minimum_provenance_tier": "P4",
+      "permitted_exceptions": [],
+      "profile_id": "PPR-FORK-P4-EXECUTION",
+      "profile_owner": "Fork Experiment Protocol",
+      "profile_owner_type": "FORK_EXPERIMENT_PROTOCOL",
+      "profile_version": "0.1",
+      "required_integrity_checks": [
+        "SHA256"
+      ],
+      "required_observation_methods": [
+        "DIRECT_EXECUTION"
+      ],
+      "required_reproduction_count": 1,
+      "schema_version": "0.1"
+    }
+  ],
+  "registry_id": "EMR-INVALID-007",
+  "schema_version": "0.1"
+}

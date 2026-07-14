@@ -1,0 +1,1454 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attribution_authorization_records": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "attribution_authorization_id": {
+            "maxLength": 256,
+            "minLength": 5,
+            "pattern": "^AAR-[A-Za-z0-9._:-]+$",
+            "type": "string"
+          },
+          "authorization_status": {
+            "enum": [
+              "PRIVATE_ONLY",
+              "ANONYMOUS_PUBLICATION",
+              "NAMED_PARAPHRASE_AUTHORIZED",
+              "NAMED_QUOTATION_AUTHORIZED",
+              "NAMED_TECHNICAL_ATTRIBUTION_AUTHORIZED",
+              "CO_DEVELOPED_ARTIFACT_ATTRIBUTION_AUTHORIZED",
+              "NOT_AUTHORIZED",
+              "WITHDRAWN"
+            ],
+            "type": "string"
+          },
+          "authorized_at": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authorized_person_name": {
+            "maxLength": 512,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "authorized_publication_surface": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authorized_version": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authorized_wording_ref": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "authorized_work_or_contribution": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "expiration_or_review_date": {
+            "maxLength": 64,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "participant_context_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "prohibited_inferences": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "required_disclaimer": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "0.1"
+          }
+        },
+        "required": [
+          "attribution_authorization_id",
+          "schema_version",
+          "participant_context_id",
+          "authorization_status",
+          "authorized_person_name",
+          "authorized_work_or_contribution",
+          "authorized_wording_ref",
+          "authorized_publication_surface",
+          "authorized_version",
+          "authorized_at",
+          "expiration_or_review_date",
+          "required_disclaimer",
+          "prohibited_inferences"
+        ],
+        "title": "Fork Attribution Authorization Record v0.1",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "experiment_outcome_records": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "affected_hypothesis_ids": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "attribution_authorization_id": {
+            "maxLength": 256,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "corrective_action_status": {
+            "enum": [
+              "NONE",
+              "PROPOSED",
+              "IN_PROGRESS",
+              "IMPLEMENTED",
+              "VERIFIED",
+              "REJECTED",
+              "NOT_APPLICABLE"
+            ],
+            "type": "string"
+          },
+          "evidence_standing": {
+            "enum": [
+              "UNVERIFIED_OBSERVATION",
+              "BOUNDED_OBSERVATION",
+              "STRUCTURALLY_VALID",
+              "DIRECTLY_INSPECTED",
+              "INDEPENDENTLY_REPRODUCED",
+              "INSTITUTIONALLY_DETERMINED",
+              "WITHDRAWN",
+              "SUPERSEDED",
+              "UNRESOLVED"
+            ],
+            "type": "string"
+          },
+          "experiment_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "external_context": {
+            "additionalProperties": false,
+            "properties": {
+              "external_context_set_id": {
+                "maxLength": 256,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "REFERENCED",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "NOT_APPLICABLE",
+                  "WITHHELD"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "status",
+              "external_context_set_id"
+            ],
+            "type": "object"
+          },
+          "history_treatment": {
+            "enum": [
+              "APPEND_ONLY",
+              "CORRECTION_WITH_LINEAGE",
+              "SUPERSESSION_WITH_LINEAGE",
+              "OVERWRITE"
+            ],
+            "type": "string"
+          },
+          "integrity_checks": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "interaction_provenance_id": {
+            "maxLength": 256,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "lineage": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "note": {
+                  "maxLength": 2048,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "relationship": {
+                  "enum": [
+                    "CORRECTS",
+                    "SUPERSEDES",
+                    "EXPLAINS",
+                    "REPRODUCES",
+                    "FAILS_TO_REPRODUCE",
+                    "DERIVES_FROM",
+                    "PRESSURES",
+                    "RESPONDS_TO",
+                    "RETRACTS"
+                  ],
+                  "type": "string"
+                },
+                "target_record_id": {
+                  "maxLength": 256,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "relationship",
+                "target_record_id",
+                "note"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "notes": {
+            "maxLength": 8192,
+            "minLength": 1,
+            "type": "string"
+          },
+          "observation_assertion_type": {
+            "enum": [
+              "PRESENT",
+              "ABSENT",
+              "UNRESOLVED",
+              "CONTENT",
+              "MECHANISM_BEHAVIOR",
+              "EXECUTION_BEHAVIOR",
+              "OTHER"
+            ],
+            "type": "string"
+          },
+          "observation_method": {
+            "enum": [
+              "CHANNEL_NEGATIVE",
+              "UNAVAILABLE",
+              "DESCRIPTION",
+              "SUMMARY",
+              "QUOTATION",
+              "REPORTED_OBSERVATION",
+              "RENDERED_ARTIFACT",
+              "PARTIAL_ARTIFACT",
+              "INDEXED_ARTIFACT",
+              "TRANSFORMED_ARTIFACT",
+              "RAW_FILE_INSPECTION",
+              "DIRECT_EXECUTION"
+            ],
+            "type": "string"
+          },
+          "observation_timestamp": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "outcome_polarity": {
+            "enum": [
+              "FAVORABLE",
+              "UNFAVORABLE",
+              "MIXED",
+              "NULL",
+              "AMBIGUOUS",
+              "NOT_APPLICABLE"
+            ],
+            "type": "string"
+          },
+          "outcome_type": {
+            "enum": [
+              "TECHNICAL_REPRODUCTION",
+              "FAILED_REPRODUCTION",
+              "IMPLEMENTATION_DEFECT",
+              "INTEGRATION_DEFECT",
+              "SPECIFICATION_PRESSURE",
+              "EXPERIMENTAL_DESIGN_LIMITATION",
+              "RETRIEVAL_DEGRADATION",
+              "INTERPRETIVE_DISAGREEMENT",
+              "NULL_RESULT",
+              "AMBIGUOUS_RESULT",
+              "PROFESSIONAL_RECOGNITION",
+              "ATTRIBUTION_PERMISSION",
+              "COLLABORATION_INTEREST",
+              "COMMERCIAL_INTEREST",
+              "TECHNICAL_VALIDATION",
+              "INSTITUTIONAL_DETERMINATION",
+              "WITHDRAWN_OR_CORRECTED_OBSERVATION"
+            ],
+            "type": "string"
+          },
+          "participant_context_id": {
+            "maxLength": 256,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "prohibited_inferences": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "provenance_tier": {
+            "enum": [
+              "P0",
+              "P1",
+              "P2",
+              "P3",
+              "P4"
+            ],
+            "type": "string"
+          },
+          "public_use_status": {
+            "enum": [
+              "PRIVATE",
+              "INTERNAL",
+              "PUBLIC_ANONYMOUS",
+              "PUBLIC_NAMED",
+              "WITHHELD",
+              "NOT_AUTHORIZED"
+            ],
+            "type": "string"
+          },
+          "record_id": {
+            "maxLength": 256,
+            "minLength": 5,
+            "pattern": "^EOR-[A-Za-z0-9._:-]+$",
+            "type": "string"
+          },
+          "reproduction_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "reproduction_status": {
+            "enum": [
+              "NOT_ATTEMPTED",
+              "REPRODUCED",
+              "FAILED_TO_REPRODUCE",
+              "PARTIALLY_REPRODUCED",
+              "NOT_APPLICABLE",
+              "UNRESOLVED"
+            ],
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "0.1"
+          },
+          "source_relationship": {
+            "enum": [
+              "PARTICIPANT",
+              "REPOSITORY",
+              "INSTITUTION",
+              "SYSTEM",
+              "OTHER"
+            ],
+            "type": "string"
+          },
+          "standing_basis": {
+            "additionalProperties": false,
+            "properties": {
+              "basis_type": {
+                "enum": [
+                  "PROVENANCE_METHOD_REPRODUCIBILITY",
+                  "EXTERNAL_INSTITUTIONAL_DETERMINATION",
+                  "WITHDRAWAL_OR_SUPERSESSION"
+                ],
+                "type": "string"
+              },
+              "derived_from_outcome_polarity": {
+                "type": "boolean"
+              },
+              "evidence_refs": {
+                "items": {
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 0,
+                "type": "array",
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "basis_type",
+              "derived_from_outcome_polarity",
+              "evidence_refs"
+            ],
+            "type": "object"
+          },
+          "supported_claims": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "record_id",
+          "schema_version",
+          "experiment_id",
+          "outcome_type",
+          "outcome_polarity",
+          "evidence_standing",
+          "observation_timestamp",
+          "source_relationship",
+          "participant_context_id",
+          "interaction_provenance_id",
+          "attribution_authorization_id",
+          "observation_method",
+          "observation_assertion_type",
+          "provenance_tier",
+          "standing_basis",
+          "supported_claims",
+          "prohibited_inferences",
+          "affected_hypothesis_ids",
+          "reproduction_status",
+          "reproduction_count",
+          "integrity_checks",
+          "corrective_action_status",
+          "public_use_status",
+          "history_treatment",
+          "lineage",
+          "external_context",
+          "notes"
+        ],
+        "title": "Fork Experiment Outcome Record v0.1",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "external_context_reference_sets": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "aims_process_phase": {
+            "additionalProperties": false,
+            "properties": {
+              "origin": {
+                "enum": [
+                  "EXTERNAL",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "WITHHELD",
+                  "FORK_INFERRED"
+                ],
+                "type": "string"
+              },
+              "owner": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "maxLength": 2048,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "SUPPLIED",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "NOT_APPLICABLE",
+                  "WITHHELD"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "enum": [
+                  "PLAN",
+                  "DESIGN",
+                  "BUILD",
+                  "VALIDATE",
+                  "DEPLOY",
+                  "OPERATE",
+                  "MONITOR",
+                  "REVIEW",
+                  "REMEDIATE",
+                  "RETIRE",
+                  "NOT_SUPPLIED",
+                  "UNRESOLVED",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "maxLength": 256,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "value",
+              "owner",
+              "source",
+              "version",
+              "origin"
+            ],
+            "type": "object"
+          },
+          "external_context_observed_at": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "external_context_owner": {
+            "maxLength": 1024,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "external_context_set_id": {
+            "maxLength": 256,
+            "minLength": 5,
+            "pattern": "^ECR-[A-Za-z0-9._:-]+$",
+            "type": "string"
+          },
+          "external_context_source": {
+            "maxLength": 2048,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "external_context_status": {
+            "enum": [
+              "SUPPLIED",
+              "NOT_SUPPLIED",
+              "UNAVAILABLE",
+              "UNRESOLVED_BY_CHANNEL",
+              "NOT_APPLICABLE",
+              "WITHHELD"
+            ],
+            "type": "string"
+          },
+          "external_context_version": {
+            "maxLength": 256,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "impact_assessment_id": {
+            "additionalProperties": false,
+            "properties": {
+              "origin": {
+                "enum": [
+                  "EXTERNAL",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "WITHHELD",
+                  "FORK_INFERRED"
+                ],
+                "type": "string"
+              },
+              "owner": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "maxLength": 2048,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "SUPPLIED",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "NOT_APPLICABLE",
+                  "WITHHELD"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "maxLength": 256,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "value",
+              "owner",
+              "source",
+              "version",
+              "origin"
+            ],
+            "type": "object"
+          },
+          "required_provenance_profile_id": {
+            "additionalProperties": false,
+            "properties": {
+              "origin": {
+                "enum": [
+                  "EXTERNAL",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "WITHHELD",
+                  "FORK_INFERRED"
+                ],
+                "type": "string"
+              },
+              "owner": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "maxLength": 2048,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "SUPPLIED",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "NOT_APPLICABLE",
+                  "WITHHELD"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "maxLength": 256,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "value",
+              "owner",
+              "source",
+              "version",
+              "origin"
+            ],
+            "type": "object"
+          },
+          "risk_tier_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "origin": {
+                "enum": [
+                  "EXTERNAL",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "WITHHELD",
+                  "FORK_INFERRED"
+                ],
+                "type": "string"
+              },
+              "owner": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "maxLength": 2048,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "SUPPLIED",
+                  "NOT_SUPPLIED",
+                  "UNAVAILABLE",
+                  "UNRESOLVED_BY_CHANNEL",
+                  "NOT_APPLICABLE",
+                  "WITHHELD"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "maxLength": 1024,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "maxLength": 256,
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status",
+              "value",
+              "owner",
+              "source",
+              "version",
+              "origin"
+            ],
+            "type": "object"
+          },
+          "schema_version": {
+            "const": "0.1"
+          }
+        },
+        "required": [
+          "external_context_set_id",
+          "schema_version",
+          "external_context_owner",
+          "external_context_source",
+          "external_context_version",
+          "external_context_observed_at",
+          "external_context_status",
+          "risk_tier_ref",
+          "impact_assessment_id",
+          "aims_process_phase",
+          "required_provenance_profile_id"
+        ],
+        "title": "Fork External Context Reference Set v0.1",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "historical_wrappers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "available_context": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "historical_artifact_ref": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "historical_schema_status": {
+            "enum": [
+              "PRE_V0_1",
+              "PARTIAL",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "missing_context": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "retrospective_inference_prohibited": {
+            "const": true
+          }
+        },
+        "required": [
+          "historical_artifact_ref",
+          "historical_schema_status",
+          "available_context",
+          "missing_context",
+          "retrospective_inference_prohibited"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "interaction_provenance_records": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_refs_accessed": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "artifact_refs_supplied_before_observation": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "channel_limitations": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "exclusion_reason": {
+            "maxLength": 2048,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "experiment_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "fork_corrections_before_final_observation": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "inclusion_status": {
+            "enum": [
+              "INCLUDED",
+              "EXCLUDED",
+              "PENDING"
+            ],
+            "type": "string"
+          },
+          "initiating_message_ref": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "interaction_end": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "interaction_id": {
+            "maxLength": 256,
+            "minLength": 5,
+            "pattern": "^IPR-[A-Za-z0-9._:-]+$",
+            "type": "string"
+          },
+          "interaction_start": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "non_response_status": {
+            "enum": [
+              "INVITED_NO_RESPONSE",
+              "DECLINED",
+              "RESPONDED_NO_TECHNICAL_OBSERVATION",
+              "RESPONDED_WITH_OBSERVATION",
+              "WITHDRAWN",
+              "NOT_APPLICABLE"
+            ],
+            "type": "string"
+          },
+          "number_of_explanatory_turns": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observation_spontaneity": {
+            "enum": [
+              "SPONTANEOUS",
+              "SOLICITED",
+              "MIXED",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "participant_context_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
+          "participant_corrections": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "question_or_prompt": {
+            "maxLength": 8192,
+            "minLength": 1,
+            "type": "string"
+          },
+          "question_selected_by": {
+            "enum": [
+              "FORK",
+              "PARTICIPANT",
+              "JOINT",
+              "OTHER"
+            ],
+            "type": "string"
+          },
+          "response_mode": {
+            "enum": [
+              "TEXT",
+              "VOICE",
+              "VIDEO",
+              "EXECUTION_RECEIPT",
+              "OTHER"
+            ],
+            "type": "string"
+          },
+          "retrieval_provenance_tier": {
+            "enum": [
+              "P0",
+              "P1",
+              "P2",
+              "P3",
+              "P4"
+            ],
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "0.1"
+          },
+          "selection_rationale": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "interaction_id",
+          "schema_version",
+          "participant_context_id",
+          "experiment_id",
+          "initiating_message_ref",
+          "interaction_start",
+          "interaction_end",
+          "question_or_prompt",
+          "question_selected_by",
+          "response_mode",
+          "number_of_explanatory_turns",
+          "artifact_refs_supplied_before_observation",
+          "artifact_refs_accessed",
+          "fork_corrections_before_final_observation",
+          "participant_corrections",
+          "observation_spontaneity",
+          "selection_rationale",
+          "inclusion_status",
+          "exclusion_reason",
+          "non_response_status",
+          "channel_limitations",
+          "retrieval_provenance_tier"
+        ],
+        "title": "Fork Interaction Provenance Record v0.1",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "participant_context_receipts": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_access_level": {
+            "enum": [
+              "NONE",
+              "P1_DESCRIPTION",
+              "P2_RENDERED_OR_PARTIAL",
+              "P3_RAW_FILE",
+              "P4_EXECUTION"
+            ],
+            "type": "string"
+          },
+          "attribution_status": {
+            "enum": [
+              "NOT_REQUESTED",
+              "REQUESTED",
+              "AUTHORIZED",
+              "RESTRICTED",
+              "NOT_AUTHORIZED",
+              "WITHDRAWN"
+            ],
+            "type": "string"
+          },
+          "collaboration_interest_status": {
+            "enum": [
+              "NONE_DECLARED",
+              "PRESENT",
+              "POTENTIAL",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "commercial_interest_status": {
+            "enum": [
+              "NONE_DECLARED",
+              "PRESENT",
+              "POTENTIAL",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "compensation_status": {
+            "enum": [
+              "NONE",
+              "PAID",
+              "OFFERED",
+              "DECLINED",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "correction_status": {
+            "enum": [
+              "NONE",
+              "CORRECTED",
+              "DISPUTED",
+              "PENDING"
+            ],
+            "type": "string"
+          },
+          "execution_access": {
+            "type": "boolean"
+          },
+          "interaction_channel": {
+            "enum": [
+              "LINKEDIN",
+              "EMAIL",
+              "GITHUB",
+              "VIDEO_CALL",
+              "IN_PERSON",
+              "OTHER"
+            ],
+            "type": "string"
+          },
+          "interaction_role": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "interaction_visibility": {
+            "enum": [
+              "PUBLIC",
+              "PRIVATE",
+              "OFF_RECORD",
+              "MIXED"
+            ],
+            "type": "string"
+          },
+          "non_endorsement_status": {
+            "enum": [
+              "EXPLICITLY_NOT_ENDORSED",
+              "NO_ENDORSEMENT_INFERABLE",
+              "EXPLICIT_ENDORSEMENT_AUTHORIZED"
+            ],
+            "type": "string"
+          },
+          "notes": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "paraphrase_status": {
+            "enum": [
+              "NOT_REQUESTED",
+              "AUTHORIZED",
+              "RESTRICTED",
+              "NOT_AUTHORIZED",
+              "WITHDRAWN"
+            ],
+            "type": "string"
+          },
+          "participant_context_id": {
+            "maxLength": 256,
+            "minLength": 5,
+            "pattern": "^PCR-[A-Za-z0-9._:-]+$",
+            "type": "string"
+          },
+          "participant_identifier": {
+            "maxLength": 512,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "participant_identifier_type": {
+            "enum": [
+              "NAMED",
+              "PSEUDONYMOUS",
+              "ANONYMOUS",
+              "ORGANIZATIONAL"
+            ],
+            "type": "string"
+          },
+          "prior_relationship_status": {
+            "enum": [
+              "NONE",
+              "PROFESSIONAL_CONTACT",
+              "COLLABORATOR",
+              "COMMERCIAL",
+              "OTHER",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "quotation_status": {
+            "enum": [
+              "NOT_REQUESTED",
+              "AUTHORIZED",
+              "RESTRICTED",
+              "NOT_AUTHORIZED",
+              "WITHDRAWN"
+            ],
+            "type": "string"
+          },
+          "recorded_at": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "relationship_to_fork": {
+            "enum": [
+              "INDEPENDENT_TECHNICAL_REVIEWER",
+              "EXTERIOR_OBSERVER",
+              "PROFESSIONAL_PEER",
+              "POTENTIAL_COLLABORATOR",
+              "COMMERCIAL_PROSPECT",
+              "DESIGN_PARTNER_CANDIDATE",
+              "CONTRIBUTOR",
+              "ADVISOR",
+              "UNKNOWN_OR_UNDECLARED"
+            ],
+            "type": "string"
+          },
+          "schema_version": {
+            "const": "0.1"
+          },
+          "solicitation_status": {
+            "enum": [
+              "SOLICITED",
+              "UNSOLICITED",
+              "MIXED",
+              "UNKNOWN"
+            ],
+            "type": "string"
+          },
+          "withdrawal_status": {
+            "enum": [
+              "NOT_WITHDRAWN",
+              "WITHDRAWN_UNPUBLISHED",
+              "WITHDRAWN_WITH_PUBLIC_CORRECTION",
+              "PARTIALLY_WITHDRAWN"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "participant_context_id",
+          "schema_version",
+          "participant_identifier",
+          "participant_identifier_type",
+          "relationship_to_fork",
+          "interaction_role",
+          "interaction_channel",
+          "interaction_visibility",
+          "solicitation_status",
+          "prior_relationship_status",
+          "compensation_status",
+          "commercial_interest_status",
+          "collaboration_interest_status",
+          "artifact_access_level",
+          "execution_access",
+          "attribution_status",
+          "quotation_status",
+          "paraphrase_status",
+          "correction_status",
+          "withdrawal_status",
+          "non_endorsement_status",
+          "recorded_at",
+          "notes"
+        ],
+        "title": "Fork Participant Context Receipt v0.1",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "provenance_profiles": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "applicability_assigned_by": {
+            "const": "EXTERNAL_CONTEXT_ONLY"
+          },
+          "created_at": {
+            "format": "date-time",
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string"
+          },
+          "exception_authority_ref": {
+            "maxLength": 1024,
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "minimum_provenance_tier": {
+            "enum": [
+              "P0",
+              "P1",
+              "P2",
+              "P3",
+              "P4"
+            ],
+            "type": "string"
+          },
+          "permitted_exceptions": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "profile_id": {
+            "maxLength": 256,
+            "minLength": 5,
+            "pattern": "^PPR-[A-Za-z0-9._:-]+$",
+            "type": "string"
+          },
+          "profile_owner": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "profile_owner_type": {
+            "enum": [
+              "EXTERNAL_ORGANIZATION",
+              "FORK_EXPERIMENT_PROTOCOL"
+            ],
+            "type": "string"
+          },
+          "profile_version": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "required_integrity_checks": {
+            "items": {
+              "maxLength": 1024,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "required_observation_methods": {
+            "items": {
+              "enum": [
+                "CHANNEL_NEGATIVE",
+                "UNAVAILABLE",
+                "DESCRIPTION",
+                "SUMMARY",
+                "QUOTATION",
+                "REPORTED_OBSERVATION",
+                "RENDERED_ARTIFACT",
+                "PARTIAL_ARTIFACT",
+                "INDEXED_ARTIFACT",
+                "TRANSFORMED_ARTIFACT",
+                "RAW_FILE_INSPECTION",
+                "DIRECT_EXECUTION"
+              ],
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "required_reproduction_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "schema_version": {
+            "const": "0.1"
+          }
+        },
+        "required": [
+          "profile_id",
+          "schema_version",
+          "profile_owner",
+          "profile_owner_type",
+          "profile_version",
+          "minimum_provenance_tier",
+          "required_observation_methods",
+          "required_integrity_checks",
+          "required_reproduction_count",
+          "permitted_exceptions",
+          "exception_authority_ref",
+          "applicability_assigned_by",
+          "created_at"
+        ],
+        "title": "Fork Provenance Profile v0.1",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_id": {
+      "maxLength": 256,
+      "minLength": 5,
+      "pattern": "^EMR-[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1"
+    }
+  },
+  "required": [
+    "registry_id",
+    "schema_version",
+    "generated_at",
+    "provenance_profiles",
+    "external_context_reference_sets",
+    "participant_context_receipts",
+    "interaction_provenance_records",
+    "attribution_authorization_records",
+    "experiment_outcome_records",
+    "historical_wrappers"
+  ],
+  "title": "Fork Experiment Meta-Evidence Registry v0.1",
+  "type": "object"
+}

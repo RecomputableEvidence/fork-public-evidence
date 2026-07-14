@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aims_process_phase": {
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": [
+            "EXTERNAL",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "WITHHELD",
+            "FORK_INFERRED"
+          ],
+          "type": "string"
+        },
+        "owner": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "maxLength": 2048,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "SUPPLIED",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "NOT_APPLICABLE",
+            "WITHHELD"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "enum": [
+            "PLAN",
+            "DESIGN",
+            "BUILD",
+            "VALIDATE",
+            "DEPLOY",
+            "OPERATE",
+            "MONITOR",
+            "REVIEW",
+            "REMEDIATE",
+            "RETIRE",
+            "NOT_SUPPLIED",
+            "UNRESOLVED",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "owner",
+        "source",
+        "version",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "external_context_observed_at": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "external_context_owner": {
+      "maxLength": 1024,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "external_context_set_id": {
+      "maxLength": 256,
+      "minLength": 5,
+      "pattern": "^ECR-[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "external_context_source": {
+      "maxLength": 2048,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "external_context_status": {
+      "enum": [
+        "SUPPLIED",
+        "NOT_SUPPLIED",
+        "UNAVAILABLE",
+        "UNRESOLVED_BY_CHANNEL",
+        "NOT_APPLICABLE",
+        "WITHHELD"
+      ],
+      "type": "string"
+    },
+    "external_context_version": {
+      "maxLength": 256,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "impact_assessment_id": {
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": [
+            "EXTERNAL",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "WITHHELD",
+            "FORK_INFERRED"
+          ],
+          "type": "string"
+        },
+        "owner": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "maxLength": 2048,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "SUPPLIED",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "NOT_APPLICABLE",
+            "WITHHELD"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "owner",
+        "source",
+        "version",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "required_provenance_profile_id": {
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": [
+            "EXTERNAL",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "WITHHELD",
+            "FORK_INFERRED"
+          ],
+          "type": "string"
+        },
+        "owner": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "maxLength": 2048,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "SUPPLIED",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "NOT_APPLICABLE",
+            "WITHHELD"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "owner",
+        "source",
+        "version",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "risk_tier_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "enum": [
+            "EXTERNAL",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "WITHHELD",
+            "FORK_INFERRED"
+          ],
+          "type": "string"
+        },
+        "owner": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "maxLength": 2048,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "SUPPLIED",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "NOT_APPLICABLE",
+            "WITHHELD"
+          ],
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 1024,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "owner",
+        "source",
+        "version",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "0.1"
+    }
+  },
+  "required": [
+    "external_context_set_id",
+    "schema_version",
+    "external_context_owner",
+    "external_context_source",
+    "external_context_version",
+    "external_context_observed_at",
+    "external_context_status",
+    "risk_tier_ref",
+    "impact_assessment_id",
+    "aims_process_phase",
+    "required_provenance_profile_id"
+  ],
+  "title": "Fork External Context Reference Set v0.1",
+  "type": "object"
+}

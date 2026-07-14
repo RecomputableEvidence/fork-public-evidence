@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_refs_accessed": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "artifact_refs_supplied_before_observation": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "channel_limitations": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "exclusion_reason": {
+      "maxLength": 2048,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "experiment_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "fork_corrections_before_final_observation": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "inclusion_status": {
+      "enum": [
+        "INCLUDED",
+        "EXCLUDED",
+        "PENDING"
+      ],
+      "type": "string"
+    },
+    "initiating_message_ref": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "interaction_end": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "interaction_id": {
+      "maxLength": 256,
+      "minLength": 5,
+      "pattern": "^IPR-[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "interaction_start": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "non_response_status": {
+      "enum": [
+        "INVITED_NO_RESPONSE",
+        "DECLINED",
+        "RESPONDED_NO_TECHNICAL_OBSERVATION",
+        "RESPONDED_WITH_OBSERVATION",
+        "WITHDRAWN",
+        "NOT_APPLICABLE"
+      ],
+      "type": "string"
+    },
+    "number_of_explanatory_turns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observation_spontaneity": {
+      "enum": [
+        "SPONTANEOUS",
+        "SOLICITED",
+        "MIXED",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "participant_context_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "participant_corrections": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "question_or_prompt": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "type": "string"
+    },
+    "question_selected_by": {
+      "enum": [
+        "FORK",
+        "PARTICIPANT",
+        "JOINT",
+        "OTHER"
+      ],
+      "type": "string"
+    },
+    "response_mode": {
+      "enum": [
+        "TEXT",
+        "VOICE",
+        "VIDEO",
+        "EXECUTION_RECEIPT",
+        "OTHER"
+      ],
+      "type": "string"
+    },
+    "retrieval_provenance_tier": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "selection_rationale": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "interaction_id",
+    "schema_version",
+    "participant_context_id",
+    "experiment_id",
+    "initiating_message_ref",
+    "interaction_start",
+    "interaction_end",
+    "question_or_prompt",
+    "question_selected_by",
+    "response_mode",
+    "number_of_explanatory_turns",
+    "artifact_refs_supplied_before_observation",
+    "artifact_refs_accessed",
+    "fork_corrections_before_final_observation",
+    "participant_corrections",
+    "observation_spontaneity",
+    "selection_rationale",
+    "inclusion_status",
+    "exclusion_reason",
+    "non_response_status",
+    "channel_limitations",
+    "retrieval_provenance_tier"
+  ],
+  "title": "Fork Interaction Provenance Record v0.1",
+  "type": "object"
+}

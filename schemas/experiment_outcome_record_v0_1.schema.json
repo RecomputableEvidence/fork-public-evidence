@@ -1,0 +1,364 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "affected_hypothesis_ids": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "attribution_authorization_id": {
+      "maxLength": 256,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "corrective_action_status": {
+      "enum": [
+        "NONE",
+        "PROPOSED",
+        "IN_PROGRESS",
+        "IMPLEMENTED",
+        "VERIFIED",
+        "REJECTED",
+        "NOT_APPLICABLE"
+      ],
+      "type": "string"
+    },
+    "evidence_standing": {
+      "enum": [
+        "UNVERIFIED_OBSERVATION",
+        "BOUNDED_OBSERVATION",
+        "STRUCTURALLY_VALID",
+        "DIRECTLY_INSPECTED",
+        "INDEPENDENTLY_REPRODUCED",
+        "INSTITUTIONALLY_DETERMINED",
+        "WITHDRAWN",
+        "SUPERSEDED",
+        "UNRESOLVED"
+      ],
+      "type": "string"
+    },
+    "experiment_id": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "external_context": {
+      "additionalProperties": false,
+      "properties": {
+        "external_context_set_id": {
+          "maxLength": 256,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "REFERENCED",
+            "NOT_SUPPLIED",
+            "UNAVAILABLE",
+            "UNRESOLVED_BY_CHANNEL",
+            "NOT_APPLICABLE",
+            "WITHHELD"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "external_context_set_id"
+      ],
+      "type": "object"
+    },
+    "history_treatment": {
+      "enum": [
+        "APPEND_ONLY",
+        "CORRECTION_WITH_LINEAGE",
+        "SUPERSESSION_WITH_LINEAGE",
+        "OVERWRITE"
+      ],
+      "type": "string"
+    },
+    "integrity_checks": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "interaction_provenance_id": {
+      "maxLength": 256,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lineage": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "maxLength": 2048,
+            "minLength": 1,
+            "type": "string"
+          },
+          "relationship": {
+            "enum": [
+              "CORRECTS",
+              "SUPERSEDES",
+              "EXPLAINS",
+              "REPRODUCES",
+              "FAILS_TO_REPRODUCE",
+              "DERIVES_FROM",
+              "PRESSURES",
+              "RESPONDS_TO",
+              "RETRACTS"
+            ],
+            "type": "string"
+          },
+          "target_record_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "relationship",
+          "target_record_id",
+          "note"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "notes": {
+      "maxLength": 8192,
+      "minLength": 1,
+      "type": "string"
+    },
+    "observation_assertion_type": {
+      "enum": [
+        "PRESENT",
+        "ABSENT",
+        "UNRESOLVED",
+        "CONTENT",
+        "MECHANISM_BEHAVIOR",
+        "EXECUTION_BEHAVIOR",
+        "OTHER"
+      ],
+      "type": "string"
+    },
+    "observation_method": {
+      "enum": [
+        "CHANNEL_NEGATIVE",
+        "UNAVAILABLE",
+        "DESCRIPTION",
+        "SUMMARY",
+        "QUOTATION",
+        "REPORTED_OBSERVATION",
+        "RENDERED_ARTIFACT",
+        "PARTIAL_ARTIFACT",
+        "INDEXED_ARTIFACT",
+        "TRANSFORMED_ARTIFACT",
+        "RAW_FILE_INSPECTION",
+        "DIRECT_EXECUTION"
+      ],
+      "type": "string"
+    },
+    "observation_timestamp": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "outcome_polarity": {
+      "enum": [
+        "FAVORABLE",
+        "UNFAVORABLE",
+        "MIXED",
+        "NULL",
+        "AMBIGUOUS",
+        "NOT_APPLICABLE"
+      ],
+      "type": "string"
+    },
+    "outcome_type": {
+      "enum": [
+        "TECHNICAL_REPRODUCTION",
+        "FAILED_REPRODUCTION",
+        "IMPLEMENTATION_DEFECT",
+        "INTEGRATION_DEFECT",
+        "SPECIFICATION_PRESSURE",
+        "EXPERIMENTAL_DESIGN_LIMITATION",
+        "RETRIEVAL_DEGRADATION",
+        "INTERPRETIVE_DISAGREEMENT",
+        "NULL_RESULT",
+        "AMBIGUOUS_RESULT",
+        "PROFESSIONAL_RECOGNITION",
+        "ATTRIBUTION_PERMISSION",
+        "COLLABORATION_INTEREST",
+        "COMMERCIAL_INTEREST",
+        "TECHNICAL_VALIDATION",
+        "INSTITUTIONAL_DETERMINATION",
+        "WITHDRAWN_OR_CORRECTED_OBSERVATION"
+      ],
+      "type": "string"
+    },
+    "participant_context_id": {
+      "maxLength": 256,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "prohibited_inferences": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "provenance_tier": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "type": "string"
+    },
+    "public_use_status": {
+      "enum": [
+        "PRIVATE",
+        "INTERNAL",
+        "PUBLIC_ANONYMOUS",
+        "PUBLIC_NAMED",
+        "WITHHELD",
+        "NOT_AUTHORIZED"
+      ],
+      "type": "string"
+    },
+    "record_id": {
+      "maxLength": 256,
+      "minLength": 5,
+      "pattern": "^EOR-[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "reproduction_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reproduction_status": {
+      "enum": [
+        "NOT_ATTEMPTED",
+        "REPRODUCED",
+        "FAILED_TO_REPRODUCE",
+        "PARTIALLY_REPRODUCED",
+        "NOT_APPLICABLE",
+        "UNRESOLVED"
+      ],
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "source_relationship": {
+      "enum": [
+        "PARTICIPANT",
+        "REPOSITORY",
+        "INSTITUTION",
+        "SYSTEM",
+        "OTHER"
+      ],
+      "type": "string"
+    },
+    "standing_basis": {
+      "additionalProperties": false,
+      "properties": {
+        "basis_type": {
+          "enum": [
+            "PROVENANCE_METHOD_REPRODUCIBILITY",
+            "EXTERNAL_INSTITUTIONAL_DETERMINATION",
+            "WITHDRAWAL_OR_SUPERSESSION"
+          ],
+          "type": "string"
+        },
+        "derived_from_outcome_polarity": {
+          "type": "boolean"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "basis_type",
+        "derived_from_outcome_polarity",
+        "evidence_refs"
+      ],
+      "type": "object"
+    },
+    "supported_claims": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "record_id",
+    "schema_version",
+    "experiment_id",
+    "outcome_type",
+    "outcome_polarity",
+    "evidence_standing",
+    "observation_timestamp",
+    "source_relationship",
+    "participant_context_id",
+    "interaction_provenance_id",
+    "attribution_authorization_id",
+    "observation_method",
+    "observation_assertion_type",
+    "provenance_tier",
+    "standing_basis",
+    "supported_claims",
+    "prohibited_inferences",
+    "affected_hypothesis_ids",
+    "reproduction_status",
+    "reproduction_count",
+    "integrity_checks",
+    "corrective_action_status",
+    "public_use_status",
+    "history_treatment",
+    "lineage",
+    "external_context",
+    "notes"
+  ],
+  "title": "Fork Experiment Outcome Record v0.1",
+  "type": "object"
+}

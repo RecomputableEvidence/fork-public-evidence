@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "applicability_assigned_by": {
+      "const": "EXTERNAL_CONTEXT_ONLY"
+    },
+    "created_at": {
+      "format": "date-time",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "exception_authority_ref": {
+      "maxLength": 1024,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "minimum_provenance_tier": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "type": "string"
+    },
+    "permitted_exceptions": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "profile_id": {
+      "maxLength": 256,
+      "minLength": 5,
+      "pattern": "^PPR-[A-Za-z0-9._:-]+$",
+      "type": "string"
+    },
+    "profile_owner": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "profile_owner_type": {
+      "enum": [
+        "EXTERNAL_ORGANIZATION",
+        "FORK_EXPERIMENT_PROTOCOL"
+      ],
+      "type": "string"
+    },
+    "profile_version": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_integrity_checks": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_observation_methods": {
+      "items": {
+        "enum": [
+          "CHANNEL_NEGATIVE",
+          "UNAVAILABLE",
+          "DESCRIPTION",
+          "SUMMARY",
+          "QUOTATION",
+          "REPORTED_OBSERVATION",
+          "RENDERED_ARTIFACT",
+          "PARTIAL_ARTIFACT",
+          "INDEXED_ARTIFACT",
+          "TRANSFORMED_ARTIFACT",
+          "RAW_FILE_INSPECTION",
+          "DIRECT_EXECUTION"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_reproduction_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.1"
+    }
+  },
+  "required": [
+    "profile_id",
+    "schema_version",
+    "profile_owner",
+    "profile_owner_type",
+    "profile_version",
+    "minimum_provenance_tier",
+    "required_observation_methods",
+    "required_integrity_checks",
+    "required_reproduction_count",
+    "permitted_exceptions",
+    "exception_authority_ref",
+    "applicability_assigned_by",
+    "created_at"
+  ],
+  "title": "Fork Provenance Profile v0.1",
+  "type": "object"
+}
