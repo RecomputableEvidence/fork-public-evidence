@@ -1,0 +1,50 @@
+{
+    "receipt_id":  "FORK-META-EVIDENCE-CI-HARDENING-RECEIPT-v0.1.1",
+    "package_id":  "FORK-META-EVIDENCE-CI-HARDENING-v0.1.1",
+    "change_class":  "INSTRUMENTATION_ONLY",
+    "created_at_utc":  "2026-07-14T02:14:25.5112752Z",
+    "repository_root":  "C:\\N\\fork-public-evidence",
+    "branch":  "main",
+    "installation_head":  "fc3a100563eb354924787759accfc7ecd39ae94d",
+    "required_base_commit":  "fc3a100563eb354924787759accfc7ecd39ae94d",
+    "required_base_commit_is_ancestor":  true,
+    "frozen_v0_1_manifest":  "receipts/experiment-meta-evidence/v0.1/SHA256SUMS.txt",
+    "frozen_v0_1_manifest_sha256":  "89cdc5d4484b2a76d8c023348ee56eac135e0b826cfbdbadccb895e2e37df140",
+    "frozen_v0_1_manifest_entry_count":  60,
+    "frozen_v0_1_package_verification":  "PASS",
+    "improvements":  [
+                         "DETERMINISTIC_SHA256_PACKAGE_CHECKER",
+                         "POWERSHELL_5_1_VERIFICATION_ENTRY_POINT",
+                         "DEDICATED_LINUX_WINDOWS_CI",
+                         "EXPLICIT_PRINCIPAL_WORKFLOW_INTEGRATION",
+                         "NODE24_ACTION_MAJOR_MIGRATION",
+                         "BOUNDED_TEST_AND_RECEIPT_SURFACE"
+                     ],
+    "changed_paths":  [
+                          ".github/workflows/fork-evidence-ci.yml",
+                          ".github/workflows/fork-meta-evidence-v0-1.yml",
+                          ".github/workflows/fork-proof-surface-integration.yml",
+                          "docs/experiments/FORK_META_EVIDENCE_CI_HARDENING_v0_1_1.md",
+                          "scripts/verify_fork_meta_evidence_v0_1.ps1",
+                          "tests/test_fork_meta_evidence_package_integrity_v0_1.py",
+                          "tools/check_fork_meta_evidence_package_v0_1.py",
+                          "receipts/experiment-meta-evidence/v0.1.1/FORK_META_EVIDENCE_CI_HARDENING_RECEIPT_v0_1_1.json",
+                          "receipts/experiment-meta-evidence/v0.1.1/SHA256SUMS.txt"
+                      ],
+    "checks":  {
+                   "package_integrity_checker":  "PASS",
+                   "integrated_meta_evidence_checker":  "CONFORMING",
+                   "bounded_pytest_suite":  "PASS",
+                   "powershell_5_1_entry_point":  "PASS"
+               },
+    "authority":  {
+                      "modified_frozen_v0_1_artifacts":  false,
+                      "staged":  false,
+                      "committed":  false,
+                      "tagged":  false,
+                      "released":  false,
+                      "doi_created":  false,
+                      "pushed":  false
+                  },
+    "state":  "CONFORMING"
+}

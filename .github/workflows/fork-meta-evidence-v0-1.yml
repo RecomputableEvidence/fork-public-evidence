@@ -1,0 +1,137 @@
+name: Fork Meta-Evidence v0.1
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/fork-meta-evidence-v0-1.yml"
+      - "docs/experiments/FORK_*META_EVIDENCE*"
+      - "docs/experiments/FORK_OUTCOME_POLARITY_INDEPENDENCE_PROTOCOL_v0_1.md"
+      - "docs/experiments/FORK_EXTERNAL_CONTEXT_REFERENCE_PROTOCOL_v0_1.md"
+      - "docs/experiments/FORK_INTERACTION_PROVENANCE_PROTOCOL_v0_1.md"
+      - "docs/experiments/FORK_PARTICIPANT_AND_REVIEW_ETHICS_PROTOCOL_v0_1.md"
+      - "fixtures/experiment-meta-evidence/**"
+      - "receipts/experiment-meta-evidence/**"
+      - "registries/experiment_meta_evidence_registry_v0_1.json"
+      - "registries/provenance_profile_registry_v0_1.json"
+      - "schemas/*meta_evidence*"
+      - "schemas/attribution_authorization_record_v0_1.schema.json"
+      - "schemas/experiment_outcome_record_v0_1.schema.json"
+      - "schemas/external_context_reference_set_v0_1.schema.json"
+      - "schemas/interaction_provenance_record_v0_1.schema.json"
+      - "schemas/participant_context_receipt_v0_1.schema.json"
+      - "schemas/provenance_profile_v0_1.schema.json"
+      - "scripts/verify_fork_meta_evidence_v0_1.ps1"
+      - "tests/test_*meta_evidence*"
+      - "tests/test_attribution_authorization_record_v0_1.py"
+      - "tests/test_experiment_outcome_record_v0_1.py"
+      - "tests/test_external_context_reference_set_v0_1.py"
+      - "tests/test_interaction_provenance_record_v0_1.py"
+      - "tests/test_participant_context_receipt_v0_1.py"
+      - "tools/check_*meta_evidence*"
+      - "tools/check_attribution_authorization_record_v0_1.py"
+      - "tools/check_experiment_outcome_record_v0_1.py"
+      - "tools/check_external_context_reference_set_v0_1.py"
+      - "tools/check_interaction_provenance_record_v0_1.py"
+      - "tools/check_participant_context_receipt_v0_1.py"
+  push:
+    branches:
+      - main
+      - "v0_*"
+    paths:
+      - ".github/workflows/fork-meta-evidence-v0-1.yml"
+      - "docs/experiments/FORK_*META_EVIDENCE*"
+      - "docs/experiments/FORK_OUTCOME_POLARITY_INDEPENDENCE_PROTOCOL_v0_1.md"
+      - "docs/experiments/FORK_EXTERNAL_CONTEXT_REFERENCE_PROTOCOL_v0_1.md"
+      - "docs/experiments/FORK_INTERACTION_PROVENANCE_PROTOCOL_v0_1.md"
+      - "docs/experiments/FORK_PARTICIPANT_AND_REVIEW_ETHICS_PROTOCOL_v0_1.md"
+      - "fixtures/experiment-meta-evidence/**"
+      - "receipts/experiment-meta-evidence/**"
+      - "registries/experiment_meta_evidence_registry_v0_1.json"
+      - "registries/provenance_profile_registry_v0_1.json"
+      - "schemas/*meta_evidence*"
+      - "schemas/attribution_authorization_record_v0_1.schema.json"
+      - "schemas/experiment_outcome_record_v0_1.schema.json"
+      - "schemas/external_context_reference_set_v0_1.schema.json"
+      - "schemas/interaction_provenance_record_v0_1.schema.json"
+      - "schemas/participant_context_receipt_v0_1.schema.json"
+      - "schemas/provenance_profile_v0_1.schema.json"
+      - "scripts/verify_fork_meta_evidence_v0_1.ps1"
+      - "tests/test_*meta_evidence*"
+      - "tests/test_attribution_authorization_record_v0_1.py"
+      - "tests/test_experiment_outcome_record_v0_1.py"
+      - "tests/test_external_context_reference_set_v0_1.py"
+      - "tests/test_interaction_provenance_record_v0_1.py"
+      - "tests/test_participant_context_receipt_v0_1.py"
+      - "tools/check_*meta_evidence*"
+      - "tools/check_attribution_authorization_record_v0_1.py"
+      - "tools/check_experiment_outcome_record_v0_1.py"
+      - "tools/check_external_context_reference_set_v0_1.py"
+      - "tools/check_interaction_provenance_record_v0_1.py"
+      - "tools/check_participant_context_receipt_v0_1.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  meta-evidence:
+    name: Meta-Evidence (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        python-version:
+          - "3.11"
+          - "3.14"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest jsonschema
+
+      - name: Verify frozen package SHA-256 boundary
+        run: python tools/check_fork_meta_evidence_package_v0_1.py --json
+
+      - name: Run integrated meta-evidence checker
+        run: >-
+          python tools/check_experiment_meta_evidence_v0_1.py
+          registries/experiment_meta_evidence_registry_v0_1.json
+          --json
+
+      - name: Run bounded meta-evidence tests
+        run: >-
+          python -m pytest
+          tests/test_attribution_authorization_record_v0_1.py
+          tests/test_experiment_meta_evidence_v0_1.py
+          tests/test_experiment_outcome_record_v0_1.py
+          tests/test_external_context_reference_set_v0_1.py
+          tests/test_interaction_provenance_record_v0_1.py
+          tests/test_participant_context_receipt_v0_1.py
+          tests/test_fork_meta_evidence_package_integrity_v0_1.py
+          -q
+
+      - name: Run PowerShell 5.1 entry point
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: >-
+          powershell -NoProfile -ExecutionPolicy Bypass
+          -File .\scripts\verify_fork_meta_evidence_v0_1.ps1
+          -RepoRoot ${{ github.workspace }}

@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -32,7 +32,7 @@ jobs:
         run: git config --global core.autocrlf false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -100,14 +100,23 @@ jobs:
 
       - name: Full Python regression suite
         run: python -m pytest -q
+      # META_EVIDENCE_PROOF_SURFACE_START
+      - name: Fork Meta-Evidence v0.1 package integrity
+        run: python tools/check_fork_meta_evidence_package_v0_1.py --json
 
+      - name: Fork Meta-Evidence v0.1 integrated checker
+        run: >-
+          python tools/check_experiment_meta_evidence_v0_1.py
+          registries/experiment_meta_evidence_registry_v0_1.json
+          --json
+      # META_EVIDENCE_PROOF_SURFACE_END
   powershell-proof-surface:
     name: PowerShell 5.1 proof-surface entry point
     runs-on: windows-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -115,7 +124,7 @@ jobs:
         run: git config --global core.autocrlf false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -141,13 +150,13 @@ jobs:
           - windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Configure Git line endings
         run: git config --global core.autocrlf false
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install proof-surface dependencies
@@ -159,3 +168,11 @@ jobs:
       - name: Run CSH execution instrumentation tests
         run: python -m pytest tests/test_cross_system_claim_handoff_execution_v0_1_1.py -q
 # END CSH_EXECUTION_INSTRUMENTATION_V0_1_1_JOB
+      # META_EVIDENCE_POWERSHELL_START
+      - name: Fork Meta-Evidence PowerShell verifier
+        shell: powershell
+        run: >-
+          powershell -NoProfile -ExecutionPolicy Bypass
+          -File .\scripts\verify_fork_meta_evidence_v0_1.ps1
+          -RepoRoot ${{ github.workspace }}
+      # META_EVIDENCE_POWERSHELL_END

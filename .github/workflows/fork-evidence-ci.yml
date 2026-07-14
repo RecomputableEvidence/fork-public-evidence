@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -22,7 +22,7 @@ jobs:
         run: git config --global core.autocrlf false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
@@ -110,3 +110,20 @@ jobs:
             exit 1
           fi
           python -m pytest tests/test_provenance_tier_v0_1.py -q
+    # META_EVIDENCE_CI_START
+    - name: Verify Fork Meta-Evidence v0.1 package
+      run: python tools/check_fork_meta_evidence_package_v0_1.py --json
+
+    - name: Run Fork Meta-Evidence v0.1 checks
+      run: |
+        python tools/check_experiment_meta_evidence_v0_1.py registries/experiment_meta_evidence_registry_v0_1.json --json
+        python -m pytest \
+          tests/test_attribution_authorization_record_v0_1.py \
+          tests/test_experiment_meta_evidence_v0_1.py \
+          tests/test_experiment_outcome_record_v0_1.py \
+          tests/test_external_context_reference_set_v0_1.py \
+          tests/test_interaction_provenance_record_v0_1.py \
+          tests/test_participant_context_receipt_v0_1.py \
+          tests/test_fork_meta_evidence_package_integrity_v0_1.py \
+          -q
+    # META_EVIDENCE_CI_END
