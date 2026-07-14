@@ -1,0 +1,422 @@
+{
+  "ledger_id": "FORK-META-EVIDENCE-CORPUS-001-SOURCE-SELECTION-v0.1",
+  "schema_version": "0.1",
+  "corpus_id": "FORK-META-EVIDENCE-CORPUS-001",
+  "ledger_status": "DRAFT_SELECTION",
+  "integrity_profile": {
+    "canonicalization": "JCS_RFC8785",
+    "text_encoding": "UTF-8",
+    "byte_order_mark": false,
+    "hash_algorithm": "SHA-256",
+    "digest_storage": "DETACHED",
+    "numeric_domain": "I_JSON_SAFE_INTEGER_NO_FLOAT"
+  },
+  "experiment_definition": {
+    "primary_hypothesis": "Fork preserves evidentiary standing independently of outcome polarity and does not transform recognition, interest, correction, missing context, or reviewer participation into authority absent from the source evidence.",
+    "required_strata": [
+      "FAVORABLE",
+      "UNFAVORABLE",
+      "MIXED",
+      "NULL",
+      "AMBIGUOUS",
+      "CORRECTED"
+    ],
+    "required_observation_count": 6,
+    "selection_cutoff_utc": null,
+    "reviewer_packet_policy": "BYTE_IDENTICAL_FIXED_CORE",
+    "reviewer_extension_policy": "SEPARATE_AFTER_FIXED_REPLICATION"
+  },
+  "admission_policy": {
+    "source_must_predate_selection_cutoff": true,
+    "source_must_be_hashable": true,
+    "admission_independent_of_outcome_desirability": true,
+    "stratum_must_naturally_fit_source": true,
+    "private_correspondence_default": "REVIEWER_ONLY_ANONYMOUS",
+    "missing_context_policy": "PRESERVE_AS_NOT_SUPPLIED_OR_UNRESOLVED",
+    "post_freeze_substitution_policy": "RECORDED_AMENDMENT_REQUIRED",
+    "post_freeze_removal_policy": "PRESERVE_AS_WITHDRAWAL_OR_EXCLUSION",
+    "open_slots_allowed_during_draft": true,
+    "open_slots_allowed_at_admission_freeze": false
+  },
+  "participants": [
+    {
+      "actor_id": "ACTOR-C001-CUSTODIAN-001",
+      "role": "CORPUS_CUSTODIAN",
+      "public_identity_disclosed": false
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "OBS-001",
+      "required_stratum": "FAVORABLE",
+      "selection_status": "CANDIDATE",
+      "admitted": false,
+      "source": {
+        "source_artifact_id": "SRC-C001-001",
+        "canonical_private_locator": null,
+        "source_media_type": null,
+        "source_byte_length": null,
+        "source_sha256": null,
+        "acquired_at_utc": null,
+        "acquired_by_actor_id": null,
+        "source_temporal_status": null
+      },
+      "derived_artifacts": [],
+      "participants": {
+        "participant_ids": [],
+        "reviewer_ids": [],
+        "custodian_ids": [
+          "ACTOR-C001-CUSTODIAN-001"
+        ]
+      },
+      "disclosure": {
+        "status": "REVIEWER_ONLY",
+        "named_attribution_authorized": false,
+        "direct_quotation_authorized": false,
+        "public_excerpt_authorized": false,
+        "authorization_record_id": null
+      },
+      "admission": {
+        "admission_reason": "Candidate favorable professional observation selected to test whether recognition is improperly promoted into validation, endorsement, partnership, or adoption.",
+        "decision_actor_id": null,
+        "decision_at_utc": null,
+        "decided_before_structured_classification": true,
+        "eligibility_result": "PENDING"
+      },
+      "external_context": {
+        "status": "NOT_SUPPLIED",
+        "risk_tier_ref": null,
+        "impact_assessment_id": null,
+        "aims_process_phase": null
+      },
+      "non_claims": [
+        "NOT_TECHNICAL_VALIDATION",
+        "NOT_GENERAL_ENDORSEMENT",
+        "NOT_PARTNERSHIP",
+        "NOT_PRODUCT_ADOPTION"
+      ],
+      "relationships": {
+        "corrects_observation_id": null,
+        "corrected_by_observation_id": null,
+        "supersedes_observation_id": null,
+        "superseded_by_observation_id": null
+      },
+      "open_slot_reason": null
+    },
+    {
+      "observation_id": "OBS-002",
+      "required_stratum": "UNFAVORABLE",
+      "selection_status": "CANDIDATE",
+      "admitted": false,
+      "source": {
+        "source_artifact_id": "SRC-C001-002",
+        "canonical_private_locator": null,
+        "source_media_type": null,
+        "source_byte_length": null,
+        "source_sha256": null,
+        "acquired_at_utc": null,
+        "acquired_by_actor_id": null,
+        "source_temporal_status": null
+      },
+      "derived_artifacts": [],
+      "participants": {
+        "participant_ids": [],
+        "reviewer_ids": [],
+        "custodian_ids": [
+          "ACTOR-C001-CUSTODIAN-001"
+        ]
+      },
+      "disclosure": {
+        "status": "REVIEWER_ONLY",
+        "named_attribution_authorized": false,
+        "direct_quotation_authorized": false,
+        "public_excerpt_authorized": false,
+        "authorization_record_id": null
+      },
+      "admission": {
+        "admission_reason": "Candidate unfavorable observation selected to test whether a reproduced defect retains evidentiary standing after repair.",
+        "decision_actor_id": null,
+        "decision_at_utc": null,
+        "decided_before_structured_classification": true,
+        "eligibility_result": "PENDING"
+      },
+      "external_context": {
+        "status": "NOT_SUPPLIED",
+        "risk_tier_ref": null,
+        "impact_assessment_id": null,
+        "aims_process_phase": null
+      },
+      "non_claims": [
+        "NOT_ERASED_BY_LATER_REPAIR",
+        "NOT_WEAKENED_BY_UNFAVORABLE_POLARITY",
+        "NOT_GLOBAL_PRODUCT_FAILURE"
+      ],
+      "relationships": {
+        "corrects_observation_id": null,
+        "corrected_by_observation_id": null,
+        "supersedes_observation_id": null,
+        "superseded_by_observation_id": null
+      },
+      "open_slot_reason": null
+    },
+    {
+      "observation_id": "OBS-003",
+      "required_stratum": "MIXED",
+      "selection_status": "CANDIDATE",
+      "admitted": false,
+      "source": {
+        "source_artifact_id": "SRC-C001-003",
+        "canonical_private_locator": null,
+        "source_media_type": null,
+        "source_byte_length": null,
+        "source_sha256": null,
+        "acquired_at_utc": null,
+        "acquired_by_actor_id": null,
+        "source_temporal_status": null
+      },
+      "derived_artifacts": [],
+      "participants": {
+        "participant_ids": [],
+        "reviewer_ids": [],
+        "custodian_ids": [
+          "ACTOR-C001-CUSTODIAN-001"
+        ]
+      },
+      "disclosure": {
+        "status": "REVIEWER_ONLY",
+        "named_attribution_authorized": false,
+        "direct_quotation_authorized": false,
+        "public_excerpt_authorized": false,
+        "authorization_record_id": null
+      },
+      "admission": {
+        "admission_reason": "Candidate mixed observation selected to test whether structural success and unresolved semantic pressure remain separately inspectable.",
+        "decision_actor_id": null,
+        "decision_at_utc": null,
+        "decided_before_structured_classification": true,
+        "eligibility_result": "PENDING"
+      },
+      "external_context": {
+        "status": "NOT_SUPPLIED",
+        "risk_tier_ref": null,
+        "impact_assessment_id": null,
+        "aims_process_phase": null
+      },
+      "non_claims": [
+        "NOT_TOTAL_VALIDATION",
+        "NOT_TOTAL_FAILURE",
+        "NOT_SEMANTIC_SUFFICIENCY_FROM_STRUCTURAL_SUCCESS"
+      ],
+      "relationships": {
+        "corrects_observation_id": null,
+        "corrected_by_observation_id": null,
+        "supersedes_observation_id": null,
+        "superseded_by_observation_id": null
+      },
+      "open_slot_reason": null
+    },
+    {
+      "observation_id": "OBS-004",
+      "required_stratum": "NULL",
+      "selection_status": "OPEN_SLOT",
+      "admitted": false,
+      "source": {
+        "source_artifact_id": null,
+        "canonical_private_locator": null,
+        "source_media_type": null,
+        "source_byte_length": null,
+        "source_sha256": null,
+        "acquired_at_utc": null,
+        "acquired_by_actor_id": null,
+        "source_temporal_status": null
+      },
+      "derived_artifacts": [],
+      "participants": {
+        "participant_ids": [],
+        "reviewer_ids": [],
+        "custodian_ids": [
+          "ACTOR-C001-CUSTODIAN-001"
+        ]
+      },
+      "disclosure": {
+        "status": "PENDING",
+        "named_attribution_authorized": false,
+        "direct_quotation_authorized": false,
+        "public_excerpt_authorized": false,
+        "authorization_record_id": null
+      },
+      "admission": {
+        "admission_reason": null,
+        "decision_actor_id": null,
+        "decision_at_utc": null,
+        "decided_before_structured_classification": true,
+        "eligibility_result": "NOT_EVALUATED"
+      },
+      "external_context": {
+        "status": "NOT_SUPPLIED",
+        "risk_tier_ref": null,
+        "impact_assessment_id": null,
+        "aims_process_phase": null
+      },
+      "non_claims": [
+        "NOT_EVIDENCE_OF_ABSENCE",
+        "NOT_NEGATIVE_FINDING",
+        "NOT_AMBIGUOUS_FINDING",
+        "NOT_DECLINED_PARTICIPATION"
+      ],
+      "relationships": {
+        "corrects_observation_id": null,
+        "corrected_by_observation_id": null,
+        "supersedes_observation_id": null,
+        "superseded_by_observation_id": null
+      },
+      "open_slot_reason": "No authentic null observation has yet been selected."
+    },
+    {
+      "observation_id": "OBS-005",
+      "required_stratum": "AMBIGUOUS",
+      "selection_status": "CANDIDATE",
+      "admitted": false,
+      "source": {
+        "source_artifact_id": "SRC-C001-005",
+        "canonical_private_locator": null,
+        "source_media_type": null,
+        "source_byte_length": null,
+        "source_sha256": null,
+        "acquired_at_utc": null,
+        "acquired_by_actor_id": null,
+        "source_temporal_status": null
+      },
+      "derived_artifacts": [],
+      "participants": {
+        "participant_ids": [],
+        "reviewer_ids": [],
+        "custodian_ids": [
+          "ACTOR-C001-CUSTODIAN-001"
+        ]
+      },
+      "disclosure": {
+        "status": "REVIEWER_ONLY",
+        "named_attribution_authorized": false,
+        "direct_quotation_authorized": false,
+        "public_excerpt_authorized": false,
+        "authorization_record_id": null
+      },
+      "admission": {
+        "admission_reason": "Candidate ambiguous observation selected to test whether professional or commercial interest is improperly converted into validation, partnership, procurement intent, or product proof.",
+        "decision_actor_id": null,
+        "decision_at_utc": null,
+        "decided_before_structured_classification": true,
+        "eligibility_result": "PENDING"
+      },
+      "external_context": {
+        "status": "UNRESOLVED",
+        "risk_tier_ref": null,
+        "impact_assessment_id": null,
+        "aims_process_phase": null
+      },
+      "non_claims": [
+        "NOT_TECHNICAL_VALIDATION",
+        "NOT_PARTNERSHIP",
+        "NOT_PROCUREMENT_INTENT",
+        "NOT_PRODUCT_PROOF"
+      ],
+      "relationships": {
+        "corrects_observation_id": null,
+        "corrected_by_observation_id": null,
+        "supersedes_observation_id": null,
+        "superseded_by_observation_id": null
+      },
+      "open_slot_reason": null
+    },
+    {
+      "observation_id": "OBS-006",
+      "required_stratum": "CORRECTED",
+      "selection_status": "CANDIDATE",
+      "admitted": false,
+      "source": {
+        "source_artifact_id": "SRC-C001-006",
+        "canonical_private_locator": null,
+        "source_media_type": null,
+        "source_byte_length": null,
+        "source_sha256": null,
+        "acquired_at_utc": null,
+        "acquired_by_actor_id": null,
+        "source_temporal_status": null
+      },
+      "derived_artifacts": [],
+      "participants": {
+        "participant_ids": [],
+        "reviewer_ids": [],
+        "custodian_ids": [
+          "ACTOR-C001-CUSTODIAN-001"
+        ]
+      },
+      "disclosure": {
+        "status": "REVIEWER_ONLY",
+        "named_attribution_authorized": false,
+        "direct_quotation_authorized": false,
+        "public_excerpt_authorized": false,
+        "authorization_record_id": null
+      },
+      "admission": {
+        "admission_reason": "Candidate corrected observation selected to test whether an original retrieval observation and later clean-clone correction remain separately inspectable.",
+        "decision_actor_id": null,
+        "decision_at_utc": null,
+        "decided_before_structured_classification": true,
+        "eligibility_result": "PENDING"
+      },
+      "external_context": {
+        "status": "NOT_SUPPLIED",
+        "risk_tier_ref": null,
+        "impact_assessment_id": null,
+        "aims_process_phase": null
+      },
+      "non_claims": [
+        "NOT_RETROACTIVE_ERASURE",
+        "NOT_ORIGINAL_OBSERVATION_AS_FINAL_TRUTH",
+        "NOT_CORRECTION_AS_PROOF_OF_BAD_FAITH"
+      ],
+      "relationships": {
+        "corrects_observation_id": null,
+        "corrected_by_observation_id": null,
+        "supersedes_observation_id": null,
+        "superseded_by_observation_id": null
+      },
+      "open_slot_reason": null
+    }
+  ],
+  "transition_history": [
+    {
+      "transition_id": "C001-TRANSITION-001",
+      "from_state": null,
+      "to_state": "DRAFT_SELECTION",
+      "actor_id": "ACTOR-C001-CUSTODIAN-001",
+      "occurred_at_utc": null,
+      "reason": "Initialized the controlled Corpus 001 source-selection process without admitting or acquiring evidence.",
+      "affected_observation_ids": [
+        "OBS-001",
+        "OBS-002",
+        "OBS-003",
+        "OBS-004",
+        "OBS-005",
+        "OBS-006"
+      ],
+      "previous_ledger_digest": null,
+      "resulting_ledger_digest": null,
+      "amendment_required": false
+    }
+  ],
+  "authority_boundary": {
+    "selection_confers_validation": false,
+    "selection_confers_endorsement": false,
+    "selection_confers_partnership": false,
+    "selection_confers_publication_authority": false,
+    "fork_may_infer_external_context": false,
+    "installer_may_admit_sources": false
+  },
+  "integrity": {
+    "detached_digest_relative_path": "manifests/experiment-meta-evidence/corpus-001/FORK_META_EVIDENCE_CORPUS_001_SOURCE_SELECTION_LEDGER_v0_1.jcs.sha256",
+    "ledger_contains_own_digest": false
+  }
+}

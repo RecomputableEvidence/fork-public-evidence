@@ -1,0 +1,88 @@
+{
+    "receipt_id":  "CORPUS-001-ADMISSION-INFRASTRUCTURE-RECEIPT-v0.1",
+    "package_id":  "FORK-META-EVIDENCE-CORPUS-001-ADMISSION-INFRASTRUCTURE-v0.1",
+    "created_at_utc":  "2026-07-14T04:15:48.1915467Z",
+    "repository_branch":  "main",
+    "installation_head":  "7080e198e6f87e918121af6097a6ef36fd8e7a07",
+    "required_base_commit":  "7080e198e6f87e918121af6097a6ef36fd8e7a07",
+    "required_base_commit_is_ancestor":  true,
+    "ledger_id":  "FORK-META-EVIDENCE-CORPUS-001-SOURCE-SELECTION-v0.1",
+    "ledger_status":  "DRAFT_SELECTION",
+    "ledger_jcs_sha256":  "c4de5c6f6dfdbb00b251453bbe414b47cf6a4388d13f8f1f4841f4d2970a1382",
+    "ledger_digest_storage":  "DETACHED",
+    "private_workspace":  {
+                              "initialized":  true,
+                              "directory_count":  18,
+                              "preexisting_file_count":  0,
+                              "post_install_file_count":  0,
+                              "existing_file_bytes_preserved":  true,
+                              "source_files_created_by_installer":  0,
+                              "source_files_modified_by_installer":  0,
+                              "absolute_private_root_recorded_in_public_receipt":  false
+                          },
+    "observations":  {
+                         "candidate":  [
+                                           "OBS-001",
+                                           "OBS-002",
+                                           "OBS-003",
+                                           "OBS-005",
+                                           "OBS-006"
+                                       ],
+                         "open_slot":  [
+                                           "OBS-004"
+                                       ],
+                         "admitted":  [
+
+                                      ]
+                     },
+    "checks":  {
+                   "schema_validation":  "PASS",
+                   "ledger_custom_invariants":  "PASS",
+                   "jcs_canonicalization":  "PASS",
+                   "detached_digest_recomputation":  "PASS",
+                   "exact_byte_source_hashing":  "PASS",
+                   "markdown_projection_non_mutation":  "PASS",
+                   "null_slot_freeze_block":  "PASS",
+                   "private_path_non_disclosure":  "PASS",
+                   "pytest":  "PASS",
+                   "jsonschema_referencing_registry":  "PASS",
+                   "pytest_test_count":  9,
+                   "pytest_warning_count":  0
+               },
+    "authority":  {
+                      "source_acquisition_performed":  false,
+                      "source_admission_performed":  false,
+                      "lifecycle_advanced":  false,
+                      "staged":  false,
+                      "committed":  false,
+                      "tagged":  false,
+                      "released":  false,
+                      "doi_created":  false,
+                      "published":  false,
+                      "pushed":  false
+                  },
+    "state":  "CONFORMING",
+    "instrumentation_patch":  {
+                                  "patch_id":  "CORPUS-001-REFERENCING-REGISTRY-MIGRATION-v0.1.1",
+                                  "applied_at_utc":  "2026-07-14T04:31:14.1220411Z",
+                                  "purpose":  "Replace deprecated jsonschema.RefResolver with the referencing Registry/Resource API without changing corpus evidence, schemas, or admission semantics.",
+                                  "changed_paths":  [
+                                                        "tools/check_corpus_source_selection_ledger_v0_1.py",
+                                                        "tests/test_corpus_source_selection_ledger_v0_1.py",
+                                                        "receipts/experiment-meta-evidence/corpus-001/CORPUS_001_ADMISSION_INFRASTRUCTURE_RECEIPT_v0_1.json",
+                                                        "receipts/experiment-meta-evidence/corpus-001/SHA256SUMS.txt"
+                                                    ],
+                                  "checker_sha256_before":  "f3dfb5b4727de478b11b8f79ee32eb933a991b52c241c6fe179a00d52cea5d5d",
+                                  "checker_sha256_after":  "ecf83813de1c9e7fa395dd0a03595e2c3c02aad912d3c3970c9f447be622e280",
+                                  "applicable_test_sha256_before":  "b7a4dc920ba96590109cf2a687b53b953edac9e52f8a9b9cabac5d49d30dc39d",
+                                  "applicable_test_sha256_after":  "fc3ceee7e998fb27ed51dce0fb020f14a4276a9e73462e10d53b558baec65e79",
+                                  "ledger_json_unchanged":  true,
+                                  "ledger_jcs_sha256":  "c4de5c6f6dfdbb00b251453bbe414b47cf6a4388d13f8f1f4841f4d2970a1382",
+                                  "schemas_unchanged":  true,
+                                  "admission_semantics_unchanged":  true,
+                                  "pytest_test_count":  9,
+                                  "pytest_warning_count":  0,
+                                  "jsonschema_reference_api":  "REFERENCING_REGISTRY_RESOURCE",
+                                  "state":  "PASS"
+                              }
+}

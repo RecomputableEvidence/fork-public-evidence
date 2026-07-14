@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.org/schemas/corpus_admission_transition_v0_1.schema.json",
+  "title": "Corpus Admission Transition v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "transition_id",
+    "from_state",
+    "to_state",
+    "actor_id",
+    "occurred_at_utc",
+    "reason",
+    "affected_observation_ids",
+    "previous_ledger_digest",
+    "resulting_ledger_digest",
+    "amendment_required"
+  ],
+  "properties": {
+    "transition_id": {
+      "type": "string",
+      "pattern": "^C001-TRANSITION-[0-9]{3}$"
+    },
+    "from_state": {
+      "type": ["string", "null"],
+      "enum": [
+        "DRAFT_SELECTION",
+        "SOURCE_ACQUIRED_AND_HASHED",
+        "ADMISSION_FROZEN",
+        "RECORDS_INSTANTIATED",
+        "INTERNAL_DRY_RUN_COMPLETE",
+        "REVIEW_PACKET_FROZEN",
+        "INDEPENDENT_REVIEW_IN_PROGRESS",
+        null
+      ]
+    },
+    "to_state": {
+      "type": "string",
+      "enum": [
+        "DRAFT_SELECTION",
+        "SOURCE_ACQUIRED_AND_HASHED",
+        "ADMISSION_FROZEN",
+        "RECORDS_INSTANTIATED",
+        "INTERNAL_DRY_RUN_COMPLETE",
+        "REVIEW_PACKET_FROZEN",
+        "INDEPENDENT_REVIEW_IN_PROGRESS"
+      ]
+    },
+    "actor_id": {
+      "type": "string",
+      "pattern": "^ACTOR-[A-Z0-9-]+$"
+    },
+    "occurred_at_utc": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "affected_observation_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^OBS-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "previous_ledger_digest": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "resulting_ledger_digest": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "amendment_required": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.org/schemas/corpus_source_artifact_record_v0_1.schema.json",
+  "title": "Corpus Source Artifact Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_artifact_id",
+    "canonical_private_locator",
+    "source_media_type",
+    "source_byte_length",
+    "source_sha256",
+    "acquired_at_utc",
+    "acquired_by_actor_id",
+    "source_temporal_status"
+  ],
+  "properties": {
+    "source_artifact_id": {
+      "type": ["string", "null"],
+      "pattern": "^SRC-C001-[0-9]{3}$"
+    },
+    "canonical_private_locator": {
+      "type": ["string", "null"],
+      "pattern": "^PRIVATE_CORPUS_001/OBS-[0-9]{3}/[A-Za-z0-9._/-]+$"
+    },
+    "source_media_type": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "source_byte_length": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "source_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "acquired_at_utc": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "acquired_by_actor_id": {
+      "type": ["string", "null"],
+      "pattern": "^ACTOR-[A-Z0-9-]+$"
+    },
+    "source_temporal_status": {
+      "type": ["string", "null"],
+      "enum": [
+        "HISTORICAL",
+        "CURRENT",
+        "CORRECTED",
+        "SUPERSEDED",
+        null
+      ]
+    }
+  }
+}

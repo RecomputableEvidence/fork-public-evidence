@@ -1,0 +1,500 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.org/schemas/corpus_source_selection_ledger_v0_1.schema.json",
+  "title": "Fork Meta-Evidence Corpus 001 Source Selection Ledger v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ledger_id",
+    "schema_version",
+    "corpus_id",
+    "ledger_status",
+    "integrity_profile",
+    "experiment_definition",
+    "admission_policy",
+    "participants",
+    "observations",
+    "transition_history",
+    "authority_boundary",
+    "integrity"
+  ],
+  "properties": {
+    "ledger_id": {
+      "const": "FORK-META-EVIDENCE-CORPUS-001-SOURCE-SELECTION-v0.1"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "corpus_id": {
+      "const": "FORK-META-EVIDENCE-CORPUS-001"
+    },
+    "ledger_status": {
+      "type": "string",
+      "enum": [
+        "DRAFT_SELECTION",
+        "SOURCE_ACQUIRED_AND_HASHED",
+        "ADMISSION_FROZEN",
+        "RECORDS_INSTANTIATED",
+        "INTERNAL_DRY_RUN_COMPLETE",
+        "REVIEW_PACKET_FROZEN",
+        "INDEPENDENT_REVIEW_IN_PROGRESS"
+      ]
+    },
+    "integrity_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization",
+        "text_encoding",
+        "byte_order_mark",
+        "hash_algorithm",
+        "digest_storage",
+        "numeric_domain"
+      ],
+      "properties": {
+        "canonicalization": {
+          "const": "JCS_RFC8785"
+        },
+        "text_encoding": {
+          "const": "UTF-8"
+        },
+        "byte_order_mark": {
+          "const": false
+        },
+        "hash_algorithm": {
+          "const": "SHA-256"
+        },
+        "digest_storage": {
+          "const": "DETACHED"
+        },
+        "numeric_domain": {
+          "const": "I_JSON_SAFE_INTEGER_NO_FLOAT"
+        }
+      }
+    },
+    "experiment_definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_hypothesis",
+        "required_strata",
+        "required_observation_count",
+        "selection_cutoff_utc",
+        "reviewer_packet_policy",
+        "reviewer_extension_policy"
+      ],
+      "properties": {
+        "primary_hypothesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_strata": {
+          "const": [
+            "FAVORABLE",
+            "UNFAVORABLE",
+            "MIXED",
+            "NULL",
+            "AMBIGUOUS",
+            "CORRECTED"
+          ]
+        },
+        "required_observation_count": {
+          "const": 6
+        },
+        "selection_cutoff_utc": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "reviewer_packet_policy": {
+          "const": "BYTE_IDENTICAL_FIXED_CORE"
+        },
+        "reviewer_extension_policy": {
+          "const": "SEPARATE_AFTER_FIXED_REPLICATION"
+        }
+      }
+    },
+    "admission_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_must_predate_selection_cutoff",
+        "source_must_be_hashable",
+        "admission_independent_of_outcome_desirability",
+        "stratum_must_naturally_fit_source",
+        "private_correspondence_default",
+        "missing_context_policy",
+        "post_freeze_substitution_policy",
+        "post_freeze_removal_policy",
+        "open_slots_allowed_during_draft",
+        "open_slots_allowed_at_admission_freeze"
+      ],
+      "properties": {
+        "source_must_predate_selection_cutoff": {
+          "const": true
+        },
+        "source_must_be_hashable": {
+          "const": true
+        },
+        "admission_independent_of_outcome_desirability": {
+          "const": true
+        },
+        "stratum_must_naturally_fit_source": {
+          "const": true
+        },
+        "private_correspondence_default": {
+          "const": "REVIEWER_ONLY_ANONYMOUS"
+        },
+        "missing_context_policy": {
+          "const": "PRESERVE_AS_NOT_SUPPLIED_OR_UNRESOLVED"
+        },
+        "post_freeze_substitution_policy": {
+          "const": "RECORDED_AMENDMENT_REQUIRED"
+        },
+        "post_freeze_removal_policy": {
+          "const": "PRESERVE_AS_WITHDRAWAL_OR_EXCLUSION"
+        },
+        "open_slots_allowed_during_draft": {
+          "const": true
+        },
+        "open_slots_allowed_at_admission_freeze": {
+          "const": false
+        }
+      }
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "actor_id",
+          "role",
+          "public_identity_disclosed"
+        ],
+        "properties": {
+          "actor_id": {
+            "type": "string",
+            "pattern": "^ACTOR-[A-Z0-9-]+$"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "CORPUS_CUSTODIAN",
+              "ADMISSION_DECISION_ACTOR",
+              "PARTICIPANT",
+              "REVIEWER"
+            ]
+          },
+          "public_identity_disclosed": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "$ref": "#/$defs/observation"
+      }
+    },
+    "transition_history": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://recomputableevidence.org/schemas/corpus_admission_transition_v0_1.schema.json"
+      }
+    },
+    "authority_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selection_confers_validation",
+        "selection_confers_endorsement",
+        "selection_confers_partnership",
+        "selection_confers_publication_authority",
+        "fork_may_infer_external_context",
+        "installer_may_admit_sources"
+      ],
+      "properties": {
+        "selection_confers_validation": {
+          "const": false
+        },
+        "selection_confers_endorsement": {
+          "const": false
+        },
+        "selection_confers_partnership": {
+          "const": false
+        },
+        "selection_confers_publication_authority": {
+          "const": false
+        },
+        "fork_may_infer_external_context": {
+          "const": false
+        },
+        "installer_may_admit_sources": {
+          "const": false
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "detached_digest_relative_path",
+        "ledger_contains_own_digest"
+      ],
+      "properties": {
+        "detached_digest_relative_path": {
+          "const": "manifests/experiment-meta-evidence/corpus-001/FORK_META_EVIDENCE_CORPUS_001_SOURCE_SELECTION_LEDGER_v0_1.jcs.sha256"
+        },
+        "ledger_contains_own_digest": {
+          "const": false
+        }
+      }
+    }
+  },
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_id",
+        "required_stratum",
+        "selection_status",
+        "admitted",
+        "source",
+        "derived_artifacts",
+        "participants",
+        "disclosure",
+        "admission",
+        "external_context",
+        "non_claims",
+        "relationships",
+        "open_slot_reason"
+      ],
+      "properties": {
+        "observation_id": {
+          "type": "string",
+          "pattern": "^OBS-[0-9]{3}$"
+        },
+        "required_stratum": {
+          "type": "string",
+          "enum": [
+            "FAVORABLE",
+            "UNFAVORABLE",
+            "MIXED",
+            "NULL",
+            "AMBIGUOUS",
+            "CORRECTED"
+          ]
+        },
+        "selection_status": {
+          "type": "string",
+          "enum": [
+            "OPEN_SLOT",
+            "CANDIDATE",
+            "SOURCE_LOCATED",
+            "SOURCE_ACQUIRED_AND_HASHED",
+            "ELIGIBILITY_CONFIRMED",
+            "ADMITTED",
+            "EXCLUDED",
+            "WITHDRAWN"
+          ]
+        },
+        "admitted": {
+          "type": "boolean"
+        },
+        "source": {
+          "$ref": "https://recomputableevidence.org/schemas/corpus_source_artifact_record_v0_1.schema.json"
+        },
+        "derived_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "participants": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "participant_ids",
+            "reviewer_ids",
+            "custodian_ids"
+          ],
+          "properties": {
+            "participant_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^PARTICIPANT-[A-Z0-9-]+$"
+              },
+              "uniqueItems": true
+            },
+            "reviewer_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^REVIEWER-[A-Z0-9-]+$"
+              },
+              "uniqueItems": true
+            },
+            "custodian_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^ACTOR-[A-Z0-9-]+$"
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "disclosure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "named_attribution_authorized",
+            "direct_quotation_authorized",
+            "public_excerpt_authorized",
+            "authorization_record_id"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "PUBLIC",
+                "REVIEWER_ONLY",
+                "REDACTED_PUBLIC",
+                "WITHHELD"
+              ]
+            },
+            "named_attribution_authorized": {
+              "type": "boolean"
+            },
+            "direct_quotation_authorized": {
+              "type": "boolean"
+            },
+            "public_excerpt_authorized": {
+              "type": "boolean"
+            },
+            "authorization_record_id": {
+              "type": ["string", "null"],
+              "pattern": "^ATTR-AUTH-[A-Z0-9-]+$"
+            }
+          }
+        },
+        "admission": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "admission_reason",
+            "decision_actor_id",
+            "decision_at_utc",
+            "decided_before_structured_classification",
+            "eligibility_result"
+          ],
+          "properties": {
+            "admission_reason": {
+              "type": ["string", "null"],
+              "minLength": 1
+            },
+            "decision_actor_id": {
+              "type": ["string", "null"],
+              "pattern": "^ACTOR-[A-Z0-9-]+$"
+            },
+            "decision_at_utc": {
+              "type": ["string", "null"],
+              "format": "date-time"
+            },
+            "decided_before_structured_classification": {
+              "type": "boolean"
+            },
+            "eligibility_result": {
+              "type": "string",
+              "enum": [
+                "NOT_EVALUATED",
+                "PENDING",
+                "CONFIRMED",
+                "REJECTED"
+              ]
+            }
+          }
+        },
+        "external_context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "risk_tier_ref",
+            "impact_assessment_id",
+            "aims_process_phase"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "NOT_SUPPLIED",
+                "UNRESOLVED",
+                "PARTIALLY_SUPPLIED",
+                "SUPPLIED"
+              ]
+            },
+            "risk_tier_ref": {
+              "type": ["string", "null"]
+            },
+            "impact_assessment_id": {
+              "type": ["string", "null"]
+            },
+            "aims_process_phase": {
+              "type": ["string", "null"]
+            }
+          }
+        },
+        "non_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^NOT_[A-Z0-9_]+$"
+          },
+          "uniqueItems": true
+        },
+        "relationships": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "corrects_observation_id",
+            "corrected_by_observation_id",
+            "supersedes_observation_id",
+            "superseded_by_observation_id"
+          ],
+          "properties": {
+            "corrects_observation_id": {
+              "type": ["string", "null"],
+              "pattern": "^OBS-[0-9]{3}$"
+            },
+            "corrected_by_observation_id": {
+              "type": ["string", "null"],
+              "pattern": "^OBS-[0-9]{3}$"
+            },
+            "supersedes_observation_id": {
+              "type": ["string", "null"],
+              "pattern": "^OBS-[0-9]{3}$"
+            },
+            "superseded_by_observation_id": {
+              "type": ["string", "null"],
+              "pattern": "^OBS-[0-9]{3}$"
+            }
+          }
+        },
+        "open_slot_reason": {
+          "type": ["string", "null"],
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
