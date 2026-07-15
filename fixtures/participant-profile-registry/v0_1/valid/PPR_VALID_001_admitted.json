@@ -1,0 +1,16 @@
+{
+  "participant_id": "anon-reviewer-04",
+  "role": "EXTERNAL_REVIEWER",
+  "admission_status": "ADMITTED",
+  "evidence_references": [
+    {
+      "artifact_id": "CSH-RUN-101",
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "EXECUTION_RECEIPT"
+    }
+  ],
+  "consent_profile": {
+    "attribution_opt_in": false,
+    "quotation_opt_in": true
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/csh_execution_receipt_v0_1_1.schema.json",
+  "title": "CSH Execution Receipt v0.1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "pair_id",
+    "run_id",
+    "arm_id",
+    "repetition_index",
+    "execution_state",
+    "transport_outcome",
+    "receiver_model_id",
+    "timestamps",
+    "artifacts",
+    "config_links",
+    "evidence_completeness",
+    "record_integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.1"
+    },
+    "artifact_type": {
+      "const": "CSH_EXECUTION_RECEIPT"
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^CSH-PAIR-[0-9]{3}$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^CSH-RUN-[0-9]{3}$"
+    },
+    "arm_id": {
+      "enum": [
+        "CONTROL",
+        "FORK_INSTRUMENTED"
+      ]
+    },
+    "repetition_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "execution_state": {
+      "enum": [
+        "COMPLETED",
+        "UNAVAILABLE",
+        "INTERRUPTED",
+        "FAILED"
+      ]
+    },
+    "transport_outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol",
+        "status_code",
+        "status_text"
+      ],
+      "properties": {
+        "protocol": {
+          "enum": [
+            "HTTP",
+            "LOCAL_PROCESS",
+            "OTHER"
+          ]
+        },
+        "status_code": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 999
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status_text": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "receiver_model_id": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requested_at",
+        "completed_at"
+      ],
+      "properties": {
+        "requested_at": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+        },
+        "completed_at": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request",
+        "response"
+      ],
+      "properties": {
+        "request": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "response": {
+          "$ref": "#/$defs/artifactRef"
+        }
+      }
+    },
+    "config_links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frozen_config",
+        "amendment",
+        "instrumentation_patch"
+      ],
+      "properties": {
+        "frozen_config": {
+          "$ref": "#/$defs/hashRef"
+        },
+        "amendment": {
+          "$ref": "#/$defs/hashRef"
+        },
+        "instrumentation_patch": {
+          "$ref": "#/$defs/hashRef"
+        }
+      }
+    },
+    "evidence_completeness": {
+      "enum": [
+        "RAW_RECEIVER_OUTPUT_PRESENT",
+        "NO_RECEIVER_OUTPUT",
+        "PARTIAL_RECEIVER_OUTPUT"
+      ]
+    },
+    "record_integrity": {
+      "$ref": "#/$defs/recordIntegrity"
+    }
+  },
+  "$defs": {
+    "repoPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._/-]+$",
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      }
+    },
+    "hashRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/repoPath"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "present",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/repoPath"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "present": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "present": {
+                "const": true
+              }
+            },
+            "required": [
+              "present"
+            ]
+          },
+          "then": {
+            "properties": {
+              "path": {
+                "$ref": "#/$defs/repoPath"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "present": {
+                "const": false
+              }
+            },
+            "required": [
+              "present"
+            ]
+          },
+          "then": {
+            "properties": {
+              "path": {
+                "type": "null"
+              },
+              "sha256": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "recordIntegrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization_profile",
+        "canonical_record_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "FORK-JCS-v0.1"
+        },
+        "canonical_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution_state": {
+            "const": "COMPLETED"
+          }
+        },
+        "required": [
+          "execution_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "receiver_model_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_completeness": {
+            "const": "RAW_RECEIVER_OUTPUT_PRESENT"
+          },
+          "artifacts": {
+            "properties": {
+              "request": {
+                "properties": {
+                  "present": {
+                    "const": true
+                  }
+                }
+              },
+              "response": {
+                "properties": {
+                  "present": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "execution_state": {
+            "const": "UNAVAILABLE"
+          }
+        },
+        "required": [
+          "execution_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "receiver_model_id": {
+            "type": "null"
+          },
+          "evidence_completeness": {
+            "const": "NO_RECEIVER_OUTPUT"
+          },
+          "artifacts": {
+            "properties": {
+              "request": {
+                "properties": {
+                  "present": {
+                    "const": true
+                  }
+                }
+              },
+              "response": {
+                "properties": {
+                  "present": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "execution_state": {
+            "enum": [
+              "INTERRUPTED",
+              "FAILED"
+            ]
+          }
+        },
+        "required": [
+          "execution_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "artifacts": {
+            "properties": {
+              "request": {
+                "properties": {
+                  "present": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

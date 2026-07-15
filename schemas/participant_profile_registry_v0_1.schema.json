@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Participant Profile Registry v0.1",
+  "description": "An evidentiary record of experiment participation. OUT OF BAND, READ-ONLY. Does not constitute governance authority, endorsement, approval, or semantic truth certification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["participant_id", "role", "admission_status", "evidence_references", "consent_profile"],
+  "properties": {
+    "participant_id": { "type": "string" },
+    "public_attribution_name": { "type": "string" },
+    "role": { "type": "string" },
+    "admission_status": { "enum": ["INVITED", "ADMITTED", "WITHDRAWN", "UNRESOLVED"] },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact_id", "digest"],
+        "properties": {
+          "artifact_id": { "type": "string" },
+          "digest": { "type": "string", "minLength": 64 },
+          "type": { "type": "string" },
+          "timestamp": { "type": "string" }
+        }
+      }
+    },
+    "consent_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attribution_opt_in", "quotation_opt_in"],
+      "properties": {
+        "attribution_opt_in": { "type": "boolean" },
+        "quotation_opt_in": { "type": "boolean" }
+      }
+    },
+    "correction_log": { "type": "array" },
+    "supersession_history": { "type": "array" }
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/csh_run_classification_v0_1.schema.json",
+  "title": "CSH Run Classification v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "pair_id",
+    "run_id",
+    "arm_id",
+    "repetition_index",
+    "execution_receipt_ref",
+    "observed_receiver_output",
+    "classification_disposition",
+    "classification_reason",
+    "boundary_transition",
+    "flags_evaluation",
+    "flags",
+    "basis",
+    "unresolved_basis",
+    "record_integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "artifact_type": {
+      "const": "CSH_RUN_CLASSIFICATION"
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^CSH-PAIR-[0-9]{3}$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^CSH-RUN-[0-9]{3}$"
+    },
+    "arm_id": {
+      "enum": [
+        "CONTROL",
+        "FORK_INSTRUMENTED"
+      ]
+    },
+    "repetition_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "execution_receipt_ref": {
+      "$ref": "#/$defs/hashRef"
+    },
+    "observed_receiver_output": {
+      "type": "boolean"
+    },
+    "classification_disposition": {
+      "enum": [
+        "CLASSIFIED",
+        "NOT_CLASSIFIABLE",
+        "QUARANTINED"
+      ]
+    },
+    "classification_reason": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "enum": [
+            "NO_RECEIVER_OUTPUT",
+            "INCOMPLETE_EVIDENCE",
+            "CONTRACT_UNAVAILABLE",
+            "REPRESENTATION_DEGRADED",
+            "PROVENANCE_INSUFFICIENT",
+            "ARTIFACT_INTEGRITY_FAILURE"
+          ]
+        }
+      ]
+    },
+    "boundary_transition": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "EXPANDED",
+            "UNRESOLVED",
+            "MIXED"
+          ]
+        }
+      ]
+    },
+    "flags_evaluation": {
+      "enum": [
+        "PERFORMED",
+        "NOT_APPLICABLE",
+        "BLOCKED"
+      ]
+    },
+    "flags": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/flags"
+        }
+      ]
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unresolved_basis": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "record_integrity": {
+      "$ref": "#/$defs/recordIntegrity"
+    }
+  },
+  "$defs": {
+    "repoPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._/-]+$",
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      }
+    },
+    "hashRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/repoPath"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "recordIntegrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization_profile",
+        "canonical_record_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "FORK-JCS-v0.1"
+        },
+        "canonical_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_inheritance",
+        "non_claim_loss",
+        "evidence_reference_promotion",
+        "representation_degradation",
+        "declared_vs_observed_mismatch"
+      ],
+      "properties": {
+        "authority_inheritance": {
+          "type": "boolean"
+        },
+        "non_claim_loss": {
+          "type": "boolean"
+        },
+        "evidence_reference_promotion": {
+          "type": "boolean"
+        },
+        "representation_degradation": {
+          "type": "boolean"
+        },
+        "declared_vs_observed_mismatch": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "classification_disposition": {
+            "const": "CLASSIFIED"
+          }
+        },
+        "required": [
+          "classification_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "classification_reason": {
+            "type": "null"
+          },
+          "boundary_transition": {
+            "enum": [
+              "PRESERVED",
+              "NARROWED",
+              "EXPANDED",
+              "UNRESOLVED",
+              "MIXED"
+            ]
+          },
+          "flags_evaluation": {
+            "const": "PERFORMED"
+          },
+          "flags": {
+            "$ref": "#/$defs/flags"
+          },
+          "observed_receiver_output": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "classification_disposition": {
+            "const": "NOT_CLASSIFIABLE"
+          }
+        },
+        "required": [
+          "classification_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "classification_reason": {
+            "enum": [
+              "NO_RECEIVER_OUTPUT",
+              "INCOMPLETE_EVIDENCE",
+              "CONTRACT_UNAVAILABLE"
+            ]
+          },
+          "boundary_transition": {
+            "type": "null"
+          },
+          "flags_evaluation": {
+            "const": "NOT_APPLICABLE"
+          },
+          "flags": {
+            "type": "null"
+          },
+          "unresolved_basis": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "classification_disposition": {
+            "const": "QUARANTINED"
+          }
+        },
+        "required": [
+          "classification_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "classification_reason": {
+            "enum": [
+              "REPRESENTATION_DEGRADED",
+              "PROVENANCE_INSUFFICIENT",
+              "ARTIFACT_INTEGRITY_FAILURE"
+            ]
+          },
+          "boundary_transition": {
+            "type": "null"
+          },
+          "flags_evaluation": {
+            "const": "BLOCKED"
+          },
+          "flags": {
+            "type": "null"
+          },
+          "unresolved_basis": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "boundary_transition": {
+            "const": "UNRESOLVED"
+          }
+        },
+        "required": [
+          "boundary_transition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "unresolved_basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observed_receiver_output": {
+            "const": true
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "unresolved_basis": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

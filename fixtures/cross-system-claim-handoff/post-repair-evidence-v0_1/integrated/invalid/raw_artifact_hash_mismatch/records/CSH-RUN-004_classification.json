@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_RUN_CLASSIFICATION",
+  "pair_id": "CSH-PAIR-001",
+  "run_id": "CSH-RUN-004",
+  "arm_id": "FORK_INSTRUMENTED",
+  "repetition_index": 2,
+  "execution_receipt_ref": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-004_execution.json",
+    "sha256": "c6585440a78595f97d3a65a1183630fe22b9fca84a6ad6584524997d5d6413dd"
+  },
+  "observed_receiver_output": true,
+  "classification_disposition": "CLASSIFIED",
+  "classification_reason": null,
+  "boundary_transition": "NARROWED",
+  "flags_evaluation": "PERFORMED",
+  "flags": {
+    "authority_inheritance": false,
+    "non_claim_loss": false,
+    "evidence_reference_promotion": false,
+    "representation_degradation": false,
+    "declared_vs_observed_mismatch": false
+  },
+  "basis": "Classification recorded under the frozen CSH boundary contract.",
+  "unresolved_basis": null,
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "8d06be3cbfebd7a4f937c71f5a19d9c8d9bd5f2e206be551b7c6d01817e08530"
+  }
+}

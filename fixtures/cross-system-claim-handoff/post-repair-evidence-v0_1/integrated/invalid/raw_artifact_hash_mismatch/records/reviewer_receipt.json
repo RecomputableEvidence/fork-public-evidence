@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_REVIEWER_RECEIPT",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "reviewer": {
+    "display_name": "Independent Reviewer",
+    "affiliation": null,
+    "role": "INDEPENDENT_REVIEWER"
+  },
+  "reviewed_artifacts": [
+    {
+      "artifact_type": "CSH_EXECUTION_RECEIPT",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-003_execution.json",
+      "sha256": "4586841d8c599ca0fb755661f52f9b09830b47cbae16eca60f14d4dad1b54cd9"
+    },
+    {
+      "artifact_type": "CSH_EXECUTION_RECEIPT",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-004_execution.json",
+      "sha256": "c6585440a78595f97d3a65a1183630fe22b9fca84a6ad6584524997d5d6413dd"
+    },
+    {
+      "artifact_type": "CSH_RUN_CLASSIFICATION",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-003_classification.json",
+      "sha256": "7b780384c285c5ba3e052a6e91ae88fb70dc908a142e5fdc176d2958281bac50"
+    },
+    {
+      "artifact_type": "CSH_RUN_CLASSIFICATION",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-004_classification.json",
+      "sha256": "0f5487c9e06afddbb711541d295912ed1bd22bac14fec9ef10c908b697445d7b"
+    },
+    {
+      "artifact_type": "CSH_PAIR_COMPARISON",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/pair_comparison.json",
+      "sha256": "2a75839f770752a6c87bc0d3dcab920549551c66d5f8c9505260914014700c5f"
+    }
+  ],
+  "recomputation_outcome": "PASS",
+  "verification_checks": {
+    "execution_integrity": "PASS",
+    "classification_invariants": "PASS",
+    "pair_admissibility": "PASS",
+    "hash_recomputation": "PASS"
+  },
+  "bounded_interpretation": "The preserved records are recomputable within the stated scope.",
+  "limitations": [
+    "No truth, compliance, endorsement, or authority determination was performed."
+  ],
+  "non_endorsement": {
+    "statement": "This reviewer receipt verifies only the stated evidence and rule application. It does not endorse Fork, approve the underlying claim, establish truth or compliance, or transfer authority.",
+    "fork_endorsement_disclaimed": true,
+    "truth_claim_disclaimed": true,
+    "compliance_claim_disclaimed": true,
+    "authority_transfer_disclaimed": true
+  },
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "cdec9766f210691b52a0836a33fd7d4edff21161bbee3779ca916e080da8f69f"
+  }
+}

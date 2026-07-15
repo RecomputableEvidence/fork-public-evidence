@@ -50,6 +50,7 @@ FROZEN_OR_LATER = {
     "REVIEW_PACKET_FROZEN",
     "INDEPENDENT_REVIEW_IN_PROGRESS",
 }
+ACQUISITION_OPENING_TRANSITION_ID = "C001-TRANSITION-002"
 ABSOLUTE_PATH_PATTERNS = [
     re.compile(r"[A-Za-z]:[\\/]+"),
     re.compile(r"\\\\[A-Za-z0-9._-]+[\\/]"),
@@ -281,6 +282,88 @@ def check_ledger(ledger_path: Path, digest_path: Path) -> dict[str, Any]:
                     }
                 )
 
+    experiment_definition = ledger.get("experiment_definition", {})
+    selection_cutoff_utc = experiment_definition.get(
+        "selection_cutoff_utc"
+    )
+    transitions = ledger.get("transition_history", [])
+    opening_transitions = [
+        transition
+        for transition in transitions
+        if transition.get("transition_id")
+        == ACQUISITION_OPENING_TRANSITION_ID
+    ]
+    acquisition_opening_transition_state = "NOT_DECLARED"
+
+    if selection_cutoff_utc is None:
+        if opening_transitions:
+            defects.append(
+                {
+                    "code": "CUTOFF_NULL_WITH_ACQUISITION_OPENING",
+                    "transition_id": ACQUISITION_OPENING_TRANSITION_ID,
+                }
+            )
+            acquisition_opening_transition_state = "FAIL"
+    elif len(opening_transitions) != 1:
+        defects.append(
+            {
+                "code": "ACQUISITION_OPENING_TRANSITION_COUNT_INVALID",
+                "expected": 1,
+                "actual": len(opening_transitions),
+            }
+        )
+        acquisition_opening_transition_state = "FAIL"
+    else:
+        transition_defects_before = len(defects)
+        opening = opening_transitions[0]
+
+        expected_transition_values = {
+            "from_state": "DRAFT_SELECTION",
+            "to_state": "DRAFT_SELECTION",
+            "occurred_at_utc": selection_cutoff_utc,
+            "resulting_ledger_digest": None,
+            "amendment_required": False,
+        }
+
+        for field, expected_value in expected_transition_values.items():
+            if opening.get(field) != expected_value:
+                defects.append(
+                    {
+                        "code": "ACQUISITION_OPENING_FIELD_MISMATCH",
+                        "field": field,
+                        "expected": expected_value,
+                        "actual": opening.get(field),
+                    }
+                )
+
+        previous_digest = opening.get("previous_ledger_digest")
+        if not isinstance(previous_digest, str) or re.fullmatch(
+            r"[0-9a-f]{64}",
+            previous_digest,
+        ) is None:
+            defects.append(
+                {
+                    "code": "ACQUISITION_OPENING_PREVIOUS_DIGEST_INVALID",
+                    "actual": previous_digest,
+                }
+            )
+
+        affected = opening.get("affected_observation_ids", [])
+        if set(affected) != set(EXPECTED):
+            defects.append(
+                {
+                    "code": "ACQUISITION_OPENING_OBSERVATION_SET_MISMATCH",
+                    "expected": sorted(EXPECTED),
+                    "actual": sorted(affected),
+                }
+            )
+
+        acquisition_opening_transition_state = (
+            "PASS"
+            if len(defects) == transition_defects_before
+            else "FAIL"
+        )
+
     obs4 = by_id.get("OBS-004")
     if obs4 is not None and ledger.get("ledger_status") == "DRAFT_SELECTION":
         if obs4.get("selection_status") != "OPEN_SLOT":
@@ -379,6 +462,10 @@ def check_ledger(ledger_path: Path, digest_path: Path) -> dict[str, Any]:
         "checker": "check_corpus_source_selection_ledger_v0_1.py",
         "ledger_id": ledger.get("ledger_id"),
         "ledger_status": ledger.get("ledger_status"),
+        "selection_cutoff_utc": selection_cutoff_utc,
+        "acquisition_opening_transition_state": (
+            acquisition_opening_transition_state
+        ),
         "observation_count": len(observations),
         "detached_digest_state": digest_state,
         "ledger_jcs_sha256": digest_sha256,

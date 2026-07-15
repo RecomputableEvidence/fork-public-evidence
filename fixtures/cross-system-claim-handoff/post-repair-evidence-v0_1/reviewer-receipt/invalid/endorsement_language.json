@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_REVIEWER_RECEIPT",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 1,
+  "reviewer": {
+    "display_name": "Independent Reviewer",
+    "affiliation": null,
+    "role": "INDEPENDENT_REVIEWER"
+  },
+  "reviewed_artifacts": [
+    {
+      "artifact_type": "CSH_EXECUTION_RECEIPT",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/execution/valid/completed/records/CSH-RUN-101_execution.json",
+      "sha256": "4803a314766fd149158a37b99df26575b7fc4d7607d01418b034082d2db075aa"
+    },
+    {
+      "artifact_type": "CSH_RUN_CLASSIFICATION",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/run-classification/valid/classified_preserved.json",
+      "sha256": "c046c21e91e9e89292d0901f487269e2cf449a7879d8e930e0448bf9db156bac"
+    },
+    {
+      "artifact_type": "CSH_PAIR_COMPARISON",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/pair-comparison/valid/comparable.json",
+      "sha256": "96458aad47984e8b11390856450b1dd74bb7943db06baad1ad7260be8919eb35"
+    }
+  ],
+  "recomputation_outcome": "PASS",
+  "verification_checks": {
+    "execution_integrity": "PASS",
+    "classification_invariants": "PASS",
+    "pair_admissibility": "PASS",
+    "hash_recomputation": "PASS"
+  },
+  "bounded_interpretation": "I endorse Fork based on this review.",
+  "limitations": [
+    "No truth, compliance, endorsement, or authority determination was performed."
+  ],
+  "non_endorsement": {
+    "statement": "This reviewer receipt verifies only the stated evidence and rule application. It does not endorse Fork, approve the underlying claim, establish truth or compliance, or transfer authority.",
+    "fork_endorsement_disclaimed": true,
+    "truth_claim_disclaimed": true,
+    "compliance_claim_disclaimed": true,
+    "authority_transfer_disclaimed": true
+  },
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "6a3cb89e1dfa7515e1e976841ef18a61a294eb7525aa7b6d940e695c4d478548"
+  }
+}

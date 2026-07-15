@@ -1,0 +1,11 @@
+{
+  "participant_id": "anon-reviewer-06",
+  "role": "EXTERNAL_REVIEWER",
+  "admission_status": "ADMITTED",
+  "endorsement_status": "APPROVED",
+  "evidence_references": [],
+  "consent_profile": {
+    "attribution_opt_in": false,
+    "quotation_opt_in": false
+  }
+}

@@ -22,7 +22,7 @@
       "CORRECTED"
     ],
     "required_observation_count": 6,
-    "selection_cutoff_utc": null,
+    "selection_cutoff_utc": "2026-07-14T05:26:05Z",
     "reviewer_packet_policy": "BYTE_IDENTICAL_FIXED_CORE",
     "reviewer_extension_policy": "SEPARATE_AFTER_FIXED_REPLICATION"
   },
@@ -403,6 +403,25 @@
         "OBS-006"
       ],
       "previous_ledger_digest": null,
+      "resulting_ledger_digest": null,
+      "amendment_required": false
+    },
+    {
+      "transition_id": "C001-TRANSITION-002",
+      "from_state": "DRAFT_SELECTION",
+      "to_state": "DRAFT_SELECTION",
+      "actor_id": "ACTOR-C001-CUSTODIAN-001",
+      "occurred_at_utc": "2026-07-14T05:26:05Z",
+      "reason": "Fixed the Corpus 001 source-selection cutoff and opened the private source-acquisition and hashing window. No source artifacts were acquired, hashed, admitted, classified, disclosed, or distributed by this transition.",
+      "affected_observation_ids": [
+        "OBS-001",
+        "OBS-002",
+        "OBS-003",
+        "OBS-004",
+        "OBS-005",
+        "OBS-006"
+      ],
+      "previous_ledger_digest": "c4de5c6f6dfdbb00b251453bbe414b47cf6a4388d13f8f1f4841f4d2970a1382",
       "resulting_ledger_digest": null,
       "amendment_required": false
     }

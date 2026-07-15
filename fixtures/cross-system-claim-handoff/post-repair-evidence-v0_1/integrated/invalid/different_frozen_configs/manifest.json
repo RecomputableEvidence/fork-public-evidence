@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/records/CSH-RUN-003_execution.json",
+      "sha256": "01ab3a245b98cbf269017b8cc9f4446b04f7e7ab0103c56789d243078c539141"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/records/CSH-RUN-004_execution.json",
+      "sha256": "81ef5588c4fae3af0a2572e974ea5d22a71563217de4f591caa14bafdeeea722"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/records/CSH-RUN-003_classification.json",
+      "sha256": "af490c4805235dbb7fc84159691a006dcc36599af4e1edaa50e748914b851bd0"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/records/CSH-RUN-004_classification.json",
+      "sha256": "3207fe7c27e7d338918ffb46dbc3f1e098b16042dbf22cd06c227ad16d4db9ba"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/records/pair_comparison.json",
+    "sha256": "88efcb0ba336a1ac5b96c8be112e36b2ee16de3f31439b4931414873759cfe24"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/records/reviewer_receipt.json",
+      "sha256": "a6fad46f2364e1c9a40a804769dd7ea6127f3487a11dd0e09c37381eda224111"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "9440b2259f326e4fe0fcd8fe1f067e3c526a2017b85eba436d4a68b544a2177b"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/wrong_pair_link/records/CSH-RUN-003_execution.json",
+      "sha256": "6e076f612e23bac7745ee422768baf650624a5e7d38eec090bbd61e4663db891"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/wrong_pair_link/records/CSH-RUN-004_execution.json",
+      "sha256": "10438323ccc9752e0fa7c5e57c6c34b7184be6c98db5a9437c5be8d5396b8b92"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/wrong_pair_link/records/CSH-RUN-003_classification.json",
+      "sha256": "a2ebc3113dad5bc6e6808265f0ceca710b47b4edd3f0b4f28206582ecfe5f956"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/wrong_pair_link/records/CSH-RUN-004_classification.json",
+      "sha256": "2843ef36da7e235e962c3c8172d44f6dc4159fb7c93947e15a37eef24df1c7da"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/wrong_pair_link/records/pair_comparison.json",
+    "sha256": "2d939b7c23a447af92513465c588e2c87110065152afe7a45467d37fc1d4a0df"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/wrong_pair_link/records/reviewer_receipt.json",
+      "sha256": "14229f5a434f8b07e8f7db70c1b040cb8c5ab5ce4432998ca6a2b469802d547c"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "da81c8fb03e494e2913cb8daa147fdd95f4c0e8f8bdda6e94b92bc0f938f3c65"
+  }
+}

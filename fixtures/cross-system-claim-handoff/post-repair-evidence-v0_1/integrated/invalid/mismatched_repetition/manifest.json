@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/mismatched_repetition/records/CSH-RUN-003_execution.json",
+      "sha256": "c912c2703750921ce7bd6681977803f769b4414afd5579c64b672a0e55296f2e"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/mismatched_repetition/records/CSH-RUN-004_execution.json",
+      "sha256": "51fb787f8aedc79c6bc9e658ceff94117d41929ddcf0cc9bdeaef98248b695c7"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/mismatched_repetition/records/CSH-RUN-003_classification.json",
+      "sha256": "d225b1cae468b0c2ff2613d419e441391561af044a1cb0f4696dec020cf44c7d"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/mismatched_repetition/records/CSH-RUN-004_classification.json",
+      "sha256": "7083486dc71014d79fb05672a893f568df7bddac9ae4b3ac6ae4460ece90c117"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/mismatched_repetition/records/pair_comparison.json",
+    "sha256": "97d78215936b1c1667d5e501d63c8bfa2f3d784645167daadce59e14e7bb52f0"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/mismatched_repetition/records/reviewer_receipt.json",
+      "sha256": "646cfbd67b929aa6fb4b74844e60b45162ff5c97e66be975c2f028593a853eff"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "6d5ddb7af7826aa0f239b23341947bdf03820fd8353b199b25a705c2b6f43727"
+  }
+}

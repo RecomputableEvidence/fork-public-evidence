@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/csh_reviewer_receipt_v0_1.schema.json",
+  "title": "CSH Reviewer Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "pair_id",
+    "repetition_index",
+    "reviewer",
+    "reviewed_artifacts",
+    "recomputation_outcome",
+    "verification_checks",
+    "bounded_interpretation",
+    "limitations",
+    "non_endorsement",
+    "record_integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "artifact_type": {
+      "const": "CSH_REVIEWER_RECEIPT"
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^CSH-PAIR-[0-9]{3}$"
+    },
+    "repetition_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display_name",
+        "affiliation",
+        "role"
+      ],
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affiliation": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "role": {
+          "const": "INDEPENDENT_REVIEWER"
+        }
+      }
+    },
+    "reviewed_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_type",
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "artifact_type": {
+            "enum": [
+              "CSH_EXECUTION_RECEIPT",
+              "CSH_RUN_CLASSIFICATION",
+              "CSH_PAIR_COMPARISON"
+            ]
+          },
+          "path": {
+            "$ref": "#/$defs/repoPath"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "recomputation_outcome": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "UNRESOLVED"
+      ]
+    },
+    "verification_checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "execution_integrity",
+        "classification_invariants",
+        "pair_admissibility",
+        "hash_recomputation"
+      ],
+      "properties": {
+        "execution_integrity": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        },
+        "classification_invariants": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        },
+        "pair_admissibility": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        },
+        "hash_recomputation": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNRESOLVED"
+          ]
+        }
+      }
+    },
+    "bounded_interpretation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "non_endorsement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement",
+        "fork_endorsement_disclaimed",
+        "truth_claim_disclaimed",
+        "compliance_claim_disclaimed",
+        "authority_transfer_disclaimed"
+      ],
+      "properties": {
+        "statement": {
+          "const": "This reviewer receipt verifies only the stated evidence and rule application. It does not endorse Fork, approve the underlying claim, establish truth or compliance, or transfer authority."
+        },
+        "fork_endorsement_disclaimed": {
+          "const": true
+        },
+        "truth_claim_disclaimed": {
+          "const": true
+        },
+        "compliance_claim_disclaimed": {
+          "const": true
+        },
+        "authority_transfer_disclaimed": {
+          "const": true
+        }
+      }
+    },
+    "record_integrity": {
+      "$ref": "#/$defs/recordIntegrity"
+    }
+  },
+  "$defs": {
+    "repoPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._/-]+$",
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      }
+    },
+    "recordIntegrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization_profile",
+        "canonical_record_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "FORK-JCS-v0.1"
+        },
+        "canonical_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

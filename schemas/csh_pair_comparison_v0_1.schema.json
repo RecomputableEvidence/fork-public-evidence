@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/csh_pair_comparison_v0_1.schema.json",
+  "title": "CSH Pair Comparison v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "pair_id",
+    "repetition_index",
+    "control_run_id",
+    "instrumented_run_id",
+    "control_classification_ref",
+    "instrumented_classification_ref",
+    "pair_comparison_disposition",
+    "pair_comparison_reason",
+    "semantic_comparison",
+    "operational_comparisons",
+    "comparison_notes",
+    "record_integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "artifact_type": {
+      "const": "CSH_PAIR_COMPARISON"
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^CSH-PAIR-[0-9]{3}$"
+    },
+    "repetition_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "control_run_id": {
+      "type": "string",
+      "pattern": "^CSH-RUN-[0-9]{3}$"
+    },
+    "instrumented_run_id": {
+      "type": "string",
+      "pattern": "^CSH-RUN-[0-9]{3}$"
+    },
+    "control_classification_ref": {
+      "$ref": "#/$defs/hashRef"
+    },
+    "instrumented_classification_ref": {
+      "$ref": "#/$defs/hashRef"
+    },
+    "pair_comparison_disposition": {
+      "enum": [
+        "COMPARABLE",
+        "PARTIALLY_COMPARABLE",
+        "NOT_COMPARABLE",
+        "QUARANTINED"
+      ]
+    },
+    "pair_comparison_reason": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "enum": [
+            "CONTROL_ARM_NO_RECEIVER_OUTPUT",
+            "INSTRUMENTED_ARM_NO_RECEIVER_OUTPUT",
+            "ARM_EXECUTION_STATES_DIFFER",
+            "SEMANTIC_COMPARISON_WITHHELD",
+            "BOTH_ARMS_NO_RECEIVER_OUTPUT",
+            "ARMS_DIFFERENT_CONFIG",
+            "REPETITION_MISMATCH",
+            "MISSING_ARM",
+            "PAIR_EVIDENCE_QUARANTINED",
+            "ARM_ARTIFACT_INTEGRITY_FAILURE",
+            "PAIR_PROVENANCE_INSUFFICIENT"
+          ]
+        }
+      ]
+    },
+    "semantic_comparison": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/semanticComparison"
+        }
+      ]
+    },
+    "operational_comparisons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "EXECUTION_AVAILABILITY_DIFFERED",
+          "EXECUTION_STATES_DIFFERED",
+          "TRANSPORT_STATUS_DIFFERED",
+          "RECEIVER_MODEL_ID_DIFFERED"
+        ]
+      }
+    },
+    "comparison_notes": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "record_integrity": {
+      "$ref": "#/$defs/recordIntegrity"
+    }
+  },
+  "$defs": {
+    "repoPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._/-]+$",
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      }
+    },
+    "hashRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/repoPath"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "recordIntegrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization_profile",
+        "canonical_record_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "FORK-JCS-v0.1"
+        },
+        "canonical_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "semanticComparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "control_transition",
+        "instrumented_transition",
+        "relationship"
+      ],
+      "properties": {
+        "control_transition": {
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "EXPANDED",
+            "UNRESOLVED",
+            "MIXED"
+          ]
+        },
+        "instrumented_transition": {
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "EXPANDED",
+            "UNRESOLVED",
+            "MIXED"
+          ]
+        },
+        "relationship": {
+          "enum": [
+            "TRANSITIONS_EQUAL",
+            "TRANSITIONS_DIFFER",
+            "CONTROL_UNRESOLVED",
+            "INSTRUMENTED_UNRESOLVED",
+            "BOTH_UNRESOLVED"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "pair_comparison_disposition": {
+            "const": "COMPARABLE"
+          }
+        },
+        "required": [
+          "pair_comparison_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pair_comparison_reason": {
+            "type": "null"
+          },
+          "semantic_comparison": {
+            "$ref": "#/$defs/semanticComparison"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pair_comparison_disposition": {
+            "const": "PARTIALLY_COMPARABLE"
+          }
+        },
+        "required": [
+          "pair_comparison_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pair_comparison_reason": {
+            "enum": [
+              "CONTROL_ARM_NO_RECEIVER_OUTPUT",
+              "INSTRUMENTED_ARM_NO_RECEIVER_OUTPUT",
+              "ARM_EXECUTION_STATES_DIFFER",
+              "SEMANTIC_COMPARISON_WITHHELD"
+            ]
+          },
+          "semantic_comparison": {
+            "type": "null"
+          },
+          "operational_comparisons": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pair_comparison_disposition": {
+            "const": "NOT_COMPARABLE"
+          }
+        },
+        "required": [
+          "pair_comparison_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pair_comparison_reason": {
+            "enum": [
+              "BOTH_ARMS_NO_RECEIVER_OUTPUT",
+              "ARMS_DIFFERENT_CONFIG",
+              "REPETITION_MISMATCH",
+              "MISSING_ARM"
+            ]
+          },
+          "semantic_comparison": {
+            "type": "null"
+          },
+          "operational_comparisons": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pair_comparison_disposition": {
+            "const": "QUARANTINED"
+          }
+        },
+        "required": [
+          "pair_comparison_disposition"
+        ]
+      },
+      "then": {
+        "properties": {
+          "pair_comparison_reason": {
+            "enum": [
+              "PAIR_EVIDENCE_QUARANTINED",
+              "ARM_ARTIFACT_INTEGRITY_FAILURE",
+              "PAIR_PROVENANCE_INSUFFICIENT"
+            ]
+          },
+          "semantic_comparison": {
+            "type": "null"
+          },
+          "operational_comparisons": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

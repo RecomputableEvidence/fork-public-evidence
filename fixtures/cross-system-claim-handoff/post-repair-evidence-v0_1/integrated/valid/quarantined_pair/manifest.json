@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/CSH-RUN-003_execution.json",
+      "sha256": "9976a866df8407dc8a6d96269790a72c82be70d172be93248f0553867e23bf5b"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/CSH-RUN-004_execution.json",
+      "sha256": "6a6c8aefb9109fdc6353afaee7406db4cc22ba5c1b591c55e9fcb468e60c5974"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/CSH-RUN-003_classification.json",
+      "sha256": "03fb3d9ebcd18b02212f221f5d8ff5da963aead5fbf0a7f3d855a2b60c9447b3"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/CSH-RUN-004_classification.json",
+      "sha256": "6424f0b9727fd09e617b4161e084c43dbcb46ebd3ae02a4f33033481ea824936"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/pair_comparison.json",
+    "sha256": "b17ccbaaf81f5a1d76dafdd00be2e5da41f600ad0940991b1bf2866642c6731a"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/reviewer_receipt.json",
+      "sha256": "084b1edd083d07a9bd15161082f0a80630b4b731f9b989a0f86258956d09039e"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "d24ed76210a41e9ff9b2990457ce6a2eecdbdb969f33bb52b6591f59170bd3f3"
+  }
+}
