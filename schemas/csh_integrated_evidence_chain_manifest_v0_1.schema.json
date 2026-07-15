@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/csh_integrated_evidence_chain_manifest_v0_1.schema.json",
+  "title": "CSH Integrated Evidence Chain Manifest v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "pair_id",
+    "repetition_index",
+    "execution_receipts",
+    "run_classifications",
+    "pair_comparison",
+    "reviewer_receipts",
+    "record_integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "artifact_type": {
+      "const": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST"
+    },
+    "pair_id": {
+      "type": "string",
+      "pattern": "^CSH-PAIR-[0-9]{3}$"
+    },
+    "repetition_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "execution_receipts": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "arm_id",
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "arm_id": {
+            "enum": [
+              "CONTROL",
+              "FORK_INSTRUMENTED"
+            ]
+          },
+          "path": {
+            "$ref": "#/$defs/repoPath"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "run_classifications": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "arm_id",
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "arm_id": {
+            "enum": [
+              "CONTROL",
+              "FORK_INSTRUMENTED"
+            ]
+          },
+          "path": {
+            "$ref": "#/$defs/repoPath"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "pair_comparison": {
+      "$ref": "#/$defs/hashRef"
+    },
+    "reviewer_receipts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/hashRef"
+      }
+    },
+    "record_integrity": {
+      "$ref": "#/$defs/recordIntegrity"
+    }
+  },
+  "$defs": {
+    "repoPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._/-]+$",
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      }
+    },
+    "hashRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/repoPath"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "recordIntegrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization_profile",
+        "canonical_record_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "FORK-JCS-v0.1"
+        },
+        "canonical_record_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/partial_availability_pair/records/CSH-RUN-003_execution.json",
+      "sha256": "58431e84084614758e116c417af3fd0830d4c856a19196a3228f4c79b69c4bbc"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/partial_availability_pair/records/CSH-RUN-004_execution.json",
+      "sha256": "cdc5954edcb9e9215059e7f8de76b7035c29b4bfa5101324ee66e4d8b02e81c8"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/partial_availability_pair/records/CSH-RUN-003_classification.json",
+      "sha256": "7537a3ddf69adbbaa35e1f0419bf7bfe88a7eec3b41c2ceb51c912cc17b69bc9"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/partial_availability_pair/records/CSH-RUN-004_classification.json",
+      "sha256": "af7fb1e10125fcd882d76d6726afe05f7c54378d4d62ac50209993922aa9bd49"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/partial_availability_pair/records/pair_comparison.json",
+    "sha256": "c718d3ea4482b10b19885938b39439a669ece26a323d0cd61a0ddc8a67c69c98"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/partial_availability_pair/records/reviewer_receipt.json",
+      "sha256": "5a32a9c2ec92525db37e3f74575ffdfb56c79289ec2c008d72e16c21eccd4c76"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "70a5401c31dc3cfe9f9f0c84532e65396dcd4a632d0c0535a3b4f523dff3341d"
+  }
+}

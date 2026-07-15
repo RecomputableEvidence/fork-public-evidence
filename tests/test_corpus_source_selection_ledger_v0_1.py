@@ -36,6 +36,25 @@ def test_initial_draft_ledger_conforms():
     assert result["defect_count"] == 0
     assert result["observation_count"] == 6
     assert result["detached_digest_state"] == "PASS"
+    assert result["selection_cutoff_utc"] is not None
+    assert result["acquisition_opening_transition_state"] == "PASS"
+
+    ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
+    opening = [
+        transition
+        for transition in ledger["transition_history"]
+        if transition["transition_id"] == "C001-TRANSITION-002"
+    ]
+    assert len(opening) == 1
+    assert (
+        opening[0]["occurred_at_utc"]
+        == ledger["experiment_definition"]["selection_cutoff_utc"]
+    )
+    assert (
+        opening[0]["previous_ledger_digest"]
+        == "c4de5c6f6dfdbb00b251453bbe414b47cf6a4388d13f8f1f4841f4d2970a1382"
+    )
+    assert opening[0]["resulting_ledger_digest"] is None
 
 
 def test_open_null_slot_blocks_admission_freeze(tmp_path: Path):

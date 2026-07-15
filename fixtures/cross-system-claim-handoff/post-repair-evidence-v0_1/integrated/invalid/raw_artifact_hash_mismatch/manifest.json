@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-003_execution.json",
+      "sha256": "4586841d8c599ca0fb755661f52f9b09830b47cbae16eca60f14d4dad1b54cd9"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-004_execution.json",
+      "sha256": "c6585440a78595f97d3a65a1183630fe22b9fca84a6ad6584524997d5d6413dd"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-003_classification.json",
+      "sha256": "7b780384c285c5ba3e052a6e91ae88fb70dc908a142e5fdc176d2958281bac50"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/CSH-RUN-004_classification.json",
+      "sha256": "0f5487c9e06afddbb711541d295912ed1bd22bac14fec9ef10c908b697445d7b"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/pair_comparison.json",
+    "sha256": "2a75839f770752a6c87bc0d3dcab920549551c66d5f8c9505260914014700c5f"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/raw_artifact_hash_mismatch/records/reviewer_receipt.json",
+      "sha256": "5404e11aaa60cc08122afd790fcf5a406aeba7412f8a8dcaddbbb22530116d01"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "61a1e25e77196259332e1977d6b8bba9de7dc3d220da66e3a27bcef7c2a212e6"
+  }
+}

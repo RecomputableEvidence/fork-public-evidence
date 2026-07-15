@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_PAIR_COMPARISON",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "control_run_id": "CSH-RUN-003",
+  "instrumented_run_id": "CSH-RUN-004",
+  "control_classification_ref": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/CSH-RUN-003_classification.json",
+    "sha256": "b2ec34d0e36b8916667cf5b6008140bdd40b896cf0e0247f15733412c1d2bec7"
+  },
+  "instrumented_classification_ref": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/CSH-RUN-004_classification.json",
+    "sha256": "a61ffd92f518e6e56bed6aa2cb825b02fe8b5774d577769878cf624718eb1590"
+  },
+  "pair_comparison_disposition": "COMPARABLE",
+  "pair_comparison_reason": null,
+  "semantic_comparison": {
+    "control_transition": "PRESERVED",
+    "instrumented_transition": "NARROWED",
+    "relationship": "TRANSITIONS_DIFFER"
+  },
+  "operational_comparisons": [],
+  "comparison_notes": null,
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "ded39149900715754f8f0b590fd53bda90d7c2d0ed968fb4385d7757e8774dc4"
+  }
+}

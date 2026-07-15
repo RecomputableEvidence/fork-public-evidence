@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/CSH-RUN-003_execution.json",
+      "sha256": "7a9a900e45f1c55b7ea6568a8faf819386d313849781b2a29caab6e2e9d1cf29"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/CSH-RUN-004_execution.json",
+      "sha256": "ba68b29df884a2b4cc8a0a1b18c12d7f4129d8b58bb48d6d297793710e8a938e"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/CSH-RUN-003_classification.json",
+      "sha256": "b2ec34d0e36b8916667cf5b6008140bdd40b896cf0e0247f15733412c1d2bec7"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/CSH-RUN-004_classification.json",
+      "sha256": "a61ffd92f518e6e56bed6aa2cb825b02fe8b5774d577769878cf624718eb1590"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/pair_comparison.json",
+    "sha256": "2334baa8eb97822b8ca55287ca2083b4aff0fc6ea534f95c964bae9c43be2691"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/comparable_pair/records/reviewer_receipt.json",
+      "sha256": "737d19fe234c21734156d5dfded576b426037b9490d9d1fd12e30bb18a4f316c"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "506b502d745c9d710eeef4462445737fb4c061ff677fcc078d5dc9d0fc98e9bc"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_INTEGRATED_EVIDENCE_CHAIN_MANIFEST",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "execution_receipts": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/both_unavailable_pair/records/CSH-RUN-003_execution.json",
+      "sha256": "72acb220a70124ccaeff8e9fde598e46923529f9512b0df3c9622097ee3d8c25"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/both_unavailable_pair/records/CSH-RUN-004_execution.json",
+      "sha256": "b6bee3110f01574897f29a23d5097381f44c089ec7da0c62c9fa82310f710367"
+    }
+  ],
+  "run_classifications": [
+    {
+      "arm_id": "CONTROL",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/both_unavailable_pair/records/CSH-RUN-003_classification.json",
+      "sha256": "25ceda645c496d046c931e5dafb2d63b2747cea1e46f6a10914d8db9d05949a0"
+    },
+    {
+      "arm_id": "FORK_INSTRUMENTED",
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/both_unavailable_pair/records/CSH-RUN-004_classification.json",
+      "sha256": "74b63d328028e2881c98cde84414e78784d4b9e104d5d1b31b25c63f2efd7f12"
+    }
+  ],
+  "pair_comparison": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/both_unavailable_pair/records/pair_comparison.json",
+    "sha256": "92131fe9efa8b041c9dc553a933fee56ac91f2a5c2008d44c60d4852f656e35c"
+  },
+  "reviewer_receipts": [
+    {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/both_unavailable_pair/records/reviewer_receipt.json",
+      "sha256": "dc611ad424ea60765b582584ad833be30826dd97fb5e1c68ad310f7e8e124648"
+    }
+  ],
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "710441b0717ebdea7a614826e3b22a4ef114c6564938e921e6ff368c9c746c6c"
+  }
+}

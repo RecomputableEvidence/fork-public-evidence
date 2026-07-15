@@ -1,0 +1,11 @@
+{
+  "participant_id": "anon-reviewer-05",
+  "public_attribution_name": "Dr. Jane Doe",
+  "role": "EXTERNAL_REVIEWER",
+  "admission_status": "ADMITTED",
+  "evidence_references": [],
+  "consent_profile": {
+    "attribution_opt_in": false,
+    "quotation_opt_in": false
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.1",
+  "artifact_type": "CSH_EXECUTION_RECEIPT",
+  "pair_id": "CSH-PAIR-001",
+  "run_id": "CSH-RUN-003",
+  "arm_id": "CONTROL",
+  "repetition_index": 2,
+  "execution_state": "COMPLETED",
+  "transport_outcome": {
+    "protocol": "HTTP",
+    "status_code": 200,
+    "status_text": "OK"
+  },
+  "receiver_model_id": "DeepSeek-V3-0324",
+  "timestamps": {
+    "requested_at": "2026-07-13T12:00:00Z",
+    "completed_at": "2026-07-13T12:00:01Z"
+  },
+  "artifacts": {
+    "request": {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/raw/CSH-RUN-003_request.json",
+      "present": true,
+      "sha256": "d5e5fd65d716fd6d28b8f96ad3149b9e3e38fb1a23d226ddbf0c42410898b3f0"
+    },
+    "response": {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/raw/CSH-RUN-003_response.json",
+      "present": true,
+      "sha256": "b9657751e1ed5e7fa7913e10f73382f95af774ae33054468981cda63876722f1"
+    }
+  },
+  "config_links": {
+    "frozen_config": {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/config/frozen_config.json",
+      "sha256": "76060c2529b60066c22bc9f217202c23b0aa292950ccc8b2cba80f1b085dad33"
+    },
+    "amendment": {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/config/CSH-AMEND-002.md",
+      "sha256": "a21db489e3fcceca54e4f42de24644d3f06e1119625df3dbcdfb019f697744ea"
+    },
+    "instrumentation_patch": {
+      "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/invalid/different_frozen_configs/config/instrumentation_patch_v0_1_1.json",
+      "sha256": "2f83a2bf6364f6cabe5f580bde35f2a9258b4666d662253b7cd9b61eec747829"
+    }
+  },
+  "evidence_completeness": "RAW_RECEIVER_OUTPUT_PRESENT",
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "5e5a8f3e224a1f2ecf692750114ee3df6c0790b311d706251b95f9748fb0a3aa"
+  }
+}

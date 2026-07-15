@@ -1,0 +1,61 @@
+{
+    "receipt_id":  "CORPUS-001-SELECTION-CUTOFF-AND-ACQUISITION-OPENING-RECEIPT-v0.1",
+    "amendment_id":  "CORPUS-001-SELECTION-CUTOFF-AND-ACQUISITION-OPENING-v0.1",
+    "recorded_at_utc":  "2026-07-14T05:26:14.4368475Z",
+    "repository_head":  "f7dc307ac2e5f8adfc1e33fb4a8e1d478fc025a4",
+    "origin_main":  "f7dc307ac2e5f8adfc1e33fb4a8e1d478fc025a4",
+    "selection_cutoff_utc":  "2026-07-14T05:26:05Z",
+    "transition_id":  "C001-TRANSITION-002",
+    "ledger_status_before":  "DRAFT_SELECTION",
+    "ledger_status_after":  "DRAFT_SELECTION",
+    "prior_ledger_byte_sha256":  "3138a037a6703f46d955bdac661d097bba5a3192295df5e4d5614822e254847b",
+    "resulting_ledger_byte_sha256":  "5a5064c02d93cefd7a0f17af61099214a731d933722a1ad71ee6f83bf3030a17",
+    "prior_ledger_jcs_sha256":  "c4de5c6f6dfdbb00b251453bbe414b47cf6a4388d13f8f1f4841f4d2970a1382",
+    "resulting_ledger_jcs_sha256":  "11576e736bf9604dca072c75812f0580290e1efa00bc13a3e03599b4528ee098",
+    "digest_storage":  "DETACHED",
+    "resulting_digest_embedded_in_ledger":  false,
+    "private_workspace":  {
+                              "required_directory_count":  18,
+                              "file_count_before":  0,
+                              "file_count_after":  0,
+                              "source_files_created":  0,
+                              "source_files_modified":  0
+                          },
+    "corpus_state":  {
+                         "observations_total":  6,
+                         "observations_admitted":  0,
+                         "obs_004_status":  "OPEN_SLOT",
+                         "source_acquisition_window":  "OPEN",
+                         "source_acquisition_completed":  false,
+                         "admission_freeze_permitted":  false
+                     },
+    "checks":  {
+                   "published_base_commit_verified":  "PASS",
+                   "origin_main_verified":  "PASS",
+                   "cutoff_is_explicit_utc":  "PASS",
+                   "cutoff_not_before_publication_commit":  "PASS",
+                   "private_workspace_empty_at_opening":  "PASS",
+                   "ledger_schema_and_invariants":  "PASS",
+                   "acquisition_opening_transition":  "PASS",
+                   "detached_jcs_digest":  "PASS",
+                   "tests":  "9_PASS",
+                   "warnings":  0
+               },
+    "authority":  {
+                      "source_evidence_copied":  false,
+                      "source_evidence_modified":  false,
+                      "source_evidence_hashed":  false,
+                      "source_admission_performed":  false,
+                      "structured_classification_performed":  false,
+                      "disclosure_authorization_inferred":  false,
+                      "lifecycle_advanced_beyond_draft_selection":  false,
+                      "staged":  false,
+                      "committed":  false,
+                      "tagged":  false,
+                      "released":  false,
+                      "doi_created":  false,
+                      "published":  false,
+                      "pushed":  false
+                  },
+    "state":  "CONFORMING"
+}

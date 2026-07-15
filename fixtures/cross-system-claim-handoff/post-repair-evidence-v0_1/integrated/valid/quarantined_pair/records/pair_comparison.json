@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1",
+  "artifact_type": "CSH_PAIR_COMPARISON",
+  "pair_id": "CSH-PAIR-001",
+  "repetition_index": 2,
+  "control_run_id": "CSH-RUN-003",
+  "instrumented_run_id": "CSH-RUN-004",
+  "control_classification_ref": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/CSH-RUN-003_classification.json",
+    "sha256": "03fb3d9ebcd18b02212f221f5d8ff5da963aead5fbf0a7f3d855a2b60c9447b3"
+  },
+  "instrumented_classification_ref": {
+    "path": "fixtures/cross-system-claim-handoff/post-repair-evidence-v0_1/integrated/valid/quarantined_pair/records/CSH-RUN-004_classification.json",
+    "sha256": "6424f0b9727fd09e617b4161e084c43dbcb46ebd3ae02a4f33033481ea824936"
+  },
+  "pair_comparison_disposition": "QUARANTINED",
+  "pair_comparison_reason": "PAIR_EVIDENCE_QUARANTINED",
+  "semantic_comparison": null,
+  "operational_comparisons": [],
+  "comparison_notes": null,
+  "record_integrity": {
+    "canonicalization_profile": "FORK-JCS-v0.1",
+    "canonical_record_sha256": "37c55e2d7454146d1e2a161c389109833f31072060e03f9680881607849a3bed"
+  }
+}
