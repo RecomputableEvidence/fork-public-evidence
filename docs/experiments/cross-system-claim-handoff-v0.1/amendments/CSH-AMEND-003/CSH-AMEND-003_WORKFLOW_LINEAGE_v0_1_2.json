@@ -1,0 +1,44 @@
+{
+    "schema_version":  "v0.1.2",
+    "artifact_type":  "CSH_INSTRUMENTATION_WORKFLOW_LINEAGE_AMENDMENT",
+    "amendment_id":  "CSH-AMEND-003",
+    "experiment_id":  "cross_system_claim_handoff_v0_1",
+    "status":  "LOCAL_CANDIDATE_PENDING_REMOTE_CI",
+    "recorded_at_utc":  "2026-07-16T00:31:55.8990224Z",
+    "base_main_commit":  "ffc05d27fad870321b519f864adc28a5d61bb7f0",
+    "detected_in_pull_request":  58,
+    "finding":  {
+                    "code":  "FROZEN_LIVE_WORKFLOW_PATH_DIVERGENCE",
+                    "path":  ".github/workflows/fork-proof-surface-integration.yml",
+                    "expected_frozen_sha256":  "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+                    "expected_frozen_size_bytes":  5413,
+                    "observed_sha256":  "bfbde899d4c710e761b7070390b69a68c355fd48fe058fd0c3b12d49bf4c4400",
+                    "observed_size_bytes":  6174,
+                    "interpretation":  "The live aggregate workflow changed after it was admitted to the v0.1.1 immutable instrumentation freeze."
+                },
+    "preservation":  {
+                         "historical_source_commit":  "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71",
+                         "frozen_snapshot_path":  "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/FROZEN_FORK_PROOF_SURFACE_INTEGRATION_v0_1_1.yml",
+                         "frozen_snapshot_sha256":  "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+                         "divergent_snapshot_path":  "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/OBSERVED_DIVERGENT_FORK_PROOF_SURFACE_INTEGRATION.yml",
+                         "divergent_snapshot_sha256":  "bfbde899d4c710e761b7070390b69a68c355fd48fe058fd0c3b12d49bf4c4400"
+                     },
+    "repair":  {
+                   "restored_live_path":  ".github/workflows/fork-proof-surface-integration.yml",
+                   "restored_sha256":  "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+                   "policy":  "The frozen proof-surface workflow remains byte-identical. New integration jobs must use separately versioned workflow files.",
+                   "separate_meta_evidence_workflow_path":  ".github/workflows/fork-meta-evidence-v0-1.yml",
+                   "separate_meta_evidence_workflow_sha256":  "9e5f2cf7eca18f55547a63891d89615d0294e0f50d419e83a5387f4aba86af2c",
+                   "stable_admission_workflow_path":  ".github/workflows/fork-admission-gate.yml",
+                   "stable_admission_check_name":  "fork-admission-gate"
+               },
+    "authority_effect":  "NONE",
+    "semantic_freeze_effect":  "NONE",
+    "network_execution_authorized":  false,
+    "non_claims":  [
+                       "This amendment does not alter the CSH v0.1 semantic corpus, hypothesis, prompts, or original execution evidence.",
+                       "This amendment does not convert a failed CI run into a conforming result.",
+                       "Remote clean-machine verification remains pending until GitHub Actions evaluates the admitted commit.",
+                       "This amendment does not establish truth, approval, compliance, safety, authority, or production readiness."
+                   ]
+}
