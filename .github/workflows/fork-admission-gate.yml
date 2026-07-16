@@ -1,0 +1,51 @@
+name: Fork Admission Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  admission-gate:
+    name: fork-admission-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install proof-surface dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
+
+      - name: Verify frozen CSH execution instrumentation
+        run: python tools/check_cross_system_claim_handoff_execution_v0_1_1.py --json
+
+      - name: Run complete Python regression suite
+        run: python -m pytest -q
+
+      - name: Verify Fork Meta-Evidence package integrity
+        run: python tools/check_fork_meta_evidence_package_v0_1.py --json
+
+      - name: Verify Fork Meta-Evidence integrated record
+        run: >-
+          python tools/check_experiment_meta_evidence_v0_1.py
+          registries/experiment_meta_evidence_registry_v0_1.json
+          --json
