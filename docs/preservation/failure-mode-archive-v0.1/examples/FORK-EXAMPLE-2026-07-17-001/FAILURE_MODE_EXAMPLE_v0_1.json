@@ -1,0 +1,124 @@
+{
+  "example_id": "FORK-EXAMPLE-2026-07-17-001",
+  "schema_version": "0.1",
+  "status": "PRESERVED_RESOLVED",
+  "recorded_date_utc": "2026-07-17",
+  "failure_class_id": "VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION",
+  "family": "VERIFICATION_DEPENDENCY_FAILURE",
+  "intent": "NOT_EVALUATED",
+  "summary": "A verification test module assumed the claim-admission YAML dependency was present in proof-lock-only jobs, causing environment-specific CI failures without contradicting the contribution's bounded verification result.",
+  "distinctions": {
+    "contribution_result": "NOT_INVALIDATED_BY_DEPENDENCY_SCOPE_ALONE",
+    "environment_contract": "PROOF_LOCK_AND_CLAIM_ADMISSION_LOCK_ARE_DISTINCT",
+    "dependency_availability": "PYYAML_PRESENT_ONLY_WHERE_CLAIM_ADMISSION_LOCK_IS_INSTALLED",
+    "ci_signal": "ENVIRONMENT_SPECIFIC_INTEGRATION_FAILURE",
+    "experiment_result": "NONE"
+  },
+  "subject": {
+    "pull_request": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/64",
+    "base_commit": "599d3e193d86a9661fbbec3213ae1921b4959f10",
+    "failing_commit": "425ea7af804c3da331fd7eb6cbfe644b64a36a24",
+    "failing_tree": "3eabf2f6c4db18af2cbdd98d28d4d59857d3c34a",
+    "repair_commit": "ed2f4d1f176b63d6d2e6a4a2c77c351593253478",
+    "repair_tree": "56be860091e04c9e02db1ada66124a908cbf95b0",
+    "affected_path": "tests/test_independent_verification_surface_v0_1.py"
+  },
+  "dependency_surfaces": [
+    {
+      "surface_id": "FORK_EVIDENCE_CI",
+      "locks": ["requirements-proof-surface.lock.txt", "requirements-claim-admission.lock.txt"],
+      "pyyaml_expected": true,
+      "authoritative_test_effect": "All ten independent-verification tests execute."
+    },
+    {
+      "surface_id": "FORK_PROOF_SURFACE_INTEGRATION",
+      "locks": ["requirements-proof-surface.lock.txt"],
+      "pyyaml_expected": false,
+      "authoritative_test_effect": "The YAML-dependent verification module skips explicitly while the remaining proof-surface regression suite executes."
+    }
+  ],
+  "observations": {
+    "failing_attempt": {
+      "observation_source": "GITHUB_ACTIONS_CHECK_RUNS",
+      "evidence_run": 29559246618,
+      "evidence_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559246618",
+      "proof_run": 29559246805,
+      "proof_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559246805",
+      "jobs": [
+        {"job_id": 87817972943, "name": "Claim Boundary and Preservation Checks", "conclusion": "success"},
+        {"job_id": 87817973433, "name": "CSH execution instrumentation v0.1.1 (ubuntu-latest)", "conclusion": "success"},
+        {"job_id": 87817973445, "name": "Python proof surface (windows-latest)", "conclusion": "failure"},
+        {"job_id": 87817973464, "name": "PowerShell 5.1 proof-surface entry point", "conclusion": "failure"},
+        {"job_id": 87817973492, "name": "Python proof surface (ubuntu-latest)", "conclusion": "failure"},
+        {"job_id": 87817973498, "name": "CSH execution instrumentation v0.1.1 (windows-latest)", "conclusion": "success"}
+      ]
+    },
+    "repair_attempt": {
+      "observation_source": "GITHUB_ACTIONS_CHECK_RUNS",
+      "evidence_run": 29559491579,
+      "evidence_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559491579",
+      "proof_run": 29559491483,
+      "proof_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559491483",
+      "jobs": [
+        {"job_id": 87818704030, "name": "Claim Boundary and Preservation Checks", "conclusion": "success"},
+        {"job_id": 87818703703, "name": "PowerShell 5.1 proof-surface entry point", "conclusion": "success"},
+        {"job_id": 87818703721, "name": "CSH execution instrumentation v0.1.1 (windows-latest)", "conclusion": "success"},
+        {"job_id": 87818703729, "name": "CSH execution instrumentation v0.1.1 (ubuntu-latest)", "conclusion": "success"},
+        {"job_id": 87818703732, "name": "Python proof surface (windows-latest)", "conclusion": "success"},
+        {"job_id": 87818703750, "name": "Python proof surface (ubuntu-latest)", "conclusion": "success"}
+      ]
+    }
+  },
+  "specimens": [
+    {
+      "role": "FAILING_TEST_MODULE",
+      "archive_path": "docs/preservation/failure-mode-archive-v0.1/examples/FORK-EXAMPLE-2026-07-17-001/specimens/test_independent_verification_surface_v0_1.pre-boundary-fix.py.txt",
+      "source_commit": "425ea7af804c3da331fd7eb6cbfe644b64a36a24",
+      "source_path": "tests/test_independent_verification_surface_v0_1.py",
+      "sha256": "748779671f2dac51509b52b087b405f9af139b8f4aa7afbc8e401443004104e4",
+      "git_blob_sha1": "ae0676e37d91542598b4f0f65ee61fcc5b9dd116",
+      "size_bytes": 11359,
+      "execution_state": "INERT_TEXT_DATA_ONLY"
+    },
+    {
+      "role": "REPAIRED_TEST_MODULE",
+      "archive_path": "docs/preservation/failure-mode-archive-v0.1/examples/FORK-EXAMPLE-2026-07-17-001/specimens/test_independent_verification_surface_v0_1.post-boundary-fix.py.txt",
+      "source_commit": "ed2f4d1f176b63d6d2e6a4a2c77c351593253478",
+      "source_path": "tests/test_independent_verification_surface_v0_1.py",
+      "sha256": "cfe393cf9f739e6e993ae2a17966127953c800224101c7f39c8d833a65563e64",
+      "git_blob_sha1": "2b0d703f80a459faeb824d1c2d11b6a15d6927fb",
+      "size_bytes": 11539,
+      "execution_state": "INERT_TEXT_DATA_ONLY"
+    }
+  ],
+  "safe_path": {
+    "path_class": "AMENDED_SAFE_PATH",
+    "walkthrough": "docs/preservation/failure-mode-archive-v0.1/examples/FORK-EXAMPLE-2026-07-17-001/SAFE_PATH_WALKTHROUGH_v0_1.md",
+    "steps": [
+      "Preserve the first failing run, job matrix, candidate commit, tree, and affected bytes before repair.",
+      "Separate contribution evidence from environment availability; do not convert a missing scoped dependency directly into contribution invalidity.",
+      "Compare the exact dependency locks installed by every failing and successful execution surface.",
+      "Assign the dependency to its declared control surface without broadening another lock merely to silence CI.",
+      "Make the dependency boundary explicit in the affected tests or checker while retaining authoritative execution where the dependency is declared.",
+      "Recompute both dependency environments and preserve pass, skip, and failure counts separately.",
+      "Publish the repair as a new commit and retain the failing commit and specimens without modification."
+    ],
+    "clean_bill_condition": "BOTH_DECLARED_DEPENDENCY_SURFACES_COMPLETE_SUCCESSFULLY_WITH_AUTHORITATIVE_TESTS_EXECUTED_OR_EXPLICITLY_SKIPPED_BY_CONTRACT"
+  },
+  "authority_effects": {
+    "pr_63": "NONE",
+    "main": "NONE",
+    "repository_settings": "NONE",
+    "experiment_execution": "NONE",
+    "merge": "NONE"
+  },
+  "non_claims": [
+    "The initial CI failure does not establish that PR #64 is semantically invalid.",
+    "The repaired CI success does not approve PR #64.",
+    "This example does not establish security certification.",
+    "This example does not attribute intent.",
+    "This example does not modify or approve PR #63.",
+    "This example does not authorize experiment execution.",
+    "This example does not modify main or repository settings."
+  ]
+}

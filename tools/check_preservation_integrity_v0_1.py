@@ -21,12 +21,20 @@ else:
 CHECKER_ID = "FORK_PRESERVATION_INTEGRITY_CHECKER_v0_1"
 INCIDENT_ID = "FORK-INC-2026-07-13-001"
 FAILURE_CLASS_ID = "CCF-001_AI_CHANGE_READINESS_PROMOTION"
+DEPENDENCY_EXAMPLE_ID = "FORK-EXAMPLE-2026-07-17-001"
+DEPENDENCY_FAILURE_CLASS_ID = "VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION"
 PRE_INCIDENT_COMMIT = "fc3a100563eb354924787759accfc7ecd39ae94d"
 INCIDENT_COMMIT = "7080e198e6f87e918121af6097a6ef36fd8e7a07"
 POST_INCIDENT_DESCENDANT = "fd93d051235ec43bee925878bc916d09179b3c90"
+DEPENDENCY_EXAMPLE_BASE_COMMIT = "599d3e193d86a9661fbbec3213ae1921b4959f10"
+DEPENDENCY_EXAMPLE_FAILING_COMMIT = "425ea7af804c3da331fd7eb6cbfe644b64a36a24"
+DEPENDENCY_EXAMPLE_FAILING_TREE = "3eabf2f6c4db18af2cbdd98d28d4d59857d3c34a"
+DEPENDENCY_EXAMPLE_REPAIR_COMMIT = "ed2f4d1f176b63d6d2e6a4a2c77c351593253478"
+DEPENDENCY_EXAMPLE_REPAIR_TREE = "56be860091e04c9e02db1ada66124a908cbf95b0"
 
 ARCHIVE_ROOT = Path("docs/preservation/failure-mode-archive-v0.1")
 INCIDENT_ROOT = ARCHIVE_ROOT / "incidents" / INCIDENT_ID
+DEPENDENCY_EXAMPLE_ROOT = ARCHIVE_ROOT / "examples" / DEPENDENCY_EXAMPLE_ID
 RECORD_PATHS = {
     "incident": INCIDENT_ROOT / "INCIDENT_RECORD_v0_1.json",
     "classification": INCIDENT_ROOT / "CLAIM_CONSUMPTION_FAILURE_CLASSIFICATION_v0_1.json",
@@ -35,11 +43,61 @@ RECORD_PATHS = {
     "residual": INCIDENT_ROOT / "RESIDUAL_CONDITIONS_v0_1.json",
     "failure_registry": ARCHIVE_ROOT / "FAILURE_CLASS_REGISTRY_v0_1.json",
     "path_registry": ARCHIVE_ROOT / "CONTINUANCE_PATH_REGISTRY_v0_1.json",
+    "dependency_example": DEPENDENCY_EXAMPLE_ROOT / "FAILURE_MODE_EXAMPLE_v0_1.json",
 }
 SCHEMA_BINDINGS = {
     "incident": Path("schemas/preservation_incident_record_v0_1.schema.json"),
     "classification": Path("schemas/claim_consumption_failure_classification_v0_1.schema.json"),
     "manifest": Path("schemas/preservation_manifest_v0_1.schema.json"),
+    "dependency_example": Path("schemas/verification_dependency_scope_example_v0_1.schema.json"),
+}
+
+EXPECTED_DEPENDENCY_EXAMPLE_OBSERVATIONS = {
+    "failing_attempt": {
+        "observation_source": "GITHUB_ACTIONS_CHECK_RUNS",
+        "evidence_run": 29559246618,
+        "evidence_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559246618",
+        "proof_run": 29559246805,
+        "proof_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559246805",
+        "jobs": [
+            {"job_id": 87817972943, "name": "Claim Boundary and Preservation Checks", "conclusion": "success"},
+            {"job_id": 87817973433, "name": "CSH execution instrumentation v0.1.1 (ubuntu-latest)", "conclusion": "success"},
+            {"job_id": 87817973445, "name": "Python proof surface (windows-latest)", "conclusion": "failure"},
+            {"job_id": 87817973464, "name": "PowerShell 5.1 proof-surface entry point", "conclusion": "failure"},
+            {"job_id": 87817973492, "name": "Python proof surface (ubuntu-latest)", "conclusion": "failure"},
+            {"job_id": 87817973498, "name": "CSH execution instrumentation v0.1.1 (windows-latest)", "conclusion": "success"},
+        ],
+    },
+    "repair_attempt": {
+        "observation_source": "GITHUB_ACTIONS_CHECK_RUNS",
+        "evidence_run": 29559491579,
+        "evidence_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559491579",
+        "proof_run": 29559491483,
+        "proof_run_url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29559491483",
+        "jobs": [
+            {"job_id": 87818704030, "name": "Claim Boundary and Preservation Checks", "conclusion": "success"},
+            {"job_id": 87818703703, "name": "PowerShell 5.1 proof-surface entry point", "conclusion": "success"},
+            {"job_id": 87818703721, "name": "CSH execution instrumentation v0.1.1 (windows-latest)", "conclusion": "success"},
+            {"job_id": 87818703729, "name": "CSH execution instrumentation v0.1.1 (ubuntu-latest)", "conclusion": "success"},
+            {"job_id": 87818703732, "name": "Python proof surface (windows-latest)", "conclusion": "success"},
+            {"job_id": 87818703750, "name": "Python proof surface (ubuntu-latest)", "conclusion": "success"},
+        ],
+    },
+}
+
+EXPECTED_DEPENDENCY_EXAMPLE_SPECIMENS = {
+    "FAILING_TEST_MODULE": {
+        "source_commit": DEPENDENCY_EXAMPLE_FAILING_COMMIT,
+        "sha256": "748779671f2dac51509b52b087b405f9af139b8f4aa7afbc8e401443004104e4",
+        "git_blob_sha1": "ae0676e37d91542598b4f0f65ee61fcc5b9dd116",
+        "size_bytes": 11359,
+    },
+    "REPAIRED_TEST_MODULE": {
+        "source_commit": DEPENDENCY_EXAMPLE_REPAIR_COMMIT,
+        "sha256": "cfe393cf9f739e6e993ae2a17966127953c800224101c7f39c8d833a65563e64",
+        "git_blob_sha1": "2b0d703f80a459faeb824d1c2d11b6a15d6927fb",
+        "size_bytes": 11539,
+    },
 }
 
 
@@ -160,6 +218,7 @@ def check_records(root: Path) -> tuple[dict[str, Any], list[dict[str, str]]]:
     residual = records["residual"]
     registry = records["failure_registry"]
     path_registry = records["path_registry"]
+    dependency_example = records["dependency_example"]
 
     if isinstance(incident, dict):
         affected = incident.get("affected_artifact", {})
@@ -223,6 +282,7 @@ def check_records(root: Path) -> tuple[dict[str, Any], list[dict[str, str]]]:
     if isinstance(registry, dict) and isinstance(registry.get("classes"), list):
         class_ids = {entry.get("failure_class_id") for entry in registry["classes"] if isinstance(entry, dict)}
     expect(FAILURE_CLASS_ID in class_ids, "FAILURE_CLASS_UNREGISTERED", "CCF-001 is absent from the failure-class registry.", RECORD_PATHS["failure_registry"].as_posix(), errors)
+    expect(DEPENDENCY_FAILURE_CLASS_ID in class_ids, "DEPENDENCY_FAILURE_CLASS_UNREGISTERED", "VDF-001 is absent from the failure-class registry.", RECORD_PATHS["failure_registry"].as_posix(), errors)
 
     path_classes: set[str] = set()
     if isinstance(path_registry, dict) and isinstance(path_registry.get("paths"), list):
@@ -287,6 +347,95 @@ def check_records(root: Path) -> tuple[dict[str, Any], list[dict[str, str]]]:
                     live_sha256 = hashlib.sha256(live.read_bytes()).hexdigest()
                     expect(live_sha256 != sha256, "QUARANTINED_DIGEST_IN_LIVE_WORKFLOW", "A quarantined specimen digest is present in the live workflow directory.", live.relative_to(root).as_posix(), errors)
 
+    example_specimen_facts: list[dict[str, Any]] = []
+    if isinstance(dependency_example, dict):
+        example_path = RECORD_PATHS["dependency_example"].as_posix()
+        expect(dependency_example.get("example_id") == DEPENDENCY_EXAMPLE_ID, "DEPENDENCY_EXAMPLE_ID_MISMATCH", "Dependency-scope example ID changed.", example_path, errors)
+        expect(dependency_example.get("status") == "PRESERVED_RESOLVED", "DEPENDENCY_EXAMPLE_STATUS_MISMATCH", "The classified example must remain preserved and resolved.", example_path, errors)
+        expect(dependency_example.get("failure_class_id") == DEPENDENCY_FAILURE_CLASS_ID, "DEPENDENCY_EXAMPLE_CLASS_MISMATCH", "The example is not classified as VDF-001.", example_path, errors)
+        expect(dependency_example.get("intent") == "NOT_EVALUATED", "DEPENDENCY_EXAMPLE_INTENT_INFERRED", "The classified example may not infer intent.", example_path, errors)
+
+        subject = dependency_example.get("subject", {})
+        expected_subject = {
+            "pull_request": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/64",
+            "base_commit": DEPENDENCY_EXAMPLE_BASE_COMMIT,
+            "failing_commit": DEPENDENCY_EXAMPLE_FAILING_COMMIT,
+            "failing_tree": DEPENDENCY_EXAMPLE_FAILING_TREE,
+            "repair_commit": DEPENDENCY_EXAMPLE_REPAIR_COMMIT,
+            "repair_tree": DEPENDENCY_EXAMPLE_REPAIR_TREE,
+            "affected_path": "tests/test_independent_verification_surface_v0_1.py",
+        }
+        expect(subject == expected_subject, "DEPENDENCY_EXAMPLE_SUBJECT_MISMATCH", "The preserved PR, commit, tree, or affected-path boundary changed.", f"{example_path}:$.subject", errors)
+        expect(dependency_example.get("observations") == EXPECTED_DEPENDENCY_EXAMPLE_OBSERVATIONS, "DEPENDENCY_EXAMPLE_OBSERVATIONS_MISMATCH", "The exact first-run or repair-run observations changed.", f"{example_path}:$.observations", errors)
+
+        surfaces = {
+            item.get("surface_id"): item
+            for item in dependency_example.get("dependency_surfaces", [])
+            if isinstance(item, dict)
+        }
+        expect(surfaces.get("FORK_EVIDENCE_CI", {}).get("locks") == ["requirements-proof-surface.lock.txt", "requirements-claim-admission.lock.txt"], "DEPENDENCY_SCOPE_EVIDENCE_LOCKS_MISMATCH", "Evidence CI must retain both declared locks.", f"{example_path}:$.dependency_surfaces", errors)
+        expect(surfaces.get("FORK_EVIDENCE_CI", {}).get("pyyaml_expected") is True, "DEPENDENCY_SCOPE_EVIDENCE_EXPECTATION_MISMATCH", "PyYAML is expected on the claim-admission surface.", f"{example_path}:$.dependency_surfaces", errors)
+        expect(surfaces.get("FORK_PROOF_SURFACE_INTEGRATION", {}).get("locks") == ["requirements-proof-surface.lock.txt"], "DEPENDENCY_SCOPE_PROOF_LOCKS_MISMATCH", "Proof-Surface Integration must retain the proof-only lock contract.", f"{example_path}:$.dependency_surfaces", errors)
+        expect(surfaces.get("FORK_PROOF_SURFACE_INTEGRATION", {}).get("pyyaml_expected") is False, "DEPENDENCY_SCOPE_PROOF_EXPECTATION_MISMATCH", "PyYAML is not part of the proof-only lock contract.", f"{example_path}:$.dependency_surfaces", errors)
+
+        safe_path = dependency_example.get("safe_path", {})
+        expect(safe_path.get("path_class") == "AMENDED_SAFE_PATH", "DEPENDENCY_EXAMPLE_SAFE_PATH_MISMATCH", "The dependency edge uses the amended safe path.", f"{example_path}:$.safe_path", errors)
+        walkthrough = safe_path.get("walkthrough")
+        if isinstance(walkthrough, str):
+            walkthrough_path = PurePosixPath(walkthrough)
+            expect(not walkthrough_path.is_absolute() and ".." not in walkthrough_path.parts and root.joinpath(*walkthrough_path.parts).is_file(), "DEPENDENCY_EXAMPLE_WALKTHROUGH_MISSING", "The safe-path walkthrough must be a repository file.", f"{example_path}:$.safe_path.walkthrough", errors)
+
+        effects = dependency_example.get("authority_effects", {})
+        for boundary in ("pr_63", "main", "repository_settings", "experiment_execution", "merge"):
+            expect(effects.get(boundary) == "NONE", "DEPENDENCY_EXAMPLE_AUTHORITY_EXPANDED", f"The example grants no authority over {boundary}.", f"{example_path}:$.authority_effects.{boundary}", errors)
+
+        example_specimens = dependency_example.get("specimens", [])
+        roles = {item.get("role") for item in example_specimens if isinstance(item, dict)}
+        expect(roles == set(EXPECTED_DEPENDENCY_EXAMPLE_SPECIMENS), "DEPENDENCY_EXAMPLE_SPECIMEN_ROLES_MISMATCH", "The failing and repaired specimen roles must both be preserved.", f"{example_path}:$.specimens", errors)
+        for index, specimen in enumerate(example_specimens):
+            if not isinstance(specimen, dict):
+                continue
+            base = f"{example_path}:$.specimens[{index}]"
+            role = specimen.get("role")
+            expected = EXPECTED_DEPENDENCY_EXAMPLE_SPECIMENS.get(role, {})
+            archive_value = specimen.get("archive_path")
+            archive_path = PurePosixPath(archive_value) if isinstance(archive_value, str) else None
+            inert = (
+                archive_path is not None
+                and not archive_path.is_absolute()
+                and ".." not in archive_path.parts
+                and archive_path.suffix == ".txt"
+                and PurePosixPath(".github/workflows") not in list(archive_path.parents)
+                and DEPENDENCY_EXAMPLE_ROOT in archive_path.parents
+            )
+            expect(inert, "DEPENDENCY_EXAMPLE_ARCHIVE_PATH_NOT_INERT", "Example specimens must be .txt data within the classified example archive.", base, errors)
+            expect(specimen.get("execution_state") == "INERT_TEXT_DATA_ONLY", "DEPENDENCY_EXAMPLE_EXECUTION_STATE_INVALID", "Example specimens are inert text data only.", base, errors)
+            for field in ("source_commit", "sha256", "git_blob_sha1", "size_bytes"):
+                expect(specimen.get(field) == expected.get(field), "DEPENDENCY_EXAMPLE_SPECIMEN_FACT_MISMATCH", f"Preserved {role} {field} changed.", f"{base}.{field}", errors)
+            if not inert or archive_path is None:
+                continue
+            disk_path = root.joinpath(*archive_path.parts)
+            if disk_path.is_symlink():
+                errors.append(finding("DEPENDENCY_EXAMPLE_SPECIMEN_SYMLINK_PROHIBITED", "Example specimens must be regular repository files.", archive_path.as_posix()))
+                continue
+            try:
+                content = disk_path.read_bytes()
+            except FileNotFoundError:
+                errors.append(finding("DEPENDENCY_EXAMPLE_SPECIMEN_MISSING", "Classified example specimen is absent.", archive_path.as_posix()))
+                continue
+            sha256 = hashlib.sha256(content).hexdigest()
+            blob = git_blob_sha1(content)
+            expect(sha256 == specimen.get("sha256"), "DEPENDENCY_EXAMPLE_SPECIMEN_SHA256_MISMATCH", "Example specimen bytes do not match the recorded SHA-256.", archive_path.as_posix(), errors)
+            expect(blob == specimen.get("git_blob_sha1"), "DEPENDENCY_EXAMPLE_SPECIMEN_GIT_BLOB_MISMATCH", "Example specimen bytes do not match the recorded Git blob.", archive_path.as_posix(), errors)
+            expect(len(content) == specimen.get("size_bytes"), "DEPENDENCY_EXAMPLE_SPECIMEN_SIZE_MISMATCH", "Example specimen byte count changed.", archive_path.as_posix(), errors)
+            example_specimen_facts.append({
+                "role": role,
+                "archive_path": archive_path.as_posix(),
+                "sha256": sha256,
+                "git_blob_sha1": blob,
+                "bytes": len(content),
+            })
+
     details = {
         "incident_id": INCIDENT_ID,
         "failure_class_id": FAILURE_CLASS_ID,
@@ -294,6 +443,12 @@ def check_records(root: Path) -> tuple[dict[str, Any], list[dict[str, str]]]:
         "incident_commit": INCIDENT_COMMIT,
         "preserved_post_incident_descendant": POST_INCIDENT_DESCENDANT,
         "specimens": specimen_facts,
+        "classified_examples": [{
+            "example_id": DEPENDENCY_EXAMPLE_ID,
+            "failure_class_id": DEPENDENCY_FAILURE_CLASS_ID,
+            "status": dependency_example.get("status") if isinstance(dependency_example, dict) else None,
+            "specimens": example_specimen_facts,
+        }],
         "record_count": sum(value is not None for value in records.values()),
         "schema_count": len(SCHEMA_BINDINGS),
     }

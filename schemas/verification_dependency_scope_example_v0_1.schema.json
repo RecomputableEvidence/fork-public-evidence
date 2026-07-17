@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://recomputableevidence.example/schemas/verification_dependency_scope_example_v0_1.schema.json",
+  "title": "Fork Verification Dependency-Scope Example v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "example_id",
+    "schema_version",
+    "status",
+    "recorded_date_utc",
+    "failure_class_id",
+    "family",
+    "intent",
+    "summary",
+    "distinctions",
+    "subject",
+    "dependency_surfaces",
+    "observations",
+    "specimens",
+    "safe_path",
+    "authority_effects",
+    "non_claims"
+  ],
+  "properties": {
+    "example_id": {"const": "FORK-EXAMPLE-2026-07-17-001"},
+    "schema_version": {"const": "0.1"},
+    "status": {"const": "PRESERVED_RESOLVED"},
+    "recorded_date_utc": {"const": "2026-07-17"},
+    "failure_class_id": {"const": "VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION"},
+    "family": {"const": "VERIFICATION_DEPENDENCY_FAILURE"},
+    "intent": {"const": "NOT_EVALUATED"},
+    "summary": {"type": "string", "minLength": 1},
+    "distinctions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contribution_result",
+        "environment_contract",
+        "dependency_availability",
+        "ci_signal",
+        "experiment_result"
+      ],
+      "properties": {
+        "contribution_result": {"const": "NOT_INVALIDATED_BY_DEPENDENCY_SCOPE_ALONE"},
+        "environment_contract": {"const": "PROOF_LOCK_AND_CLAIM_ADMISSION_LOCK_ARE_DISTINCT"},
+        "dependency_availability": {"const": "PYYAML_PRESENT_ONLY_WHERE_CLAIM_ADMISSION_LOCK_IS_INSTALLED"},
+        "ci_signal": {"const": "ENVIRONMENT_SPECIFIC_INTEGRATION_FAILURE"},
+        "experiment_result": {"const": "NONE"}
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pull_request",
+        "base_commit",
+        "failing_commit",
+        "failing_tree",
+        "repair_commit",
+        "repair_tree",
+        "affected_path"
+      ],
+      "properties": {
+        "pull_request": {"const": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/64"},
+        "base_commit": {"$ref": "#/definitions/sha1"},
+        "failing_commit": {"$ref": "#/definitions/sha1"},
+        "failing_tree": {"$ref": "#/definitions/sha1"},
+        "repair_commit": {"$ref": "#/definitions/sha1"},
+        "repair_tree": {"$ref": "#/definitions/sha1"},
+        "affected_path": {"const": "tests/test_independent_verification_surface_v0_1.py"}
+      }
+    },
+    "dependency_surfaces": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["surface_id", "locks", "pyyaml_expected", "authoritative_test_effect"],
+        "properties": {
+          "surface_id": {"enum": ["FORK_EVIDENCE_CI", "FORK_PROOF_SURFACE_INTEGRATION"]},
+          "locks": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+          "pyyaml_expected": {"type": "boolean"},
+          "authoritative_test_effect": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "observations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failing_attempt", "repair_attempt"],
+      "properties": {
+        "failing_attempt": {"$ref": "#/definitions/attempt"},
+        "repair_attempt": {"$ref": "#/definitions/attempt"}
+      }
+    },
+    "specimens": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "archive_path", "source_commit", "source_path", "sha256", "git_blob_sha1", "size_bytes", "execution_state"],
+        "properties": {
+          "role": {"enum": ["FAILING_TEST_MODULE", "REPAIRED_TEST_MODULE"]},
+          "archive_path": {"type": "string", "pattern": "^docs/preservation/failure-mode-archive-v0\\.1/examples/.+\\.txt$"},
+          "source_commit": {"$ref": "#/definitions/sha1"},
+          "source_path": {"const": "tests/test_independent_verification_surface_v0_1.py"},
+          "sha256": {"$ref": "#/definitions/sha256"},
+          "git_blob_sha1": {"$ref": "#/definitions/sha1"},
+          "size_bytes": {"type": "integer", "minimum": 1},
+          "execution_state": {"const": "INERT_TEXT_DATA_ONLY"}
+        }
+      }
+    },
+    "safe_path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path_class", "walkthrough", "steps", "clean_bill_condition"],
+      "properties": {
+        "path_class": {"const": "AMENDED_SAFE_PATH"},
+        "walkthrough": {"type": "string", "minLength": 1},
+        "steps": {"type": "array", "minItems": 6, "items": {"type": "string", "minLength": 1}},
+        "clean_bill_condition": {"const": "BOTH_DECLARED_DEPENDENCY_SURFACES_COMPLETE_SUCCESSFULLY_WITH_AUTHORITATIVE_TESTS_EXECUTED_OR_EXPLICITLY_SKIPPED_BY_CONTRACT"}
+      }
+    },
+    "authority_effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pr_63", "main", "repository_settings", "experiment_execution", "merge"],
+      "properties": {
+        "pr_63": {"const": "NONE"},
+        "main": {"const": "NONE"},
+        "repository_settings": {"const": "NONE"},
+        "experiment_execution": {"const": "NONE"},
+        "merge": {"const": "NONE"}
+      }
+    },
+    "non_claims": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "definitions": {
+    "sha1": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "attempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observation_source", "evidence_run", "evidence_run_url", "proof_run", "proof_run_url", "jobs"],
+      "properties": {
+        "observation_source": {"const": "GITHUB_ACTIONS_CHECK_RUNS"},
+        "evidence_run": {"type": "integer", "minimum": 1},
+        "evidence_run_url": {"type": "string", "pattern": "^https://github\\.com/RecomputableEvidence/fork-public-evidence/actions/runs/[0-9]+$"},
+        "proof_run": {"type": "integer", "minimum": 1},
+        "proof_run_url": {"type": "string", "pattern": "^https://github\\.com/RecomputableEvidence/fork-public-evidence/actions/runs/[0-9]+$"},
+        "jobs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["job_id", "name", "conclusion"],
+            "properties": {
+              "job_id": {"type": "integer", "minimum": 1},
+              "name": {"type": "string", "minLength": 1},
+              "conclusion": {"enum": ["success", "failure"]}
+            }
+          }
+        }
+      }
+    }
+  }
+}
