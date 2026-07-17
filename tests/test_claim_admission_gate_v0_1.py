@@ -33,6 +33,7 @@ POLICY_SCHEMA = ROOT / "schemas/consumer_owned_claim_admission_policy_v0_1.schem
 STAGE = ROOT / "docs/preservation/control-stages/CLAIM_ADMISSION_HARDENING_STAGE_v0_1.json"
 STAGE_SCHEMA = ROOT / "schemas/claim_admission_hardening_stage_v0_1.schema.json"
 RECEIPT = ROOT / "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json"
+PROOF_SURFACE_LOCK = ROOT / "requirements-proof-surface.lock.txt"
 INSTRUMENTATION_FREEZE = Path(
     "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
     "CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json"
@@ -163,6 +164,12 @@ def test_policy_and_stage_records_conform_to_schemas() -> None:
     jsonschema.Draft7Validator(stage_schema).validate(
         json.loads(STAGE.read_text(encoding="utf-8"))
     )
+
+
+def test_windows_pytest_dependency_is_pinned_and_hash_locked() -> None:
+    lock = PROOF_SURFACE_LOCK.read_text(encoding="utf-8")
+    assert 'colorama==0.4.6 ; sys_platform == "win32"' in lock
+    assert "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6" in lock
 
 
 def test_committed_self_check_receipt_matches_current_checker_output() -> None:
