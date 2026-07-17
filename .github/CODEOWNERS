@@ -1,0 +1,16 @@
+# Fork control surfaces. Enforcement requires the separately reviewed branch ruleset.
+* @RecomputableEvidence
+
+/.github/workflows/ @RecomputableEvidence
+/.github/CODEOWNERS @RecomputableEvidence
+/.github/dependabot.yml @RecomputableEvidence
+/.gitattributes @RecomputableEvidence
+/policies/claim-admission/ @RecomputableEvidence
+/policies/repository-hardening/ @RecomputableEvidence
+/tools/check_claim_admission_gate_v0_1.py @RecomputableEvidence
+/requirements-claim-admission.in @RecomputableEvidence
+/requirements-claim-admission.lock.txt @RecomputableEvidence
+/requirements-proof-surface.txt @RecomputableEvidence
+/requirements-proof-surface.lock.txt @RecomputableEvidence
+/docs/preservation/ @RecomputableEvidence
+/schemas/ @RecomputableEvidence

@@ -1,0 +1,54 @@
+{
+  "checker_id": "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_GATE_v0_1",
+  "errors": [],
+  "execution_boundary": {
+    "base_sha": "WORKTREE",
+    "candidate_checkout": "NONE",
+    "candidate_code_execution": "NONE",
+    "candidate_sha": "WORKTREE",
+    "control_activation_effect": "NONE",
+    "mode": "LOCAL_SELF_CHECK",
+    "repository_settings_effect": "NONE"
+  },
+  "non_claims": {
+    "does_not_apply_repository_settings": true,
+    "does_not_approve_merge": true,
+    "does_not_authorize_experiment_execution": true,
+    "does_not_certify_security": true,
+    "does_not_determine_semantic_correctness": true,
+    "does_not_evaluate_producer_intent": true
+  },
+  "result": {
+    "admission_effect": "REVIEW_ELIGIBLE_NOT_ADMITTED",
+    "ok": true,
+    "repository_standing_effect": "NONE",
+    "result_kind": "STRUCTURAL_PASS"
+  },
+  "verification": {
+    "action_pins": {
+      "actions/checkout": "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+      "actions/setup-python": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    "changed_control_paths": [],
+    "changed_file_count": 0,
+    "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+    "policy_activation_state": "IMPLEMENTED_DORMANT_UNTIL_PRESENT_ON_DEFAULT_BRANCH",
+    "policy_id": "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1",
+    "sealed_workflow_exceptions": [
+      {
+        "effect": "EXACT_DIGEST_ONLY_NO_GENERAL_WAIVER",
+        "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+        "sha256": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
+        "successor_amendment_required_before_experiment_execution": true
+      },
+      {
+        "effect": "EXACT_DIGEST_ONLY_NO_GENERAL_WAIVER",
+        "path": ".github/workflows/fork-proof-surface-integration.yml",
+        "sha256": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+        "successor_amendment_required_before_experiment_execution": true
+      }
+    ],
+    "tree_entry_count": 1587,
+    "workflow_count": 7
+  }
+}

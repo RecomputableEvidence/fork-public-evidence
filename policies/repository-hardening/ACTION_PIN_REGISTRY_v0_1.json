@@ -1,0 +1,27 @@
+{
+  "registry_id": "FORK_ACTION_PIN_REGISTRY_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_ADMISSION",
+  "observed_date": "2026-07-16",
+  "pins": [
+    {
+      "action": "actions/checkout",
+      "release_ref": "refs/tags/v7",
+      "commit_sha": "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+      "source_repository": "https://github.com/actions/checkout"
+    },
+    {
+      "action": "actions/setup-python",
+      "release_ref": "refs/tags/v6",
+      "commit_sha": "ece7cb06caefa5fff74198d8649806c4678c61a1",
+      "source_repository": "https://github.com/actions/setup-python"
+    }
+  ],
+  "verification_method": "GIT_LS_REMOTE_EXACT_TAG_REF",
+  "automatic_update_authority": "NONE",
+  "non_claims": [
+    "No action-source security certification",
+    "No future-version approval",
+    "No Dependabot auto-merge authority"
+  ]
+}

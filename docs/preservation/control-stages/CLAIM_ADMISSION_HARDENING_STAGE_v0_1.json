@@ -1,0 +1,65 @@
+{
+  "stage_id": "FORK_CLAIM_ADMISSION_HARDENING_STAGE_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_ADMISSION",
+  "predecessor_preservation_pr": 61,
+  "predecessor_commit": "cf878ee8c9d1c50af17a83937ecf1bd6bf043db9",
+  "development_branch": "agent/claim-admission-hardening-v0-1",
+  "failure_class_addressed": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+  "residual_conditions_addressed": [
+    {
+      "condition_id": "RC-001-CONSUMER-OWNED-GATE",
+      "stage_effect": "CONTROL_IMPLEMENTED_PENDING_REVIEW_AND_ADMISSION"
+    },
+    {
+      "condition_id": "RC-002-REPOSITORY-HARDENING",
+      "stage_effect": "CODE_SURFACE_IMPLEMENTED_SETTINGS_NOT_APPLIED"
+    }
+  ],
+  "control_surface": {
+    "trusted_base_gate": "IMPLEMENTED_DORMANT_PENDING_DEFAULT_BRANCH_ADMISSION",
+    "immutable_action_pins": "PROPOSED",
+    "hash_locked_dependencies": "PROPOSED",
+    "codeowners": "PROPOSED",
+    "dependabot_update_proposals": "PROPOSED",
+    "branch_ruleset": "PROPOSED_NOT_APPLIED",
+    "sealed_experiment_workflows": "PRESERVED_AT_EXACT_DIGEST_PENDING_SEPARATE_SUCCESSOR_AMENDMENT"
+  },
+  "preservation_boundary": {
+    "sealed_workflow_count": 2,
+    "general_security_exception_created": false,
+    "digest_mutation_permitted": false,
+    "successor_amendment_required_before_experiment_execution": true
+  },
+  "repository_ref_effect": {
+    "main": "NONE",
+    "preservation_clean_continuance": "NONE",
+    "predecessor_pull_request": "NONE"
+  },
+  "repository_settings_effect": "NONE",
+  "activation_boundary": {
+    "current_default_branch": "main",
+    "current_default_branch_effect": "NONE",
+    "pull_request_target_source_requirement": "WORKFLOW_MUST_BE_PRESENT_ON_DEFAULT_BRANCH",
+    "active_required_check": false
+  },
+  "experiment_effect": {
+    "changes_hypothesis": false,
+    "changes_corpus": false,
+    "changes_prompt_packets": false,
+    "changes_receiver_bindings": false,
+    "changes_parameters": false,
+    "changes_run_order": false,
+    "changes_classifier": false,
+    "changes_stopping_rule": false,
+    "changes_optimization_embargo": false,
+    "baseline_execution_started": false
+  },
+  "next_gate": "INDEPENDENT_REVIEW_AND_STACKED_PR_ADMISSION",
+  "non_claims": [
+    "No repository setting has been applied.",
+    "No pull request has been approved or merged.",
+    "No security certification has been issued.",
+    "No experiment execution has been authorized."
+  ]
+}

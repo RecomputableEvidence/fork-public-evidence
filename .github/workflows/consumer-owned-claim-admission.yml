@@ -1,0 +1,49 @@
+name: Consumer-Owned Claim Admission Gate
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  trusted-base-candidate-inspection:
+    name: Trusted-base candidate inspection
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out the exact trusted base
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.11"
+
+      - name: Install hash-locked parser dependency
+        run: python -m pip install --require-hashes -r requirements-claim-admission.lock.txt
+
+      - name: Inspect candidate Git objects as data
+        env:
+          FORK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          FORK_CANDIDATE_SHA: ${{ github.event.pull_request.head.sha }}
+          FORK_CANDIDATE_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+        run: >-
+          python tools/check_claim_admission_gate_v0_1.py
+          --base-sha "$FORK_BASE_SHA"
+          --candidate-sha "$FORK_CANDIDATE_SHA"
+          --fetch-repository "$FORK_CANDIDATE_REPOSITORY"
