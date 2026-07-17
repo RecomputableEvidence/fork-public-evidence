@@ -9,6 +9,14 @@ import sys
 from pathlib import Path
 
 import jsonschema
+import pytest
+
+
+pytest.importorskip(
+    "yaml",
+    reason="independent verification workflow assertions require the claim-admission dependency lock",
+    exc_type=ImportError,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
