@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/claim_admission_hardening_stage_v0_1.schema.json",
+  "title": "Fork Claim Admission Hardening Stage v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stage_id",
+    "schema_version",
+    "status",
+    "predecessor_preservation_pr",
+    "predecessor_commit",
+    "development_branch",
+    "failure_class_addressed",
+    "residual_conditions_addressed",
+    "control_surface",
+    "preservation_boundary",
+    "repository_ref_effect",
+    "repository_settings_effect",
+    "activation_boundary",
+    "experiment_effect",
+    "next_gate",
+    "non_claims"
+  ],
+  "properties": {
+    "stage_id": {"const": "FORK_CLAIM_ADMISSION_HARDENING_STAGE_v0_1"},
+    "schema_version": {"const": "0.1"},
+    "status": {"enum": ["PROPOSED_FOR_ADMISSION", "ADMITTED"]},
+    "predecessor_preservation_pr": {"const": 61},
+    "predecessor_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "development_branch": {"const": "agent/claim-admission-hardening-v0-1"},
+    "failure_class_addressed": {"const": "CCF-001_AI_CHANGE_READINESS_PROMOTION"},
+    "residual_conditions_addressed": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["condition_id", "stage_effect"],
+        "properties": {
+          "condition_id": {"type": "string", "minLength": 1},
+          "stage_effect": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "control_surface": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "string", "minLength": 1}},
+    "preservation_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sealed_workflow_count", "general_security_exception_created", "digest_mutation_permitted", "successor_amendment_required_before_experiment_execution"],
+      "properties": {
+        "sealed_workflow_count": {"const": 2},
+        "general_security_exception_created": {"const": false},
+        "digest_mutation_permitted": {"const": false},
+        "successor_amendment_required_before_experiment_execution": {"const": true}
+      }
+    },
+    "repository_ref_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["main", "preservation_clean_continuance", "predecessor_pull_request"],
+      "properties": {
+        "main": {"const": "NONE"},
+        "preservation_clean_continuance": {"const": "NONE"},
+        "predecessor_pull_request": {"const": "NONE"}
+      }
+    },
+    "repository_settings_effect": {"const": "NONE"},
+    "activation_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["current_default_branch", "current_default_branch_effect", "pull_request_target_source_requirement", "active_required_check"],
+      "properties": {
+        "current_default_branch": {"const": "main"},
+        "current_default_branch_effect": {"const": "NONE"},
+        "pull_request_target_source_requirement": {"const": "WORKFLOW_MUST_BE_PRESENT_ON_DEFAULT_BRANCH"},
+        "active_required_check": {"const": false}
+      }
+    },
+    "experiment_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "patternProperties": {"^[a-z][a-z0-9_]*$": {"const": false}}
+    },
+    "next_gate": {"const": "INDEPENDENT_REVIEW_AND_STACKED_PR_ADMISSION"},
+    "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  }
+}

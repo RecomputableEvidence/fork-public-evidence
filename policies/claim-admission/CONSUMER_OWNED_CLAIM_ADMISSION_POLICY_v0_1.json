@@ -1,0 +1,100 @@
+{
+  "policy_id": "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_ADMISSION",
+  "consumer_owner": "FORK_REPOSITORY_MAINTAINER_AND_REVIEW_PROCESS",
+  "failure_class_addressed": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+  "trusted_base_contract": {
+    "workflow_path": ".github/workflows/consumer-owned-claim-admission.yml",
+    "trigger": "PULL_REQUEST_TARGET",
+    "checker_path": "tools/check_claim_admission_gate_v0_1.py",
+    "dependency_lock": "requirements-claim-admission.lock.txt",
+    "candidate_handling": "READ_AS_GIT_OBJECT_DATA_ONLY",
+    "candidate_checkout": "PROHIBITED",
+    "candidate_code_execution": "PROHIBITED",
+    "secret_use": "PROHIBITED",
+    "token_permissions": {
+      "contents": "read"
+    },
+    "runner_class": "GITHUB_HOSTED_EPHEMERAL"
+  },
+  "activation_state": "IMPLEMENTED_DORMANT_UNTIL_PRESENT_ON_DEFAULT_BRANCH",
+  "protected_control_paths": [
+    ".github/CODEOWNERS",
+    ".github/dependabot.yml",
+    ".github/workflows/",
+    "docs/preservation/",
+    "policies/claim-admission/",
+    "policies/repository-hardening/",
+    "requirements-claim-admission.in",
+    "requirements-claim-admission.lock.txt",
+    "requirements-proof-surface.txt",
+    "requirements-proof-surface.lock.txt",
+    "schemas/",
+    "tools/check_claim_admission_gate_v0_1.py",
+    "tools/check_preservation_integrity_v0_1.py"
+  ],
+  "candidate_tree_requirements": {
+    "regular_file_mode": "100644",
+    "symbolic_links": "PROHIBITED",
+    "git_submodules": "PROHIBITED",
+    "path_traversal": "PROHIBITED",
+    "duplicate_json_keys": "PROHIBITED",
+    "duplicate_yaml_keys": "PROHIBITED"
+  },
+  "workflow_requirements": {
+    "immutable_action_sha": true,
+    "explicit_contents_read_permission": true,
+    "checkout_credentials_persisted": false,
+    "self_hosted_runner": false,
+    "job_timeout_required": true,
+    "hash_locked_python_installs": true,
+    "untrusted_context_in_run_script": false,
+    "live_quarantined_digest": false
+  },
+  "sealed_workflow_exceptions": [
+    {
+      "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+      "sha256": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
+      "seal_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json",
+      "classification": "PRE_EXISTING_BYTE_SEALED_EXPERIMENT_INSTRUMENTATION",
+      "disposition": "EXACT_DIGEST_ONLY_SUCCESSOR_AMENDMENT_REQUIRED_BEFORE_EXPERIMENT_EXECUTION"
+    },
+    {
+      "path": ".github/workflows/fork-proof-surface-integration.yml",
+      "sha256": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+      "seal_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json",
+      "classification": "PRE_EXISTING_BYTE_SEALED_EXPERIMENT_INSTRUMENTATION",
+      "disposition": "EXACT_DIGEST_ONLY_SUCCESSOR_AMENDMENT_REQUIRED_BEFORE_EXPERIMENT_EXECUTION"
+    }
+  ],
+  "admission_semantics": {
+    "structural_pass_effect": "REVIEW_ELIGIBLE_NOT_ADMITTED",
+    "structural_failure_effect": "NOT_REVIEW_ELIGIBLE",
+    "repository_standing_effect": "NONE",
+    "human_and_institutional_review_required": true,
+    "branch_rule_enforcement_required": true
+  },
+  "repository_settings_effect": "NONE",
+  "historical_rewrite_authority": "NONE",
+  "experiment_effect": {
+    "changes_hypothesis": false,
+    "changes_corpus": false,
+    "changes_prompt_packets": false,
+    "changes_receiver_bindings": false,
+    "changes_parameters": false,
+    "changes_run_order": false,
+    "changes_classifier": false,
+    "changes_stopping_rule": false,
+    "changes_optimization_embargo": false,
+    "baseline_execution_started": false
+  },
+  "non_claims": [
+    "No merge approval",
+    "No security certification",
+    "No semantic correctness determination",
+    "No producer intent determination",
+    "No experiment execution authorization",
+    "No repository settings mutation"
+  ]
+}

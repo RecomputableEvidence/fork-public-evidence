@@ -1,0 +1,35 @@
+{
+  "record_id": "FORK_BRANCH_RULESET_REQUIREMENTS_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_NOT_APPLIED",
+  "repository_settings_effect": "NONE",
+  "activation_target": "REPOSITORY_DEFAULT_BRANCH_AFTER_PRESERVATION_LINEAGE_ADMISSION",
+  "future_main_application_requires_separate_authority": true,
+  "requirements": {
+    "pull_request_required": true,
+    "minimum_approvals": 1,
+    "dismiss_stale_approvals": true,
+    "code_owner_review_required": true,
+    "conversation_resolution_required": true,
+    "force_push_prohibited": true,
+    "deletion_prohibited": true,
+    "required_status_checks": [
+      "Consumer-Owned Claim Admission Gate / Trusted-base candidate inspection",
+      "Fork Evidence CI / Claim Boundary and Preservation Checks",
+      "Fork Proof-Surface Integration / Python proof surface (ubuntu-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (windows-latest)",
+      "Fork Proof-Surface Integration / PowerShell 5.1 proof-surface entry point"
+    ]
+  },
+  "activation_prerequisites": [
+    "The trusted-base workflow is present on the repository default branch, from which GitHub loads pull_request_target workflows.",
+    "The preservation lineage has been admitted to the default branch through a separately authorized operation.",
+    "Every named required check has completed successfully at least once on the target branch lineage.",
+    "A repository administrator independently verifies exact check names before applying the ruleset."
+  ],
+  "non_claims": [
+    "This record does not apply repository settings.",
+    "This record does not authorize a main-branch ruleset change.",
+    "This record does not certify the listed controls as sufficient for every threat model."
+  ]
+}
