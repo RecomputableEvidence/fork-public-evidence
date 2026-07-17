@@ -53,20 +53,24 @@
     "untrusted_context_in_run_script": false,
     "live_quarantined_digest": false
   },
-  "sealed_workflow_exceptions": [
+  "provenance_bound_workflow_successors": [
     {
       "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
-      "sha256": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
-      "seal_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json",
-      "classification": "PRE_EXISTING_BYTE_SEALED_EXPERIMENT_INSTRUMENTATION",
-      "disposition": "EXACT_DIGEST_ONLY_SUCCESSOR_AMENDMENT_REQUIRED_BEFORE_EXPERIMENT_EXECUTION"
+      "successor_sha256": "46ffa57dde40955bb7ed5b517b2de397b3d0056a0e8e9bfd4593f4dd2ef38c23",
+      "original_sha256": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
+      "archive_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/cross-system-claim-handoff-v0-1.v0-1-1.yml.txt",
+      "provenance_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json",
+      "classification": "PROVENANCE_BOUND_HARDENED_EXPERIMENT_INSTRUMENTATION_SUCCESSOR",
+      "disposition": "FULL_HARDENING_REQUIRED_AND_EXECUTION_SEPARATELY_GATED"
     },
     {
       "path": ".github/workflows/fork-proof-surface-integration.yml",
-      "sha256": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
-      "seal_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json",
-      "classification": "PRE_EXISTING_BYTE_SEALED_EXPERIMENT_INSTRUMENTATION",
-      "disposition": "EXACT_DIGEST_ONLY_SUCCESSOR_AMENDMENT_REQUIRED_BEFORE_EXPERIMENT_EXECUTION"
+      "successor_sha256": "5a09b805c0b59f3d211c01eb55ac61fbde3c7ae2ab3eb19d689bc863cd3fb29e",
+      "original_sha256": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+      "archive_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/fork-proof-surface-integration.v0-1-1.yml.txt",
+      "provenance_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json",
+      "classification": "PROVENANCE_BOUND_HARDENED_EXPERIMENT_INSTRUMENTATION_SUCCESSOR",
+      "disposition": "FULL_HARDENING_REQUIRED_AND_EXECUTION_SEPARATELY_GATED"
     }
   ],
   "admission_semantics": {

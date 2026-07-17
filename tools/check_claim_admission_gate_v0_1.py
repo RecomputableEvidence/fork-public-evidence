@@ -30,9 +30,9 @@ PRESERVATION_MANIFEST_PATH = Path(
     "docs/preservation/failure-mode-archive-v0.1/incidents/"
     "FORK-INC-2026-07-13-001/PRESERVATION_MANIFEST_v0_1.json"
 )
-INSTRUMENTATION_FREEZE_PATH = Path(
+SUCCESSOR_PROVENANCE_PATH = Path(
     "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
-    "CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json"
+    "CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json"
 )
 TRUSTED_WORKFLOW = ".github/workflows/consumer-owned-claim-admission.yml"
 POLICY_ID = "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1"
@@ -43,9 +43,13 @@ ACTION_RE = re.compile(r"^([^@\s]+)@([0-9a-f]{40})$")
 UNTRUSTED_RUN_EXPRESSION_RE = re.compile(r"\$\{\{\s*github\.event\.pull_request\.", re.IGNORECASE)
 LOCKED_INSTALL_RE = re.compile(r"\bpip\s+install\b", re.IGNORECASE)
 NETWORK_FETCH_RE = re.compile(r"(^|[\s|;&])(curl|wget|Invoke-WebRequest)(\s|$)", re.IGNORECASE)
-SEALED_WORKFLOW_PATHS = {
+ORIGINAL_WORKFLOW_PATHS = {
     ".github/workflows/cross-system-claim-handoff-v0-1.yml": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
     ".github/workflows/fork-proof-surface-integration.yml": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+}
+SUCCESSOR_WORKFLOW_PATHS = {
+    ".github/workflows/cross-system-claim-handoff-v0-1.yml": "46ffa57dde40955bb7ed5b517b2de397b3d0056a0e8e9bfd4593f4dd2ef38c23",
+    ".github/workflows/fork-proof-surface-integration.yml": "5a09b805c0b59f3d211c01eb55ac61fbde3c7ae2ab3eb19d689bc863cd3fb29e",
 }
 
 
@@ -352,46 +356,64 @@ def action_pins(registry: Any, errors: list[dict[str, str]]) -> dict[str, str]:
     return pins
 
 
-def sealed_workflow_exceptions(
+def provenance_bound_workflow_successors(
     policy: Any,
-    instrumentation_freeze: Any,
+    provenance: Any,
+    view: CandidateView,
     errors: list[dict[str, str]],
 ) -> dict[str, str]:
     policy_path = POLICY_PATH.as_posix()
     if not isinstance(policy, dict):
         return {}
-    records = policy.get("sealed_workflow_exceptions")
+    records = policy.get("provenance_bound_workflow_successors")
     if not isinstance(records, list):
-        errors.append(finding("SEALED_WORKFLOW_POLICY_MISSING", "The exact-digest sealed workflow policy is absent.", policy_path))
+        errors.append(finding("WORKFLOW_SUCCESSOR_POLICY_MISSING", "The provenance-bound workflow successor policy is absent.", policy_path))
         return {}
 
-    freeze_records: dict[str, str] = {}
-    if isinstance(instrumentation_freeze, dict):
-        for item in instrumentation_freeze.get("immutable_artifacts", []):
-            if isinstance(item, dict) and isinstance(item.get("path"), str) and isinstance(item.get("sha256"), str):
-                freeze_records[item["path"]] = item["sha256"]
+    provenance_records: dict[str, dict[str, Any]] = {}
+    if isinstance(provenance, dict):
+        expect(provenance.get("amendment_id") == "CSH-AMEND-003", "WORKFLOW_SUCCESSOR_AMENDMENT_MISMATCH", "Workflow successor provenance must bind CSH-AMEND-003.", SUCCESSOR_PROVENANCE_PATH.as_posix(), errors)
+        expect(provenance.get("execution_authority") == "NONE_UNTIL_ALL_PRE_EXECUTION_PREREQUISITES_TRUE", "WORKFLOW_SUCCESSOR_AUTHORITY_EXPANSION", "Workflow successor provenance may not grant execution authority.", SUCCESSOR_PROVENANCE_PATH.as_posix(), errors)
+        provenance_records = {
+            item.get("live_path"): item
+            for item in provenance.get("successions", [])
+            if isinstance(item, dict) and isinstance(item.get("live_path"), str)
+        }
 
     observed: dict[str, str] = {}
     for index, item in enumerate(records):
-        item_path = f"{policy_path}:$.sealed_workflow_exceptions[{index}]"
+        item_path = f"{policy_path}:$.provenance_bound_workflow_successors[{index}]"
         if not isinstance(item, dict):
-            errors.append(finding("SEALED_WORKFLOW_POLICY_INVALID", "Sealed workflow entry must be a mapping.", item_path))
+            errors.append(finding("WORKFLOW_SUCCESSOR_POLICY_INVALID", "Workflow successor entry must be a mapping.", item_path))
             continue
         path = item.get("path")
-        digest = item.get("sha256")
-        seal_path = item.get("seal_path")
-        expect(isinstance(path, str) and path in SEALED_WORKFLOW_PATHS, "SEALED_WORKFLOW_PATH_INVALID", "Only the two v0.1 freeze-bound workflow paths may be recognized.", item_path, errors)
-        expect(isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None, "SEALED_WORKFLOW_DIGEST_INVALID", "Sealed workflow digest must be SHA-256.", item_path, errors)
-        expect(seal_path == INSTRUMENTATION_FREEZE_PATH.as_posix(), "SEALED_WORKFLOW_SEAL_PATH_MISMATCH", "Sealed workflow must cite the trusted CSH instrumentation freeze.", item_path, errors)
-        expect(item.get("classification") == "PRE_EXISTING_BYTE_SEALED_EXPERIMENT_INSTRUMENTATION", "SEALED_WORKFLOW_CLASSIFICATION_MISMATCH", "Sealed workflow classification changed.", item_path, errors)
-        expect(item.get("disposition") == "EXACT_DIGEST_ONLY_SUCCESSOR_AMENDMENT_REQUIRED_BEFORE_EXPERIMENT_EXECUTION", "SEALED_WORKFLOW_DISPOSITION_MISMATCH", "Sealed workflow disposition changed.", item_path, errors)
+        digest = item.get("successor_sha256")
+        original_digest = item.get("original_sha256")
+        archive_path = item.get("archive_path")
+        expect(isinstance(path, str) and path in SUCCESSOR_WORKFLOW_PATHS, "WORKFLOW_SUCCESSOR_PATH_INVALID", "Only the two v0.1 provenance-bound workflow successors may be recognized.", item_path, errors)
+        expect(isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest) is not None, "WORKFLOW_SUCCESSOR_DIGEST_INVALID", "Successor workflow digest must be SHA-256.", item_path, errors)
+        expect(isinstance(original_digest, str) and re.fullmatch(r"[0-9a-f]{64}", original_digest) is not None, "WORKFLOW_PREDECESSOR_DIGEST_INVALID", "Archived predecessor digest must be SHA-256.", item_path, errors)
+        expect(item.get("provenance_path") == SUCCESSOR_PROVENANCE_PATH.as_posix(), "WORKFLOW_SUCCESSOR_PROVENANCE_PATH_MISMATCH", "Successor must cite the trusted provenance record.", item_path, errors)
+        expect(item.get("classification") == "PROVENANCE_BOUND_HARDENED_EXPERIMENT_INSTRUMENTATION_SUCCESSOR", "WORKFLOW_SUCCESSOR_CLASSIFICATION_MISMATCH", "Workflow successor classification changed.", item_path, errors)
+        expect(item.get("disposition") == "FULL_HARDENING_REQUIRED_AND_EXECUTION_SEPARATELY_GATED", "WORKFLOW_SUCCESSOR_DISPOSITION_MISMATCH", "Workflow successor disposition changed.", item_path, errors)
         if isinstance(path, str) and isinstance(digest, str):
-            expect(path not in observed, "SEALED_WORKFLOW_DUPLICATE", "Sealed workflow path is duplicated.", item_path, errors)
+            expect(path not in observed, "WORKFLOW_SUCCESSOR_DUPLICATE", "Workflow successor path is duplicated.", item_path, errors)
             observed[path] = digest
-            expect(SEALED_WORKFLOW_PATHS.get(path) == digest, "SEALED_WORKFLOW_POLICY_DIGEST_MISMATCH", "Policy digest does not match the checker-bound digest.", item_path, errors)
-            expect(freeze_records.get(path) == digest, "SEALED_WORKFLOW_FREEZE_MISMATCH", "Policy digest does not match the trusted instrumentation freeze.", item_path, errors)
+            expect(SUCCESSOR_WORKFLOW_PATHS.get(path) == digest, "WORKFLOW_SUCCESSOR_POLICY_DIGEST_MISMATCH", "Policy successor digest does not match the checker-bound digest.", item_path, errors)
+            expect(ORIGINAL_WORKFLOW_PATHS.get(path) == original_digest, "WORKFLOW_PREDECESSOR_POLICY_DIGEST_MISMATCH", "Policy predecessor digest does not match the checker-bound digest.", item_path, errors)
+            provenance_item = provenance_records.get(path, {})
+            expect(provenance_item.get("successor", {}).get("sha256") == digest, "WORKFLOW_SUCCESSOR_PROVENANCE_DIGEST_MISMATCH", "Policy successor digest does not match provenance.", item_path, errors)
+            expect(provenance_item.get("original", {}).get("sha256") == original_digest, "WORKFLOW_PREDECESSOR_PROVENANCE_DIGEST_MISMATCH", "Policy predecessor digest does not match provenance.", item_path, errors)
+            expect(provenance_item.get("original", {}).get("archive_path") == archive_path, "WORKFLOW_PREDECESSOR_ARCHIVE_PATH_MISMATCH", "Policy archive path does not match provenance.", item_path, errors)
+            if isinstance(archive_path, str):
+                try:
+                    archived = view.read_bytes(archive_path)
+                except (FileNotFoundError, RuntimeError):
+                    errors.append(finding("WORKFLOW_PREDECESSOR_ARCHIVE_MISSING", "Archived predecessor is absent from the candidate tree.", archive_path))
+                else:
+                    expect(hashlib.sha256(archived).hexdigest() == original_digest, "WORKFLOW_PREDECESSOR_ARCHIVE_DIGEST_MISMATCH", "Archived predecessor bytes do not match provenance.", archive_path, errors)
 
-    expect(observed == SEALED_WORKFLOW_PATHS, "SEALED_WORKFLOW_SET_MISMATCH", "The sealed workflow set must contain exactly the two checker-bound paths and digests.", policy_path, errors)
+    expect(observed == SUCCESSOR_WORKFLOW_PATHS, "WORKFLOW_SUCCESSOR_SET_MISMATCH", "The successor set must contain exactly the two checker-bound paths and digests.", policy_path, errors)
     return observed
 
 
@@ -499,34 +521,6 @@ def check_workflow(
         expect(not has_pr_target, "PULL_REQUEST_TARGET_OUTSIDE_TRUSTED_GATE", "Only the consumer-owned gate may use pull_request_target.", path, errors)
 
 
-def check_sealed_workflow_boundary(
-    workflow: Any,
-    path: str,
-    errors: list[dict[str, str]],
-) -> None:
-    if not isinstance(workflow, dict):
-        errors.append(finding("WORKFLOW_ROOT_NOT_MAPPING", "Workflow root must be a mapping.", path))
-        return
-    expect(workflow.get("permissions") == {"contents": "read"}, "SEALED_WORKFLOW_PERMISSION_BOUNDARY", "Sealed workflow must retain explicit contents: read permissions.", path, errors)
-    triggers = workflow.get("on")
-    expect(not (isinstance(triggers, dict) and "pull_request_target" in triggers), "SEALED_WORKFLOW_PRIVILEGED_TRIGGER", "Sealed workflow may not use pull_request_target.", path, errors)
-    serialized = json.dumps(workflow, sort_keys=True)
-    expect("${{ secrets." not in serialized, "SEALED_WORKFLOW_SECRET_REFERENCE", "Sealed workflow may not reference secrets.", path, errors)
-    jobs = workflow.get("jobs")
-    if not isinstance(jobs, dict) or not jobs:
-        errors.append(finding("SEALED_WORKFLOW_JOBS_INVALID", "Sealed workflow jobs must be a non-empty mapping.", path))
-        return
-    for job_name, job in jobs.items():
-        job_path = f"{path}:$.jobs.{job_name}"
-        if not isinstance(job, dict):
-            errors.append(finding("SEALED_WORKFLOW_JOB_NOT_MAPPING", "Sealed workflow job must be a mapping.", job_path))
-            continue
-        runs_on = str(job.get("runs-on", ""))
-        expect(bool(runs_on) and "self-hosted" not in runs_on.lower(), "SEALED_WORKFLOW_RUNNER_BOUNDARY", "Sealed workflow must use a GitHub-hosted runner.", job_path, errors)
-        job_permissions = job.get("permissions")
-        expect(job_permissions in (None, {"contents": "read"}), "SEALED_WORKFLOW_JOB_PERMISSION_BOUNDARY", "Sealed workflow jobs may not elevate token permissions.", job_path, errors)
-
-
 def check_candidate_json(
     view: CandidateView,
     candidate_paths: set[str],
@@ -560,21 +554,21 @@ def build_output(
     errors = list(initial_errors)
     trusted_policy = load_trusted_json(root, POLICY_PATH, errors)
     manifest = load_trusted_json(root, PRESERVATION_MANIFEST_PATH, errors)
-    instrumentation_freeze = load_trusted_json(root, INSTRUMENTATION_FREEZE_PATH, errors)
+    successor_provenance = load_trusted_json(root, SUCCESSOR_PROVENANCE_PATH, errors)
     candidate_policy = load_candidate_json(view, POLICY_PATH, errors)
     candidate_registry = load_candidate_json(view, ACTION_REGISTRY_PATH, errors)
     policy_checks(trusted_policy, errors)
     policy_checks(candidate_policy, errors)
     if isinstance(trusted_policy, dict) and isinstance(candidate_policy, dict):
         expect(
-            candidate_policy.get("sealed_workflow_exceptions") == trusted_policy.get("sealed_workflow_exceptions"),
-            "SEALED_WORKFLOW_POLICY_MUTATION",
-            "A candidate may not add, remove, or alter a trusted sealed-workflow exception.",
+            candidate_policy.get("provenance_bound_workflow_successors") == trusted_policy.get("provenance_bound_workflow_successors"),
+            "WORKFLOW_SUCCESSOR_POLICY_MUTATION",
+            "A candidate may not add, remove, or alter a trusted workflow-successor binding.",
             POLICY_PATH.as_posix(),
             errors,
         )
     pins = action_pins(candidate_registry, errors)
-    sealed_workflows = sealed_workflow_exceptions(trusted_policy, instrumentation_freeze, errors)
+    successor_workflows = provenance_bound_workflow_successors(trusted_policy, successor_provenance, view, errors)
 
     entries = view.entries()
     for entry in entries:
@@ -590,6 +584,7 @@ def build_output(
         POLICY_PATH.as_posix(),
         ACTION_REGISTRY_PATH.as_posix(),
         PRESERVATION_MANIFEST_PATH.as_posix(),
+        SUCCESSOR_PROVENANCE_PATH.as_posix(),
         "docs/preservation/control-stages/CLAIM_ADMISSION_HARDENING_STAGE_v0_1.json",
         "policies/repository-hardening/BRANCH_RULESET_REQUIREMENTS_v0_1.json",
         "requirements-claim-admission.in",
@@ -614,8 +609,8 @@ def build_output(
         if path.startswith(".github/workflows/") and path.endswith((".yml", ".yaml"))
     )
     expect(TRUSTED_WORKFLOW in workflow_paths, "TRUSTED_WORKFLOW_MISSING", "Consumer-owned trusted-base workflow is absent.", TRUSTED_WORKFLOW, errors)
-    for sealed_path in sorted(sealed_workflows):
-        expect(sealed_path in workflow_paths, "SEALED_WORKFLOW_MISSING", "A freeze-bound workflow is absent from its sealed live path.", sealed_path, errors)
+    for successor_path in sorted(successor_workflows):
+        expect(successor_path in workflow_paths, "WORKFLOW_SUCCESSOR_MISSING", "A provenance-bound workflow successor is absent from its live path.", successor_path, errors)
 
     quarantined: set[str] = set()
     if isinstance(manifest, dict):
@@ -630,11 +625,9 @@ def build_output(
         expect(digest not in quarantined, "QUARANTINED_DIGEST_IN_LIVE_WORKFLOW", "A quarantined digest is present in the live workflow directory.", path, errors)
         workflow = parse_yaml(content, path, errors)
         if workflow is not None:
-            if path in sealed_workflows:
-                expect(digest == sealed_workflows[path], "SEALED_WORKFLOW_DIGEST_MISMATCH", "A freeze-bound workflow changed bytes; a separately reviewed successor amendment is required.", path, errors)
-                check_sealed_workflow_boundary(workflow, path, errors)
-            else:
-                check_workflow(workflow, path, pins, errors)
+            if path in successor_workflows:
+                expect(digest == successor_workflows[path], "WORKFLOW_SUCCESSOR_DIGEST_MISMATCH", "A provenance-bound live successor changed bytes; a new reviewed amendment is required.", path, errors)
+            check_workflow(workflow, path, pins, errors)
 
     candidate_json_paths = (set(changed) & available_paths) if base_sha else {
         POLICY_PATH.as_posix(),
@@ -680,14 +673,14 @@ def build_output(
             "changed_file_count": len(changed),
             "changed_control_paths": changed_controls,
             "action_pins": pins,
-            "sealed_workflow_exceptions": [
+            "provenance_bound_workflow_successors": [
                 {
                     "path": path,
                     "sha256": digest,
-                    "effect": "EXACT_DIGEST_ONLY_NO_GENERAL_WAIVER",
-                    "successor_amendment_required_before_experiment_execution": True,
+                    "effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL",
+                    "execution_separately_gated": True,
                 }
-                for path, digest in sorted(sealed_workflows.items())
+                for path, digest in sorted(successor_workflows.items())
             ],
         },
         "errors": errors,

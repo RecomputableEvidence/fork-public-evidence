@@ -1,0 +1,53 @@
+{
+  "record_id": "CSH_WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2",
+  "schema_version": "v0.1.2",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "amendment_id": "CSH-AMEND-003",
+  "status": "proposed_not_admitted",
+  "origin": {
+    "commit": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71",
+    "instrumentation_freeze": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json"
+  },
+  "successions": [
+    {
+      "live_path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+      "original": {
+        "archive_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/cross-system-claim-handoff-v0-1.v0-1-1.yml.txt",
+        "sha256": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
+        "size_bytes": 4676,
+        "git_blob": "c4b95a9fc1f75f4cc46825a4799aa6c0324ff740"
+      },
+      "successor": {
+        "sha256": "46ffa57dde40955bb7ed5b517b2de397b3d0056a0e8e9bfd4593f4dd2ef38c23",
+        "size_bytes": 5513,
+        "git_blob_before_commit": "e7093f1257ef7712fbee370dc304606f8c8bc26e",
+        "semantic_change": false,
+        "security_effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL"
+      }
+    },
+    {
+      "live_path": ".github/workflows/fork-proof-surface-integration.yml",
+      "original": {
+        "archive_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/fork-proof-surface-integration.v0-1-1.yml.txt",
+        "sha256": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
+        "size_bytes": 5413,
+        "git_blob": "27dec8bf6d78c0db73452d5c3d299c11c9e6b0e4"
+      },
+      "successor": {
+        "sha256": "5a09b805c0b59f3d211c01eb55ac61fbde3c7ae2ab3eb19d689bc863cd3fb29e",
+        "size_bytes": 5978,
+        "git_blob_before_commit": "daedb72f6f8d62f6c47acb4966928fd2d3ad6801",
+        "semantic_change": false,
+        "security_effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL"
+      }
+    }
+  ],
+  "checker_origin": {
+    "path": "tools/check_cross_system_claim_handoff_execution_v0_1_1.py",
+    "sha256": "855b3e23d4b361d2a692feffd57dd3f642543df3f425f57bc1c0d86224b031e5",
+    "size_bytes": 13074,
+    "git_blob": "abe6e356b609703c276148bbd3f22303e7a64473",
+    "provenance_method": "GIT_OBJECT_AT_ORIGIN_COMMIT"
+  },
+  "execution_authority": "NONE_UNTIL_ALL_PRE_EXECUTION_PREREQUISITES_TRUE"
+}

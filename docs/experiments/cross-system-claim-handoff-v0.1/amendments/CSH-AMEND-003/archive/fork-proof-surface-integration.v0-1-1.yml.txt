@@ -11,15 +11,10 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   python-proof-surface:
     name: Python proof surface (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
@@ -29,21 +24,22 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
 
       - name: Configure Git line endings
         run: git config --global core.autocrlf false
 
       - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install proof-surface dependencies
-        run: python -m pip install --require-hashes -r requirements-proof-surface.lock.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
 
       - name: Canonical proof-surface state
         run: python tools/check_fork_proof_surface_state_v0_1.py --json --check-summary
@@ -59,9 +55,6 @@ jobs:
 
       - name: Cross-System Claim Handoff preregistered scaffold
         run: python tools/check_cross_system_claim_handoff_v0_1.py --json
-
-      - name: Cross-System Claim Handoff pre-execution binding
-        run: python tools/check_csh_pre_execution_readiness_v0_1_2.py --json
 
       - name: Classifier clean fixture
         run: python tools/classify_unsupported_inheritance_v0_1.py tests/fixtures/csh/classifier_input_clean.json --json
@@ -111,25 +104,25 @@ jobs:
   powershell-proof-surface:
     name: PowerShell 5.1 proof-surface entry point
     runs-on: windows-latest
-    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
 
       - name: Configure Git line endings
         run: git config --global core.autocrlf false
 
       - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install proof-surface dependencies
-        run: python -m pip install --require-hashes -r requirements-proof-surface.lock.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
 
       - name: Execute integrated PowerShell verifier
         shell: powershell
@@ -140,7 +133,6 @@ jobs:
   csh-execution-instrumentation-v0-1-1:
     name: CSH execution instrumentation v0.1.1
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -149,18 +141,19 @@ jobs:
           - windows-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
       - name: Configure Git line endings
         run: git config --global core.autocrlf false
       - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install proof-surface dependencies
-        run: python -m pip install --require-hashes -r requirements-proof-surface.lock.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-proof-surface.txt
       - name: Verify CSH execution instrumentation
         run: python tools/check_cross_system_claim_handoff_execution_v0_1_1.py --json
       - name: Run CSH execution instrumentation tests

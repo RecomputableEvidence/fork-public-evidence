@@ -38,6 +38,29 @@
         "baseline_admission_effect": "Preserved after corrected tag publication, GitHub signature verification, amendment recording, and final anchor commit."
       },
       "non_authority_statement": "This repair establishes only corrected signer-controlled continuity and mutation-detection evidence. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, production readiness, or institutional authority."
+    },
+    {
+      "amendment_id": "CSH-AMEND-002",
+      "recorded_at_utc": "2026-07-13T01:30:21.7693914Z",
+      "class": "instrumentation_repair",
+      "status": "final_not_published",
+      "summary": "Preserved the two original Pair-001 attempts and required new lineage-linked repetitions after instrumentation repair.",
+      "substantive_experiment_change": false,
+      "frozen_artifacts_changed": false,
+      "baseline_execution_effect": "Original attempts remain immutable; bounded repetitions remain required."
+    },
+    {
+      "amendment_id": "CSH-AMEND-003",
+      "recorded_at_utc": "2026-07-17T04:48:13Z",
+      "class": "instrumentation_repair",
+      "status": "proposed_not_admitted",
+      "summary": "Bound hardened live workflow successors to archived originals and installed a fail-closed pre-execution admission record.",
+      "substantive_experiment_change": false,
+      "frozen_artifacts_changed": false,
+      "receiver_configuration_changed": false,
+      "prompt_or_handoff_changed": false,
+      "classification_or_scoring_changed": false,
+      "provider_execution_authority": "NONE"
     }
   ],
   "classes": {

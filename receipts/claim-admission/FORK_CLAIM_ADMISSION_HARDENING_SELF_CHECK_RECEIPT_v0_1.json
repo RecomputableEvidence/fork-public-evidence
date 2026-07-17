@@ -34,21 +34,21 @@
     "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
     "policy_activation_state": "IMPLEMENTED_DORMANT_UNTIL_PRESENT_ON_DEFAULT_BRANCH",
     "policy_id": "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1",
-    "sealed_workflow_exceptions": [
+    "provenance_bound_workflow_successors": [
       {
-        "effect": "EXACT_DIGEST_ONLY_NO_GENERAL_WAIVER",
+        "effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL",
+        "execution_separately_gated": true,
         "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
-        "sha256": "b2b589665bed12a4ca3028b2e48fcebd97c7e6f6b5128c59fb196e5ed5fbc30d",
-        "successor_amendment_required_before_experiment_execution": true
+        "sha256": "46ffa57dde40955bb7ed5b517b2de397b3d0056a0e8e9bfd4593f4dd2ef38c23"
       },
       {
-        "effect": "EXACT_DIGEST_ONLY_NO_GENERAL_WAIVER",
+        "effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL",
+        "execution_separately_gated": true,
         "path": ".github/workflows/fork-proof-surface-integration.yml",
-        "sha256": "7a1fbc7b3e97bf0946e018b5be6613f5d8329238d5347cf444abe28e5aaae166",
-        "successor_amendment_required_before_experiment_execution": true
+        "sha256": "5a09b805c0b59f3d211c01eb55ac61fbde3c7ae2ab3eb19d689bc863cd3fb29e"
       }
     ],
-    "tree_entry_count": 1587,
+    "tree_entry_count": 1596,
     "workflow_count": 7
   }
 }

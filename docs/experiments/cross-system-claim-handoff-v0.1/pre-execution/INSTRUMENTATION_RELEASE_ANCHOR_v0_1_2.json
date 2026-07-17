@@ -1,0 +1,17 @@
+{
+  "anchor_id": "CSH_INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2",
+  "schema_version": "v0.1.2",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "amendment_id": "CSH-AMEND-003",
+  "status": "not_published",
+  "admitted_commit": null,
+  "required_check_runs": [],
+  "all_required_checks_successful": false,
+  "published_at_utc": null,
+  "provider_execution_effect": "NONE_WHILE_NOT_PUBLISHED",
+  "non_claims": [
+    "No merge approval",
+    "No provider credential",
+    "No experiment execution authorization while status is not_published"
+  ]
+}

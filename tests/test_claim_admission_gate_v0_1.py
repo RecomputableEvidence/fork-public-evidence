@@ -37,6 +37,10 @@ INSTRUMENTATION_FREEZE = Path(
     "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
     "CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json"
 )
+SUCCESSOR_PROVENANCE = Path(
+    "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
+    "CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json"
+)
 
 
 def run(repo: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
@@ -63,6 +67,7 @@ def materialize(tmp_path: Path) -> tuple[Path, str]:
         shutil.copytree(ROOT / directory, repo / directory)
     (repo / INSTRUMENTATION_FREEZE.parent).mkdir(parents=True)
     shutil.copy2(ROOT / INSTRUMENTATION_FREEZE, repo / INSTRUMENTATION_FREEZE)
+    shutil.copytree(ROOT / SUCCESSOR_PROVENANCE.parent, repo / SUCCESSOR_PROVENANCE.parent)
     (repo / "schemas").mkdir()
     for name in (
         "consumer_owned_claim_admission_policy_v0_1.schema.json",
@@ -268,13 +273,34 @@ def test_quarantined_workflow_digest_cannot_recur(tmp_path: Path) -> None:
     assert "QUARANTINED_DIGEST_IN_LIVE_WORKFLOW" in error_codes(payload)
 
 
-def test_byte_sealed_workflow_exception_is_exact_digest_only(tmp_path: Path) -> None:
+def test_provenance_bound_workflow_successor_is_exact_digest_only(tmp_path: Path) -> None:
     repo, base = materialize(tmp_path)
-    mutate_text(repo, SEALED_CSH_WORKFLOW, "actions/checkout@v4", "actions/checkout@v4 # changed")
+    mutate_text(
+        repo,
+        SEALED_CSH_WORKFLOW,
+        "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+        "actions/checkout@v7",
+    )
     candidate = commit_all(repo)
     code, payload = run_checker(repo, base, candidate)
     assert code != 0
-    assert "SEALED_WORKFLOW_DIGEST_MISMATCH" in error_codes(payload)
+    assert {
+        "MUTABLE_ACTION_REFERENCE",
+        "WORKFLOW_SUCCESSOR_DIGEST_MISMATCH",
+    } <= error_codes(payload)
+
+
+def test_archived_workflow_predecessor_is_immutable(tmp_path: Path) -> None:
+    repo, base = materialize(tmp_path)
+    archive = Path(
+        "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/"
+        "archive/cross-system-claim-handoff-v0-1.v0-1-1.yml.txt"
+    )
+    mutate_text(repo, archive, "name: Cross-System Claim Handoff v0.1", "name: altered")
+    candidate = commit_all(repo)
+    code, payload = run_checker(repo, base, candidate)
+    assert code != 0
+    assert "WORKFLOW_PREDECESSOR_ARCHIVE_DIGEST_MISMATCH" in error_codes(payload)
 
 
 def test_symbolic_link_fails_closed(tmp_path: Path) -> None:
