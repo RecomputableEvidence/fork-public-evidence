@@ -1,0 +1,33 @@
+{
+  "classification_id": "FORK-INC-2026-07-13-001-CCF-001",
+  "schema_version": "0.1",
+  "incident_id": "FORK-INC-2026-07-13-001",
+  "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+  "classification_status": "CONFIRMED_FROM_REPOSITORY_EVIDENCE",
+  "producing_actor_type": "AI_ASSISTED_CHANGE_PRODUCER",
+  "consuming_system": "FORK_REPOSITORY_ADMISSION_PROCESS",
+  "producer_representation": "CHANGE_IS_INSTRUMENTATION_ONLY_AND_OPERATIONALLY_ADMISSIBLE",
+  "consumer_action": "CHANGE_ACQUIRED_REPOSITORY_STANDING",
+  "consumer_owned_verification_state_at_admission": "INSUFFICIENT_TO_DETECT_INVALID_WORKFLOW_STRUCTURE",
+  "observed_mismatch": "WORKFLOW_REJECTED_BEFORE_RUNNER_PROVISIONING",
+  "implementation_defect": "INVALID_WORKFLOW_STEP_NESTING",
+  "governance_defect": "PRODUCER_CLAIM_CONSUMED_WITHOUT_TRUSTED_BASE_VERIFICATION",
+  "intent": "NOT_EVALUATED",
+  "authority_effect": "NONE",
+  "standing_effect": "MALFORMED_WORKFLOW_ACQUIRED_OPERATIONAL_REPOSITORY_STANDING",
+  "evidence_refs": [
+    "git:fc3a100563eb354924787759accfc7ecd39ae94d",
+    "git:7080e198e6f87e918121af6097a6ef36fd8e7a07",
+    "github:pull/60",
+    "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/specimens/fork-evidence-ci.7080e198.malformed.yml.txt"
+  ],
+  "required_consumer_control": "CONSUMER_OWNED_CLAIM_ADMISSION_GATE_v0_1",
+  "classification_scope": "Repository admission of the affected workflow change only.",
+  "prohibited_inferences": [
+    "MALICIOUS_INTENT",
+    "GENERAL_AI_UNRELIABILITY",
+    "TOTAL_REPOSITORY_COMPROMISE",
+    "EXPERIMENT_INVALIDITY",
+    "SECURITY_CERTIFICATION_AFTER_CORRECTION"
+  ]
+}

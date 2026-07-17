@@ -1,0 +1,38 @@
+{
+  "residual_record_id": "FORK-INC-2026-07-13-001-RC-001",
+  "schema_version": "0.1",
+  "incident_id": "FORK-INC-2026-07-13-001",
+  "status": "OPEN",
+  "conditions": [
+    {
+      "condition_id": "RC-001-CONSUMER-OWNED-GATE",
+      "state": "PENDING_SEPARATE_ADMISSION",
+      "description": "Consumer-owned trusted-base claim admission control is not part of this preservation-only change."
+    },
+    {
+      "condition_id": "RC-002-REPOSITORY-HARDENING",
+      "state": "PENDING_SEPARATE_ADMISSION",
+      "description": "Branch rules, CODEOWNERS, immutable action references, dependency locks, and remaining least-privilege changes require a separately scoped change."
+    },
+    {
+      "condition_id": "RC-003-CURRENT-STATE-PROJECTION",
+      "state": "PENDING_APPEND_ONLY_OBSERVATION",
+      "description": "The July 11 canonical state and later corpus-freeze state require a linked current-state projection rather than historical rewriting."
+    },
+    {
+      "condition_id": "RC-004-INDEPENDENT-RECOMPUTATION",
+      "state": "PENDING",
+      "description": "An independent reviewer has not yet recomputed this preservation package from the published branch."
+    },
+    {
+      "condition_id": "RC-005-PARTICIPANT-REGISTRY",
+      "state": "PENDING_SEPARATE_READMISSION",
+      "description": "The participant-registry package remains a salvage candidate and is not admitted by this change."
+    },
+    {
+      "condition_id": "RC-006-EXPERIMENT",
+      "state": "EXECUTION_BLOCKED_PENDING_PRESERVATION_GATE",
+      "description": "Cross-System Claim Handoff v0.1 baseline execution remains not started."
+    }
+  ]
+}

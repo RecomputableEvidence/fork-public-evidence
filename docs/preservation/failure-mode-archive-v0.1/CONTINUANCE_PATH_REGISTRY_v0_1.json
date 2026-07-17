@@ -1,0 +1,23 @@
+{
+  "registry_id": "FORK_CONTINUANCE_PATH_REGISTRY_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_ADMISSION",
+  "paths": [
+    {
+      "path_class": "EXACT_PRESERVED_STATE",
+      "definition": "A referenced state remains available at an exact content-addressed repository commit."
+    },
+    {
+      "path_class": "AMENDED_SAFE_PATH",
+      "definition": "A separately versioned continuance path preserves the incident lineage while admitting independently verified amendments."
+    },
+    {
+      "path_class": "RECONSTRUCTED_WITH_DECLARED_GAPS",
+      "definition": "No exact snapshot is available; the path is assembled from preserved artifacts and every absent, substituted, or unresolved condition is declared."
+    },
+    {
+      "path_class": "NO_VERIFIED_SAFE_PATH_ESTABLISHED",
+      "definition": "Available evidence is insufficient to establish a bounded safe-continuance path."
+    }
+  ]
+}

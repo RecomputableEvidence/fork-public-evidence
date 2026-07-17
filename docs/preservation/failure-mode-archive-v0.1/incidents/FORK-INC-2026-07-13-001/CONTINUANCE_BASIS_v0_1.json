@@ -1,0 +1,35 @@
+{
+  "continuance_basis_id": "FORK-INC-2026-07-13-001-CB-001",
+  "schema_version": "0.1",
+  "incident_id": "FORK-INC-2026-07-13-001",
+  "selected_path_class": "EXACT_PRESERVED_STATE",
+  "exact_pre_incident_commit": "fc3a100563eb354924787759accfc7ecd39ae94d",
+  "clean_continuance_branch": "preservation/clean-continuance-v0.1",
+  "incident_preservation_branch": "agent/incident-7080-preservation-ccf-001",
+  "preserved_post_incident_descendant": "fd93d051235ec43bee925878bc916d09179b3c90",
+  "descendant_disposition": "FORENSIC_COMPARISON_AND_SELECTIVE_SALVAGE_ONLY",
+  "main_ref_effect": "NONE",
+  "condition_states": [
+    {
+      "condition": "TRACKED_PRE_INCIDENT_REPOSITORY_TREE",
+      "state": "EXACT"
+    },
+    {
+      "condition": "INCIDENT_WORKFLOW_BYTES",
+      "state": "EXACT"
+    },
+    {
+      "condition": "INCIDENT_PRODUCER_INTENT",
+      "state": "UNRESOLVED"
+    },
+    {
+      "condition": "EPHEMERAL_CI_RUNNER_STATE",
+      "state": "NOT_APPLICABLE_RUNNER_NOT_PROVISIONED"
+    },
+    {
+      "condition": "UNTRACKED_LOCAL_STATE_AT_INCIDENT_TIME",
+      "state": "UNRESOLVED"
+    }
+  ],
+  "continuation_validity_authority": "EXTERNAL_TO_FORK"
+}

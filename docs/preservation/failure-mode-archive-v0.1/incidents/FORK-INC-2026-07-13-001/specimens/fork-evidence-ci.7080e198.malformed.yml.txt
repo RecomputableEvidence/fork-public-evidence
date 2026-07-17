@@ -1,0 +1,129 @@
+name: Fork Evidence CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "v0_*"
+
+jobs:
+  evidence-ci:
+    name: Claim Boundary and Preservation Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest jsonschema
+
+      - name: Check governed text artifacts use LF
+        run: python tools/check_line_endings.py
+
+      - name: Validate Claim Boundary payload examples
+        run: |
+          python tools/check_claim_boundary.py examples/claim_boundary/valid_integrity_only.json
+
+          if python tools/check_claim_boundary.py examples/claim_boundary/invalid_overclaim_compliance.json; then
+            echo "Invalid overclaim payload unexpectedly passed."
+            exit 1
+          else
+            echo "Invalid overclaim payload failed as expected."
+          fi
+
+      - name: Validate artifact-level Claim Boundary enforcement
+        run: |
+          python tools/check_artifact_claim_boundary.py examples/claim_boundary_artifacts/valid_receipt_with_claim_boundary.json
+
+          if python tools/check_artifact_claim_boundary.py examples/claim_boundary_artifacts/invalid_receipt_missing_claim_boundary.json; then
+            echo "Missing claim_boundary artifact unexpectedly passed."
+            exit 1
+          else
+            echo "Missing claim_boundary artifact failed as expected."
+          fi
+
+          if python tools/check_artifact_claim_boundary.py examples/claim_boundary_artifacts/invalid_release_metadata_overclaim.json; then
+            echo "Overclaiming release metadata unexpectedly passed."
+            exit 1
+          else
+            echo "Overclaiming release metadata failed as expected."
+          fi
+
+      - name: Validate Claim Boundary Binding
+        run: |
+          python tools/check_artifact_claim_boundary.py examples/claim_boundary_binding/verification_result_bound_valid.json
+
+          if python tools/check_artifact_claim_boundary.py examples/claim_boundary_binding/verification_result_unbound_invalid.json; then
+            echo "Unbound verification result unexpectedly passed."
+            exit 1
+          else
+            echo "Unbound verification result failed as expected."
+          fi
+
+          python tools/bind_claim_boundary.py \
+            examples/claim_boundary_binding/verification_result_unbound_invalid.json \
+            --output /tmp/verification_result_bound_generated.ci.json \
+            --overwrite-output
+
+          python tools/check_artifact_claim_boundary.py /tmp/verification_result_bound_generated.ci.json
+
+      - name: Run full invariant test suite
+        run: |
+          python -m pytest \
+            tests/test_claim_boundary_v0_1.py \
+            tests/test_claim_boundary_phase_2.py \
+            tests/test_claim_boundary_binding_v0_1.py \
+            tests/test_line_endings_v0_1.py \
+            tests/test_ci_workflow_v0_1.py \
+            -q
+      - name: Run Definition Boundary v0.1 checks
+        run: |
+          python tools/check_definition_boundary.py examples/definition_boundary/valid_identity_undefined.json
+          if python tools/check_definition_boundary.py examples/definition_boundary/invalid_identity_overdefinition.json; then
+            echo "Expected invalid Definition Boundary example to fail"
+            exit 1
+          fi
+          python -m pytest tests/test_definition_boundary_v0_1.py -q
+      - name: Run Provenance Tier v0.1 checks
+        run: |
+          python tools/check_provenance_tier.py examples/provenance_tier/valid_documented_source.json
+          if python tools/check_provenance_tier.py examples/provenance_tier/invalid_generated_satisfies_documented.json; then
+            echo "Expected generated-as-documented provenance example to fail"
+            exit 1
+          fi
+          if python tools/check_provenance_tier.py examples/provenance_tier/invalid_documented_depends_on_generated.json; then
+            echo "Expected documented-depends-on-generated provenance example to fail"
+            exit 1
+          fi
+          python -m pytest tests/test_provenance_tier_v0_1.py -q
+    # META_EVIDENCE_CI_START
+    - name: Verify Fork Meta-Evidence v0.1 package
+      run: python tools/check_fork_meta_evidence_package_v0_1.py --json
+
+    - name: Run Fork Meta-Evidence v0.1 checks
+      run: |
+        python tools/check_experiment_meta_evidence_v0_1.py registries/experiment_meta_evidence_registry_v0_1.json --json
+        python -m pytest \
+          tests/test_attribution_authorization_record_v0_1.py \
+          tests/test_experiment_meta_evidence_v0_1.py \
+          tests/test_experiment_outcome_record_v0_1.py \
+          tests/test_external_context_reference_set_v0_1.py \
+          tests/test_interaction_provenance_record_v0_1.py \
+          tests/test_participant_context_receipt_v0_1.py \
+          tests/test_fork_meta_evidence_package_integrity_v0_1.py \
+          -q
+    # META_EVIDENCE_CI_END
