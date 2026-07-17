@@ -37,6 +37,9 @@ jobs:
       - name: Install hash-locked parser dependency
         run: python -m pip install --require-hashes -r requirements-claim-admission.lock.txt
 
+      - name: Verify independent verification surface integrity
+        run: python tools/check_independent_verification_surface_v0_1.py --self-check
+
       - name: Inspect candidate Git objects as data
         env:
           FORK_BASE_SHA: ${{ github.event.pull_request.base.sha }}

@@ -25,14 +25,18 @@
     ".github/workflows/",
     ".gitattributes",
     "docs/preservation/",
+    "docs/verification/",
     "policies/claim-admission/",
+    "policies/independent-verification/",
     "policies/repository-hardening/",
+    "receipts/independent-verification/",
     "requirements-claim-admission.in",
     "requirements-claim-admission.lock.txt",
     "requirements-proof-surface.txt",
     "requirements-proof-surface.lock.txt",
     "schemas/",
     "tools/check_claim_admission_gate_v0_1.py",
+    "tools/check_independent_verification_surface_v0_1.py",
     "tools/check_preservation_integrity_v0_1.py"
   ],
   "candidate_tree_requirements": {

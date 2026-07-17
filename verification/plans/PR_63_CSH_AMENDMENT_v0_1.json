@@ -1,0 +1,236 @@
+{
+  "plan_id": "FORK_IVS_PR_63_CSH_AMENDMENT_V0_1",
+  "schema_version": "0.1",
+  "scope_statement": "Recompute PR #63's exact tree, transition findings, workflow succession, frozen scientific inputs, and fail-closed execution boundary from the admitted PR #62 preservation tree.",
+  "subject": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "base_commit": "599d3e193d86a9661fbbec3213ae1921b4959f10",
+    "base_tree": "5f96f7b805c7990c078b06eb75a1875c86581dc5",
+    "candidate_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+    "candidate_tree": "6454e0ae4c87b4210c40bdc6a879cdb594fb266b",
+    "expected_merge_base": "1102113556edfc54b43a328317961c4896d6dd6c"
+  },
+  "expected_claim_admission": {
+    "result_kind": "CLAIM_ADMISSION_GATE_FAILED",
+    "findings": [
+      {
+        "code": "SEALED_WORKFLOW_DIGEST_MISMATCH",
+        "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml"
+      },
+      {
+        "code": "SEALED_WORKFLOW_DIGEST_MISMATCH",
+        "path": ".github/workflows/fork-proof-surface-integration.yml"
+      },
+      {
+        "code": "SEALED_WORKFLOW_POLICY_MUTATION",
+        "path": "policies/claim-admission/CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1.json"
+      }
+    ],
+    "interpretation": "The admitted PR #62 exact-digest gate must reject the two successor workflow bytes and their policy transition. The findings remain evidence; bounded successor assertions must independently establish whether the transition is supportable."
+  },
+  "assertions": [
+    {
+      "assertion_id": "PR63_CHANGED_PATH_SET",
+      "type": "CHANGED_PATH_SET_EQUALS",
+      "expected_paths": [
+        ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+        ".github/workflows/fork-proof-surface-integration.yml",
+        "docs/experiments/cross-system-claim-handoff-v0.1/AMENDMENT_REGISTER_v0_1.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/CSH-AMEND-003_v0_1_2.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/CSH-AMEND-003_v0_1_2.md",
+        "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/cross-system-claim-handoff-v0-1.v0-1-1.yml.txt",
+        "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/fork-proof-surface-integration.v0-1-1.yml.txt",
+        "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+        "policies/claim-admission/CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1.json",
+        "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+        "requirements-proof-surface.lock.txt",
+        "requirements-proof-surface.txt",
+        "schemas/consumer_owned_claim_admission_policy_v0_1.schema.json",
+        "tests/test_claim_admission_gate_v0_1.py",
+        "tests/test_csh_pre_execution_readiness_v0_1_2.py",
+        "tools/check_claim_admission_gate_v0_1.py",
+        "tools/check_cross_system_claim_handoff_execution_v0_1_1.py",
+        "tools/check_csh_pre_execution_readiness_v0_1_2.py"
+      ]
+    },
+    {
+      "assertion_id": "CSH_SUCCESSOR_WORKFLOW_HARDENED",
+      "type": "WORKFLOW_HARDENED",
+      "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml"
+    },
+    {
+      "assertion_id": "PROOF_SURFACE_SUCCESSOR_WORKFLOW_HARDENED",
+      "type": "WORKFLOW_HARDENED",
+      "path": ".github/workflows/fork-proof-surface-integration.yml"
+    },
+    {
+      "assertion_id": "CSH_SUCCESSOR_SHA256",
+      "type": "SHA256_EQUALS",
+      "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+      "expected_sha256": "46ffa57dde40955bb7ed5b517b2de397b3d0056a0e8e9bfd4593f4dd2ef38c23"
+    },
+    {
+      "assertion_id": "PROOF_SURFACE_SUCCESSOR_SHA256",
+      "type": "SHA256_EQUALS",
+      "path": ".github/workflows/fork-proof-surface-integration.yml",
+      "expected_sha256": "5a09b805c0b59f3d211c01eb55ac61fbde3c7ae2ab3eb19d689bc863cd3fb29e"
+    },
+    {
+      "assertion_id": "CSH_PREDECESSOR_ARCHIVE_IDENTITY",
+      "type": "ARCHIVE_EQUALS_BASE_PATH",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/cross-system-claim-handoff-v0-1.v0-1-1.yml.txt",
+      "base_path": ".github/workflows/cross-system-claim-handoff-v0-1.yml"
+    },
+    {
+      "assertion_id": "PROOF_SURFACE_PREDECESSOR_ARCHIVE_IDENTITY",
+      "type": "ARCHIVE_EQUALS_BASE_PATH",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/archive/fork-proof-surface-integration.v0-1-1.yml.txt",
+      "base_path": ".github/workflows/fork-proof-surface-integration.yml"
+    },
+    {
+      "assertion_id": "EXPERIMENT_MANIFEST_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json"
+    },
+    {
+      "assertion_id": "CORPUS_FREEZE_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json"
+    },
+    {
+      "assertion_id": "PREREGISTRATION_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md"
+    },
+    {
+      "assertion_id": "METHOD_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/METHOD_v0_1.md"
+    },
+    {
+      "assertion_id": "RUN_ORDER_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json"
+    },
+    {
+      "assertion_id": "PAIR_MANIFEST_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PAIR_MANIFEST_v0_1.json"
+    },
+    {
+      "assertion_id": "RECEIVER_A_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json"
+    },
+    {
+      "assertion_id": "RECEIVER_B_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json"
+    },
+    {
+      "assertion_id": "PAIR_001_STATE_UNCHANGED",
+      "type": "UNCHANGED_FROM_BASE",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/PAIR-001_EXECUTION_STATE_v0_1_1.json"
+    },
+    {
+      "assertion_id": "AMENDMENT_PROPOSED_NOT_ADMITTED",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/CSH-AMEND-003_v0_1_2.json",
+      "pointer": "/status",
+      "expected": "proposed_not_admitted"
+    },
+    {
+      "assertion_id": "AMENDMENT_EXECUTION_AUTHORITY_FALSE",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/CSH-AMEND-003_v0_1_2.json",
+      "pointer": "/scope_constraints/authorizes_provider_execution",
+      "expected": false
+    },
+    {
+      "assertion_id": "SUCCESSOR_PROVENANCE_EXECUTION_AUTHORITY",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json",
+      "pointer": "/execution_authority",
+      "expected": "NONE_UNTIL_ALL_PRE_EXECUTION_PREREQUISITES_TRUE"
+    },
+    {
+      "assertion_id": "PRE_EXECUTION_STATUS_BLOCKED",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+      "pointer": "/status",
+      "expected": "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+    },
+    {
+      "assertion_id": "PROVIDER_EXECUTION_NOT_PERMITTED",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+      "pointer": "/provider_execution_permitted",
+      "expected": false
+    },
+    {
+      "assertion_id": "PROVIDER_CALL_COUNT_ZERO",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+      "pointer": "/provider_calls_performed_by_this_stage",
+      "expected": 0
+    },
+    {
+      "assertion_id": "RELEASE_ANCHOR_NOT_PUBLISHED",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json",
+      "pointer": "/status",
+      "expected": "not_published"
+    },
+    {
+      "assertion_id": "RELEASE_ANCHOR_CHECKS_NOT_PROMOTED",
+      "type": "JSON_POINTER_EQUALS",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json",
+      "pointer": "/all_required_checks_successful",
+      "expected": false
+    },
+    {
+      "assertion_id": "CLAIM_ADMISSION_POLICY_TRANSITION_SHA256",
+      "type": "SHA256_EQUALS",
+      "path": "policies/claim-admission/CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1.json",
+      "expected_sha256": "af3a804b9f1da8eec75978e59e94927aa058ef9232aeb442dc9026efa19cb69e"
+    }
+  ],
+  "external_evidence": [
+    {
+      "evidence_id": "PR63_STATE_OBSERVATION",
+      "kind": "PULL_REQUEST_STATE",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/63",
+      "observed_state": "OPEN_DRAFT_UNMERGED_HEAD_82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "authority_effect": "OBSERVATION_ONLY"
+    },
+    {
+      "evidence_id": "PR63_FORK_EVIDENCE_CI_RUN_330",
+      "kind": "GITHUB_ACTIONS_RUN",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29556486787",
+      "observed_state": "COMPLETED_SUCCESS",
+      "authority_effect": "OBSERVATION_ONLY"
+    },
+    {
+      "evidence_id": "PR63_CSH_RUN_16",
+      "kind": "GITHUB_ACTIONS_RUN",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29556486800",
+      "observed_state": "COMPLETED_SUCCESS",
+      "authority_effect": "OBSERVATION_ONLY"
+    },
+    {
+      "evidence_id": "PR63_PROOF_SURFACE_RUN_29",
+      "kind": "GITHUB_ACTIONS_RUN",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29556486836",
+      "observed_state": "COMPLETED_SUCCESS",
+      "authority_effect": "OBSERVATION_ONLY"
+    }
+  ],
+  "independence_boundary": {
+    "plan_origin": "TRUSTED_VERIFIER_CONTROL_PLANE",
+    "candidate_tree_controls_plan": false,
+    "human_verifier": "UNASSIGNED_EXTERNAL_REVIEWER",
+    "self_certification_prohibited": true
+  }
+}
