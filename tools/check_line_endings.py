@@ -47,6 +47,7 @@ TEXT_FILENAMES = {
     "Makefile",
     "LICENSE",
     "COPYRIGHT",
+    "CODEOWNERS",
     "SHA256SUMS",
 }
 
