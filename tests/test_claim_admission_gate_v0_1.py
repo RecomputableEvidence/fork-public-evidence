@@ -11,6 +11,13 @@ import pytest
 import jsonschema
 
 
+pytest.importorskip(
+    "yaml",
+    reason="claim-admission tests require the claim-admission dependency lock",
+    exc_type=ImportError,
+)
+
+
 ROOT = Path(__file__).resolve().parents[1]
 CHECKER = ROOT / "tools/check_claim_admission_gate_v0_1.py"
 POLICY = Path("policies/claim-admission/CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1.json")
@@ -188,7 +195,9 @@ def test_candidate_is_read_from_git_objects_not_worktree(tmp_path: Path) -> None
         ("runs-on: ubuntu-latest", "runs-on: self-hosted", "SELF_HOSTED_RUNNER_PROHIBITED"),
         ("    timeout-minutes: 30\n", "", "JOB_TIMEOUT_INVALID"),
         (
-            "python -m pip install --require-hashes -r requirements-proof-surface.lock.txt",
+            "python -m pip install --require-hashes\n"
+            "          -r requirements-proof-surface.lock.txt\n"
+            "          -r requirements-claim-admission.lock.txt",
             "python -m pip install pytest",
             "UNHASHED_PYTHON_INSTALL",
         ),

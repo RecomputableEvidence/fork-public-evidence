@@ -23,6 +23,7 @@
     ".github/CODEOWNERS",
     ".github/dependabot.yml",
     ".github/workflows/",
+    ".gitattributes",
     "docs/preservation/",
     "policies/claim-admission/",
     "policies/repository-hardening/",

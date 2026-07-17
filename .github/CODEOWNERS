@@ -4,6 +4,7 @@
 /.github/workflows/ @RecomputableEvidence
 /.github/CODEOWNERS @RecomputableEvidence
 /.github/dependabot.yml @RecomputableEvidence
+/.gitattributes @RecomputableEvidence
 /policies/claim-admission/ @RecomputableEvidence
 /policies/repository-hardening/ @RecomputableEvidence
 /tools/check_claim_admission_gate_v0_1.py @RecomputableEvidence

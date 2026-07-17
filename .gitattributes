@@ -15,6 +15,7 @@ white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
 *.toml text eol=lf
+*.in text eol=lf
 *.cff text eol=lf
 *.csv text eol=lf
 *.tsv text eol=lf
