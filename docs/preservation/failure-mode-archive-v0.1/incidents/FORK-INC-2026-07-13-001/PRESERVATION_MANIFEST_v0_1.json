@@ -1,0 +1,21 @@
+{
+  "manifest_id": "FORK-INC-2026-07-13-001-PM-001",
+  "schema_version": "0.1",
+  "incident_id": "FORK-INC-2026-07-13-001",
+  "status": "PROPOSED_FOR_ADMISSION",
+  "specimens": [
+    {
+      "specimen_id": "FORK-INC-2026-07-13-001-SPEC-001",
+      "original_path": ".github/workflows/fork-evidence-ci.yml",
+      "archive_path": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/specimens/fork-evidence-ci.7080e198.malformed.yml.txt",
+      "source_commit": "7080e198e6f87e918121af6097a6ef36fd8e7a07",
+      "git_blob_sha1": "f6a6c510bc6eff17b00595f0c10b0ecf962b4bf3",
+      "sha256": "842e79b28e79a86aaf437f80380fc7beaad17a14fd534894393dc2e135d3e0ea",
+      "media_type": "application/yaml",
+      "archive_execution_state": "INERT_DATA_ONLY",
+      "live_path_reintroduction_prohibited": true
+    }
+  ],
+  "historical_rewrite_authority": "NONE",
+  "checker": "tools/check_preservation_integrity_v0_1.py"
+}

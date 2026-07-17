@@ -1,0 +1,91 @@
+{
+  "incident_id": "FORK-INC-2026-07-13-001",
+  "schema_version": "0.1",
+  "status": "PRESERVED_OPEN",
+  "observed_date": "2026-07-13",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "producing_actor": {
+    "actor_type": "AI_ASSISTED_CHANGE_PRODUCER",
+    "specific_identity": "USER_SUPPLIED_ATTRIBUTION_GEMINI",
+    "identity_authentication": "NOT_AUTHENTICATED_BY_REPOSITORY_EVIDENCE",
+    "intent": "NOT_EVALUATED"
+  },
+  "observed_action": "Meta-Evidence CI hardening change admitted to the repository history.",
+  "affected_artifact": {
+    "original_path": ".github/workflows/fork-evidence-ci.yml",
+    "incident_commit": "7080e198e6f87e918121af6097a6ef36fd8e7a07",
+    "incident_parent": "fc3a100563eb354924787759accfc7ecd39ae94d",
+    "git_blob_sha1": "f6a6c510bc6eff17b00595f0c10b0ecf962b4bf3",
+    "sha256": "842e79b28e79a86aaf437f80380fc7beaad17a14fd534894393dc2e135d3e0ea",
+    "specimen_path": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/specimens/fork-evidence-ci.7080e198.malformed.yml.txt"
+  },
+  "producer_representation": {
+    "commit_message": "Harden Fork Meta-Evidence v0.1 CI",
+    "declared_change_class": "INSTRUMENTATION_ONLY",
+    "consumed_claim": "CHANGE_IS_INSTRUMENTATION_ONLY_AND_OPERATIONALLY_ADMISSIBLE"
+  },
+  "observed_mismatch": {
+    "code": "WORKFLOW_REJECTED_BEFORE_RUNNER_PROVISIONING",
+    "implementation_defect": "INVALID_WORKFLOW_STEP_NESTING",
+    "detail": "Meta-Evidence step mappings were placed at the job level instead of within the steps sequence."
+  },
+  "failure_classification_ref": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/CLAIM_CONSUMPTION_FAILURE_CLASSIFICATION_v0_1.json",
+  "continuance_basis_ref": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/CONTINUANCE_BASIS_v0_1.json",
+  "preservation_manifest_ref": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/PRESERVATION_MANIFEST_v0_1.json",
+  "residual_conditions_ref": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/RESIDUAL_CONDITIONS_v0_1.json",
+  "related_pull_requests": [
+    {
+      "number": 58,
+      "disposition": "CLOSED_WITHOUT_MERGE_PRESERVED_AS_PRE_ADMISSION_EVIDENCE",
+      "status_observations": [
+        {
+          "observed_state": "OPEN",
+          "observation_source": "USER_SUPPLIED_SCREENSHOT",
+          "source_locator": "Screenshot 2026-07-15 082642.png",
+          "source_authentication": "NOT_AUTHENTICATED_BY_REPOSITORY_EVIDENCE",
+          "source_sha256": "67ad5b72ecf1d43427a997aa7da0a4579a69ea3aa3315c54287c8c9e4ee92a49",
+          "head_commit": "5ff36d2",
+          "check_summary": {
+            "failure": 5,
+            "success": 4
+          },
+          "temporal_scope": "INTERMEDIATE_STATE_VISIBLE_IN_SCREENSHOT"
+        },
+        {
+          "observed_state": "CLOSED",
+          "observation_source": "GITHUB_API",
+          "source_locator": "github:pull/58",
+          "source_authentication": "REPOSITORY_API",
+          "head_commit": "5ff36d20d7c157451916be2bc2b4046c65b553af",
+          "closed_at": "2026-07-15T15:34:19Z",
+          "merged": false,
+          "temporal_scope": "CURRENT_STATE_VERIFIED_2026-07-16"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "disposition": "FORWARD_INDENTATION_REPAIR_MERGED_TO_MAIN"
+    }
+  ],
+  "historical_rewrite_authority": "NONE",
+  "experiment_effect": {
+    "changes_hypothesis": false,
+    "changes_corpus": false,
+    "changes_prompt_packets": false,
+    "changes_receiver_bindings": false,
+    "changes_parameters": false,
+    "changes_run_order": false,
+    "changes_classifier": false,
+    "changes_stopping_rule": false,
+    "changes_optimization_embargo": false,
+    "baseline_execution_started": false
+  },
+  "non_claims": [
+    "No malicious intent determination",
+    "No total-system-loss determination",
+    "No security certification",
+    "No experiment-result claim",
+    "No execution authorization"
+  ]
+}

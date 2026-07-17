@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/preservation_incident_record_v0_1.schema.json",
+  "title": "Fork Preservation Incident Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "incident_id",
+    "schema_version",
+    "status",
+    "observed_date",
+    "repository",
+    "producing_actor",
+    "observed_action",
+    "affected_artifact",
+    "producer_representation",
+    "observed_mismatch",
+    "failure_classification_ref",
+    "continuance_basis_ref",
+    "preservation_manifest_ref",
+    "residual_conditions_ref",
+    "related_pull_requests",
+    "historical_rewrite_authority",
+    "experiment_effect",
+    "non_claims"
+  ],
+  "properties": {
+    "incident_id": {"type": "string", "pattern": "^FORK-INC-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$"},
+    "schema_version": {"const": "0.1"},
+    "status": {"enum": ["PRESERVED_OPEN", "PRESERVED_CLOSED"]},
+    "observed_date": {"type": "string", "format": "date"},
+    "repository": {"type": "string", "minLength": 1},
+    "producing_actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actor_type", "specific_identity", "identity_authentication", "intent"],
+      "properties": {
+        "actor_type": {"type": "string", "minLength": 1},
+        "specific_identity": {"type": "string", "minLength": 1},
+        "identity_authentication": {"type": "string", "minLength": 1},
+        "intent": {"const": "NOT_EVALUATED"}
+      }
+    },
+    "observed_action": {"type": "string", "minLength": 1},
+    "affected_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["original_path", "incident_commit", "incident_parent", "git_blob_sha1", "sha256", "specimen_path"],
+      "properties": {
+        "original_path": {"type": "string", "minLength": 1},
+        "incident_commit": {"$ref": "#/definitions/git_sha1"},
+        "incident_parent": {"$ref": "#/definitions/git_sha1"},
+        "git_blob_sha1": {"$ref": "#/definitions/git_sha1"},
+        "sha256": {"$ref": "#/definitions/sha256"},
+        "specimen_path": {"type": "string", "minLength": 1}
+      }
+    },
+    "producer_representation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commit_message", "declared_change_class", "consumed_claim"],
+      "properties": {
+        "commit_message": {"type": "string", "minLength": 1},
+        "declared_change_class": {"type": "string", "minLength": 1},
+        "consumed_claim": {"type": "string", "minLength": 1}
+      }
+    },
+    "observed_mismatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "implementation_defect", "detail"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "implementation_defect": {"type": "string", "minLength": 1},
+        "detail": {"type": "string", "minLength": 1}
+      }
+    },
+    "failure_classification_ref": {"type": "string", "minLength": 1},
+    "continuance_basis_ref": {"type": "string", "minLength": 1},
+    "preservation_manifest_ref": {"type": "string", "minLength": 1},
+    "residual_conditions_ref": {"type": "string", "minLength": 1},
+    "related_pull_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["number", "disposition"],
+        "properties": {
+          "number": {"type": "integer", "minimum": 1},
+          "disposition": {"type": "string", "minLength": 1},
+          "status_observations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"$ref": "#/definitions/status_observation"}
+          }
+        }
+      }
+    },
+    "historical_rewrite_authority": {"const": "NONE"},
+    "experiment_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "patternProperties": {"^[a-z][a-z0-9_]*$": {"const": false}}
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  },
+  "definitions": {
+    "git_sha1": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "status_observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observed_state", "observation_source", "source_locator", "source_authentication", "head_commit", "temporal_scope"],
+      "properties": {
+        "observed_state": {"enum": ["OPEN", "CLOSED"]},
+        "observation_source": {"enum": ["USER_SUPPLIED_SCREENSHOT", "GITHUB_API"]},
+        "source_locator": {"type": "string", "minLength": 1},
+        "source_authentication": {"type": "string", "minLength": 1},
+        "source_sha256": {"$ref": "#/definitions/sha256"},
+        "head_commit": {"type": "string", "pattern": "^[0-9a-f]{7,40}$"},
+        "closed_at": {"type": "string", "format": "date-time"},
+        "merged": {"type": "boolean"},
+        "check_summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["failure", "success"],
+          "properties": {
+            "failure": {"type": "integer", "minimum": 0},
+            "success": {"type": "integer", "minimum": 0}
+          }
+        },
+        "temporal_scope": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

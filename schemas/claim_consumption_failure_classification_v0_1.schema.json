@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/schemas/claim_consumption_failure_classification_v0_1.schema.json",
+  "title": "Fork Claim Consumption Failure Classification v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "classification_id",
+    "schema_version",
+    "incident_id",
+    "failure_class_id",
+    "classification_status",
+    "producing_actor_type",
+    "consuming_system",
+    "producer_representation",
+    "consumer_action",
+    "consumer_owned_verification_state_at_admission",
+    "observed_mismatch",
+    "implementation_defect",
+    "governance_defect",
+    "intent",
+    "authority_effect",
+    "standing_effect",
+    "evidence_refs",
+    "required_consumer_control",
+    "classification_scope",
+    "prohibited_inferences"
+  ],
+  "properties": {
+    "classification_id": {"type": "string", "minLength": 1},
+    "schema_version": {"const": "0.1"},
+    "incident_id": {"type": "string", "minLength": 1},
+    "failure_class_id": {"const": "CCF-001_AI_CHANGE_READINESS_PROMOTION"},
+    "classification_status": {"const": "CONFIRMED_FROM_REPOSITORY_EVIDENCE"},
+    "producing_actor_type": {"type": "string", "minLength": 1},
+    "consuming_system": {"type": "string", "minLength": 1},
+    "producer_representation": {"type": "string", "minLength": 1},
+    "consumer_action": {"type": "string", "minLength": 1},
+    "consumer_owned_verification_state_at_admission": {"type": "string", "minLength": 1},
+    "observed_mismatch": {"type": "string", "minLength": 1},
+    "implementation_defect": {"type": "string", "minLength": 1},
+    "governance_defect": {"type": "string", "minLength": 1},
+    "intent": {"const": "NOT_EVALUATED"},
+    "authority_effect": {"const": "NONE"},
+    "standing_effect": {"type": "string", "minLength": 1},
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "required_consumer_control": {"type": "string", "minLength": 1},
+    "classification_scope": {"type": "string", "minLength": 1},
+    "prohibited_inferences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  }
+}

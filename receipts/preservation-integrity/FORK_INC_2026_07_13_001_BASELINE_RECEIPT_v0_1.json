@@ -1,0 +1,34 @@
+{
+  "checker_id": "FORK_PRESERVATION_INTEGRITY_CHECKER_v0_1",
+  "errors": [],
+  "non_claims": {
+    "does_not_authorize_execution": true,
+    "does_not_certify_security": true,
+    "does_not_determine_continuation_validity": true,
+    "does_not_evaluate_intent": true,
+    "does_not_move_repository_refs": true,
+    "does_not_validate_experiment_results": true
+  },
+  "result": {
+    "ok": true,
+    "result_kind": "STRUCTURAL_PASS"
+  },
+  "verification": {
+    "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+    "incident_commit": "7080e198e6f87e918121af6097a6ef36fd8e7a07",
+    "incident_id": "FORK-INC-2026-07-13-001",
+    "pre_incident_commit": "fc3a100563eb354924787759accfc7ecd39ae94d",
+    "preserved_post_incident_descendant": "fd93d051235ec43bee925878bc916d09179b3c90",
+    "record_count": 7,
+    "schema_count": 3,
+    "specimens": [
+      {
+        "archive_path": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/specimens/fork-evidence-ci.7080e198.malformed.yml.txt",
+        "bytes": 5322,
+        "git_blob_sha1": "f6a6c510bc6eff17b00595f0c10b0ecf962b4bf3",
+        "sha256": "842e79b28e79a86aaf437f80380fc7beaad17a14fd534894393dc2e135d3e0ea",
+        "specimen_id": "FORK-INC-2026-07-13-001-SPEC-001"
+      }
+    ]
+  }
+}

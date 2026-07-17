@@ -1,0 +1,21 @@
+{
+  "registry_id": "FORK_FAILURE_CLASS_REGISTRY_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_ADMISSION",
+  "classes": [
+    {
+      "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+      "family": "CLAIM_CONSUMPTION_FAILURE",
+      "definition": "An AI-assisted candidate change and its explicit or implied readiness representation acquire repository standing before consumer-owned trusted-base verification establishes the claimed structural and operational conditions.",
+      "required_distinctions": [
+        "PRODUCER_REPRESENTATION",
+        "CONSUMER_ADMISSION_EVIDENCE",
+        "IMPLEMENTATION_DEFECT",
+        "GOVERNANCE_DEFECT",
+        "INTENT"
+      ],
+      "intent_default": "NOT_EVALUATED",
+      "authority_effect": "NONE"
+    }
+  ]
+}
