@@ -68,6 +68,7 @@ jobs:
 
       - name: Authority-state invariance tests
         run: python -m pytest tests/test_authority_state_invariance_v0_1.py -q
+
       # ASI_WORKFLOW_END
 
       - name: Boundary-pressure suite
