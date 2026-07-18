@@ -9,7 +9,7 @@
 - Governing artifact or ruleset: <!-- path and version -->
 - Classification rationale:
 
-See [`docs/governance/CHANGE_CLASSIFICATION_v0_1.md`](../docs/governance/CHANGE_CLASSIFICATION_v0_1.md).
+See [`docs/governance/CHANGE_CLASSIFICATION_v0_1.md`](https://github.com/RecomputableEvidence/fork-public-evidence/blob/main/docs/governance/CHANGE_CLASSIFICATION_v0_1.md).
 
 ## Scope
 
