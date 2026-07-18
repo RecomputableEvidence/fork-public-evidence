@@ -113,6 +113,15 @@ def test_git_mode_distinguishes_symlink(tmp_path: Path) -> None:
 
 
 def test_committed_receipt_recomputes_byte_exactly() -> None:
+    candidate = "82c34252d7b8d9e8957fb5a86500e12da6cf363a"
+    present = subprocess.run(
+        ["git", "cat-file", "-e", f"{candidate}^{{commit}}"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if present.returncode != 0:
+        pytest.skip("exact PR #63 candidate object is unavailable in this checkout")
     completed = subprocess.run(
         [sys.executable, str(CHECKER), "--repo-root", str(ROOT), "--plan", str(PLAN.relative_to(ROOT))],
         cwd=ROOT,

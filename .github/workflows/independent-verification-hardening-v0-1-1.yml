@@ -17,9 +17,11 @@ permissions:
   contents: read
 
 jobs:
-  generate-hardened-receipt:
+  verify-hardened-package:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      PACKAGE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -40,16 +42,20 @@ jobs:
             82c34252d7b8d9e8957fb5a86500e12da6cf363a \
             1102113556edfc54b43a328317961c4896d6dd6c \
             e366e44cb2059f5cb7243757b95fa8d44859b811
-      - name: Generate hardened receipt
+      - name: Recompute committed hardened receipt
         run: |
           python tools/check_independent_verification_surface_v0_1_1.py \
             --plan verification/plans/PR_63_CSH_AMENDMENT_v0_1_1.json \
             --write-receipt /tmp/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
-          cat /tmp/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
-      - name: Upload generated receipt
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08
-        with:
-          name: pr-63-ivs-v0-1-1-generated-receipt
-          path: /tmp/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
-          if-no-files-found: error
-          retention-days: 7
+          cmp --silent \
+            /tmp/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json \
+            receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
+      - name: Run v0.1.1 adversarial tests
+        run: python -m pytest tests/test_independent_verification_surface_v0_1_1.py -q
+      - name: Recompute from empty disposable repository
+        run: |
+          python tools/run_independent_verification_fresh_v0_1_1.py \
+            --repository RecomputableEvidence/fork-public-evidence \
+            --package-commit "$PACKAGE_COMMIT" \
+            --plan verification/plans/PR_63_CSH_AMENDMENT_v0_1_1.json \
+            --expected-receipt receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
