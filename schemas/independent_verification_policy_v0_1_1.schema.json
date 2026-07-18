@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://recomputableevidence.example/schemas/independent_verification_policy_v0_1_1.schema.json",
+  "title": "Fork Independent Verification Policy v0.1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policy_id", "schema_version", "status", "purpose", "trusted_lane",
+    "verdict_precedence", "verdict_rule", "verifier_provenance",
+    "external_observation_contract", "json_contract", "assertion_contract",
+    "independence_boundary", "authority_effects", "non_claims"
+  ],
+  "properties": {
+    "policy_id": {"const": "FORK_INDEPENDENT_VERIFICATION_POLICY_v0_1_1"},
+    "schema_version": {"const": "0.1.1"},
+    "status": {"enum": ["PROPOSED_FOR_EXTERNAL_REVIEW", "ADMITTED"]},
+    "purpose": {"type": "string", "minLength": 1},
+    "trusted_lane": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "plan_source", "candidate_handling", "candidate_checkout",
+        "candidate_code_execution", "candidate_hook_execution",
+        "candidate_dependency_installation", "secret_use", "git_transport",
+        "fresh_repository_required_for_external_recomputation",
+        "maximum_plan_bytes", "maximum_asserted_blob_bytes",
+        "accepted_regular_file_modes"
+      ],
+      "properties": {
+        "plan_source": {"const": "TRUSTED_VERIFIER_CONTROL_PLANE"},
+        "candidate_handling": {"const": "READ_AS_GIT_OBJECT_DATA_ONLY"},
+        "candidate_checkout": {"const": "PROHIBITED_IN_TRUSTED_LANE"},
+        "candidate_code_execution": {"const": "PROHIBITED_IN_TRUSTED_LANE"},
+        "candidate_hook_execution": {"const": "PROHIBITED"},
+        "candidate_dependency_installation": {"const": "PROHIBITED"},
+        "secret_use": {"const": "PROHIBITED"},
+        "git_transport": {"const": "FULL_SHA_FETCH_ONLY_NO_SUBMODULES_NO_TAGS"},
+        "fresh_repository_required_for_external_recomputation": {"const": true},
+        "maximum_plan_bytes": {"const": 1048576},
+        "maximum_asserted_blob_bytes": {"const": 16777216},
+        "accepted_regular_file_modes": {
+          "type": "array", "const": ["100644", "100755"]
+        }
+      }
+    },
+    "verdict_precedence": {
+      "type": "array",
+      "const": [
+        "INCONCLUSIVE_EVIDENCE_GAP",
+        "INVALIDATED_BY_RECOMPUTATION",
+        "VERIFIED_WITHIN_DECLARED_SCOPE"
+      ]
+    },
+    "verdict_rule": {"type": "string", "minLength": 1},
+    "verifier_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "source_commit_required", "component_git_blob_bindings_required",
+        "running_checker_blob_must_match_declared_component",
+        "legacy_plan_and_receipt_lineage_required"
+      ],
+      "properties": {
+        "source_commit_required": {"const": true},
+        "component_git_blob_bindings_required": {"const": true},
+        "running_checker_blob_must_match_declared_component": {"const": true},
+        "legacy_plan_and_receipt_lineage_required": {"const": true}
+      }
+    },
+    "external_observation_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "observed_at_utc_required", "observer_required",
+        "observation_method_required", "subject_coordinates_required", "authority"
+      ],
+      "properties": {
+        "observed_at_utc_required": {"const": true},
+        "observer_required": {"const": true},
+        "observation_method_required": {"const": true},
+        "subject_coordinates_required": {"const": true},
+        "authority": {"const": "OBSERVATION_ONLY"}
+      }
+    },
+    "json_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["duplicate_keys", "non_finite_numbers", "unknown_properties", "canonical_serialization_allow_nan"],
+      "properties": {
+        "duplicate_keys": {"const": "REJECT"},
+        "non_finite_numbers": {"const": "REJECT"},
+        "unknown_properties": {"const": "REJECT"},
+        "canonical_serialization_allow_nan": {"const": false}
+      }
+    },
+    "assertion_contract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["assertion_ids_unique", "changed_paths_must_be_regular_git_blobs", "git_mode_and_object_type_recorded"],
+      "properties": {
+        "assertion_ids_unique": {"const": true},
+        "changed_paths_must_be_regular_git_blobs": {"const": true},
+        "git_mode_and_object_type_recorded": {"const": true}
+      }
+    },
+    "independence_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["surface_independence", "human_independence", "self_certification", "author_and_verifier_separation_required_for_independent_review"],
+      "properties": {
+        "surface_independence": {"const": "TRUSTED_PLAN_AND_ENGINE_SEPARATE_FROM_CANDIDATE_TREE"},
+        "human_independence": {"const": "REQUIRES_SEPARATELY_ATTRIBUTED_REVIEWER"},
+        "self_certification": {"const": "PROHIBITED"},
+        "author_and_verifier_separation_required_for_independent_review": {"const": true}
+      }
+    },
+    "authority_effects": {
+      "type": "object", "additionalProperties": false,
+      "required": ["merge", "repository_standing", "security_certification", "experiment_execution"],
+      "properties": {
+        "merge": {"const": "NONE"},
+        "repository_standing": {"const": "NONE"},
+        "security_certification": {"const": "NONE"},
+        "experiment_execution": {"const": "NONE"}
+      }
+    },
+    "non_claims": {
+      "type": "array", "minItems": 8, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}

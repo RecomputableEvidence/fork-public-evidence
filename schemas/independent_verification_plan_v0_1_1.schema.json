@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://recomputableevidence.example/schemas/independent_verification_plan_v0_1_1.schema.json",
+  "title": "Fork Independent Verification Hardening Plan v0.1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "plan_id", "schema_version", "scope_statement", "legacy_lineage",
+    "verifier_release", "subject", "external_observations",
+    "verdict_precedence", "independence_boundary"
+  ],
+  "properties": {
+    "plan_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_.-]{4,127}$"},
+    "schema_version": {"const": "0.1.1"},
+    "scope_statement": {"type": "string", "minLength": 1},
+    "legacy_lineage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["plan_path", "plan_git_blob_sha1", "receipt_path", "receipt_git_blob_sha1", "expected_verdict"],
+      "properties": {
+        "plan_path": {"$ref": "#/definitions/path"},
+        "plan_git_blob_sha1": {"$ref": "#/definitions/sha1"},
+        "receipt_path": {"$ref": "#/definitions/path"},
+        "receipt_git_blob_sha1": {"$ref": "#/definitions/sha1"},
+        "expected_verdict": {"const": "VERIFIED_WITHIN_DECLARED_SCOPE"}
+      }
+    },
+    "verifier_release": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "source_commit", "components"],
+      "properties": {
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+        "source_commit": {"$ref": "#/definitions/sha1"},
+        "components": {
+          "type": "array", "minItems": 7,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["role", "path", "git_blob_sha1"],
+            "properties": {
+              "role": {"type": "string", "pattern": "^[A-Z0-9_]+$"},
+              "path": {"$ref": "#/definitions/path"},
+              "git_blob_sha1": {"$ref": "#/definitions/sha1"}
+            }
+          }
+        }
+      }
+    },
+    "subject": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "base_commit", "candidate_commit", "expected_merge_base"],
+      "properties": {
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+        "base_commit": {"$ref": "#/definitions/sha1"},
+        "candidate_commit": {"$ref": "#/definitions/sha1"},
+        "expected_merge_base": {"$ref": "#/definitions/sha1"}
+      }
+    },
+    "external_observations": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/observation"}
+    },
+    "verdict_precedence": {
+      "type": "array",
+      "const": [
+        "INCONCLUSIVE_EVIDENCE_GAP",
+        "INVALIDATED_BY_RECOMPUTATION",
+        "VERIFIED_WITHIN_DECLARED_SCOPE"
+      ]
+    },
+    "independence_boundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["plan_origin", "candidate_tree_controls_plan", "human_verifier", "self_certification_prohibited"],
+      "properties": {
+        "plan_origin": {"const": "TRUSTED_VERIFIER_CONTROL_PLANE"},
+        "candidate_tree_controls_plan": {"const": false},
+        "human_verifier": {"type": "string", "minLength": 1},
+        "self_certification_prohibited": {"const": true}
+      }
+    }
+  },
+  "definitions": {
+    "sha1": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "path": {
+      "type": "string", "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)[^\\u0000-\\u001f]+$"
+    },
+    "observation": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "evidence_id", "kind", "reference", "observed_state",
+        "observed_at_utc", "observer", "observation_method",
+        "subject_coordinates", "authority_effect"
+      ],
+      "properties": {
+        "evidence_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_.-]{2,127}$"},
+        "kind": {"enum": ["GITHUB_ACTIONS_RUN", "PULL_REQUEST_STATE", "REVIEW_RECORD", "OTHER"]},
+        "reference": {"type": "string", "minLength": 1},
+        "observed_state": {"type": "string", "minLength": 1},
+        "observed_at_utc": {"type": "string", "format": "date-time"},
+        "observer": {"type": "string", "minLength": 1},
+        "observation_method": {"type": "string", "minLength": 1},
+        "subject_coordinates": {
+          "type": "object", "additionalProperties": false, "minProperties": 1,
+          "patternProperties": {"^[A-Za-z0-9_.-]+$": {"type": ["string", "integer", "boolean", "null"]}}
+        },
+        "captured_response_sha256": {"$ref": "#/definitions/sha256"},
+        "authority_effect": {"const": "OBSERVATION_ONLY"}
+      }
+    }
+  }
+}
