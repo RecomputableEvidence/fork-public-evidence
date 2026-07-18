@@ -136,6 +136,14 @@ jobs:
           }
           Get-Content -LiteralPath $log
 
+      - name: Upload PowerShell verifier diagnostic log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fork-proof-surface-powershell-log
+          path: ${{ runner.temp }}/fork-proof-surface-powershell.log
+          if-no-files-found: error
+
 # BEGIN CSH_EXECUTION_INSTRUMENTATION_V0_1_1_JOB
   csh-execution-instrumentation-v0-1-1:
     name: CSH execution instrumentation v0.1.1
