@@ -1,0 +1,36 @@
+{
+  "request_id": "CSH_PROVIDER_VALIDATION_REQUEST_v0_1_2",
+  "schema_version": "v0.1.2",
+  "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+  "status": "REQUESTED",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "trusted_lineage": {
+    "preservation_merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3",
+    "admission_anchor_merge_commit": "33726e6e79be430809121673e71f85e3eedcae90",
+    "instrumentation_release_anchor_merge_commit": "b877a4e455429f5c30f78219d6c8f767c744cfba",
+    "provider_lane_policy_merge_commit": "048a04167345b1de14c50fdfef9a8d4d06c0292a",
+    "provider_validation_lane_merge_commit": "a97f3edcc965c4c72f4870bd449eca988d804bae"
+  },
+  "requested_validations": [
+    "PROVIDER_IDENTITY",
+    "EPHEMERAL_CREDENTIAL_SCOPE_MODELS_READ",
+    "QUOTA_AVAILABILITY_AT_VALIDATION_TIME",
+    "RECEIPT_DESTINATION_ROUND_TRIP"
+  ],
+  "execution_boundary": {
+    "provider_validation_calls_requested": 2,
+    "pair_001_calls_requested": 0,
+    "pair_001_execution_effect": "NONE",
+    "candidate_checkout": "NONE",
+    "candidate_code_execution": "NONE",
+    "experiment_run_ids_requested": []
+  },
+  "receipt_destination": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json",
+  "non_claims": [
+    "Not a Pair-001 request or repetition",
+    "Not included in the CSH baseline or hypothesis test",
+    "Not authorization to execute Pair-001",
+    "Not merge authority",
+    "Not a security, compliance, safety, truth, or production-readiness certification"
+  ]
+}
