@@ -1,0 +1,82 @@
+{
+  "authentication": {
+    "authorization_header_persisted": false,
+    "credential_source": "EPHEMERAL_GITHUB_ACTIONS_GITHUB_TOKEN",
+    "required_permission": "models: read",
+    "secret_persisted": false
+  },
+  "calls": [
+    {
+      "expected_returned_model": "DeepSeek-V3-0324",
+      "failure": {
+        "message": "provider returned HTTP 500",
+        "type": "ValueError"
+      },
+      "http_status": 500,
+      "passed": false,
+      "provider": "DeepSeek",
+      "quota_headers": {},
+      "receiver_class_id": "llm_receiver_b",
+      "request_sha256": "70a1c1d0b05da416d2c419bac137505216dbc2ae497e0114b4e815d2c079584c",
+      "requested_model": "deepseek/DeepSeek-V3-0324",
+      "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
+      "response_body_written": false
+    },
+    {
+      "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
+      "http_status": 200,
+      "passed": true,
+      "provider": "Meta",
+      "quota_evidence": {
+        "available": true,
+        "basis": "SUCCESSFUL_BOUNDED_PROVIDER_REQUEST",
+        "remaining_not_quantified": true
+      },
+      "quota_headers": {},
+      "receiver_class_id": "llm_receiver_a",
+      "request_sha256": "5546c18d982580fd3416addf8438cdf42cb90bc9893cb8ac54414fe7729c89cf",
+      "requested_model": "meta/Llama-4-Scout-17B-16E-Instruct",
+      "response_body_sha256": "1eda0a46e41d5ed06a126255a014280e142b73d244cc28a616820b29cf326c14",
+      "response_body_written": false,
+      "response_text_sha256": "0d2618ebe2d83ea20809e4acd4f4e2d257caf870b22d5a6278747693cc47674e",
+      "returned_model": "Llama-4-Scout-17B-16E-Instruct",
+      "usage": {
+        "audio_prompt_tokens": 0,
+        "completion_tokens": 7,
+        "prompt_tokens": 49,
+        "prompt_tokens_details": null,
+        "total_tokens": 56
+      }
+    }
+  ],
+  "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+  "endpoint": "https://models.github.ai/inference/chat/completions",
+  "experiment_run_ids_created": [],
+  "non_claims": [
+    "Not a Pair-001 request or repetition",
+    "Not included in the CSH baseline or hypothesis test",
+    "No provider credential or authorization header persisted",
+    "No experiment execution authority",
+    "No security, compliance, safety, truth, or production-readiness certification"
+  ],
+  "observed_at_utc": "2026-07-19T07:42:34.083313+00:00",
+  "pair_001_calls_performed": 0,
+  "provider_validation_calls_performed": 2,
+  "receipt_destination": {
+    "path": "provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json",
+    "round_trip_verified": true,
+    "write_mode": "CREATE_NEW"
+  },
+  "receipt_id": "CSH_PROVIDER_VALIDATION_RECEIPT_v0_1_2",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "schema_version": "v0.1.2",
+  "status": "FAIL",
+  "subject_commit": "1ea494b86c097323c27591195c3aea01e778bbf6",
+  "validations": {
+    "credential_scope_models_read": "FAIL",
+    "provider_identity": "FAIL",
+    "quota_available_at_validation_time": "FAIL",
+    "receipt_destination": "PASS"
+  },
+  "workflow_run_id": 29678549437
+}
