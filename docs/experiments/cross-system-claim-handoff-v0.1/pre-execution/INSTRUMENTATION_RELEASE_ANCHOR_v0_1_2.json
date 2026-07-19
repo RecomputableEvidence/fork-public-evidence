@@ -3,15 +3,92 @@
   "schema_version": "v0.1.2",
   "experiment_id": "cross_system_claim_handoff_v0_1",
   "amendment_id": "CSH-AMEND-003",
-  "status": "not_published",
-  "admitted_commit": null,
-  "required_check_runs": [],
-  "all_required_checks_successful": false,
-  "published_at_utc": null,
-  "provider_execution_effect": "NONE_WHILE_NOT_PUBLISHED",
+  "status": "published",
+  "admitted_commit": "1ab4316b5de6100674695912a077b168cc36651b",
+  "admission_anchor": {
+    "pull_request": 69,
+    "merge_commit": "33726e6e79be430809121673e71f85e3eedcae90",
+    "standing": "ADMITTED_TO_PRESERVATION_LINEAGE"
+  },
+  "successor_hardening": {
+    "pull_request": 68,
+    "reviewed_head": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+    "merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3"
+  },
+  "required_check_runs": [
+    {
+      "scope": "PR_63_REVIEWED_HEAD",
+      "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "run_id": 29556486787,
+      "workflow": "Fork Evidence CI",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_63_REVIEWED_HEAD",
+      "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "run_id": 29556486800,
+      "workflow": "Cross-System Claim Handoff v0.1",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_63_REVIEWED_HEAD",
+      "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "run_id": 29556486836,
+      "workflow": "Fork Proof-Surface Integration",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_68_SUCCESSOR_HARDENING",
+      "head_commit": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+      "run_id": 29676319758,
+      "workflow": "Independent Verification Hardening v0.1.1",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_68_SUCCESSOR_HARDENING",
+      "head_commit": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+      "run_id": 29676319772,
+      "workflow": "Fork Evidence CI",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_68_SUCCESSOR_HARDENING",
+      "head_commit": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+      "run_id": 29676319764,
+      "workflow": "Cross-System Claim Handoff v0.1",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_68_SUCCESSOR_HARDENING",
+      "head_commit": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+      "run_id": 29676319760,
+      "workflow": "Fork Proof-Surface Integration",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_69_ADMISSION_ANCHOR",
+      "head_commit": "78c759323d127ce377693da74629986cc27cd836",
+      "run_id": 29677111759,
+      "workflow": "Fork Evidence CI",
+      "conclusion": "success"
+    },
+    {
+      "scope": "PR_69_ADMISSION_ANCHOR",
+      "head_commit": "78c759323d127ce377693da74629986cc27cd836",
+      "run_id": 29677111744,
+      "workflow": "Fork Proof-Surface Integration",
+      "conclusion": "success"
+    }
+  ],
+  "all_required_checks_successful": true,
+  "published_at_utc": "2026-07-19T06:57:38.788Z",
+  "provider_execution_effect": "NONE_UNTIL_SEPARATE_PROVIDER_VALIDATION_AND_EXPLICIT_EXECUTION_PERMISSION",
+  "pair_001_execution_effect": "NONE",
   "non_claims": [
-    "No merge approval",
     "No provider credential",
-    "No experiment execution authorization while status is not_published"
+    "No provider identity, credential-scope, quota, or receipt-path validation",
+    "No Pair-001 execution",
+    "No security certification",
+    "No authority beyond the admitted preservation lineage and recorded successful checks"
   ]
 }

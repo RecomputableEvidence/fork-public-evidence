@@ -30,7 +30,13 @@ def test_structural_readiness_passes_while_execution_is_blocked() -> None:
         "status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
         "structural_ok": True,
     }
-    assert set(result["prerequisites"].values()) == {False}
+    assert result["prerequisites"] == {
+        "CLAIM_ADMISSION_PR_62_ADMITTED": True,
+        "CSH_AMENDMENT_PR_ADMITTED": True,
+        "INSTRUMENTATION_RELEASE_ANCHOR_PUBLISHED": True,
+        "PRESERVATION_PR_61_ADMITTED": True,
+        "PROVIDER_IDENTITY_CREDENTIAL_SCOPE_QUOTA_AND_RECEIPT_PATH_VALIDATED": False,
+    }
 
 
 def test_require_executable_fails_closed() -> None:
