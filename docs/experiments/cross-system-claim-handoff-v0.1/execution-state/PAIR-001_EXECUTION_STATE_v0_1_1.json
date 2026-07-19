@@ -31,16 +31,56 @@
                                   "path":  "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/ORIGINAL_ATTEMPT_SEAL_v0_1_1.json",
                                   "sha256":  "5f0e2ba294d1fa3cf9dff6ee84b9a5b444c4739cec74d8ad4180028746fc8de6"
                               },
-    "current_phase":  "instrumentation_repair_installed_not_published",
+    "current_phase":  "instrumentation_repair_published_execution_blocked_provider_validation",
     "publication":  {
-                        "status":  "not_published",
-                        "patch_commit":  null,
+                        "status":  "published",
+                        "patch_commit":  "1ab4316b5de6100674695912a077b168cc36651b",
                         "patch_ci":  [
-
+                                         {
+                                             "scope":  "PR_63_REVIEWED_HEAD",
+                                             "head_commit":  "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+                                             "run_id":  29556486787,
+                                             "workflow":  "Fork Evidence CI",
+                                             "conclusion":  "success"
+                                         },
+                                         {
+                                             "scope":  "PR_63_REVIEWED_HEAD",
+                                             "head_commit":  "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+                                             "run_id":  29556486800,
+                                             "workflow":  "Cross-System Claim Handoff v0.1",
+                                             "conclusion":  "success"
+                                         },
+                                         {
+                                             "scope":  "PR_63_REVIEWED_HEAD",
+                                             "head_commit":  "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+                                             "run_id":  29556486836,
+                                             "workflow":  "Fork Proof-Surface Integration",
+                                             "conclusion":  "success"
+                                         }
                                      ],
-                        "anchor_commit":  null,
+                        "anchor_commit":  "b877a4e455429f5c30f78219d6c8f767c744cfba",
                         "anchor_ci":  [
-
+                                          {
+                                              "scope":  "PR_70_RELEASE_ANCHOR_HEAD",
+                                              "head_commit":  "2e41242d87e4c1914f0859b4261d8587c6bfedaa",
+                                              "run_id":  29677346156,
+                                              "workflow":  "Fork Evidence CI",
+                                              "conclusion":  "success"
+                                          },
+                                          {
+                                              "scope":  "PR_70_RELEASE_ANCHOR_HEAD",
+                                              "head_commit":  "2e41242d87e4c1914f0859b4261d8587c6bfedaa",
+                                              "run_id":  29677346126,
+                                              "workflow":  "Cross-System Claim Handoff v0.1",
+                                              "conclusion":  "success"
+                                          },
+                                          {
+                                              "scope":  "PR_70_RELEASE_ANCHOR_HEAD",
+                                              "head_commit":  "2e41242d87e4c1914f0859b4261d8587c6bfedaa",
+                                              "run_id":  29677346129,
+                                              "workflow":  "Fork Proof-Surface Integration",
+                                              "conclusion":  "success"
+                                          }
                                       ]
                     },
     "original_attempts":  [
@@ -121,6 +161,20 @@
                                              "V0_1_FREEZE_BYTE_IDENTITY_REPORT_v0_1_1.json"
                                          ],
                             "non_claim":  "This transition records an instrumentation change; it does not establish an experimental result."
+                        },
+                        {
+                            "transition_id":  "CSH-TRANSITION-AMEND-003-PUBLISH",
+                            "occurred_at_utc":  "2026-07-19T07:02:11Z",
+                            "cause":  "instrumentation_release_anchor_published",
+                            "from_phase":  "instrumentation_repair_installed_not_published",
+                            "to_phase":  "instrumentation_repair_published_execution_blocked_provider_validation",
+                            "evidence":  [
+                                             "CSH-AMEND-003",
+                                             "INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json",
+                                             "1ab4316b5de6100674695912a077b168cc36651b",
+                                             "b877a4e455429f5c30f78219d6c8f767c744cfba"
+                                         ],
+                            "non_claim":  "This transition records publication only; it does not satisfy provider validation, promote readiness, authorize execution, or add a Pair-001 repetition."
                         }
                     ],
     "non_claims":  [
