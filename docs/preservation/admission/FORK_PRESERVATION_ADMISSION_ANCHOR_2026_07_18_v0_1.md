@@ -25,16 +25,16 @@ This evidence is independent recomputation and bounded exterior review only. It 
 
 ## Residuals
 
-Two non-blocking observations remain distinguishable and are addressed prospectively by successor PR #68:
+Two non-blocking observations remain distinguishable and were addressed prospectively by successor PR #68, reviewed at head `ce8c0815d3a332224c6072ac5e567dffbee5f4c7` and merged as `a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3`:
 
 1. non-execution fields were declared literals rather than derived from an operation record;
 2. a contradictory declared readiness status was normalized rather than explicitly reported.
 
-Their preservation here does not imply that PR #68 is admitted or merged.
+Their preservation here does not convert PR #68 into exterior review or include it in this anchor's PR #61–#64 admission set.
 
 ## Current-state projection
 
-At preservation commit `1ab4316b5de6100674695912a077b168cc36651b`, Pair-001 remains `STRUCTURALLY_READY_EXECUTION_BLOCKED`, `executable=false`, and provider calls remain zero. The instrumentation release anchor is not published, and provider identity, credential scope, quota, and receipt-path validation are not satisfied.
+At preservation commit `a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3`, Pair-001 remains `STRUCTURALLY_READY_EXECUTION_BLOCKED`, `executable=false`, and provider calls remain zero. The instrumentation release anchor is not published, and provider identity, credential scope, quota, and receipt-path validation are not satisfied.
 
 This projection does not rewrite the original Pair-001 attempts or any historical record.
 
