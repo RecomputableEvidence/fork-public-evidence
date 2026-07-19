@@ -11,9 +11,11 @@
     "provider_lane_policy_merge_commit": "048a04167345b1de14c50fdfef9a8d4d06c0292a",
     "provider_validation_lane_merge_commit": "a97f3edcc965c4c72f4870bd449eca988d804bae",
     "provider_validation_push_lane_merge_commit": "5f83f9e90303fc48ec37d8269591ffad89def86e",
-    "initial_request_merge_commit": "a10fa59875c10a3b44ea27e8a13976c5b10fea45"
+    "initial_request_merge_commit": "a10fa59875c10a3b44ea27e8a13976c5b10fea45",
+    "attempt_002_request_merge_commit": "1ea494b86c097323c27591195c3aea01e778bbf6",
+    "deepseek_probe_budget_hardening_merge_commit": "bf8077325ec57b2a1ad997d4c5014c424fe5cfd4"
   },
-  "attempt_number": 2,
+  "attempt_number": 3,
   "prior_attempts": [
     {
       "attempt_number": 1,
@@ -23,12 +25,32 @@
       "receipt_sha256": "739d0729823482bb3bdb9b0507ba0235ecd6319764fb31f4d94cac3bd89e5e5d",
       "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_001_v0_1_2.json",
       "status": "FAIL",
-      "disposition": "TRANSIENT_PROVIDER_HTTP_500_RETRY_WITHOUT_MODEL_SUBSTITUTION",
+      "deepseek_http_status": 500,
+      "meta_http_status": 200,
+      "pair_001_calls_performed": 0
+    },
+    {
+      "attempt_number": 2,
+      "workflow_run_id": 29678549437,
+      "artifact_id": 8439772227,
+      "artifact_zip_sha256": "3192931d61a0d60d004cb0766962674de29ebf23ad6ff4ea995fe73aee614404",
+      "receipt_sha256": "4b907397cee94446780eb8fc1efc742722347a74b3e93115648810b2ef78646c",
+      "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_002_v0_1_2.json",
+      "status": "FAIL",
       "deepseek_http_status": 500,
       "meta_http_status": 200,
       "pair_001_calls_performed": 0
     }
   ],
+  "retry_basis": {
+    "model_substitution": false,
+    "deepseek_requested_model": "deepseek/DeepSeek-V3-0324",
+    "deepseek_expected_returned_model": "DeepSeek-V3-0324",
+    "changed_parameter": "max_tokens",
+    "prior_value": 32,
+    "retry_value": 2048,
+    "binding": "PREREGISTERED_RECEIVER_PARAMETER"
+  },
   "requested_validations": [
     "PROVIDER_IDENTITY",
     "EPHEMERAL_CREDENTIAL_SCOPE_MODELS_READ",
@@ -37,7 +59,7 @@
   ],
   "execution_boundary": {
     "provider_validation_calls_requested_this_attempt": 2,
-    "provider_validation_calls_previously_performed": 2,
+    "provider_validation_calls_previously_performed": 4,
     "pair_001_calls_requested": 0,
     "pair_001_calls_previously_performed": 0,
     "pair_001_execution_effect": "NONE",
