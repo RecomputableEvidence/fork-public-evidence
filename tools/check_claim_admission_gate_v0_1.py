@@ -36,6 +36,11 @@ SUCCESSOR_PROVENANCE_PATH = Path(
 )
 TRUSTED_WORKFLOW = ".github/workflows/consumer-owned-claim-admission.yml"
 PROVIDER_VALIDATION_WORKFLOW = ".github/workflows/csh-provider-validation-v0-1-2.yml"
+PROVIDER_VALIDATION_BRANCH = "preservation/clean-continuance-v0.1"
+PROVIDER_VALIDATION_REQUEST = (
+    "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/"
+    "PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
+)
 POLICY_ID = "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1"
 FAILURE_CLASS_ID = "CCF-001_AI_CHANGE_READINESS_PROMOTION"
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
@@ -536,8 +541,20 @@ def check_workflow(
         expect("github.event.pull_request.head.sha" not in json.dumps([step.get("with", {}) for job in jobs.values() if isinstance(job, dict) for step in job.get("steps", []) if isinstance(step, dict)]), "CANDIDATE_CHECKOUT_PROHIBITED", "Candidate refs may not be passed to actions/checkout.", path, errors)
         expect("tools/check_claim_admission_gate_v0_1.py" in serialized, "TRUSTED_CHECKER_INVOCATION_MISSING", "Trusted workflow must invoke the consumer-owned checker.", path, errors)
     elif path == PROVIDER_VALIDATION_WORKFLOW:
-        expect(has_pr_target, "PROVIDER_VALIDATION_TRIGGER_MISMATCH", "Provider validation must use pull_request_target so workflow code comes from the trusted base.", path, errors)
-        expect(isinstance(triggers, dict) and set(triggers) == {"pull_request_target"}, "PROVIDER_VALIDATION_TRIGGER_EXPANDED", "Provider validation may have no trigger other than pull_request_target.", path, errors)
+        has_push = isinstance(triggers, dict) and "push" in triggers
+        expect(has_push, "PROVIDER_VALIDATION_PUSH_TRIGGER_MISMATCH", "Provider validation must run only after a reviewed request is merged onto the governed branch.", path, errors)
+        expect(isinstance(triggers, dict) and set(triggers) == {"push"}, "PROVIDER_VALIDATION_TRIGGER_EXPANDED", "Provider validation may have no trigger other than push.", path, errors)
+        push_scope = triggers.get("push") if isinstance(triggers, dict) else None
+        expect(
+            push_scope == {
+                "branches": [PROVIDER_VALIDATION_BRANCH],
+                "paths": [PROVIDER_VALIDATION_REQUEST],
+            },
+            "PROVIDER_VALIDATION_PUSH_SCOPE_INVALID",
+            "Provider validation push scope must be exactly the governed branch and request path.",
+            path,
+            errors,
+        )
         serialized = json.dumps(workflow, sort_keys=True)
         expect("${{ secrets." not in serialized, "PROVIDER_VALIDATION_SECRET_REFERENCE_PROHIBITED", "Provider validation may use the ephemeral github.token only; repository secret references are prohibited.", path, errors)
         checkout_values = [
@@ -549,9 +566,9 @@ def check_workflow(
         ]
         expect(bool(checkout_values), "PROVIDER_VALIDATION_TRUSTED_CHECKOUT_MISSING", "Provider validation must check out the trusted base implementation.", path, errors)
         expect(
-            all(values.get("ref") == "${{ github.event.pull_request.base.sha }}" for values in checkout_values if isinstance(values, dict)),
-            "PROVIDER_VALIDATION_CHECKOUT_NOT_BASE_BOUND",
-            "Every provider-validation checkout must be pinned to the pull-request base SHA.",
+            all(values.get("ref") == "${{ github.sha }}" for values in checkout_values if isinstance(values, dict)),
+            "PROVIDER_VALIDATION_CHECKOUT_NOT_MERGE_BOUND",
+            "Every provider-validation checkout must be pinned to the reviewed merged request SHA.",
             path,
             errors,
         )
