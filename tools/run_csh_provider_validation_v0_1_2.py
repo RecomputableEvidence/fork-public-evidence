@@ -24,12 +24,14 @@ MODEL_SPECS = (
         "provider": "DeepSeek",
         "requested_model": "deepseek/DeepSeek-V3-0324",
         "expected_returned_model": "DeepSeek-V3-0324",
+        "max_tokens": 2048,
     },
     {
         "receiver_class_id": "llm_receiver_a",
         "provider": "Meta",
         "requested_model": "meta/Llama-4-Scout-17B-16E-Instruct",
         "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
+        "max_tokens": 32,
     },
 )
 SYSTEM_PROMPT = (
@@ -86,10 +88,10 @@ def strict_json_bytes(raw: bytes) -> Any:
     )
 
 
-def build_probe_request(requested_model: str) -> dict[str, Any]:
+def build_probe_request(requested_model: str, max_tokens: int) -> dict[str, Any]:
     return {
         "frequency_penalty": 0,
-        "max_tokens": 32,
+        "max_tokens": max_tokens,
         "messages": [
             {"content": SYSTEM_PROMPT, "role": "system"},
             {"content": USER_PROMPT, "role": "user"},
@@ -158,8 +160,10 @@ def response_text(payload: Mapping[str, Any]) -> str:
     return message["content"]
 
 
-def invoke_probe(spec: Mapping[str, str], token: str, timeout_seconds: int) -> dict[str, Any]:
-    request_body = canonical_json_bytes(build_probe_request(spec["requested_model"]))
+def invoke_probe(spec: Mapping[str, Any], token: str, timeout_seconds: int) -> dict[str, Any]:
+    request_body = canonical_json_bytes(
+        build_probe_request(spec["requested_model"], spec["max_tokens"])
+    )
     request = urllib.request.Request(
         ENDPOINT,
         data=request_body,
