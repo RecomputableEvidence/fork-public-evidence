@@ -1,0 +1,10 @@
+{
+  "candidate_checkout": "NONE",
+  "candidate_code_execution": "NONE",
+  "checker": "FORK_INDEPENDENT_VERIFICATION_FRESH_REPOSITORY_RUNNER_v0_1_1",
+  "checker_exit_code": 0,
+  "disposable_repository": true,
+  "package_commit": "d911ad5c33e0ec32037414effa7749326983d5ff",
+  "receipt_byte_exact": true,
+  "result": "FRESH_RECOMPUTATION_PASS"
+}
