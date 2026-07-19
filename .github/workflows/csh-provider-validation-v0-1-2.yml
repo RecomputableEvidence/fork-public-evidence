@@ -31,17 +31,30 @@ jobs:
           ref: ${{ github.event.pull_request.base.sha }}
           persist-credentials: false
 
+      - name: Detect installed trusted validation lane
+        id: installed
+        shell: bash
+        run: |
+          if test -f tools/run_csh_provider_validation_v0_1_2.py; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up Python
+        if: steps.installed.outputs.present == 'true'
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.11"
 
       - name: Run trusted provider-validation tests
+        if: steps.installed.outputs.present == 'true'
         run: |
           python -m pip install --require-hashes -r requirements-proof-surface.lock.txt
           python -m pytest tests/test_csh_provider_validation_v0_1_2.py -q
 
       - name: Run bounded synthetic provider validation
+        if: steps.installed.outputs.present == 'true'
         env:
           GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -52,7 +65,7 @@ jobs:
             --output provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
 
       - name: Upload provider-validation receipt
-        if: always()
+        if: always() && steps.installed.outputs.present == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: csh-provider-validation-${{ github.event.pull_request.head.sha }}
@@ -71,7 +84,18 @@ jobs:
           ref: ${{ github.event.pull_request.base.sha }}
           persist-credentials: false
 
+      - name: Detect installed trusted validation lane
+        id: installed
+        shell: bash
+        run: |
+          if test -f tools/run_csh_provider_validation_v0_1_2.py; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Fetch candidate attestation as an object only
+        if: steps.installed.outputs.present == 'true'
         env:
           CANDIDATE_SHA: ${{ github.event.pull_request.head.sha }}
           REPOSITORY: ${{ github.repository }}
@@ -83,6 +107,7 @@ jobs:
             > /tmp/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
 
       - name: Verify committed attestation with trusted code
+        if: steps.installed.outputs.present == 'true'
         run: |
           python tools/run_csh_provider_validation_v0_1_2.py \
             --verify-receipt /tmp/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
