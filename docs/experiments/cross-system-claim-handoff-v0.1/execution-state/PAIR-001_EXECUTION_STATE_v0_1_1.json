@@ -33,7 +33,7 @@
                               },
     "current_phase":  "instrumentation_repair_published_execution_blocked_provider_validation",
     "publication":  {
-                        "status":  "published",
+                        "status":  "anchor_ci_green",
                         "patch_commit":  "1ab4316b5de6100674695912a077b168cc36651b",
                         "patch_ci":  [
                                          {
