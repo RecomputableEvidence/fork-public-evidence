@@ -2,7 +2,7 @@
   "request_id": "CSH_PROVIDER_VALIDATION_REQUEST_v0_1_2",
   "schema_version": "v0.1.2",
   "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
-  "status": "REQUESTED",
+  "status": "RETRY_REQUESTED",
   "repository": "RecomputableEvidence/fork-public-evidence",
   "trusted_lineage": {
     "preservation_merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3",
@@ -10,8 +10,25 @@
     "instrumentation_release_anchor_merge_commit": "b877a4e455429f5c30f78219d6c8f767c744cfba",
     "provider_lane_policy_merge_commit": "048a04167345b1de14c50fdfef9a8d4d06c0292a",
     "provider_validation_lane_merge_commit": "a97f3edcc965c4c72f4870bd449eca988d804bae",
-    "provider_validation_push_lane_merge_commit": "5f83f9e90303fc48ec37d8269591ffad89def86e"
+    "provider_validation_push_lane_merge_commit": "5f83f9e90303fc48ec37d8269591ffad89def86e",
+    "initial_request_merge_commit": "a10fa59875c10a3b44ea27e8a13976c5b10fea45"
   },
+  "attempt_number": 2,
+  "prior_attempts": [
+    {
+      "attempt_number": 1,
+      "workflow_run_id": 29678434082,
+      "artifact_id": 8439732712,
+      "artifact_zip_sha256": "1ba06ddcb2e34796a941e4ea4ae37ba35e029341ec23720c5171baf85b2592fa",
+      "receipt_sha256": "739d0729823482bb3bdb9b0507ba0235ecd6319764fb31f4d94cac3bd89e5e5d",
+      "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_001_v0_1_2.json",
+      "status": "FAIL",
+      "disposition": "TRANSIENT_PROVIDER_HTTP_500_RETRY_WITHOUT_MODEL_SUBSTITUTION",
+      "deepseek_http_status": 500,
+      "meta_http_status": 200,
+      "pair_001_calls_performed": 0
+    }
+  ],
   "requested_validations": [
     "PROVIDER_IDENTITY",
     "EPHEMERAL_CREDENTIAL_SCOPE_MODELS_READ",
@@ -19,8 +36,10 @@
     "RECEIPT_DESTINATION_ROUND_TRIP"
   ],
   "execution_boundary": {
-    "provider_validation_calls_requested": 2,
+    "provider_validation_calls_requested_this_attempt": 2,
+    "provider_validation_calls_previously_performed": 2,
     "pair_001_calls_requested": 0,
+    "pair_001_calls_previously_performed": 0,
     "pair_001_execution_effect": "NONE",
     "reviewed_request_merge_required": true,
     "workflow_checkout": "MERGED_GITHUB_SHA_ONLY",
