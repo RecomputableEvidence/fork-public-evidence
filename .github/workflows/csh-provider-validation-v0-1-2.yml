@@ -1,0 +1,88 @@
+name: CSH Provider Validation v0.1.2
+
+on:
+  pull_request:
+    branches:
+      - preservation/clean-continuance-v0.1
+    paths:
+      - "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
+      - "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json"
+      - "tools/run_csh_provider_validation_v0_1_2.py"
+      - "tests/test_csh_provider_validation_v0_1_2.py"
+      - ".github/workflows/csh-provider-validation-v0-1-2.yml"
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  live-provider-validation:
+    if: github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout trusted base implementation
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.11"
+
+      - name: Run trusted provider-validation tests
+        run: |
+          python -m pip install --require-hashes -r requirements-proof-surface.lock.txt
+          python -m pytest tests/test_csh_provider_validation_v0_1_2.py -q
+
+      - name: Run bounded synthetic provider validation
+        env:
+          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/run_csh_provider_validation_v0_1_2.py \
+            --output provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
+
+      - name: Upload provider-validation receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: csh-provider-validation-${{ github.event.pull_request.head.sha }}
+          path: provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
+          if-no-files-found: error
+          retention-days: 7
+
+  verify-committed-attestation:
+    if: github.event.action != 'opened'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout trusted base verifier
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      - name: Fetch candidate attestation as an object only
+        env:
+          CANDIDATE_SHA: ${{ github.event.pull_request.head.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          git -c protocol.file.allow=never fetch --no-tags --no-recurse-submodules \
+            "https://github.com/${REPOSITORY}.git" "${CANDIDATE_SHA}"
+          git show \
+            "${CANDIDATE_SHA}:docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json" \
+            > /tmp/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
+
+      - name: Verify committed attestation with trusted code
+        run: |
+          python tools/run_csh_provider_validation_v0_1_2.py \
+            --verify-receipt /tmp/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
