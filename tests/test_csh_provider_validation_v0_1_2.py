@@ -54,13 +54,18 @@ def valid_receipt(path: Path) -> dict:
 
 
 def test_probe_is_synthetic_and_not_pair_001() -> None:
-    payload = MODULE.build_probe_request(MODULE.MODEL_SPECS[0]["requested_model"])
+    deepseek = MODULE.MODEL_SPECS[0]
+    meta = MODULE.MODEL_SPECS[1]
+    payload = MODULE.build_probe_request(deepseek["requested_model"], deepseek["max_tokens"])
     rendered = MODULE.canonical_json_bytes(payload)
     assert b"CSH_PROVIDER_VALIDATION_OK" in rendered
     assert b"Pair-001" not in rendered
     assert b"cross_system_claim_handoff" not in rendered
-    assert payload["max_tokens"] == 32
+    assert payload["model"] == "deepseek/DeepSeek-V3-0324"
+    assert payload["max_tokens"] == 2048
     assert payload["stream"] is False
+    meta_payload = MODULE.build_probe_request(meta["requested_model"], meta["max_tokens"])
+    assert meta_payload["max_tokens"] == 32
 
 
 def test_valid_receipt_verifies(tmp_path: Path) -> None:
