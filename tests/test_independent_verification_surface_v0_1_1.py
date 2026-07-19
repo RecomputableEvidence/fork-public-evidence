@@ -4,6 +4,7 @@ import importlib.util
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import jsonschema
@@ -23,6 +24,8 @@ PLAN_SCHEMA = ROOT / "schemas/independent_verification_plan_v0_1_1.schema.json"
 RECEIPT_SCHEMA = ROOT / "schemas/independent_verification_receipt_v0_1_1.schema.json"
 PLAN = ROOT / "verification/plans/PR_63_CSH_AMENDMENT_v0_1_1.json"
 RECEIPT = ROOT / "receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json"
+RUNNER = ROOT / "tools/run_independent_verification_fresh_v0_1_1.py"
+REVIEWED_PACKAGE_COMMIT = "d911ad5c33e0ec32037414effa7749326983d5ff"
 
 
 def load_module():
@@ -35,6 +38,17 @@ def load_module():
 
 
 IVS = load_module()
+
+
+def load_runner_module():
+    spec = importlib.util.spec_from_file_location("ivs_fresh_runner_v011", RUNNER)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+RUNNER_MODULE = load_runner_module()
 
 
 def strict(path: Path):
@@ -122,11 +136,58 @@ def test_committed_receipt_recomputes_byte_exactly() -> None:
     )
     if present.returncode != 0:
         pytest.skip("exact PR #63 candidate object is unavailable in this checkout")
-    completed = subprocess.run(
-        [sys.executable, str(CHECKER), "--repo-root", str(ROOT), "--plan", str(PLAN.relative_to(ROOT))],
-        cwd=ROOT,
-        capture_output=True,
-        check=False,
-    )
-    assert completed.returncode == 0, completed.stdout.decode() + completed.stderr.decode()
-    assert completed.stdout == RECEIPT.read_bytes()
+    with tempfile.TemporaryDirectory(prefix="fork-ivs-reviewed-package-") as temporary:
+        package = Path(temporary) / "package"
+        added = subprocess.run(
+            ["git", "worktree", "add", "--detach", str(package), REVIEWED_PACKAGE_COMMIT],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        assert added.returncode == 0, added.stdout + added.stderr
+        try:
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    str(package / CHECKER.relative_to(ROOT)),
+                    "--repo-root",
+                    str(package),
+                    "--plan",
+                    str(PLAN.relative_to(ROOT)),
+                ],
+                cwd=package,
+                capture_output=True,
+                check=False,
+            )
+            assert completed.returncode == 0, completed.stdout.decode() + completed.stderr.decode()
+            assert completed.stdout == (package / RECEIPT.relative_to(ROOT)).read_bytes()
+        finally:
+            subprocess.run(
+                ["git", "worktree", "remove", "--force", str(package)],
+                cwd=ROOT,
+                capture_output=True,
+                check=False,
+            )
+
+
+def test_candidate_effects_are_derived_from_operation_record() -> None:
+    candidate = "c" * 40
+    safe_operations = [
+        {"kind": "GIT_WORKTREE_ADD", "source_commit": "a" * 40, "role": "TRUSTED_PACKAGE"},
+        {"kind": "PROCESS_EXECUTION", "source_commit": "a" * 40, "role": "TRUSTED_PACKAGE_CHECKER"},
+    ]
+    assert RUNNER_MODULE.derive_candidate_effects(safe_operations, candidate) == {
+        "candidate_checkout": "NONE",
+        "candidate_code_execution": "NONE",
+    }
+    assert RUNNER_MODULE.derive_candidate_effects(
+        safe_operations
+        + [{"kind": "GIT_WORKTREE_ADD", "source_commit": candidate, "role": "CANDIDATE"}],
+        candidate,
+    )["candidate_checkout"] == "DETECTED"
+    assert RUNNER_MODULE.derive_candidate_effects(
+        safe_operations
+        + [{"kind": "PROCESS_EXECUTION", "source_commit": candidate, "role": "CANDIDATE"}],
+        candidate,
+    )["candidate_code_execution"] == "DETECTED"
