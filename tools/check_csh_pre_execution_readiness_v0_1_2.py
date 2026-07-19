@@ -190,7 +190,7 @@ def evaluate(root: Path) -> dict[str, Any]:
 
     publication_ok = (
         state.get("current_phase") == PUBLISHED_PHASE
-        and publication.get("status") == "published"
+        and publication.get("status") == "anchor_ci_green"
         and publication.get("patch_commit") == anchor.get("admitted_commit") == PATCH_COMMIT
         and ci_records_match(patch_ci, scope="PR_63_REVIEWED_HEAD", head=PATCH_HEAD, expected=PATCH_CI)
         and publication.get("anchor_commit") == ANCHOR_COMMIT
@@ -199,7 +199,7 @@ def evaluate(root: Path) -> dict[str, Any]:
     record(
         "publication_state_reconciled",
         publication_ok,
-        "published state is bound to admitted patch, release anchor, and successful checks"
+        "anchor-ci-green state is bound to admitted patch, published release anchor, and successful checks"
         if publication_ok
         else "publication state does not match the published release anchor",
     )
