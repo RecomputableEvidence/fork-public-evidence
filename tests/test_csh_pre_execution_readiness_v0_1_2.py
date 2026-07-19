@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -43,6 +44,23 @@ def test_require_executable_fails_closed() -> None:
     assert completed.returncode == 2
     payload = json.loads(completed.stdout)
     assert payload["result"]["status"] == "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+
+
+def test_declared_status_contradiction_is_reported(tmp_path: Path) -> None:
+    root = tmp_path / "repo"
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns(".git"))
+    binding_path = root / load_checker().BINDING
+    binding = json.loads(binding_path.read_text(encoding="utf-8"))
+    binding["status"] = "READY_FOR_EXECUTION"
+    binding_path.write_text(json.dumps(binding, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+    checker = load_checker()
+    result = checker.evaluate(root)
+    check = next(item for item in result["checks"] if item["name"] == "declared_status_consistency")
+    assert check["passed"] is False
+    assert "declared status contradiction" in check["detail"]
+    assert result["result"]["status"] == "PRE_EXECUTION_BINDING_FAILED"
+    assert result["result"]["executable"] is False
 
 
 def test_predetermined_hypothesis_is_exact() -> None:

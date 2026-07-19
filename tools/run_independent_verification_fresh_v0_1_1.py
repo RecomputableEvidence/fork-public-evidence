@@ -14,6 +14,30 @@ from pathlib import Path
 from typing import Any
 
 
+CHECKOUT_OPERATION_KINDS = {"GIT_CHECKOUT", "GIT_WORKTREE_ADD"}
+EXECUTION_OPERATION_KINDS = {"PROCESS_EXECUTION"}
+
+
+def derive_candidate_effects(
+    operations: list[dict[str, str]],
+    candidate_commit: str,
+) -> dict[str, str]:
+    candidate_checkout = any(
+        item.get("kind") in CHECKOUT_OPERATION_KINDS
+        and item.get("source_commit") == candidate_commit
+        for item in operations
+    )
+    candidate_execution = any(
+        item.get("kind") in EXECUTION_OPERATION_KINDS
+        and item.get("source_commit") == candidate_commit
+        for item in operations
+    )
+    return {
+        "candidate_checkout": "DETECTED" if candidate_checkout else "NONE",
+        "candidate_code_execution": "DETECTED" if candidate_execution else "NONE",
+    }
+
+
 def safe_git_env() -> dict[str, str]:
     env = os.environ.copy()
     env.update(
@@ -95,9 +119,11 @@ def main() -> int:
             f"{args.package_commit}:{args.plan}",
         ).stdout
         plan = json.loads(plan_raw.decode("utf-8"))
+        candidate_commit = plan["subject"]["candidate_commit"]
+        operations: list[dict[str, str]] = []
         commits = {
             plan["subject"]["base_commit"],
-            plan["subject"]["candidate_commit"],
+            candidate_commit,
             plan["verifier_release"]["source_commit"],
         }
         git(
@@ -109,7 +135,21 @@ def main() -> int:
             *sorted(commits),
         )
         git(object_repo, "worktree", "add", "--detach", str(worktree), args.package_commit)
+        operations.append(
+            {
+                "kind": "GIT_WORKTREE_ADD",
+                "source_commit": args.package_commit,
+                "role": "TRUSTED_PACKAGE",
+            }
+        )
         checker = worktree / "tools/check_independent_verification_surface_v0_1_1.py"
+        operations.append(
+            {
+                "kind": "PROCESS_EXECUTION",
+                "source_commit": args.package_commit,
+                "role": "TRUSTED_PACKAGE_CHECKER",
+            }
+        )
         completed = run(
             [
                 sys.executable,
@@ -124,11 +164,13 @@ def main() -> int:
         )
         expected = (worktree / args.expected_receipt).read_bytes()
         byte_exact = completed.stdout == expected
+        candidate_effects = derive_candidate_effects(operations, candidate_commit)
         summary = {
             "checker": "FORK_INDEPENDENT_VERIFICATION_FRESH_REPOSITORY_RUNNER_v0_1_1",
             "package_commit": args.package_commit,
-            "candidate_checkout": "NONE",
-            "candidate_code_execution": "NONE",
+            **candidate_effects,
+            "candidate_effect_basis": "DERIVED_FROM_OPERATION_RECORD",
+            "operation_record": operations,
             "disposable_repository": True,
             "checker_exit_code": completed.returncode,
             "receipt_byte_exact": byte_exact,

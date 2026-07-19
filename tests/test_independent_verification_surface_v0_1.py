@@ -32,6 +32,10 @@ INSTRUMENTATION_FREEZE = Path(
     "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
     "CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json"
 )
+SUCCESSOR_PROVENANCE = Path(
+    "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
+    "CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json"
+)
 
 
 def load_module():
@@ -74,6 +78,12 @@ def copy_trusted_surface(repo: Path) -> None:
         shutil.copytree(ROOT / directory, repo / directory)
     (repo / INSTRUMENTATION_FREEZE.parent).mkdir(parents=True)
     shutil.copy2(ROOT / INSTRUMENTATION_FREEZE, repo / INSTRUMENTATION_FREEZE)
+    if (ROOT / SUCCESSOR_PROVENANCE).is_file():
+        shutil.copytree(
+            ROOT / SUCCESSOR_PROVENANCE.parent,
+            repo / SUCCESSOR_PROVENANCE.parent,
+            dirs_exist_ok=True,
+        )
     (repo / "schemas").mkdir()
     for source in ROOT.glob("schemas/*verification*v0_1.schema.json"):
         shutil.copy2(source, repo / "schemas" / source.name)

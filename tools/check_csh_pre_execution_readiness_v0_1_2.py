@@ -207,6 +207,29 @@ def evaluate(root: Path) -> dict[str, Any]:
         and zero_calls
     )
     record("fail_closed_execution_boundary", boundary_consistent, "executable" if executable else "execution blocked")
+    provisional_structural_ok = all(item["passed"] for item in checks)
+    expected_declared_status = (
+        "EXECUTION_READY"
+        if provisional_structural_ok and executable
+        else (
+            "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+            if provisional_structural_ok
+            else "PRE_EXECUTION_BINDING_FAILED"
+        )
+    )
+    declared_status = binding.get("status")
+    record(
+        "declared_status_consistency",
+        declared_status == expected_declared_status,
+        (
+            f"declared and recomputed status agree: {expected_declared_status}"
+            if declared_status == expected_declared_status
+            else (
+                "declared status contradiction: "
+                f"declared={declared_status!r}; recomputed={expected_declared_status!r}"
+            )
+        ),
+    )
     return finish(checks, executable=executable, prerequisites=prerequisite_map)
 
 
