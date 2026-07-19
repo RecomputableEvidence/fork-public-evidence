@@ -1,0 +1,62 @@
+{
+  "fixture_set_id": "FORK_SEQUENCE_SURFACE_ADVERSARIAL_CASES_v0_1",
+  "schema_version": "v0.1",
+  "cases": [
+    {
+      "case_id": "FSS-ADV-001-SKIPPED-GATE",
+      "class": "SKIPPED_GATE",
+      "mutation": {
+        "operation": "remove_event",
+        "event_id": "FSS-PAIR001-E005"
+      },
+      "expected_error": "EVENT_ORDINALS_NONCONTIGUOUS"
+    },
+    {
+      "case_id": "FSS-ADV-002-REORDERED-EVENTS",
+      "class": "REORDERED_EVENTS",
+      "mutation": {
+        "operation": "swap_events",
+        "left_event_id": "FSS-PAIR001-E006",
+        "right_event_id": "FSS-PAIR001-E007"
+      },
+      "expected_error": "EVENT_ORDINALS_NONCONTIGUOUS"
+    },
+    {
+      "case_id": "FSS-ADV-003-FORGED-AUTHORIZATION",
+      "class": "FORGED_AUTHORIZATION",
+      "mutation": {
+        "operation": "set_event_field",
+        "event_id": "FSS-PAIR001-E010",
+        "field_path": ["authority", "present"],
+        "value": true
+      },
+      "expected_error": "AUTHORITY_FORGERY"
+    },
+    {
+      "case_id": "FSS-ADV-004-SILENT-RETRY",
+      "class": "SILENT_RETRY",
+      "mutation": {
+        "operation": "set_event_field",
+        "event_id": "FSS-PAIR001-E010",
+        "field_path": ["effects", "provider_calls_observed_delta"],
+        "value": 1
+      },
+      "expected_error": "EVENT_EFFECT_CONTRACT_VIOLATION"
+    },
+    {
+      "case_id": "FSS-ADV-005-FALSE-COMPLETION",
+      "class": "FALSE_COMPLETION",
+      "mutation": {
+        "operation": "set_event_field",
+        "event_id": "FSS-PAIR001-E010",
+        "field_path": ["to_state"],
+        "value": "PAIR_001_EXECUTION_ELIGIBLE"
+      },
+      "expected_error": "FORBIDDEN_PROMOTION"
+    }
+  ],
+  "non_claims": [
+    "These fixtures demonstrate bounded checker rejection only.",
+    "Fixture rejection does not establish universal security or resistance to coordinated re-sealing."
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "schema_version": "v0.1",
+  "ledger_id": "FORK_SEQUENCE_LEDGER_PAIR_001_v0_1",
+  "record_kind": "append_only_sequence_ledger",
+  "surface_kind": "CROSS_SURFACE_SEQUENCE_PROJECTION",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "append_only": true,
+  "subject": {
+    "experiment_id": "cross_system_claim_handoff_v0_1",
+    "pair_id": "PAIR-001"
+  },
+  "base_sequence_head": "0e58a151cb5801f554619eb44a40948ad03e3e55",
+  "transition_contract": {
+    "path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+    "sha256": "ef91ef74c572d22d28d94792cfb51367012dde37489288acce04449a45cf648d"
+  },
+  "projection_path": "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+  "events": [
+    {
+      "ordinal": 1,
+      "event_id": "FSS-PAIR001-E001",
+      "transition_id": "FSS-PAIR001-T001",
+      "event_type": "PAIR_001_ORIGINAL_ATTEMPT_OBSERVED",
+      "occurred_at_utc": "2026-07-12T06:48:15.976855+00:00",
+      "from_state": "SEQUENCE_INIT",
+      "to_state": "ORIGINAL_ATTEMPT_001_OBSERVED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 1,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/execution-metadata.json",
+          "sha256": "7e310188bdc195189fc06e966a433a850146c4d2daea0c08aca40519c59dc0f6",
+          "standing": "PRESERVED_HISTORICAL_EVIDENCE"
+        }
+      ],
+      "previous_event_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "event_sha256": "09938ae69046e71f2f6777ee4df0675ef5109efd1b639e3ddce8f25359dd6fb9",
+      "non_claims": [
+        "HTTP 200 is a preserved execution observation, not a semantic correctness or readiness claim."
+      ]
+    },
+    {
+      "ordinal": 2,
+      "event_id": "FSS-PAIR001-E002",
+      "transition_id": "FSS-PAIR001-T002",
+      "event_type": "PAIR_001_ORIGINAL_ATTEMPT_OBSERVED",
+      "occurred_at_utc": "2026-07-12T06:48:17.239516+00:00",
+      "from_state": "ORIGINAL_ATTEMPT_001_OBSERVED",
+      "to_state": "ORIGINAL_ATTEMPTS_PRESERVED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 1,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002/execution-metadata.json",
+          "sha256": "832d83c78cd53983133a3f5e77256fb335f1a4c64837b43e1de1a2645b3ee8b6",
+          "standing": "PRESERVED_HISTORICAL_EVIDENCE"
+        }
+      ],
+      "previous_event_sha256": "09938ae69046e71f2f6777ee4df0675ef5109efd1b639e3ddce8f25359dd6fb9",
+      "event_sha256": "ffc79736a0b0526a583b60b76a39e08880014fc43a02116e88cb4a010beabc56",
+      "non_claims": [
+        "HTTP 429 is a preserved execution observation, not a negative experimental finding."
+      ]
+    },
+    {
+      "ordinal": 3,
+      "event_id": "FSS-PAIR001-E003",
+      "transition_id": "FSS-PAIR001-T003",
+      "event_type": "INSTRUMENTATION_REPAIR_INSTALLED",
+      "occurred_at_utc": "2026-07-13T01:30:10.1797574Z",
+      "from_state": "ORIGINAL_ATTEMPTS_PRESERVED",
+      "to_state": "INSTRUMENTATION_REPAIR_INSTALLED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/CSH-AMEND-002_v0_1_1.json",
+          "sha256": "6fc24674454eb3e830b6fc787df30096aa05e6e8ae8faa067b88ec157e1d1be8",
+          "standing": "ADMITTED_CONTROL"
+        }
+      ],
+      "previous_event_sha256": "ffc79736a0b0526a583b60b76a39e08880014fc43a02116e88cb4a010beabc56",
+      "event_sha256": "ab1e7c43023e47238c9c036c48a680d3a4223ae68613eb22ceb22c2acf8d7cd5",
+      "non_claims": [
+        "Instrumentation repair preserves the original attempts and does not establish an experimental result."
+      ]
+    },
+    {
+      "ordinal": 4,
+      "event_id": "FSS-PAIR001-E004",
+      "transition_id": "FSS-PAIR001-T004",
+      "event_type": "SUCCESSOR_CONTROL_PROPOSED",
+      "occurred_at_utc": "2026-07-17T04:48:13Z",
+      "from_state": "INSTRUMENTATION_REPAIR_INSTALLED",
+      "to_state": "SUCCESSOR_CONTROL_PROPOSED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/CSH-AMEND-003_v0_1_2.json",
+          "sha256": "3141eb006bf086e79ad88cd3a4a03c57408ffcece8a28af490c9795709dfb0bd",
+          "standing": "PRESERVED_HISTORICAL_EVIDENCE"
+        }
+      ],
+      "previous_event_sha256": "ab1e7c43023e47238c9c036c48a680d3a4223ae68613eb22ceb22c2acf8d7cd5",
+      "event_sha256": "83bf68d2c69cb33199a49ae538fe35e27721e393765bdf76d5629cc58322b300",
+      "non_claims": [
+        "A proposed successor control is not execution authorization or readiness."
+      ]
+    },
+    {
+      "ordinal": 5,
+      "event_id": "FSS-PAIR001-E005",
+      "transition_id": "FSS-PAIR001-T005",
+      "event_type": "INSTRUMENTATION_RELEASE_PUBLISHED",
+      "occurred_at_utc": "2026-07-19T07:02:11Z",
+      "from_state": "SUCCESSOR_CONTROL_PROPOSED",
+      "to_state": "INSTRUMENTATION_RELEASE_PUBLISHED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json",
+          "sha256": "38a6ef3d1351e59b57c6e6c43f4bdf51113a315a0316a77625af4e40ef54c796",
+          "standing": "PUBLISHED_CONTROL"
+        }
+      ],
+      "previous_event_sha256": "83bf68d2c69cb33199a49ae538fe35e27721e393765bdf76d5629cc58322b300",
+      "event_sha256": "bf01c4463b81e7c1c20024d3227ada8770d9bcb6e3a3cceb42913231b4910362",
+      "non_claims": [
+        "Publication does not supply provider validation or authorize Pair-001 execution."
+      ]
+    },
+    {
+      "ordinal": 6,
+      "event_id": "FSS-PAIR001-E006",
+      "transition_id": "FSS-PAIR001-T006",
+      "event_type": "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+      "occurred_at_utc": "2026-07-19T07:38:22.039565+00:00",
+      "from_state": "INSTRUMENTATION_RELEASE_PUBLISHED",
+      "to_state": "PROVIDER_VALIDATION_ATTEMPT_001_FAILED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 2,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_001_v0_1_2.json",
+          "sha256": "739d0729823482bb3bdb9b0507ba0235ecd6319764fb31f4d94cac3bd89e5e5d",
+          "standing": "EXCLUDED_DIAGNOSTIC_EVIDENCE"
+        }
+      ],
+      "previous_event_sha256": "bf01c4463b81e7c1c20024d3227ada8770d9bcb6e3a3cceb42913231b4910362",
+      "event_sha256": "ace59cacd55a2fa96c5bae22714a504761d142afe607552aacb64d1147ea2651",
+      "non_claims": [
+        "This excluded diagnostic is not a Pair-001 repetition or baseline result."
+      ]
+    },
+    {
+      "ordinal": 7,
+      "event_id": "FSS-PAIR001-E007",
+      "transition_id": "FSS-PAIR001-T007",
+      "event_type": "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+      "occurred_at_utc": "2026-07-19T07:42:34.083313+00:00",
+      "from_state": "PROVIDER_VALIDATION_ATTEMPT_001_FAILED",
+      "to_state": "PROVIDER_VALIDATION_ATTEMPT_002_FAILED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 2,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_002_v0_1_2.json",
+          "sha256": "4b907397cee94446780eb8fc1efc742722347a74b3e93115648810b2ef78646c",
+          "standing": "EXCLUDED_DIAGNOSTIC_EVIDENCE"
+        }
+      ],
+      "previous_event_sha256": "ace59cacd55a2fa96c5bae22714a504761d142afe607552aacb64d1147ea2651",
+      "event_sha256": "a58d7c95df8eabf0a4bb852f51149c86e9befe51812b5099913eaa6b353a7594",
+      "non_claims": [
+        "This excluded diagnostic is not a Pair-001 repetition or baseline result."
+      ]
+    },
+    {
+      "ordinal": 8,
+      "event_id": "FSS-PAIR001-E008",
+      "transition_id": "FSS-PAIR001-T008",
+      "event_type": "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+      "occurred_at_utc": "2026-07-19T07:55:24.374494+00:00",
+      "from_state": "PROVIDER_VALIDATION_ATTEMPT_002_FAILED",
+      "to_state": "PROVIDER_VALIDATION_ATTEMPT_003_FAILED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 2,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_003_v0_1_2.json",
+          "sha256": "774d13a7106c1d40b7ea7b6ac86d1d27dcbc235e7904b1fe2dd548da95d2488f",
+          "standing": "EXCLUDED_DIAGNOSTIC_EVIDENCE"
+        }
+      ],
+      "previous_event_sha256": "a58d7c95df8eabf0a4bb852f51149c86e9befe51812b5099913eaa6b353a7594",
+      "event_sha256": "2079664e6b77193e92fb4b5e88927d07f5f18b499ccfb23a6a6a4114536ffa20",
+      "non_claims": [
+        "The third deterministic HTTP 500 does not establish its cause."
+      ]
+    },
+    {
+      "ordinal": 9,
+      "event_id": "FSS-PAIR001-E009",
+      "transition_id": "FSS-PAIR001-T009",
+      "event_type": "PROVIDER_VALIDATION_BLOCK_RECORDED",
+      "occurred_at_utc": "2026-07-19T08:04:18Z",
+      "from_state": "PROVIDER_VALIDATION_ATTEMPT_003_FAILED",
+      "to_state": "PROVIDER_VALIDATION_BLOCKED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
+          "sha256": "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865",
+          "standing": "CURRENT_BLOCKED_CONTROL"
+        }
+      ],
+      "previous_event_sha256": "2079664e6b77193e92fb4b5e88927d07f5f18b499ccfb23a6a6a4114536ffa20",
+      "event_sha256": "89c252dc12b9a1acacb1f124962c7fd172c43b9a30091e567b58aa116504db8c",
+      "non_claims": [
+        "Fail-closed blocking is not a finding about provider identity, availability, or permanent behavior."
+      ]
+    },
+    {
+      "ordinal": 10,
+      "event_id": "FSS-PAIR001-E010",
+      "transition_id": "FSS-PAIR001-T010",
+      "event_type": "DRIFT_CLASSIFICATION_RECORDED",
+      "occurred_at_utc": "2026-07-19T08:59:08Z",
+      "from_state": "PROVIDER_VALIDATION_BLOCKED",
+      "to_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/DEEPSEEK_RECEIVER_DRIFT_CLASSIFICATION_CONTRACT_v0_1_3.json",
+          "sha256": "7c03bee1be8c6d436a067364b3558873690f766f48f2adf40100b5350215ed37",
+          "standing": "CANDIDATE_PR_HEAD"
+        }
+      ],
+      "previous_event_sha256": "89c252dc12b9a1acacb1f124962c7fd172c43b9a30091e567b58aa116504db8c",
+      "event_sha256": "4715abc29d7e9674ae11981fac0b1905d654049e9ce3cc099b65d040ce5d0bd1",
+      "non_claims": [
+        "Cause remains UNRESOLVED and connector publishing authorization is not retry authorization."
+      ]
+    },
+    {
+      "ordinal": 11,
+      "event_id": "FSS-PAIR001-E011",
+      "transition_id": "FSS-PAIR001-T011",
+      "event_type": "STATE_PROJECTION_RECONCILED",
+      "occurred_at_utc": "2026-07-19T09:13:24Z",
+      "from_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "to_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "authority": {
+        "requirement": "NONE",
+        "present": false,
+        "reference": null,
+        "effect": "NONE"
+      },
+      "effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      },
+      "evidence_refs": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/PAIR-001_EXECUTION_STATE_v0_1_1.json",
+          "sha256": "d8f483dafe768447dca053080ff0f8dfdbd5ed4b09a2e44badaf4aaddba2d054",
+          "standing": "CANDIDATE_PR_HEAD"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+          "sha256": "cf2014655042199ed27656e652f2c5fda205dbb94dd960c08317a8a15690993f",
+          "standing": "ADMITTED_CONTROL"
+        }
+      ],
+      "previous_event_sha256": "4715abc29d7e9674ae11981fac0b1905d654049e9ce3cc099b65d040ce5d0bd1",
+      "event_sha256": "6a6764bd759fb8be972c7e09321369d241164a7ca0bab4cb1bc2aba1c5780b45",
+      "non_claims": [
+        "Projection reconciliation does not alter historical events, satisfy provider validation, promote readiness, or authorize execution."
+      ]
+    }
+  ],
+  "execution_effect": "NONE",
+  "non_claims": [
+    "This ledger orders referenced evidence but does not adopt referenced assertions as truth or authority.",
+    "The event hash chain detects uncoordinated mutation but does not prevent coordinated re-sealing without a separate external anchor.",
+    "An allowed successor is not an authorization, schedule, or instruction to execute it.",
+    "This candidate ledger performs no provider call, Pair-001 repetition, readiness promotion, or execution."
+  ]
+}

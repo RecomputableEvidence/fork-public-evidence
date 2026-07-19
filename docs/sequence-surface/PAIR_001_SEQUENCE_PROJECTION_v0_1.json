@@ -1,0 +1,82 @@
+{
+  "drift": {
+    "cause": "UNRESOLVED",
+    "classification": "RECEIVER_IDENTIFIER_DRIFT_CAUSE_UNRESOLVED",
+    "identical_failure_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
+    "identical_failure_http_status": 500,
+    "status": "CLASSIFIED_RETRY_NOT_AUTHORIZED",
+    "uppercase_request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
+  },
+  "execution_boundary": {
+    "execution_effect": "NONE",
+    "pair_001_calls_performed_by_sequence_surface_publication": 0,
+    "pair_001_execution_permitted": false,
+    "pair_001_repeat_runs_recorded": 0,
+    "provider_calls_performed_by_sequence_surface_publication": 0,
+    "provider_execution_permitted": false,
+    "provider_validation_prerequisite_satisfied": false,
+    "readiness_effect": "NONE"
+  },
+  "non_claims": [
+    "The projection is recomputed evidence, not an authority source.",
+    "A declared successor is not authorization to take it.",
+    "No diagnostic is classified as a Pair-001 repetition.",
+    "No provider call, readiness promotion, or Pair-001 execution is performed by this surface.",
+    "Sequence conformance does not establish truth, approval, compliance, safety, legal sufficiency, production readiness, or institutional authority."
+  ],
+  "observed_history": {
+    "deepseek_http_500_attempts": 3,
+    "meta_successful_validation_calls": 3,
+    "pair_001_original_attempts": 2,
+    "pair_001_repetitions": 0,
+    "provider_calls": 8,
+    "provider_validation_attempts": 3,
+    "provider_validation_calls": 6
+  },
+  "projection_as_of_utc": "2026-07-19T09:14:26Z",
+  "projection_id": "FORK_SEQUENCE_PROJECTION_PAIR_001_v0_1",
+  "publication_and_control": {
+    "instrumentation_release": "PUBLISHED",
+    "mutable_publication_state": "anchor_ci_green",
+    "pre_execution_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "provider_validation_request_status": "BLOCKED_PROVIDER_VALIDATION_FAILED"
+  },
+  "record_kind": "deterministic_sequence_projection",
+  "retry": {
+    "authorization_present": false,
+    "automatic_attempts": 0,
+    "earliest_permitted_at_utc": "2026-07-20T07:55:24.374494+00:00",
+    "explicit_authorization_required": true,
+    "minimum_gap_hours": 24,
+    "remaining_byte_identical_uppercase_attempts": 1
+  },
+  "schema_version": "v0.1",
+  "sequence": {
+    "append_only": true,
+    "current_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+    "currently_eligible_successor_transition_ids": [],
+    "declared_successor_transition_ids": [
+      "FSS-PAIR001-T012"
+    ],
+    "event_count": 11,
+    "last_event_id": "FSS-PAIR001-E011",
+    "last_event_sha256": "6a6764bd759fb8be972c7e09321369d241164a7ca0bab4cb1bc2aba1c5780b45"
+  },
+  "source": {
+    "base_sequence_head": "0e58a151cb5801f554619eb44a40948ad03e3e55",
+    "ledger_path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+    "ledger_sha256": "beea2e44b39d59df9c4e59d9bc2442e2ceefe32a3d17769579724c675812868f",
+    "transition_contract_path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+    "transition_contract_sha256": "ef91ef74c572d22d28d94792cfb51367012dde37489288acce04449a45cf648d"
+  },
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "successor_anchor": {
+    "must_bind_exact_merge_commit": true,
+    "must_bind_successful_workflow_runs": true,
+    "pair_001_execution_effect": "NONE",
+    "provider_call_effect": "NONE",
+    "readiness_effect": "NONE",
+    "status": "REQUIRED_AS_SEPARATE_SUCCESSOR_AFTER_SURFACE_MERGE"
+  },
+  "surface_kind": "CROSS_SURFACE_SEQUENCE_PROJECTION"
+}
