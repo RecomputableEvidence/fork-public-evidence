@@ -1,0 +1,51 @@
+{
+  "policy_id": "FORK_INDEPENDENT_VERIFICATION_POLICY_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_REVIEW",
+  "purpose": "Provide a trusted, recomputable surface that can support, contradict, or return inconclusive results for bounded contribution claims without inheriting candidate authority.",
+  "trusted_lane": {
+    "plan_source": "TRUSTED_VERIFIER_CONTROL_PLANE",
+    "candidate_handling": "READ_AS_GIT_OBJECT_DATA_ONLY",
+    "candidate_checkout": "PROHIBITED_IN_TRUSTED_LANE",
+    "candidate_code_execution": "PROHIBITED_IN_TRUSTED_LANE",
+    "candidate_hook_execution": "PROHIBITED",
+    "candidate_dependency_installation": "PROHIBITED",
+    "secret_use": "PROHIBITED",
+    "git_transport": "FULL_SHA_FETCH_ONLY_NO_SUBMODULES_NO_TAGS",
+    "maximum_plan_bytes": 1048576,
+    "maximum_asserted_blob_bytes": 16777216
+  },
+  "verdict_semantics": {
+    "supported": "VERIFIED_WITHIN_DECLARED_SCOPE",
+    "contradicted": "INVALIDATED_BY_RECOMPUTATION",
+    "inconclusive": "INCONCLUSIVE_EVIDENCE_GAP",
+    "self_check": "SURFACE_SELF_CHECK_PASS"
+  },
+  "independence_boundary": {
+    "surface_independence": "TRUSTED_PLAN_AND_ENGINE_SEPARATE_FROM_CANDIDATE_TREE",
+    "human_independence": "REQUIRES_SEPARATELY_ATTRIBUTED_REVIEWER",
+    "self_certification": "PROHIBITED",
+    "author_and_verifier_separation_required_for_independent_review": true
+  },
+  "authority_effects": {
+    "merge": "NONE",
+    "repository_standing": "NONE",
+    "security_certification": "NONE",
+    "experiment_execution": "NONE"
+  },
+  "external_evidence_treatment": {
+    "preserved": true,
+    "authority": "OBSERVATION_ONLY",
+    "recomputation_requirement": "MUST_NOT_SUBSTITUTE_FOR_TRUSTED_ASSERTIONS"
+  },
+  "non_claims": [
+    "No merge approval",
+    "No repository standing",
+    "No security certification",
+    "No producer-intent determination",
+    "No universal semantic correctness claim",
+    "No independent human review unless separately attributed",
+    "No experiment execution authorization",
+    "No endorsement"
+  ]
+}

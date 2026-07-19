@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://recomputableevidence.example/schemas/independent_verification_receipt_v0_1_1.schema.json",
+  "title": "Fork Independent Verification Hardening Receipt v0.1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "checker_id", "schema_version", "mode", "plan", "verifier_provenance",
+    "legacy_evidence", "subject", "observations", "git_modes",
+    "result", "control_errors", "non_claims"
+  ],
+  "properties": {
+    "checker_id": {"const": "FORK_INDEPENDENT_VERIFICATION_SURFACE_v0_1_1"},
+    "schema_version": {"const": "0.1.1"},
+    "mode": {"const": "CONTRIBUTION_VERIFICATION_HARDENING"},
+    "plan": {"$ref": "#/definitions/availability_record"},
+    "verifier_provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["available", "repository", "source_commit", "component_count", "component_mismatches", "running_checker_matches_declared_blob"],
+      "properties": {
+        "available": {"type": "boolean"},
+        "repository": {"type": ["string", "null"]},
+        "source_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "component_count": {"type": "integer", "minimum": 0},
+        "component_mismatches": {"type": "array", "items": {"type": "object"}},
+        "running_checker_matches_declared_blob": {"type": ["boolean", "null"]}
+      }
+    },
+    "legacy_evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["available", "plan_path", "plan_git_blob_sha1", "receipt_path", "receipt_git_blob_sha1", "recomputed_verdict", "committed_receipt_byte_exact"],
+      "properties": {
+        "available": {"type": "boolean"},
+        "plan_path": {"type": ["string", "null"]},
+        "plan_git_blob_sha1": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "receipt_path": {"type": ["string", "null"]},
+        "receipt_git_blob_sha1": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "recomputed_verdict": {"type": ["string", "null"]},
+        "committed_receipt_byte_exact": {"type": ["boolean", "null"]}
+      }
+    },
+    "subject": {
+      "type": "object", "additionalProperties": false,
+      "required": ["available", "repository", "base_commit", "candidate_commit", "merge_base", "changed_path_count"],
+      "properties": {
+        "available": {"type": "boolean"},
+        "repository": {"type": ["string", "null"]},
+        "base_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "candidate_commit": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "merge_base": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"},
+        "changed_path_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "observations": {
+      "type": "object", "additionalProperties": false,
+      "required": ["count", "contract_errors"],
+      "properties": {
+        "count": {"type": "integer", "minimum": 0},
+        "contract_errors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "git_modes": {
+      "type": "object", "additionalProperties": false,
+      "required": ["checked_path_count", "regular_blob_count", "non_regular_paths"],
+      "properties": {
+        "checked_path_count": {"type": "integer", "minimum": 0},
+        "regular_blob_count": {"type": "integer", "minimum": 0},
+        "non_regular_paths": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "ok", "verdict", "precedence_applied", "contradicted_count",
+        "inconclusive_count", "control_error_count", "merge_effect",
+        "repository_standing_effect", "experiment_execution_effect"
+      ],
+      "properties": {
+        "ok": {"type": "boolean"},
+        "verdict": {"enum": ["VERIFIED_WITHIN_DECLARED_SCOPE", "INVALIDATED_BY_RECOMPUTATION", "INCONCLUSIVE_EVIDENCE_GAP"]},
+        "precedence_applied": {"const": "INCONCLUSIVE_EVIDENCE_GAP>INVALIDATED_BY_RECOMPUTATION>VERIFIED_WITHIN_DECLARED_SCOPE"},
+        "contradicted_count": {"type": "integer", "minimum": 0},
+        "inconclusive_count": {"type": "integer", "minimum": 0},
+        "control_error_count": {"type": "integer", "minimum": 0},
+        "merge_effect": {"const": "NONE"},
+        "repository_standing_effect": {"const": "NONE"},
+        "experiment_execution_effect": {"const": "NONE"}
+      }
+    },
+    "control_errors": {"type": "array", "items": {"type": "string"}},
+    "non_claims": {"type": "array", "minItems": 8, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"result": {"properties": {"verdict": {"const": "VERIFIED_WITHIN_DECLARED_SCOPE"}}}}},
+      "then": {
+        "properties": {
+          "plan": {"properties": {"available": {"const": true}}},
+          "verifier_provenance": {"properties": {"available": {"const": true}, "component_mismatches": {"maxItems": 0}, "running_checker_matches_declared_blob": {"const": true}}},
+          "legacy_evidence": {"properties": {"available": {"const": true}, "committed_receipt_byte_exact": {"const": true}}},
+          "subject": {"properties": {"available": {"const": true}}},
+          "observations": {"properties": {"contract_errors": {"maxItems": 0}}},
+          "git_modes": {"properties": {"non_regular_paths": {"maxItems": 0}}},
+          "control_errors": {"maxItems": 0}
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "availability_record": {
+      "type": "object", "additionalProperties": false,
+      "required": ["available", "plan_id", "path", "git_blob_sha1"],
+      "properties": {
+        "available": {"type": "boolean"},
+        "plan_id": {"type": ["string", "null"]},
+        "path": {"type": "string"},
+        "git_blob_sha1": {"type": ["string", "null"], "pattern": "^[0-9a-f]{40}$"}
+      }
+    }
+  }
+}

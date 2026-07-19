@@ -1,0 +1,37 @@
+{
+  "checker_id": "FORK_INDEPENDENT_VERIFICATION_SURFACE_v0_1",
+  "checks": [
+    {
+      "check": "policy_schema",
+      "status": "PASS"
+    },
+    {
+      "check": "fail_closed_authority_boundary",
+      "detail": "exact",
+      "status": "PASS"
+    },
+    {
+      "check": "independent_verification_plan_v0_1.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check": "independent_verification_receipt_v0_1.schema.json",
+      "status": "PASS"
+    }
+  ],
+  "mode": "SELF_CHECK",
+  "non_claims": {
+    "does_not_approve_merge": true,
+    "does_not_authorize_experiment_execution": true,
+    "does_not_certify_security": true,
+    "does_not_establish_semantic_truth_beyond_declared_assertions": true,
+    "does_not_supply_independent_human_identity": true
+  },
+  "result": {
+    "experiment_execution_effect": "NONE",
+    "merge_effect": "NONE",
+    "ok": true,
+    "repository_standing_effect": "NONE",
+    "verdict": "SURFACE_SELF_CHECK_PASS"
+  }
+}

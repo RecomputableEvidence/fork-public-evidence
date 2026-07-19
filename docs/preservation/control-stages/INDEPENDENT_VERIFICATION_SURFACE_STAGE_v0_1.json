@@ -1,0 +1,32 @@
+{
+  "stage_id": "FORK_INDEPENDENT_VERIFICATION_SURFACE_STAGE_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_FOR_REVIEW",
+  "predecessor_stage": "FORK_CLAIM_ADMISSION_HARDENING_STAGE_v0_1",
+  "failure_class_addressed": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+  "purpose": "Add independently recomputable support, contradiction, and inconclusive results above the consumer-owned claim-admission boundary.",
+  "control_surfaces": {
+    "policy": "policies/independent-verification/INDEPENDENT_VERIFICATION_POLICY_v0_1.json",
+    "method": "docs/verification/INDEPENDENT_VERIFICATION_SURFACE_v0_1.md",
+    "checker": "tools/check_independent_verification_surface_v0_1.py",
+    "plan_schema": "schemas/independent_verification_plan_v0_1.schema.json",
+    "receipt_schema": "schemas/independent_verification_receipt_v0_1.schema.json"
+  },
+  "verdicts": [
+    "VERIFIED_WITHIN_DECLARED_SCOPE",
+    "INVALIDATED_BY_RECOMPUTATION",
+    "INCONCLUSIVE_EVIDENCE_GAP"
+  ],
+  "candidate_execution": "NONE_IN_TRUSTED_LANE",
+  "candidate_checkout": "NONE_IN_TRUSTED_LANE",
+  "human_independent_review_state": "NOT_RECORDED_BY_MACHINE_SURFACE",
+  "repository_settings_effect": "NONE",
+  "merge_effect": "NONE",
+  "experiment_execution_effect": "NONE",
+  "non_claims": [
+    "No independent human identity is created by this stage.",
+    "No merge is approved by this stage.",
+    "No security certification is issued by this stage.",
+    "No experiment execution is authorized by this stage."
+  ]
+}

@@ -14,13 +14,36 @@
     "result_kind": "STRUCTURAL_PASS"
   },
   "verification": {
+    "classified_examples": [
+      {
+        "example_id": "FORK-EXAMPLE-2026-07-17-001",
+        "failure_class_id": "VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION",
+        "specimens": [
+          {
+            "archive_path": "docs/preservation/failure-mode-archive-v0.1/examples/FORK-EXAMPLE-2026-07-17-001/specimens/test_independent_verification_surface_v0_1.pre-boundary-fix.py.txt",
+            "bytes": 11359,
+            "git_blob_sha1": "ae0676e37d91542598b4f0f65ee61fcc5b9dd116",
+            "role": "FAILING_TEST_MODULE",
+            "sha256": "748779671f2dac51509b52b087b405f9af139b8f4aa7afbc8e401443004104e4"
+          },
+          {
+            "archive_path": "docs/preservation/failure-mode-archive-v0.1/examples/FORK-EXAMPLE-2026-07-17-001/specimens/test_independent_verification_surface_v0_1.post-boundary-fix.py.txt",
+            "bytes": 11539,
+            "git_blob_sha1": "2b0d703f80a459faeb824d1c2d11b6a15d6927fb",
+            "role": "REPAIRED_TEST_MODULE",
+            "sha256": "cfe393cf9f739e6e993ae2a17966127953c800224101c7f39c8d833a65563e64"
+          }
+        ],
+        "status": "PRESERVED_RESOLVED"
+      }
+    ],
     "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
     "incident_commit": "7080e198e6f87e918121af6097a6ef36fd8e7a07",
     "incident_id": "FORK-INC-2026-07-13-001",
     "pre_incident_commit": "fc3a100563eb354924787759accfc7ecd39ae94d",
     "preserved_post_incident_descendant": "fd93d051235ec43bee925878bc916d09179b3c90",
-    "record_count": 7,
-    "schema_count": 3,
+    "record_count": 8,
+    "schema_count": 4,
     "specimens": [
       {
         "archive_path": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/specimens/fork-evidence-ci.7080e198.malformed.yml.txt",

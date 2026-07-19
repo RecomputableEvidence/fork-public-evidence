@@ -1,0 +1,85 @@
+{
+  "plan_id": "FORK_IVS_PR_63_CSH_AMENDMENT_V0_1_1",
+  "schema_version": "0.1.1",
+  "scope_statement": "Harden and independently recompute the preserved PR #63 v0.1 verification lineage, verifier provenance, observation attribution, verdict precedence, strict JSON contract, and changed-path Git modes without executing candidate code or granting authority.",
+  "legacy_lineage": {
+    "plan_path": "verification/plans/PR_63_CSH_AMENDMENT_v0_1.json",
+    "plan_git_blob_sha1": "7c2c2b71636c6fb7696e47f7d1f3e882b2dc271e",
+    "receipt_path": "receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1.json",
+    "receipt_git_blob_sha1": "4694285c56206a316f8426481539814061fa830a",
+    "expected_verdict": "VERIFIED_WITHIN_DECLARED_SCOPE"
+  },
+  "verifier_release": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "source_commit": "e366e44cb2059f5cb7243757b95fa8d44859b811",
+    "components": [
+      {"role": "HARDENED_CHECKER", "path": "tools/check_independent_verification_surface_v0_1_1.py", "git_blob_sha1": "023cd62e400b45bdf4c7aecad5d7aaa43decb954"},
+      {"role": "HARDENED_POLICY", "path": "policies/independent-verification/INDEPENDENT_VERIFICATION_POLICY_v0_1_1.json", "git_blob_sha1": "f977e7e171b106a7557330fa12504d12a04e3c63"},
+      {"role": "HARDENED_POLICY_SCHEMA", "path": "schemas/independent_verification_policy_v0_1_1.schema.json", "git_blob_sha1": "4b6dbd0873f62d367bdec932e4e164a465644034"},
+      {"role": "HARDENED_PLAN_SCHEMA", "path": "schemas/independent_verification_plan_v0_1_1.schema.json", "git_blob_sha1": "a84dcb25dff9429faf3f4b4d364bbc6a9fa3cef5"},
+      {"role": "HARDENED_RECEIPT_SCHEMA", "path": "schemas/independent_verification_receipt_v0_1_1.schema.json", "git_blob_sha1": "85000adabb98435d1c61fb7a262e6d0a01e07dc4"},
+      {"role": "FRESH_REPOSITORY_RUNNER", "path": "tools/run_independent_verification_fresh_v0_1_1.py", "git_blob_sha1": "3d7dcba50e7ad7d994af3d2a62d308a0f9797ffb"},
+      {"role": "LEGACY_CHECKER", "path": "tools/check_independent_verification_surface_v0_1.py", "git_blob_sha1": "37bc0ed71f3c13e1b17068dedc60ffe8743e4edd"},
+      {"role": "CLAIM_ADMISSION_CHECKER", "path": "tools/check_claim_admission_gate_v0_1.py", "git_blob_sha1": "be4261383bc1cc7a5101263f658a3e99b3dcc0e1"}
+    ]
+  },
+  "subject": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "base_commit": "599d3e193d86a9661fbbec3213ae1921b4959f10",
+    "candidate_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+    "expected_merge_base": "1102113556edfc54b43a328317961c4896d6dd6c"
+  },
+  "external_observations": [
+    {
+      "evidence_id": "PR63_STATE_OBSERVATION",
+      "kind": "PULL_REQUEST_STATE",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/63",
+      "observed_state": "OPEN_DRAFT_UNMERGED_HEAD_82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "observed_at_utc": "2026-07-17T06:09:25Z",
+      "observer": "FORK_IVS_V0_1_PLAN_AUTHOR",
+      "observation_method": "GITHUB_API_SNAPSHOT_RECORDED_IN_PRESERVED_V0_1_PLAN",
+      "subject_coordinates": {"pull_request": 63, "head_sha": "82c34252d7b8d9e8957fb5a86500e12da6cf363a"},
+      "authority_effect": "OBSERVATION_ONLY"
+    },
+    {
+      "evidence_id": "PR63_FORK_EVIDENCE_CI_RUN_330",
+      "kind": "GITHUB_ACTIONS_RUN",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29556486787",
+      "observed_state": "COMPLETED_SUCCESS",
+      "observed_at_utc": "2026-07-17T06:09:25Z",
+      "observer": "FORK_IVS_V0_1_PLAN_AUTHOR",
+      "observation_method": "GITHUB_ACTIONS_RUN_STATE_RECORDED_IN_PRESERVED_V0_1_PLAN",
+      "subject_coordinates": {"run_id": 29556486787, "head_sha": "82c34252d7b8d9e8957fb5a86500e12da6cf363a"},
+      "authority_effect": "OBSERVATION_ONLY"
+    },
+    {
+      "evidence_id": "PR63_CSH_RUN_16",
+      "kind": "GITHUB_ACTIONS_RUN",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29556486800",
+      "observed_state": "COMPLETED_SUCCESS",
+      "observed_at_utc": "2026-07-17T06:09:25Z",
+      "observer": "FORK_IVS_V0_1_PLAN_AUTHOR",
+      "observation_method": "GITHUB_ACTIONS_RUN_STATE_RECORDED_IN_PRESERVED_V0_1_PLAN",
+      "subject_coordinates": {"run_id": 29556486800, "head_sha": "82c34252d7b8d9e8957fb5a86500e12da6cf363a"},
+      "authority_effect": "OBSERVATION_ONLY"
+    },
+    {
+      "evidence_id": "PR63_PROOF_SURFACE_RUN_29",
+      "kind": "GITHUB_ACTIONS_RUN",
+      "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29556486836",
+      "observed_state": "COMPLETED_SUCCESS",
+      "observed_at_utc": "2026-07-17T06:09:25Z",
+      "observer": "FORK_IVS_V0_1_PLAN_AUTHOR",
+      "observation_method": "GITHUB_ACTIONS_RUN_STATE_RECORDED_IN_PRESERVED_V0_1_PLAN",
+      "subject_coordinates": {"run_id": 29556486836, "head_sha": "82c34252d7b8d9e8957fb5a86500e12da6cf363a"},
+      "authority_effect": "OBSERVATION_ONLY"
+    }
+  ],
+  "verdict_precedence": ["INCONCLUSIVE_EVIDENCE_GAP", "INVALIDATED_BY_RECOMPUTATION", "VERIFIED_WITHIN_DECLARED_SCOPE"],
+  "independence_boundary": {
+    "plan_origin": "TRUSTED_VERIFIER_CONTROL_PLANE",
+    "candidate_tree_controls_plan": false,
+    "human_verifier": "UNASSIGNED_EXTERNAL_REVIEWER",
+    "self_certification_prohibited": true
+  }
+}

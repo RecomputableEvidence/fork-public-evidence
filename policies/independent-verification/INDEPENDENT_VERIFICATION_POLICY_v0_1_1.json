@@ -1,0 +1,72 @@
+{
+  "policy_id": "FORK_INDEPENDENT_VERIFICATION_POLICY_v0_1_1",
+  "schema_version": "0.1.1",
+  "status": "PROPOSED_FOR_EXTERNAL_REVIEW",
+  "purpose": "Harden the v0.1 independent-verification surface so every outcome is schema-valid, verifier provenance is explicit, fresh-repository recomputation is supported, and mixed evidence is classified deterministically without inheriting candidate authority.",
+  "trusted_lane": {
+    "plan_source": "TRUSTED_VERIFIER_CONTROL_PLANE",
+    "candidate_handling": "READ_AS_GIT_OBJECT_DATA_ONLY",
+    "candidate_checkout": "PROHIBITED_IN_TRUSTED_LANE",
+    "candidate_code_execution": "PROHIBITED_IN_TRUSTED_LANE",
+    "candidate_hook_execution": "PROHIBITED",
+    "candidate_dependency_installation": "PROHIBITED",
+    "secret_use": "PROHIBITED",
+    "git_transport": "FULL_SHA_FETCH_ONLY_NO_SUBMODULES_NO_TAGS",
+    "fresh_repository_required_for_external_recomputation": true,
+    "maximum_plan_bytes": 1048576,
+    "maximum_asserted_blob_bytes": 16777216,
+    "accepted_regular_file_modes": ["100644", "100755"]
+  },
+  "verdict_precedence": [
+    "INCONCLUSIVE_EVIDENCE_GAP",
+    "INVALIDATED_BY_RECOMPUTATION",
+    "VERIFIED_WITHIN_DECLARED_SCOPE"
+  ],
+  "verdict_rule": "Any required control error, unavailable evidence, or inconclusive assertion yields INCONCLUSIVE_EVIDENCE_GAP while preserving contradiction counts; otherwise any subject, verifier, gate, assertion, observation-contract, or Git-mode contradiction yields INVALIDATED_BY_RECOMPUTATION; otherwise the result is VERIFIED_WITHIN_DECLARED_SCOPE.",
+  "verifier_provenance": {
+    "source_commit_required": true,
+    "component_git_blob_bindings_required": true,
+    "running_checker_blob_must_match_declared_component": true,
+    "legacy_plan_and_receipt_lineage_required": true
+  },
+  "external_observation_contract": {
+    "observed_at_utc_required": true,
+    "observer_required": true,
+    "observation_method_required": true,
+    "subject_coordinates_required": true,
+    "authority": "OBSERVATION_ONLY"
+  },
+  "json_contract": {
+    "duplicate_keys": "REJECT",
+    "non_finite_numbers": "REJECT",
+    "unknown_properties": "REJECT",
+    "canonical_serialization_allow_nan": false
+  },
+  "assertion_contract": {
+    "assertion_ids_unique": true,
+    "changed_paths_must_be_regular_git_blobs": true,
+    "git_mode_and_object_type_recorded": true
+  },
+  "independence_boundary": {
+    "surface_independence": "TRUSTED_PLAN_AND_ENGINE_SEPARATE_FROM_CANDIDATE_TREE",
+    "human_independence": "REQUIRES_SEPARATELY_ATTRIBUTED_REVIEWER",
+    "self_certification": "PROHIBITED",
+    "author_and_verifier_separation_required_for_independent_review": true
+  },
+  "authority_effects": {
+    "merge": "NONE",
+    "repository_standing": "NONE",
+    "security_certification": "NONE",
+    "experiment_execution": "NONE"
+  },
+  "non_claims": [
+    "No merge approval",
+    "No repository standing",
+    "No security certification",
+    "No producer-intent determination",
+    "No universal semantic correctness claim",
+    "No independent human review unless separately attributed",
+    "No experiment execution authorization",
+    "No endorsement"
+  ]
+}

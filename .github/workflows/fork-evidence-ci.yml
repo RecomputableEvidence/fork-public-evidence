@@ -126,3 +126,8 @@ jobs:
 
       - name: Verify claim-admission control surface
         run: python tools/check_claim_admission_gate_v0_1.py --self-check
+
+      - name: Verify independent verification surface
+        run: |
+          python tools/check_independent_verification_surface_v0_1.py --self-check
+          python -m pytest tests/test_independent_verification_surface_v0_1.py -q

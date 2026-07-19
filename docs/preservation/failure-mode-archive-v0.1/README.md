@@ -7,11 +7,13 @@ Archived specimens are data. They must not be executed, imported, restored to li
 ## Current corpus
 
 - `FORK-INC-2026-07-13-001`: malformed evidence-bearing GitHub Actions workflow and the associated claim-consumption failure `CCF-001_AI_CHANGE_READINESS_PROMOTION`.
+- `FORK-EXAMPLE-2026-07-17-001`: resolved Independent Verification Surface CI dependency-scope example classified as `VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION`.
 
 ## Current standing
 
 - Archive status: `PROPOSED_FOR_ADMISSION`.
 - Incident status: `PRESERVED_OPEN`.
+- Classified-example status: `PRESERVED_RESOLVED`.
 - Experiment effect: `NONE`.
 - Consumer-owned admission control: planned in a separately scoped change.
 

@@ -57,6 +57,22 @@ def test_normalizer_converts_crlf_to_lf(tmp_path: Path) -> None:
     assert "LINE_ENDING_PASS" in check_result.stdout
 
 
+def test_extensionless_codeowners_is_governed_and_normalizable(tmp_path: Path) -> None:
+    sample = tmp_path / "CODEOWNERS"
+    sample.write_bytes(b"* @owner\r\n/docs/ @reviewer\r\n")
+
+    rejected = run_command(sys.executable, CHECKER, sample)
+    assert rejected.returncode != 0
+    assert "LINE_ENDING_DEFECT" in rejected.stderr
+
+    normalized = run_command(sys.executable, NORMALIZER, sample)
+    assert normalized.returncode == 0, normalized.stderr
+    assert sample.read_bytes() == b"* @owner\n/docs/ @reviewer\n"
+
+    accepted = run_command(sys.executable, CHECKER, sample)
+    assert accepted.returncode == 0, accepted.stderr
+
+
 def test_repository_governed_text_artifacts_use_lf() -> None:
     result = run_command(sys.executable, CHECKER)
 

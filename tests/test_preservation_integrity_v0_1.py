@@ -18,10 +18,14 @@ INCIDENT_RECORD = INCIDENT / "INCIDENT_RECORD_v0_1.json"
 CLASSIFICATION = INCIDENT / "CLAIM_CONSUMPTION_FAILURE_CLASSIFICATION_v0_1.json"
 RESIDUAL = INCIDENT / "RESIDUAL_CONDITIONS_v0_1.json"
 MANIFEST = INCIDENT / "PRESERVATION_MANIFEST_v0_1.json"
+DEPENDENCY_EXAMPLE = ARCHIVE / "examples/FORK-EXAMPLE-2026-07-17-001"
+DEPENDENCY_EXAMPLE_RECORD = DEPENDENCY_EXAMPLE / "FAILURE_MODE_EXAMPLE_v0_1.json"
+DEPENDENCY_EXAMPLE_PRE_SPECIMEN = DEPENDENCY_EXAMPLE / "specimens/test_independent_verification_surface_v0_1.pre-boundary-fix.py.txt"
 SCHEMAS = [
     "preservation_incident_record_v0_1.schema.json",
     "claim_consumption_failure_classification_v0_1.schema.json",
     "preservation_manifest_v0_1.schema.json",
+    "verification_dependency_scope_example_v0_1.schema.json",
 ]
 RECEIPT = ROOT / "receipts/preservation-integrity/FORK_INC_2026_07_13_001_BASELINE_RECEIPT_v0_1.json"
 
@@ -61,10 +65,15 @@ def test_preservation_package_passes_structural_checks(tmp_path: Path) -> None:
     code, payload = run_checker(root)
     assert code == 0
     assert payload["result"] == {"ok": True, "result_kind": "STRUCTURAL_PASS"}
-    assert payload["verification"]["record_count"] == 7
-    assert payload["verification"]["schema_count"] == 3
+    assert payload["verification"]["record_count"] == 8
+    assert payload["verification"]["schema_count"] == 4
     assert payload["verification"]["specimens"][0]["sha256"] == "842e79b28e79a86aaf437f80380fc7beaad17a14fd534894393dc2e135d3e0ea"
     assert payload["verification"]["specimens"][0]["git_blob_sha1"] == "f6a6c510bc6eff17b00595f0c10b0ecf962b4bf3"
+    example = payload["verification"]["classified_examples"][0]
+    assert example["example_id"] == "FORK-EXAMPLE-2026-07-17-001"
+    assert example["failure_class_id"] == "VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION"
+    assert example["status"] == "PRESERVED_RESOLVED"
+    assert {item["role"] for item in example["specimens"]} == {"FAILING_TEST_MODULE", "REPAIRED_TEST_MODULE"}
     assert payload["non_claims"]["does_not_certify_security"] is True
     assert payload["non_claims"]["does_not_authorize_execution"] is True
 
@@ -167,3 +176,49 @@ def test_archive_path_traversal_fails_closed(tmp_path: Path) -> None:
     code, payload = run_checker(root)
     assert code != 0
     assert "ARCHIVE_PATH_NOT_INERT" in error_codes(payload)
+
+
+def test_dependency_example_specimen_is_byte_exact(tmp_path: Path) -> None:
+    root = materialize(tmp_path)
+    specimen = root / DEPENDENCY_EXAMPLE_PRE_SPECIMEN
+    specimen.write_bytes(specimen.read_bytes() + b"# mutation\n")
+    code, payload = run_checker(root)
+    assert code != 0
+    assert {
+        "DEPENDENCY_EXAMPLE_SPECIMEN_SHA256_MISMATCH",
+        "DEPENDENCY_EXAMPLE_SPECIMEN_GIT_BLOB_MISMATCH",
+        "DEPENDENCY_EXAMPLE_SPECIMEN_SIZE_MISMATCH",
+    } <= error_codes(payload)
+
+
+def test_dependency_example_cannot_infer_intent(tmp_path: Path) -> None:
+    root = materialize(tmp_path)
+    path = root / DEPENDENCY_EXAMPLE_RECORD
+    value = json.loads(path.read_text(encoding="utf-8"))
+    value["intent"] = "ACCIDENTAL"
+    write_json(path, value)
+    code, payload = run_checker(root)
+    assert code != 0
+    assert "DEPENDENCY_EXAMPLE_INTENT_INFERRED" in error_codes(payload)
+
+
+def test_dependency_example_cannot_expand_authority(tmp_path: Path) -> None:
+    root = materialize(tmp_path)
+    path = root / DEPENDENCY_EXAMPLE_RECORD
+    value = json.loads(path.read_text(encoding="utf-8"))
+    value["authority_effects"]["experiment_execution"] = "AUTHORIZED"
+    write_json(path, value)
+    code, payload = run_checker(root)
+    assert code != 0
+    assert "DEPENDENCY_EXAMPLE_AUTHORITY_EXPANDED" in error_codes(payload)
+
+
+def test_dependency_example_observations_cannot_be_rewritten(tmp_path: Path) -> None:
+    root = materialize(tmp_path)
+    path = root / DEPENDENCY_EXAMPLE_RECORD
+    value = json.loads(path.read_text(encoding="utf-8"))
+    value["observations"]["failing_attempt"]["proof_run"] = 1
+    write_json(path, value)
+    code, payload = run_checker(root)
+    assert code != 0
+    assert "DEPENDENCY_EXAMPLE_OBSERVATIONS_MISMATCH" in error_codes(payload)

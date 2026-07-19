@@ -16,6 +16,21 @@
       ],
       "intent_default": "NOT_EVALUATED",
       "authority_effect": "NONE"
+    },
+    {
+      "failure_class_id": "VDF-001_VERIFICATION_DEPENDENCY_SCOPE_ASSUMPTION",
+      "family": "VERIFICATION_DEPENDENCY_FAILURE",
+      "definition": "A verification contribution or test assumes a control-specific dependency is universally available across execution surfaces with intentionally distinct locked dependency contracts, producing environment-specific failures that can be misread as contribution invalidity.",
+      "required_distinctions": [
+        "CONTRIBUTION_RESULT",
+        "ENVIRONMENT_CONTRACT",
+        "DEPENDENCY_AVAILABILITY",
+        "CI_SIGNAL",
+        "EXPERIMENT_RESULT",
+        "INTENT"
+      ],
+      "intent_default": "NOT_EVALUATED",
+      "authority_effect": "NONE"
     }
   ]
 }

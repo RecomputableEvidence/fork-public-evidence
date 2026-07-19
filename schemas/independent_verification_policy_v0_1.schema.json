@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://recomputableevidence.example/schemas/independent_verification_policy_v0_1.schema.json",
+  "title": "Fork Independent Verification Policy v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policy_id",
+    "schema_version",
+    "status",
+    "purpose",
+    "trusted_lane",
+    "verdict_semantics",
+    "independence_boundary",
+    "authority_effects",
+    "external_evidence_treatment",
+    "non_claims"
+  ],
+  "properties": {
+    "policy_id": {"const": "FORK_INDEPENDENT_VERIFICATION_POLICY_v0_1"},
+    "schema_version": {"const": "0.1"},
+    "status": {"enum": ["PROPOSED_FOR_REVIEW", "ADMITTED"]},
+    "purpose": {"type": "string", "minLength": 1},
+    "trusted_lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "plan_source",
+        "candidate_handling",
+        "candidate_checkout",
+        "candidate_code_execution",
+        "candidate_hook_execution",
+        "candidate_dependency_installation",
+        "secret_use",
+        "git_transport",
+        "maximum_plan_bytes",
+        "maximum_asserted_blob_bytes"
+      ],
+      "properties": {
+        "plan_source": {"const": "TRUSTED_VERIFIER_CONTROL_PLANE"},
+        "candidate_handling": {"const": "READ_AS_GIT_OBJECT_DATA_ONLY"},
+        "candidate_checkout": {"const": "PROHIBITED_IN_TRUSTED_LANE"},
+        "candidate_code_execution": {"const": "PROHIBITED_IN_TRUSTED_LANE"},
+        "candidate_hook_execution": {"const": "PROHIBITED"},
+        "candidate_dependency_installation": {"const": "PROHIBITED"},
+        "secret_use": {"const": "PROHIBITED"},
+        "git_transport": {"const": "FULL_SHA_FETCH_ONLY_NO_SUBMODULES_NO_TAGS"},
+        "maximum_plan_bytes": {"const": 1048576},
+        "maximum_asserted_blob_bytes": {"const": 16777216}
+      }
+    },
+    "verdict_semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supported",
+        "contradicted",
+        "inconclusive",
+        "self_check"
+      ],
+      "properties": {
+        "supported": {"const": "VERIFIED_WITHIN_DECLARED_SCOPE"},
+        "contradicted": {"const": "INVALIDATED_BY_RECOMPUTATION"},
+        "inconclusive": {"const": "INCONCLUSIVE_EVIDENCE_GAP"},
+        "self_check": {"const": "SURFACE_SELF_CHECK_PASS"}
+      }
+    },
+    "independence_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface_independence",
+        "human_independence",
+        "self_certification",
+        "author_and_verifier_separation_required_for_independent_review"
+      ],
+      "properties": {
+        "surface_independence": {"const": "TRUSTED_PLAN_AND_ENGINE_SEPARATE_FROM_CANDIDATE_TREE"},
+        "human_independence": {"const": "REQUIRES_SEPARATELY_ATTRIBUTED_REVIEWER"},
+        "self_certification": {"const": "PROHIBITED"},
+        "author_and_verifier_separation_required_for_independent_review": {"const": true}
+      }
+    },
+    "authority_effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["merge", "repository_standing", "security_certification", "experiment_execution"],
+      "properties": {
+        "merge": {"const": "NONE"},
+        "repository_standing": {"const": "NONE"},
+        "security_certification": {"const": "NONE"},
+        "experiment_execution": {"const": "NONE"}
+      }
+    },
+    "external_evidence_treatment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preserved", "authority", "recomputation_requirement"],
+      "properties": {
+        "preserved": {"const": true},
+        "authority": {"const": "OBSERVATION_ONLY"},
+        "recomputation_requirement": {"const": "MUST_NOT_SUBSTITUTE_FOR_TRUSTED_ASSERTIONS"}
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}
