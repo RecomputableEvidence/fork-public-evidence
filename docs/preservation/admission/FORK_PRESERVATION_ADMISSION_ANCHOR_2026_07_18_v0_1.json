@@ -8,7 +8,12 @@
   "responsible_repository_role": "MAINTAINER",
   "admission_effect_if_merged": {
     "standing": "ADMITTED_TO_PRESERVATION_LINEAGE",
-    "pull_requests": [61, 62, 64, 63],
+    "pull_requests": [
+      61,
+      62,
+      64,
+      63
+    ],
     "does_not_publish_instrumentation_release_anchor": true,
     "does_not_authorize_pair_001_execution": true
   },
@@ -54,19 +59,110 @@
     }
   ],
   "successful_workflow_runs": [
-    {"pull_request": 61, "head_commit": "cf878ee8c9d1c50af17a83937ecf1bd6bf043db9", "run_id": 29553255320, "workflow": "Fork Evidence CI", "run_number": 326, "conclusion": "success"},
-    {"pull_request": 61, "head_commit": "cf878ee8c9d1c50af17a83937ecf1bd6bf043db9", "run_id": 29553255322, "workflow": "Fork Proof-Surface Integration", "run_number": 25, "conclusion": "success"},
-    {"pull_request": 62, "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c", "run_id": 29555148733, "workflow": "Fork Evidence CI", "run_number": 328, "conclusion": "success"},
-    {"pull_request": 62, "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c", "run_id": 29555148707, "workflow": "Claim Inheritance Simulation Checker", "run_number": 80, "conclusion": "success"},
-    {"pull_request": 62, "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c", "run_id": 29555148710, "workflow": "Verify Observed Evidence Packet examples", "run_number": 22, "conclusion": "success"},
-    {"pull_request": 62, "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c", "run_id": 29555148708, "workflow": "Surface Interaction v0.1", "run_number": 12, "conclusion": "success"},
-    {"pull_request": 62, "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c", "run_id": 29555148709, "workflow": "Fork Proof-Surface Integration", "run_number": 27, "conclusion": "success"},
-    {"pull_request": 64, "head_commit": "d911ad5c33e0ec32037414effa7749326983d5ff", "run_id": 29629982286, "workflow": "Fork Evidence CI", "run_number": 349, "conclusion": "success"},
-    {"pull_request": 64, "head_commit": "d911ad5c33e0ec32037414effa7749326983d5ff", "run_id": 29629982297, "workflow": "Independent Verification Hardening v0.1.1", "run_number": 5, "conclusion": "success"},
-    {"pull_request": 64, "head_commit": "d911ad5c33e0ec32037414effa7749326983d5ff", "run_id": 29629982258, "workflow": "Fork Proof-Surface Integration", "run_number": 48, "conclusion": "success"},
-    {"pull_request": 63, "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a", "run_id": 29556486787, "workflow": "Fork Evidence CI", "run_number": 330, "conclusion": "success"},
-    {"pull_request": 63, "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a", "run_id": 29556486800, "workflow": "Cross-System Claim Handoff v0.1", "run_number": 16, "conclusion": "success"},
-    {"pull_request": 63, "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a", "run_id": 29556486836, "workflow": "Fork Proof-Surface Integration", "run_number": 29, "conclusion": "success"}
+    {
+      "pull_request": 61,
+      "head_commit": "cf878ee8c9d1c50af17a83937ecf1bd6bf043db9",
+      "run_id": 29553255320,
+      "workflow": "Fork Evidence CI",
+      "run_number": 326,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 61,
+      "head_commit": "cf878ee8c9d1c50af17a83937ecf1bd6bf043db9",
+      "run_id": 29553255322,
+      "workflow": "Fork Proof-Surface Integration",
+      "run_number": 25,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 62,
+      "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c",
+      "run_id": 29555148733,
+      "workflow": "Fork Evidence CI",
+      "run_number": 328,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 62,
+      "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c",
+      "run_id": 29555148707,
+      "workflow": "Claim Inheritance Simulation Checker",
+      "run_number": 80,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 62,
+      "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c",
+      "run_id": 29555148710,
+      "workflow": "Verify Observed Evidence Packet examples",
+      "run_number": 22,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 62,
+      "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c",
+      "run_id": 29555148708,
+      "workflow": "Surface Interaction v0.1",
+      "run_number": 12,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 62,
+      "head_commit": "1102113556edfc54b43a328317961c4896d6dd6c",
+      "run_id": 29555148709,
+      "workflow": "Fork Proof-Surface Integration",
+      "run_number": 27,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 64,
+      "head_commit": "d911ad5c33e0ec32037414effa7749326983d5ff",
+      "run_id": 29629982286,
+      "workflow": "Fork Evidence CI",
+      "run_number": 349,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 64,
+      "head_commit": "d911ad5c33e0ec32037414effa7749326983d5ff",
+      "run_id": 29629982297,
+      "workflow": "Independent Verification Hardening v0.1.1",
+      "run_number": 5,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 64,
+      "head_commit": "d911ad5c33e0ec32037414effa7749326983d5ff",
+      "run_id": 29629982258,
+      "workflow": "Fork Proof-Surface Integration",
+      "run_number": 48,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 63,
+      "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "run_id": 29556486787,
+      "workflow": "Fork Evidence CI",
+      "run_number": 330,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 63,
+      "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "run_id": 29556486800,
+      "workflow": "Cross-System Claim Handoff v0.1",
+      "run_number": 16,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 63,
+      "head_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+      "run_id": 29556486836,
+      "workflow": "Fork Proof-Surface Integration",
+      "run_number": 29,
+      "conclusion": "success"
+    }
   ],
   "exterior_review": {
     "reviewer": "Mac McFall / M87",
@@ -80,30 +176,46 @@
     "not_security_certification": true,
     "not_pair_001_execution_authority": true,
     "source_artifacts": [
-      {"path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/M87_PR64_INDEPENDENT_RECOMPUTATION_DISPOSITION_v0_1.md", "sha256": "85ab9bc0be067f858cd75fd10177b792945e787d294bc9f41640ba4ece5777bf"},
-      {"path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/M87_PR63_READINESS_REVIEW_MEMO_v0_1.md", "sha256": "fc95dcd96ac5b9154535bdf274d2cc21f5d9c0222dcfeda7fc7dc6575b44fa31"},
-      {"path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/PR64_FRESH_RECOMPUTATION_OUTPUT_v0_1.json", "sha256": "be604a366c497b01f3495814ccf4a6a6cb01344a6271ee420b5c3c128e57e6de"},
-      {"path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/PR64_MY_RECOMPUTED_RECEIPT_v0_1_1.json", "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083"}
+      {
+        "path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/M87_PR64_INDEPENDENT_RECOMPUTATION_DISPOSITION_v0_1.md",
+        "sha256": "85ab9bc0be067f858cd75fd10177b792945e787d294bc9f41640ba4ece5777bf"
+      },
+      {
+        "path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/M87_PR63_READINESS_REVIEW_MEMO_v0_1.md",
+        "sha256": "fc95dcd96ac5b9154535bdf274d2cc21f5d9c0222dcfeda7fc7dc6575b44fa31"
+      },
+      {
+        "path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/PR64_FRESH_RECOMPUTATION_OUTPUT_v0_1.json",
+        "sha256": "be604a366c497b01f3495814ccf4a6a6cb01344a6271ee420b5c3c128e57e6de"
+      },
+      {
+        "path": "docs/verification/exterior-reviews/M87_PR63_PR64_2026_07_18/source/PR64_MY_RECOMPUTED_RECEIPT_v0_1_1.json",
+        "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083"
+      }
     ]
   },
   "residuals": [
     {
       "residual_id": "M87_PR64_OBS_001_DECLARED_NONEXECUTION_FIELDS",
       "severity": "BOUNDED_NON_BLOCKING",
-      "standing": "PRESERVED_SUCCESSOR_HARDENING_PROPOSED",
+      "standing": "PRESERVED_ADDRESSED_BY_MERGED_SUCCESSOR_HARDENING",
       "successor_pull_request": 68,
-      "summary": "Candidate checkout and code-execution fields were literals supported by control-flow inspection rather than values derived from an operation record."
+      "summary": "Candidate checkout and code-execution fields were literals supported by control-flow inspection rather than values derived from an operation record.",
+      "successor_head_commit": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+      "successor_merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3"
     },
     {
       "residual_id": "M87_PR63_OBS_001_DECLARED_STATUS_NORMALIZED",
       "severity": "BOUNDED_NON_BLOCKING",
-      "standing": "PRESERVED_SUCCESSOR_HARDENING_PROPOSED",
+      "standing": "PRESERVED_ADDRESSED_BY_MERGED_SUCCESSOR_HARDENING",
       "successor_pull_request": 68,
-      "summary": "A declared/recomputed status mismatch was normalized without emitting an explicit contradiction."
+      "summary": "A declared/recomputed status mismatch was normalized without emitting an explicit contradiction.",
+      "successor_head_commit": "ce8c0815d3a332224c6072ac5e567dffbee5f4c7",
+      "successor_merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3"
     }
   ],
   "current_state_projection": {
-    "source_commit": "1ab4316b5de6100674695912a077b168cc36651b",
+    "source_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3",
     "pair_001_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
     "executable": false,
     "provider_calls_performed": 0,
