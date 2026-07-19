@@ -92,7 +92,7 @@ def test_publication_state_is_exactly_bound_without_readiness_promotion() -> Non
     state = checker.load(ROOT / checker.STATE)
     publication = state["publication"]
     assert state["current_phase"] == checker.PUBLISHED_PHASE
-    assert publication["status"] == "published"
+    assert publication["status"] == "anchor_ci_green"
     assert publication["patch_commit"] == checker.PATCH_COMMIT
     assert publication["anchor_commit"] == checker.ANCHOR_COMMIT
     assert state["repeat_runs"] == []
