@@ -1,36 +1,31 @@
 name: CSH Provider Validation v0.1.2
 
 on:
-  pull_request_target:
+  push:
     branches:
       - preservation/clean-continuance-v0.1
     paths:
       - "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
-      - "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json"
-      - "tools/run_csh_provider_validation_v0_1_2.py"
-      - "tests/test_csh_provider_validation_v0_1_2.py"
-      - ".github/workflows/csh-provider-validation-v0-1-2.yml"
 
 permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   live-provider-validation:
-    if: github.event.action == 'opened'
     permissions:
       contents: read
       models: read
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout trusted base implementation
+      - name: Checkout reviewed merged request
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
+          ref: ${{ github.sha }}
           persist-credentials: false
 
       - name: Detect installed trusted validation lane
@@ -58,7 +53,7 @@ jobs:
       - name: Run bounded synthetic provider validation
         if: steps.installed.outputs.present == 'true'
         env:
-          GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          GITHUB_HEAD_SHA: ${{ github.sha }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_TOKEN: ${{ github.token }}
@@ -70,48 +65,7 @@ jobs:
         if: always() && steps.installed.outputs.present == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: csh-provider-validation-${{ github.event.pull_request.head.sha }}
+          name: csh-provider-validation-${{ github.sha }}
           path: provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
           if-no-files-found: error
           retention-days: 7
-
-  verify-committed-attestation:
-    if: github.event.action != 'opened'
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Checkout trusted base verifier
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-        with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          persist-credentials: false
-
-      - name: Detect installed trusted validation lane
-        id: installed
-        shell: bash
-        run: |
-          if test -f tools/run_csh_provider_validation_v0_1_2.py; then
-            echo "present=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "present=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Fetch candidate attestation as an object only
-        if: steps.installed.outputs.present == 'true'
-        env:
-          CANDIDATE_SHA: ${{ github.event.pull_request.head.sha }}
-          REPOSITORY: ${{ github.repository }}
-        run: |
-          git -c protocol.file.allow=never fetch --no-tags --no-recurse-submodules \
-            "https://github.com/${REPOSITORY}.git" "${CANDIDATE_SHA}"
-          git show \
-            "${CANDIDATE_SHA}:docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json" \
-            > /tmp/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
-
-      - name: Verify committed attestation with trusted code
-        if: steps.installed.outputs.present == 'true'
-        run: |
-          python tools/run_csh_provider_validation_v0_1_2.py \
-            --verify-receipt /tmp/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json

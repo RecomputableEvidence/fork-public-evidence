@@ -130,11 +130,15 @@ def mutate_text(repo: Path, relative: Path, old: str, new: str) -> None:
 def provider_validation_workflow() -> str:
     return """name: CSH Provider Validation v0.1.2
 on:
-  pull_request_target:
+  push:
+    branches:
+      - preservation/clean-continuance-v0.1
+    paths:
+      - docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json
 permissions:
   contents: read
 concurrency:
-  group: provider-validation-${{ github.event.pull_request.number }}
+  group: provider-validation-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   live-provider-validation:
@@ -146,20 +150,9 @@ jobs:
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
+          ref: ${{ github.sha }}
           persist-credentials: false
       - run: python tools/run_csh_provider_validation_v0_1_2.py --output /tmp/receipt.json
-  verify-committed-attestation:
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
-        with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          persist-credentials: false
-      - run: python tools/run_csh_provider_validation_v0_1_2.py --verify-receipt /tmp/receipt.json
 """
 
 
@@ -323,14 +316,29 @@ def test_provider_validation_trusted_lane_is_narrowly_permitted(tmp_path: Path) 
     [
         ("models: read", "models: write", "PROVIDER_VALIDATION_JOB_PERMISSIONS_INVALID"),
         (
-            "ref: ${{ github.event.pull_request.base.sha }}",
-            "ref: ${{ github.event.pull_request.head.sha }}",
-            "PROVIDER_VALIDATION_CHECKOUT_NOT_BASE_BOUND",
+            "ref: ${{ github.sha }}",
+            "ref: refs/heads/agent/unreviewed",
+            "PROVIDER_VALIDATION_CHECKOUT_NOT_MERGE_BOUND",
         ),
         (
-            "${{ github.event.pull_request.base.sha }}",
+            "${{ github.sha }}",
             "${{ secrets.PROVIDER_TOKEN }}",
             "PROVIDER_VALIDATION_SECRET_REFERENCE_PROHIBITED",
+        ),
+        (
+            "push:\n    branches:",
+            "pull_request:\n    branches:",
+            "PROVIDER_VALIDATION_PUSH_TRIGGER_MISMATCH",
+        ),
+        (
+            "preservation/clean-continuance-v0.1",
+            "main",
+            "PROVIDER_VALIDATION_PUSH_SCOPE_INVALID",
+        ),
+        (
+            "PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
+            "*.json",
+            "PROVIDER_VALIDATION_PUSH_SCOPE_INVALID",
         ),
     ],
 )
