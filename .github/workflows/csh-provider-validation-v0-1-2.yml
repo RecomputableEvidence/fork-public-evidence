@@ -28,8 +28,26 @@ jobs:
           ref: ${{ github.sha }}
           persist-credentials: false
 
+      - name: Classify validation request
+        id: request
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path("docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json")
+          status = json.loads(path.read_text(encoding="utf-8"))["status"]
+          run_validation = status in {"REQUESTED", "RETRY_REQUESTED"}
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"run={'true' if run_validation else 'false'}\n")
+          print(json.dumps({"provider_validation_requested": run_validation, "status": status}, sort_keys=True))
+          PY
+
       - name: Detect installed trusted validation lane
         id: installed
+        if: steps.request.outputs.run == 'true'
         shell: bash
         run: |
           if test -f tools/run_csh_provider_validation_v0_1_2.py; then
@@ -62,7 +80,7 @@ jobs:
             --output provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
 
       - name: Upload provider-validation receipt
-        if: always() && steps.installed.outputs.present == 'true'
+        if: always() && steps.request.outputs.run == 'true' && steps.installed.outputs.present == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: csh-provider-validation-${{ github.sha }}

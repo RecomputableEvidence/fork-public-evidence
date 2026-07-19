@@ -574,6 +574,49 @@ def check_workflow(
         )
         expect("github.event.pull_request.head.sha" not in json.dumps(checkout_values), "CANDIDATE_CHECKOUT_PROHIBITED", "Candidate refs may not be passed to actions/checkout.", path, errors)
         expect("tools/run_csh_provider_validation_v0_1_2.py" in serialized, "PROVIDER_VALIDATION_VERIFIER_MISSING", "Provider validation must invoke the bounded provider-validation verifier.", path, errors)
+        live_job = jobs.get("live-provider-validation")
+        live_steps = live_job.get("steps", []) if isinstance(live_job, dict) else []
+        request_steps = [
+            step for step in live_steps
+            if isinstance(step, dict) and step.get("id") == "request"
+        ]
+        request_script = request_steps[0].get("run", "") if len(request_steps) == 1 else ""
+        expect(
+            len(request_steps) == 1
+            and all(token in request_script for token in (
+                'status in {"REQUESTED", "RETRY_REQUESTED"}',
+                'os.environ["GITHUB_OUTPUT"]',
+                "run_validation",
+            )),
+            "PROVIDER_VALIDATION_REQUEST_GATE_INVALID",
+            "The live lane must fail closed unless the merged request status explicitly requests validation.",
+            path,
+            errors,
+        )
+        installed_steps = [
+            step for step in live_steps
+            if isinstance(step, dict) and step.get("id") == "installed"
+        ]
+        expect(
+            len(installed_steps) == 1
+            and installed_steps[0].get("if") == "steps.request.outputs.run == 'true'",
+            "PROVIDER_VALIDATION_REQUEST_GATE_BYPASSED",
+            "Validation setup must be gated by the merged request classification.",
+            path,
+            errors,
+        )
+        upload_steps = [
+            step for step in live_steps
+            if isinstance(step, dict) and str(step.get("uses", "")).startswith("actions/upload-artifact@")
+        ]
+        expect(
+            len(upload_steps) == 1
+            and "steps.request.outputs.run == 'true'" in str(upload_steps[0].get("if", "")),
+            "PROVIDER_VALIDATION_ARTIFACT_GATE_BYPASSED",
+            "Provider-validation artifact upload must share the merged-request gate.",
+            path,
+            errors,
+        )
     else:
         expect(not has_pr_target, "PULL_REQUEST_TARGET_OUTSIDE_TRUSTED_GATE", "Only the consumer-owned gate may use pull_request_target.", path, errors)
 

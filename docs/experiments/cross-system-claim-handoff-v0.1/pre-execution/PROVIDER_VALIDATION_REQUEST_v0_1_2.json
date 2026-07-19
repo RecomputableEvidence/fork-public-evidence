@@ -2,7 +2,7 @@
   "request_id": "CSH_PROVIDER_VALIDATION_REQUEST_v0_1_2",
   "schema_version": "v0.1.2",
   "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
-  "status": "RETRY_REQUESTED",
+  "status": "BLOCKED_PROVIDER_VALIDATION_FAILED",
   "repository": "RecomputableEvidence/fork-public-evidence",
   "trusted_lineage": {
     "preservation_merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3",
@@ -13,10 +13,10 @@
     "provider_validation_push_lane_merge_commit": "5f83f9e90303fc48ec37d8269591ffad89def86e",
     "initial_request_merge_commit": "a10fa59875c10a3b44ea27e8a13976c5b10fea45",
     "attempt_002_request_merge_commit": "1ea494b86c097323c27591195c3aea01e778bbf6",
-    "deepseek_probe_budget_hardening_merge_commit": "bf8077325ec57b2a1ad997d4c5014c424fe5cfd4"
+    "deepseek_probe_budget_hardening_merge_commit": "bf8077325ec57b2a1ad997d4c5014c424fe5cfd4",
+    "attempt_003_request_merge_commit": "a4eec818d19530e500e4e651012d2cd9fb4fded0"
   },
-  "attempt_number": 3,
-  "prior_attempts": [
+  "attempts": [
     {
       "attempt_number": 1,
       "workflow_run_id": 29678434082,
@@ -24,10 +24,11 @@
       "artifact_zip_sha256": "1ba06ddcb2e34796a941e4ea4ae37ba35e029341ec23720c5171baf85b2592fa",
       "receipt_sha256": "739d0729823482bb3bdb9b0507ba0235ecd6319764fb31f4d94cac3bd89e5e5d",
       "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_001_v0_1_2.json",
-      "status": "FAIL",
+      "deepseek_max_tokens": 32,
       "deepseek_http_status": 500,
       "meta_http_status": 200,
-      "pair_001_calls_performed": 0
+      "pair_001_calls_performed": 0,
+      "status": "FAIL"
     },
     {
       "attempt_number": 2,
@@ -36,40 +37,51 @@
       "artifact_zip_sha256": "3192931d61a0d60d004cb0766962674de29ebf23ad6ff4ea995fe73aee614404",
       "receipt_sha256": "4b907397cee94446780eb8fc1efc742722347a74b3e93115648810b2ef78646c",
       "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_002_v0_1_2.json",
-      "status": "FAIL",
+      "deepseek_max_tokens": 32,
       "deepseek_http_status": 500,
       "meta_http_status": 200,
-      "pair_001_calls_performed": 0
+      "pair_001_calls_performed": 0,
+      "status": "FAIL"
+    },
+    {
+      "attempt_number": 3,
+      "workflow_run_id": 29678913206,
+      "artifact_id": 8439896388,
+      "artifact_zip_sha256": "6490cedf119a5efe38560c491d63bee4ee47f60d387055290ee798c9be4d0166",
+      "receipt_sha256": "774d13a7106c1d40b7ea7b6ac86d1d27dcbc235e7904b1fe2dd548da95d2488f",
+      "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_003_v0_1_2.json",
+      "deepseek_max_tokens": 2048,
+      "deepseek_http_status": 500,
+      "meta_http_status": 200,
+      "pair_001_calls_performed": 0,
+      "status": "FAIL"
     }
   ],
-  "retry_basis": {
-    "model_substitution": false,
-    "deepseek_requested_model": "deepseek/DeepSeek-V3-0324",
-    "deepseek_expected_returned_model": "DeepSeek-V3-0324",
-    "changed_parameter": "max_tokens",
-    "prior_value": 32,
-    "retry_value": 2048,
-    "binding": "PREREGISTERED_RECEIVER_PARAMETER"
+  "observed_consistency": {
+    "exact_deepseek_requested_model": "deepseek/DeepSeek-V3-0324",
+    "exact_deepseek_expected_returned_model": "DeepSeek-V3-0324",
+    "deepseek_response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
+    "deepseek_result": "HTTP_500_ALL_ATTEMPTS",
+    "meta_result": "PASS_ALL_ATTEMPTS",
+    "credential_scope_models_read": "OBSERVED",
+    "receipt_destination_round_trip": "PASS_ALL_ATTEMPTS"
   },
-  "requested_validations": [
-    "PROVIDER_IDENTITY",
-    "EPHEMERAL_CREDENTIAL_SCOPE_MODELS_READ",
-    "QUOTA_AVAILABILITY_AT_VALIDATION_TIME",
-    "RECEIPT_DESTINATION_ROUND_TRIP"
-  ],
+  "disposition": {
+    "provider_validation_prerequisite_satisfied": false,
+    "provider_execution_permitted": false,
+    "pair_001_execution_permitted": false,
+    "blocking_reason": "EXACT_CONFIGURED_DEEPSEEK_PROVIDER_REQUEST_HTTP_500",
+    "model_substitution_performed": false,
+    "preregistered_request_bytes_changed": false,
+    "additional_authority_required_for_model_id_or_request_byte_amendment": true
+  },
   "execution_boundary": {
-    "provider_validation_calls_requested_this_attempt": 2,
-    "provider_validation_calls_previously_performed": 4,
-    "pair_001_calls_requested": 0,
-    "pair_001_calls_previously_performed": 0,
+    "provider_validation_calls_performed": 6,
+    "additional_provider_validation_calls_requested": 0,
+    "pair_001_calls_performed": 0,
     "pair_001_execution_effect": "NONE",
-    "reviewed_request_merge_required": true,
-    "workflow_checkout": "MERGED_GITHUB_SHA_ONLY",
-    "candidate_checkout": "NONE",
-    "candidate_code_execution": "NONE",
-    "experiment_run_ids_requested": []
+    "experiment_run_ids_created": []
   },
-  "receipt_destination": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json",
   "non_claims": [
     "Not a Pair-001 request or repetition",
     "Not included in the CSH baseline or hypothesis test",
