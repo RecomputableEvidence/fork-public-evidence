@@ -1,0 +1,53 @@
+{
+  "binding_id": "CSH_PRE_EXECUTION_BINDING_v0_1_2",
+  "schema_version": "v0.1.2",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "amendment_id": "CSH-AMEND-003",
+  "status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+  "bound_hypothesis": {
+    "expression": "E[U | H = 1] < E[U | H = 0]",
+    "u_definition": "unsupported-inheritance events per receiver run",
+    "h_definition": "presence of explicit Fork handoff-state artifact"
+  },
+  "design": {
+    "scenario_count": 6,
+    "conditions": ["control_h0", "instrumented_h1"],
+    "receiver_classes": ["llm_receiver_a", "llm_receiver_b", "deterministic_receiver"],
+    "replicates_per_cell": 3,
+    "planned_run_units": 108,
+    "pair_blocks": 54,
+    "run_order": "FIXED_AND_COUNTERBALANCED",
+    "optimization_before_baseline_recomputation": "PROHIBITED"
+  },
+  "immutable_artifact_bindings": [
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json", "sha256": "6d2729a185d06f798354c803e796a72d04a24a5b9c3d243eb46440c2efd3290c"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json", "sha256": "35dca2a290033f6297924449a80297155c9c93e530be0cb7c3dfebffe9354822"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md", "sha256": "25758e5ed0aa0691318797286b9e65fe274ada02d9e83f860cf439518e69ac39"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/METHOD_v0_1.md", "sha256": "0fbd66072f22513a0c7d9929a6e37a0d9efc65b47b8ab8f887056ed36162d93a"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json", "sha256": "362da15627c796187bd9d06f806f32f408e68e66cb41186628a4e3a636aa7295"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/PAIR_MANIFEST_v0_1.json", "sha256": "d663e8cd2d1cc177fd1f897628aa37e44fb31c8e2cdafbb8aabc008566a2e04b"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json", "sha256": "c25328711e165d8aa841dd0c95a93e46cc5acaa96b8ed1d75fa02cfe7a5487a9"},
+    {"path": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json", "sha256": "71fb1726da1c494b122fe2b3d6d49ff668d707cbe2395ac082d6732d933d9df7"}
+  ],
+  "affected_pair_001": {
+    "originals_immutable": true,
+    "originals_replaced": false,
+    "originals_superseded": false,
+    "repeat_count_required": 2,
+    "repeat_ids_must_be_new": true,
+    "repeat_exact_request_bytes_must_match_original": true,
+    "first_units": [
+      {"ordinal": 1, "planned_run_id": "CSH-RUN-001", "condition": "control_h0", "receiver_class_id": "llm_receiver_b", "replicate_id": 2, "exact_request_sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69"},
+      {"ordinal": 2, "planned_run_id": "CSH-RUN-002", "condition": "instrumented_h1", "receiver_class_id": "llm_receiver_b", "replicate_id": 2, "exact_request_sha256": "de81b4c41e4a9085ac085beb52a5218106f7d504bc5ae58c899ff6f02b052272"}
+    ]
+  },
+  "prerequisites": [
+    {"id": "PRESERVATION_PR_61_ADMITTED", "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/61", "expected_head": "cf878ee8c9d1c50af17a83937ecf1bd6bf043db9", "satisfied": false},
+    {"id": "CLAIM_ADMISSION_PR_62_ADMITTED", "reference": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/62", "expected_head": "1102113556edfc54b43a328317961c4896d6dd6c", "satisfied": false},
+    {"id": "CSH_AMENDMENT_PR_ADMITTED", "reference": null, "expected_head": null, "satisfied": false},
+    {"id": "INSTRUMENTATION_RELEASE_ANCHOR_PUBLISHED", "reference": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json", "expected_head": null, "satisfied": false},
+    {"id": "PROVIDER_IDENTITY_CREDENTIAL_SCOPE_QUOTA_AND_RECEIPT_PATH_VALIDATED", "reference": "OPERATOR_ATTESTATION_REQUIRED_NO_SECRET_MATERIAL", "expected_head": null, "satisfied": false}
+  ],
+  "provider_execution_permitted": false,
+  "provider_calls_performed_by_this_stage": 0
+}

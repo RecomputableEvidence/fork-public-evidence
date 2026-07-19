@@ -4,6 +4,8 @@ import argparse
 import copy
 import hashlib
 import json
+import os
+import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +20,7 @@ STATE = BASE / "execution-state" / "PAIR-001_EXECUTION_STATE_v0_1_1.json"
 SCHEMA = Path("schemas/cross_system_claim_handoff_execution_state_v0_1_1.schema.json")
 INSTRUMENTATION_FREEZE = AMENDMENT_DIR / "INSTRUMENTATION_FREEZE_v0_1_1.json"
 RESULT_JSON = BASE / "results" / "bounded-rounds" / "CSH_PAIR001_REPAIR_REPETITION_BOUNDED_RESULT_v0_1_1.json"
+SUCCESSOR_PROVENANCE = BASE / "amendments" / "CSH-AMEND-003" / "WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json"
 
 ORIGINAL_IDS = {"CSH-RUN-001", "CSH-RUN-002"}
 REQUIRED_ATTEMPT_FILES = {"exact-request.json", "execution-metadata.json", "raw-provider-response.json"}
@@ -122,13 +125,118 @@ def verify_artifact_records(root: Path, records: list[dict[str, Any]], label: st
     return errors
 
 
+def git_object_bytes(root: Path, commit: str, path: str) -> tuple[bytes | None, str | None]:
+    completed = subprocess.run(
+        ["git", "-c", f"core.hooksPath={os.devnull}", "show", f"{commit}:{path}"],
+        cwd=root,
+        capture_output=True,
+        check=False,
+    )
+    if completed.returncode != 0:
+        return None, completed.stderr.decode("utf-8", errors="replace").strip()
+    return completed.stdout, None
+
+
+def verify_instrumentation_successors(
+    root: Path,
+    instrumentation_freeze: dict[str, Any],
+    provenance: dict[str, Any],
+) -> list[str]:
+    errors: list[str] = []
+    successions = {
+        item.get("live_path"): item
+        for item in provenance.get("successions", [])
+        if isinstance(item, dict) and isinstance(item.get("live_path"), str)
+    }
+    required_live = {
+        ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+        ".github/workflows/fork-proof-surface-integration.yml",
+    }
+    if set(successions) != required_live:
+        errors.append(f"successor set mismatch: observed={sorted(successions)}")
+
+    origin = provenance.get("origin", {})
+    if origin.get("commit") != "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71":
+        errors.append("successor origin commit mismatch")
+    if provenance.get("amendment_id") != "CSH-AMEND-003":
+        errors.append("successor amendment binding mismatch")
+    if provenance.get("execution_authority") != "NONE_UNTIL_ALL_PRE_EXECUTION_PREREQUISITES_TRUE":
+        errors.append("successor record grants unexpected execution authority")
+
+    frozen = {
+        item.get("path"): item
+        for item in instrumentation_freeze.get("immutable_artifacts", [])
+        if isinstance(item, dict) and isinstance(item.get("path"), str)
+    }
+    for live_path, item in successions.items():
+        frozen_item = frozen.get(live_path)
+        original = item.get("original", {})
+        successor = item.get("successor", {})
+        if not isinstance(frozen_item, dict):
+            errors.append(f"successor has no predecessor freeze record: {live_path}")
+            continue
+        if original.get("sha256") != frozen_item.get("sha256") or original.get("size_bytes") != frozen_item.get("size_bytes"):
+            errors.append(f"archived predecessor metadata mismatch: {live_path}")
+        archive_path = root / str(original.get("archive_path", ""))
+        if not archive_path.is_file():
+            errors.append(f"archived predecessor missing: {live_path}")
+        else:
+            if sha256(archive_path) != original.get("sha256"):
+                errors.append(f"archived predecessor digest mismatch: {live_path}")
+            if archive_path.stat().st_size != original.get("size_bytes"):
+                errors.append(f"archived predecessor size mismatch: {live_path}")
+        current_path = root / live_path
+        if not current_path.is_file():
+            errors.append(f"live successor missing: {live_path}")
+        else:
+            if sha256(current_path) != successor.get("sha256"):
+                errors.append(f"live successor digest mismatch: {live_path}")
+            if current_path.stat().st_size != successor.get("size_bytes"):
+                errors.append(f"live successor size mismatch: {live_path}")
+        if successor.get("semantic_change") is not False:
+            errors.append(f"successor must declare no semantic change: {live_path}")
+        if successor.get("security_effect") != "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL":
+            errors.append(f"successor security effect mismatch: {live_path}")
+
+    checker = provenance.get("checker_origin", {})
+    checker_path = str(checker.get("path", ""))
+    checker_frozen = frozen.get(checker_path)
+    if not isinstance(checker_frozen, dict):
+        errors.append("checker origin has no predecessor freeze record")
+    else:
+        content, git_error = git_object_bytes(root, str(origin.get("commit", "")), checker_path)
+        if git_error:
+            errors.append(f"checker origin unavailable: {git_error}")
+        elif content is not None:
+            digest = hashlib.sha256(content).hexdigest()
+            if digest != checker.get("sha256") or digest != checker_frozen.get("sha256"):
+                errors.append("checker origin digest mismatch")
+            if len(content) != checker.get("size_bytes") or len(content) != checker_frozen.get("size_bytes"):
+                errors.append("checker origin size mismatch")
+            completed = subprocess.run(
+                ["git", "hash-object", "--stdin"],
+                cwd=root,
+                input=content,
+                capture_output=True,
+                check=False,
+            )
+            observed_blob = completed.stdout.decode("ascii", errors="replace").strip()
+            if completed.returncode != 0 or observed_blob != checker.get("git_blob"):
+                errors.append("checker origin Git blob mismatch")
+
+    successor_paths = set(successions) | {checker_path}
+    unchanged_records = [item for path, item in frozen.items() if path not in successor_paths]
+    errors.extend(verify_artifact_records(root, unchanged_records, "instrumentation freeze"))
+    return errors
+
+
 def evaluate(root: Path, require_repeat: bool = False, require_result: bool = False) -> dict[str, Any]:
     checks: list[dict[str, Any]] = []
 
     def record(name: str, passed: bool, detail: str) -> None:
         checks.append({"name": name, "passed": passed, "detail": detail})
 
-    required = [SCHEMA, SEAL, AMENDMENT, IDENTITY, STATE, INSTRUMENTATION_FREEZE]
+    required = [SCHEMA, SEAL, AMENDMENT, IDENTITY, STATE, INSTRUMENTATION_FREEZE, SUCCESSOR_PROVENANCE]
     missing = [path.as_posix() for path in required if not (root / path).is_file()]
     record("required_surface", not missing, "present" if not missing else "; ".join(missing))
     if missing:
@@ -150,6 +258,7 @@ def evaluate(root: Path, require_repeat: bool = False, require_result: bool = Fa
     amendment = load(root / AMENDMENT)
     identity = load(root / IDENTITY)
     instrumentation_freeze = load(root / INSTRUMENTATION_FREEZE)
+    successor_provenance = load(root / SUCCESSOR_PROVENANCE)
 
     amendment_ok = (
         amendment.get("amendment_id") == "CSH-AMEND-002"
@@ -173,8 +282,8 @@ def evaluate(root: Path, require_repeat: bool = False, require_result: bool = Fa
     identity_errors = verify_artifact_records(root, identity.get("records", []), "v0.1 identity")
     record("v0_1_freeze_byte_identity", not identity_errors, "byte-identical" if not identity_errors else "; ".join(identity_errors))
 
-    frozen_errors = verify_artifact_records(root, instrumentation_freeze.get("immutable_artifacts", []), "instrumentation freeze")
-    record("instrumentation_freeze_digests", not frozen_errors, "verified" if not frozen_errors else "; ".join(frozen_errors))
+    frozen_errors = verify_instrumentation_successors(root, instrumentation_freeze, successor_provenance)
+    record("instrumentation_freeze_and_successor_provenance", not frozen_errors, "verified" if not frozen_errors else "; ".join(frozen_errors))
 
     state_seal_ref = state.get("original_attempt_seal", {})
     seal_ref_ok = state_seal_ref.get("path") == SEAL.as_posix() and state_seal_ref.get("sha256") == sha256(root / SEAL)
@@ -230,6 +339,7 @@ def finish(checks: list[dict[str, Any]]) -> dict[str, Any]:
             "proves": [
                 "the listed original attempt bytes still match their preserved seal",
                 "the listed v0.1 freeze artifacts remain byte-identical to the captured repair boundary",
+                "the hardened live workflow successors bind to byte-identical archived predecessors",
                 "mutable execution state is separated from the immutable semantic freeze",
                 "new repeat identifiers do not replace original identifiers when repeat records are present",
             ],

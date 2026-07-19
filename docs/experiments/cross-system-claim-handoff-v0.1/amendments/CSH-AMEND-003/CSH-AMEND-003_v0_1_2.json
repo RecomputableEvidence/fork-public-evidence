@@ -1,0 +1,46 @@
+{
+  "amendment_id": "CSH-AMEND-003",
+  "schema_version": "v0.1.2",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "amendment_class": "instrumentation_repair",
+  "security_class": "PROVENANCE_BOUND_WORKFLOW_SUCCESSION_AND_PRE_EXECUTION_ADMISSION",
+  "status": "proposed_not_admitted",
+  "recorded_at_utc": "2026-07-17T04:48:13Z",
+  "predecessor_amendment": "CSH-AMEND-002",
+  "reason": "Replace two pre-existing live byte-sealed workflows with hardened successors while retaining the exact prior bytes and binding execution to independently reviewable prerequisites.",
+  "scope_constraints": {
+    "mutates_v0_1_semantic_freeze": false,
+    "changes_hypothesis": false,
+    "changes_corpus": false,
+    "changes_prompt_packets": false,
+    "changes_handoff_artifacts": false,
+    "changes_receiver_bindings": false,
+    "changes_parameters": false,
+    "changes_run_order": false,
+    "changes_classifier": false,
+    "changes_stopping_rule": false,
+    "changes_optimization_embargo": false,
+    "replaces_original_attempts": false,
+    "supersedes_original_attempts": false,
+    "authorizes_provider_execution": false
+  },
+  "records": {
+    "workflow_successor_provenance": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json",
+    "pre_execution_binding": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+    "release_anchor": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json"
+  },
+  "required_first_execution_sequence": [
+    "repeat CSH-RUN-001 with a new run ID and byte-identical exact request",
+    "repeat CSH-RUN-002 with a new run ID and byte-identical exact request",
+    "preserve both repeat outcomes and link each to its original",
+    "continue the unchanged fixed baseline order only after bounded Pair-001 continuity is recorded"
+  ],
+  "non_claims": [
+    "No experiment execution authorization",
+    "No merge approval",
+    "No security certification",
+    "No hypothesis confirmation",
+    "No receiver correctness determination",
+    "No endorsement"
+  ]
+}

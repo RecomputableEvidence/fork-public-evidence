@@ -15,7 +15,7 @@
     "protected_control_paths",
     "candidate_tree_requirements",
     "workflow_requirements",
-    "sealed_workflow_exceptions",
+    "provenance_bound_workflow_successors",
     "admission_semantics",
     "repository_settings_effect",
     "historical_rewrite_authority",
@@ -59,20 +59,22 @@
       "minProperties": 1,
       "patternProperties": {"^[a-z][a-z0-9_]*$": {"type": "boolean"}}
     },
-    "sealed_workflow_exceptions": {
+    "provenance_bound_workflow_successors": {
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["path", "sha256", "seal_path", "classification", "disposition"],
+        "required": ["path", "successor_sha256", "original_sha256", "archive_path", "provenance_path", "classification", "disposition"],
         "properties": {
           "path": {"type": "string", "pattern": "^\\.github/workflows/.+\\.ya?ml$"},
-          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
-          "seal_path": {"type": "string", "minLength": 1},
-          "classification": {"const": "PRE_EXISTING_BYTE_SEALED_EXPERIMENT_INSTRUMENTATION"},
-          "disposition": {"const": "EXACT_DIGEST_ONLY_SUCCESSOR_AMENDMENT_REQUIRED_BEFORE_EXPERIMENT_EXECUTION"}
+          "successor_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "original_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "archive_path": {"type": "string", "minLength": 1},
+          "provenance_path": {"type": "string", "minLength": 1},
+          "classification": {"const": "PROVENANCE_BOUND_HARDENED_EXPERIMENT_INSTRUMENTATION_SUCCESSOR"},
+          "disposition": {"const": "FULL_HARDENING_REQUIRED_AND_EXECUTION_SEPARATELY_GATED"}
         }
       }
     },
