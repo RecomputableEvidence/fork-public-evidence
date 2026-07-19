@@ -26,6 +26,7 @@ jobs:
     timeout-minutes: 20
     env:
       PACKAGE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+      REVIEWED_PACKAGE_COMMIT: d911ad5c33e0ec32037414effa7749326983d5ff
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
@@ -45,21 +46,16 @@ jobs:
             599d3e193d86a9661fbbec3213ae1921b4959f10 \
             82c34252d7b8d9e8957fb5a86500e12da6cf363a \
             1102113556edfc54b43a328317961c4896d6dd6c \
-            e366e44cb2059f5cb7243757b95fa8d44859b811
-      - name: Recompute committed hardened receipt
-        run: |
-          python tools/check_independent_verification_surface_v0_1_1.py \
-            --plan verification/plans/PR_63_CSH_AMENDMENT_v0_1_1.json \
-            --write-receipt /tmp/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
-          cmp --silent \
-            /tmp/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json \
-            receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
-      - name: Run v0.1.1 adversarial tests
-        run: python -m pytest tests/test_independent_verification_surface_v0_1_1.py -q
-      - name: Recompute from empty disposable repository
+            e366e44cb2059f5cb7243757b95fa8d44859b811 \
+            "$REVIEWED_PACKAGE_COMMIT"
+      - name: Recompute reviewed package and derive candidate effects
         run: |
           python tools/run_independent_verification_fresh_v0_1_1.py \
             --repository RecomputableEvidence/fork-public-evidence \
-            --package-commit "$PACKAGE_COMMIT" \
+            --package-commit "$REVIEWED_PACKAGE_COMMIT" \
             --plan verification/plans/PR_63_CSH_AMENDMENT_v0_1_1.json \
-            --expected-receipt receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json
+            --expected-receipt receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1_1.json \
+            > /tmp/PR64_FRESH_RECOMPUTATION_OUTPUT_v0_1_2.json
+          python -c 'import json; p=json.load(open("/tmp/PR64_FRESH_RECOMPUTATION_OUTPUT_v0_1_2.json", encoding="utf-8")); assert p["result"] == "FRESH_RECOMPUTATION_PASS"; assert p["receipt_byte_exact"] is True; assert p["candidate_effect_basis"] == "DERIVED_FROM_OPERATION_RECORD"; assert p["candidate_checkout"] == "NONE"; assert p["candidate_code_execution"] == "NONE"'
+      - name: Run v0.1 and v0.1.1 adversarial tests
+        run: python -m pytest tests/test_independent_verification_surface_v0_1.py tests/test_independent_verification_surface_v0_1_1.py -q

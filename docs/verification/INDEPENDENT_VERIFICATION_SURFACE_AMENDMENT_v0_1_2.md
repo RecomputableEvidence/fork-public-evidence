@@ -26,6 +26,8 @@ During the ordered PR #64 then PR #63 merge rehearsal, the full suite exposed th
 
 The regression now recomputes the historical receipt from the exact reviewed package commit `d911ad5c33e0ec32037414effa7749326983d5ff`. Generic v0.1 fixture construction also includes the provenance-bound predecessor archives required by the successor claim-admission policy. Historical package evidence remains byte-exact; current-state dependencies are not silently substituted for reviewed package dependencies.
 
+The dedicated GitHub workflow follows the same rule: it invokes the operation-record-derived fresh runner against the reviewed package commit, then runs the current v0.1 and v0.1.1 adversarial suites. It no longer substitutes the post-admission worktree claim checker into the historical receipt recomputation.
+
 ## Validation
 
 - fresh recomputation at `d911ad5c33e0ec32037414effa7749326983d5ff`: `FRESH_RECOMPUTATION_PASS`, receipt byte-exact;
