@@ -9,7 +9,8 @@
     "admission_anchor_merge_commit": "33726e6e79be430809121673e71f85e3eedcae90",
     "instrumentation_release_anchor_merge_commit": "b877a4e455429f5c30f78219d6c8f767c744cfba",
     "provider_lane_policy_merge_commit": "048a04167345b1de14c50fdfef9a8d4d06c0292a",
-    "provider_validation_lane_merge_commit": "a97f3edcc965c4c72f4870bd449eca988d804bae"
+    "provider_validation_lane_merge_commit": "a97f3edcc965c4c72f4870bd449eca988d804bae",
+    "provider_validation_push_lane_merge_commit": "5f83f9e90303fc48ec37d8269591ffad89def86e"
   },
   "requested_validations": [
     "PROVIDER_IDENTITY",
@@ -21,6 +22,8 @@
     "provider_validation_calls_requested": 2,
     "pair_001_calls_requested": 0,
     "pair_001_execution_effect": "NONE",
+    "reviewed_request_merge_required": true,
+    "workflow_checkout": "MERGED_GITHUB_SHA_ONLY",
     "candidate_checkout": "NONE",
     "candidate_code_execution": "NONE",
     "experiment_run_ids_requested": []
