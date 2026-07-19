@@ -152,7 +152,24 @@ jobs:
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
-      - run: python tools/run_csh_provider_validation_v0_1_2.py --output /tmp/receipt.json
+      - id: request
+        run: |
+          python - <<'PY'
+          import os
+          status = "REQUESTED"
+          run_validation = status in {"REQUESTED", "RETRY_REQUESTED"}
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"run={'true' if run_validation else 'false'}\\n")
+          PY
+      - id: installed
+        if: steps.request.outputs.run == 'true'
+        run: echo "present=true" >> "$GITHUB_OUTPUT"
+      - if: steps.installed.outputs.present == 'true'
+        run: python tools/run_csh_provider_validation_v0_1_2.py --output /tmp/receipt.json
+      - if: always() && steps.request.outputs.run == 'true' && steps.installed.outputs.present == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          path: /tmp/receipt.json
 """
 
 
@@ -339,6 +356,16 @@ def test_provider_validation_trusted_lane_is_narrowly_permitted(tmp_path: Path) 
             "PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
             "*.json",
             "PROVIDER_VALIDATION_PUSH_SCOPE_INVALID",
+        ),
+        (
+            'status in {"REQUESTED", "RETRY_REQUESTED"}',
+            "status in set()",
+            "PROVIDER_VALIDATION_REQUEST_GATE_INVALID",
+        ),
+        (
+            "if: steps.request.outputs.run == 'true'",
+            "if: always()",
+            "PROVIDER_VALIDATION_REQUEST_GATE_BYPASSED",
         ),
     ],
 )
