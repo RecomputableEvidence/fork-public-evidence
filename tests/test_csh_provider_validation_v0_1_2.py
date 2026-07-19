@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 import json
+import urllib.error
 from pathlib import Path
 
 import pytest
@@ -101,3 +103,54 @@ def test_missing_quota_evidence_is_rejected(tmp_path: Path) -> None:
     path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     with pytest.raises(ValueError, match="quota evidence"):
         MODULE.verify_receipt(path)
+
+
+def test_sanitized_error_capture_retains_only_allowlisted_codes() -> None:
+    raw = (
+        b'{"error":{"code":"InternalServerError","type":"server_error",'
+        b'"message":"credential-like secret must not persist"},"request_id":"sensitive"}'
+    )
+    evidence = MODULE.sanitized_error_code_evidence(raw)
+    assert evidence == {
+        "capture_schema": "SANITIZED_PROVIDER_ERROR_CODE_v0_1",
+        "body_parsed_as_strict_json": True,
+        "error_code": "InternalServerError",
+        "error_type": "server_error",
+        "message_persisted": False,
+        "raw_body_persisted": False,
+    }
+    rendered = json.dumps(evidence)
+    assert "credential-like" not in rendered
+    assert "request_id" not in rendered
+
+
+def test_invalid_or_duplicate_key_error_body_captures_no_values() -> None:
+    evidence = MODULE.sanitized_error_code_evidence(
+        b'{"error":{"code":"first","code":"second","message":"do not persist"}}'
+    )
+    assert evidence["body_parsed_as_strict_json"] is False
+    assert evidence["error_code"] is None
+    assert evidence["error_type"] is None
+    assert evidence["message_persisted"] is False
+    assert evidence["raw_body_persisted"] is False
+
+
+def test_http_error_receipt_path_includes_sanitized_capture(monkeypatch: pytest.MonkeyPatch) -> None:
+    raw = b'{"error":{"code":"InternalServerError","type":"server_error","message":"omit me"}}'
+
+    def fail_request(*_args, **_kwargs):
+        raise urllib.error.HTTPError(
+            MODULE.ENDPOINT,
+            500,
+            "Internal Server Error",
+            {},
+            io.BytesIO(raw),
+        )
+
+    monkeypatch.setattr(MODULE.urllib.request, "urlopen", fail_request)
+    call = MODULE.invoke_probe(MODULE.MODEL_SPECS[0], "not-persisted", 1)
+    assert call["passed"] is False
+    assert call["http_status"] == 500
+    assert call["sanitized_error"]["error_code"] == "InternalServerError"
+    assert call["sanitized_error"]["error_type"] == "server_error"
+    assert "omit me" not in json.dumps(call)

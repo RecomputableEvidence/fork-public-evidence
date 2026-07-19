@@ -1,0 +1,183 @@
+{
+  "contract_id": "CSH_DEEPSEEK_RECEIVER_DRIFT_CLASSIFICATION_v0_1_3",
+  "schema_version": "v0.1.3",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "pair_id": "PAIR-001",
+  "recorded_at_utc": "2026-07-19T08:59:08Z",
+  "classification": "RECEIVER_IDENTIFIER_DRIFT_CAUSE_UNRESOLVED",
+  "cause": "UNRESOLVED",
+  "status": "CLASSIFIED_RETRY_NOT_AUTHORIZED",
+  "observations": {
+    "july_12_uppercase_success": {
+      "run_id": "CSH-RUN-001",
+      "classification": "ORIGINAL_PAIR_001_ATTEMPT",
+      "started_at_utc": "2026-07-12T06:48:13.738698+00:00",
+      "completed_at_utc": "2026-07-12T06:48:15.976855+00:00",
+      "requested_model": "deepseek/DeepSeek-V3-0324",
+      "returned_model": "DeepSeek-V3-0324",
+      "http_status": 200,
+      "exact_request_path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/exact-request.json",
+      "exact_request_sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+      "execution_metadata_path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/execution-metadata.json",
+      "execution_metadata_sha256": "7e310188bdc195189fc06e966a433a850146c4d2daea0c08aca40519c59dc0f6",
+      "raw_response_path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/raw-provider-response.json",
+      "raw_response_sha256": "7e67a0fa62b578913281e72f039154822bcc5e82b129bdc4d5e9aec6a0269f05"
+    },
+    "july_19_uppercase_failures": [
+      {
+        "attempt_number": 1,
+        "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+        "observed_at_utc": "2026-07-19T07:38:22.039565+00:00",
+        "workflow_run_id": 29678434082,
+        "subject_commit": "a10fa59875c10a3b44ea27e8a13976c5b10fea45",
+        "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_001_v0_1_2.json",
+        "receipt_sha256": "739d0729823482bb3bdb9b0507ba0235ecd6319764fb31f4d94cac3bd89e5e5d",
+        "requested_model": "deepseek/DeepSeek-V3-0324",
+        "request_sha256": "70a1c1d0b05da416d2c419bac137505216dbc2ae497e0114b4e815d2c079584c",
+        "http_status": 500,
+        "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+      },
+      {
+        "attempt_number": 2,
+        "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+        "observed_at_utc": "2026-07-19T07:42:34.083313+00:00",
+        "workflow_run_id": 29678549437,
+        "subject_commit": "1ea494b86c097323c27591195c3aea01e778bbf6",
+        "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_002_v0_1_2.json",
+        "receipt_sha256": "4b907397cee94446780eb8fc1efc742722347a74b3e93115648810b2ef78646c",
+        "requested_model": "deepseek/DeepSeek-V3-0324",
+        "request_sha256": "70a1c1d0b05da416d2c419bac137505216dbc2ae497e0114b4e815d2c079584c",
+        "http_status": 500,
+        "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+      },
+      {
+        "attempt_number": 3,
+        "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+        "observed_at_utc": "2026-07-19T07:55:24.374494+00:00",
+        "workflow_run_id": 29678913206,
+        "subject_commit": "a4eec818d19530e500e4e651012d2cd9fb4fded0",
+        "receipt_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/provider-validation-attempts/PROVIDER_VALIDATION_ATTEMPT_003_v0_1_2.json",
+        "receipt_sha256": "774d13a7106c1d40b7ea7b6ac86d1d27dcbc235e7904b1fe2dd548da95d2488f",
+        "requested_model": "deepseek/DeepSeek-V3-0324",
+        "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+        "http_status": 500,
+        "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+      }
+    ],
+    "determinism_basis": "THREE_UPPERCASE_PROVIDER_VALIDATION_ATTEMPTS_RETURNED_IDENTICAL_HTTP_STATUS_AND_RESPONSE_BODY_SHA256",
+    "current_catalog_snapshot": {
+      "observed_at_utc": "2026-07-19T08:59:08Z",
+      "source": "https://models.github.ai/catalog/models",
+      "catalog_id": "deepseek/deepseek-v3-0324",
+      "name": "DeepSeek-V3-0324",
+      "registry": "azureml-deepseek",
+      "id_case_relation_to_recorded_requests": "LOWERCASE_WHERE_RECORDED_REQUESTS_USED_UPPERCASE_MODEL_COMPONENT"
+    }
+  },
+  "inference_boundary": {
+    "supported": [
+      "The uppercase identifier returned HTTP 200 on July 12 in original CSH-RUN-001.",
+      "The uppercase identifier returned three HTTP 500 responses on July 19 in excluded provider-validation diagnostics.",
+      "All three July 19 DeepSeek response bodies had the same SHA-256 digest.",
+      "The catalog snapshot currently records a lowercase identifier."
+    ],
+    "unsupported": [
+      "Identifier case caused the July 19 failures.",
+      "The provider permanently removed uppercase compatibility.",
+      "The lowercase identifier would succeed.",
+      "A provider-validation result completes a Pair-001 repetition."
+    ],
+    "cause": "UNRESOLVED"
+  },
+  "precommitted_stopping_rule": {
+    "scope": "DEEPSEEK_PROVIDER_VALIDATION_DIAGNOSTIC_ONLY",
+    "authorization": {
+      "explicit_retry_authorization_required": true,
+      "present": false,
+      "authorization_record": null,
+      "connector_publishing_authorization_is_retry_authorization": false
+    },
+    "minimum_gap_hours": 24,
+    "last_uppercase_attempt_observed_at_utc": "2026-07-19T07:55:24.374494+00:00",
+    "earliest_permitted_retry_at_utc": "2026-07-20T07:55:24.374494+00:00",
+    "retry_budget": {
+      "additional_byte_identical_uppercase_attempts_permitted": 1,
+      "additional_byte_identical_uppercase_attempts_consumed": 0,
+      "automatic_retries_permitted": 0
+    },
+    "exact_uppercase_retry": {
+      "byte_identity_reference_attempt": 3,
+      "requested_model": "deepseek/DeepSeek-V3-0324",
+      "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+      "max_tokens": 2048,
+      "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+      "pair_001_run_id_created": false
+    },
+    "success_path": {
+      "required_next_step": "VALIDATE_FRESHNESS_THEN_PUBLISH_SEPARATE_READINESS_ANCHOR",
+      "freshness_requirements": [
+        "bind the successful receipt to its subject commit and workflow run",
+        "verify returned model identity, credential scope, quota evidence, and receipt round trip in the successful run",
+        "record a catalog snapshot observed after the successful response"
+      ],
+      "automatic_pair_001_execution": false,
+      "automatic_readiness_promotion": false
+    },
+    "identical_failure_path": {
+      "identity_condition": {
+        "http_status": 500,
+        "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+      },
+      "required_next_step": "STOP_UPPERCASE_RETRIES",
+      "additional_uppercase_retries_permitted": 0
+    },
+    "different_outcome_path": {
+      "required_next_step": "STOP_AND_CLASSIFY_NEW_EVIDENCE",
+      "retry_budget_automatically_replenished": false
+    },
+    "lowercase_diagnostic_path": {
+      "available_only_after_identical_uppercase_failure": true,
+      "separate_explicit_authorization_required": true,
+      "requested_model_if_authorized": "deepseek/deepseek-v3-0324",
+      "classification": "SEPARATE_RECEIVER_DRIFT_DIAGNOSTIC_EXCLUDED_FROM_CSH_BASELINE",
+      "if_successful_required_amendment": "CSH-AMEND-004",
+      "if_successful_required_stratum": "NEW_RECEIVER_VERSION_STRATUM",
+      "completes_original_byte_identical_pair_001_repetitions": false
+    }
+  },
+  "sanitized_error_capture": {
+    "required_for_next_authorized_probe": true,
+    "capture_schema": "SANITIZED_PROVIDER_ERROR_CODE_v0_1",
+    "allowed_source_paths": [
+      "error.code",
+      "error.type"
+    ],
+    "allowed_token_pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+    "persisted_fields": [
+      "body_parsed_as_strict_json",
+      "error_code",
+      "error_type",
+      "message_persisted",
+      "raw_body_persisted"
+    ],
+    "message_persisted": false,
+    "raw_body_persisted": false
+  },
+  "execution_boundary": {
+    "provider_calls_performed_by_contract_publication": 0,
+    "provider_validation_request_status": "BLOCKED_PROVIDER_VALIDATION_FAILED",
+    "retry_authorized": false,
+    "pair_001_calls_performed_by_contract_publication": 0,
+    "pair_001_execution_effect": "NONE",
+    "readiness_effect": "NONE"
+  },
+  "non_claims": [
+    "Not authorization for the one remaining uppercase retry",
+    "Not authorization for a lowercase diagnostic",
+    "Not a Pair-001 request or repetition",
+    "Not satisfaction of provider validation or readiness prerequisites",
+    "Not automatic Pair-001 execution",
+    "Not a finding that identifier case caused the failures",
+    "Not merge authority or a security, compliance, safety, truth, or production-readiness certification"
+  ]
+}
