@@ -35,6 +35,7 @@ SUCCESSOR_PROVENANCE_PATH = Path(
     "CSH-AMEND-003/WORKFLOW_SUCCESSOR_PROVENANCE_v0_1_2.json"
 )
 TRUSTED_WORKFLOW = ".github/workflows/consumer-owned-claim-admission.yml"
+PROVIDER_VALIDATION_WORKFLOW = ".github/workflows/csh-provider-validation-v0-1-2.yml"
 POLICY_ID = "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1"
 FAILURE_CLASS_ID = "CCF-001_AI_CHANGE_READINESS_PROMOTION"
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
@@ -475,6 +476,23 @@ def check_workflow(
         runs_on = str(job.get("runs-on", ""))
         expect(bool(runs_on), "RUNNER_MISSING", "Workflow job must declare runs-on.", job_path, errors)
         expect("self-hosted" not in runs_on.lower(), "SELF_HOSTED_RUNNER_PROHIBITED", "Admission-controlled workflows must use ephemeral GitHub-hosted runners.", job_path, errors)
+        job_permissions = job.get("permissions")
+        if path == PROVIDER_VALIDATION_WORKFLOW and job_name == "live-provider-validation":
+            expect(
+                job_permissions == {"contents": "read", "models": "read"},
+                "PROVIDER_VALIDATION_JOB_PERMISSIONS_INVALID",
+                "The live provider-validation job must have exactly contents: read and models: read.",
+                job_path,
+                errors,
+            )
+        else:
+            expect(
+                job_permissions in (None, {"contents": "read"}),
+                "JOB_PERMISSION_ESCALATION_PROHIBITED",
+                "Job-level permissions may not expand the workflow permission boundary.",
+                job_path,
+                errors,
+            )
         timeout = str(job.get("timeout-minutes", ""))
         expect(timeout.isdigit() and 1 <= int(timeout) <= 60, "JOB_TIMEOUT_INVALID", "Workflow job timeout must be between 1 and 60 minutes.", job_path, errors)
         steps = job.get("steps")
@@ -517,6 +535,28 @@ def check_workflow(
         expect("allow-unsafe-pr-checkout" not in serialized, "UNSAFE_PR_CHECKOUT_PROHIBITED", "Trusted admission workflow may not opt out of checkout protections.", path, errors)
         expect("github.event.pull_request.head.sha" not in json.dumps([step.get("with", {}) for job in jobs.values() if isinstance(job, dict) for step in job.get("steps", []) if isinstance(step, dict)]), "CANDIDATE_CHECKOUT_PROHIBITED", "Candidate refs may not be passed to actions/checkout.", path, errors)
         expect("tools/check_claim_admission_gate_v0_1.py" in serialized, "TRUSTED_CHECKER_INVOCATION_MISSING", "Trusted workflow must invoke the consumer-owned checker.", path, errors)
+    elif path == PROVIDER_VALIDATION_WORKFLOW:
+        expect(has_pr_target, "PROVIDER_VALIDATION_TRIGGER_MISMATCH", "Provider validation must use pull_request_target so workflow code comes from the trusted base.", path, errors)
+        expect(isinstance(triggers, dict) and set(triggers) == {"pull_request_target"}, "PROVIDER_VALIDATION_TRIGGER_EXPANDED", "Provider validation may have no trigger other than pull_request_target.", path, errors)
+        serialized = json.dumps(workflow, sort_keys=True)
+        expect("${{ secrets." not in serialized, "PROVIDER_VALIDATION_SECRET_REFERENCE_PROHIBITED", "Provider validation may use the ephemeral github.token only; repository secret references are prohibited.", path, errors)
+        checkout_values = [
+            step.get("with", {})
+            for job in jobs.values()
+            if isinstance(job, dict)
+            for step in job.get("steps", [])
+            if isinstance(step, dict) and str(step.get("uses", "")).startswith("actions/checkout@")
+        ]
+        expect(bool(checkout_values), "PROVIDER_VALIDATION_TRUSTED_CHECKOUT_MISSING", "Provider validation must check out the trusted base implementation.", path, errors)
+        expect(
+            all(values.get("ref") == "${{ github.event.pull_request.base.sha }}" for values in checkout_values if isinstance(values, dict)),
+            "PROVIDER_VALIDATION_CHECKOUT_NOT_BASE_BOUND",
+            "Every provider-validation checkout must be pinned to the pull-request base SHA.",
+            path,
+            errors,
+        )
+        expect("github.event.pull_request.head.sha" not in json.dumps(checkout_values), "CANDIDATE_CHECKOUT_PROHIBITED", "Candidate refs may not be passed to actions/checkout.", path, errors)
+        expect("tools/run_csh_provider_validation_v0_1_2.py" in serialized, "PROVIDER_VALIDATION_VERIFIER_MISSING", "Provider validation must invoke the bounded provider-validation verifier.", path, errors)
     else:
         expect(not has_pr_target, "PULL_REQUEST_TARGET_OUTSIDE_TRUSTED_GATE", "Only the consumer-owned gate may use pull_request_target.", path, errors)
 
