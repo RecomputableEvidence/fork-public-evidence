@@ -1,7 +1,7 @@
 name: CSH Provider Validation v0.1.2
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - preservation/clean-continuance-v0.1
     paths:
@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: read
-  models: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
@@ -22,6 +21,9 @@ concurrency:
 jobs:
   live-provider-validation:
     if: github.event.action == 'opened'
+    permissions:
+      contents: read
+      models: read
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -59,7 +61,7 @@ jobs:
           GITHUB_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           python tools/run_csh_provider_validation_v0_1_2.py \
             --output provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json
@@ -75,6 +77,8 @@ jobs:
 
   verify-committed-attestation:
     if: github.event.action != 'opened'
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
