@@ -24,6 +24,7 @@ POLICY = Path("policies/claim-admission/CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0
 BRANCH_RULES = Path("policies/repository-hardening/BRANCH_RULESET_REQUIREMENTS_v0_1.json")
 EVIDENCE_WORKFLOW = Path(".github/workflows/fork-evidence-ci.yml")
 TRUSTED_WORKFLOW = Path(".github/workflows/consumer-owned-claim-admission.yml")
+PROVIDER_VALIDATION_WORKFLOW = Path(".github/workflows/csh-provider-validation-v0-1-2.yml")
 SEALED_CSH_WORKFLOW = Path(".github/workflows/cross-system-claim-handoff-v0-1.yml")
 SPECIMEN = Path(
     "docs/preservation/failure-mode-archive-v0.1/incidents/"
@@ -124,6 +125,42 @@ def mutate_text(repo: Path, relative: Path, old: str, new: str) -> None:
     text = path.read_text(encoding="utf-8")
     assert old in text
     path.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
+
+
+def provider_validation_workflow() -> str:
+    return """name: CSH Provider Validation v0.1.2
+on:
+  pull_request_target:
+permissions:
+  contents: read
+concurrency:
+  group: provider-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  live-provider-validation:
+    permissions:
+      contents: read
+      models: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - run: python tools/run_csh_provider_validation_v0_1_2.py --output /tmp/receipt.json
+  verify-committed-attestation:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - run: python tools/run_csh_provider_validation_v0_1_2.py --verify-receipt /tmp/receipt.json
+"""
 
 
 def restore_trusted_file(repo: Path, base: str, relative: Path) -> None:
@@ -269,6 +306,49 @@ def test_candidate_ref_cannot_be_checked_out_by_trusted_workflow(tmp_path: Path)
     code, payload = run_checker(repo, base, candidate)
     assert code != 0
     assert "CANDIDATE_CHECKOUT_PROHIBITED" in error_codes(payload)
+
+
+def test_provider_validation_trusted_lane_is_narrowly_permitted(tmp_path: Path) -> None:
+    repo, base = materialize(tmp_path)
+    path = repo / PROVIDER_VALIDATION_WORKFLOW
+    path.write_text(provider_validation_workflow(), encoding="utf-8", newline="\n")
+    candidate = commit_all(repo)
+    code, payload = run_checker(repo, base, candidate)
+    assert code == 0, payload
+    assert payload["result"]["result_kind"] == "STRUCTURAL_PASS"
+
+
+@pytest.mark.parametrize(
+    ("old", "new", "expected"),
+    [
+        ("models: read", "models: write", "PROVIDER_VALIDATION_JOB_PERMISSIONS_INVALID"),
+        (
+            "ref: ${{ github.event.pull_request.base.sha }}",
+            "ref: ${{ github.event.pull_request.head.sha }}",
+            "PROVIDER_VALIDATION_CHECKOUT_NOT_BASE_BOUND",
+        ),
+        (
+            "${{ github.event.pull_request.base.sha }}",
+            "${{ secrets.PROVIDER_TOKEN }}",
+            "PROVIDER_VALIDATION_SECRET_REFERENCE_PROHIBITED",
+        ),
+    ],
+)
+def test_provider_validation_trusted_lane_fails_closed(
+    tmp_path: Path,
+    old: str,
+    new: str,
+    expected: str,
+) -> None:
+    repo, base = materialize(tmp_path)
+    path = repo / PROVIDER_VALIDATION_WORKFLOW
+    text = provider_validation_workflow()
+    assert old in text
+    path.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
+    candidate = commit_all(repo)
+    code, payload = run_checker(repo, base, candidate)
+    assert code != 0
+    assert expected in error_codes(payload)
 
 
 def test_quarantined_workflow_digest_cannot_recur(tmp_path: Path) -> None:
