@@ -1,0 +1,19 @@
+{
+  "event_id": "CAD_ASSESSOR_CORRECTION_SUPPLEMENT_001",
+  "version": "0.1",
+  "status": "CORRECTION_PRESERVED_NOT_ADMITTED",
+  "affected_statement": "20 confirmed provisional test cases",
+  "reason_for_correction": [
+    "classification overreach",
+    "duplicate or derivative instance inflation",
+    "absence inference risk",
+    "version ambiguity",
+    "rhetorical or modality literalization",
+    "authority overstatement"
+  ],
+  "replacement_statement": "Twenty suggested instances were surfaced. Meta-assessment provisionally consolidates them into fifteen candidate families plus one separate unresolved artifact-existence question. None is classified, canonical, admitted, or established as a Fork failure mode.",
+  "historical_statement_erased": false,
+  "descendant_counts_recomputed": true,
+  "independent_review_required": true,
+  "admission_effect": "NONE"
+}

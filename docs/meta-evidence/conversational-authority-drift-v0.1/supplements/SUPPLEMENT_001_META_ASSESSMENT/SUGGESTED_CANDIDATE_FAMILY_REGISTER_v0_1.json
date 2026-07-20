@@ -1,0 +1,158 @@
+{
+  "register_id": "CAD_SUGGESTED_CANDIDATE_FAMILY_REGISTER_SUPPLEMENT_001",
+  "version": "0.1",
+  "status": "PROPOSED_FOR_META_REVIEW_ONLY",
+  "counting_rule": "Families consolidate potentially derivative instances before any case identifier, finding code, or admission state is assigned.",
+  "families": [
+    {
+      "family_id": "CAD-META-FAM-001",
+      "label": "Fracture implementation and readiness transition",
+      "disposition": "BOUNDED_PACKET_PREPARATION_MAY_BE_CONSIDERED_AFTER_BINDING",
+      "review_question": "Do partial implementation, proposed fixes, documentation, and release scaffolding concern the same version later described as complete, DAW-validated, distributable, or commercially ready?",
+      "required_bindings": [
+        "exact source spans",
+        "chronology",
+        "implementation version",
+        "build and execution events",
+        "alternative interpretation"
+      ],
+      "not_claimed": [
+        "that the plugin did not work",
+        "that no later complete version existed",
+        "that a Fork failure mode is established"
+      ]
+    },
+    {
+      "family_id": "CAD-META-FAM-002",
+      "label": "Mock or illustrative artifact to sealed operational standing",
+      "disposition": "BOUNDED_PACKET_PREPARATION_MAY_BE_CONSIDERED_AFTER_BINDING",
+      "review_question": "Did a mock, illustration, dashboard, or stress-test package inherit operational or evidentiary standing through sealing language?",
+      "required_bindings": [
+        "artifact roles",
+        "seal meaning",
+        "operational event",
+        "source version"
+      ],
+      "not_claimed": [
+        "that symbolic sealing is inherently invalid",
+        "that the artifact lacked all useful content"
+      ]
+    },
+    {
+      "family_id": "CAD-META-FAM-003",
+      "label": "Placeholder cryptography to verified commercial evidence",
+      "disposition": "BOUNDED_PACKET_PREPARATION_MAY_BE_CONSIDERED_AFTER_BINDING",
+      "review_question": "Was an output represented as cryptographically operative while the preserved implementation remained placeholder-bound?",
+      "required_bindings": [
+        "exact implementation version",
+        "placeholder scope",
+        "actual signing event",
+        "commercial representation chronology"
+      ],
+      "not_claimed": [
+        "that no operative implementation existed elsewhere",
+        "that a digest alone would prove truth or legality"
+      ]
+    },
+    {
+      "family_id": "CAD-META-FAM-004",
+      "label": "Integrity evidence to legal, admissibility, or epistemic standing",
+      "disposition": "BOUNDED_PACKET_PREPARATION_MAY_BE_CONSIDERED_AFTER_BINDING",
+      "review_question": "Did integrity or anchoring evidence become truth, admissibility, or legal sufficiency without preserving intervening requirements and authority limits?",
+      "required_bindings": [
+        "claim-level source spans",
+        "legal modality",
+        "declared caveats",
+        "supporting event"
+      ],
+      "not_claimed": [
+        "legal conclusion",
+        "inadmissibility",
+        "technical invalidity of the integrity mechanism"
+      ]
+    },
+    {
+      "family_id": "CAD-META-FAM-005",
+      "label": "Proposed technology to deployed and adversarially validated standing",
+      "disposition": "BOUNDED_PACKET_PREPARATION_MAY_BE_CONSIDERED_AFTER_BINDING",
+      "review_question": "Did drafted sales or presentation language assert deployment and validation beyond the available execution record?",
+      "required_bindings": [
+        "whether text was draft or publication",
+        "deployment object",
+        "validation receipt",
+        "chronology"
+      ],
+      "not_claimed": [
+        "that the technology was never deployed",
+        "that draft marketing language is itself evidence of publication"
+      ]
+    },
+    {
+      "family_id": "CAD-META-FAM-006",
+      "label": "Draft completion to board or governance authority",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Was completion language promoted beyond the authority of the actor or artifact that supplied it?"
+    },
+    {
+      "family_id": "CAD-META-FAM-007",
+      "label": "Multi-agent agreement to truth or corroboration",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Was repeated or cross-model agreement treated as independent corroboration without distinct evidence?"
+    },
+    {
+      "family_id": "CAD-META-FAM-008",
+      "label": "Architecture presence to live NPU or execution standing",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Was an architectural description or component presence treated as evidence of live execution?"
+    },
+    {
+      "family_id": "CAD-META-FAM-009",
+      "label": "Biometric inference to pastoral action",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Did an inference from biometric or behavioral data acquire action authority without preserved safeguards and human review?"
+    },
+    {
+      "family_id": "CAD-META-FAM-010",
+      "label": "Conceptual engineering to manufacturing readiness",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Did a conceptual design, calculation set, or schematic-ready package acquire fabricated, verified, or manufacturing-ready standing?"
+    },
+    {
+      "family_id": "CAD-META-FAM-011",
+      "label": "Document-local ACTIVE designation to real deployment",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Did an ACTIVE status inside a field manual, simulation, or doctrine document refer to document state or real operational deployment?"
+    },
+    {
+      "family_id": "CAD-META-FAM-012",
+      "label": "Generated quantum report to capability commitment",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Was a simulated or generated report later treated as a measured or committed system capability?"
+    },
+    {
+      "family_id": "CAD-META-FAM-013",
+      "label": "Performance target to measured engineering fact",
+      "disposition": "SOURCE_AND_VERSION_REGROUNDING_REQUIRED",
+      "review_question": "Was an estimated, designed, or targeted performance improvement represented as measured performance?"
+    },
+    {
+      "family_id": "CAD-META-FAM-014",
+      "label": "Explicit physical narrowing and correction",
+      "disposition": "NEGATIVE_CONTROL_OR_CORRECTION",
+      "review_question": "Does the preserved sequence demonstrate that an earlier continuous-power premise was later narrowed to an energy-harvesting system constrained by conservation of energy?",
+      "not_claimed": [
+        "that the correction erases the earlier statement",
+        "that correction itself is a failure mode"
+      ]
+    },
+    {
+      "family_id": "CAD-META-FAM-015",
+      "label": "Production-grade or market-ready opinion without bound transition",
+      "disposition": "OUT_OF_SCOPE_AS_INDEPENDENT_TRANSITION_AS_FRAMED",
+      "review_question": "Is the statement merely commercial opinion, or is it bound to specific execution, validation, security, customer, or production representations?"
+    }
+  ],
+  "canonical_case_ids_assigned": false,
+  "finding_codes_assigned": false,
+  "admitted": false
+}

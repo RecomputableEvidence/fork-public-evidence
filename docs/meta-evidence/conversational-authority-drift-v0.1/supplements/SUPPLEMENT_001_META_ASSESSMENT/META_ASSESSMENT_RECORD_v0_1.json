@@ -1,0 +1,38 @@
+{
+  "record_id": "CAD_META_ASSESSMENT_SUPPLEMENT_001",
+  "version": "0.1",
+  "status": "SUGGESTED_CANDIDATES_NOT_CLASSIFIED_NOT_ADMITTED",
+  "parent_candidate": "conversational-authority-drift-v0.1",
+  "parent_review_head": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+  "parent_review_head_frozen": true,
+  "amends_parent_review_head": false,
+  "initial_suggested_instances": 20,
+  "confirmed_test_cases": null,
+  "provisional_distinct_families": 15,
+  "dispositions": {
+    "bounded_packet_preparation_may_be_considered_after_binding": 5,
+    "source_and_version_regrounding_required": 8,
+    "negative_control_or_correction": 1,
+    "out_of_scope_as_independent_transition_as_framed": 1
+  },
+  "separate_unresolved_questions": [
+    {
+      "question_id": "CAD-META-Q-001",
+      "subject": "claimed generated workbook versus omitted preserved attachment",
+      "disposition": "UNRESOLVED_ARTIFACT_EXISTENCE",
+      "included_in_family_count": false
+    }
+  ],
+  "source_binding": {
+    "private_source_digests_added_by_this_supplement": 0,
+    "exact_source_span_binding_complete": false,
+    "version_binding_complete": false,
+    "chronology_binding_complete": false
+  },
+  "review_required": true,
+  "independent_review_recorded": false,
+  "admission_effect": "NONE",
+  "publication_effect": "NONE",
+  "pair_001_effect": "NONE",
+  "provider_calls_authorized": 0
+}
