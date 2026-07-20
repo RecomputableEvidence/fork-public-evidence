@@ -1,0 +1,185 @@
+{
+  "ledger_id": "FORK_CAD_004_CLAIM_LEDGER_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "candidate_classifications_are_canonical": false,
+  "claims": [
+    {
+      "claim_id": "CAD-004-C001",
+      "actor": "CLAUDE",
+      "statement": "The Fracture Markdown was not supplied or was unavailable in the review conversation.",
+      "source_refs": [
+        "SRC-006",
+        "SRC-008",
+        "SRC-010",
+        "SRC-017"
+      ],
+      "current_disposition": "CONTRADICTED",
+      "basis": [
+        "Markdown attachment is visibly present in the bundle.",
+        "A later review screen states that Claude read the 7,912-line Fracture Markdown.",
+        "The later transcript nevertheless repeats an access-denial statement."
+      ],
+      "candidate_labels": [
+        "ACCESS_STATE_CONTRADICTION",
+        "ATTACHMENT_PRESENCE_DENIAL"
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C002",
+      "actor": "CLAUDE",
+      "statement": "All five files matched byte for byte.",
+      "source_refs": [
+        "SRC-017"
+      ],
+      "current_disposition": "REPORTED_EXECUTION",
+      "basis": [
+        "The later Claude transcript reports matching SHA-256 results."
+      ],
+      "missing": [
+        "Preserved command invocation",
+        "Raw tool output or execution receipt",
+        "Exact five-file set in the same record"
+      ],
+      "non_inheritance": [
+        "A reported digest match does not prove semantic inspection or role understanding."
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C003",
+      "actor": "CLAUDE",
+      "statement": "The TXT file was essentially a standalone proposed taxonomy or duplicate maturity-gate system.",
+      "source_refs": [
+        "SRC-002",
+        "SRC-009",
+        "SRC-014",
+        "SRC-015"
+      ],
+      "current_disposition": "ROLE_MISCLASSIFIED",
+      "basis": [
+        "The file contains taxonomy discussion, but the user declared its role as machine-readable completion of text carried by or referenced in the screenshots.",
+        "The review treated content theme as the artifact's full evidentiary role."
+      ],
+      "candidate_labels": [
+        "SOURCE_ROLE_CONFLATION",
+        "CONTENT_ROLE_COLLAPSE"
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C004",
+      "actor": "CLAUDE",
+      "statement": "The claim-level standing vocabulary duplicates the existing Synergenesis maturity pipeline.",
+      "source_refs": [
+        "SRC-011",
+        "SRC-012",
+        "SRC-013",
+        "SRC-014"
+      ],
+      "current_disposition": "UNRESOLVED",
+      "basis": [
+        "Both vocabularies describe progression or standing."
+      ],
+      "missing": [
+        "Unit-of-analysis crosswalk",
+        "Transition-event comparison",
+        "Authority and admission effect comparison",
+        "Project-level versus claim-level scope analysis"
+      ],
+      "candidate_labels": [
+        "SCOPE_EQUIVALENCE_COLLAPSE"
+      ],
+      "non_inheritance": [
+        "Similarity of labels does not establish semantic equivalence."
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C005",
+      "actor": "CLAUDE",
+      "statement": "The Fracture concurrency test returns the expected ground-truth values after the real DSP calls are commented out, so the asserted accuracy check cannot fail for the intended reason.",
+      "source_refs": [
+        "SRC-001",
+        "SRC-010",
+        "SRC-014"
+      ],
+      "current_disposition": "SUPPORTED",
+      "basis": [
+        "Direct inspection of the source Markdown identified commented DSP construction or calls and a mock return using known expected values before comparison to those same values."
+      ],
+      "non_inheritance": [
+        "This finding does not establish that every Fracture component is invalid."
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C006",
+      "actor": "CLAUDE",
+      "statement": "Mission-weighted or legacy-weighted register can make disagreement with a technical claim feel like disagreement with the mission rather than an evidentiary challenge.",
+      "source_refs": [
+        "SRC-001",
+        "SRC-014"
+      ],
+      "current_disposition": "PARTIALLY_SUPPORTED",
+      "basis": [
+        "The source places absolute, legacy, truth, and mission language adjacent to unexecuted or mocked technical claims."
+      ],
+      "missing": [
+        "Operationalized register rubric",
+        "Blinded reviewer comparison",
+        "Evidence that the wording changed reviewer behavior"
+      ],
+      "candidate_labels": [
+        "REGISTER_BORROWED_AUTHORITY"
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C007",
+      "actor": "RYAN_WILLIAM_FELLER",
+      "statement": "The supplied bundle already contained the Markdown, screenshots, and machine-readable TXT needed to assess the incident without inventing missing context.",
+      "source_refs": [
+        "SRC-001",
+        "SRC-002",
+        "SRC-003",
+        "SRC-004",
+        "SRC-005",
+        "SRC-006",
+        "SRC-008",
+        "SRC-015"
+      ],
+      "current_disposition": "SUPPORTED_WITH_BOUNDED_RESIDUAL",
+      "basis": [
+        "The bundle visibly contains the Markdown, TXT, and screenshots, and the later review directly reads the Markdown."
+      ],
+      "residual": [
+        "A visible attachment does not prove that every model turn parsed every file successfully."
+      ],
+      "non_inheritance": [
+        "The supported bundle-completeness claim does not establish that every interpretation drawn from the bundle is correct."
+      ]
+    },
+    {
+      "claim_id": "CAD-004-C008",
+      "actor": "CASE_REVIEW",
+      "statement": "The reviewer produced valid technical findings while also failing to preserve source-role and access-state distinctions.",
+      "source_refs": [
+        "SRC-010",
+        "SRC-014",
+        "SRC-015",
+        "SRC-017"
+      ],
+      "current_disposition": "SUPPORTED",
+      "basis": [
+        "The mock-result finding is source-grounded.",
+        "The Markdown-access and TXT-role statements conflict with the visible and later-inspected record."
+      ],
+      "candidate_labels": [
+        "CORRECT_CONTENT_FINDING_WITH_SOURCE_ROLE_BINDING_FAILURE"
+      ]
+    }
+  ],
+  "case_non_claims": [
+    "No claim is made about Claude's internal attachment pipeline or hidden tool state.",
+    "No claim is made that the access contradiction was intentional.",
+    "No claim is made that the entire Claude review was invalid.",
+    "No claim is made that the proposed labels are novel or canonical.",
+    "No claim is made that this case establishes provider-wide prevalence."
+  ]
+}
