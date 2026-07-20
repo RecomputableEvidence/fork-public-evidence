@@ -1,0 +1,237 @@
+{
+  "anchor_id": "FORK_SEQUENCE_INTEGRITY_ADMISSION_ANCHOR_2026_07_19_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_APPEND_ONLY_ADMISSION",
+  "time_basis": "2026-07-19 America/Los_Angeles",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "anchor_base_commit": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+  "anchor_base_tree": "34be4be69ef7c684c14b49a88df382e2db065bd3",
+  "responsible_repository_role": "MAINTAINER",
+  "append_only": true,
+  "admission_effect_if_merged": {
+    "standing": "ADMITTED_TO_PRESERVATION_LINEAGE",
+    "pull_requests": [
+      81,
+      82
+    ],
+    "sequence_surface_standing": "ADMITTED_CROSS_SURFACE_INSPECTABILITY_PROJECTION_NOT_MODULAR_SURFACE",
+    "root_checksum_standing": "ADMITTED_BYTE_INTEGRITY_ENFORCEMENT_WITH_PRESERVED_ADVERSE_FINDING",
+    "does_not_authorize_provider_calls": true,
+    "does_not_promote_readiness": true,
+    "does_not_execute_pair_001": true,
+    "does_not_authorize_uppercase_retry": true
+  },
+  "merge_records": [
+    {
+      "pull_request": 81,
+      "title": "feat(fork): surface append-only sequence progression v0.1",
+      "reviewed_head": "c879242c4dafad68bdd8e7bcf2466e4169351969",
+      "reviewed_head_parent": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+      "reviewed_head_tree": "31f1838e6cff6035370c4d99fc58cff620cdb42f",
+      "merge_commit": "97abe21daed2daec8a608851467875df42a99f0a",
+      "merge_tree": "31f1838e6cff6035370c4d99fc58cff620cdb42f",
+      "merge_parents": [
+        "5fbabbd486d4e863d23e0096600185ada92539a6",
+        "c879242c4dafad68bdd8e7bcf2466e4169351969"
+      ],
+      "reviewed_head_rewritten": false,
+      "standing_if_anchor_admitted": "ADMITTED_CROSS_SURFACE_INSPECTABILITY_PROJECTION_NOT_MODULAR_SURFACE"
+    },
+    {
+      "pull_request": 82,
+      "title": "fix(integrity): preserve and enforce root checksum manifest",
+      "reviewed_head": "5150ece4c29cea38cfe5e25daeb781423c680834",
+      "reviewed_head_parent": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+      "reviewed_head_tree": "015e5b5ad7116b4a57e336ef5962397473d7660d",
+      "retargeted_base_at_merge": "97abe21daed2daec8a608851467875df42a99f0a",
+      "merge_commit": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+      "merge_tree": "34be4be69ef7c684c14b49a88df382e2db065bd3",
+      "merge_parents": [
+        "97abe21daed2daec8a608851467875df42a99f0a",
+        "5150ece4c29cea38cfe5e25daeb781423c680834"
+      ],
+      "reviewed_head_rewritten": false,
+      "lineage_disposition": "RETARGETED_REVIEW_HEAD_CLEANLY_COMBINED_WITH_PR_81_MERGE",
+      "reviewed_head_is_direct_descendant_of_pr_81_merge": false,
+      "standing_if_anchor_admitted": "ADMITTED_BYTE_INTEGRITY_ENFORCEMENT_WITH_PRESERVED_ADVERSE_FINDING"
+    }
+  ],
+  "successful_workflow_runs": [
+    {
+      "pull_request": 81,
+      "head_commit": "c879242c4dafad68bdd8e7bcf2466e4169351969",
+      "run_id": 29711689896,
+      "workflow": "Fork Evidence CI",
+      "run_number": 382,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 81,
+      "head_commit": "c879242c4dafad68bdd8e7bcf2466e4169351969",
+      "run_id": 29711689916,
+      "workflow": "Fork Proof-Surface Integration",
+      "run_number": 81,
+      "conclusion": "success"
+    },
+    {
+      "pull_request": 82,
+      "head_commit": "5150ece4c29cea38cfe5e25daeb781423c680834",
+      "run_id": 29712015177,
+      "workflow": "Fork Evidence CI",
+      "run_number": 383,
+      "conclusion": "success",
+      "standing": "POST_RETARGET_MERGE_RELIANCE_SET"
+    },
+    {
+      "pull_request": 82,
+      "head_commit": "5150ece4c29cea38cfe5e25daeb781423c680834",
+      "run_id": 29712015182,
+      "workflow": "Root Checksum Manifest v0.1",
+      "run_number": 2,
+      "conclusion": "success",
+      "standing": "POST_RETARGET_MERGE_RELIANCE_SET"
+    },
+    {
+      "pull_request": 82,
+      "head_commit": "5150ece4c29cea38cfe5e25daeb781423c680834",
+      "run_id": 29712015188,
+      "workflow": "Fork Proof-Surface Integration",
+      "run_number": 82,
+      "conclusion": "success",
+      "standing": "POST_RETARGET_MERGE_RELIANCE_SET"
+    }
+  ],
+  "review_evidence": [
+    {
+      "pull_request": 81,
+      "kind": "EXACT_HEAD_TOOL_ASSISTED_ADVERSARIAL_REVIEW",
+      "reviewed_head": "c879242c4dafad68bdd8e7bcf2466e4169351969",
+      "github_comment_id": 5018123993,
+      "standing": "RECORDED_RECOMPUTATION_NOT_INDEPENDENT_HUMAN_REVIEW"
+    },
+    {
+      "pull_request": 82,
+      "kind": "EXACT_HEAD_RECOMPUTATION_AND_POST_RETARGET_RUN_BINDING",
+      "reviewed_head": "5150ece4c29cea38cfe5e25daeb781423c680834",
+      "github_comment_ids": [
+        5017954486,
+        5018197559
+      ],
+      "standing": "RECORDED_RECOMPUTATION_NOT_GITHUB_NATIVE_APPROVAL"
+    }
+  ],
+  "bound_surfaces_at_merged_tree": [
+    {
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+      "sha256": "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681",
+      "git_blob_sha1": "416f624d6240cce7f445456aaff60bd5c8397cc7"
+    },
+    {
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+      "sha256": "8bcf2387241ad40b146e3422a1bf2ed067a0b2489c10eb1e4a6c723f75c570e0",
+      "git_blob_sha1": "db2584b646e67de320ebad519bfe26da2e054b59"
+    },
+    {
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+      "sha256": "93e07eec0fed1d3f8a9d00d5db4be6326f1449370c2bba4f886178ec636b3188",
+      "git_blob_sha1": "d3298b9292723ec997f550d0bc55c0d20f3245d8"
+    },
+    {
+      "path": "schemas/fork_sequence_ledger_v0_1.schema.json",
+      "sha256": "c8ed0052ca595457892eb5469a2fb8f5c6678880a36807a41a3d699c2229d4e0",
+      "git_blob_sha1": "4a315b4f7bcae0128126ea3f4a2568a72f7fcb27"
+    },
+    {
+      "path": "tools/check_fork_sequence_surface_v0_1.py",
+      "sha256": "7d3c5d27618ab64e7d31e8486ce709d0bb56248641aa1bcbd524a951dfb9e1f2",
+      "git_blob_sha1": "b60cfeb3813ac62721fde6c87c90710948da0a25"
+    },
+    {
+      "path": "CHECKSUMS_SHA256.txt",
+      "sha256": "05cb0a9f1f67d9364bafad8641c99e89545edbdf0e85c8c0db30079b8a0cecc4",
+      "git_blob_sha1": "075ffd76b4b16386fe556fcc22bc2f5036706e71"
+    },
+    {
+      "path": "docs/preservation/root-checksum-integrity-v0.1/ROOT_CHECKSUM_DISCREPANCY_RECORD_v0_1.json",
+      "sha256": "07d09534c3b793c081d382db7512fb971735fcdd03a11e9a52b090cb3d083b06",
+      "git_blob_sha1": "92ca89c87e5c466e7622b01ed80da6abd6468ea7"
+    },
+    {
+      "path": "docs/preservation/root-checksum-integrity-v0.1/specimens/CHECKSUMS_SHA256.8f3f07e.pre-repair.txt",
+      "sha256": "bebcd503b519804c29680115bd2783cd8ae7dd9709a56b580b38af30de1b3122",
+      "git_blob_sha1": "95d9bc6e1f8ae79975dbfed6b9d247aa249c5c70"
+    },
+    {
+      "path": "tools/check_root_checksum_manifest_v0_1.py",
+      "sha256": "2416310c25e376d99fed33bdcb1e0cb49cfe2b8559b6336856b2673a9b43a3b0",
+      "git_blob_sha1": "4f40c10f74ebf800ebb35de92047dc1eca642aba"
+    }
+  ],
+  "exterior_review": {
+    "sequence_surface_final_head": "NO_INDEPENDENT_EXTERIOR_REVIEW_RECORDED",
+    "root_checksum_finding_source": "USER_TRANSMITTED_EXTERIOR_FRESH_CLONE_REPORT",
+    "source_report_full_enclosure_preserved": false,
+    "source_identity_independently_verified": false,
+    "admitted_observation": "ROOT_MANIFEST_REPORTED_50_OF_51_MATCH_AND_LOCALLY_REPRODUCED",
+    "local_recomputation_disposition": "DISCREPANCY_REPRODUCED_PRESERVED_REPAIRED_AND_MECHANICALLY_ENFORCED",
+    "not_github_native_approval": true,
+    "not_merge_authority": true,
+    "not_security_certification": true,
+    "not_provider_or_pair_001_authority": true,
+    "prior_m87_review_inherited_only": "PR_63_PR_64_SCOPE_NOT_EXTENDED_TO_PR_81_OR_PR_82"
+  },
+  "residuals": [
+    {
+      "residual_id": "FSS_RESIDUAL_001_COORDINATED_RESEALING",
+      "severity": "BOUNDED_NON_BLOCKING",
+      "standing": "PRESERVED",
+      "summary": "The sequence hash chain and bound projection detect uncoordinated divergence but do not defeat coordinated resealing of all mutually consistent artifacts."
+    },
+    {
+      "residual_id": "FSS_RESIDUAL_002_AUTHORITY_AUTHENTICITY_EXTERNAL",
+      "severity": "BOUNDED_NON_BLOCKING",
+      "standing": "PRESERVED",
+      "summary": "Path-and-digest authorization-anchor validation establishes byte identity and declared semantics, not signer identity, institutional authority, or cryptographic authenticity."
+    },
+    {
+      "residual_id": "RCSM_RESIDUAL_001_DECLARED_SCOPE_ONLY",
+      "severity": "BOUNDED_NON_BLOCKING",
+      "standing": "PRESERVED",
+      "summary": "The root manifest proves byte agreement for its 51 declared entries only; it does not establish repository-wide completeness or semantic truth."
+    },
+    {
+      "residual_id": "RCSM_RESIDUAL_002_PRIOR_GREEN_SCOPE_GAP",
+      "severity": "PRESERVED_ADVERSE_FINDING",
+      "standing": "MECHANICALLY_CLOSED_PROSPECTIVELY_NOT_RETROACTIVELY",
+      "summary": "Prior green workflow runs did not evaluate the root manifest. The new workflow makes future divergence observable without recharacterizing earlier runs."
+    }
+  ],
+  "current_state_projection": {
+    "source_commit": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+    "source_tree": "34be4be69ef7c684c14b49a88df382e2db065bd3",
+    "sequence_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+    "sequence_surface_status_before_anchor_merge": "CANDIDATE_NOT_ADMITTED",
+    "pair_001_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "pair_001_executable": false,
+    "pair_001_repetitions": 0,
+    "provider_calls_performed_by_anchor": 0,
+    "provider_validation_prerequisite_satisfied": false,
+    "instrumentation_release_anchor": "PUBLISHED_BUT_NOT_EXECUTION_AUTHORITY",
+    "uppercase_retry_authorization_present": false,
+    "elapsed_time_creates_authorization": false,
+    "readiness_effect": "NONE",
+    "pair_001_execution_effect": "NONE"
+  },
+  "non_claims": [
+    "No provider call or provider-validation attempt",
+    "No uppercase or lowercase retry authorization",
+    "No Pair-001 repetition or execution",
+    "No readiness promotion",
+    "No admission as a seventh modular surface",
+    "No manifest completeness or semantic-truth determination",
+    "No signer identity, institutional authority, security, compliance, legal, safety, or production-readiness certification",
+    "No independent human review of PR #81 or PR #82 beyond the recorded exterior standing",
+    "No authority transfer from elapsed time, publication, recomputation, review, merge, or admission"
+  ]
+}
