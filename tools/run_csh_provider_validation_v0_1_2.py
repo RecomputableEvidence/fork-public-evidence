@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -39,6 +40,8 @@ SYSTEM_PROMPT = (
     "Do not use tools. Return only the requested literal."
 )
 USER_PROMPT = "Return exactly: CSH_PROVIDER_VALIDATION_OK"
+SANITIZED_ERROR_CAPTURE_SCHEMA = "SANITIZED_PROVIDER_ERROR_CODE_v0_1"
+SANITIZED_ERROR_TOKEN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$")
 
 
 class DuplicateKeyError(ValueError):
@@ -86,6 +89,32 @@ def strict_json_bytes(raw: bytes) -> Any:
             ValueError(f"non-finite value prohibited: {value}")
         ),
     )
+
+
+def sanitized_error_code_evidence(raw: bytes) -> dict[str, Any]:
+    evidence: dict[str, Any] = {
+        "capture_schema": SANITIZED_ERROR_CAPTURE_SCHEMA,
+        "body_parsed_as_strict_json": False,
+        "error_code": None,
+        "error_type": None,
+        "message_persisted": False,
+        "raw_body_persisted": False,
+    }
+    try:
+        payload = strict_json_bytes(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError, DuplicateKeyError, ValueError):
+        return evidence
+    evidence["body_parsed_as_strict_json"] = True
+    if not isinstance(payload, dict):
+        return evidence
+    error = payload.get("error")
+    if not isinstance(error, dict):
+        return evidence
+    for source, destination in (("code", "error_code"), ("type", "error_type")):
+        value = error.get(source)
+        if isinstance(value, str) and SANITIZED_ERROR_TOKEN.fullmatch(value):
+            evidence[destination] = value
+    return evidence
 
 
 def build_probe_request(requested_model: str, max_tokens: int) -> dict[str, Any]:
@@ -205,6 +234,8 @@ def invoke_probe(spec: Mapping[str, Any], token: str, timeout_seconds: int) -> d
         "response_body_sha256": sha256_bytes(response_body),
         "response_body_written": False,
     }
+    if status_code is not None and not 200 <= status_code < 300:
+        result["sanitized_error"] = sanitized_error_code_evidence(response_body)
     try:
         if status_code is None or not 200 <= status_code < 300:
             raise ValueError(f"provider returned HTTP {status_code}")
