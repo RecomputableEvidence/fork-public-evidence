@@ -1,0 +1,14 @@
+{
+  "artifact": "CAD_META_ASSESSMENT_SUPPLEMENT_001",
+  "candidate_classification_effect": "NONE",
+  "canonical_case_effect": "NONE",
+  "finding_effect": "NONE",
+  "admission_effect": "NONE",
+  "publication_effect": "NONE",
+  "merge_authorization": false,
+  "parent_pr_84_head_modified": false,
+  "parent_pr_84_review_invalidated": false,
+  "pair_001_effect": "NONE",
+  "provider_calls": 0,
+  "readiness_effect": "NONE"
+}
