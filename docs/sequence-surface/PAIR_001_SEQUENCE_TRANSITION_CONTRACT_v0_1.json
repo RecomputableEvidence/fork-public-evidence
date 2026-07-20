@@ -299,6 +299,53 @@
       "completes_original_pair_001_repetitions": false
     }
   },
+  "authorization_anchor_contract": {
+    "reference_shape": "REPOSITORY_PATH_AND_SHA256",
+    "strict_json_required": true,
+    "required_schema_version": "v0.1",
+    "required_record_kind": "explicit_external_authorization_anchor",
+    "required_subject": {
+      "experiment_id": "cross_system_claim_handoff_v0_1",
+      "pair_id": "PAIR-001"
+    },
+    "uppercase_scope": {
+      "authorization_kind": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY",
+      "authorized_transition_ids": [
+        "FSS-PAIR001-T012",
+        "FSS-PAIR001-T013",
+        "FSS-PAIR001-T014",
+        "FSS-PAIR001-T015",
+        "FSS-PAIR001-T016"
+      ],
+      "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+      "maximum_provider_calls": 1,
+      "not_before_utc": "2026-07-20T07:55:24.374494+00:00"
+    },
+    "lowercase_scope": {
+      "authorization_kind": "ONE_TIME_LOWERCASE_PROVIDER_VALIDATION_DIAGNOSTIC",
+      "authorized_transition_ids": [
+        "FSS-PAIR001-T017",
+        "FSS-PAIR001-T018"
+      ],
+      "maximum_provider_calls": 1
+    },
+    "required_execution_boundary": {
+      "automatic_execution": false,
+      "pair_001_execution_authorized": false,
+      "readiness_promotion_authorized": false
+    },
+    "coordinated_resealing_resistance_claimed": false
+  },
+  "retry_outcome_evidence_contract": {
+    "required_classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+    "required_request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+    "required_pair_001_calls_performed": 0,
+    "success_transition": "FSS-PAIR001-T014",
+    "identical_failure_transition": "FSS-PAIR001-T015",
+    "different_outcome_transition": "FSS-PAIR001-T016",
+    "identical_failure_http_status": 500,
+    "identical_failure_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+  },
   "forbidden_promotions": [
     "No event may infer authorization from publication, review, elapsed time, or a prior successful response.",
     "No diagnostic event may be classified as a Pair-001 repetition.",

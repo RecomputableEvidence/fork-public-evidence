@@ -46,6 +46,10 @@ The contract predeclares the current DeepSeek branches:
 
 None of those branches automatically completes or executes Pair-001.
 
+An external authorization is not accepted as a free-form declaration. Each authorization event must reference a strict-JSON anchor by safe repository-relative path and exact SHA-256 digest. The checker validates the anchor's subject, one-time scope, authorized transition set, request digest, call ceiling, external-source identity fields, authorization time, fixed `not_before` boundary, and explicit denial of automatic execution, Pair-001 authority, and readiness promotion. A digest proves byte identity rather than independent authenticity; coordinated re-sealing remains outside this candidate's claims and is bounded by the separate successor anchor.
+
+The retry outcome transitions are evidence-specific. A newly observed, byte-bound diagnostic receipt must establish exactly one of success, identical failure, or different outcome for the precommitted uppercase request. Replayed receipts, pre-eligibility receipts, receipts with more than one provider call, and branch labels that contradict the receipt are rejected.
+
 ### Deterministic projection
 
 The checker derives current state, counters, blockers, declared successors, and execution effect from the ledger plus the referenced control artifacts. It then compares the derived object with the committed projection.
@@ -82,6 +86,9 @@ The fixture set requires rejection of:
 - a skipped gate;
 - reordered events;
 - forged authorization;
+- a forged or missing authorization-anchor reference;
+- a time-gate event before the fixed 24-hour boundary;
+- a failure receipt classified as retry success;
 - a silent provider retry hidden inside a non-call event;
 - false Pair-001 completion or execution eligibility.
 

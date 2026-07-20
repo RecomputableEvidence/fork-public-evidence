@@ -65,9 +65,9 @@
   "source": {
     "base_sequence_head": "0e58a151cb5801f554619eb44a40948ad03e3e55",
     "ledger_path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
-    "ledger_sha256": "beea2e44b39d59df9c4e59d9bc2442e2ceefe32a3d17769579724c675812868f",
+    "ledger_sha256": "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681",
     "transition_contract_path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
-    "transition_contract_sha256": "ef91ef74c572d22d28d94792cfb51367012dde37489288acce04449a45cf648d"
+    "transition_contract_sha256": "93e07eec0fed1d3f8a9d00d5db4be6326f1449370c2bba4f886178ec636b3188"
   },
   "status": "CANDIDATE_NOT_ADMITTED",
   "successor_anchor": {

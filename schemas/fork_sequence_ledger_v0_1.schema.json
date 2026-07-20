@@ -79,6 +79,7 @@
             "ADMITTED_CONTROL",
             "PUBLISHED_CONTROL",
             "EXCLUDED_DIAGNOSTIC_EVIDENCE",
+            "EXTERNAL_AUTHORIZATION_ANCHOR",
             "CURRENT_BLOCKED_CONTROL",
             "CANDIDATE_PR_HEAD"
           ]
@@ -94,7 +95,12 @@
           "enum": ["NONE", "EXPLICIT_EXTERNAL_AUTHORIZATION"]
         },
         "present": { "type": "boolean" },
-        "reference": { "type": ["string", "null"] },
+        "reference": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/artifactReference" }
+          ]
+        },
         "effect": { "const": "NONE" }
       }
     },

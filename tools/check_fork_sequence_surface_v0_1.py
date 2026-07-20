@@ -28,6 +28,20 @@ BASE_SEQUENCE_HEAD = "0e58a151cb5801f554619eb44a40948ad03e3e55"
 GENESIS_HASH = "0" * 64
 UPPERCASE_REQUEST_SHA = "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
 IDENTICAL_FAILURE_BODY_SHA = "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+UPPERCASE_MODEL_ID = "deepseek/DeepSeek-V3-0324"
+UPPERCASE_AUTH_TRANSITIONS = {
+    "FSS-PAIR001-T012",
+    "FSS-PAIR001-T013",
+    "FSS-PAIR001-T014",
+    "FSS-PAIR001-T015",
+    "FSS-PAIR001-T016",
+}
+LOWERCASE_AUTH_TRANSITIONS = {"FSS-PAIR001-T017", "FSS-PAIR001-T018"}
+RETRY_OUTCOME_TRANSITIONS = {
+    "FSS-PAIR001-T014": "SUCCESS",
+    "FSS-PAIR001-T015": "IDENTICAL_FAILURE",
+    "FSS-PAIR001-T016": "DIFFERENT_OUTCOME",
+}
 
 
 class DuplicateKeyError(ValueError):
@@ -133,6 +147,240 @@ def parse_time(value: Any) -> datetime | None:
         return datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError:
         return None
+
+
+def load_bound_json(
+    root: Path,
+    reference: Any,
+    errors: list[dict[str, str]],
+    *,
+    code: str,
+    path: str,
+) -> tuple[dict[str, Any], dict[str, str]] | None:
+    if not isinstance(reference, dict) or set(reference) != {"path", "sha256"}:
+        add_error(errors, code, "reference must contain exactly path and sha256", path)
+        return None
+    relative = reference.get("path")
+    expected_digest = reference.get("sha256")
+    artifact = safe_evidence_path(root, relative)
+    if artifact is None:
+        add_error(errors, code, "unsafe authorization or evidence path", path)
+        return None
+    if artifact.is_symlink() or not artifact.is_file():
+        add_error(errors, code, f"bound artifact is absent or not a regular file: {relative}", path)
+        return None
+    if not isinstance(expected_digest, str) or sha256(artifact) != expected_digest:
+        add_error(errors, code, f"bound artifact digest mismatch: {relative}", path)
+        return None
+    try:
+        value = strict_load(artifact)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, DuplicateKeyError, ValueError) as exc:
+        add_error(errors, code, f"strict JSON rejected {relative}: {exc}", path)
+        return None
+    if not isinstance(value, dict):
+        add_error(errors, code, f"bound artifact is not a JSON object: {relative}", path)
+        return None
+    return value, {"path": str(relative), "sha256": expected_digest}
+
+
+def validate_authorization_anchor(
+    *,
+    root: Path,
+    contract: dict[str, Any],
+    transition_id: str,
+    authority: dict[str, Any],
+    occurred: datetime | None,
+    errors: list[dict[str, str]],
+    path: str,
+) -> tuple[dict[str, Any], dict[str, str]] | None:
+    loaded = load_bound_json(
+        root,
+        authority.get("reference"),
+        errors,
+        code="AUTHORITY_ANCHOR_INVALID",
+        path=f"{path}/authority/reference",
+    )
+    if loaded is None:
+        return None
+    anchor, normalized_reference = loaded
+    anchor_contract = contract.get("authorization_anchor_contract", {})
+    if not isinstance(anchor_contract, dict):
+        add_error(errors, "AUTHORITY_ANCHOR_CONTRACT_INVALID", "anchor contract is absent", path)
+        return None
+    subject = anchor_contract.get("required_subject")
+    execution_boundary = anchor_contract.get("required_execution_boundary")
+    expected_uppercase_scope = {
+        "authorization_kind": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY",
+        "authorized_transition_ids": sorted(UPPERCASE_AUTH_TRANSITIONS),
+        "request_sha256": UPPERCASE_REQUEST_SHA,
+        "maximum_provider_calls": 1,
+        "not_before_utc": "2026-07-20T07:55:24.374494+00:00",
+    }
+    expected_lowercase_scope = {
+        "authorization_kind": "ONE_TIME_LOWERCASE_PROVIDER_VALIDATION_DIAGNOSTIC",
+        "authorized_transition_ids": sorted(LOWERCASE_AUTH_TRANSITIONS),
+        "maximum_provider_calls": 1,
+    }
+    anchor_contract_ok = (
+        anchor_contract.get("reference_shape") == "REPOSITORY_PATH_AND_SHA256"
+        and anchor_contract.get("strict_json_required") is True
+        and anchor_contract.get("required_schema_version") == "v0.1"
+        and anchor_contract.get("required_record_kind") == "explicit_external_authorization_anchor"
+        and subject
+        == {
+            "experiment_id": "cross_system_claim_handoff_v0_1",
+            "pair_id": "PAIR-001",
+        }
+        and anchor_contract.get("uppercase_scope") == expected_uppercase_scope
+        and anchor_contract.get("lowercase_scope") == expected_lowercase_scope
+        and execution_boundary
+        == {
+            "automatic_execution": False,
+            "pair_001_execution_authorized": False,
+            "readiness_promotion_authorized": False,
+        }
+        and anchor_contract.get("coordinated_resealing_resistance_claimed") is False
+    )
+    if not anchor_contract_ok:
+        add_error(errors, "AUTHORITY_ANCHOR_CONTRACT_INVALID", "anchor contract was weakened or changed", path)
+        return None
+    scope_name = "uppercase_scope" if transition_id in UPPERCASE_AUTH_TRANSITIONS else "lowercase_scope"
+    scope = anchor_contract.get(scope_name, {})
+    authorized_at = parse_time(anchor.get("authorized_at_utc"))
+    source = anchor.get("external_source")
+    anchor_ok = (
+        anchor.get("schema_version") == anchor_contract.get("required_schema_version") == "v0.1"
+        and anchor.get("record_kind")
+        == anchor_contract.get("required_record_kind")
+        == "explicit_external_authorization_anchor"
+        and anchor.get("status") == "ACTIVE"
+        and anchor.get("subject") == subject
+        and isinstance(anchor.get("authorization_id"), str)
+        and bool(anchor.get("authorization_id"))
+        and anchor.get("authorization_kind") == scope.get("authorization_kind")
+        and anchor.get("authorized_transition_ids") == scope.get("authorized_transition_ids")
+        and transition_id in anchor.get("authorized_transition_ids", [])
+        and anchor.get("maximum_provider_calls") == scope.get("maximum_provider_calls") == 1
+        and anchor.get("execution_boundary") == execution_boundary
+        and isinstance(source, dict)
+        and isinstance(source.get("source_kind"), str)
+        and bool(source.get("source_kind"))
+        and isinstance(source.get("source_id"), str)
+        and bool(source.get("source_id"))
+        and isinstance(source.get("source_sha256"), str)
+        and len(source.get("source_sha256")) == 64
+        and all(character in "0123456789abcdef" for character in source.get("source_sha256"))
+        and authorized_at is not None
+        and occurred is not None
+        and authorized_at <= occurred
+    )
+    if transition_id in UPPERCASE_AUTH_TRANSITIONS:
+        anchor_ok = anchor_ok and (
+            anchor.get("request_sha256") == scope.get("request_sha256") == UPPERCASE_REQUEST_SHA
+            and anchor.get("not_before_utc") == scope.get("not_before_utc")
+        )
+    if not anchor_ok:
+        add_error(errors, "AUTHORITY_ANCHOR_SCOPE_INVALID", "authorization anchor scope or semantics mismatch", path)
+        return None
+    return anchor, normalized_reference
+
+
+def classify_retry_receipt(receipt: dict[str, Any]) -> tuple[str | None, dict[str, Any] | None]:
+    calls = receipt.get("calls")
+    if not isinstance(calls, list):
+        return None, None
+    deepseek_calls = [item for item in calls if isinstance(item, dict) and item.get("provider") == "DeepSeek"]
+    if len(deepseek_calls) != 1:
+        return None, None
+    call = deepseek_calls[0]
+    if not (
+        receipt.get("classification") == "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE"
+        and receipt.get("pair_001_calls_performed") == 0
+        and receipt.get("provider_validation_calls_performed") == 1
+        and len(calls) == 1
+        and call.get("requested_model") == UPPERCASE_MODEL_ID
+        and call.get("request_sha256") == UPPERCASE_REQUEST_SHA
+        and call.get("response_body_written") is False
+    ):
+        return None, call
+    status = call.get("http_status")
+    success = (
+        isinstance(status, int)
+        and 200 <= status < 300
+        and call.get("passed") is True
+        and receipt.get("status") == "PASS"
+    )
+    identical_failure = (
+        status == 500
+        and call.get("passed") is False
+        and call.get("response_body_sha256") == IDENTICAL_FAILURE_BODY_SHA
+        and receipt.get("status") == "FAIL"
+    )
+    if success:
+        return "SUCCESS", call
+    if identical_failure:
+        return "IDENTICAL_FAILURE", call
+    if isinstance(status, int) and call.get("passed") is False and receipt.get("status") == "FAIL":
+        return "DIFFERENT_OUTCOME", call
+    return None, call
+
+
+def validate_retry_outcome(
+    *,
+    root: Path,
+    event: dict[str, Any],
+    transition_id: str,
+    occurred: datetime | None,
+    eligible_at: datetime | None,
+    prior_evidence_paths: set[str],
+    errors: list[dict[str, str]],
+    path: str,
+) -> None:
+    matching: list[tuple[dict[str, Any], str]] = []
+    for index, reference in enumerate(event.get("evidence_refs", [])):
+        if not isinstance(reference, dict) or reference.get("standing") != "EXCLUDED_DIAGNOSTIC_EVIDENCE":
+            continue
+        bound = {key: reference.get(key) for key in ("path", "sha256")}
+        loaded = load_bound_json(
+            root,
+            bound,
+            errors,
+            code="RETRY_OUTCOME_EVIDENCE_INVALID",
+            path=f"{path}/evidence_refs/{index}",
+        )
+        if loaded is None:
+            continue
+        receipt, normalized = loaded
+        classification, _ = classify_retry_receipt(receipt)
+        if classification is not None:
+            matching.append((receipt, normalized["path"]))
+    if len(matching) != 1:
+        add_error(errors, "RETRY_OUTCOME_EVIDENCE_INVALID", "exactly one new bound retry receipt is required", path)
+        return
+    receipt, receipt_path = matching[0]
+    receipt_time = parse_time(receipt.get("observed_at_utc"))
+    if (
+        receipt_path in prior_evidence_paths
+        or receipt_time is None
+        or eligible_at is None
+        or occurred is None
+        or receipt_time < eligible_at
+        or receipt_time > occurred
+        or not isinstance(receipt.get("subject_commit"), str)
+        or len(receipt.get("subject_commit")) != 40
+        or not isinstance(receipt.get("workflow_run_id"), int)
+    ):
+        add_error(errors, "RETRY_OUTCOME_EVIDENCE_INVALID", "retry receipt is replayed, premature, or unbound", path)
+        return
+    actual, _ = classify_retry_receipt(receipt)
+    expected = RETRY_OUTCOME_TRANSITIONS[transition_id]
+    if actual != expected:
+        add_error(
+            errors,
+            "RETRY_OUTCOME_CLASSIFICATION_INVALID",
+            f"transition {transition_id} declares {expected}, receipt establishes {actual}",
+            path,
+        )
 
 
 def derive_projection(
@@ -385,6 +633,10 @@ def evaluate(
     expected_state = contract.get("initial_state")
     previous_time: datetime | None = None
     used_transitions: set[str] = set()
+    prior_evidence_paths: set[str] = set()
+    recorded_authorization_ids: set[str] = set()
+    active_authorizations: dict[str, tuple[str, dict[str, str]]] = {}
+    uppercase_eligible_at: datetime | None = None
     for index, event in enumerate(events):
         path = f"events/{index}"
         if not isinstance(event, dict):
@@ -445,12 +697,70 @@ def evaluate(
                 isinstance(authority, dict)
                 and authority.get("requirement") == "EXPLICIT_EXTERNAL_AUTHORIZATION"
                 and authority.get("present") is True
-                and isinstance(authority.get("reference"), str)
-                and bool(authority.get("reference"))
+                and isinstance(authority.get("reference"), dict)
                 and authority.get("effect") == "NONE"
             )
         if not authority_ok:
             add_error(errors, "AUTHORITY_FORGERY", f"{event_id} authority does not meet contract", path)
+        elif requirement == "EXPLICIT_EXTERNAL_AUTHORIZATION":
+            validated = validate_authorization_anchor(
+                root=root,
+                contract=contract,
+                transition_id=str(transition_id),
+                authority=authority,
+                occurred=occurred,
+                errors=errors,
+                path=path,
+            )
+            if validated is not None:
+                anchor, normalized_reference = validated
+                authorization_id = anchor["authorization_id"]
+                family = "uppercase" if transition_id in UPPERCASE_AUTH_TRANSITIONS else "lowercase"
+                records_authorization = transition_id in {"FSS-PAIR001-T012", "FSS-PAIR001-T017"}
+                if records_authorization:
+                    if authorization_id in recorded_authorization_ids:
+                        add_error(errors, "AUTHORITY_ANCHOR_REUSED", authorization_id, path)
+                    else:
+                        recorded_authorization_ids.add(authorization_id)
+                        active_authorizations[family] = (authorization_id, normalized_reference)
+                elif active_authorizations.get(family) != (authorization_id, normalized_reference):
+                    add_error(
+                        errors,
+                        "AUTHORITY_ANCHOR_CONTINUITY_INVALID",
+                        f"{event_id} does not continue the bound {family} authorization",
+                        path,
+                    )
+
+                if transition_id == "FSS-PAIR001-T013":
+                    contract_earliest = parse_time(
+                        contract.get("stopping_rules", {}).get("uppercase_retry", {}).get(
+                            "earliest_permitted_at_utc"
+                        )
+                    )
+                    drift_last = parse_time(
+                        drift.get("precommitted_stopping_rule", {}).get(
+                            "last_uppercase_attempt_observed_at_utc"
+                        )
+                    )
+                    anchor_not_before = parse_time(anchor.get("not_before_utc"))
+                    time_gate_ok = (
+                        occurred is not None
+                        and contract_earliest is not None
+                        and drift_last is not None
+                        and anchor_not_before is not None
+                        and occurred >= contract_earliest
+                        and occurred >= anchor_not_before
+                        and (occurred - drift_last).total_seconds() >= 24 * 60 * 60
+                    )
+                    if not time_gate_ok:
+                        add_error(
+                            errors,
+                            "TIME_GATE_NOT_SATISFIED",
+                            "uppercase retry eligibility precedes the fixed 24-hour boundary",
+                            path,
+                        )
+                    else:
+                        uppercase_eligible_at = occurred
 
         if event.get("effects") != transition.get("expected_effects"):
             add_error(errors, "EVENT_EFFECT_CONTRACT_VIOLATION", event_id, path)
@@ -470,12 +780,67 @@ def evaluate(
             elif sha256(artifact) != reference.get("sha256"):
                 add_error(errors, "SOURCE_ARTIFACT_DIGEST_MISMATCH", str(reference.get("path")), ref_path)
 
+        if transition_id in RETRY_OUTCOME_TRANSITIONS:
+            validate_retry_outcome(
+                root=root,
+                event=event,
+                transition_id=str(transition_id),
+                occurred=occurred,
+                eligible_at=uppercase_eligible_at,
+                prior_evidence_paths=prior_evidence_paths,
+                errors=errors,
+                path=path,
+            )
+        for reference in event.get("evidence_refs", []):
+            if isinstance(reference, dict) and isinstance(reference.get("path"), str):
+                prior_evidence_paths.add(reference["path"])
+
     stopping = contract.get("stopping_rules", {})
     uppercase = stopping.get("uppercase_retry", {}) if isinstance(stopping, dict) else {}
     identical = stopping.get("identical_failure", {}) if isinstance(stopping, dict) else {}
     lowercase = stopping.get("lowercase_diagnostic", {}) if isinstance(stopping, dict) else {}
     drift_stopping = drift.get("precommitted_stopping_rule", {})
     drift_budget = drift_stopping.get("retry_budget", {}) if isinstance(drift_stopping, dict) else {}
+    authorization_contract = contract.get("authorization_anchor_contract", {})
+    outcome_contract = contract.get("retry_outcome_evidence_contract", {})
+    authorization_contract_ok = authorization_contract == {
+        "reference_shape": "REPOSITORY_PATH_AND_SHA256",
+        "strict_json_required": True,
+        "required_schema_version": "v0.1",
+        "required_record_kind": "explicit_external_authorization_anchor",
+        "required_subject": {
+            "experiment_id": "cross_system_claim_handoff_v0_1",
+            "pair_id": "PAIR-001",
+        },
+        "uppercase_scope": {
+            "authorization_kind": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY",
+            "authorized_transition_ids": sorted(UPPERCASE_AUTH_TRANSITIONS),
+            "request_sha256": UPPERCASE_REQUEST_SHA,
+            "maximum_provider_calls": 1,
+            "not_before_utc": "2026-07-20T07:55:24.374494+00:00",
+        },
+        "lowercase_scope": {
+            "authorization_kind": "ONE_TIME_LOWERCASE_PROVIDER_VALIDATION_DIAGNOSTIC",
+            "authorized_transition_ids": sorted(LOWERCASE_AUTH_TRANSITIONS),
+            "maximum_provider_calls": 1,
+        },
+        "required_execution_boundary": {
+            "automatic_execution": False,
+            "pair_001_execution_authorized": False,
+            "readiness_promotion_authorized": False,
+        },
+        "coordinated_resealing_resistance_claimed": False,
+    }
+    outcome_contract_ok = outcome_contract == {
+        "required_classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+        "required_request_sha256": UPPERCASE_REQUEST_SHA,
+        "required_pair_001_calls_performed": 0,
+        "success_transition": "FSS-PAIR001-T014",
+        "identical_failure_transition": "FSS-PAIR001-T015",
+        "different_outcome_transition": "FSS-PAIR001-T016",
+        "identical_failure_http_status": 500,
+        "identical_failure_body_sha256": IDENTICAL_FAILURE_BODY_SHA,
+    }
     stopping_ok = (
         drift.get("cause") == "UNRESOLVED"
         and drift.get("status") == "CLASSIFIED_RETRY_NOT_AUTHORIZED"
@@ -493,6 +858,8 @@ def evaluate(
         and lowercase.get("successful_amendment") == "CSH-AMEND-004"
         and lowercase.get("successful_stratum") == "NEW_RECEIVER_VERSION_STRATUM"
         and lowercase.get("completes_original_pair_001_repetitions") is False
+        and authorization_contract_ok
+        and outcome_contract_ok
     )
     if not stopping_ok:
         add_error(errors, "STOPPING_RULE_MISMATCH", "sequence and drift stopping rules diverge")
