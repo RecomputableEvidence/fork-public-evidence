@@ -1,0 +1,86 @@
+{
+  "record_id": "FORK_ROOT_CHECKSUM_DISCREPANCY_2026_07_19_v0_1",
+  "schema_version": "v0.1",
+  "record_kind": "append_only_adverse_integrity_finding",
+  "status": "PRESERVED_REPAIR_ENFORCEMENT_CANDIDATE",
+  "append_only": true,
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "observed_at_utc": "2026-07-20T00:29:53Z",
+  "detection": {
+    "external_reported_result": "50_OF_51_MATCH",
+    "local_recomputation_result": "REPRODUCED_ON_EXACT_PR_81_TREE",
+    "recomputed_head": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+    "recomputed_tree": "1ca0c3dffffe4153867439e584c14070b5bcdeeb",
+    "crlf_hypothesis": "REJECTED",
+    "manifest_line_endings": "LF"
+  },
+  "origin": {
+    "originating_commit": "8f3f07e89947bbb14b132cf663a7564fdf3b380c",
+    "originating_parent": "b26c1bd299c2a851bd0e7a797490202003146730",
+    "originating_tree": "071ac261941b0ee70e86df6ebbae4c9ab79640fe",
+    "authored_at": "2026-07-08T17:33:03-07:00",
+    "commit_subject": "Add exterior observance experiment protocol v0.1",
+    "forensic_disposition": "MANIFEST_AND_TARGET_FIRST_APPEARED_IN_THE_SAME_COMMIT_WITH_THE_MISMATCH_ALREADY_PRESENT"
+  },
+  "mismatch": {
+    "manifest_path": "CHECKSUMS_SHA256.txt",
+    "manifest_line": 14,
+    "original_manifest_sha256": "bebcd503b519804c29680115bd2783cd8ae7dd9709a56b580b38af30de1b3122",
+    "original_manifest_git_blob_sha1": "95d9bc6e1f8ae79975dbfed6b9d247aa249c5c70",
+    "target_path": "research/standards/README.md",
+    "target_git_blob_sha1_at_origin": "977dcbc97b30f9122aee43ed0a437f085ada6d20",
+    "recorded_sha256": "f134c55f5fd927a2c9564352eafed4e58b2145f7432bd18b5b3bb79b8e3ddc9c",
+    "actual_sha256_at_origin_and_detection": "c69ce9f411313ec5738b4b99d21d385a2498a3519182a38489e1bbe04ee158b2",
+    "classification": "INCORRECT_AT_INITIAL_PUBLICATION_NOT_LATER_CONTENT_DRIFT"
+  },
+  "preserved_specimen": {
+    "path": "docs/preservation/root-checksum-integrity-v0.1/specimens/CHECKSUMS_SHA256.8f3f07e.pre-repair.txt",
+    "sha256": "bebcd503b519804c29680115bd2783cd8ae7dd9709a56b580b38af30de1b3122",
+    "git_blob_sha1": "95d9bc6e1f8ae79975dbfed6b9d247aa249c5c70",
+    "media_type": "text/plain",
+    "execution_state": "INERT_DATA_ONLY"
+  },
+  "prior_ci_evaluation_gap": {
+    "status": "NOT_EVALUATED_BY_PRIOR_GREEN_RUNS",
+    "basis": "At the recomputed PR #81 tree, no workflow, checker, test, or script referenced CHECKSUMS_SHA256.txt. Therefore a successful conclusion from an earlier run was not evidence of conformance for this manifest.",
+    "basis_kind": "SOURCE_INSPECTION_INFERENCE",
+    "representative_green_runs": [
+      {
+        "head": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+        "workflow": "Fork Evidence CI",
+        "run_id": 29684833954,
+        "conclusion": "success",
+        "manifest_evaluation": "NONE"
+      },
+      {
+        "head": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+        "workflow": "Fork Proof-Surface Integration",
+        "run_id": 29684833959,
+        "conclusion": "success",
+        "manifest_evaluation": "NONE"
+      }
+    ]
+  },
+  "remediation": {
+    "repaired_manifest_sha256": "05cb0a9f1f67d9364bafad8641c99e89545edbdf0e85c8c0db30079b8a0cecc4",
+    "repaired_entry_sha256": "c69ce9f411313ec5738b4b99d21d385a2498a3519182a38489e1bbe04ee158b2",
+    "checker": "tools/check_root_checksum_manifest_v0_1.py",
+    "adversarial_fixture_set": "tests/fixtures/root-checksum-manifest-v0.1/adversarial_cases_v0_1.json",
+    "ci_workflow": ".github/workflows/root-checksum-manifest-v0-1.yml",
+    "enforcement_status": "CANDIDATE_PENDING_HEAD_SPECIFIC_CI"
+  },
+  "experiment_boundary": {
+    "provider_calls_performed": 0,
+    "provider_execution_effect": "NONE",
+    "readiness_effect": "NONE",
+    "pair_001_execution_effect": "NONE",
+    "pair_001_repetitions_added": 0,
+    "current_blocking_controls_modified": false
+  },
+  "non_claims": [
+    "Repairing the checksum entry does not erase or supersede the preserved discrepancy.",
+    "Checksum conformance establishes byte agreement only for declared entries; it does not establish completeness, semantic truth, approval, compliance, legal sufficiency, safety, production readiness, or institutional authority.",
+    "Prior green workflow conclusions are not retroactively represented as having evaluated this manifest.",
+    "This record and its checker do not authorize provider calls, promote readiness, or execute Pair-001."
+  ]
+}
