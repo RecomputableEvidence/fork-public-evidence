@@ -1,0 +1,379 @@
+{
+  "contract_id": "FORK_SEQUENCE_TRANSITION_CONTRACT_PAIR_001_v0_1",
+  "schema_version": "v0.1",
+  "surface_kind": "CROSS_SURFACE_SEQUENCE_PROJECTION",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "subject": {
+    "experiment_id": "cross_system_claim_handoff_v0_1",
+    "pair_id": "PAIR-001"
+  },
+  "initial_state": "SEQUENCE_INIT",
+  "transitions": [
+    {
+      "transition_id": "FSS-PAIR001-T001",
+      "from_state": "SEQUENCE_INIT",
+      "to_state": "ORIGINAL_ATTEMPT_001_OBSERVED",
+      "event_type": "PAIR_001_ORIGINAL_ATTEMPT_OBSERVED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 1,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T002",
+      "from_state": "ORIGINAL_ATTEMPT_001_OBSERVED",
+      "to_state": "ORIGINAL_ATTEMPTS_PRESERVED",
+      "event_type": "PAIR_001_ORIGINAL_ATTEMPT_OBSERVED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 1,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T003",
+      "from_state": "ORIGINAL_ATTEMPTS_PRESERVED",
+      "to_state": "INSTRUMENTATION_REPAIR_INSTALLED",
+      "event_type": "INSTRUMENTATION_REPAIR_INSTALLED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T004",
+      "from_state": "INSTRUMENTATION_REPAIR_INSTALLED",
+      "to_state": "SUCCESSOR_CONTROL_PROPOSED",
+      "event_type": "SUCCESSOR_CONTROL_PROPOSED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T005",
+      "from_state": "SUCCESSOR_CONTROL_PROPOSED",
+      "to_state": "INSTRUMENTATION_RELEASE_PUBLISHED",
+      "event_type": "INSTRUMENTATION_RELEASE_PUBLISHED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T006",
+      "from_state": "INSTRUMENTATION_RELEASE_PUBLISHED",
+      "to_state": "PROVIDER_VALIDATION_ATTEMPT_001_FAILED",
+      "event_type": "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 2,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T007",
+      "from_state": "PROVIDER_VALIDATION_ATTEMPT_001_FAILED",
+      "to_state": "PROVIDER_VALIDATION_ATTEMPT_002_FAILED",
+      "event_type": "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 2,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T008",
+      "from_state": "PROVIDER_VALIDATION_ATTEMPT_002_FAILED",
+      "to_state": "PROVIDER_VALIDATION_ATTEMPT_003_FAILED",
+      "event_type": "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 2,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T009",
+      "from_state": "PROVIDER_VALIDATION_ATTEMPT_003_FAILED",
+      "to_state": "PROVIDER_VALIDATION_BLOCKED",
+      "event_type": "PROVIDER_VALIDATION_BLOCK_RECORDED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T010",
+      "from_state": "PROVIDER_VALIDATION_BLOCKED",
+      "to_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "event_type": "DRIFT_CLASSIFICATION_RECORDED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T011",
+      "from_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "to_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "event_type": "STATE_PROJECTION_RECONCILED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T012",
+      "from_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "to_state": "UPPERCASE_RETRY_AUTHORIZED_PENDING_GAP",
+      "event_type": "EXTERNAL_AUTHORIZATION_RECORDED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T013",
+      "from_state": "UPPERCASE_RETRY_AUTHORIZED_PENDING_GAP",
+      "to_state": "UPPERCASE_RETRY_ELIGIBLE",
+      "event_type": "TIME_GATE_SATISFIED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T014",
+      "from_state": "UPPERCASE_RETRY_ELIGIBLE",
+      "to_state": "UPPERCASE_RETRY_SUCCEEDED_FRESHNESS_PENDING",
+      "event_type": "UPPERCASE_RETRY_OBSERVED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T015",
+      "from_state": "UPPERCASE_RETRY_ELIGIBLE",
+      "to_state": "UPPERCASE_RETRY_IDENTICAL_FAILURE_STOPPED",
+      "event_type": "UPPERCASE_RETRY_OBSERVED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T016",
+      "from_state": "UPPERCASE_RETRY_ELIGIBLE",
+      "to_state": "UPPERCASE_RETRY_DIFFERENT_OUTCOME_CLASSIFICATION_REQUIRED",
+      "event_type": "UPPERCASE_RETRY_OBSERVED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T017",
+      "from_state": "UPPERCASE_RETRY_IDENTICAL_FAILURE_STOPPED",
+      "to_state": "LOWERCASE_DIAGNOSTIC_AUTHORIZED",
+      "event_type": "EXTERNAL_AUTHORIZATION_RECORDED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T018",
+      "from_state": "LOWERCASE_DIAGNOSTIC_AUTHORIZED",
+      "to_state": "LOWERCASE_DIAGNOSTIC_SUCCEEDED_NEW_STRATUM_REQUIRED",
+      "event_type": "LOWERCASE_DIAGNOSTIC_OBSERVED",
+      "authority_requirement": "EXPLICIT_EXTERNAL_AUTHORIZATION",
+      "expected_effects": {
+        "provider_calls_observed_delta": 1,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    },
+    {
+      "transition_id": "FSS-PAIR001-T019",
+      "from_state": "UPPERCASE_RETRY_SUCCEEDED_FRESHNESS_PENDING",
+      "to_state": "FRESHNESS_VALIDATED_READINESS_ANCHOR_REQUIRED",
+      "event_type": "FRESHNESS_VALIDATED",
+      "authority_requirement": "NONE",
+      "expected_effects": {
+        "provider_calls_observed_delta": 0,
+        "pair_001_original_attempts_observed_delta": 0,
+        "pair_001_repetitions_observed_delta": 0,
+        "execution_authorized": false,
+        "readiness_promoted": false
+      }
+    }
+  ],
+  "stopping_rules": {
+    "uppercase_retry": {
+      "explicit_authorization_required": true,
+      "minimum_gap_hours": 24,
+      "earliest_permitted_at_utc": "2026-07-20T07:55:24.374494+00:00",
+      "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+      "remaining_attempts": 1,
+      "automatic_attempts": 0
+    },
+    "identical_failure": {
+      "http_status": 500,
+      "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
+      "next_state": "UPPERCASE_RETRY_IDENTICAL_FAILURE_STOPPED",
+      "additional_uppercase_retries": 0
+    },
+    "lowercase_diagnostic": {
+      "available_only_after_identical_uppercase_failure": true,
+      "separate_explicit_authorization_required": true,
+      "successful_amendment": "CSH-AMEND-004",
+      "successful_stratum": "NEW_RECEIVER_VERSION_STRATUM",
+      "completes_original_pair_001_repetitions": false
+    }
+  },
+  "authorization_anchor_contract": {
+    "reference_shape": "REPOSITORY_PATH_AND_SHA256",
+    "strict_json_required": true,
+    "required_schema_version": "v0.1",
+    "required_record_kind": "explicit_external_authorization_anchor",
+    "required_subject": {
+      "experiment_id": "cross_system_claim_handoff_v0_1",
+      "pair_id": "PAIR-001"
+    },
+    "uppercase_scope": {
+      "authorization_kind": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY",
+      "authorized_transition_ids": [
+        "FSS-PAIR001-T012",
+        "FSS-PAIR001-T013",
+        "FSS-PAIR001-T014",
+        "FSS-PAIR001-T015",
+        "FSS-PAIR001-T016"
+      ],
+      "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+      "maximum_provider_calls": 1,
+      "not_before_utc": "2026-07-20T07:55:24.374494+00:00"
+    },
+    "lowercase_scope": {
+      "authorization_kind": "ONE_TIME_LOWERCASE_PROVIDER_VALIDATION_DIAGNOSTIC",
+      "authorized_transition_ids": [
+        "FSS-PAIR001-T017",
+        "FSS-PAIR001-T018"
+      ],
+      "maximum_provider_calls": 1
+    },
+    "required_execution_boundary": {
+      "automatic_execution": false,
+      "pair_001_execution_authorized": false,
+      "readiness_promotion_authorized": false
+    },
+    "coordinated_resealing_resistance_claimed": false
+  },
+  "retry_outcome_evidence_contract": {
+    "required_classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+    "required_request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+    "required_pair_001_calls_performed": 0,
+    "success_transition": "FSS-PAIR001-T014",
+    "identical_failure_transition": "FSS-PAIR001-T015",
+    "different_outcome_transition": "FSS-PAIR001-T016",
+    "identical_failure_http_status": 500,
+    "identical_failure_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
+  },
+  "forbidden_promotions": [
+    "No event may infer authorization from publication, review, elapsed time, or a prior successful response.",
+    "No diagnostic event may be classified as a Pair-001 repetition.",
+    "No successful provider diagnostic may automatically promote readiness.",
+    "No readiness state may automatically execute Pair-001.",
+    "No lowercase success may complete the original byte-identical Pair-001 repetitions.",
+    "No later state may rewrite or delete an earlier event."
+  ],
+  "projection_rules": {
+    "derive_current_state_from_last_event": true,
+    "sum_observed_call_deltas": true,
+    "derive_declared_successors_from_transition_contract": true,
+    "derive_currently_eligible_successors_without_system_clock": true,
+    "projection_as_of_utc": "2026-07-19T09:14:26Z",
+    "trust_declared_projection": false
+  },
+  "anchor_boundary": {
+    "status": "REQUIRED_AS_SEPARATE_SUCCESSOR_AFTER_SURFACE_MERGE",
+    "must_bind_exact_merge_commit": true,
+    "must_bind_successful_workflow_runs": true,
+    "provider_call_effect": "NONE",
+    "pair_001_execution_effect": "NONE",
+    "readiness_effect": "NONE"
+  },
+  "non_claims": [
+    "This contract is a candidate cross-surface inspectability projection, not an admitted seventh modular surface.",
+    "This contract does not replace the Transition Surface or reinterpret boundary deltas.",
+    "This contract does not schedule, authorize, or execute workflow actions.",
+    "This contract does not establish truth, approval, compliance, safety, legal sufficiency, production readiness, or institutional authority."
+  ]
+}

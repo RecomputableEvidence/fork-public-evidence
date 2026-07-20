@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/fork_sequence_ledger_v0_1.schema.json",
+  "title": "Fork Append-Only Sequence Ledger v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ledger_id",
+    "record_kind",
+    "surface_kind",
+    "status",
+    "append_only",
+    "subject",
+    "base_sequence_head",
+    "transition_contract",
+    "projection_path",
+    "events",
+    "execution_effect",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": { "const": "v0.1" },
+    "ledger_id": { "const": "FORK_SEQUENCE_LEDGER_PAIR_001_v0_1" },
+    "record_kind": { "const": "append_only_sequence_ledger" },
+    "surface_kind": { "const": "CROSS_SURFACE_SEQUENCE_PROJECTION" },
+    "status": { "const": "CANDIDATE_NOT_ADMITTED" },
+    "append_only": { "const": true },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["experiment_id", "pair_id"],
+      "properties": {
+        "experiment_id": { "const": "cross_system_claim_handoff_v0_1" },
+        "pair_id": { "const": "PAIR-001" }
+      }
+    },
+    "base_sequence_head": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "transition_contract": { "$ref": "#/$defs/artifactReference" },
+    "projection_path": {
+      "const": "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json"
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/event" }
+    },
+    "execution_effect": { "const": "NONE" },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "artifactReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "evidenceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "standing"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "standing": {
+          "enum": [
+            "PRESERVED_HISTORICAL_EVIDENCE",
+            "ADMITTED_CONTROL",
+            "PUBLISHED_CONTROL",
+            "EXCLUDED_DIAGNOSTIC_EVIDENCE",
+            "EXTERNAL_AUTHORIZATION_ANCHOR",
+            "CURRENT_BLOCKED_CONTROL",
+            "CANDIDATE_PR_HEAD"
+          ]
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requirement", "present", "reference", "effect"],
+      "properties": {
+        "requirement": {
+          "enum": ["NONE", "EXPLICIT_EXTERNAL_AUTHORIZATION"]
+        },
+        "present": { "type": "boolean" },
+        "reference": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/artifactReference" }
+          ]
+        },
+        "effect": { "const": "NONE" }
+      }
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_calls_observed_delta",
+        "pair_001_original_attempts_observed_delta",
+        "pair_001_repetitions_observed_delta",
+        "execution_authorized",
+        "readiness_promoted"
+      ],
+      "properties": {
+        "provider_calls_observed_delta": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "pair_001_original_attempts_observed_delta": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "pair_001_repetitions_observed_delta": { "const": 0 },
+        "execution_authorized": { "const": false },
+        "readiness_promoted": { "const": false }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ordinal",
+        "event_id",
+        "transition_id",
+        "event_type",
+        "occurred_at_utc",
+        "from_state",
+        "to_state",
+        "authority",
+        "effects",
+        "evidence_refs",
+        "previous_event_sha256",
+        "event_sha256",
+        "non_claims"
+      ],
+      "properties": {
+        "ordinal": { "type": "integer", "minimum": 1 },
+        "event_id": {
+          "type": "string",
+          "pattern": "^FSS-PAIR001-E[0-9]{3}$"
+        },
+        "transition_id": {
+          "type": "string",
+          "pattern": "^FSS-PAIR001-T[0-9]{3}$"
+        },
+        "event_type": {
+          "enum": [
+            "PAIR_001_ORIGINAL_ATTEMPT_OBSERVED",
+            "INSTRUMENTATION_REPAIR_INSTALLED",
+            "SUCCESSOR_CONTROL_PROPOSED",
+            "INSTRUMENTATION_RELEASE_PUBLISHED",
+            "PROVIDER_VALIDATION_ATTEMPT_OBSERVED",
+            "PROVIDER_VALIDATION_BLOCK_RECORDED",
+            "DRIFT_CLASSIFICATION_RECORDED",
+            "STATE_PROJECTION_RECONCILED",
+            "EXTERNAL_AUTHORIZATION_RECORDED",
+            "TIME_GATE_SATISFIED",
+            "UPPERCASE_RETRY_OBSERVED",
+            "FRESHNESS_VALIDATED",
+            "LOWERCASE_DIAGNOSTIC_OBSERVED"
+          ]
+        },
+        "occurred_at_utc": { "type": "string", "format": "date-time" },
+        "from_state": { "type": "string", "minLength": 1 },
+        "to_state": { "type": "string", "minLength": 1 },
+        "authority": { "$ref": "#/$defs/authority" },
+        "effects": { "$ref": "#/$defs/effects" },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/evidenceReference" }
+        },
+        "previous_event_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "event_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "non_claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
