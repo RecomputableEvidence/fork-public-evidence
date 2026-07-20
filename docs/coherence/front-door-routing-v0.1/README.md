@@ -12,6 +12,7 @@ This directory contains the review materials for the first bounded Fork coherenc
 - `ROLE_PATH_OUTLINES_v0_1.md` — reviewer, contributor, governance-reader, and researcher routes.
 - `STATUS_GLOSSARY_v0_1.md` — presentation distinctions for PASS, FAIL, UNRESOLVED, and NOT_CHECKED.
 - `NEWCOMER_WALKTHROUGH_FORMS_v0_1.md` — timed newcomer-usability forms and observation log.
+- `CI_FAILURE_AND_CORRECTION_RECORD_v0_1.md` — preserved first-run integration failure, cause, and bounded correction.
 
 The root `README.md` on this branch is the proposed front-door draft.
 
