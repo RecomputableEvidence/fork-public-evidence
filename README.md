@@ -8,14 +8,14 @@ Fork is a research implementation and public proof surface. It is not a runtime 
 
 | Your goal | First action |
 |---|---|
-| Understand Fork in plain language | Read the [60-second explanation](#fork-in-60-seconds) and [boundaries](#what-fork-does-not-claim). |
-| Run a verification path | Follow the [public review quickstart](docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md) or run the [primary verifier](#run-the-primary-public-verifier). |
+| Understand Fork in plain language | Read [Fork in 60 seconds](#fork-in-60-seconds) and [what Fork does not claim](#what-fork-does-not-claim). |
+| Run a verification path | Follow the [Public Review Quickstart](docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md) or run the [primary verifier](#run-the-primary-public-verifier). |
 | Inspect one concrete artifact | Open the [recomputation-receipt example](docs/review/boundary-pressure/fixtures/valid/BPR_RR_VALID_001_receipt_preserved_as_structural_v0_1.json). |
 | Review the evidence | Use [Reviewer Start Here](docs/REVIEWER_START_HERE_v0_1.md) and the [Current Proof Surface](docs/CURRENT_PROOF_SURFACE_v0_1.md). |
 | Contribute or adversarially test | Use the [draft contributor route](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md#2-contributor-path). |
 | Evaluate governance or buyer relevance | Read the [Buyer Quick Start for GC / CISO / Risk](docs/commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md). |
 | Study the research and architecture | Read the [research position paper](docs/research/ACCOUNTABLE_HANDOFF_INTEROPERABILITY_POSITION_PAPER_v0_1.md) and [Modular Surface](docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md). |
-| Inspect limitations and negative evidence | Start with [negative evidence and unresolved standing](#negative-evidence-residuals-and-unresolved-standing). |
+| Inspect limitations and negative evidence | Start with [negative evidence, residuals, and unresolved standing](#negative-evidence-residuals-and-unresolved-standing). |
 | Ask a bounded question or report a problem | [Open a repository issue](https://github.com/RecomputableEvidence/fork-public-evidence/issues). |
 
 ## Fork in 60 seconds
@@ -30,13 +30,23 @@ AI-assisted work can cross organizational, technical, or decision boundaries whi
 - what was excluded or unresolved;
 - what the next actor was not entitled to infer.
 
-Fork records those distinctions in bounded artifacts and provides checkers that can replay declared structural conditions. The intended result is not automatic trust. It is a record that remains inspectable and difficult to overread.
+Fork records those distinctions in bounded artifacts and provides checkers that replay declared structural conditions. The intended result is not automatic trust. It is an inspectable record that is difficult to overread.
 
 The governing constraint is:
 
 > **Preservation without inheritance.**
 
 Evidence may be preserved, referenced, recomputed, and reviewed without becoming inherited authority, approval, compliance, truth, or permission to act.
+
+## Research status
+
+Fork currently supports an engineering pattern and a motivated hypothesis, not a proven general systems theory. Its canonical hypothesis expression is:
+
+```text
+E[U | H = 1] < E[U | H = 0]
+```
+
+Here, `U` denotes unsupported-inheritance events and `H` denotes the presence of explicit handoff-state artifacts. The hypothesis predicts fewer unsupported-inheritance events when explicit handoff-state artifacts are present. Fork does not establish that this relationship is universal, causal, sufficient for accountability, or superior to every existing mechanism.
 
 ## Run the primary public verifier
 
