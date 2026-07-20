@@ -82,7 +82,41 @@ def test_pair_001_requests_are_byte_bound_and_originals_retained() -> None:
     result = checker.evaluate(ROOT)
     checks = {item["name"]: item for item in result["checks"]}
     assert checks["pair_001_exact_request_lineage"]["passed"] is True
+    assert checks["publication_state_reconciled"]["passed"] is True
+    assert checks["append_only_publication_transition"]["passed"] is True
     assert checks["original_attempt_and_repeat_boundary"]["passed"] is True
+
+
+def test_publication_state_is_exactly_bound_without_readiness_promotion() -> None:
+    checker = load_checker()
+    state = checker.load(ROOT / checker.STATE)
+    publication = state["publication"]
+    assert state["current_phase"] == checker.PUBLISHED_PHASE
+    assert publication["status"] == "anchor_ci_green"
+    assert publication["patch_commit"] == checker.PATCH_COMMIT
+    assert publication["anchor_commit"] == checker.ANCHOR_COMMIT
+    assert state["repeat_runs"] == []
+
+    result = checker.evaluate(ROOT)
+    assert result["result"]["status"] == "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+    assert result["result"]["executable"] is False
+    assert result["result"]["provider_calls_performed"] == 0
+
+
+def test_publication_state_mismatch_fails_closed(tmp_path: Path) -> None:
+    root = tmp_path / "repo"
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns(".git"))
+    checker = load_checker()
+    state_path = root / checker.STATE
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["publication"]["anchor_commit"] = "0" * 40
+    state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8", newline="\n")
+
+    result = checker.evaluate(root)
+    check = next(item for item in result["checks"] if item["name"] == "publication_state_reconciled")
+    assert check["passed"] is False
+    assert result["result"]["status"] == "PRE_EXECUTION_BINDING_FAILED"
+    assert result["result"]["executable"] is False
 
 
 def test_workflow_predecessors_and_successors_are_both_verifiable() -> None:

@@ -31,6 +31,21 @@ EXPECTED_PREREQUISITES = {
     "INSTRUMENTATION_RELEASE_ANCHOR_PUBLISHED",
     "PROVIDER_IDENTITY_CREDENTIAL_SCOPE_QUOTA_AND_RECEIPT_PATH_VALIDATED",
 }
+PUBLISHED_PHASE = "instrumentation_repair_published_execution_blocked_provider_validation"
+PATCH_COMMIT = "1ab4316b5de6100674695912a077b168cc36651b"
+PATCH_HEAD = "82c34252d7b8d9e8957fb5a86500e12da6cf363a"
+PATCH_CI = {
+    29556486787: "Fork Evidence CI",
+    29556486800: "Cross-System Claim Handoff v0.1",
+    29556486836: "Fork Proof-Surface Integration",
+}
+ANCHOR_COMMIT = "b877a4e455429f5c30f78219d6c8f767c744cfba"
+ANCHOR_HEAD = "2e41242d87e4c1914f0859b4261d8587c6bfedaa"
+ANCHOR_CI = {
+    29677346156: "Fork Evidence CI",
+    29677346126: "Cross-System Claim Handoff v0.1",
+    29677346129: "Fork Proof-Surface Integration",
+}
 
 
 class DuplicateKeyError(ValueError):
@@ -152,14 +167,87 @@ def evaluate(root: Path) -> dict[str, Any]:
         pair_errors.append("exactly two Pair-001 units must be bound")
     record("pair_001_exact_request_lineage", not pair_errors, "byte-bound" if not pair_errors else "; ".join(pair_errors))
 
+    publication = state.get("publication", {})
+    patch_ci = publication.get("patch_ci", [])
+    anchor_ci = publication.get("anchor_ci", [])
+
+    def ci_records_match(records: Any, *, scope: str, head: str, expected: dict[int, str]) -> bool:
+        if not isinstance(records, list) or len(records) != len(expected):
+            return False
+        actual: dict[int, str] = {}
+        for item in records:
+            if (
+                not isinstance(item, dict)
+                or item.get("scope") != scope
+                or item.get("head_commit") != head
+                or item.get("conclusion") != "success"
+                or not isinstance(item.get("run_id"), int)
+                or not isinstance(item.get("workflow"), str)
+            ):
+                return False
+            actual[item["run_id"]] = item["workflow"]
+        return actual == expected
+
+    publication_ok = (
+        state.get("current_phase") == PUBLISHED_PHASE
+        and publication.get("status") == "anchor_ci_green"
+        and publication.get("patch_commit") == anchor.get("admitted_commit") == PATCH_COMMIT
+        and ci_records_match(patch_ci, scope="PR_63_REVIEWED_HEAD", head=PATCH_HEAD, expected=PATCH_CI)
+        and publication.get("anchor_commit") == ANCHOR_COMMIT
+        and ci_records_match(anchor_ci, scope="PR_70_RELEASE_ANCHOR_HEAD", head=ANCHOR_HEAD, expected=ANCHOR_CI)
+    )
+    record(
+        "publication_state_reconciled",
+        publication_ok,
+        "anchor-ci-green state is bound to admitted patch, published release anchor, and successful checks"
+        if publication_ok
+        else "publication state does not match the published release anchor",
+    )
+
+    transitions = state.get("transitions", [])
+    transition_by_id = {
+        item.get("transition_id"): item
+        for item in transitions
+        if isinstance(item, dict) and isinstance(item.get("transition_id"), str)
+    }
+    publication_transition = transition_by_id.get("CSH-TRANSITION-AMEND-003-PUBLISH", {})
+    transition_ok = (
+        len(transitions) == 2
+        and transition_by_id.get("CSH-TRANSITION-AMEND-002-INSTALL", {}).get("to_phase")
+        == "instrumentation_repair_installed_not_published"
+        and publication_transition.get("occurred_at_utc") == "2026-07-19T07:02:11Z"
+        and publication_transition.get("cause") == "instrumentation_release_anchor_published"
+        and publication_transition.get("from_phase") == "instrumentation_repair_installed_not_published"
+        and publication_transition.get("to_phase") == PUBLISHED_PHASE
+        and PATCH_COMMIT in publication_transition.get("evidence", [])
+        and ANCHOR_COMMIT in publication_transition.get("evidence", [])
+    )
+    record(
+        "append_only_publication_transition",
+        transition_ok,
+        "installation retained and publication appended" if transition_ok else "publication transition mismatch",
+    )
+
     affected = binding.get("affected_pair_001", {})
+    original_attempts = state.get("original_attempts", [])
+    originals_retained = (
+        isinstance(original_attempts, list)
+        and [item.get("run_id") for item in original_attempts if isinstance(item, dict)]
+        == ["CSH-RUN-001", "CSH-RUN-002"]
+        and all(
+            item.get("immutable") is True
+            and item.get("replaced") is False
+            and item.get("superseded") is False
+            for item in original_attempts
+            if isinstance(item, dict)
+        )
+    )
     state_ok = (
         affected.get("originals_immutable") is True
         and affected.get("originals_replaced") is False
         and affected.get("originals_superseded") is False
         and affected.get("repeat_count_required") == 2
-        and state.get("current_phase") == "instrumentation_repair_installed_not_published"
-        and state.get("publication", {}).get("status") == "not_published"
+        and originals_retained
         and state.get("repeat_runs") == []
     )
     record("original_attempt_and_repeat_boundary", state_ok, "originals preserved; two new repetitions required" if state_ok else "Pair-001 state mismatch")
