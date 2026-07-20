@@ -1,408 +1,217 @@
 # Fork
 
-Fork is a research implementation exploring whether explicit handoff-state artifacts reduce unsupported inheritance in AI-assisted institutional workflows.
+> **Fork is read-only evidence-boundary infrastructure for AI-assisted workflows: it preserves bounded, recomputable records so later reviewers can inspect what crossed a boundary without inheriting claims, authority, or certainty the record did not establish.**
 
-Fork does **not** certify, validate, approve, authorize, guarantee, or establish legal, compliance, operational, or institutional sufficiency.
+Fork is a research implementation and public proof surface. It is not a runtime control plane, policy engine, approval system, compliance certificate, legal-sufficiency determination, truth oracle, or production-readiness authorization.
 
-Start here: [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md)
+## Start here
 
-## Research Status
+| Your goal | First action |
+|---|---|
+| Understand Fork in plain language | Read the [60-second explanation](#fork-in-60-seconds) and [boundaries](#what-fork-does-not-claim). |
+| Run a verification path | Follow the [public review quickstart](docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md) or run the [primary verifier](#run-the-primary-public-verifier). |
+| Inspect one concrete artifact | Open the [recomputation-receipt example](docs/review/boundary-pressure/fixtures/valid/BPR_RR_VALID_001_receipt_preserved_as_structural_v0_1.json). |
+| Review the evidence | Use [Reviewer Start Here](docs/REVIEWER_START_HERE_v0_1.md) and the [Current Proof Surface](docs/CURRENT_PROOF_SURFACE_v0_1.md). |
+| Contribute or adversarially test | Use the [draft contributor route](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md#2-contributor-path). |
+| Evaluate governance or buyer relevance | Read the [Buyer Quick Start for GC / CISO / Risk](docs/commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md). |
+| Study the research and architecture | Read the [research position paper](docs/research/ACCOUNTABLE_HANDOFF_INTEROPERABILITY_POSITION_PAPER_v0_1.md) and [Modular Surface](docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md). |
+| Inspect limitations and negative evidence | Start with [negative evidence and unresolved standing](#negative-evidence-residuals-and-unresolved-standing). |
+| Ask a bounded question or report a problem | [Open a repository issue](https://github.com/RecomputableEvidence/fork-public-evidence/issues). |
 
-Fork's current evidence supports an engineering pattern and a motivated hypothesis, not a proven general systems theory.
+## Fork in 60 seconds
 
-Fork is one implementation case for AI-assisted institutional workflows. It does not establish that explicit handoff-state communication is universally required, superior to existing mechanisms, or sufficient for accountability by itself.
+AI-assisted work can cross organizational, technical, or decision boundaries while losing the context needed to interpret it safely. A downstream reader may see an output or receipt but not know:
 
-## What Fork Is
+- what was requested;
+- what the AI produced;
+- what a human reviewed;
+- what evidence was available;
+- what authority or policy context was asserted;
+- what was excluded or unresolved;
+- what the next actor was not entitled to infer.
 
-Fork is a boundary-recording pattern for AI-assisted workflow handoffs. It helps later reviewers inspect:
+Fork records those distinctions in bounded artifacts and provides checkers that can replay declared structural conditions. The intended result is not automatic trust. It is a record that remains inspectable and difficult to overread.
 
-- what crossed a boundary;
-- what did not cross;
-- what claim scope was preserved;
-- what authority or policy context was recorded;
-- what evidence was referenced;
-- what non-claims remained explicit;
-- what required revalidation;
-- what should not be inferred downstream.
+The governing constraint is:
 
-Fork implements and explores an accountable handoff pattern. It provides initial evidence consistent with the hypothesis that explicit handoff-state records may reduce unsupported inheritance in bounded workflows.
+> **Preservation without inheritance.**
 
-## What Fork Is Not
+Evidence may be preserved, referenced, recomputed, and reviewed without becoming inherited authority, approval, compliance, truth, or permission to act.
 
-- Fork does not determine whether a decision was correct.
-- Fork does not authorize execution.
-- Fork does not certify compliance.
-- Fork does not prove institutional authority.
-- Fork does not establish legal sufficiency.
-- Fork does not approve production use.
-- Fork does not verify the correctness, legality, completeness, or adequacy of underlying workflow data.
-- Fork does not replace governance, runtime authority, audit, legal review, procurement review, compliance review, or institutional judgment.
-- Fork does not convert post-execution evidence into retrospective authorization.
-- Fork does not decide whether downstream reliance is justified.
+## Run the primary public verifier
 
-## Example Workflow
-
-Current worked example:
-
-AI-assisted vendor-risk recommendation → internal decision memo → downstream reliance attempt.
-
-This is one test case, not a recommended, validated, or industry-standard pattern.
-
-The example explores how an AI-assisted artifact can move into institutional reliance, and how a bounded handoff record can help reviewers inspect whether downstream actors silently expanded the claim, authority basis, evidence basis, or reliance context.
-
-## Start Here
-
-Primary reviewer path:
-
-1. [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md)
-
-Additional routing is available here:
-
-- [`docs/REVIEWER_ROUTING_GUIDE_v0_1.md`](docs/REVIEWER_ROUTING_GUIDE_v0_1.md)
-
-## Research Context
-
-The broader research hypothesis is described here:
-
-- [`docs/research/ACCOUNTABLE_HANDOFF_INTEROPERABILITY_POSITION_PAPER_v0_1.md`](docs/research/ACCOUNTABLE_HANDOFF_INTEROPERABILITY_POSITION_PAPER_v0_1.md)
-
-Short form:
-
-> Accountable Handoff Interoperability is the hypothesis that independently accountable systems require explicit handoff-state communication when exchanging consequential state. Fork is one implementation case for AI-assisted institutional workflows. The hypothesis is not proven.
-
-## Falsifiability
-
-Let `U` represent the rate of unsupported inheritance events per workflow.
-
-Let `H` represent the presence of explicit handoff-state artifacts.
-
-The hypothesis predicts:
-
-> E[U | H = 1] < E[U | H = 0]
-
-If controlled or quasi-controlled evaluation fails to show reduced unsupported inheritance, reliance ambiguity, or authority leakage in workflows with explicit handoff-state records, the hypothesis is weakened or requires refinement.
-
-## Policy Reference Non-Claim
-
-Presence of a policy reference does not imply:
-
-- policy applicability;
-- policy approval;
-- compliance determination;
-- authority sufficiency;
-- legal adequacy;
-- operational readiness.
-
-A policy reference records only that a policy context was asserted or referenced in the bounded workflow record. Any determination that the policy was applicable, adequate, current, satisfied, or sufficient requires separate institutional authority.
-
-## Verification
-
-Verification commands and structural checks are documented here:
-
-- [`docs/VERIFICATION_COMMANDS_v0_1.md`](docs/VERIFICATION_COMMANDS_v0_1.md)
-
-A passing command indicates only the bounded structural result described by that checker. It does not establish correctness, compliance, legal sufficiency, production readiness, institutional authority, or factual truth.
-
-## Non-Claims
-
-Fork preserves bounded handoff records so later reviewers can inspect what was claimed, relied upon, excluded, changed, unresolved, or explicitly not transferred.
-
-The following non-claims are invariant:
-
-- This system does not assert legal sufficiency.
-- This system does not grant authority.
-- This system does not certify compliance.
-- This system does not approve production use.
-- This system does not replace institutional review.
-- This system does not verify correctness of underlying workflow data.
-
-## Commercial surface
-
-A buyer-facing post-v0.1 commercial package is available at:
-
-- [Commercial package](docs/commercial/)
-
-<!-- FORK-MODULAR-SURFACE-README:START -->
-## Fork Modular Surface
-
-Fork's current architecture is organized through a modular evidence-boundary surface.
-
-The six functional surfaces are:
-
-- Evidence Boundary
-- Transition
-- Reliance
-- Interoperability
-- Simulation
-- Commercial
-
-These surfaces are governed by a single constraint: preservation without inheritance.
-
-Fork may preserve, reference, inspect, and reconstruct evidence-boundary records, but it does not absorb external authority or convert structural verification into truth, approval, compliance, admissibility, legal sufficiency, or downstream decision correctness.
-
-Start here:
-
-- `docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md`
-- `docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md`
-- `docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md`
-<!-- FORK-MODULAR-SURFACE-README:END -->
-
-<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:START -->
-## Maturity and Terminology Boundary
-
-Fork is research-grade and pilot-discovery ready for bounded AI-assisted evidence-boundary workflows. It is not a general production governance platform, compliance engine, runtime control plane, approval system, or authority layer.
-
-For terminology guardrails and maturity boundaries, see:
-
-- `docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md`
-<!-- FORK-MATURITY-TERMINOLOGY-BOUNDARY:END -->
-
-<!--  -->
-## Human recomputation sandbox — Boundary-State Interop v0.1.1
-
-A bounded human recomputation sandbox is available at:
-
-docs/recomputation/boundary-state-interop-v0.1.1/README.md
-
-It files an exterior verification receipt and gives independent reviewers a branch-local way to recompute the v0.1.1 evidence packet without treating the original receipt, checker, or Fork repository as authority.
-<!--  -->
-
-## Exterior Observance Experiment v0.1
-
-Fork is entering an Exterior Observance Experiment v0.1.
-
-The purpose is not endorsement, promotion, validation, production adoption, certification, approval, consensus, or praise.
-
-The purpose is to expose a bounded evidence-boundary experiment to practitioners who can observe, challenge, misunderstand, refine, or pressure-test its surfaces without becoming authority for Fork's claims.
-
-Fork is no longer only asking:
-
-- Can this evidence surface be internally specified and recomputed?
-
-It can now also ask:
-
-- How do exterior observers from different governance positions interpret the surface, its limits, its failure modes, and its adjacent responsibilities?
-
-In this phase:
-
-- the repository is the observance surface;
-- the sandbox is the controlled environment;
-- contributors are exterior observers, not authorities;
-- observations are preserved with scope, limitations, interaction type, and non-endorsement;
-- exterior commentary is not converted into validation, endorsement, or inherited authority.
-
-The current sandbox question is:
-
-> Does the evidence surface continue to preserve distinguishability between structural reproduction, unresolved state, evidentiary sufficiency, authority, and truth-claims under adverse conditions?
-
-Exterior observations are preserved under `docs/exterior-observations/`.
-
-Fork now has enough articulated form to be observed without asking observers to believe in it.
-
-<!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_START -->
-
-## Repository review posture
-
-Fork's repository-specific review posture is maintained here:
-
-- [Fork Repository Review Posture v0.1](docs/review/FORK_REPOSITORY_REVIEW_POSTURE_v0_1.md)
-
-This guide explains how reviewers and contributors should interpret Fork artifacts, recomputation receipts, exterior observations, PR history, non-claims, and boundary-pressure concerns without converting evidence into authority, endorsement, certification, production readiness, legal sufficiency, or compliance conclusions.
-
-<!-- FORK_REPOSITORY_REVIEW_POSTURE_LINK_END -->
-
-<!-- FORK_BUYER_QUICK_START_GC_CISO_RISK:START -->
-
-## Buyer-facing overview (GC / CISO / Risk)
-
-For legal, security, risk, compliance, audit-adjacent, and design-partner readers, start here:
-
-- [Buyer Quick Start for GC / CISO / Risk v0.1](docs/commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md)
-
-Fork preserves reconstructable evidence context for AI-assisted reliance. It does not certify compliance, establish legal admissibility, replace institutional controls, operate detection systems, function as a GRC system, replace SIEM or logging platforms, or act as a runtime control plane.
-
-<!-- FORK_BUYER_QUICK_START_GC_CISO_RISK:END -->
-
-<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:START -->
-
-Current proof surface and public verifier
-Reviewers can inspect the current bounded proof surface here:
-docs/CURRENT_PROOF_SURFACE_v0_1.md
-
-Run the current public review verifier from the repository root:
-powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
-
-The verifier checks required public-review files and executes the stable boundary-pressure checker. It does not validate truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, or institutional authority.
-
-<!-- FORK_CURRENT_PROOF_SURFACE_AND_PUBLIC_VERIFIER:END -->
-
-<!-- FORK_PUBLIC_REVIEW_QUICKSTART:START -->
-
-## Public review quickstart
-
-For a one-page reviewer path, use:
-
-- docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md
-
-The public verifier is:
-
-- scripts/verify_public_review_package_v0_1.ps1
-
-Run from repo root:
-
-- powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
-
-This path is for public inspection, structural verification, and exterior review. It is not endorsement, certification, compliance approval, legal sufficiency, safety approval, production readiness, or authority transfer.
-
-<!-- FORK_PUBLIC_REVIEW_QUICKSTART:END -->
-<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:START -->
-
-Public verifier platform fallback
-Primary public verifier:
-scripts/verify_public_review_package_v0_1.ps1
-For Linux/macOS reviewers without PowerShell or pwsh, use:
-docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md
-Important distinction:
-executing the PowerShell verifier is public verifier execution;
-running the documented cross-platform commands is manual public-verifier reconstruction.
-Manual reconstruction is useful review evidence, but it is not identical to executing the named verifier artifact.
-
-<!-- FORK_PUBLIC_VERIFIER_PLATFORM_FALLBACK:END -->
-
-<!-- FORK_LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL:START -->
-
-## Longitudinal Day-0 coordinated re-seal adversarial case
-
-Round 005 found that coordinated re-sealing could falsify provenance, recompute internal hashes, and still pass the current Day-0 checker.
-
-This finding is now preserved as a reproducible adversarial case:
-
-- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL_CASE_v0_1.md`
-- `docs/reconstruction/adversarial/fixtures/LRT_DAY0_ADV_001_coordinated_reseal_v0_1.json`
-- `tools/check_longitudinal_day0_adversarial_cases_v0_1.py`
-
-Run:
-
-- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
-
-Interpretation:
-
-- a pass confirms the root-of-trust limitation is reproducible under the current v0.1 checker;
-- it does not validate the mutated packet;
-- it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
-
-<!-- FORK_LONGITUDINAL_DAY0_COORDINATED_RESEAL_ADVERSARIAL:END -->
-
-<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:START -->
-
-## Longitudinal Day-0 lexical non-authority limit adversarial case
-
-Round 005 found that the Day-0 non-authority check is lexical, not semantic or negation-aware.
-
-This finding is now preserved as a reproducible adversarial case:
-
-- `docs/reconstruction/adversarial/LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT_ADVERSARIAL_CASE_v0_1.md`
-- `docs/reconstruction/adversarial/fixtures/LRT_DAY0_ADV_002_lexical_non_authority_limit_v0_1.json`
-- `tools/check_longitudinal_day0_adversarial_cases_v0_1.py`
-
-Run:
-
-- `python tools/check_longitudinal_day0_adversarial_cases_v0_1.py --json`
-
-Interpretation:
-
-- a pass confirms the lexical limit is reproducible under the current v0.1 checker;
-- it does not mean the clean Day-0 packet asserts authority;
-- it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.
-
-<!-- FORK_LONGITUDINAL_DAY0_LEXICAL_NON_AUTHORITY_LIMIT:END -->
-
-<!-- FORK_LONGITUDINAL_DAY0_SCHEMA_SCOPE:START -->
-
-## Day-0 schema presence versus schema enforcement
-
-Round 005 found that the Day-0 schema is present but not mechanically enforced by the Day-0 checker.
-
-Clarification:
-
-- `docs/reconstruction/LONGITUDINAL_DAY0_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md`
-
-Response receipt:
-
-- `docs/review/public-rounds/round-005/ROUND005_RESPONSE_SCHEMA_PRESENCE_VS_ENFORCEMENT_v0_1.md`
-
-Checker:
-
-- `tools/check_longitudinal_day0_schema_scope_v0_1.py`
-
-Run:
-
-- `python tools/check_longitudinal_day0_schema_scope_v0_1.py --json`
-
-Correct language:
-
-- schema file present;
-- public verifier path coverage present;
-- Day-0 checker required-field/hash checks present;
-- mechanical JSON Schema enforcement not implemented in v0.1.
-
-Do not describe the Day-0 manifest as schema-validated unless a future schema-enforcement upgrade is added.
-
-<!-- FORK_LONGITUDINAL_DAY0_SCHEMA_SCOPE:END -->
-
-<!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:START -->
-
-## Day-0 temporal replay receipt
-
-Day-0 temporal replay receipt:
-
-- `docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_v0_1.json`
-
-Interpretation:
-
-- `docs/reconstruction/longitudinal/day0/replay/DAY0_TEMPORAL_REPLAY_RECEIPT_INTERPRETATION_v0_1.md`
-
-Checker:
-
-- `tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py`
-
-Run:
-
-- `python tools/check_longitudinal_day0_temporal_replay_receipt_v0_1.py --json`
-
-Boundary:
-
-- temporal replay evidence means the Day-0 checker replayed successfully against the recorded subject commit;
-- it does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, schema conformance, production readiness, procurement approval, external anchoring, or institutional authority.
-
-<!-- FORK_LONGITUDINAL_DAY0_TEMPORAL_REPLAY_RECEIPT:END -->
-
-<!-- BEGIN FORK_EXPERIMENTAL_CONVERGENCE_V0_1 -->
-## Experimental extension and Cross-System Claim Handoff status
-
-The governed transition from exterior observation into controlled experimentation is defined by:
-
-- `docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md`
-
-Canonical machine-readable implementation state:
-
-- `docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json`
-
-Current recomputation/access-path surface:
-
-- `docs/recomputation/boundary-state-interop-v0.1.2/`
-
-Current bounded public-review round:
-
-- `docs/review/public-rounds/round-006/`
-
-Cross-System Claim Handoff v0.1 is preregistered as a scaffold, but its baseline has not started. The corpus/configuration freeze remains incomplete and optimization remains prohibited.
-
-Canonical integration verification:
+From the repository root on Windows PowerShell:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\verify_fork_proof_surface_v0_1.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
 ```
 
-A pass means only that the declared bounded structural surfaces passed their applicable checks. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.
-<!-- END FORK_EXPERIMENTAL_CONVERGENCE_V0_1 -->
+For structured output:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1 -Json
+```
+
+Expected high-level signal at a conforming exact head:
+
+```text
+PUBLIC_REVIEW_PACKAGE_VERIFY_PASS
+```
+
+A pass means only that the verifier's declared files and bounded structural checks succeeded at the tested checkout. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, production readiness, endorsement, certification, admission, or institutional authority.
+
+For Linux or macOS reviewers without PowerShell, use the [platform fallback](docs/review/PUBLIC_VERIFIER_PLATFORM_FALLBACK_v0_1.md). Manual reconstruction is useful review evidence, but it is not identical to executing the named verifier artifact.
+
+## Inspect one example before reading the full architecture
+
+Start with this compact fixture:
+
+- [Recomputation receipt preserved as structural evidence only](docs/review/boundary-pressure/fixtures/valid/BPR_RR_VALID_001_receipt_preserved_as_structural_v0_1.json)
+
+Then read the associated case:
+
+- [Boundary Pressure: Recomputation Receipt Overread](docs/review/boundary-pressure/BOUNDARY_PRESSURE_RECOMPUTATION_RECEIPT_OVERREAD_TEST_CASE_v0_1.md)
+
+The example demonstrates a central boundary: a receipt may show that a bounded replay occurred while remaining insufficient to replace the underlying artifact or establish truth, approval, compliance, legal sufficiency, authorization, or production readiness.
+
+Run the fixture family directly:
+
+```powershell
+python tools/check_boundary_pressure_review_cases_v0_1.py --json --run-adversarial
+```
+
+## What Fork preserves
+
+Fork helps later reviewers inspect:
+
+- the claim and its declared scope;
+- the request, output, human-review, and handoff context that was recorded;
+- referenced evidence and its declared role;
+- non-claims and excluded interpretations;
+- unresolved, failed, blocked, or not-checked conditions;
+- changes in state across a declared transition;
+- whether a bounded artifact still satisfies its applicable structural checks.
+
+## What Fork does not claim
+
+Fork does not:
+
+- determine whether an AI-assisted decision or artifact is correct or true;
+- authorize execution, retries, reliance, deployment, or downstream action;
+- certify compliance, security, safety, audit sufficiency, or legal adequacy;
+- establish that asserted authority or policy context was sufficient;
+- approve production use or procurement;
+- replace governance, legal, risk, compliance, audit, security, or institutional judgment;
+- convert a receipt, successful recomputation, green workflow, exterior observation, or merge into inherited authority;
+- convert post-execution evidence into retrospective authorization;
+- resolve an unknown cause or incomplete evidence state by assumption.
+
+Read the detailed boundaries:
+
+- [Fork Non-Claim Boundary](docs/FORK_NON_CLAIM_BOUNDARY_v0_1.md)
+- [Fork Operational Boundary Map](docs/FORK_OPERATIONAL_BOUNDARY_MAP_v0_1.md)
+- [Maturity and Terminology Boundary](docs/architecture/FORK_MATURITY_AND_TERMINOLOGY_BOUNDARY_v0_1.md)
+- [Repository Review Posture](docs/review/FORK_REPOSITORY_REVIEW_POSTURE_v0_1.md)
+
+## Status vocabulary
+
+| State | Meaning within the named scope | It must not be read as |
+|---|---|---|
+| **PASS** | Every declared check succeeded. | Truth, approval, authority, compliance, safety, readiness, or complete coverage. |
+| **FAIL** | At least one declared check did not succeed. | Proof that every unrelated artifact or claim is invalid. |
+| **UNRESOLVED** | Available evidence does not support a conclusive classification. | Permission to assume the favorable explanation or continue execution. |
+| **NOT_CHECKED** | The property was outside the cited check's scope. | PASS, FAIL, closure, or evidence that no problem exists. |
+
+Fork-specific lifecycle and control states—such as `CANDIDATE_NOT_ADMITTED`, `STRUCTURALLY_READY_EXECUTION_BLOCKED`, or `DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED`—must remain verbatim and must not be collapsed into one success badge.
+
+See the [draft status glossary](docs/coherence/front-door-routing-v0.1/STATUS_GLOSSARY_v0_1.md).
+
+## Current proof and state
+
+Use these surfaces rather than inferring current standing from a green badge or an older narrative statement:
+
+- [Current Proof Surface v0.1](docs/CURRENT_PROOF_SURFACE_v0_1.md)
+- [Canonical proof-surface state](docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json)
+- [Pair-001 sequence projection](docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json)
+- [Experimental Extension Protocol](docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md)
+
+The exact artifact, version, and commit govern the interpretation. Earlier successful results do not validate a later head.
+
+## Choose a guided role path
+
+The coherence candidate contains four draft pathways:
+
+- [Reviewer](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md#1-reviewer-path)
+- [Contributor](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md#2-contributor-path)
+- [Governance or buyer reader](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md#3-governance-or-buyer-reader-path)
+- [Researcher](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md#4-researcher-path)
+
+Each route ends in a concrete next action and preserves exact-head, evidence-scope, non-claim, and authority boundaries.
+
+## Architecture in one view
+
+Fork's modular architecture organizes existing materials across six functional surfaces:
+
+1. Evidence Boundary
+2. Transition
+3. Reliance
+4. Interoperability
+5. Simulation
+6. Commercial
+
+Start with:
+
+- [Fork Modular Surface](docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md)
+- [Surface Interaction Contract](docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md)
+- [Modular Surface Crosswalk](docs/modular-surface/FORK_MODULAR_SURFACE_CROSSWALK_v0_1.md)
+
+This architecture organizes evidence and interaction boundaries. It does not create a seventh authority layer or absorb the authority of an external system.
+
+## Negative evidence, residuals, and unresolved standing
+
+Fork preserves adverse findings and limitations rather than presenting only successful checks. Start here:
+
+- [Boundary-pressure cases](docs/review/boundary-pressure/)
+- [Longitudinal adversarial cases](docs/reconstruction/adversarial/)
+- [Exterior observations](docs/exterior-observations/)
+- [Root-checksum discrepancy preservation](docs/preservation/root-checksum-integrity-v0.1/)
+- [Current proof surface: what Fork does not prove](docs/CURRENT_PROOF_SURFACE_v0_1.md#10-what-fork-currently-does-not-prove)
+
+A successful correction may close a defect prospectively while preserving the original failure and the limits of earlier green runs.
+
+## Human recomputation and exterior review
+
+- [Boundary-State Interop human recomputation sandbox v0.1.1](docs/recomputation/boundary-state-interop-v0.1.1/README.md)
+- [Public Review Quickstart](docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md)
+- [Public Review Package Index](docs/PUBLIC_REVIEW_PACKAGE_INDEX_v0_1.md)
+
+Exterior observations and recomputation receipts are evidence within their declared scope. They are not endorsements, certifications, approvals, or authority transfers.
+
+## Research and commercial orientation
+
+Research:
+
+- [Accountable Handoff Interoperability Position Paper](docs/research/ACCOUNTABLE_HANDOFF_INTEROPERABILITY_POSITION_PAPER_v0_1.md)
+
+Governance and buyer orientation:
+
+- [Buyer Quick Start for GC / CISO / Risk](docs/commercial/BUYER_QUICK_START_GC_CISO_RISK_v0_1.md)
+- [Commercial package](docs/commercial/)
+
+Commercial materials describe a bounded problem and possible discovery path. They do not establish client suitability, procurement approval, implementation authority, or production readiness.
+
+## Coherence-upgrade review materials
+
+This draft front-door branch is supported by:
+
+- [Current front-door inventory](docs/coherence/front-door-routing-v0.1/CURRENT_FRONT_DOOR_INVENTORY_v0_1.md)
+- [Canonical proof-path selection](docs/coherence/front-door-routing-v0.1/PROOF_PATH_SELECTION_v0_1.md)
+- [Visitor role-path outlines](docs/coherence/front-door-routing-v0.1/ROLE_PATH_OUTLINES_v0_1.md)
+- [Status glossary](docs/coherence/front-door-routing-v0.1/STATUS_GLOSSARY_v0_1.md)
+- [Newcomer walkthrough forms](docs/coherence/front-door-routing-v0.1/NEWCOMER_WALKTHROUGH_FORMS_v0_1.md)
+
+These files are draft coherence materials. They do not amend Fork's substantive claims, evidence, authority boundaries, experiment controls, historical standing, or admission state.
+
+---
+
+**Front-door invariant:** simplify access without simplifying the evidence, weakening the boundaries, or converting unresolved conditions into certainty.
