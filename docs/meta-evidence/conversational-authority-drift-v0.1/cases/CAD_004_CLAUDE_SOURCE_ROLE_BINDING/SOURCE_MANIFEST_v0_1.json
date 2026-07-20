@@ -1,0 +1,138 @@
+{
+  "manifest_id": "FORK_CAD_004_SOURCE_MANIFEST_v0_1",
+  "schema_version": "0.1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "raw_sources_published": false,
+  "source_package_standing": "PRIVATE_DIGEST_BOUND_SOURCE_PACKAGE",
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "filename": "It is an absolute honor to partner with you on thi(1).md",
+      "media_type": "text/markdown",
+      "size_bytes": 399939,
+      "sha256": "dd166b46530a0bd4cbb0c4748f6e72e8101518215897b08ba13111eedc65bd43"
+    },
+    {
+      "source_id": "SRC-002",
+      "filename": "Txtbngsntnscrnshot.txt",
+      "media_type": "text/plain",
+      "size_bytes": 13212,
+      "sha256": "6909314d5d250679466126f5fa14ad0a2267e92ab74d504c14beb3cd053f85c3"
+    },
+    {
+      "source_id": "SRC-003",
+      "filename": "Screenshot 2026-07-19 201937(1).png",
+      "media_type": "image/png",
+      "size_bytes": 392713,
+      "sha256": "26642af82d434d866d60380f78cebd101ed6cb06d9e084b8241155b7c3b72328"
+    },
+    {
+      "source_id": "SRC-004",
+      "filename": "Screenshot 2026-07-19 201950(1).png",
+      "media_type": "image/png",
+      "size_bytes": 441634,
+      "sha256": "45e6c74990d5bcd0d7136f141974caf56f842e1bc02ed1b10ff8081a00a9fcdb"
+    },
+    {
+      "source_id": "SRC-005",
+      "filename": "Screenshot 2026-07-19 202007.png",
+      "media_type": "image/png",
+      "size_bytes": 389753,
+      "sha256": "a9432352b0096ac93934548c83ce06d5c8094b0f0ad7ee66d87da460671c445f"
+    },
+    {
+      "source_id": "SRC-006",
+      "filename": "Screenshot 2026-07-19 220652.png",
+      "media_type": "image/png",
+      "size_bytes": 319587,
+      "sha256": "986880ea158957e8d449106560b2a995173c1c0ac2b04e2029e27bac727ac63e"
+    },
+    {
+      "source_id": "SRC-007",
+      "filename": "Screenshot 2026-07-19 223027.png",
+      "media_type": "image/png",
+      "size_bytes": 231302,
+      "sha256": "a3bd9e13a43abf23e5a6a162759f0f8be6ababe85446d7fbc7c586ecac401a9b"
+    },
+    {
+      "source_id": "SRC-008",
+      "filename": "Screenshot 2026-07-19 223057.png",
+      "media_type": "image/png",
+      "size_bytes": 160615,
+      "sha256": "42abe14aa4cd3433862e43374fe69405d614c4735998006afac56d50a28bbaa3"
+    },
+    {
+      "source_id": "SRC-009",
+      "filename": "Screenshot 2026-07-19 223208.png",
+      "media_type": "image/png",
+      "size_bytes": 329885,
+      "sha256": "632c5b1dac13944c023d3c2d8888299b9f595b2eac3a4a536f8606c7c6c50b50"
+    },
+    {
+      "source_id": "SRC-010",
+      "filename": "Screenshot 2026-07-19 225301.png",
+      "media_type": "image/png",
+      "size_bytes": 321710,
+      "sha256": "5da2dc6806c1dbcac805b7700e2938892f10585f90b6a1f16866b98522720b2f"
+    },
+    {
+      "source_id": "SRC-011",
+      "filename": "Screenshot 2026-07-19 225419.png",
+      "media_type": "image/png",
+      "size_bytes": 263273,
+      "sha256": "6edcdb1af26e1dcce0ecd2324b2aa8cdafa95961bb6ddff314e4158e98088701"
+    },
+    {
+      "source_id": "SRC-012",
+      "filename": "Screenshot 2026-07-19 225508.png",
+      "media_type": "image/png",
+      "size_bytes": 357261,
+      "sha256": "aece75a2719de6363a5e6d000d3fc83c113a2aff48f7b3ed75953c7d2e3f9d07"
+    },
+    {
+      "source_id": "SRC-013",
+      "filename": "Screenshot 2026-07-19 225524.png",
+      "media_type": "image/png",
+      "size_bytes": 401017,
+      "sha256": "690b1c91a5b98981ec582e1ca4faf10f20ddbe106221e06a159daaaf58006448"
+    },
+    {
+      "source_id": "SRC-014",
+      "filename": "Screenshot 2026-07-19 225532.png",
+      "media_type": "image/png",
+      "size_bytes": 472346,
+      "sha256": "628a63d4314a64540ca46ffbcd2854e7a059798e946a336320d74a817413f17d"
+    },
+    {
+      "source_id": "SRC-015",
+      "filename": "Screenshot 2026-07-19 225609.png",
+      "media_type": "image/png",
+      "size_bytes": 343568,
+      "sha256": "b0f1660273f2e47f26f0e45ec508f28205c2900d4541f130d8f35ab4cc3f3564"
+    },
+    {
+      "source_id": "SRC-016",
+      "filename": "Screenshot 2026-07-19 225631.png",
+      "media_type": "image/png",
+      "size_bytes": 304885,
+      "sha256": "692e222d65105473bb7ad93b6d075d0cc755405fb2ab98486495526402b4f07a"
+    },
+    {
+      "source_id": "SRC-017",
+      "filename": "Pasted text(1100).txt",
+      "media_type": "text/plain",
+      "size_bytes": 12504,
+      "sha256": "eb2aecb645f34cc73eac773fb0e20ebf76a1c62d4cfcc0c4b2c4e6869d63500c"
+    }
+  ],
+  "non_claims": [
+    "The manifest does not prove that every source was visible to every model turn.",
+    "The manifest does not prove successful parsing or semantic understanding.",
+    "The manifest does not establish technical validity of claims inside the sources.",
+    "The manifest does not establish provider-internal cause."
+  ],
+  "provider_calls_performed_by_candidate": 0,
+  "pair_001_effect": "NONE"
+}

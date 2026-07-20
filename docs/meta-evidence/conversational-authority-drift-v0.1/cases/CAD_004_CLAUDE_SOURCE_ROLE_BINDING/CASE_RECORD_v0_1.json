@@ -1,0 +1,38 @@
+{
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "schema_version": "0.1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "title": "Correct content findings with source-role binding and access-state contradictions",
+  "primary_question": "Can a reviewer correctly inspect an artifact and identify a real defect while still misreporting artifact availability, misclassifying artifact purpose, or collapsing distinct standing vocabularies?",
+  "observed_sequence": [
+    "A bundle containing the Fracture Markdown, companion TXT, and screenshots was supplied.",
+    "The reviewer initially stated or reasoned that the Markdown had not been supplied or was unavailable.",
+    "The reviewer later directly read the Markdown and identified the mocked concurrency-test defect.",
+    "The reviewer also identified register-weighted authority as a separate interpretive concern.",
+    "The companion TXT was treated as a standalone taxonomy document rather than preserving its user-declared role as machine-readable completion of screenshot context.",
+    "Recalled Synergenesis maturity vocabulary was used to suggest duplication without an explicit unit-of-analysis crosswalk.",
+    "The user corrected the source-role mapping and required reflexive scrutiny of the reviewer, Fork, and himself."
+  ],
+  "bounded_disposition": "MIXED_SUPPORTED_AND_CONTRADICTED_FINDINGS",
+  "supported_findings": [
+    "Mocked or expected values were promoted toward validation language in the Fracture source.",
+    "Register-weighted language is present adjacent to claims whose execution standing is not established.",
+    "The supplied bundle contained the Markdown, screenshots, and companion TXT."
+  ],
+  "contradicted_or_unresolved_findings": [
+    "Markdown absence or unavailability is contradicted by visible attachment and later direct read.",
+    "The TXT role was misclassified by reducing its evidentiary purpose to its content theme.",
+    "Equivalence between the claim-level standing vocabulary and the Synergenesis maturity pipeline remains unresolved without a crosswalk."
+  ],
+  "candidate_labels": [
+    "ACCESS_STATE_CONTRADICTION",
+    "SOURCE_ROLE_CONFLATION",
+    "CORRECT_CONTENT_FINDING_WITH_SOURCE_ROLE_BINDING_FAILURE",
+    "SCOPE_EQUIVALENCE_COLLAPSE"
+  ],
+  "candidate_labels_are_canonical": false,
+  "raw_sources_published": false,
+  "provider_calls_performed": 0,
+  "pair_001_effect": "NONE",
+  "admission_effect": "NONE"
+}

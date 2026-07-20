@@ -1,0 +1,13 @@
+{
+  "record_id": "FORK_CAD_EXACT_BASE_RECORD_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "base_branch": "preservation/clean-continuance-v0.1",
+  "base_commit_at_branch_creation": "1241c0084900f2c60f362205525464582e57b4a7",
+  "candidate_branch": "research/conversational-authority-drift-v0-1",
+  "base_relation_at_branch_creation": "IDENTICAL",
+  "main_modified": false,
+  "repository_settings_modified": false,
+  "provider_calls_performed": 0,
+  "pair_001_effect": "NONE"
+}

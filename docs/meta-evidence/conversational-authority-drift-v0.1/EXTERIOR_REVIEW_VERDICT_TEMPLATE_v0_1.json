@@ -1,0 +1,55 @@
+{
+  "review_id": "FORK_CAD_EXTERIOR_REVIEW_<REVIEWER>_<DATE>",
+  "status": "EXTERIOR_REVIEW_NOT_ADMISSION",
+  "reviewer": {
+    "name_or_handle": "",
+    "affiliation": "",
+    "relationship_to_fork": "KNOWN_COLLEAGUE|NEW_REVIEWER|OTHER",
+    "prior_case_exposure": "NONE|LIMITED|SUBSTANTIAL"
+  },
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "pull_request": 84,
+  "reviewed_head_sha": "",
+  "reviewed_base_sha": "",
+  "environment": {
+    "os": "",
+    "python_version": "",
+    "git_version": "",
+    "notes": ""
+  },
+  "source_package": {
+    "artifacts_expected": 21,
+    "digests_recomputed": false,
+    "all_match": false,
+    "mismatches": []
+  },
+  "commands": [],
+  "structural_checks": {
+    "checker_exit_code": null,
+    "unit_test_exit_code": null,
+    "observed_output_sha256": ""
+  },
+  "claim_findings": [
+    {
+      "claim_id_or_event_id": "",
+      "verdict": "SUPPORTED|PARTIALLY_SUPPORTED|CONTRADICTED|UNRESOLVED|INCORRECTLY_ACCUSED",
+      "basis": [],
+      "correction_required": ""
+    }
+  ],
+  "taxonomy_crosswalk": {
+    "performed": false,
+    "result": "DISTINGUISHABLE|PARTIAL_OVERLAP|DUPLICATIVE|UNRESOLVED",
+    "basis": []
+  },
+  "overall_verdict": "REPRODUCED_WITHIN_DECLARED_SCOPE|REPRODUCED_WITH_CORRECTIONS_REQUIRED|NOT_REPRODUCED|REVIEW_INCONCLUSIVE",
+  "residuals": [],
+  "non_claims": [
+    "This review is not an endorsement, certification, admission, publication, security assessment, or provider-behavior generalization.",
+    "This review does not authorize provider calls, Pair-001 execution, merge, readiness promotion, or institutional reliance."
+  ],
+  "reviewer_signature_or_attestation": {
+    "method": "UNSIGNED_TEXT|SIGNED_COMMIT|GPG|OTHER",
+    "value": ""
+  }
+}
