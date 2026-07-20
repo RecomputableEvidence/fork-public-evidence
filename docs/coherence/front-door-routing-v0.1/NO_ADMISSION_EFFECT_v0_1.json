@@ -1,0 +1,17 @@
+{
+  "artifact": "front-door-routing-v0.1",
+  "status": "DRAFT_NOT_MERGE_AUTHORIZED",
+  "change_class": "E0_EDITORIAL",
+  "exact_base": "1241c0084900f2c60f362205525464582e57b4a7",
+  "claim_change": "NONE",
+  "authority_change": "NONE",
+  "historical_standing_change": "NONE",
+  "admission_effect": "NONE",
+  "publication_effect": "NONE",
+  "readiness_effect": "NONE",
+  "pair_001_execution_effect": "NONE",
+  "pair_001_retry_authorization": "ABSENT",
+  "provider_calls_performed": 0,
+  "pr_84_review_effect": "NONE",
+  "merge_authority": "ABSENT"
+}
