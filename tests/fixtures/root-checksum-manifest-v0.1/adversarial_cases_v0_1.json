@@ -1,0 +1,95 @@
+{
+  "fixture_set_id": "FORK_ROOT_CHECKSUM_MANIFEST_ADVERSARIAL_CASES_v0_1",
+  "schema_version": "v0.1",
+  "cases": [
+    {
+      "case_id": "RCSM-ADV-001",
+      "class": "DIGEST_MISMATCH",
+      "operation": "replace_digest",
+      "target": "alpha.txt",
+      "value": "0000000000000000000000000000000000000000000000000000000000000000",
+      "expected_error": "TARGET_SHA256_MISMATCH"
+    },
+    {
+      "case_id": "RCSM-ADV-002",
+      "class": "DUPLICATE_PATH",
+      "operation": "duplicate_entry",
+      "target": "alpha.txt",
+      "expected_error": "TARGET_PATH_DUPLICATE"
+    },
+    {
+      "case_id": "RCSM-ADV-003",
+      "class": "PATH_TRAVERSAL",
+      "operation": "replace_path",
+      "target": "alpha.txt",
+      "value": "../outside.txt",
+      "expected_error": "TARGET_PATH_UNSAFE"
+    },
+    {
+      "case_id": "RCSM-ADV-004",
+      "class": "ABSOLUTE_PATH",
+      "operation": "replace_path",
+      "target": "alpha.txt",
+      "value": "/outside.txt",
+      "expected_error": "TARGET_PATH_UNSAFE"
+    },
+    {
+      "case_id": "RCSM-ADV-005",
+      "class": "NON_POSIX_PATH",
+      "operation": "replace_path",
+      "target": "nested/beta.txt",
+      "value": "nested\\beta.txt",
+      "expected_error": "TARGET_PATH_UNSAFE"
+    },
+    {
+      "case_id": "RCSM-ADV-006",
+      "class": "UPPERCASE_DIGEST",
+      "operation": "uppercase_digest",
+      "target": "alpha.txt",
+      "expected_error": "MANIFEST_LINE_INVALID"
+    },
+    {
+      "case_id": "RCSM-ADV-007",
+      "class": "CRLF_MANIFEST",
+      "operation": "convert_crlf",
+      "expected_error": "MANIFEST_LINE_ENDINGS_INVALID"
+    },
+    {
+      "case_id": "RCSM-ADV-008",
+      "class": "MISSING_FINAL_NEWLINE",
+      "operation": "remove_final_newline",
+      "expected_error": "MANIFEST_FINAL_NEWLINE_MISSING"
+    },
+    {
+      "case_id": "RCSM-ADV-009",
+      "class": "NONCANONICAL_ORDER",
+      "operation": "reverse_entries",
+      "expected_error": "MANIFEST_ORDER_NONCANONICAL"
+    },
+    {
+      "case_id": "RCSM-ADV-010",
+      "class": "MISSING_TARGET",
+      "operation": "delete_target",
+      "target": "alpha.txt",
+      "expected_error": "TARGET_MISSING"
+    },
+    {
+      "case_id": "RCSM-ADV-011",
+      "class": "NON_REGULAR_TARGET",
+      "operation": "replace_target_with_directory",
+      "target": "alpha.txt",
+      "expected_error": "TARGET_NOT_REGULAR_FILE"
+    },
+    {
+      "case_id": "RCSM-ADV-012",
+      "class": "BLANK_MANIFEST_LINE",
+      "operation": "append_blank_line",
+      "expected_error": "MANIFEST_LINE_INVALID"
+    }
+  ],
+  "non_claims": [
+    "Fixture rejection demonstrates checker behavior for declared failure classes only.",
+    "Adversarial conformance does not establish manifest completeness or semantic correctness.",
+    "Fixtures perform no provider calls and have no readiness or Pair-001 execution effect."
+  ]
+}
