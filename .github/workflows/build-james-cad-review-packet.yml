@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - packaging/james-cad-review-packet-2026-07-20
+  pull_request:
+    branches:
+      - research/conversational-authority-drift-meta-assessment-supplement-001
 
 permissions:
   contents: read
