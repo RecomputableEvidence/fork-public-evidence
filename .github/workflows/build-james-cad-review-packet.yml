@@ -1,0 +1,53 @@
+name: Build James CAD Review Packet
+
+on:
+  push:
+    branches:
+      - packaging/james-cad-review-packet-2026-07-20
+
+permissions:
+  contents: read
+
+jobs:
+  archive-exact-review-head:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out packaging branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Archive exact PR 86 head
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXACT_HEAD="f72ca3fad82bee068527fe63eaf1c8eba87dd698"
+          git cat-file -e "${EXACT_HEAD}^{commit}"
+          git archive \
+            --format=zip \
+            --prefix="fork-public-evidence-f72ca3f/" \
+            --output="Fork_CAD_repository_exact_f72ca3f.zip" \
+            "${EXACT_HEAD}"
+          sha256sum Fork_CAD_repository_exact_f72ca3f.zip > Fork_CAD_repository_exact_f72ca3f.zip.sha256
+          stat --printf='%s bytes\n' Fork_CAD_repository_exact_f72ca3f.zip > Fork_CAD_repository_exact_f72ca3f.zip.size.txt
+          printf '%s\n' \
+            'Repository: RecomputableEvidence/fork-public-evidence' \
+            'PR #84 frozen head: 46fcd2c2580abd86ffbe215e6c387fee2bcb1b39' \
+            'PR #86 companion head: f72ca3fad82bee068527fe63eaf1c8eba87dd698' \
+            'Archive object: exact PR #86 head, which contains PR #84 plus Supplement 001' \
+            'Admission effect: NONE' \
+            'Pair-001 effect: NONE' \
+            'Provider calls authorized: 0' \
+            > EXACT_HEAD_RECORD.txt
+
+      - name: Upload exact-head repository archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: james-cad-review-repository-exact-head
+          path: |
+            Fork_CAD_repository_exact_f72ca3f.zip
+            Fork_CAD_repository_exact_f72ca3f.zip.sha256
+            Fork_CAD_repository_exact_f72ca3f.zip.size.txt
+            EXACT_HEAD_RECORD.txt
+          if-no-files-found: error
+          retention-days: 7
