@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Fork-admitted repository-shaped derivative harness for M87 ADV_003.
 
-Runs seven bounded checks against the versioned Day-0 v0.1.1 successor checker:
-clean pass, unmanifested-addition rejection, manifested scratch mutation rejection,
-packet-root/cwd separation, path-escape rejection, symlink rejection, and unchanged
-standing of historical ADV_001/ADV_002 cases.
+Runs the original seven bounded checks against the versioned Day-0 v0.1.1
+successor checker and an expanded canonical-path matrix. The matrix verifies
+that equivalent-looking or platform-specific path representations are rejected
+rather than silently normalized.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import pathlib
@@ -55,6 +56,54 @@ def case(case_id: str, passed: bool, expected: str, actual: str, outcome_codes: 
     return {"case_id": case_id, "passed": passed, "expected_observation": expected, "actual_observation": actual, "outcome_codes": outcome_codes if passed else ["UNEXPECTED_RESULT"], "evidence": evidence}
 
 
+def sha256_file(path: pathlib.Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def rewrite_manifest_path_and_bind(packet: pathlib.Path, new_path: str) -> None:
+    """Change one manifest path while keeping manifest bindings internally current.
+
+    This prevents a stale sidecar or outer receipt from being the reason a
+    canonicality fixture fails.
+    """
+    manifest_path = packet / "packet_manifest.json"
+    sidecar_path = packet / "packet_manifest.sha256"
+    outer_path = packet / "packet_manifest_outer_receipt.json"
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["artifact_hashes"][0]["path"] = new_path
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+
+    manifest_hash = sha256_file(manifest_path)
+    sidecar_path.write_text(f"{manifest_hash}  packet_manifest.json\n", encoding="utf-8")
+
+    outer = json.loads(outer_path.read_text(encoding="utf-8"))
+    outer["packet_manifest_sha256"] = manifest_hash
+    outer_path.write_text(json.dumps(outer, indent=2) + "\n", encoding="utf-8")
+
+
+def canonical_path_cases(original_path: str) -> List[Tuple[str, str, str]]:
+    slash_index = original_path.find("/")
+    mixed = original_path if slash_index < 0 else original_path[:slash_index] + "\\/" + original_path[slash_index + 1 :]
+    parent, filename = original_path.rsplit("/", 1)
+    return [
+        ("ADV_003_NONCANONICAL_DOT_SEGMENT_REJECTION", parent + "/./" + filename, "DOT_SEGMENT_REJECTED"),
+        ("ADV_003_NONCANONICAL_DOTDOT_SEGMENT_REJECTION", parent + "/../" + filename, "DOTDOT_SEGMENT_REJECTED"),
+        ("ADV_003_DUPLICATE_SEPARATOR_REJECTION", original_path.replace("/", "//", 1), "DUPLICATE_SEPARATOR_REJECTED"),
+        ("ADV_003_TRAILING_SEPARATOR_REJECTION", original_path + "/", "TRAILING_SEPARATOR_REJECTED"),
+        ("ADV_003_WINDOWS_DRIVE_ABSOLUTE_REJECTION", "C:/" + original_path, "WINDOWS_DRIVE_ABSOLUTE_REJECTED"),
+        ("ADV_003_WINDOWS_DRIVE_RELATIVE_REJECTION", "C:" + original_path, "WINDOWS_DRIVE_RELATIVE_REJECTED"),
+        ("ADV_003_WINDOWS_UNC_REJECTION", "\\\\server\\share\\" + original_path.replace("/", "\\"), "WINDOWS_UNC_REJECTED"),
+        ("ADV_003_POSIX_UNC_STYLE_REJECTION", "//server/share/" + original_path, "POSIX_UNC_STYLE_REJECTED"),
+        ("ADV_003_BACKSLASH_SEPARATOR_REJECTION", original_path.replace("/", "\\"), "BACKSLASH_SEPARATOR_REJECTED"),
+        ("ADV_003_MIXED_SEPARATOR_REJECTION", mixed, "MIXED_SEPARATOR_REJECTED"),
+    ]
+
+
 def main(argv: List[str]) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", default=".")
@@ -99,10 +148,7 @@ def main(argv: List[str]) -> int:
         cases.append(case("ADV_003_B_CWD_DECOY_IGNORED", cwd_ok, "hashes resolve beneath supplied packet root, not cwd", "cwd decoy ignored" if cwd_ok else "cwd influenced supplied packet-root verification", ["PACKET_ROOT_CONTROLS_ARTIFACT_RESOLUTION"], cwd_run))
 
         esc_root, esc_packet = copy_repo_shaped_packet(repo_root, temp_root, "path_escape")
-        manifest_path = esc_packet / "packet_manifest.json"
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        manifest["artifact_hashes"][0]["path"] = "../outside.json"
-        manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+        rewrite_manifest_path_and_bind(esc_packet, "../outside.json")
         esc_run = run_successor(repo_root, esc_packet, esc_root)
         esc_names = result_names(esc_run)
         esc_ok = esc_run.get("_exit") == 1 and esc_names.get("manifest:artifact-paths", {}).get("passed") is False and "prohibited" in esc_names.get("manifest:artifact-paths", {}).get("detail", "")
@@ -138,6 +184,28 @@ def main(argv: List[str]) -> int:
         historical_ok = historical.get("_exit") == 0 and historical.get("failed") == 0 and ids.get("LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1") is True and ids.get("LRT_DAY0_ADV_002_LEXICAL_NON_AUTHORITY_LIMIT_v0_1") is True
         cases.append(case("ADV_001_ADV_002_STANDING_UNCHANGED", historical_ok, "historical ADV_001 and ADV_002 still reproduce", "historical standings unchanged" if historical_ok else "historical standing changed or could not be recomputed", ["EXISTING_ADVERSARIAL_STANDING_UNCHANGED"], historical))
 
+        source_manifest = json.loads((clean_packet / "packet_manifest.json").read_text(encoding="utf-8"))
+        original_path = str(source_manifest["artifact_hashes"][0]["path"])
+        for index, (case_id, invalid_path, outcome_code) in enumerate(canonical_path_cases(original_path), start=1):
+            path_root, path_packet = copy_repo_shaped_packet(repo_root, temp_root, f"canonical_path_{index:02d}")
+            rewrite_manifest_path_and_bind(path_packet, invalid_path)
+            path_run = run_successor(repo_root, path_packet, path_root)
+            path_names = result_names(path_run)
+            path_detail = path_names.get("manifest:artifact-paths", {}).get("detail", "")
+            path_ok = (
+                path_run.get("_exit") == 1
+                and path_names.get("manifest:artifact-paths", {}).get("passed") is False
+                and "prohibited" in path_detail
+            )
+            cases.append(case(
+                case_id,
+                path_ok,
+                "non-canonical manifest path is rejected after manifest bindings are recomputed",
+                "path rejected by canonical-path contract" if path_ok else "path was not rejected by canonical-path contract",
+                [outcome_code, "NONCANONICAL_PATH_REJECTED"],
+                {"invalid_path": invalid_path, "run": path_run},
+            ))
+
         failed = sum(1 for item in cases if not item["passed"])
         payload = {
             "checker": "check_longitudinal_day0_adv_003_recomputation_v0_1.py",
@@ -145,7 +213,8 @@ def main(argv: List[str]) -> int:
             "total": len(cases), "passed": len(cases) - failed, "failed": failed,
             "cases": cases,
             "source_harness_preserved_unchanged": True,
-            "derivative_harness": "repository_shaped_complete_isolation",
+            "derivative_harness": "repository_shaped_complete_isolation_with_canonical_path_matrix",
+            "canonical_path_matrix_count": 10,
             "non_authority_statement": "This derivative harness records bounded checker behavior only. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority.",
             "scratch_root": str(temp_root) if args.keep_temp else None,
         }
