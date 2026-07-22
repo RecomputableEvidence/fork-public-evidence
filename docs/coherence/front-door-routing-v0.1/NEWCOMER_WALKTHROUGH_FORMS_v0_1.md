@@ -176,6 +176,10 @@ The classification above applies only to this walkthrough task.
 
 # Walkthrough C — Find an appropriate starter task in under ten minutes
 
+## Facilitator setup
+
+The route under test should expose `docs/coherence/front-door-routing-v0.1/STARTER_TASKS_v0_1.md` from the root contributor row and contributor role path. Do not reveal that destination or provide navigation coaching before or during the timer. Record failure to locate it as route evidence rather than participant error.
+
 ## Task shown to participant
 
 > Find a bounded contribution or adversarial-testing task that matches your skills. Explain what files or surfaces it would affect, what evidence you would produce, and what you must not change.
@@ -189,6 +193,7 @@ The classification above applies only to this walkthrough task.
 
 ## Selected task
 
+- Starter-task ID, if found:
 - Task title or proposed task:
 - Route used to find it:
 - Why it matches the participant:
@@ -208,14 +213,15 @@ Did the participant understand that they should:
 
 - [ ] begin from an exact base;
 - [ ] preserve the original failure or negative evidence;
-- [ ] keep the PR draft;
+- [ ] keep the PR draft when files change;
 - [ ] avoid combining unrelated change classes;
 - [ ] state non-claims;
 - [ ] avoid interpreting merge or CI as admission where a separate act is required.
 
 ## Observed friction
 
-- Could the participant find a real task without entering an undifferentiated docs directory?
+- Could the participant find the starter-task register without entering an undifferentiated docs directory?
+- Could the participant select a real task without inventing one?
 - Was the task bounded enough to begin?
 - Were prerequisites visible?
 - Was a prohibited change explicit?
