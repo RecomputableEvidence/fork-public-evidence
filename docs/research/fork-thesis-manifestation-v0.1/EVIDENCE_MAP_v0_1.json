@@ -1,0 +1,152 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_thesis_manifestation_evidence_map",
+  "map_id": "FTM-EVIDENCE-MAP-2026-07-22-001",
+  "candidate_id": "FTM-CANDIDATE-2026-07-22-001",
+  "status": "BOUND_TO_EXACT_BASE",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+  "scope_rule": "Only exact bytes at source_commit have evidentiary standing in this map.",
+  "entries": [
+    {
+      "evidence_id": "FTM-E001",
+      "path": "README.md",
+      "role": "DECLARED_RESEARCH_HYPOTHESIS_AND_NON_CLAIMS",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "bba793a057a4337b84c6fd8ac8473369ae8b7171",
+      "sha256": "9c79e7f0de12650b67083e522dbc918822ebc3f915b0399579d0deadbd2439c4",
+      "size_bytes": 16910
+    },
+    {
+      "evidence_id": "FTM-E002",
+      "path": "docs/preservation/FORK_PRESERVATION_INTEGRITY_DOCTRINE_v0_1.md",
+      "role": "HISTORICAL_STATE_AND_CURRENT_PROJECTION_SEPARATION",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "f7b238564239a0a459d9455f047db7176a123848",
+      "sha256": "76e005e5dce76728c48ae07d402af5d8a064d083950e9569598d20f3fc525456",
+      "size_bytes": 2658
+    },
+    {
+      "evidence_id": "FTM-E003",
+      "path": "docs/preservation/failure-mode-archive-v0.1/incidents/FORK-INC-2026-07-13-001/CLAIM_CONSUMPTION_FAILURE_CLASSIFICATION_v0_1.json",
+      "role": "PRESERVED_CLAIM_CONSUMPTION_FAILURE",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "7904d94416f3fffeeb22d7d09e850ea4a5c29243",
+      "sha256": "779df9707ce0f59e481d2c50ee324b9d16593b630d93fa49bbaee670840eaa30",
+      "size_bytes": 1644
+    },
+    {
+      "evidence_id": "FTM-E004",
+      "path": "docs/preservation/CONSUMER_OWNED_CLAIM_ADMISSION_CONTROL_v0_1.md",
+      "role": "PRODUCER_CLAIM_AND_CONSUMER_STANDING_SEPARATION",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "bd5ce06d9dff39af5042837a59202e668bd1af05",
+      "sha256": "ed03b7503bfb97c5bb6e0cc7c963c434fb6713f1d19e2362810fa73f2e2ca476",
+      "size_bytes": 4118
+    },
+    {
+      "evidence_id": "FTM-E005",
+      "path": "docs/verification/INDEPENDENT_VERIFICATION_SURFACE_v0_1.md",
+      "role": "VERIFICATION_WITHOUT_CLAIM_CODE_OR_AUTHORITY_INHERITANCE",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "5e2979c0484c0fcad0cdc718715a947bfada3e43",
+      "sha256": "3d82c699027fe35dffdd724a115b59c295689ed7c9122c1a17e49173d913e1c4",
+      "size_bytes": 6584
+    },
+    {
+      "evidence_id": "FTM-E006",
+      "path": "docs/preservation/admission/FORK_PRESERVATION_ADMISSION_ANCHOR_2026_07_18_v0_1.json",
+      "role": "SUCCESSOR_CONFERRED_PRESERVATION_STANDING",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "2b85c6a5332e4187894944c63f7245bc744b4f37",
+      "sha256": "573f4bfc0eaff0f895979230c827bb97c88bdc82ce4dc0dfdea6799addd54d20",
+      "size_bytes": 8896
+    },
+    {
+      "evidence_id": "FTM-E007",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+      "role": "STRUCTURAL_READINESS_AND_EXECUTION_AUTHORITY_SEPARATION",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "df0dbaf57522178551cd4af2bfcb98d156c78073",
+      "sha256": "cf2014655042199ed27656e652f2c5fda205dbb94dd960c08317a8a15690993f",
+      "size_bytes": 5053
+    },
+    {
+      "evidence_id": "FTM-E008",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
+      "role": "FAILED_DIAGNOSTICS_EXCLUDED_FROM_EXPERIMENT_REPETITIONS",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "32e800823d2e445d4609872bb6ba0155de5371c4",
+      "sha256": "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865",
+      "size_bytes": 4467
+    },
+    {
+      "evidence_id": "FTM-E009",
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/DEEPSEEK_RECEIVER_DRIFT_CLASSIFICATION_CONTRACT_v0_1_3.json",
+      "role": "OBSERVATION_CAUSE_AND_AUTHORIZATION_SEPARATION",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "3c4c1025de8be1294547497509280dda8e797384",
+      "sha256": "7c03bee1be8c6d436a067364b3558873690f766f48f2adf40100b5350215ed37",
+      "size_bytes": 9156
+    },
+    {
+      "evidence_id": "FTM-E010",
+      "path": "docs/sequence-surface/FORK_SEQUENCE_SURFACE_v0_1.md",
+      "role": "ORDERED_STANDING_TRANSITIONS_AS_INSPECTION_SUBJECT",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "4dd23c8469925499eca44a0a29427fe8d402e444",
+      "sha256": "1e9606341b8013bbc57c3f845a7580dc9cb438a8657c7a57eedcc10459be0882",
+      "size_bytes": 7312
+    },
+    {
+      "evidence_id": "FTM-E011",
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+      "role": "APPEND_ONLY_LONGITUDINAL_EVENT_LINEAGE",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "416f624d6240cce7f445456aaff60bd5c8397cc7",
+      "sha256": "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681",
+      "size_bytes": 16579
+    },
+    {
+      "evidence_id": "FTM-E012",
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+      "role": "DETERMINISTIC_CURRENT_STANDING_PROJECTION",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "db2584b646e67de320ebad519bfe26da2e054b59",
+      "sha256": "8bcf2387241ad40b146e3422a1bf2ed067a0b2489c10eb1e4a6c723f75c570e0",
+      "size_bytes": 3560
+    },
+    {
+      "evidence_id": "FTM-E013",
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+      "role": "EVIDENCE_AUTHORITY_AND_STOPPING_TRANSITION_CONTRACT",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "d3298b9292723ec997f550d0bc55c0d20f3245d8",
+      "sha256": "93e07eec0fed1d3f8a9d00d5db4be6326f1449370c2bba4f886178ec636b3188",
+      "size_bytes": 14920
+    },
+    {
+      "evidence_id": "FTM-E014",
+      "path": "docs/preservation/root-checksum-integrity-v0.1/ROOT_CHECKSUM_DISCREPANCY_RECORD_v0_1.json",
+      "role": "PROSPECTIVE_REPAIR_WITHOUT_RETROACTIVE_CI_PROMOTION",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "92ca89c87e5c466e7622b01ed80da6abd6468ea7",
+      "sha256": "07d09534c3b793c081d382db7512fb971735fcdd03a11e9a52b090cb3d083b06",
+      "size_bytes": 4404
+    },
+    {
+      "evidence_id": "FTM-E015",
+      "path": "docs/preservation/admission/FORK_SEQUENCE_INTEGRITY_ADMISSION_ANCHOR_2026_07_19_v0_1.json",
+      "role": "SUCCESSOR_CONFERRED_SEQUENCE_AND_INTEGRITY_STANDING",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "git_blob_sha1": "83bd20e24e75f5cdd1e33f6109e1459a06533b77",
+      "sha256": "1f2708170e29df03c7b3fb721a85689b9e95390dd77023d2dec9e50047ab1954",
+      "size_bytes": 10521
+    }
+  ],
+  "non_claims": [
+    "A digest establishes byte identity, not semantic truth, institutional authority, or completeness.",
+    "An evidence-map entry does not adopt every statement in the referenced artifact.",
+    "No later commit, branch movement, open pull request, comment, or workflow result is inherited into this map."
+  ]
+}

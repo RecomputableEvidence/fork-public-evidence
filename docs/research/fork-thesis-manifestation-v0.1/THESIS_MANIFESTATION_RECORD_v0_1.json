@@ -1,0 +1,152 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_thesis_manifestation_record",
+  "record_id": "FTM-RECORD-2026-07-22-001",
+  "candidate_id": "FTM-CANDIDATE-2026-07-22-001",
+  "status": "RESEARCH_SYNTHESIS_CANDIDATE_NOT_ADMITTED",
+  "base_coordinate": {
+    "path": "docs/research/fork-thesis-manifestation-v0.1/BASE_COORDINATE_v0_1.json",
+    "exact_commit_sha": "1241c0084900f2c60f362205525464582e57b4a7"
+  },
+  "manifested_thesis": {
+    "statement": "An artifact does not permanently carry its conclusions, verification, review, admission, or authority. Fork preserves the coordinates and transitions needed to determine what standing each dimension has now.",
+    "compact_form": "EVIDENTIARY_STANDING_IS_VECTOR_VALUED_LONGITUDINAL_RECOMPUTABLE_AND_NON_INHERITING",
+    "mechanism": "RECOMPUTABLE_EVIDENCE",
+    "object": "VECTOR_VALUED_LONGITUDINAL_EVIDENTIARY_STANDING",
+    "governing_constraint": "PRESERVATION_WITHOUT_INHERITANCE",
+    "operative_unit": "EVIDENCE_BOUND_STANDING_TRANSITION",
+    "formalization": {
+      "standing_at_t": "S_t = (artifact, verification, review, admission, authority, execution, unresolved, temporal_closure)_t",
+      "transition": "S_(t+1) = R(S_t, E_(t+1), A_(t+1), C)",
+      "interpretation": "R recomputes standing from preserved evidence, explicit authority, and governing constraints; no coordinate is promoted merely because another coordinate advanced."
+    }
+  },
+  "architectural_inference": {
+    "status": "REPOSITORY_SUPPORTED_INFERENCE_NOT_CAUSAL_PROOF",
+    "inference": "Across the preserved failure, verification, admission, experiment, sequence, and checksum records, Fork repeatedly prevents one standing dimension from silently promoting another and makes later standing depend on inspectable evidence-bound transitions.",
+    "evidence_ids": [
+      "FTM-E001",
+      "FTM-E002",
+      "FTM-E003",
+      "FTM-E004",
+      "FTM-E005",
+      "FTM-E006",
+      "FTM-E007",
+      "FTM-E008",
+      "FTM-E009",
+      "FTM-E010",
+      "FTM-E011",
+      "FTM-E012",
+      "FTM-E013",
+      "FTM-E014",
+      "FTM-E015"
+    ]
+  },
+  "causal_hypothesis": {
+    "expression": "E[U | H = 1] < E[U | H = 0]",
+    "status": "UNRESOLVED_NOT_ESTABLISHED_TO_DECLARED_GENERALITY",
+    "interpretation": "The repository motivates, but does not causally establish, that explicit handoff-state records reduce unsupported inheritance.",
+    "required_next_evidence": "Controlled or quasi-controlled comparison with precommitted outcomes, independent review, and evidence outside this repository."
+  },
+  "standing_vector_dimensions": [
+    {
+      "dimension": "artifact_state",
+      "question": "Which exact bytes or Git objects are in scope?"
+    },
+    {
+      "dimension": "verification_state",
+      "question": "Which bounded assertions were recomputed, by what consumer-owned control?"
+    },
+    {
+      "dimension": "review_state",
+      "question": "What review was recorded, by whom, and with what limits?"
+    },
+    {
+      "dimension": "admission_state",
+      "question": "What standing was conferred by a separately authorized repository transition?"
+    },
+    {
+      "dimension": "authority_state",
+      "question": "What explicit authority exists for the contemplated transition?"
+    },
+    {
+      "dimension": "execution_state",
+      "question": "What calls or repetitions occurred, and what execution is permitted now?"
+    },
+    {
+      "dimension": "unresolved_state",
+      "question": "Which causes, residuals, authenticity questions, or generalizations remain open?"
+    },
+    {
+      "dimension": "temporal_closure",
+      "question": "At which immutable coordinate was each observation or projection closed?"
+    }
+  ],
+  "demonstrated_distinctions": [
+    {
+      "distinction": "PRODUCER_REPRESENTATION_IS_NOT_CONSUMER_VERIFICATION_OR_REPOSITORY_STANDING",
+      "evidence_ids": [
+        "FTM-E003",
+        "FTM-E004",
+        "FTM-E005"
+      ]
+    },
+    {
+      "distinction": "STRUCTURAL_READINESS_IS_NOT_EXECUTION_AUTHORITY",
+      "evidence_ids": [
+        "FTM-E007",
+        "FTM-E008",
+        "FTM-E009"
+      ]
+    },
+    {
+      "distinction": "DIAGNOSTIC_PROVIDER_ACTIVITY_IS_NOT_PAIR_001_REPETITION",
+      "evidence_ids": [
+        "FTM-E008",
+        "FTM-E011",
+        "FTM-E012"
+      ]
+    },
+    {
+      "distinction": "LATER_REPAIR_OR_SUCCESS_DOES_NOT_REWRITE_PRIOR_TEMPORAL_CLOSURE",
+      "evidence_ids": [
+        "FTM-E002",
+        "FTM-E014",
+        "FTM-E015"
+      ]
+    },
+    {
+      "distinction": "ARTIFACT_LOCAL_STATUS_IS_NOT_SUCCESSOR_CONFERRED_ADMISSION_STANDING",
+      "evidence_ids": [
+        "FTM-E006",
+        "FTM-E012",
+        "FTM-E015"
+      ]
+    },
+    {
+      "distinction": "A_DECLARED_SUCCESSOR_IS_NOT_AUTHORIZATION_TO_TAKE_IT",
+      "evidence_ids": [
+        "FTM-E010",
+        "FTM-E012",
+        "FTM-E013"
+      ]
+    }
+  ],
+  "surface_posture": {
+    "relation_to_six_modular_surfaces": "CROSS_SURFACE_RESEARCH_SYNTHESIS_ONLY",
+    "seventh_modular_surface_claimed": false,
+    "canonical_theory_claimed": false,
+    "admission_path_claimed": false
+  },
+  "effects": {
+    "main_ref": "NONE",
+    "pair_001": "NONE",
+    "provider_calls": 0,
+    "pair_001_repetitions": 0,
+    "readiness": "NONE",
+    "retry_authorization": "NONE",
+    "execution_authority": "NONE",
+    "admission": "NONE",
+    "existing_pull_requests": "NONE"
+  }
+}
