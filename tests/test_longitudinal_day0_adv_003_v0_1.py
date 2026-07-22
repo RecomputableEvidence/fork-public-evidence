@@ -22,9 +22,10 @@ def test_adv_003_post_fix_recomputation() -> None:
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     payload = json.loads(proc.stdout)
-    assert payload["total"] == 7
-    assert payload["passed"] == 7
+    assert payload["total"] == 17
+    assert payload["passed"] == 17
     assert payload["failed"] == 0
+    assert payload["canonical_path_matrix_count"] == 10
     outcome_codes = {
         code
         for item in payload["cases"]
@@ -38,4 +39,15 @@ def test_adv_003_post_fix_recomputation() -> None:
         "PATH_ESCAPE_REJECTED",
         "SYMLINK_SUBSTITUTION_REJECTED",
         "EXISTING_ADVERSARIAL_STANDING_UNCHANGED",
+        "NONCANONICAL_PATH_REJECTED",
+        "DOT_SEGMENT_REJECTED",
+        "DOTDOT_SEGMENT_REJECTED",
+        "DUPLICATE_SEPARATOR_REJECTED",
+        "TRAILING_SEPARATOR_REJECTED",
+        "WINDOWS_DRIVE_ABSOLUTE_REJECTED",
+        "WINDOWS_DRIVE_RELATIVE_REJECTED",
+        "WINDOWS_UNC_REJECTED",
+        "POSIX_UNC_STYLE_REJECTED",
+        "BACKSLASH_SEPARATOR_REJECTED",
+        "MIXED_SEPARATOR_REJECTED",
     } <= outcome_codes
