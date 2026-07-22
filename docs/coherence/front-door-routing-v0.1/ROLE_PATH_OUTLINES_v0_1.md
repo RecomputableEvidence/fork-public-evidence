@@ -72,17 +72,20 @@ Stop and classify rather than infer when:
 
 ### Visitor goal
 
-Propose a bounded correction, adversarial fixture, documentation improvement, or checker change without widening claims or silently changing standing.
+Select and complete one bounded correction, adversarial fixture, documentation inspection, or recomputation return without widening claims or silently changing standing.
 
 ### First click
 
-- `docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md`, especially the optional adversarial interaction section.
+- `docs/coherence/front-door-routing-v0.1/STARTER_TASKS_v0_1.md`
 
 ### Supporting route
 
-1. Reproduce the current behavior from an exact base before editing.
-2. Identify the smallest affected artifact or checker.
-3. State whether the proposed work is:
+1. Select one starter task that matches the contributor's skills and available environment.
+2. Record the exact base and the task's stated files, evidence, exclusions, and effects before editing or executing.
+3. Read `docs/review/PUBLIC_REVIEW_QUICKSTART_v0_1.md`, especially the optional adversarial interaction section.
+4. Reproduce the current behavior from the exact base before editing when the task concerns a defect or checker.
+5. Identify the smallest affected artifact or checker.
+6. State whether the proposed work is:
    - editorial or routing;
    - schema or contract;
    - implementation;
@@ -90,14 +93,15 @@ Propose a bounded correction, adversarial fixture, documentation improvement, or
    - experiment or receipt;
    - historical correction;
    - admission or publication.
-4. Declare files in scope and files explicitly excluded.
-5. Preserve the original failure, negative evidence, or disputed state when the proposal corrects it.
-6. Add a negative or adversarial test when changing checker behavior.
-7. Run the applicable verifier and record the exact head.
-8. Open the pull request as a draft.
+7. Declare files in scope and files explicitly excluded.
+8. Preserve the original failure, negative evidence, or disputed state when the proposal corrects it.
+9. Add a negative or adversarial test when changing checker behavior.
+10. Run the applicable verifier and record the exact head.
+11. Open the pull request as a draft when repository files change; a recomputation-only task may return an exact-head observation without a code PR.
 
 ### Required draft-PR fields
 
+- selected starter-task ID, when applicable;
 - change classification;
 - claim;
 - scope and exclusions;
@@ -110,12 +114,13 @@ Propose a bounded correction, adversarial fixture, documentation improvement, or
 
 ### Concrete next action
 
-Open one draft pull request containing one bounded change class and one reviewable claim. Do not combine front-door editing, checker semantics, historical correction, and admission into one undifferentiated change.
+Select one task from `STARTER_TASKS_v0_1.md` and produce its stated evidence return. When files change, open one draft pull request containing one bounded change class and one reviewable claim. Do not combine front-door editing, checker semantics, historical correction, and admission into one undifferentiated change.
 
 ### Stop conditions
 
 Stop and separate the work when:
 
+- the selected task reaches a protected or frozen surface;
 - an editorial change becomes normative;
 - a checker repair would erase the failing specimen;
 - a new fixture changes a preregistered experiment;
