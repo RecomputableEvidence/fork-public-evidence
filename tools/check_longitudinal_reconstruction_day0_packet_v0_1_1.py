@@ -5,6 +5,7 @@ Successor to v0.1. Preserves the historical v0.1 checker unchanged and adds:
 
 * packet-root-bound artifact resolution;
 * exact packet inventory comparison;
+* canonical POSIX manifest-path enforcement;
 * path-escape rejection; and
 * symlink substitution rejection.
 
@@ -78,25 +79,51 @@ def has_boundary_terms(text: str) -> List[str]:
     return [term for term in NON_AUTHORITY_TERMS if term not in lower]
 
 
-def normalize_rel(path_text: str) -> str:
-    return pathlib.PurePosixPath(path_text.replace("\\", "/")).as_posix()
-
-
 def packet_relative_manifest_path(path_text: str) -> Tuple[Optional[str], Optional[str]]:
-    normalized = normalize_rel(path_text)
-    pure = pathlib.PurePosixPath(normalized)
-    if pure.is_absolute():
-        return None, "absolute path prohibited"
-    if not pure.parts or any(part in {"", ".", ".."} for part in pure.parts):
-        return None, "path traversal or non-canonical segment prohibited"
+    """Return a packet-relative canonical path or a rejection reason.
 
-    prefix = pathlib.PurePosixPath(DEFAULT_PACKET_ROOT)
-    if tuple(pure.parts[: len(prefix.parts)]) == prefix.parts:
-        remainder = pure.parts[len(prefix.parts):]
-        if not remainder:
-            return None, "artifact path identifies packet root, not a file"
-        return pathlib.PurePosixPath(*remainder).as_posix(), None
-    return pure.as_posix(), None
+    Accepted manifest paths use POSIX separators and are already canonical.
+    The checker does not normalize an invalid representation into an accepted
+    one because the original representation is itself part of the evidence
+    surface being checked.
+    """
+    if not path_text:
+        return None, "empty path prohibited"
+    if any(ord(char) < 32 for char in path_text):
+        return None, "control characters prohibited"
+    if "\\" in path_text:
+        return None, "backslash or mixed-separator path prohibited"
+    if re.match(r"^[A-Za-z]:", path_text):
+        return None, "Windows drive-qualified or drive-relative path prohibited"
+    if path_text.startswith("/"):
+        return None, "absolute or UNC-style path prohibited"
+    if path_text.endswith("/"):
+        return None, "trailing separator prohibited"
+    if "//" in path_text:
+        return None, "duplicate separator prohibited"
+
+    parts = path_text.split("/")
+    if any(part in {"", ".", ".."} for part in parts):
+        return None, "dot, traversal, or non-canonical segment prohibited"
+
+    canonical = pathlib.PurePosixPath(path_text).as_posix()
+    if canonical != path_text:
+        return None, f"non-canonical path representation prohibited; canonical form is {canonical}"
+
+    prefix = DEFAULT_PACKET_ROOT
+    if path_text == prefix:
+        return None, "artifact path identifies packet root, not a file"
+    if path_text.startswith(prefix + "/"):
+        relative = path_text[len(prefix) + 1 :]
+    else:
+        relative = path_text
+
+    relative_parts = relative.split("/")
+    if not relative or any(part in {"", ".", ".."} for part in relative_parts):
+        return None, "packet-relative path is empty or non-canonical"
+    if pathlib.PurePosixPath(relative).as_posix() != relative:
+        return None, "packet-relative path is not canonical"
+    return relative, None
 
 
 def path_has_symlink(packet_root: pathlib.Path, rel_path: str) -> bool:
@@ -233,7 +260,11 @@ def main(argv: List[str]) -> int:
                 actual_hash = sha256_file(artifact_path)
                 if actual_hash != expected_hash:
                     artifact_errors.append(f"{path_text}: hash mismatch expected {expected_hash} actual {actual_hash}")
-        results.append(result("manifest:artifact-paths", not path_errors, "; ".join(path_errors) if path_errors else "all artifact paths are packet-root-bound"))
+        results.append(result(
+            "manifest:artifact-paths",
+            not path_errors,
+            "; ".join(path_errors) if path_errors else "all artifact paths are canonical POSIX paths bound beneath the packet root",
+        ))
         results.append(result("manifest:artifact-hashes", not artifact_errors, "; ".join(artifact_errors) if artifact_errors else "all packet-root-bound artifact hashes match"))
 
         expected_path = packet_root / "expected/day0_expected_reconstruction.json"
@@ -288,9 +319,25 @@ def summarize(packet_root: pathlib.Path, results: List[Dict[str, Any]]) -> Dict[
         "packet_root": str(packet_root).replace("\\", "/"),
         "total": len(results), "passed": len(results) - failed, "failed": failed,
         "results": results,
-        "invariants": ["PACKET_ROOT_CONTROLS_ARTIFACT_RESOLUTION", "ACTUAL_PACKET_FILE_SET_EQUALS_DECLARED_FILE_SET"],
+        "invariants": [
+            "PACKET_ROOT_CONTROLS_ARTIFACT_RESOLUTION",
+            "ACTUAL_PACKET_FILE_SET_EQUALS_DECLARED_FILE_SET",
+            "MANIFEST_PATHS_MUST_BE_CANONICAL_POSIX_RELATIVE",
+        ],
+        "canonical_path_contract": {
+            "separator": "/",
+            "normalization": "REJECT_NONCANONICAL_INPUT",
+            "prohibited": [
+                "BACKSLASH_OR_MIXED_SEPARATOR",
+                "EMPTY_OR_DOT_SEGMENT",
+                "DUPLICATE_OR_TRAILING_SEPARATOR",
+                "POSIX_ABSOLUTE_OR_UNC_STYLE",
+                "WINDOWS_DRIVE_QUALIFIED_OR_DRIVE_RELATIVE",
+                "PATH_TRAVERSAL",
+            ],
+        },
         "non_authority_statement": (
-            "This checker verifies bounded Day-0 packet structure, packet-root-bound hashes, exact inventory, and boundary-statement presence only; it does not validate truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority."
+            "This checker verifies bounded Day-0 packet structure, canonical packet-root-bound paths, packet-root-bound hashes, exact inventory, and boundary-statement presence only; it does not validate truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, procurement approval, or institutional authority."
         ),
     }
 
