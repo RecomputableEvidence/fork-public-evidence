@@ -8,6 +8,8 @@ The source materials registered under `source/` are preserved from the direct tr
 
 The Fork-authored successor checker, derivative harness, tests, and recomputation instructions are separate artifacts. They do not amend the submitted source record.
 
+A model-assisted exact-head review of predecessor head `c15c105f7277494b335d1d038bda58c1dbc78b16` reproduced the principal packet-root and exact-inventory protections but identified a noncanonical-path normalization gap. The correction is preserved separately in [ADV_003 canonical-path correction v0.1](ADV_003_CANONICAL_PATH_CORRECTION_v0_1.md). Fresh exact-head recomputation and independent review remain required.
+
 ## Source finding
 
 `LRT_DAY0_ADV_003_UNMANIFESTED_ADDITION_v0_1` records that the Day-0 v0.1 checker:
@@ -47,7 +49,13 @@ It verifies:
 - artifact hashes resolve beneath the supplied packet root rather than process cwd;
 - path escape fails;
 - symlink substitution fails;
-- ADV_001 and ADV_002 historical limitation standings remain unchanged.
+- ADV_001 and ADV_002 historical limitation standings remain unchanged;
+- dot and dot-dot path segments fail;
+- duplicate and trailing separators fail;
+- Windows drive-qualified, drive-relative, and UNC forms fail;
+- POSIX UNC-style, backslash, and mixed-separator forms fail.
+
+The path-representation cases recompute the mutated manifest sidecar and outer receipt before execution. Rejection therefore depends on the canonical-path contract rather than stale binding metadata.
 
 ## Finding classifications
 
