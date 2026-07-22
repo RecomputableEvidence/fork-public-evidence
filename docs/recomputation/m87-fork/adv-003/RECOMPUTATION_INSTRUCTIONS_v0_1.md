@@ -4,14 +4,15 @@
 
 Independently recompute the first M87 × Fork remediation loop for:
 
-- unmanifested packet-file addition detection; and
-- packet-root-bound artifact hashing.
+- unmanifested packet-file addition detection;
+- packet-root-bound artifact hashing; and
+- explicit rejection of noncanonical manifest path representations.
 
-The historical v0.1 checker and Mac McFall / M87 source harness remain unchanged. This run evaluates the append-only successor checker and Fork-admitted repository-shaped derivative harness.
+The historical v0.1 checker and Mac McFall / M87 source harness remain unchanged. This run evaluates the append-only successor checker, the Fork-admitted repository-shaped derivative harness, and the canonical-path correction added after review of predecessor head `c15c105f7277494b335d1d038bda58c1dbc78b16`.
 
 ## Required revision
 
-Run against the exact commit and artifact digests supplied in the accompanying transmission receipt. Do not substitute a mutable branch name for the commit SHA when recording the verdict.
+Run against the exact commit and artifact digests supplied in the accompanying transmission receipt. Do not substitute a mutable branch name for the commit SHA when recording the verdict. Earlier results do not validate a later head.
 
 ## Environment
 
@@ -44,9 +45,10 @@ Expected summary:
 
 ```json
 {
-  "total": 7,
-  "passed": 7,
-  "failed": 0
+  "total": 17,
+  "passed": 17,
+  "failed": 0,
+  "canonical_path_matrix_count": 10
 }
 ```
 
@@ -55,6 +57,23 @@ Run the focused regression test:
 ```text
 python -m pytest -q tests/test_longitudinal_day0_adv_003_v0_1.py
 ```
+
+## Canonical-path matrix
+
+The ten added path cases mutate one manifest path and then recompute both `packet_manifest.sha256` and the outer receipt's manifest binding before execution. This prevents stale binding metadata from being the reason a case fails.
+
+The matrix requires rejection of:
+
+- `.` segments;
+- `..` segments;
+- duplicate separators;
+- trailing separators;
+- Windows drive-qualified paths;
+- Windows drive-relative paths;
+- Windows UNC paths;
+- POSIX UNC-style paths;
+- backslash-separated paths;
+- mixed-separator paths.
 
 ## Required outcome codes
 
@@ -67,6 +86,17 @@ The harness must emit all of the following:
 - `PATH_ESCAPE_REJECTED`
 - `SYMLINK_SUBSTITUTION_REJECTED`
 - `EXISTING_ADVERSARIAL_STANDING_UNCHANGED`
+- `NONCANONICAL_PATH_REJECTED`
+- `DOT_SEGMENT_REJECTED`
+- `DOTDOT_SEGMENT_REJECTED`
+- `DUPLICATE_SEPARATOR_REJECTED`
+- `TRAILING_SEPARATOR_REJECTED`
+- `WINDOWS_DRIVE_ABSOLUTE_REJECTED`
+- `WINDOWS_DRIVE_RELATIVE_REJECTED`
+- `WINDOWS_UNC_REJECTED`
+- `POSIX_UNC_STYLE_REJECTED`
+- `BACKSLASH_SEPARATOR_REJECTED`
+- `MIXED_SEPARATOR_REJECTED`
 
 ## Digest capture
 
@@ -77,6 +107,7 @@ git rev-parse HEAD
 sha256sum tools/check_longitudinal_reconstruction_day0_packet_v0_1_1.py
 sha256sum tools/check_longitudinal_day0_adv_003_recomputation_v0_1.py
 sha256sum tests/test_longitudinal_day0_adv_003_v0_1.py
+sha256sum docs/recomputation/m87-fork/adv-003/ADV_003_CANONICAL_PATH_CORRECTION_v0_1.md
 sha256sum ADV_003_POST_FIX_RECOMPUTATION_v0_1.json
 ```
 
@@ -87,12 +118,13 @@ PowerShell equivalent:
 Get-FileHash tools/check_longitudinal_reconstruction_day0_packet_v0_1_1.py -Algorithm SHA256
 Get-FileHash tools/check_longitudinal_day0_adv_003_recomputation_v0_1.py -Algorithm SHA256
 Get-FileHash tests/test_longitudinal_day0_adv_003_v0_1.py -Algorithm SHA256
+Get-FileHash docs/recomputation/m87-fork/adv-003/ADV_003_CANONICAL_PATH_CORRECTION_v0_1.md -Algorithm SHA256
 Get-FileHash ADV_003_POST_FIX_RECOMPUTATION_v0_1.json -Algorithm SHA256
 ```
 
 ## Verdict rules
 
-- `RECOMPUTED_POST_FIX_CONFORMING`: all seven cases reproduce, the focused regression passes, and recorded artifact digests match the transmission.
+- `RECOMPUTED_POST_FIX_CONFORMING`: all 17 cases reproduce, the focused regression passes, and recorded artifact digests match the transmission.
 - `RECOMPUTED_POST_FIX_NON_CONFORMING`: one or more required cases execute but produce a contradictory result.
 - `RECOMPUTATION_INCONCLUSIVE`: the exact commit/artifacts are unavailable, the output cannot be parsed, or an environment limitation prevents a required case from executing.
 
@@ -100,7 +132,7 @@ Do not convert an environment error into a conforming or non-conforming architec
 
 ## Append-only verdict
 
-Return the unchanged output JSON, its SHA-256, environment details, exact commit SHA, and one of the bounded verdicts above. The verdict is appended to the historical limitation record; it does not erase or rewrite the pre-fix observation.
+Return the unchanged output JSON, its SHA-256, environment details, exact commit SHA, and one of the bounded verdicts above. The verdict is appended to the historical limitation record; it does not erase or rewrite the pre-fix observation or the adverse review of the predecessor head.
 
 ## Non-authority
 
