@@ -1,0 +1,275 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_thesis_manifestation_claim_ledger",
+  "ledger_id": "FTM-CLAIM-LEDGER-2026-07-22-001",
+  "candidate_id": "FTM-CANDIDATE-2026-07-22-001",
+  "status": "RESEARCH_SYNTHESIS_CANDIDATE_NOT_ADMITTED",
+  "allowed_categories": [
+    "OBSERVED",
+    "REPOSITORY_SUPPORTED_INFERENCE",
+    "UNRESOLVED",
+    "NOT_CLAIMED"
+  ],
+  "claims": [
+    {
+      "claim_id": "FTM-C001",
+      "category": "OBSERVED",
+      "statement": "Fork declares a motivated hypothesis and engineering pattern, not a proven general systems theory.",
+      "evidence_ids": [
+        "FTM-E001"
+      ],
+      "boundary": "Repository self-description at the exact base."
+    },
+    {
+      "claim_id": "FTM-C002",
+      "category": "OBSERVED",
+      "statement": "Fork's preservation doctrine keeps original state, incident state, corrective state, and current projection distinct.",
+      "evidence_ids": [
+        "FTM-E002"
+      ],
+      "boundary": "Declared preservation doctrine; not proof of every implementation."
+    },
+    {
+      "claim_id": "FTM-C003",
+      "category": "OBSERVED",
+      "statement": "A producer representation acquired repository standing while consumer-owned verification was insufficient to detect invalid workflow structure.",
+      "evidence_ids": [
+        "FTM-E003"
+      ],
+      "boundary": "The preserved classified incident only; intent was not evaluated."
+    },
+    {
+      "claim_id": "FTM-C004",
+      "category": "OBSERVED",
+      "statement": "Fork explicitly separates a producer's representation from the consumer-owned evidence used to determine review eligibility.",
+      "evidence_ids": [
+        "FTM-E004"
+      ],
+      "boundary": "The control does not itself grant standing or approve a merge."
+    },
+    {
+      "claim_id": "FTM-C005",
+      "category": "OBSERVED",
+      "statement": "The Independent Verification Surface recomputes against exact Git objects without inheriting candidate code, claims, workflows, or authority.",
+      "evidence_ids": [
+        "FTM-E005"
+      ],
+      "boundary": "Its three result kinds are bounded surface results, not endorsement or authority."
+    },
+    {
+      "claim_id": "FTM-C006",
+      "category": "OBSERVED",
+      "statement": "Pair-001 was structurally ready while provider execution remained blocked.",
+      "evidence_ids": [
+        "FTM-E007"
+      ],
+      "boundary": "Pre-execution binding state at the exact base."
+    },
+    {
+      "claim_id": "FTM-C007",
+      "category": "OBSERVED",
+      "statement": "Six provider-validation calls were excluded diagnostics and produced zero Pair-001 calls.",
+      "evidence_ids": [
+        "FTM-E008",
+        "FTM-E011",
+        "FTM-E012"
+      ],
+      "boundary": "Provider-validation activity is not a Pair-001 repetition."
+    },
+    {
+      "claim_id": "FTM-C008",
+      "category": "OBSERVED",
+      "statement": "Receiver drift cause remained unresolved and retry authorization was absent.",
+      "evidence_ids": [
+        "FTM-E009",
+        "FTM-E012"
+      ],
+      "boundary": "Classification does not identify a cause or authorize a retry."
+    },
+    {
+      "claim_id": "FTM-C009",
+      "category": "OBSERVED",
+      "statement": "The append-only sequence surface exposes current state, counters, authority, stopping rules, and declared successors without making a successor eligible.",
+      "evidence_ids": [
+        "FTM-E010",
+        "FTM-E011",
+        "FTM-E012",
+        "FTM-E013"
+      ],
+      "boundary": "The sequence surface is an inspectability projection, not orchestration."
+    },
+    {
+      "claim_id": "FTM-C010",
+      "category": "OBSERVED",
+      "statement": "Checksum repair was prospective and did not retroactively promote earlier green runs into evidence that the root manifest had been evaluated.",
+      "evidence_ids": [
+        "FTM-E014",
+        "FTM-E015"
+      ],
+      "boundary": "Byte agreement is limited to the declared manifest scope."
+    },
+    {
+      "claim_id": "FTM-C011",
+      "category": "OBSERVED",
+      "statement": "Successor anchors conferred preservation standing separately from artifact-local candidate status.",
+      "evidence_ids": [
+        "FTM-E006",
+        "FTM-E012",
+        "FTM-E015"
+      ],
+      "boundary": "Admission standing is limited to the anchor's declared effect."
+    },
+    {
+      "claim_id": "FTM-I001",
+      "category": "REPOSITORY_SUPPORTED_INFERENCE",
+      "statement": "Fork's evidentiary standing is usefully modeled as a vector rather than a single passed-or-failed scalar.",
+      "evidence_ids": [
+        "FTM-E003",
+        "FTM-E005",
+        "FTM-E006",
+        "FTM-E012",
+        "FTM-E015"
+      ],
+      "boundary": "Architectural synthesis from repository evidence; not a causal or universal claim."
+    },
+    {
+      "claim_id": "FTM-I002",
+      "category": "REPOSITORY_SUPPORTED_INFERENCE",
+      "statement": "The evidence-bound standing transition is the operative unit connecting preserved history to a recomputed current projection.",
+      "evidence_ids": [
+        "FTM-E002",
+        "FTM-E010",
+        "FTM-E011",
+        "FTM-E012",
+        "FTM-E013"
+      ],
+      "boundary": "Repository-supported model; alternative decompositions remain possible."
+    },
+    {
+      "claim_id": "FTM-I003",
+      "category": "REPOSITORY_SUPPORTED_INFERENCE",
+      "statement": "Warranted reliance is not permanently persisted by an artifact; its present basis and limits must be recomputed from coordinates, evidence, authority, and transitions.",
+      "evidence_ids": [
+        "FTM-E005",
+        "FTM-E006",
+        "FTM-E012",
+        "FTM-E014",
+        "FTM-E015"
+      ],
+      "boundary": "Inference about Fork's architecture, not a statement that all reliance can be mechanized."
+    },
+    {
+      "claim_id": "FTM-I004",
+      "category": "REPOSITORY_SUPPORTED_INFERENCE",
+      "statement": "Preservation without inheritance functions as the governing constraint that prevents progress in one standing dimension from silently promoting another.",
+      "evidence_ids": [
+        "FTM-E001",
+        "FTM-E002",
+        "FTM-E003",
+        "FTM-E005",
+        "FTM-E013",
+        "FTM-E015"
+      ],
+      "boundary": "Repository-supported synthesis; effectiveness remains subject to falsification."
+    },
+    {
+      "claim_id": "FTM-U001",
+      "category": "UNRESOLVED",
+      "statement": "The declared causal hypothesis that explicit handoff-state records reduce unsupported inheritance is not established.",
+      "evidence_ids": [
+        "FTM-E001"
+      ],
+      "boundary": "Requires controlled or quasi-controlled evidence."
+    },
+    {
+      "claim_id": "FTM-U002",
+      "category": "UNRESOLVED",
+      "statement": "Generalization of the synthesized model beyond this repository remains unresolved.",
+      "evidence_ids": [
+        "FTM-E001",
+        "FTM-E005"
+      ],
+      "boundary": "No external population or institutional sample is bound."
+    },
+    {
+      "claim_id": "FTM-U003",
+      "category": "UNRESOLVED",
+      "statement": "Coordinated resealing resistance and authorization authenticity remain outside digest-only validation.",
+      "evidence_ids": [
+        "FTM-E010",
+        "FTM-E013",
+        "FTM-E015"
+      ],
+      "boundary": "Byte identity is not signer identity or institutional authority."
+    },
+    {
+      "claim_id": "FTM-U004",
+      "category": "UNRESOLVED",
+      "statement": "Independent exterior review of the final sequence and integrity surfaces was not recorded at the exact base.",
+      "evidence_ids": [
+        "FTM-E015"
+      ],
+      "boundary": "Recorded recomputation is not silently promoted into independent human review."
+    },
+    {
+      "claim_id": "FTM-N001",
+      "category": "NOT_CLAIMED",
+      "statement": "This candidate does not establish truth, correctness, causality, security, compliance, legal sufficiency, safety, or production readiness.",
+      "evidence_ids": [
+        "FTM-E001",
+        "FTM-E005",
+        "FTM-E014"
+      ],
+      "boundary": "Explicit non-claim."
+    },
+    {
+      "claim_id": "FTM-N002",
+      "category": "NOT_CLAIMED",
+      "statement": "This candidate does not grant admission, publication, merge, review, retry, readiness, provider-call, or execution authority.",
+      "evidence_ids": [
+        "FTM-E005",
+        "FTM-E013",
+        "FTM-E015"
+      ],
+      "boundary": "Explicit non-effect."
+    },
+    {
+      "claim_id": "FTM-N003",
+      "category": "NOT_CLAIMED",
+      "statement": "This candidate is not a seventh modular surface and does not alter the six admitted modular surfaces.",
+      "evidence_ids": [
+        "FTM-E010",
+        "FTM-E013",
+        "FTM-E015"
+      ],
+      "boundary": "Cross-surface research synthesis only."
+    },
+    {
+      "claim_id": "FTM-N004",
+      "category": "NOT_CLAIMED",
+      "statement": "This candidate does not reinterpret provider-validation diagnostics as Pair-001 repetitions or modify Pair-001 state.",
+      "evidence_ids": [
+        "FTM-E008",
+        "FTM-E011",
+        "FTM-E012"
+      ],
+      "boundary": "Zero Pair-001 effect."
+    },
+    {
+      "claim_id": "FTM-N005",
+      "category": "NOT_CLAIMED",
+      "statement": "This candidate is not represented as Fork's canonical or finally admitted theory.",
+      "evidence_ids": [
+        "FTM-E001"
+      ],
+      "boundary": "Candidate status is preserved pending separate review and authority."
+    }
+  ],
+  "interpretation_rule": "Observed repository evidence, architectural inference, unresolved questions, and explicit non-claims remain distinct. No category inherits the standing of another.",
+  "effects": {
+    "repository_admission": "NONE",
+    "experiment": "NONE",
+    "pair_001": "NONE",
+    "authority": "NONE"
+  }
+}

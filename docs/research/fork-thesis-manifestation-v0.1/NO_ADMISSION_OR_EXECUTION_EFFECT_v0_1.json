@@ -1,0 +1,41 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_thesis_manifestation_no_effect_record",
+  "record_id": "FTM-NO-EFFECT-2026-07-22-001",
+  "candidate_id": "FTM-CANDIDATE-2026-07-22-001",
+  "status": "BINDING_CANDIDATE_BOUNDARY",
+  "exact_base_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+  "repository_effects": {
+    "main_ref_mutated": false,
+    "preservation_base_ref_mutated": false,
+    "existing_pull_requests_mutated": false,
+    "existing_pull_request_comments_added": false,
+    "existing_branch_deleted_or_force_updated": false,
+    "admission_or_merge_effect": "NONE"
+  },
+  "pair_001_effects": {
+    "provider_calls_performed": 0,
+    "provider_validation_attempts_added": 0,
+    "pair_001_calls_performed": 0,
+    "pair_001_repetitions_added": 0,
+    "readiness_effect": "NONE",
+    "retry_authorization_effect": "NONE",
+    "execution_effect": "NONE",
+    "state_transition_effect": "NONE"
+  },
+  "research_effects": {
+    "causal_hypothesis_promoted_to_fact": false,
+    "seventh_modular_surface_created": false,
+    "canonical_theory_admitted": false,
+    "evidence_synthesis_candidate_created": true
+  },
+  "prohibited_promotions": [
+    "Publication is not admission.",
+    "Review is not approval or authority.",
+    "Verification is not truth or correctness.",
+    "A declared successor is not authorization.",
+    "Diagnostic activity is not a Pair-001 repetition.",
+    "A later repair does not rewrite an earlier temporal closure.",
+    "A digest is not independent authenticity."
+  ]
+}

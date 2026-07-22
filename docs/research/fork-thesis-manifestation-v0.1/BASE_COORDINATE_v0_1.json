@@ -1,0 +1,32 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_thesis_manifestation_base_coordinate",
+  "coordinate_id": "FTM-BASE-2026-07-22-001",
+  "candidate_id": "FTM-CANDIDATE-2026-07-22-001",
+  "status": "RESEARCH_SYNTHESIS_CANDIDATE_NOT_ADMITTED",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "exact_base": {
+    "commit_sha": "1241c0084900f2c60f362205525464582e57b4a7",
+    "preservation_lineage_ref_at_construction": "preservation/clean-continuance-v0.1",
+    "binding_kind": "EXACT_IMMUTABLE_GIT_COMMIT"
+  },
+  "construction_scope": {
+    "new_candidate_paths_only": true,
+    "source_evidence_mutation": false,
+    "main_ref_effect": "NONE",
+    "pair_001_effect": "NONE",
+    "existing_pull_request_effect": "NONE",
+    "admission_effect": "NONE",
+    "execution_effect": "NONE"
+  },
+  "temporal_posture": {
+    "constructed_on_utc_date": "2026-07-22",
+    "later_repository_state_inherited": false,
+    "open_pull_request_state_used_as_evidence": false
+  },
+  "non_claims": [
+    "This coordinate does not admit, publish, approve, or merge the candidate.",
+    "This coordinate does not authorize a provider call, retry, readiness promotion, or Pair-001 execution.",
+    "This coordinate does not give later commits or open pull requests evidentiary standing inside the candidate."
+  ]
+}
