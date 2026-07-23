@@ -1,0 +1,141 @@
+{
+  "ledger_id": "FORK_TEMPORAL_SUCCESSION_LEDGER_v0_1",
+  "schema_version": "v0.1",
+  "record_kind": "temporal_succession_ledger",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "declared_event_registry_complete_through": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "1241c0084900f2c60f362205525464582e57b4a7",
+    "as_of_utc": "2026-07-20T02:39:57Z"
+  },
+  "records": [
+    {
+      "projection_id": "FORK_PROOF_SURFACE_STATE_v0_1",
+      "path": "docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json",
+      "sha256": "8e62fdf1adc5cacb087b8f1b2a1a1d8674521990d42b4d3897d17c49f433b098",
+      "projection_as_of_utc": "2026-07-11T09:33:52Z",
+      "time_basis": "FILE_CREATION_COMMIT_43b5fea01dcb523e5e2089bc9b95ce5b4359fd41",
+      "scope": [
+        "proof_surface",
+        "cross_system_claim_handoff_v0_1"
+      ],
+      "represented_as_current": false,
+      "standing": "HISTORICAL_PROJECTION_VALID_AT_RECORDED_TEMPORAL_CLOSURE",
+      "predecessor_projection_id": null,
+      "successor_projection_id": "FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2",
+      "reconciles_event_ids": []
+    },
+    {
+      "projection_id": "FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2",
+      "path": "docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json",
+      "sha256": "6ddb40620975d97b5974330d4904a50f7b8382e45b2012e4b831d46ea1f6e5eb",
+      "projection_as_of_utc": "2026-07-20T02:39:57Z",
+      "time_basis": "EXACT_GOVERNED_PRESERVATION_COMMIT_1241c0084900f2c60f362205525464582e57b4a7",
+      "scope": [
+        "proof_surface",
+        "cross_system_claim_handoff_v0_1",
+        "sequence_surface",
+        "root_checksum_integrity"
+      ],
+      "represented_as_current": true,
+      "standing": "CURRENT_WITH_RESPECT_TO_EXACT_GOVERNED_PRESERVATION_COORDINATE_NOT_DEFAULT_BRANCH",
+      "predecessor_projection_id": "FORK_PROOF_SURFACE_STATE_v0_1",
+      "successor_projection_id": null,
+      "reconciles_event_ids": [
+        "FTS-E001-CORPUS-FREEZE",
+        "FTS-E002-ORIGINAL-ATTEMPTS-AND-AMENDMENT",
+        "FTS-E003-PRESERVATION-ADMISSION",
+        "FTS-E004-PROVIDER-VALIDATION-AND-DRIFT",
+        "FTS-E005-SEQUENCE-AND-INTEGRITY-ADMISSION"
+      ]
+    }
+  ],
+  "admitted_state_changing_events": [
+    {
+      "event_id": "FTS-E001-CORPUS-FREEZE",
+      "admitted_at_utc": "2026-07-12T05:44:44Z",
+      "admission_coordinate": "828501761ac382ca18fa62cc0b2c54439c674755",
+      "state_change_admitted": true,
+      "affected_scope": [
+        "cross_system_claim_handoff_v0_1"
+      ],
+      "source_path": "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json",
+      "source_sha256": "35dca2a290033f6297924449a80297155c9c93e530be0cb7c3dfebffe9354822",
+      "transition": "CORPUS_DRAFT_UNFROZEN_TO_FROZEN"
+    },
+    {
+      "event_id": "FTS-E002-ORIGINAL-ATTEMPTS-AND-AMENDMENT",
+      "admitted_at_utc": "2026-07-13T04:21:26Z",
+      "admission_coordinate": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71",
+      "state_change_admitted": true,
+      "affected_scope": [
+        "cross_system_claim_handoff_v0_1"
+      ],
+      "source_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/CSH-AMEND-002_v0_1_1.json",
+      "source_sha256": "6fc24674454eb3e830b6fc787df30096aa05e6e8ae8faa067b88ec157e1d1be8",
+      "transition": "ORIGINAL_ATTEMPTS_PRESERVED_AND_INSTRUMENTATION_AMENDMENT_FINAL"
+    },
+    {
+      "event_id": "FTS-E003-PRESERVATION-ADMISSION",
+      "admitted_at_utc": "2026-07-19T06:55:22Z",
+      "admission_coordinate": "33726e6e79be430809121673e71f85e3eedcae90",
+      "state_change_admitted": true,
+      "affected_scope": [
+        "proof_surface",
+        "cross_system_claim_handoff_v0_1"
+      ],
+      "source_path": "docs/preservation/admission/FORK_PRESERVATION_ADMISSION_ANCHOR_2026_07_18_v0_1.json",
+      "source_sha256": "573f4bfc0eaff0f895979230c827bb97c88bdc82ce4dc0dfdea6799addd54d20",
+      "transition": "PRE_EXECUTION_AND_VERIFICATION_SURFACES_ADMITTED_EXECUTION_BLOCKED"
+    },
+    {
+      "event_id": "FTS-E004-PROVIDER-VALIDATION-AND-DRIFT",
+      "admitted_at_utc": "2026-07-20T01:20:39Z",
+      "admission_coordinate": "5fbabbd486d4e863d23e0096600185ada92539a6",
+      "state_change_admitted": true,
+      "affected_scope": [
+        "cross_system_claim_handoff_v0_1"
+      ],
+      "source_path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/DEEPSEEK_RECEIVER_DRIFT_CLASSIFICATION_CONTRACT_v0_1_3.json",
+      "source_sha256": "7c03bee1be8c6d436a067364b3558873690f766f48f2adf40100b5350215ed37",
+      "transition": "PROVIDER_VALIDATION_BLOCKED_DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED"
+    },
+    {
+      "event_id": "FTS-E005-SEQUENCE-AND-INTEGRITY-ADMISSION",
+      "admitted_at_utc": "2026-07-20T02:39:57Z",
+      "admission_coordinate": "1241c0084900f2c60f362205525464582e57b4a7",
+      "state_change_admitted": true,
+      "affected_scope": [
+        "proof_surface",
+        "cross_system_claim_handoff_v0_1",
+        "sequence_surface",
+        "root_checksum_integrity"
+      ],
+      "source_path": "docs/preservation/admission/FORK_SEQUENCE_INTEGRITY_ADMISSION_ANCHOR_2026_07_19_v0_1.json",
+      "source_sha256": "1f2708170e29df03c7b3fb721a85689b9e95390dd77023d2dec9e50047ab1954",
+      "transition": "SEQUENCE_AND_ROOT_CHECKSUM_STANDING_ADMITTED_WITH_NON_CLAIMS"
+    }
+  ],
+  "bounded_exterior_observations": [
+    {
+      "observation_id": "EXTERIOR_OBSERVATION_CLAUDE_MAIN_FD93D05_REPOSITORY_AUDIT_v0_1",
+      "path": "docs/exterior-observations/observations/EXTERIOR_OBSERVATION_CLAUDE_MAIN_FD93D05_REPOSITORY_AUDIT_v0_1.md",
+      "sha256": "80c8b3e14620be7ceb2a7fbd62dbf9c86fb1175d6fb6ea0013e1554534f0c3d7",
+      "observed_coordinate": "fd93d051235ec43bee925878bc916d09179b3c90",
+      "state_change_admitted": false,
+      "triggers_successor_projection": false,
+      "standing": "BOUNDED_EXTERIOR_OBSERVATION_NOT_CURRENT_STATE_AUTHORITY"
+    }
+  ],
+  "rule": {
+    "trigger": "A declared admitted state-changing event occurs after a projection represented as current and intersects that projection's scope.",
+    "required_response": "A later successor projection must name the predecessor, reconcile every applicable event identifier, and bind its exact source bytes.",
+    "failure_code": "TEMPORAL_SUCCESSION_RECONCILIATION_REQUIRED"
+  },
+  "non_claims": [
+    "The ledger does not infer or discover omitted events.",
+    "Event registration and state-change classification remain governance responsibilities.",
+    "Temporal reconciliation is not truth, correctness, approval, authority, compliance, legal sufficiency, safety, production readiness, or execution permission.",
+    "An exterior observation does not become an admitted state-changing event merely because it is preserved."
+  ]
+}

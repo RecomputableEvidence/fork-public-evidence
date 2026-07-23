@@ -35,6 +35,20 @@ Fork's declared causal hypothesis remains unresolved:
 
 The repository does not establish that relationship to the declared generality. Independent, controlled or quasi-controlled evidence would be required.
 
+## Post-base endogenous case
+
+`ENDOGENOUS_CASE_HISTORICAL_VALIDITY_CURRENT_RELIANCE_v0_1.md` records a case
+that became visible after the fixed evidence map was constructed: Claude's
+audit of historical `main@fd93d05` correctly read the preserved July 11 state,
+but the public route still allowed that historically valid projection to be
+mistaken for current reliance standing after admitted state-changing events.
+
+The case manifests the thesis distinction that historical validity is not
+current reliance standing. It is explicitly classified
+`POST_BASE_ENDOGENOUS_CASE_NOT_FIXED_BASE_EVIDENCE`; it is not silently added
+to the candidate's exact-base evidence map and does not promote the
+architectural inference into causal proof.
+
 ## Package
 
 - `BASE_COORDINATE_v0_1.json` fixes the immutable evidence boundary.
@@ -42,6 +56,7 @@ The repository does not establish that relationship to the declared generality. 
 - `THESIS_MANIFESTATION_RECORD_v0_1.json` states the candidate model and separates inference from causal proof.
 - `CLAIM_LEDGER_v0_1.json` separates observed claims, repository-supported inferences, unresolved questions, and non-claims.
 - `ALTERNATIVE_INTERPRETATIONS_AND_FALSIFIERS_v0_1.md` preserves competing explanations and refutation paths.
+- `ENDOGENOUS_CASE_HISTORICAL_VALIDITY_CURRENT_RELIANCE_v0_1.md` records the post-base internal manifestation without changing the fixed evidence map.
 - `NO_ADMISSION_OR_EXECUTION_EFFECT_v0_1.json` binds the candidate's zero-authority and zero-execution posture.
 - `PACKAGE_MANIFEST_v0_1.json` binds the candidate package bytes, excluding itself to avoid a circular digest.
 - `tools/check_fork_thesis_manifestation_v0_1.py` recomputes the package and source bindings.

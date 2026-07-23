@@ -72,6 +72,16 @@ class ThesisManifestationCheckerTests(unittest.TestCase):
                 errors = checker.check(root)
                 self.assertTrue(any(field in error for error in errors))
 
+    def test_post_base_case_cannot_be_promoted_to_causal_proof(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = copied_repo(Path(directory))
+            path = root / "docs/research/fork-thesis-manifestation-v0.1/THESIS_MANIFESTATION_RECORD_v0_1.json"
+            value = json.loads(path.read_text(encoding="utf-8"))
+            value["post_base_endogenous_cases"][0]["classification"] = "CAUSAL_PROOF"
+            write_json(path, value)
+            errors = checker.check(root)
+            self.assertTrue(any("endogenous case classification" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()
