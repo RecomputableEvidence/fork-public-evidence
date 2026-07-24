@@ -11,8 +11,8 @@
   "entries": [
     {
       "path": ".github/workflows/kubernetes-longitudinal-observation-v0-1.yml",
-      "sha256": "bed9b8771c2f538a5f79968068be77862ca2fcd871556b24b20c14ddf744bc02",
-      "size_bytes": 2755
+      "sha256": "c4d93b4001e329ff08516abad2836e2782cda9e7fd966377dbac11c05f183c06",
+      "size_bytes": 3251
     },
     {
       "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/CONSTRUCTION_RECEIPT_v0_1.json",
