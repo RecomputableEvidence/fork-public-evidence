@@ -1,0 +1,73 @@
+{
+  "manifest_id": "FORK_ELO_KUBERNETES_MASTER_PACKAGE_MANIFEST_v0_1",
+  "schema_version": "0.1",
+  "status": "CONSTRUCTION_PACKAGE_CANDIDATE",
+  "base_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+  "self_exclusion": {
+    "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/PACKAGE_MANIFEST_v0_1.json",
+    "reason": "A file cannot contain its own final byte digest without an external sidecar or fixed-point construction."
+  },
+  "entry_count": 12,
+  "entries": [
+    {
+      "path": ".github/workflows/kubernetes-longitudinal-observation-v0-1.yml",
+      "sha256": "c4d93b4001e329ff08516abad2836e2782cda9e7fd966377dbac11c05f183c06",
+      "size_bytes": 3251
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/CONSTRUCTION_RECEIPT_v0_1.json",
+      "sha256": "347722807a444829c877c8121a83a450b96b7abf64b22f2c5990043f34f9744b",
+      "size_bytes": 1666
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/EXPERIMENT_PREREGISTRATION_v0_1.json",
+      "sha256": "c98b4cbaf3ba34216697c3a8d6ec1e825a1fcbd2b671998d39b3e2373f89abd9",
+      "size_bytes": 4214
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/NO_EFFECTS_v0_1.json",
+      "sha256": "86e31201c624546f92612215bbb01b99d71b55628e1401a0cce8cdf325aac702",
+      "size_bytes": 739
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/README.md",
+      "sha256": "87dd79660fa53138e300a06ebc977e39210e3967d9c7c45b9eebcb053cb411b3",
+      "size_bytes": 4013
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/schemas/COMPARISON_RECORD_v0_1.schema.json",
+      "sha256": "9476f20b1313a017199f59cd3f99c27252443f720b54dc54d65a2c429e2b9a79",
+      "size_bytes": 1558
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/schemas/OBSERVATION_RECORD_v0_1.schema.json",
+      "sha256": "7aa84f5665fb2c44280fa67c932fe0a5ba83c45fff28aa388e86890747e24a63",
+      "size_bytes": 1905
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tests/test_kubernetes_longitudinal_observation_v0_1.py",
+      "sha256": "2833c9afea84ab743f30f8661240ebb6e08e915578de45e342b9b5dcaf167a0c",
+      "size_bytes": 12770
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/check_kubernetes_experiment_package_v0_1.py",
+      "sha256": "a8d63ee537daef71368cc3654d3852ff065ede18d0d0bf4958db047c6ecf91e2",
+      "size_bytes": 4330
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/check_kubernetes_observation_v0_1.py",
+      "sha256": "cbfa10abd51761550d1eacb7cbc0ffa99307fb95ec15987e6f350d5b6b35d39d",
+      "size_bytes": 10077
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/compare_kubernetes_observations_v0_1.py",
+      "sha256": "1b5036982d5a1dc2aeddf623ee5ca10dc61205b0411b0bd56fef025a8131633e",
+      "size_bytes": 6347
+    },
+    {
+      "path": "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/observe_kubernetes_master_v0_1.py",
+      "sha256": "1bd6dace4c63c9cfca70e9cf6c6838cc8c75f93243d8728b685b1ebd70ccc83c",
+      "size_bytes": 9911
+    }
+  ]
+}

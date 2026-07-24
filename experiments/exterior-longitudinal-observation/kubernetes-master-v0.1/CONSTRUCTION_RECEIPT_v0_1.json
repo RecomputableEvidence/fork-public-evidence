@@ -1,0 +1,47 @@
+{
+  "receipt_id": "FORK_ELO_KUBERNETES_MASTER_CONSTRUCTION_2026_07_24_v0_1",
+  "schema_version": "0.1",
+  "status": "CONSTRUCTION_TESTS_PASSED_NOT_EXTERIORLY_RECOMPUTED",
+  "construction_base_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+  "builder_disclosure": "CHATGPT_CODEX_PRIOR_FORK_EXPOSURE_DISCLOSED",
+  "environment": {
+    "os": "Linux 6.12.13 x86_64",
+    "python": "3.13.5"
+  },
+  "commands": [
+    {
+      "command": "python -m unittest discover -s experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tests -p 'test_*.py' -v",
+      "exit_code": 0,
+      "result": "15 tests passed"
+    },
+    {
+      "command": "python -m py_compile experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/*.py experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tests/*.py",
+      "exit_code": 0,
+      "result": "pass"
+    },
+    {
+      "command": "python experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/check_kubernetes_experiment_package_v0_1.py",
+      "exit_code": 0,
+      "result": "KUBERNETES_EXPERIMENT_PACKAGE_CONFORMS"
+    }
+  ],
+  "live_network_observation_performed": false,
+  "live_requests_performed": 0,
+  "repository_write_effect_before_publication": "NONE",
+  "effects": {
+    "admission": "NONE",
+    "authority": "NONE",
+    "execution": "NONE",
+    "truth": "NONE",
+    "causality": "NONE",
+    "endorsement": "NONE",
+    "scheduled_observation": "NONE"
+  },
+  "non_claims": [
+    "not an exterior recomputation",
+    "not a live Kubernetes observation",
+    "not merge authorization",
+    "not admission or publication",
+    "not production readiness"
+  ]
+}

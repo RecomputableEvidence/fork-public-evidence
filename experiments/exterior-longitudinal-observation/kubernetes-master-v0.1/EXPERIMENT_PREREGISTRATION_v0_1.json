@@ -1,0 +1,117 @@
+{
+  "experiment_id": "FORK_ELO_KUBERNETES_MASTER_v0_1",
+  "schema_version": "0.1",
+  "status": "PREREGISTERED_RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "construction_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit": "1241c0084900f2c60f362205525464582e57b4a7"
+  },
+  "conceptual_predecessors_not_inherited": [
+    {
+      "pull_request": 89,
+      "role": "THESIS_MANIFESTATION_CANDIDATE"
+    },
+    {
+      "pull_request": 90,
+      "role": "TEMPORAL_SUCCESSION_CANDIDATE"
+    },
+    {
+      "pull_request": 91,
+      "role": "LINEAR_LONGITUDINAL_REPLAY_CANDIDATE"
+    },
+    {
+      "pull_request": 92,
+      "role": "CAUSAL_RECONCILIATION_CANDIDATE"
+    },
+    {
+      "pull_request": 93,
+      "role": "EXTERIOR_RECOMPUTATION_RETURN_CONTRACT_CANDIDATE"
+    }
+  ],
+  "target": {
+    "operator": "GitHub",
+    "repository": "kubernetes/kubernetes",
+    "branch": "master",
+    "branch_endpoint": "https://api.github.com/repos/kubernetes/kubernetes/branches/master",
+    "commit_endpoint_template": "https://api.github.com/repos/kubernetes/kubernetes/commits/{sha}",
+    "target_authority_inherited_by_fork": false,
+    "fork_authority_over_target": "NONE"
+  },
+  "request_contract": {
+    "method": "GET",
+    "authentication": "FORBIDDEN",
+    "allowed_headers": {
+      "Accept": "application/vnd.github+json",
+      "User-Agent": "fork-exterior-longitudinal-observer-v0.1",
+      "X-GitHub-Api-Version": "2022-11-28"
+    },
+    "request_body": "ABSENT",
+    "redirects": "FORBIDDEN",
+    "automatic_retries": 0,
+    "timeout_seconds": 20,
+    "maximum_requests_per_observation": 2
+  },
+  "capture_contract": {
+    "raw_bytes_primary": true,
+    "response_headers_preserved": [
+      "date",
+      "etag",
+      "last-modified",
+      "x-github-request-id",
+      "x-ratelimit-limit",
+      "x-ratelimit-remaining",
+      "x-ratelimit-reset",
+      "content-type"
+    ],
+    "derived_projection_fields": [
+      "branch_name",
+      "head_sha",
+      "head_tree_sha",
+      "parent_shas",
+      "protected"
+    ],
+    "clock_basis": "UTC_SYSTEM_CLOCK_WITH_SOURCE_DATE_HEADER_RECORDED_IF_PRESENT",
+    "missed_observation_classification": "OBSERVATION_GAP",
+    "cache_interpretation": "UNRESOLVED_UNLESS_RESPONSE_HEADERS_SUPPORT_A_NARROWER_STATEMENT"
+  },
+  "comparison_contract": {
+    "left_must_precede_right": true,
+    "raw_difference_is_not_semantic_difference": true,
+    "semantic_difference_is_not_authority_change": true,
+    "underlying_transition_time_default": "UNRESOLVED",
+    "cause_default": "UNRESOLVED",
+    "intermediate_state_completeness_default": "UNRESOLVED"
+  },
+  "activation": {
+    "live_observation_trigger": "MANUAL_WORKFLOW_DISPATCH_ONLY",
+    "scheduled_observation_authorized": false,
+    "live_observations_per_dispatch": 1,
+    "repository_commit_of_observation_outputs": "FORBIDDEN",
+    "workflow_artifact_retention_days": 30
+  },
+  "acceptance_benchmark": [
+    "raw byte digests recompute",
+    "semantic projection recomputes from preserved bytes",
+    "comparison recomputes without consulting the current live endpoint",
+    "observation gaps remain explicit",
+    "authority admission execution truth and causality effects remain NONE",
+    "parser or observer version changes do not silently reinterpret earlier records"
+  ],
+  "stopping_conditions": [
+    "target endpoint begins requiring authentication",
+    "target terms or technical controls prohibit the declared read-only method",
+    "observer would need to follow redirects or mutate remote state",
+    "schema or parser change is required",
+    "raw bytes cannot be preserved",
+    "an observation is represented as current after its declared coordinate without a successor check"
+  ],
+  "non_claims": [
+    "Kubernetes internal state is complete or truthful",
+    "the exact moment or cause of an underlying change is known",
+    "the observed commit is safe correct approved released or production-ready",
+    "GitHub or Kubernetes endorses Fork",
+    "Fork acquires governance authority over GitHub Kubernetes or the observed branch",
+    "a successful observation authorizes any execution admission or publication"
+  ]
+}
