@@ -1,0 +1,478 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/RecomputableEvidence/fork-public-evidence/schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json",
+  "title": "Fork Longitudinal Exterior Recomputation Receipt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_kind",
+    "receipt_id",
+    "review_target",
+    "reviewer_disclosure",
+    "environment",
+    "executions",
+    "measurements",
+    "findings",
+    "raw_output_artifacts",
+    "disposition",
+    "effects",
+    "non_claims",
+    "reviewer_attestation",
+    "integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "record_kind": {
+      "const": "fork_longitudinal_exterior_recomputation_receipt"
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "review_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_id",
+        "repository",
+        "pull_request",
+        "head_sha",
+        "tree_sha",
+        "acquired_head_sha",
+        "acquired_tree_sha",
+        "acquisition_method"
+      ],
+      "properties": {
+        "target_id": {
+          "enum": [
+            "PR91_LINEAR_REPLAY_V0_2",
+            "PR92_CAUSAL_RECONCILIATION_V0_3"
+          ]
+        },
+        "repository": {
+          "const": "RecomputableEvidence/fork-public-evidence"
+        },
+        "pull_request": {
+          "enum": [
+            91,
+            92
+          ]
+        },
+        "head_sha": {
+          "$ref": "#/definitions/sha40"
+        },
+        "tree_sha": {
+          "$ref": "#/definitions/sha40"
+        },
+        "acquired_head_sha": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/sha40"
+            },
+            {
+              "const": "UNRESOLVED_NOT_ACQUIRED"
+            }
+          ]
+        },
+        "acquired_tree_sha": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/sha40"
+            },
+            {
+              "const": "UNRESOLVED_NOT_ACQUIRED"
+            }
+          ]
+        },
+        "acquisition_method": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "reviewer_disclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewer_id",
+        "affiliation",
+        "relationship_to_fork",
+        "prior_exposure",
+        "independence_class"
+      ],
+      "properties": {
+        "reviewer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affiliation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relationship_to_fork": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prior_exposure": {
+          "type": "string",
+          "minLength": 1
+        },
+        "independence_class": {
+          "enum": [
+            "ARMS_LENGTH_DISCLOSED",
+            "PRIOR_EXPOSURE_DISCLOSED",
+            "NOT_INDEPENDENT_AUTHOR_ASSISTED",
+            "UNRESOLVED_PENDING_DISCLOSURE"
+          ]
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observed_os",
+        "python_version",
+        "proof_surface_lock_sha256",
+        "claim_admission_lock_sha256",
+        "dependency_install_exit_code"
+      ],
+      "properties": {
+        "observed_os": {
+          "type": "string",
+          "minLength": 1
+        },
+        "python_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proof_surface_lock_sha256": {
+          "const": "188768b6b1167c0f556482d72be7a6fc1d938afc086c870c071e46510c0f4387"
+        },
+        "claim_admission_lock_sha256": {
+          "const": "b7c60b29661c5cd5ffaba6651962f3db20c9612fb06accfcc9dc03b0efd5d5ab"
+        },
+        "dependency_install_exit_code": {
+          "type": "integer",
+          "minimum": -1
+        }
+      }
+    },
+    "executions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "command",
+          "exit_code",
+          "stdout_sha256",
+          "stderr_sha256",
+          "observed_result"
+        ],
+        "properties": {
+          "command": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exit_code": {
+            "type": "integer"
+          },
+          "stdout_sha256": {
+            "$ref": "#/definitions/sha256OrUnresolved"
+          },
+          "stderr_sha256": {
+            "$ref": "#/definitions/sha256OrUnresolved"
+          },
+          "observed_result": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "measurements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checker_status",
+        "state_vector_sha256",
+        "closure_node_digest_sha256",
+        "focused_tests",
+        "full_suite",
+        "adversarial_results"
+      ],
+      "properties": {
+        "checker_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state_vector_sha256": {
+          "$ref": "#/definitions/sha256OrUnresolved"
+        },
+        "closure_node_digest_sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/sha256"
+            },
+            {
+              "enum": [
+                "NOT_APPLICABLE",
+                "UNRESOLVED_NOT_RUN"
+              ]
+            }
+          ]
+        },
+        "focused_tests": {
+          "$ref": "#/definitions/testMeasurement"
+        },
+        "full_suite": {
+          "$ref": "#/definitions/testMeasurement"
+        },
+        "adversarial_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "case_id",
+              "expected",
+              "observed",
+              "conforms"
+            ],
+            "properties": {
+              "case_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "expected": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "conforms": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "severity",
+          "detail",
+          "evidence"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Z0-9._-]*$"
+          },
+          "severity": {
+            "enum": [
+              "INFO",
+              "MINOR",
+              "MAJOR",
+              "BLOCKING",
+              "UNRESOLVED"
+            ]
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "raw_output_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256",
+          "size_bytes"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "$ref": "#/definitions/sha256"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "disposition": {
+      "enum": [
+        "UNRESOLVED_PENDING_EXTERIOR_RECOMPUTATION",
+        "REPRODUCED_WITHIN_DECLARED_SCOPE",
+        "REPRODUCED_WITH_CORRECTION_REQUIRED",
+        "NOT_REPRODUCED",
+        "UNRESOLVED_INCOMPLETE"
+      ]
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_calls",
+        "pair_001_calls",
+        "pair_001_repetitions",
+        "admission",
+        "merge_authorization",
+        "publication",
+        "authority_transfer",
+        "execution_permission"
+      ],
+      "properties": {
+        "provider_calls": {
+          "const": 0
+        },
+        "pair_001_calls": {
+          "const": 0
+        },
+        "pair_001_repetitions": {
+          "const": 0
+        },
+        "admission": {
+          "const": "NONE"
+        },
+        "merge_authorization": {
+          "const": "NONE"
+        },
+        "publication": {
+          "const": "NONE"
+        },
+        "authority_transfer": {
+          "const": "NONE"
+        },
+        "execution_permission": {
+          "const": "NONE"
+        }
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 4,
+      "uniqueItems": true
+    },
+    "reviewer_attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement",
+        "recorded_at_utc"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recorded_at_utc": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receipt_payload_sha256"
+      ],
+      "properties": {
+        "receipt_payload_sha256": {
+          "$ref": "#/definitions/sha256OrUnresolved"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "sha40": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sha256OrUnresolved": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/sha256"
+        },
+        {
+          "enum": [
+            "UNRESOLVED_NOT_RUN",
+            "UNRESOLVED_NOT_RECORDED"
+          ]
+        }
+      ]
+    },
+    "testMeasurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passed",
+        "failed",
+        "skipped",
+        "exit_code",
+        "not_run_reason"
+      ],
+      "properties": {
+        "passed": {
+          "type": "integer",
+          "minimum": -1
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": -1
+        },
+        "skipped": {
+          "type": "integer",
+          "minimum": -1
+        },
+        "exit_code": {
+          "type": "integer",
+          "minimum": -1
+        },
+        "not_run_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

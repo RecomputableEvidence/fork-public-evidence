@@ -1,0 +1,76 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_longitudinal_exterior_recomputation_receipt",
+  "receipt_id": "FORK_EXTERIOR_RECOMPUTATION_PR91_TEMPLATE_v0_1",
+  "review_target": {
+    "target_id": "PR91_LINEAR_REPLAY_V0_2",
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "pull_request": 91,
+    "head_sha": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+    "tree_sha": "0b5f11eb6c1cd8c90b4cacce2a747045da917741",
+    "acquired_head_sha": "UNRESOLVED_NOT_ACQUIRED",
+    "acquired_tree_sha": "UNRESOLVED_NOT_ACQUIRED",
+    "acquisition_method": "UNRESOLVED_NOT_ACQUIRED"
+  },
+  "reviewer_disclosure": {
+    "reviewer_id": "UNRESOLVED_PENDING_DISCLOSURE",
+    "affiliation": "UNRESOLVED_PENDING_DISCLOSURE",
+    "relationship_to_fork": "UNRESOLVED_PENDING_DISCLOSURE",
+    "prior_exposure": "UNRESOLVED_PENDING_DISCLOSURE",
+    "independence_class": "UNRESOLVED_PENDING_DISCLOSURE"
+  },
+  "environment": {
+    "observed_os": "UNRESOLVED_NOT_RUN",
+    "python_version": "UNRESOLVED_NOT_RUN",
+    "proof_surface_lock_sha256": "188768b6b1167c0f556482d72be7a6fc1d938afc086c870c071e46510c0f4387",
+    "claim_admission_lock_sha256": "b7c60b29661c5cd5ffaba6651962f3db20c9612fb06accfcc9dc03b0efd5d5ab",
+    "dependency_install_exit_code": -1
+  },
+  "executions": [],
+  "measurements": {
+    "checker_status": "UNRESOLVED_NOT_RUN",
+    "state_vector_sha256": "UNRESOLVED_NOT_RUN",
+    "closure_node_digest_sha256": "NOT_APPLICABLE",
+    "focused_tests": {
+      "passed": -1,
+      "failed": -1,
+      "skipped": -1,
+      "exit_code": -1,
+      "not_run_reason": "UNRESOLVED_PENDING_EXTERIOR_RECOMPUTATION"
+    },
+    "full_suite": {
+      "passed": -1,
+      "failed": -1,
+      "skipped": -1,
+      "exit_code": -1,
+      "not_run_reason": "OPTIONAL_PENDING_REVIEWER_CAPACITY"
+    },
+    "adversarial_results": []
+  },
+  "findings": [],
+  "raw_output_artifacts": [],
+  "disposition": "UNRESOLVED_PENDING_EXTERIOR_RECOMPUTATION",
+  "effects": {
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "admission": "NONE",
+    "merge_authorization": "NONE",
+    "publication": "NONE",
+    "authority_transfer": "NONE",
+    "execution_permission": "NONE"
+  },
+  "non_claims": [
+    "Package conformance is not substantive recomputation.",
+    "A reviewer receipt is not admission or merge authorization.",
+    "Recomputation does not establish truth, legal sufficiency, compliance, safety, or institutional authority.",
+    "Expected values must not replace observed commands, outputs, exit codes, and digests."
+  ],
+  "reviewer_attestation": {
+    "statement": "UNRESOLVED_PENDING_EXTERIOR_RECOMPUTATION",
+    "recorded_at_utc": "UNRESOLVED_PENDING_EXTERIOR_RECOMPUTATION"
+  },
+  "integrity": {
+    "receipt_payload_sha256": "UNRESOLVED_NOT_RECORDED"
+  }
+}

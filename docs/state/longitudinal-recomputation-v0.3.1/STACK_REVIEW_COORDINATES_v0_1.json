@@ -1,0 +1,68 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_longitudinal_recomputation_stack_review_coordinates",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "snapshot_date": "2026-07-24",
+  "stack": [
+    {
+      "order": 1,
+      "pull_request": 89,
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/89",
+      "branch": "research/fork-thesis-manifestation-v0-1",
+      "head_sha": "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1",
+      "tree_sha": "78703afea0d4b4208f6226207e8a2e44bdaed6a0",
+      "depends_on_pull_request": null,
+      "exact_predecessor": "1241c0084900f2c60f362205525464582e57b4a7",
+      "standing": "OPEN_DRAFT_RESEARCH_CANDIDATE_NOT_ADMITTED"
+    },
+    {
+      "order": 2,
+      "pull_request": 90,
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/90",
+      "branch": "research/temporal-succession-observation-v0-1",
+      "head_sha": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "tree_sha": "52ca08a41173e031ade01b9b6ec529cc80776380",
+      "depends_on_pull_request": 89,
+      "exact_predecessor": "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1",
+      "standing": "OPEN_DRAFT_PRESERVATION_DELTA_VERIFIED_WITHIN_DECLARED_SCOPE_NOT_ADMITTED"
+    },
+    {
+      "order": 3,
+      "pull_request": 91,
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/91",
+      "branch": "agent/longitudinal-recomputation-replay-v0-2",
+      "head_sha": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "tree_sha": "0b5f11eb6c1cd8c90b4cacce2a747045da917741",
+      "depends_on_pull_request": 90,
+      "exact_predecessor": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "standing": "OPEN_DRAFT_REPRODUCED_WITH_CORRECTION_REQUIRED_RECEIPT_NORMALIZED_NOT_ADMITTED"
+    },
+    {
+      "order": 4,
+      "pull_request": 92,
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/92",
+      "branch": "agent/longitudinal-causal-reconciliation-v0-3",
+      "head_sha": "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84",
+      "tree_sha": "a85af6ef1c7db88dcddbc709944d9872320cdb96",
+      "depends_on_pull_request": 91,
+      "exact_predecessor": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "standing": "OPEN_DRAFT_EXTERIOR_RECOMPUTATION_PENDING_NOT_ADMITTED"
+    }
+  ],
+  "exterior_recomputation_order": [
+    91,
+    92
+  ],
+  "merge_or_admission_order_if_separately_authorized": [
+    89,
+    90,
+    91,
+    92
+  ],
+  "non_claims": [
+    "This dated record is not a live GitHub status API.",
+    "Stack order does not authorize merge or admission.",
+    "A successor review does not inherit backward to a predecessor or forward to a later head.",
+    "No repository, provider, Pair-001, authority, or execution effect is created."
+  ]
+}

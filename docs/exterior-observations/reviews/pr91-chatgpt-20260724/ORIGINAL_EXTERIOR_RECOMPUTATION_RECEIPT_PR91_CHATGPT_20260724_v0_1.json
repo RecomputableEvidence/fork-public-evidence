@@ -1,0 +1,1382 @@
+{
+  "disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+  "effects": {
+    "admission": "NONE",
+    "authority_transfer": "NONE",
+    "execution_permission": "NONE",
+    "merge_authorization": "NONE",
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "provider_calls": 0,
+    "publication": "NONE"
+  },
+  "environment": {
+    "claim_admission_lock_sha256": "b7c60b29661c5cd5ffaba6651962f3db20c9612fb06accfcc9dc03b0efd5d5ab",
+    "dependency_install_exit_code": 0,
+    "observed_os": "Ubuntu 24.04.3 LTS; Linux 2f6173bc6fa3 6.12.13 #1 SMP Wed Jul 22 00:33:13 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+    "proof_surface_lock_sha256": "188768b6b1167c0f556482d72be7a6fc1d938afc086c870c071e46510c0f4387",
+    "python_version": "Python 3.12.13"
+  },
+  "executions": [
+    {
+      "command": "git clone --filter=blob:none --no-checkout https://github.com/RecomputableEvidence/fork-public-evidence.git repo",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:12Z",
+      "record_id": "acquisition_clone",
+      "started_at_utc": "2026-07-24T14:32:07Z",
+      "stderr": {
+        "path": "acquisition_clone.stderr",
+        "sha256": "598abda78f8ad0ca1a6f1b475ed817f49c7bff3d76f8054064b2b8f2fb9d39b6",
+        "size_bytes": 23
+      },
+      "stdout": {
+        "path": "acquisition_clone.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724"
+    },
+    {
+      "command": "git --version",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:07Z",
+      "record_id": "env_git_version",
+      "started_at_utc": "2026-07-24T14:32:07Z",
+      "stderr": {
+        "path": "env_git_version.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "env_git_version.stdout",
+        "sha256": "86e56d87412c17ab76c1b5a3d50f9d374e5e28887068e6823973fd1232f1d6c6",
+        "size_bytes": 19
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762"
+    },
+    {
+      "command": "sed -n 1\\,200p /etc/os-release",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:07Z",
+      "record_id": "env_os_release",
+      "started_at_utc": "2026-07-24T14:32:07Z",
+      "stderr": {
+        "path": "env_os_release.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "env_os_release.stdout",
+        "sha256": "3e5851448bae5b36f351becde037a8b13b77307279f484eda808f8177d9a4293",
+        "size_bytes": 400
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762"
+    },
+    {
+      "command": "python --version",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:07Z",
+      "record_id": "env_python_version",
+      "started_at_utc": "2026-07-24T14:32:07Z",
+      "stderr": {
+        "path": "env_python_version.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "env_python_version.stdout",
+        "sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b",
+        "size_bytes": 15
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762"
+    },
+    {
+      "command": "uname -a",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:07Z",
+      "record_id": "env_uname",
+      "started_at_utc": "2026-07-24T14:32:07Z",
+      "stderr": {
+        "path": "env_uname.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "env_uname.stdout",
+        "sha256": "e939ddbef7fc5a7f4bd94a7604293e99ac6cbda174c6f1c14529b9d012cf737a",
+        "size_bytes": 94
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762"
+    },
+    {
+      "command": "git fetch --no-tags origin refs/heads/agent/longitudinal-recomputation-replay-v0-2",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:28Z",
+      "record_id": "acquisition_fetch_branch",
+      "started_at_utc": "2026-07-24T14:32:26Z",
+      "stderr": {
+        "path": "acquisition_fetch_branch.stderr",
+        "sha256": "2ff3dd60cdadc6cd454b6810db81fce7fee6eebfe54fded64f5f145835aa4bbf",
+        "size_bytes": 146
+      },
+      "stdout": {
+        "path": "acquisition_fetch_branch.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git checkout --detach e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:32Z",
+      "record_id": "acquisition_checkout_detached",
+      "started_at_utc": "2026-07-24T14:32:28Z",
+      "stderr": {
+        "path": "acquisition_checkout_detached.stderr",
+        "sha256": "b760e4e86dda8a2a20c46e59be0f50e055603f065272b18db9d44d199f85e361",
+        "size_bytes": 79
+      },
+      "stdout": {
+        "path": "acquisition_checkout_detached.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git cat-file -p e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:32Z",
+      "record_id": "acquisition_commit_object",
+      "started_at_utc": "2026-07-24T14:32:32Z",
+      "stderr": {
+        "path": "acquisition_commit_object.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "acquisition_commit_object.stdout",
+        "sha256": "2f7a11bcdce6d30dad87bdee15226ef9e412b573d37c91eaa69bd3a9333ccc52",
+        "size_bytes": 323
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:32Z",
+      "record_id": "acquisition_head_sha",
+      "started_at_utc": "2026-07-24T14:32:32Z",
+      "stderr": {
+        "path": "acquisition_head_sha.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "acquisition_head_sha.stdout",
+        "sha256": "951de8a955c51aff5a03448e3ab702aa0792fcbe9244e9c9b55bbdcb2ca7c85d",
+        "size_bytes": 41
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:32Z",
+      "record_id": "acquisition_status",
+      "started_at_utc": "2026-07-24T14:32:32Z",
+      "stderr": {
+        "path": "acquisition_status.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "acquisition_status.stdout",
+        "sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841",
+        "size_bytes": 20
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git rev-parse HEAD\\^\\{tree\\}",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:32Z",
+      "record_id": "acquisition_tree_sha",
+      "started_at_utc": "2026-07-24T14:32:32Z",
+      "stderr": {
+        "path": "acquisition_tree_sha.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "acquisition_tree_sha.stdout",
+        "sha256": "49c98c5dbebca7e22a66aa0674ba91f91d8164d7b90eebcbb5b65fb859350ff1",
+        "size_bytes": 41
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "python -m venv .venv-fork-review",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:33:01Z",
+      "record_id": "dependency_create_venv",
+      "started_at_utc": "2026-07-24T14:32:59Z",
+      "stderr": {
+        "path": "dependency_create_venv.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "dependency_create_venv.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "sha256sum requirements-proof-surface.lock.txt requirements-claim-admission.lock.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:32:59Z",
+      "record_id": "dependency_lock_digests",
+      "started_at_utc": "2026-07-24T14:32:59Z",
+      "stderr": {
+        "path": "dependency_lock_digests.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "dependency_lock_digests.stdout",
+        "sha256": "5f72db4c6b5887751a2a34ce8a7fcbf47b819bd849bb6d6c778cb268e41f1823",
+        "size_bytes": 206
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pip install --require-hashes -r requirements-proof-surface.lock.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:33:13Z",
+      "record_id": "dependency_install",
+      "started_at_utc": "2026-07-24T14:33:01Z",
+      "stderr": {
+        "path": "dependency_install.stderr",
+        "sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+        "size_bytes": 64
+      },
+      "stdout": {
+        "path": "dependency_install.stdout",
+        "sha256": "92e04e6585960c787b24523b4526d245fd22b76d6d76f9565f4e6d735de8bd29",
+        "size_bytes": 2254
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python --version",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:33:01Z",
+      "record_id": "dependency_venv_python_version",
+      "started_at_utc": "2026-07-24T14:33:01Z",
+      "stderr": {
+        "path": "dependency_venv_python_version.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "dependency_venv_python_version.stdout",
+        "sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b",
+        "size_bytes": 15
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pip freeze",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:33:13Z",
+      "record_id": "dependency_freeze",
+      "started_at_utc": "2026-07-24T14:33:13Z",
+      "stderr": {
+        "path": "dependency_freeze.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "dependency_freeze.stdout",
+        "sha256": "4585ccaa8bdbd1a8635eb0eb4b1bdc686d4166a8d4399bf65145a87ae4ce4e6e",
+        "size_bytes": 211
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --derive-projection",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:05Z",
+      "record_id": "derive_projection",
+      "started_at_utc": "2026-07-24T14:34:05Z",
+      "stderr": {
+        "path": "derive_projection.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "derive_projection.stdout",
+        "sha256": "4f0f754ede5d48bc0dafa3e5c55e4132078d4390d6857b44b7b1e2ddf9783e5c",
+        "size_bytes": 9650
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pytest tests/test_longitudinal_recomputation_v0_2.py -q",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:06Z",
+      "record_id": "focused_tests",
+      "started_at_utc": "2026-07-24T14:34:05Z",
+      "stderr": {
+        "path": "focused_tests.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "focused_tests.stdout",
+        "sha256": "c018e871956ec1c81b8d47f6b7e25524940d4be5325dfe6036f6a4594c785204",
+        "size_bytes": 99
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --as-of bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:05Z",
+      "record_id": "recompute_as_of_base",
+      "started_at_utc": "2026-07-24T14:34:05Z",
+      "stderr": {
+        "path": "recompute_as_of_base.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "recompute_as_of_base.stdout",
+        "sha256": "59a00d54ef2f6f1c048f622f93be2b30a9fe7192afdb4b2b46688c3528209174",
+        "size_bytes": 8313
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --diff-from bac40d9bdbd7f6b4927a676fef8def70756ad9d5 --diff-to f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:05Z",
+      "record_id": "recompute_diff",
+      "started_at_utc": "2026-07-24T14:34:05Z",
+      "stderr": {
+        "path": "recompute_diff.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "recompute_diff.stdout",
+        "sha256": "e550238a19b0c85b1d48415337965a4a3564c99cfd3fdedf23a20ea975cbf38e",
+        "size_bytes": 3816
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --json",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:05Z",
+      "record_id": "recompute_json",
+      "started_at_utc": "2026-07-24T14:34:05Z",
+      "stderr": {
+        "path": "recompute_json.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "recompute_json.stdout",
+        "sha256": "ab477be8a23a35f17077fec3c3ccdabb4f345567495adbdb3a1a199f7b3c85ef",
+        "size_bytes": 17579
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git diff-tree --no-commit-id --name-only -r bac40d9bdbd7f6b4927a676fef8def70756ad9d5 f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:06Z",
+      "record_id": "inventory_diff_tree",
+      "started_at_utc": "2026-07-24T14:34:06Z",
+      "stderr": {
+        "path": "inventory_diff_tree.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "inventory_diff_tree.stdout",
+        "sha256": "7f6c139acfa34ac6d10015f6073d43cbdc1cc2fa193bf5ca2ab82dbcfd36fb26",
+        "size_bytes": 537
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git rev-list --reverse --ancestry-path bac40d9bdbd7f6b4927a676fef8def70756ad9d5..f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:34:06Z",
+      "record_id": "inventory_rev_list",
+      "started_at_utc": "2026-07-24T14:34:06Z",
+      "stderr": {
+        "path": "inventory_rev_list.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "inventory_rev_list.stdout",
+        "sha256": "73938e14bc0c8f122953eb3aba9cc3b05ce271eb5362bbac52e0a7982405e390",
+        "size_bytes": 41
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/run_adversarial_challenges.py /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:35:51Z",
+      "record_id": "adversarial_challenges",
+      "started_at_utc": "2026-07-24T14:35:50Z",
+      "stderr": {
+        "path": "adversarial_challenges.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "adversarial_challenges.stdout",
+        "sha256": "90463874ff66405a602d0d76335d72e1f2ac58e41373abf0e362c2be2791b2ab",
+        "size_bytes": 3072
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pytest -q",
+      "exit_code": 1,
+      "finished_at_utc": "2026-07-24T14:37:22Z",
+      "record_id": "full_suite",
+      "started_at_utc": "2026-07-24T14:36:18Z",
+      "stderr": {
+        "path": "full_suite.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "full_suite.stdout",
+        "sha256": "be3aabbf033f54ec05016d19c11eb7a04ca30fa671bfc9ccf000fb06d34fef79",
+        "size_bytes": 1976
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:38:08Z",
+      "record_id": "clean_repo_status",
+      "started_at_utc": "2026-07-24T14:38:08Z",
+      "stderr": {
+        "path": "clean_repo_status.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "clean_repo_status.stdout",
+        "sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841",
+        "size_bytes": 20
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "mv .venv-fork-review ../.venv-fork-review",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:38:08Z",
+      "record_id": "environment_move_venv_outside_repo",
+      "started_at_utc": "2026-07-24T14:38:08Z",
+      "stderr": {
+        "path": "environment_move_venv_outside_repo.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "environment_move_venv_outside_repo.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "../.venv-fork-review/bin/python -m pytest -q",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:38:42Z",
+      "record_id": "full_suite_clean_repo",
+      "started_at_utc": "2026-07-24T14:38:08Z",
+      "stderr": {
+        "path": "full_suite_clean_repo.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "full_suite_clean_repo.stdout",
+        "sha256": "b20a46174a3b35aaef5cead4ff44696b4078a30615b7c87dc2b9592ae7e6436e",
+        "size_bytes": 912
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "gh --version",
+      "exit_code": 127,
+      "finished_at_utc": "2026-07-24T14:39:30Z",
+      "record_id": "env_gh_version",
+      "started_at_utc": "2026-07-24T14:39:30Z",
+      "stderr": {
+        "path": "env_gh_version.stderr",
+        "sha256": "a4764e47ef46c09d648d1763ba2d7af024ef0a77f5d5e8c462438872901391ec",
+        "size_bytes": 88
+      },
+      "stdout": {
+        "path": "env_gh_version.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "gh pr view 91 --repo RecomputableEvidence/fork-public-evidence --json number\\,state\\,isDraft\\,headRefName\\,headRefOid\\,baseRefName\\,baseRefOid\\,title\\,body\\,url",
+      "exit_code": 127,
+      "finished_at_utc": "2026-07-24T14:39:30Z",
+      "record_id": "pr_metadata",
+      "started_at_utc": "2026-07-24T14:39:30Z",
+      "stderr": {
+        "path": "pr_metadata.stderr",
+        "sha256": "a4764e47ef46c09d648d1763ba2d7af024ef0a77f5d5e8c462438872901391ec",
+        "size_bytes": 88
+      },
+      "stdout": {
+        "path": "pr_metadata.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "curl --location --fail --silent --show-error https://api.github.com/repos/RecomputableEvidence/fork-public-evidence/pulls/91",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:39:41Z",
+      "record_id": "pr_metadata_api",
+      "started_at_utc": "2026-07-24T14:39:37Z",
+      "stderr": {
+        "path": "pr_metadata_api.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "pr_metadata_api.stdout",
+        "sha256": "3bb3ebed04720e2ace87f8c3cf65a8fb5162b261a644dfcf95f655a71840d2f5",
+        "size_bytes": 26091
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "../.venv-fork-review/bin/python -m pytest --collect-only -q",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:40:03Z",
+      "record_id": "full_suite_collect_only",
+      "started_at_utc": "2026-07-24T14:40:02Z",
+      "stderr": {
+        "path": "full_suite_collect_only.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "full_suite_collect_only.stdout",
+        "sha256": "ae0920d256cff56fb243f5c2106d09360ce500016a6b359315422063fa47f774",
+        "size_bytes": 78873
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:40:03Z",
+      "record_id": "final_repo_status",
+      "started_at_utc": "2026-07-24T14:40:03Z",
+      "stderr": {
+        "path": "final_repo_status.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "final_repo_status.stdout",
+        "sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841",
+        "size_bytes": 20
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo"
+    },
+    {
+      "command": "../.venv-fork-review/bin/python derive_observations.py /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724",
+      "exit_code": 127,
+      "finished_at_utc": "2026-07-24T14:40:56Z",
+      "record_id": "derived_observations",
+      "started_at_utc": "2026-07-24T14:40:56Z",
+      "stderr": {
+        "path": "derived_observations.stderr",
+        "sha256": "e60e96bf45a2489c55377f9eaa4d9860b6ae267c0598ac16ab1cc0483b9f87dd",
+        "size_bytes": 125
+      },
+      "stdout": {
+        "path": "derived_observations.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724"
+    },
+    {
+      "command": ".venv-fork-review/bin/python derive_observations.py /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724",
+      "exit_code": 0,
+      "finished_at_utc": "2026-07-24T14:41:02Z",
+      "record_id": "derived_observations_retry",
+      "started_at_utc": "2026-07-24T14:41:02Z",
+      "stderr": {
+        "path": "derived_observations_retry.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_bytes": 0
+      },
+      "stdout": {
+        "path": "derived_observations_retry.stdout",
+        "sha256": "61c021d5572f13572b19232b9a21bca5e3fa63cca5996d097ea623e7c6231f66",
+        "size_bytes": 5491
+      },
+      "workdir": "/workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724"
+    }
+  ],
+  "findings": [
+    {
+      "classification": "METHODOLOGICAL_LIMITATION",
+      "code": "EXPECTED_VALUES_EXPOSED_IN_PR_METADATA_BEFORE_LOCAL_RUN",
+      "detail": "The GitHub metadata read used to resolve PR #91 exposed the author's claimed checker and test values before local execution. The envelope's explicit comparison section remained withheld until raw observations were recorded, but the recomputation cannot be represented as fully blind.",
+      "effect_on_core_reproduction": "DISCLOSED_NOT_INVALIDATING",
+      "finding_id": "PR91-EXT-001"
+    },
+    {
+      "classification": "REVIEW_PACKAGE_CORRECTION_REQUIRED",
+      "code": "IN_REPOSITORY_VENV_CONTAMINATES_OPTIONAL_FULL_SUITE",
+      "correction": "Create the review virtual environment outside the repository checkout, or explicitly constrain the full-suite line-ending inventory to governed repository artifacts.",
+      "detail": "Following the envelope literally created .venv-fork-review inside the checkout. The repository's line-ending checker then scanned reviewer-created bin/Activate.ps1 and rejected its CRLF bytes: 725 passed, 3 skipped, 1 failed. Moving only that reviewer-created environment outside the checkout produced 726 passed, 3 skipped, exit 0.",
+      "effect_on_core_reproduction": "NONE",
+      "finding_id": "PR91-EXT-002"
+    },
+    {
+      "classification": "PUBLIC_METADATA_CORRECTION_REQUIRED",
+      "code": "PUBLIC_PR_FULL_SUITE_COUNT_MISMATCH",
+      "correction": "Correct the PR description to the observed count, or supply the exact environment and test selection that reproducibly yields 776 passes.",
+      "detail": "PR #91's public description claims 776 full-suite passes with locked dependencies. At the exact target and observed locked environment, pytest independently collected 726 tests and the clean-checkout run returned 726 passed, 3 skipped.",
+      "effect_on_core_reproduction": "NONE",
+      "finding_id": "PR91-EXT-003"
+    },
+    {
+      "classification": "PRESERVED_ADDITIONAL_NEGATIVE_EVIDENCE",
+      "code": "CONCURRENCY_CHALLENGE_EMITS_ADDITIONAL_DUPLICATE_CODE",
+      "detail": "The unreconciled-concurrency mutation emitted the required CONCURRENT_SUCCESSOR_UNRECONCILED code and also EVENT_REGISTRY_DUPLICATE. The required rejection occurred; the additional code is preserved rather than suppressed.",
+      "effect_on_core_reproduction": "NONE",
+      "finding_id": "PR91-EXT-004"
+    }
+  ],
+  "integrity": {
+    "receipt_payload_sha256": "3a8b0629076513584f47b999594b04224638f837ac201eca96d870fbe43f1bdb"
+  },
+  "measurements": {
+    "adversarial_results": [
+      {
+        "case_id": "FLR-ADV-001",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "EVENT_COVERAGE_UNRESOLVED"
+        ],
+        "rejected_as_required": true,
+        "required_code": "EVENT_COVERAGE_UNRESOLVED"
+      },
+      {
+        "case_id": "FLR-ADV-002",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "UNDECLARED_DIMENSION_CHANGE"
+        ],
+        "rejected_as_required": true,
+        "required_code": "UNDECLARED_DIMENSION_CHANGE"
+      },
+      {
+        "case_id": "FLR-ADV-003",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "CURRENT_HEAD_REVIEW_STALE"
+        ],
+        "rejected_as_required": true,
+        "required_code": "CURRENT_HEAD_REVIEW_STALE"
+      },
+      {
+        "case_id": "FLR-ADV-004",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "ADMISSION_EFFECT_MISMATCH"
+        ],
+        "rejected_as_required": true,
+        "required_code": "ADMISSION_EFFECT_MISMATCH"
+      },
+      {
+        "case_id": "FLR-ADV-005",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "EXECUTION_EFFECT_MISMATCH"
+        ],
+        "rejected_as_required": true,
+        "required_code": "EXECUTION_EFFECT_MISMATCH"
+      },
+      {
+        "case_id": "FLR-ADV-006",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "CONCURRENT_SUCCESSOR_UNRECONCILED",
+          "EVENT_REGISTRY_DUPLICATE"
+        ],
+        "rejected_as_required": true,
+        "required_code": "CONCURRENT_SUCCESSOR_UNRECONCILED"
+      },
+      {
+        "case_id": "FLR-ADV-007",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "AUTHORITY_EXPIRED_OR_REVOKED"
+        ],
+        "rejected_as_required": true,
+        "required_code": "AUTHORITY_EXPIRED_OR_REVOKED"
+      },
+      {
+        "case_id": "FLR-ADV-008",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "EVENT_TIME_PRECEDES_PARENT"
+        ],
+        "rejected_as_required": true,
+        "required_code": "EVENT_TIME_PRECEDES_PARENT"
+      },
+      {
+        "case_id": "FLR-ADV-009",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "EVIDENCE_DIGEST_MISMATCH"
+        ],
+        "rejected_as_required": true,
+        "required_code": "EVIDENCE_DIGEST_MISMATCH"
+      },
+      {
+        "case_id": "FLR-ADV-010",
+        "checker_status": "LONGITUDINAL_RECOMPUTATION_INVALID",
+        "finding_codes": [
+          "PROJECTION_REDUCER_DIVERGENCE"
+        ],
+        "rejected_as_required": true,
+        "required_code": "PROJECTION_REDUCER_DIVERGENCE"
+      }
+    ],
+    "changed_dimensions": [
+      "artifact_state",
+      "review_state",
+      "temporal_closure",
+      "unresolved_state",
+      "verification_state"
+    ],
+    "checker_status": "LONGITUDINAL_STATE_REPRODUCED",
+    "closure_node_digest_sha256": "NOT_APPLICABLE",
+    "focused_tests": {
+      "exit_code": 0,
+      "failed": 0,
+      "not_run_reason": "NONE",
+      "passed": 16,
+      "skipped": 0
+    },
+    "full_suite": {
+      "exit_code": 0,
+      "failed": 0,
+      "not_run_reason": "NONE",
+      "passed": 726,
+      "skipped": 3
+    },
+    "independently_collected_full_suite_tests": 726,
+    "interval_changed_paths": [
+      "docs/exterior-observations/reviews/EDITORIAL_CORRECTION_GOVERNED_PRESERVATION_SHA_v0_1.md",
+      "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECEIPT_v0_1.json",
+      "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECOMPUTATION_v0_1.md",
+      "docs/exterior-observations/reviews/NARROW_SUCCESSOR_REVIEW_INSTRUCTIONS_v0_1.md",
+      "docs/exterior-observations/reviews/README.md",
+      "docs/exterior-observations/reviews/REVIEW_PACKAGE_MANIFEST_v0_1.json",
+      "tests/test_exterior_review_pr89_pr90_v0_1.py",
+      "tools/check_exterior_review_pr89_pr90_v0_1.py"
+    ],
+    "interval_commit_inventory": [
+      "f955834681d2f2ee257276acbf68afde0ae0e69d"
+    ],
+    "preserved_dimensions": [
+      "admission_state",
+      "authority_state",
+      "execution_state"
+    ],
+    "state_vector_sha256": "9ce7d9b07df71481eb3020152084dce6e58b8172d7cea9f11d8bb6ec11f7a496"
+  },
+  "non_claims": [
+    "Package conformance is not substantive recomputation.",
+    "A reviewer receipt is not admission or merge authorization.",
+    "Recomputation does not establish truth, legal sufficiency, compliance, safety, or institutional authority.",
+    "Expected values must not replace observed commands, outputs, exit codes, and digests."
+  ],
+  "raw_output_artifacts": [
+    {
+      "path": "raw/acquisition_checkout_detached.meta.json",
+      "sha256": "fe9aa9d32e04a3f3a8d3ab4601200ce0aa1d06a10feb15edb3608310d6bf5d88",
+      "size_bytes": 682
+    },
+    {
+      "path": "raw/acquisition_checkout_detached.stderr",
+      "sha256": "b760e4e86dda8a2a20c46e59be0f50e055603f065272b18db9d44d199f85e361",
+      "size_bytes": 79
+    },
+    {
+      "path": "raw/acquisition_checkout_detached.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_clone.meta.json",
+      "sha256": "272aff185d49f419ff66e6771b5d64da4533bebc93ced54474df0cec67ae85ce",
+      "size_bytes": 691
+    },
+    {
+      "path": "raw/acquisition_clone.stderr",
+      "sha256": "598abda78f8ad0ca1a6f1b475ed817f49c7bff3d76f8054064b2b8f2fb9d39b6",
+      "size_bytes": 23
+    },
+    {
+      "path": "raw/acquisition_clone.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_commit_object.meta.json",
+      "sha256": "74694ff45c10e5d9909d38efc22b15c8e51202122e0e0d4c38e1194c73c9bfe8",
+      "size_bytes": 665
+    },
+    {
+      "path": "raw/acquisition_commit_object.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_commit_object.stdout",
+      "sha256": "2f7a11bcdce6d30dad87bdee15226ef9e412b573d37c91eaa69bd3a9333ccc52",
+      "size_bytes": 323
+    },
+    {
+      "path": "raw/acquisition_fetch_branch.meta.json",
+      "sha256": "be8e01e09cd41f45872b4b515de8cf5e563b9ced36981043521f41577ce8c249",
+      "size_bytes": 688
+    },
+    {
+      "path": "raw/acquisition_fetch_branch.stderr",
+      "sha256": "2ff3dd60cdadc6cd454b6810db81fce7fee6eebfe54fded64f5f145835aa4bbf",
+      "size_bytes": 146
+    },
+    {
+      "path": "raw/acquisition_fetch_branch.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_head_sha.meta.json",
+      "sha256": "241e4e2d49b5a17f8bc7831c340ce5ef07234dbf73bc8c7f5575ee188729b077",
+      "size_bytes": 611
+    },
+    {
+      "path": "raw/acquisition_head_sha.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_head_sha.stdout",
+      "sha256": "951de8a955c51aff5a03448e3ab702aa0792fcbe9244e9c9b55bbdcb2ca7c85d",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/acquisition_status.meta.json",
+      "sha256": "b22d155b2a96cd9e0e687be4a8e1a96d25da3060bdc52f904cfcab871ec2e920",
+      "size_bytes": 614
+    },
+    {
+      "path": "raw/acquisition_status.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_status.stdout",
+      "sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841",
+      "size_bytes": 20
+    },
+    {
+      "path": "raw/acquisition_tree_sha.meta.json",
+      "sha256": "46e15876608fedced17964e63621497ab10049bb7751791179f0951c40d2cd8c",
+      "size_bytes": 624
+    },
+    {
+      "path": "raw/acquisition_tree_sha.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/acquisition_tree_sha.stdout",
+      "sha256": "49c98c5dbebca7e22a66aa0674ba91f91d8164d7b90eebcbb5b65fb859350ff1",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/adversarial_challenges.meta.json",
+      "sha256": "1778b3f66b8b03928601e65f8ebdc3769e2567c5d91c56e4347c09090a439e7c",
+      "size_bytes": 818
+    },
+    {
+      "path": "raw/adversarial_challenges.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/adversarial_challenges.stdout",
+      "sha256": "90463874ff66405a602d0d76335d72e1f2ac58e41373abf0e362c2be2791b2ab",
+      "size_bytes": 3072
+    },
+    {
+      "path": "raw/clean_repo_status.meta.json",
+      "sha256": "3c1dd8ee67223b01c85c7138360411174f28cbcf42b0f40d95a031a86855887d",
+      "size_bytes": 611
+    },
+    {
+      "path": "raw/clean_repo_status.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/clean_repo_status.stdout",
+      "sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841",
+      "size_bytes": 20
+    },
+    {
+      "path": "raw/dependency_create_venv.meta.json",
+      "sha256": "c003fd0a7ca1799192b8d90d2ab3843135978c31f72c60d8bc825bd8d01cdf12",
+      "size_bytes": 630
+    },
+    {
+      "path": "raw/dependency_create_venv.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/dependency_create_venv.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/dependency_freeze.meta.json",
+      "sha256": "7a8807e27dfa8d335c74c025cc173b2bc1441fd4e5d2f2aa1b6812e9fbfe7cfa",
+      "size_bytes": 627
+    },
+    {
+      "path": "raw/dependency_freeze.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/dependency_freeze.stdout",
+      "sha256": "4585ccaa8bdbd1a8635eb0eb4b1bdc686d4166a8d4399bf65145a87ae4ce4e6e",
+      "size_bytes": 211
+    },
+    {
+      "path": "raw/dependency_install.meta.json",
+      "sha256": "7b3dc24aa0464cbc771319fbaf04d1ef59993220f4697798b0ec7c62a67b17cf",
+      "size_bytes": 689
+    },
+    {
+      "path": "raw/dependency_install.stderr",
+      "sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+      "size_bytes": 64
+    },
+    {
+      "path": "raw/dependency_install.stdout",
+      "sha256": "92e04e6585960c787b24523b4526d245fd22b76d6d76f9565f4e6d735de8bd29",
+      "size_bytes": 2254
+    },
+    {
+      "path": "raw/dependency_lock_digests.meta.json",
+      "sha256": "c3575560e3c54fb404385bbebbe2a922de8a6cd66313524ac245d9efce833a49",
+      "size_bytes": 686
+    },
+    {
+      "path": "raw/dependency_lock_digests.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/dependency_lock_digests.stdout",
+      "sha256": "5f72db4c6b5887751a2a34ce8a7fcbf47b819bd849bb6d6c778cb268e41f1823",
+      "size_bytes": 206
+    },
+    {
+      "path": "raw/dependency_venv_python_version.meta.json",
+      "sha256": "4df729bbf797eb82a0bd034137e9a7139721c2c73acb0c3ebc34b18aba5ed634",
+      "size_bytes": 661
+    },
+    {
+      "path": "raw/dependency_venv_python_version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/dependency_venv_python_version.stdout",
+      "sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b",
+      "size_bytes": 15
+    },
+    {
+      "path": "raw/derive_projection.meta.json",
+      "sha256": "0f0e064736fe1def9f349b4d482648cb7bec7b8a64eda310eb9e24706ede7192",
+      "size_bytes": 681
+    },
+    {
+      "path": "raw/derive_projection.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/derive_projection.stdout",
+      "sha256": "4f0f754ede5d48bc0dafa3e5c55e4132078d4390d6857b44b7b1e2ddf9783e5c",
+      "size_bytes": 9650
+    },
+    {
+      "path": "raw/derived_observations.meta.json",
+      "sha256": "0173def75637ae79d0eece7db0451b87a7bfc32326b6ad8178f105284f55238a",
+      "size_bytes": 722
+    },
+    {
+      "path": "raw/derived_observations.stderr",
+      "sha256": "e60e96bf45a2489c55377f9eaa4d9860b6ae267c0598ac16ab1cc0483b9f87dd",
+      "size_bytes": 125
+    },
+    {
+      "path": "raw/derived_observations.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/derived_observations_retry.meta.json",
+      "sha256": "5f7a1414b0a655240333567c3ae2d5968d3483c819b4d473017eea32ee1ad1da",
+      "size_bytes": 736
+    },
+    {
+      "path": "raw/derived_observations_retry.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/derived_observations_retry.stdout",
+      "sha256": "61c021d5572f13572b19232b9a21bca5e3fa63cca5996d097ea623e7c6231f66",
+      "size_bytes": 5491
+    },
+    {
+      "path": "raw/env_gh_version.meta.json",
+      "sha256": "72fdec5462945aa5a236fd714e80da3d711d68f95ddb7f975e8bfda934b05731",
+      "size_bytes": 589
+    },
+    {
+      "path": "raw/env_gh_version.stderr",
+      "sha256": "a4764e47ef46c09d648d1763ba2d7af024ef0a77f5d5e8c462438872901391ec",
+      "size_bytes": 88
+    },
+    {
+      "path": "raw/env_gh_version.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/env_git_version.meta.json",
+      "sha256": "460dc36c28e6e1988bd4c42cd0807c8edc31af3c03a205f2a85ec601b5ceed2d",
+      "size_bytes": 541
+    },
+    {
+      "path": "raw/env_git_version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/env_git_version.stdout",
+      "sha256": "86e56d87412c17ab76c1b5a3d50f9d374e5e28887068e6823973fd1232f1d6c6",
+      "size_bytes": 19
+    },
+    {
+      "path": "raw/env_os_release.meta.json",
+      "sha256": "57f9a0108b53f8b9cd8e84a58adb128ece75ffa9747d31008459c58fc5a22f6c",
+      "size_bytes": 557
+    },
+    {
+      "path": "raw/env_os_release.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/env_os_release.stdout",
+      "sha256": "3e5851448bae5b36f351becde037a8b13b77307279f484eda808f8177d9a4293",
+      "size_bytes": 400
+    },
+    {
+      "path": "raw/env_python_version.meta.json",
+      "sha256": "f90942f5225e955be33df174d0786181542341612b73dc3be924edf4ccc4d770",
+      "size_bytes": 553
+    },
+    {
+      "path": "raw/env_python_version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/env_python_version.stdout",
+      "sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b",
+      "size_bytes": 15
+    },
+    {
+      "path": "raw/env_uname.meta.json",
+      "sha256": "40713184adf4befe224d030857576659cea091519c5935429bba76084ad51ec5",
+      "size_bytes": 518
+    },
+    {
+      "path": "raw/env_uname.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/env_uname.stdout",
+      "sha256": "e939ddbef7fc5a7f4bd94a7604293e99ac6cbda174c6f1c14529b9d012cf737a",
+      "size_bytes": 94
+    },
+    {
+      "path": "raw/environment_move_venv_outside_repo.meta.json",
+      "sha256": "8100c01ca64673bf826e6a99f5d0a7ae05466ed45b7d585079ebbec1377ad42c",
+      "size_bytes": 675
+    },
+    {
+      "path": "raw/environment_move_venv_outside_repo.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/environment_move_venv_outside_repo.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/final_repo_status.meta.json",
+      "sha256": "e0246dcd8cdb4380d87000c619e6b628d26bf8b7bf551b590f87f669fb097a87",
+      "size_bytes": 611
+    },
+    {
+      "path": "raw/final_repo_status.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/final_repo_status.stdout",
+      "sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841",
+      "size_bytes": 20
+    },
+    {
+      "path": "raw/focused_tests.meta.json",
+      "sha256": "1b272f4be7917a9eff8f63e8abd570907384c9e4c3a5c97710ca9f256d0311f6",
+      "size_bytes": 659
+    },
+    {
+      "path": "raw/focused_tests.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/focused_tests.stdout",
+      "sha256": "c018e871956ec1c81b8d47f6b7e25524940d4be5325dfe6036f6a4594c785204",
+      "size_bytes": 99
+    },
+    {
+      "path": "raw/full_suite.meta.json",
+      "sha256": "2de3432a92ba34df16b3998ad7a2cfe5d80a97afd946679a63cb68e8faf86d5b",
+      "size_bytes": 606
+    },
+    {
+      "path": "raw/full_suite.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/full_suite.stdout",
+      "sha256": "be3aabbf033f54ec05016d19c11eb7a04ca30fa671bfc9ccf000fb06d34fef79",
+      "size_bytes": 1976
+    },
+    {
+      "path": "raw/full_suite_clean_repo.meta.json",
+      "sha256": "f22ab8fa145a4720f9c281fd4c88316d288f0ea22841d613fe44d21def23923d",
+      "size_bytes": 641
+    },
+    {
+      "path": "raw/full_suite_clean_repo.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/full_suite_clean_repo.stdout",
+      "sha256": "b20a46174a3b35aaef5cead4ff44696b4078a30615b7c87dc2b9592ae7e6436e",
+      "size_bytes": 912
+    },
+    {
+      "path": "raw/full_suite_collect_only.meta.json",
+      "sha256": "02a86713787336f43dce3231e8996ac48ef8c27acc2d191ae7932c8de89d50c4",
+      "size_bytes": 664
+    },
+    {
+      "path": "raw/full_suite_collect_only.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/full_suite_collect_only.stdout",
+      "sha256": "ae0920d256cff56fb243f5c2106d09360ce500016a6b359315422063fa47f774",
+      "size_bytes": 78873
+    },
+    {
+      "path": "raw/inventory_diff_tree.meta.json",
+      "sha256": "5488e73980bcc48dcf22522415255ee1269be69b0149875998a4feb23d9e1ffa",
+      "size_bytes": 716
+    },
+    {
+      "path": "raw/inventory_diff_tree.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/inventory_diff_tree.stdout",
+      "sha256": "7f6c139acfa34ac6d10015f6073d43cbdc1cc2fa193bf5ca2ab82dbcfd36fb26",
+      "size_bytes": 537
+    },
+    {
+      "path": "raw/inventory_rev_list.meta.json",
+      "sha256": "bbca800343c63264c86cf956cf58609d46dd5707f31e0eb57a4f1107088c5ea6",
+      "size_bytes": 708
+    },
+    {
+      "path": "raw/inventory_rev_list.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/inventory_rev_list.stdout",
+      "sha256": "73938e14bc0c8f122953eb3aba9cc3b05ce271eb5362bbac52e0a7982405e390",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/pr_metadata.meta.json",
+      "sha256": "337295b43ebc47c490ccc3818a3d21767a981732a715178578ca97b8214511f8",
+      "size_bytes": 737
+    },
+    {
+      "path": "raw/pr_metadata.stderr",
+      "sha256": "a4764e47ef46c09d648d1763ba2d7af024ef0a77f5d5e8c462438872901391ec",
+      "size_bytes": 88
+    },
+    {
+      "path": "raw/pr_metadata.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/pr_metadata_api.meta.json",
+      "sha256": "0d59be392cc6208c88117d8e4cd1069a9482fe2467ee959a5cabab295a7d555d",
+      "size_bytes": 705
+    },
+    {
+      "path": "raw/pr_metadata_api.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/pr_metadata_api.stdout",
+      "sha256": "3bb3ebed04720e2ace87f8c3cf65a8fb5162b261a644dfcf95f655a71840d2f5",
+      "size_bytes": 26091
+    },
+    {
+      "path": "raw/recompute_as_of_base.meta.json",
+      "sha256": "b6f7fa3eb7b4e7fba3f522c3e2c6e929e63597f2eea35de3d36dff47e43ddd63",
+      "size_bytes": 719
+    },
+    {
+      "path": "raw/recompute_as_of_base.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/recompute_as_of_base.stdout",
+      "sha256": "59a00d54ef2f6f1c048f622f93be2b30a9fe7192afdb4b2b46688c3528209174",
+      "size_bytes": 8313
+    },
+    {
+      "path": "raw/recompute_diff.meta.json",
+      "sha256": "fcf979fd8330dcf1c90c2235956066a15d3e770e44f8e04b59a98fa72736df33",
+      "size_bytes": 756
+    },
+    {
+      "path": "raw/recompute_diff.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/recompute_diff.stdout",
+      "sha256": "e550238a19b0c85b1d48415337965a4a3564c99cfd3fdedf23a20ea975cbf38e",
+      "size_bytes": 3816
+    },
+    {
+      "path": "raw/recompute_json.meta.json",
+      "sha256": "3a0abf6fb7128b7f5c512ebf75ae9ef3d30ee3998268a11ede78cc23c6693f61",
+      "size_bytes": 660
+    },
+    {
+      "path": "raw/recompute_json.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/recompute_json.stdout",
+      "sha256": "ab477be8a23a35f17077fec3c3ccdabb4f345567495adbdb3a1a199f7b3c85ef",
+      "size_bytes": 17579
+    }
+  ],
+  "receipt_id": "FORK_EXTERIOR_RECOMPUTATION_PR91_CHATGPT_20260724_v0_1",
+  "record_kind": "fork_longitudinal_exterior_recomputation_receipt",
+  "review_target": {
+    "acquired_head_sha": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+    "acquired_tree_sha": "0b5f11eb6c1cd8c90b4cacce2a747045da917741",
+    "acquisition_method": "Fresh partial clone; exact branch fetch; detached checkout by 40-character commit SHA; HEAD and HEAD^{tree} verified.",
+    "head_sha": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+    "pull_request": 91,
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "target_id": "PR91_LINEAR_REPLAY_V0_2",
+    "tree_sha": "0b5f11eb6c1cd8c90b4cacce2a747045da917741"
+  },
+  "reviewer_attestation": {
+    "recorded_at_utc": "2026-07-24T14:43:22Z",
+    "statement": "At the exact acquired commit and tree, the bounded longitudinal checker, state-vector digest, focused tests, interval inventory, dimension transition, and all ten registered adversarial rejections were reproduced. Corrections are required for the review-envelope environment location and public full-suite count; this receipt does not confer admission, approval, authority, publication, merge authorization, or execution permission."
+  },
+  "reviewer_disclosure": {
+    "affiliation": "OpenAI",
+    "independence_class": "PRIOR_EXPOSURE_DISCLOSED",
+    "prior_exposure": "Material prior exposure to Fork and adjacent temporal-succession work. Before exact-object acquisition in this run, the reviewer had contextual knowledge that PR #91 concerned longitudinal replay. A connector metadata read also exposed author-claimed verification values before local execution; this sequencing limitation is preserved as a finding.",
+    "relationship_to_fork": "Prior technical collaboration with Ryan Feller on Fork repository-state analysis, preservation lineage, checker and receipt framing, temporal-succession reasoning, and reviewer package preparation; not arms-length.",
+    "reviewer_id": "ChatGPT/Codex (OpenAI), conversation-scoped reviewer"
+  },
+  "schema_version": "v0.1"
+}
