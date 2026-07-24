@@ -67,8 +67,13 @@ python tools/check_longitudinal_causal_reconciliation_v0_3.py
 
 `longitudinal-recomputation-v0.3.1/README.md` freezes feature expansion and
 provides exact-target envelopes plus machine-checkable receipt templates for
-separate exterior recomputation of PR #91 and PR #92. It contains no completed
-review receipt and creates no inherited review standing.
+separate exterior recomputation of PR #91 and PR #92. The package templates
+contain no completed review result and create no inherited review standing.
+
+PR #91's first completed return, its unchanged raw ZIP, and a mechanically
+normalized schema-conforming successor are preserved separately under
+`../exterior-observations/reviews/pr91-chatgpt-20260724/`. The recorded
+disposition is `REPRODUCED_WITH_CORRECTION_REQUIRED`; PR #92 remains pending.
 
 Run:
 

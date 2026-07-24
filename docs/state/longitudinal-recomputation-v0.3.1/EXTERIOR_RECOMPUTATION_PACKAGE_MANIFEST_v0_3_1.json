@@ -2,13 +2,13 @@
   "entries": [
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_ENVELOPE_PR91_v0_1.md",
-      "sha256": "fadaf1fb7e609a4d4f9d600fc0af1be371331885a3302abacb8bdb85f34d4733",
-      "size_bytes": 4574
+      "sha256": "77a1a80c4efbc573c57303560e6178f8e743f0bbf9660fa6ad17293df34128e0",
+      "size_bytes": 5308
     },
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_ENVELOPE_PR92_v0_1.md",
-      "sha256": "c6537011dfc7b195321f280bbca041ac45e0d6a00514a9e2950fda99d7fa6c3a",
-      "size_bytes": 5717
+      "sha256": "f4420c7290b48e94422121da7d3d0a9923529a9083d9ecf4edd00fdc3d85a8f2",
+      "size_bytes": 6451
     },
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_RECEIPT_TEMPLATE_PR91_v0_1.json",
@@ -22,13 +22,13 @@
     },
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/README.md",
-      "sha256": "27fec49d06a6f1d6f008f99da689bb79c93d6a0d377f8d2993f126c45b30793b",
-      "size_bytes": 2386
+      "sha256": "a4b32e3e6c4d06850611e0db93eaaf4c060f7e3f80049eb819136cefdea8c996",
+      "size_bytes": 3632
     },
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/STACK_REVIEW_COORDINATES_v0_1.json",
-      "sha256": "ba8b39e5b948786d6c7fa4d0127787846298112d7b2ac9c7a0ef6d6c203faffa",
-      "size_bytes": 2746
+      "sha256": "c7ebc154af5f096c102df21139a3feb30d0f0709714a06bb4a28b63cf40c50ee",
+      "size_bytes": 2770
     },
     {
       "path": "schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json",
@@ -41,9 +41,19 @@
       "size_bytes": 8386
     },
     {
+      "path": "tests/test_longitudinal_exterior_recomputation_return_v0_1.py",
+      "sha256": "6992a8d5a7100ce1b30d36048f34044a71126811c7c2ec78b6d98c695af418d8",
+      "size_bytes": 5972
+    },
+    {
       "path": "tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py",
-      "sha256": "7adb16f4f52b5af37d8d59c43a32266f2e8055aaae3efde1a76852eb9412a94f",
-      "size_bytes": 24079
+      "sha256": "41f328c48910ce4338380b149545d219aed082fbe3c00aed563f476ba2d8a968",
+      "size_bytes": 24481
+    },
+    {
+      "path": "tools/check_longitudinal_exterior_recomputation_return_v0_1.py",
+      "sha256": "7c797e568c3322499e5918b71787a2706c954852a578b395bfeaa747ab0fcfcc",
+      "size_bytes": 13616
     }
   ],
   "external_moving_dependencies_not_package_members": [

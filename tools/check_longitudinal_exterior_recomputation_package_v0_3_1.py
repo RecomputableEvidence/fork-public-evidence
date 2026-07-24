@@ -27,6 +27,8 @@ README = BASE / "README.md"
 SCHEMA = Path("schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json")
 TOOL = Path("tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py")
 TEST = Path("tests/test_longitudinal_exterior_recomputation_package_v0_3_1.py")
+RETURN_TOOL = Path("tools/check_longitudinal_exterior_recomputation_return_v0_1.py")
+RETURN_TEST = Path("tests/test_longitudinal_exterior_recomputation_return_v0_1.py")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 
 EXPECTED_PACKAGE_PATHS = {
@@ -39,6 +41,8 @@ EXPECTED_PACKAGE_PATHS = {
     SCHEMA.as_posix(),
     TOOL.as_posix(),
     TEST.as_posix(),
+    RETURN_TOOL.as_posix(),
+    RETURN_TEST.as_posix(),
 }
 
 EXPECTED_TARGETS = {
@@ -94,7 +98,7 @@ EXPECTED_STACK = [
         "tree_sha": EXPECTED_TARGETS[91]["tree_sha"],
         "depends_on_pull_request": 90,
         "exact_predecessor": "f955834681d2f2ee257276acbf68afde0ae0e69d",
-        "standing": "OPEN_DRAFT_EXTERIOR_RECOMPUTATION_PENDING_NOT_ADMITTED",
+        "standing": "OPEN_DRAFT_REPRODUCED_WITH_CORRECTION_REQUIRED_RECEIPT_NORMALIZED_NOT_ADMITTED",
     },
     {
         "order": 4,
@@ -547,6 +551,8 @@ def evaluate(root: Path = ROOT) -> dict[str, Any]:
             "PRIOR_EXPOSURE_DISCLOSED",
             "Expected values must not replace",
             "NO_ADMISSION_OR_EXECUTION_EFFECT",
+            "check_longitudinal_exterior_recomputation_return_v0_1.py",
+            "fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json",
         }
         for envelope in (ENVELOPE_91, ENVELOPE_92):
             text = safe_file(root, envelope.as_posix()).read_text(encoding="utf-8")

@@ -123,6 +123,26 @@ Complete
 the raw outputs, and compute `integrity.receipt_payload_sha256` over canonical
 JSON after removing that one field.
 
+The template's empty arrays do not disclose their item shapes. Use:
+
+- `schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json`;
+- `tools/check_longitudinal_exterior_recomputation_return_v0_1.py`.
+
+Validate the completed return and its artifacts before transmission:
+
+```bash
+python tools/check_longitudinal_exterior_recomputation_return_v0_1.py \
+  --schema \
+    schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json \
+  --receipt path/to/completed-receipt.json \
+  --artifact-root path/to/return-directory \
+  --json
+```
+
+Do not widen or replace the registered object shapes. Preserve richer metadata
+as raw artifacts and refer to it from the compact `observed_result` or
+`evidence` fields.
+
 The receipt must retain `NO_ADMISSION_OR_EXECUTION_EFFECT`: provider calls,
 Pair-001 calls and repetitions remain zero; admission, merge authorization,
 publication, authority transfer, and execution permission remain `NONE`.

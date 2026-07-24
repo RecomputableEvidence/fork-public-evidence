@@ -1,0 +1,425 @@
+{
+  "disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+  "effects": {
+    "admission": "NONE",
+    "authority_transfer": "NONE",
+    "execution_permission": "NONE",
+    "merge_authorization": "NONE",
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "provider_calls": 0,
+    "publication": "NONE"
+  },
+  "environment": {
+    "claim_admission_lock_sha256": "b7c60b29661c5cd5ffaba6651962f3db20c9612fb06accfcc9dc03b0efd5d5ab",
+    "dependency_install_exit_code": 0,
+    "observed_os": "Ubuntu 24.04.3 LTS; Linux 2f6173bc6fa3 6.12.13 #1 SMP Wed Jul 22 00:33:13 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+    "proof_surface_lock_sha256": "188768b6b1167c0f556482d72be7a6fc1d938afc086c870c071e46510c0f4387",
+    "python_version": "Python 3.12.13"
+  },
+  "executions": [
+    {
+      "command": "git clone --filter=blob:none --no-checkout https://github.com/RecomputableEvidence/fork-public-evidence.git repo",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_clone; exit_code=0; stdout=acquisition_clone.stdout; stderr=acquisition_clone.stderr",
+      "stderr_sha256": "598abda78f8ad0ca1a6f1b475ed817f49c7bff3d76f8054064b2b8f2fb9d39b6",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git --version",
+      "exit_code": 0,
+      "observed_result": "record_id=env_git_version; exit_code=0; stdout=env_git_version.stdout; stderr=env_git_version.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "86e56d87412c17ab76c1b5a3d50f9d374e5e28887068e6823973fd1232f1d6c6"
+    },
+    {
+      "command": "sed -n 1\\,200p /etc/os-release",
+      "exit_code": 0,
+      "observed_result": "record_id=env_os_release; exit_code=0; stdout=env_os_release.stdout; stderr=env_os_release.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3e5851448bae5b36f351becde037a8b13b77307279f484eda808f8177d9a4293"
+    },
+    {
+      "command": "python --version",
+      "exit_code": 0,
+      "observed_result": "record_id=env_python_version; exit_code=0; stdout=env_python_version.stdout; stderr=env_python_version.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b"
+    },
+    {
+      "command": "uname -a",
+      "exit_code": 0,
+      "observed_result": "record_id=env_uname; exit_code=0; stdout=env_uname.stdout; stderr=env_uname.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e939ddbef7fc5a7f4bd94a7604293e99ac6cbda174c6f1c14529b9d012cf737a"
+    },
+    {
+      "command": "git fetch --no-tags origin refs/heads/agent/longitudinal-recomputation-replay-v0-2",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_fetch_branch; exit_code=0; stdout=acquisition_fetch_branch.stdout; stderr=acquisition_fetch_branch.stderr",
+      "stderr_sha256": "2ff3dd60cdadc6cd454b6810db81fce7fee6eebfe54fded64f5f145835aa4bbf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git checkout --detach e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_checkout_detached; exit_code=0; stdout=acquisition_checkout_detached.stdout; stderr=acquisition_checkout_detached.stderr",
+      "stderr_sha256": "b760e4e86dda8a2a20c46e59be0f50e055603f065272b18db9d44d199f85e361",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "git cat-file -p e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_commit_object; exit_code=0; stdout=acquisition_commit_object.stdout; stderr=acquisition_commit_object.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2f7a11bcdce6d30dad87bdee15226ef9e412b573d37c91eaa69bd3a9333ccc52"
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_head_sha; exit_code=0; stdout=acquisition_head_sha.stdout; stderr=acquisition_head_sha.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "951de8a955c51aff5a03448e3ab702aa0792fcbe9244e9c9b55bbdcb2ca7c85d"
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_status; exit_code=0; stdout=acquisition_status.stdout; stderr=acquisition_status.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841"
+    },
+    {
+      "command": "git rev-parse HEAD\\^\\{tree\\}",
+      "exit_code": 0,
+      "observed_result": "record_id=acquisition_tree_sha; exit_code=0; stdout=acquisition_tree_sha.stdout; stderr=acquisition_tree_sha.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "49c98c5dbebca7e22a66aa0674ba91f91d8164d7b90eebcbb5b65fb859350ff1"
+    },
+    {
+      "command": "python -m venv .venv-fork-review",
+      "exit_code": 0,
+      "observed_result": "record_id=dependency_create_venv; exit_code=0; stdout=dependency_create_venv.stdout; stderr=dependency_create_venv.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "sha256sum requirements-proof-surface.lock.txt requirements-claim-admission.lock.txt",
+      "exit_code": 0,
+      "observed_result": "record_id=dependency_lock_digests; exit_code=0; stdout=dependency_lock_digests.stdout; stderr=dependency_lock_digests.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "5f72db4c6b5887751a2a34ce8a7fcbf47b819bd849bb6d6c778cb268e41f1823"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pip install --require-hashes -r requirements-proof-surface.lock.txt",
+      "exit_code": 0,
+      "observed_result": "record_id=dependency_install; exit_code=0; stdout=dependency_install.stdout; stderr=dependency_install.stderr",
+      "stderr_sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+      "stdout_sha256": "92e04e6585960c787b24523b4526d245fd22b76d6d76f9565f4e6d735de8bd29"
+    },
+    {
+      "command": ".venv-fork-review/bin/python --version",
+      "exit_code": 0,
+      "observed_result": "record_id=dependency_venv_python_version; exit_code=0; stdout=dependency_venv_python_version.stdout; stderr=dependency_venv_python_version.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pip freeze",
+      "exit_code": 0,
+      "observed_result": "record_id=dependency_freeze; exit_code=0; stdout=dependency_freeze.stdout; stderr=dependency_freeze.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4585ccaa8bdbd1a8635eb0eb4b1bdc686d4166a8d4399bf65145a87ae4ce4e6e"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --derive-projection",
+      "exit_code": 0,
+      "observed_result": "record_id=derive_projection; exit_code=0; stdout=derive_projection.stdout; stderr=derive_projection.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "4f0f754ede5d48bc0dafa3e5c55e4132078d4390d6857b44b7b1e2ddf9783e5c"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pytest tests/test_longitudinal_recomputation_v0_2.py -q",
+      "exit_code": 0,
+      "observed_result": "record_id=focused_tests; exit_code=0; stdout=focused_tests.stdout; stderr=focused_tests.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c018e871956ec1c81b8d47f6b7e25524940d4be5325dfe6036f6a4594c785204"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --as-of bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "exit_code": 0,
+      "observed_result": "record_id=recompute_as_of_base; exit_code=0; stdout=recompute_as_of_base.stdout; stderr=recompute_as_of_base.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "59a00d54ef2f6f1c048f622f93be2b30a9fe7192afdb4b2b46688c3528209174"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --diff-from bac40d9bdbd7f6b4927a676fef8def70756ad9d5 --diff-to f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "exit_code": 0,
+      "observed_result": "record_id=recompute_diff; exit_code=0; stdout=recompute_diff.stdout; stderr=recompute_diff.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e550238a19b0c85b1d48415337965a4a3564c99cfd3fdedf23a20ea975cbf38e"
+    },
+    {
+      "command": ".venv-fork-review/bin/python tools/check_longitudinal_recomputation_v0_2.py --json",
+      "exit_code": 0,
+      "observed_result": "record_id=recompute_json; exit_code=0; stdout=recompute_json.stdout; stderr=recompute_json.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ab477be8a23a35f17077fec3c3ccdabb4f345567495adbdb3a1a199f7b3c85ef"
+    },
+    {
+      "command": "git diff-tree --no-commit-id --name-only -r bac40d9bdbd7f6b4927a676fef8def70756ad9d5 f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "exit_code": 0,
+      "observed_result": "record_id=inventory_diff_tree; exit_code=0; stdout=inventory_diff_tree.stdout; stderr=inventory_diff_tree.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "7f6c139acfa34ac6d10015f6073d43cbdc1cc2fa193bf5ca2ab82dbcfd36fb26"
+    },
+    {
+      "command": "git rev-list --reverse --ancestry-path bac40d9bdbd7f6b4927a676fef8def70756ad9d5..f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "exit_code": 0,
+      "observed_result": "record_id=inventory_rev_list; exit_code=0; stdout=inventory_rev_list.stdout; stderr=inventory_rev_list.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "73938e14bc0c8f122953eb3aba9cc3b05ce271eb5362bbac52e0a7982405e390"
+    },
+    {
+      "command": ".venv-fork-review/bin/python /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/run_adversarial_challenges.py /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724/repo",
+      "exit_code": 0,
+      "observed_result": "record_id=adversarial_challenges; exit_code=0; stdout=adversarial_challenges.stdout; stderr=adversarial_challenges.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "90463874ff66405a602d0d76335d72e1f2ac58e41373abf0e362c2be2791b2ab"
+    },
+    {
+      "command": ".venv-fork-review/bin/python -m pytest -q",
+      "exit_code": 1,
+      "observed_result": "record_id=full_suite; exit_code=1; stdout=full_suite.stdout; stderr=full_suite.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "be3aabbf033f54ec05016d19c11eb7a04ca30fa671bfc9ccf000fb06d34fef79"
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "observed_result": "record_id=clean_repo_status; exit_code=0; stdout=clean_repo_status.stdout; stderr=clean_repo_status.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841"
+    },
+    {
+      "command": "mv .venv-fork-review ../.venv-fork-review",
+      "exit_code": 0,
+      "observed_result": "record_id=environment_move_venv_outside_repo; exit_code=0; stdout=environment_move_venv_outside_repo.stdout; stderr=environment_move_venv_outside_repo.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "../.venv-fork-review/bin/python -m pytest -q",
+      "exit_code": 0,
+      "observed_result": "record_id=full_suite_clean_repo; exit_code=0; stdout=full_suite_clean_repo.stdout; stderr=full_suite_clean_repo.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b20a46174a3b35aaef5cead4ff44696b4078a30615b7c87dc2b9592ae7e6436e"
+    },
+    {
+      "command": "gh --version",
+      "exit_code": 127,
+      "observed_result": "record_id=env_gh_version; exit_code=127; stdout=env_gh_version.stdout; stderr=env_gh_version.stderr",
+      "stderr_sha256": "a4764e47ef46c09d648d1763ba2d7af024ef0a77f5d5e8c462438872901391ec",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "gh pr view 91 --repo RecomputableEvidence/fork-public-evidence --json number\\,state\\,isDraft\\,headRefName\\,headRefOid\\,baseRefName\\,baseRefOid\\,title\\,body\\,url",
+      "exit_code": 127,
+      "observed_result": "record_id=pr_metadata; exit_code=127; stdout=pr_metadata.stdout; stderr=pr_metadata.stderr",
+      "stderr_sha256": "a4764e47ef46c09d648d1763ba2d7af024ef0a77f5d5e8c462438872901391ec",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "curl --location --fail --silent --show-error https://api.github.com/repos/RecomputableEvidence/fork-public-evidence/pulls/91",
+      "exit_code": 0,
+      "observed_result": "record_id=pr_metadata_api; exit_code=0; stdout=pr_metadata_api.stdout; stderr=pr_metadata_api.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3bb3ebed04720e2ace87f8c3cf65a8fb5162b261a644dfcf95f655a71840d2f5"
+    },
+    {
+      "command": "../.venv-fork-review/bin/python -m pytest --collect-only -q",
+      "exit_code": 0,
+      "observed_result": "record_id=full_suite_collect_only; exit_code=0; stdout=full_suite_collect_only.stdout; stderr=full_suite_collect_only.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ae0920d256cff56fb243f5c2106d09360ce500016a6b359315422063fa47f774"
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_code": 0,
+      "observed_result": "record_id=final_repo_status; exit_code=0; stdout=final_repo_status.stdout; stderr=final_repo_status.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ba051334ebc33f3162a4fd5be48615e03c8dac8ec7977e7c2752dbc1cf981841"
+    },
+    {
+      "command": "../.venv-fork-review/bin/python derive_observations.py /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724",
+      "exit_code": 127,
+      "observed_result": "record_id=derived_observations; exit_code=127; stdout=derived_observations.stdout; stderr=derived_observations.stderr",
+      "stderr_sha256": "e60e96bf45a2489c55377f9eaa4d9860b6ae267c0598ac16ab1cc0483b9f87dd",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": ".venv-fork-review/bin/python derive_observations.py /workspace/scratch/a8ace35ee762/pr91_exterior_recomputation_chatgpt_20260724",
+      "exit_code": 0,
+      "observed_result": "record_id=derived_observations_retry; exit_code=0; stdout=derived_observations_retry.stdout; stderr=derived_observations_retry.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "61c021d5572f13572b19232b9a21bca5e3fa63cca5996d097ea623e7c6231f66"
+    }
+  ],
+  "findings": [
+    {
+      "code": "EXPECTED_VALUES_EXPOSED_IN_PR_METADATA_BEFORE_LOCAL_RUN",
+      "detail": "The GitHub metadata read used to resolve PR #91 exposed the author's claimed checker and test values before local execution. The envelope's explicit comparison section remained withheld until raw observations were recorded, but the recomputation cannot be represented as fully blind.",
+      "evidence": "Preserved source receipt finding PR91-EXT-001; effect_on_core_reproduction=DISCLOSED_NOT_INVALIDATING",
+      "severity": "INFO"
+    },
+    {
+      "code": "IN_REPOSITORY_VENV_CONTAMINATES_OPTIONAL_FULL_SUITE",
+      "detail": "Following the envelope literally created .venv-fork-review inside the checkout. The repository's line-ending checker then scanned reviewer-created bin/Activate.ps1 and rejected its CRLF bytes: 725 passed, 3 skipped, 1 failed. Moving only that reviewer-created environment outside the checkout produced 726 passed, 3 skipped, exit 0. Correction: Create the review virtual environment outside the repository checkout, or explicitly constrain the full-suite line-ending inventory to governed repository artifacts.",
+      "evidence": "Preserved source receipt finding PR91-EXT-002; effect_on_core_reproduction=NONE",
+      "severity": "MINOR"
+    },
+    {
+      "code": "PUBLIC_PR_FULL_SUITE_COUNT_MISMATCH",
+      "detail": "PR #91's public description claims 776 full-suite passes with locked dependencies. At the exact target and observed locked environment, pytest independently collected 726 tests and the clean-checkout run returned 726 passed, 3 skipped. Correction: Correct the PR description to the observed count, or supply the exact environment and test selection that reproducibly yields 776 passes.",
+      "evidence": "Preserved source receipt finding PR91-EXT-003; effect_on_core_reproduction=NONE",
+      "severity": "MINOR"
+    },
+    {
+      "code": "CONCURRENCY_CHALLENGE_EMITS_ADDITIONAL_DUPLICATE_CODE",
+      "detail": "The unreconciled-concurrency mutation emitted the required CONCURRENT_SUCCESSOR_UNRECONCILED code and also EVENT_REGISTRY_DUPLICATE. The required rejection occurred; the additional code is preserved rather than suppressed.",
+      "evidence": "Preserved source receipt finding PR91-EXT-004; effect_on_core_reproduction=NONE",
+      "severity": "INFO"
+    },
+    {
+      "code": "SOURCE_RETURN_RECEIPT_SCHEMA_NORMALIZED",
+      "detail": "The sealed source return contained richer execution, finding, measurement, and adversarial objects than schema v0.1 accepts. This successor mechanically projects those objects into the registered compact shapes without rerunning commands or changing the recorded disposition.",
+      "evidence": "source_receipt_sha256=51d8249fe85fff34d288c1bfd7198639eecbd11e6fc4ae4872666fe63fcfacb9; source_zip_sha256=cb37f93be096d80f0f8ec5bc6082829ba4273bc1b214608da341949d46625155",
+      "severity": "INFO"
+    }
+  ],
+  "integrity": {
+    "receipt_payload_sha256": "98b01740885b8cd43f11ff042ebe9cf6a716534b71662f1cfc974c045209b3e4"
+  },
+  "measurements": {
+    "adversarial_results": [
+      {
+        "case_id": "FLR-ADV-001",
+        "conforms": true,
+        "expected": "REJECT_WITH_EVENT_COVERAGE_UNRESOLVED",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=EVENT_COVERAGE_UNRESOLVED"
+      },
+      {
+        "case_id": "FLR-ADV-002",
+        "conforms": true,
+        "expected": "REJECT_WITH_UNDECLARED_DIMENSION_CHANGE",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=UNDECLARED_DIMENSION_CHANGE"
+      },
+      {
+        "case_id": "FLR-ADV-003",
+        "conforms": true,
+        "expected": "REJECT_WITH_CURRENT_HEAD_REVIEW_STALE",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=CURRENT_HEAD_REVIEW_STALE"
+      },
+      {
+        "case_id": "FLR-ADV-004",
+        "conforms": true,
+        "expected": "REJECT_WITH_ADMISSION_EFFECT_MISMATCH",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=ADMISSION_EFFECT_MISMATCH"
+      },
+      {
+        "case_id": "FLR-ADV-005",
+        "conforms": true,
+        "expected": "REJECT_WITH_EXECUTION_EFFECT_MISMATCH",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=EXECUTION_EFFECT_MISMATCH"
+      },
+      {
+        "case_id": "FLR-ADV-006",
+        "conforms": true,
+        "expected": "REJECT_WITH_CONCURRENT_SUCCESSOR_UNRECONCILED",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=CONCURRENT_SUCCESSOR_UNRECONCILED,EVENT_REGISTRY_DUPLICATE"
+      },
+      {
+        "case_id": "FLR-ADV-007",
+        "conforms": true,
+        "expected": "REJECT_WITH_AUTHORITY_EXPIRED_OR_REVOKED",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=AUTHORITY_EXPIRED_OR_REVOKED"
+      },
+      {
+        "case_id": "FLR-ADV-008",
+        "conforms": true,
+        "expected": "REJECT_WITH_EVENT_TIME_PRECEDES_PARENT",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=EVENT_TIME_PRECEDES_PARENT"
+      },
+      {
+        "case_id": "FLR-ADV-009",
+        "conforms": true,
+        "expected": "REJECT_WITH_EVIDENCE_DIGEST_MISMATCH",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=EVIDENCE_DIGEST_MISMATCH"
+      },
+      {
+        "case_id": "FLR-ADV-010",
+        "conforms": true,
+        "expected": "REJECT_WITH_PROJECTION_REDUCER_DIVERGENCE",
+        "observed": "status=LONGITUDINAL_RECOMPUTATION_INVALID; finding_codes=PROJECTION_REDUCER_DIVERGENCE"
+      }
+    ],
+    "checker_status": "LONGITUDINAL_STATE_REPRODUCED",
+    "closure_node_digest_sha256": "NOT_APPLICABLE",
+    "focused_tests": {
+      "exit_code": 0,
+      "failed": 0,
+      "not_run_reason": "NONE",
+      "passed": 16,
+      "skipped": 0
+    },
+    "full_suite": {
+      "exit_code": 0,
+      "failed": 0,
+      "not_run_reason": "NONE",
+      "passed": 726,
+      "skipped": 3
+    },
+    "state_vector_sha256": "9ce7d9b07df71481eb3020152084dce6e58b8172d7cea9f11d8bb6ec11f7a496"
+  },
+  "non_claims": [
+    "Package conformance is not substantive recomputation.",
+    "A reviewer receipt is not admission or merge authorization.",
+    "Recomputation does not establish truth, legal sufficiency, compliance, safety, or institutional authority.",
+    "Expected values must not replace observed commands, outputs, exit codes, and digests."
+  ],
+  "raw_output_artifacts": [
+    {
+      "path": "ORIGINAL_EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_v0_1.json",
+      "sha256": "51d8249fe85fff34d288c1bfd7198639eecbd11e6fc4ae4872666fe63fcfacb9",
+      "size_bytes": 53662
+    },
+    {
+      "path": "ORIGINAL_FORK_PR91_EXTERIOR_RECOMPUTATION_CHATGPT_20260724_v0_1.zip",
+      "sha256": "cb37f93be096d80f0f8ec5bc6082829ba4273bc1b214608da341949d46625155",
+      "size_bytes": 94901
+    }
+  ],
+  "receipt_id": "FORK_EXTERIOR_RECOMPUTATION_PR91_CHATGPT_20260724_NORMALIZED_v0_1_1",
+  "record_kind": "fork_longitudinal_exterior_recomputation_receipt",
+  "review_target": {
+    "acquired_head_sha": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+    "acquired_tree_sha": "0b5f11eb6c1cd8c90b4cacce2a747045da917741",
+    "acquisition_method": "Fresh partial clone; exact branch fetch; detached checkout by 40-character commit SHA; HEAD and HEAD^{tree} verified.",
+    "head_sha": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+    "pull_request": 91,
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "target_id": "PR91_LINEAR_REPLAY_V0_2",
+    "tree_sha": "0b5f11eb6c1cd8c90b4cacce2a747045da917741"
+  },
+  "reviewer_attestation": {
+    "recorded_at_utc": "2026-07-24T14:43:22Z",
+    "statement": "At the exact acquired commit and tree, the bounded longitudinal checker, state-vector digest, focused tests, interval inventory, dimension transition, and all ten registered adversarial rejections were reproduced. Corrections are required for the review-envelope environment location and public full-suite count; this receipt does not confer admission, approval, authority, publication, merge authorization, or execution permission."
+  },
+  "reviewer_disclosure": {
+    "affiliation": "OpenAI",
+    "independence_class": "PRIOR_EXPOSURE_DISCLOSED",
+    "prior_exposure": "Material prior exposure to Fork and adjacent temporal-succession work. Before exact-object acquisition in this run, the reviewer had contextual knowledge that PR #91 concerned longitudinal replay. A connector metadata read also exposed author-claimed verification values before local execution; this sequencing limitation is preserved as a finding.",
+    "relationship_to_fork": "Prior technical collaboration with Ryan Feller on Fork repository-state analysis, preservation lineage, checker and receipt framing, temporal-succession reasoning, and reviewer package preparation; not arms-length.",
+    "reviewer_id": "ChatGPT/Codex (OpenAI), conversation-scoped reviewer"
+  },
+  "schema_version": "v0.1"
+}
