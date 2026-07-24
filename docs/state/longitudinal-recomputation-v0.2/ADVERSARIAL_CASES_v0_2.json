@@ -1,0 +1,61 @@
+{
+  "schema_version": "v0.2",
+  "record_kind": "fork_longitudinal_recomputation_adversarial_cases",
+  "fixture_set_id": "FLR-ADV-v0.2",
+  "cases": [
+    {
+      "case_id": "FLR-ADV-001",
+      "mutation": "REMOVE_INTERVAL_EVENT",
+      "expected_code": "EVENT_COVERAGE_UNRESOLVED"
+    },
+    {
+      "case_id": "FLR-ADV-002",
+      "mutation": "ADD_UNDECLARED_DIMENSION_EFFECT",
+      "expected_code": "UNDECLARED_DIMENSION_CHANGE"
+    },
+    {
+      "case_id": "FLR-ADV-003",
+      "mutation": "PROMOTE_REVIEW_TO_CURRENT_HEAD",
+      "expected_code": "CURRENT_HEAD_REVIEW_STALE"
+    },
+    {
+      "case_id": "FLR-ADV-004",
+      "mutation": "PROMOTE_EVIDENCE_PRESERVATION_TO_ADMISSION",
+      "expected_code": "ADMISSION_EFFECT_MISMATCH"
+    },
+    {
+      "case_id": "FLR-ADV-005",
+      "mutation": "PROMOTE_EXECUTION_WITHOUT_EFFECT",
+      "expected_code": "EXECUTION_EFFECT_MISMATCH"
+    },
+    {
+      "case_id": "FLR-ADV-006",
+      "mutation": "ADD_CONCURRENT_SUCCESSOR",
+      "expected_code": "CONCURRENT_SUCCESSOR_UNRECONCILED"
+    },
+    {
+      "case_id": "FLR-ADV-007",
+      "mutation": "LEAVE_EXPIRED_AUTHORITY_ACTIVE",
+      "expected_code": "AUTHORITY_EXPIRED_OR_REVOKED"
+    },
+    {
+      "case_id": "FLR-ADV-008",
+      "mutation": "BACKDATE_EVENT_BEFORE_PARENT",
+      "expected_code": "EVENT_TIME_PRECEDES_PARENT"
+    },
+    {
+      "case_id": "FLR-ADV-009",
+      "mutation": "MUTATE_BOUND_REVIEW_RECEIPT",
+      "expected_code": "EVIDENCE_DIGEST_MISMATCH"
+    },
+    {
+      "case_id": "FLR-ADV-010",
+      "mutation": "CHANGE_COMMITTED_PROJECTION_CACHE",
+      "expected_code": "PROJECTION_REDUCER_DIVERGENCE"
+    }
+  ],
+  "non_claims": [
+    "The fixture set is not exhaustive.",
+    "Rejection establishes only the named contract boundary."
+  ]
+}

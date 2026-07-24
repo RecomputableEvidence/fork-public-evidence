@@ -1,0 +1,149 @@
+{
+  "schema_version": "v0.2",
+  "record_kind": "fork_longitudinal_event_registry",
+  "registry_id": "FORK_LONGITUDINAL_EVENT_REGISTRY_PR90_REVIEW_SUCCESSION_v0_2",
+  "coverage_interval": {
+    "base_commit_exclusive": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "closure_commit_inclusive": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+    "traversal": "GIT_ANCESTRY_PATH_ALL_COMMITS",
+    "scope": [
+      "repository_commits",
+      "artifact_state",
+      "verification_state",
+      "review_state",
+      "admission_state",
+      "authority_state",
+      "execution_state",
+      "unresolved_state",
+      "temporal_closure"
+    ]
+  },
+  "events": [
+    {
+      "ordinal": 1,
+      "event_id": "FLR-E001-PR90-EXTERIOR-REVIEW-PRESERVED",
+      "event_kind": "EVIDENCE_PRESERVATION",
+      "source_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "source_tree": "52ca08a41173e031ade01b9b6ec529cc80776380",
+      "source_parent_commits": [
+        "bac40d9bdbd7f6b4927a676fef8def70756ad9d5"
+      ],
+      "occurred_at_utc": "2026-07-23T06:43:54Z",
+      "predecessor_event_ids": [],
+      "changed_paths": [
+        "docs/exterior-observations/reviews/EDITORIAL_CORRECTION_GOVERNED_PRESERVATION_SHA_v0_1.md",
+        "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECEIPT_v0_1.json",
+        "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECOMPUTATION_v0_1.md",
+        "docs/exterior-observations/reviews/NARROW_SUCCESSOR_REVIEW_INSTRUCTIONS_v0_1.md",
+        "docs/exterior-observations/reviews/README.md",
+        "docs/exterior-observations/reviews/REVIEW_PACKAGE_MANIFEST_v0_1.json",
+        "tests/test_exterior_review_pr89_pr90_v0_1.py",
+        "tools/check_exterior_review_pr89_pr90_v0_1.py"
+      ],
+      "coverage_classification": "ACCOUNTED_EVIDENCE_PRESERVATION_EVENT_NOT_ADMISSION",
+      "affected_dimensions": [
+        "artifact_state",
+        "verification_state",
+        "review_state",
+        "unresolved_state",
+        "temporal_closure"
+      ],
+      "dimension_effects": {
+        "artifact_state": {
+          "operation": "REPLACE",
+          "after": {
+            "standing": "EXACT_ARTIFACT_COORDINATE_AT_REPLAY_CLOSURE",
+            "basis_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+            "basis_tree": "52ca08a41173e031ade01b9b6ec529cc80776380",
+            "freshness": "CURRENT_ONLY_AT_EXACT_REPLAY_CLOSURE"
+          }
+        },
+        "verification_state": {
+          "operation": "REPLACE",
+          "after": {
+            "standing": "PREDECESSOR_HEAD_INDEPENDENTLY_RECOMPUTED_CURRENT_HEAD_NOT_SEPARATELY_RECOMPUTED",
+            "reviewed_head": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+            "current_head": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+            "disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+            "freshness": "EXACT_HEAD_BOUND_NO_REVIEW_INHERITANCE"
+          }
+        },
+        "review_state": {
+          "operation": "REPLACE",
+          "after": {
+            "standing": "BOUNDED_EXTERIOR_REVIEW_PRESERVED",
+            "reviewed_head": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+            "preservation_head": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+            "reviewer_standing": "PRIOR_EXPOSURE_DISCLOSED",
+            "attribution": "UNRESOLVED_NOT_AUTHENTICATED",
+            "freshness": "CURRENT_FOR_REVIEWED_HEAD_ONLY"
+          }
+        },
+        "unresolved_state": {
+          "operation": "REPLACE",
+          "after": {
+            "standing": "OPEN",
+            "items": [
+              "EVENT_REGISTRY_COMPLETENESS_OUTSIDE_DECLARED_GIT_INTERVAL",
+              "ORIGINAL_AUDIT_AUTHORSHIP_AND_SESSION_ATTRIBUTION_UNRESOLVED",
+              "REPOSITORY_WIDE_REVIEW_NOT_PERFORMED",
+              "CLAIM_LEDGER_NOT_VERIFIED_CLAIM_BY_CLAIM",
+              "CURRENT_PRESERVATION_HEAD_NOT_SEPARATELY_RECOMPUTED_BY_RECORDED_EXTERIOR_REVIEW",
+              "MUTABLE_GITHUB_PR_METADATA_NOT_BOUND_IN_REPLAY_PACKAGE"
+            ],
+            "freshness": "AT_EXACT_REPLAY_CLOSURE"
+          }
+        },
+        "temporal_closure": {
+          "operation": "REPLACE",
+          "after": {
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "commit_sha": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+            "tree_sha": "52ca08a41173e031ade01b9b6ec529cc80776380",
+            "as_of_utc": "2026-07-23T06:43:54Z"
+          }
+        }
+      },
+      "admission_effect": "NONE",
+      "authority_effect": "NONE",
+      "execution_effect": "NONE",
+      "revokes_event_ids": [],
+      "reconciles_event_ids": [],
+      "evidence_refs": [
+        {
+          "path": "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECEIPT_v0_1.json",
+          "sha256": "f1baba87c56731b10066d2daec362b05770e5deaa33447fdf6a1dcc8dab31aa9",
+          "size_bytes": 5856,
+          "role": "BOUNDED_EXTERIOR_REVIEW_RECEIPT"
+        },
+        {
+          "path": "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECOMPUTATION_v0_1.md",
+          "sha256": "36713db2c7e32b396a0d2046af5e4a4ca658512e483361963efcd4412072cf40",
+          "size_bytes": 14827,
+          "role": "PRESERVED_RECOMPUTATION_REPORT"
+        },
+        {
+          "path": "docs/exterior-observations/reviews/REVIEW_PACKAGE_MANIFEST_v0_1.json",
+          "sha256": "d1c2a37cd1f37d97dad76878684659166718d1a1257257e0f89da7d1cc73caee",
+          "size_bytes": 1820,
+          "role": "REVIEW_PACKAGE_FILE_INVENTORY"
+        }
+      ],
+      "unresolved": [
+        "The preserved review does not independently review the commit that preserves it.",
+        "Mutable GitHub pull-request metadata is outside the repository-byte replay."
+      ],
+      "non_claims": [
+        "Preserving review evidence is not admission, publication, merge authorization, authority transfer, or execution permission.",
+        "Review standing does not inherit from bac40d9b to f955834.",
+        "This event performs zero provider calls and zero Pair-001 repetitions."
+      ]
+    }
+  ],
+  "non_claims": [
+    "The registry accounts for commits only in its exact declared Git interval.",
+    "An accounted commit is not automatically an admitted event.",
+    "An omitted semantic event outside the interval cannot be discovered by this registry.",
+    "Mutable GitHub metadata requires a separately captured and bound receipt."
+  ]
+}

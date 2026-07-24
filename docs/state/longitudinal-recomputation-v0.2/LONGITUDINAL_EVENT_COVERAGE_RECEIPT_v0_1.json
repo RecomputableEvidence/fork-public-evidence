@@ -1,0 +1,69 @@
+{
+  "classification": {
+    "ACCOUNTED_ADMITTED_STATE_CHANGE": [],
+    "ACCOUNTED_EVIDENCE_PRESERVATION_EVENT_NOT_ADMISSION": [
+      "f955834681d2f2ee257276acbf68afde0ae0e69d"
+    ],
+    "ACCOUNTED_EXCLUDED_WITH_REASON": [],
+    "ACCOUNTED_UNRESOLVED": []
+  },
+  "classified_commit_count": 1,
+  "commit_count": 1,
+  "git_inventory": [
+    {
+      "changed_paths": [
+        "docs/exterior-observations/reviews/EDITORIAL_CORRECTION_GOVERNED_PRESERVATION_SHA_v0_1.md",
+        "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECEIPT_v0_1.json",
+        "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECOMPUTATION_v0_1.md",
+        "docs/exterior-observations/reviews/NARROW_SUCCESSOR_REVIEW_INSTRUCTIONS_v0_1.md",
+        "docs/exterior-observations/reviews/README.md",
+        "docs/exterior-observations/reviews/REVIEW_PACKAGE_MANIFEST_v0_1.json",
+        "tests/test_exterior_review_pr89_pr90_v0_1.py",
+        "tools/check_exterior_review_pr89_pr90_v0_1.py"
+      ],
+      "commit_sha": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "committed_at_utc": "2026-07-23T06:43:54Z",
+      "parent_commits": [
+        "bac40d9bdbd7f6b4927a676fef8def70756ad9d5"
+      ],
+      "subject": "docs(review): preserve bounded PR 89/90 recomputation receipt",
+      "tree_sha": "52ca08a41173e031ade01b9b6ec529cc80776380"
+    }
+  ],
+  "interpretation": {
+    "does_not_prove": [
+      "semantic event completeness outside the interval",
+      "correct event classification",
+      "admission",
+      "authority",
+      "truth",
+      "execution permission"
+    ],
+    "proves": [
+      "every Git commit in the exact declared ancestry-path interval is classified",
+      "registered commits bind their exact tree, parents, and changed paths"
+    ]
+  },
+  "interval": {
+    "base_commit_exclusive": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "closure_commit_inclusive": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+    "scope": [
+      "repository_commits",
+      "artifact_state",
+      "verification_state",
+      "review_state",
+      "admission_state",
+      "authority_state",
+      "execution_state",
+      "unresolved_state",
+      "temporal_closure"
+    ],
+    "traversal": "GIT_ANCESTRY_PATH_ALL_COMMITS"
+  },
+  "receipt_id": "FORK_LONGITUDINAL_EVENT_COVERAGE_PR90_REVIEW_SUCCESSION_v0_1",
+  "record_kind": "fork_longitudinal_event_coverage_receipt",
+  "registered_commits_outside_interval": [],
+  "result": "BOUNDED_EVENT_COVERAGE_REPRODUCED",
+  "schema_version": "v0.1",
+  "unclassified_commits": []
+}

@@ -1,0 +1,108 @@
+{
+  "after_state_sha256": "9ce7d9b07df71481eb3020152084dce6e58b8172d7cea9f11d8bb6ec11f7a496",
+  "applied_events": [
+    {
+      "after_state_sha256": "9ce7d9b07df71481eb3020152084dce6e58b8172d7cea9f11d8bb6ec11f7a496",
+      "before_state_sha256": "48bb28007f9e79c93b7ca09f1c6bb613957aeaf6653d92fdb7f265fa91a2af25",
+      "changed_dimensions": [
+        "artifact_state",
+        "review_state",
+        "temporal_closure",
+        "unresolved_state",
+        "verification_state"
+      ],
+      "event_id": "FLR-E001-PR90-EXTERIOR-REVIEW-PRESERVED",
+      "preserved_dimensions": [
+        "admission_state",
+        "authority_state",
+        "execution_state"
+      ],
+      "source_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d"
+    }
+  ],
+  "before_state_sha256": "48bb28007f9e79c93b7ca09f1c6bb613957aeaf6653d92fdb7f265fa91a2af25",
+  "changed_dimensions": [
+    "artifact_state",
+    "review_state",
+    "temporal_closure",
+    "unresolved_state",
+    "verification_state"
+  ],
+  "dimension_deltas": {
+    "admission_state": {
+      "after_standing": "NONE",
+      "before_standing": "NONE",
+      "changed": false
+    },
+    "artifact_state": {
+      "after_standing": "EXACT_ARTIFACT_COORDINATE_AT_REPLAY_CLOSURE",
+      "before_standing": "EXACT_ARTIFACT_COORDINATE_AT_REPLAY_START",
+      "changed": true
+    },
+    "authority_state": {
+      "after_standing": "NONE",
+      "before_standing": "NONE",
+      "changed": false
+    },
+    "execution_state": {
+      "after_standing": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+      "before_standing": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+      "changed": false
+    },
+    "review_state": {
+      "after_standing": "BOUNDED_EXTERIOR_REVIEW_PRESERVED",
+      "before_standing": "NO_EXTERIOR_REVIEW_RECEIPT_PRESENT_AT_REPLAY_START",
+      "changed": true
+    },
+    "temporal_closure": {
+      "after_standing": "CLOSED_AT_EXACT_COMMIT",
+      "before_standing": "CLOSED_AT_EXACT_COMMIT",
+      "changed": true
+    },
+    "unresolved_state": {
+      "after_standing": "OPEN",
+      "before_standing": "OPEN",
+      "changed": true
+    },
+    "verification_state": {
+      "after_standing": "PREDECESSOR_HEAD_INDEPENDENTLY_RECOMPUTED_CURRENT_HEAD_NOT_SEPARATELY_RECOMPUTED",
+      "before_standing": "SOURCE_HEAD_CONFORMANCE_DECLARED_IN_SOURCE_MATERIAL_NOT_YET_EXTERIORLY_RECOMPUTED_IN_THIS_LINEAGE",
+      "changed": true
+    }
+  },
+  "effects": {
+    "admission": "NONE",
+    "execution_authority": "NONE",
+    "existing_pull_requests": "NONE",
+    "main_ref": "NONE",
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "preservation_ref": "NONE",
+    "provider_calls": 0,
+    "readiness": "NONE",
+    "retry_authorization": "NONE"
+  },
+  "from_coordinate": {
+    "commit_sha": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "standing": "EXACT_REPLAY_START_NOT_MOVING_BRANCH_NAME",
+    "tree_sha": "aa8b1e5f47d2ca062588b8f50c58fa6014ee29ba"
+  },
+  "non_claims": [
+    "The receipt does not admit either coordinate.",
+    "The receipt does not transfer review standing to an unreviewed head.",
+    "The receipt performs no provider call or Pair-001 repetition."
+  ],
+  "preserved_dimensions": [
+    "admission_state",
+    "authority_state",
+    "execution_state"
+  ],
+  "receipt_id": "FORK_STANDING_TRANSITION_PR90_REVIEW_SUCCESSION_v0_1",
+  "record_kind": "fork_standing_transition_receipt",
+  "result": "STANDING_TRANSITION_RECOMPUTED",
+  "schema_version": "v0.1",
+  "to_coordinate": {
+    "commit_sha": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+    "tree_sha": "52ca08a41173e031ade01b9b6ec529cc80776380"
+  }
+}

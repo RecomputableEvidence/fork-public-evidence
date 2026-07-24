@@ -1,0 +1,242 @@
+{
+  "applied_event_ids": [
+    "FLR-E001-PR90-EXTERIOR-REVIEW-PRESERVED"
+  ],
+  "currentness_by_dimension": {
+    "admission_state": {
+      "basis_commit": null,
+      "freshness": "UNCHANGED",
+      "standing": "NONE"
+    },
+    "artifact_state": {
+      "basis_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "freshness": "CURRENT_ONLY_AT_EXACT_REPLAY_CLOSURE",
+      "standing": "EXACT_ARTIFACT_COORDINATE_AT_REPLAY_CLOSURE"
+    },
+    "authority_state": {
+      "basis_commit": null,
+      "freshness": "UNCHANGED",
+      "standing": "NONE"
+    },
+    "execution_state": {
+      "basis_commit": null,
+      "freshness": "DERIVED_FROM_BOUND_PRIMARY_EVIDENCE",
+      "standing": "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+    },
+    "review_state": {
+      "basis_commit": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "freshness": "CURRENT_FOR_REVIEWED_HEAD_ONLY",
+      "standing": "BOUNDED_EXTERIOR_REVIEW_PRESERVED"
+    },
+    "temporal_closure": {
+      "basis_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "freshness": null,
+      "standing": "CLOSED_AT_EXACT_COMMIT"
+    },
+    "unresolved_state": {
+      "basis_commit": null,
+      "freshness": "AT_EXACT_REPLAY_CLOSURE",
+      "standing": "OPEN"
+    },
+    "verification_state": {
+      "basis_commit": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "freshness": "EXACT_HEAD_BOUND_NO_REVIEW_INHERITANCE",
+      "standing": "PREDECESSOR_HEAD_INDEPENDENTLY_RECOMPUTED_CURRENT_HEAD_NOT_SEPARATELY_RECOMPUTED"
+    }
+  },
+  "effects": {
+    "admission": "NONE",
+    "execution_authority": "NONE",
+    "existing_pull_requests": "NONE",
+    "main_ref": "NONE",
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "preservation_ref": "NONE",
+    "provider_calls": 0,
+    "readiness": "NONE",
+    "retry_authorization": "NONE"
+  },
+  "non_claims": [
+    "A committed projection is a recomputable cache, not authority for its own conclusions.",
+    "Review standing remains bound to the exact reviewed head.",
+    "Current means current only for the exact replay closure.",
+    "The projection does not establish event completeness outside its interval.",
+    "The projection does not authorize admission, publication, merge, provider calls, retries, readiness, or execution."
+  ],
+  "projection_id": "FORK_LONGITUDINAL_CURRENT_PROJECTION_PR90_REVIEW_SUCCESSION_v0_2",
+  "projection_standing": "CURRENT_ONLY_FOR_EXACT_REPLAY_CLOSURE_NOT_DEFAULT_BRANCH",
+  "record_kind": "fork_longitudinal_recomputed_projection",
+  "replay_interval": {
+    "base_commit_exclusive": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "closure_commit_inclusive": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+    "scope": [
+      "repository_commits",
+      "artifact_state",
+      "verification_state",
+      "review_state",
+      "admission_state",
+      "authority_state",
+      "execution_state",
+      "unresolved_state",
+      "temporal_closure"
+    ],
+    "traversal": "GIT_ANCESTRY_PATH_ALL_COMMITS"
+  },
+  "schema_version": "v0.2",
+  "source_contributions": [
+    {
+      "contributed_dimensions": [
+        "execution_state"
+      ],
+      "reducer_id": "FORK_SEQUENCE_SURFACE_REDUCER_v0_1",
+      "result": "SEQUENCE_SURFACE_CONFORMS_CANDIDATE_NOT_ADMITTED",
+      "source": {
+        "base_sequence_head": "0e58a151cb5801f554619eb44a40948ad03e3e55",
+        "ledger_path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+        "ledger_sha256": "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681",
+        "transition_contract_path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+        "transition_contract_sha256": "93e07eec0fed1d3f8a9d00d5db4be6326f1449370c2bba4f886178ec636b3188"
+      }
+    },
+    {
+      "contributed_dimensions": [],
+      "reducer_id": "FORK_TEMPORAL_SUCCESSION_VALIDATOR_v0_1",
+      "result": "PREDECESSOR_SURFACE_CONFORMS",
+      "role": "PREDECESSOR_SURFACE_CONFORMANCE_ONLY"
+    }
+  ],
+  "state_vector": {
+    "admission_state": {
+      "basis": "NO_ADMISSION_EFFECT_IN_REPLAY_INTERVAL",
+      "freshness": "UNCHANGED",
+      "standing": "NONE"
+    },
+    "artifact_state": {
+      "basis_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "basis_tree": "52ca08a41173e031ade01b9b6ec529cc80776380",
+      "freshness": "CURRENT_ONLY_AT_EXACT_REPLAY_CLOSURE",
+      "standing": "EXACT_ARTIFACT_COORDINATE_AT_REPLAY_CLOSURE"
+    },
+    "authority_state": {
+      "freshness": "UNCHANGED",
+      "revoked_by_event_id": null,
+      "standing": "NONE",
+      "valid_from_utc": null,
+      "valid_until_utc": null
+    },
+    "execution_state": {
+      "drift": {
+        "cause": "UNRESOLVED",
+        "classification": "RECEIVER_IDENTIFIER_DRIFT_CAUSE_UNRESOLVED",
+        "identical_failure_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
+        "identical_failure_http_status": 500,
+        "status": "CLASSIFIED_RETRY_NOT_AUTHORIZED",
+        "uppercase_request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
+      },
+      "execution_boundary": {
+        "execution_effect": "NONE",
+        "pair_001_calls_performed_by_sequence_surface_publication": 0,
+        "pair_001_execution_permitted": false,
+        "pair_001_repeat_runs_recorded": 0,
+        "provider_calls_performed_by_sequence_surface_publication": 0,
+        "provider_execution_permitted": false,
+        "provider_validation_prerequisite_satisfied": false,
+        "readiness_effect": "NONE"
+      },
+      "freshness": "DERIVED_FROM_BOUND_PRIMARY_EVIDENCE",
+      "observed_history": {
+        "deepseek_http_500_attempts": 3,
+        "meta_successful_validation_calls": 3,
+        "pair_001_original_attempts": 2,
+        "pair_001_repetitions": 0,
+        "provider_calls": 8,
+        "provider_validation_attempts": 3,
+        "provider_validation_calls": 6
+      },
+      "reducer_id": "FORK_SEQUENCE_SURFACE_REDUCER_v0_1",
+      "reducer_result": "SEQUENCE_SURFACE_CONFORMS_CANDIDATE_NOT_ADMITTED",
+      "retry": {
+        "authorization_present": false,
+        "automatic_attempts": 0,
+        "earliest_permitted_at_utc": "2026-07-20T07:55:24.374494+00:00",
+        "explicit_authorization_required": true,
+        "minimum_gap_hours": 24,
+        "remaining_byte_identical_uppercase_attempts": 1
+      },
+      "sequence": {
+        "append_only": true,
+        "current_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+        "currently_eligible_successor_transition_ids": [],
+        "declared_successor_transition_ids": [
+          "FSS-PAIR001-T012"
+        ],
+        "event_count": 11,
+        "last_event_id": "FSS-PAIR001-E011",
+        "last_event_sha256": "6a6764bd759fb8be972c7e09321369d241164a7ca0bab4cb1bc2aba1c5780b45"
+      },
+      "source": {
+        "base_sequence_head": "0e58a151cb5801f554619eb44a40948ad03e3e55",
+        "ledger_path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+        "ledger_sha256": "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681",
+        "transition_contract_path": "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+        "transition_contract_sha256": "93e07eec0fed1d3f8a9d00d5db4be6326f1449370c2bba4f886178ec636b3188"
+      },
+      "standing": "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+    },
+    "review_state": {
+      "attribution": "UNRESOLVED_NOT_AUTHENTICATED",
+      "freshness": "CURRENT_FOR_REVIEWED_HEAD_ONLY",
+      "preservation_head": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "reviewed_head": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "reviewer_standing": "PRIOR_EXPOSURE_DISCLOSED",
+      "standing": "BOUNDED_EXTERIOR_REVIEW_PRESERVED"
+    },
+    "temporal_closure": {
+      "as_of_utc": "2026-07-23T06:43:54Z",
+      "commit_sha": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "standing": "CLOSED_AT_EXACT_COMMIT",
+      "tree_sha": "52ca08a41173e031ade01b9b6ec529cc80776380"
+    },
+    "unresolved_state": {
+      "freshness": "AT_EXACT_REPLAY_CLOSURE",
+      "items": [
+        "EVENT_REGISTRY_COMPLETENESS_OUTSIDE_DECLARED_GIT_INTERVAL",
+        "ORIGINAL_AUDIT_AUTHORSHIP_AND_SESSION_ATTRIBUTION_UNRESOLVED",
+        "REPOSITORY_WIDE_REVIEW_NOT_PERFORMED",
+        "CLAIM_LEDGER_NOT_VERIFIED_CLAIM_BY_CLAIM",
+        "CURRENT_PRESERVATION_HEAD_NOT_SEPARATELY_RECOMPUTED_BY_RECORDED_EXTERIOR_REVIEW",
+        "MUTABLE_GITHUB_PR_METADATA_NOT_BOUND_IN_REPLAY_PACKAGE"
+      ],
+      "standing": "OPEN"
+    },
+    "verification_state": {
+      "current_head": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+      "freshness": "EXACT_HEAD_BOUND_NO_REVIEW_INHERITANCE",
+      "reviewed_head": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "standing": "PREDECESSOR_HEAD_INDEPENDENTLY_RECOMPUTED_CURRENT_HEAD_NOT_SEPARATELY_RECOMPUTED"
+    }
+  },
+  "state_vector_sha256": "9ce7d9b07df71481eb3020152084dce6e58b8172d7cea9f11d8bb6ec11f7a496",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "transition_chain": [
+    {
+      "after_state_sha256": "9ce7d9b07df71481eb3020152084dce6e58b8172d7cea9f11d8bb6ec11f7a496",
+      "before_state_sha256": "48bb28007f9e79c93b7ca09f1c6bb613957aeaf6653d92fdb7f265fa91a2af25",
+      "changed_dimensions": [
+        "artifact_state",
+        "review_state",
+        "temporal_closure",
+        "unresolved_state",
+        "verification_state"
+      ],
+      "event_id": "FLR-E001-PR90-EXTERIOR-REVIEW-PRESERVED",
+      "preserved_dimensions": [
+        "admission_state",
+        "authority_state",
+        "execution_state"
+      ],
+      "source_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d"
+    }
+  ]
+}
