@@ -1,0 +1,77 @@
+name: Kubernetes Exterior Longitudinal Observation v0.1
+
+on:
+  pull_request:
+    paths:
+      - "experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/**"
+      - ".github/workflows/kubernetes-longitudinal-observation-v0-1.yml"
+  workflow_dispatch:
+    inputs:
+      run_live_observation:
+        description: "Perform one unauthenticated read-only observation"
+        required: true
+        type: boolean
+        default: false
+      previous_observation_path:
+        description: "Optional path to a prior observation.json in the checked-out ref"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate construction package
+        run: >-
+          python
+          experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/check_kubernetes_experiment_package_v0_1.py
+      - name: Run dependency-free adversarial suite
+        run: >-
+          python -m unittest discover
+          -s experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tests
+          -p "test_*.py" -v
+
+  one-read-only-observation:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_live_observation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Perform one unauthenticated observation
+        shell: bash
+        env:
+          PREVIOUS: ${{ inputs.previous_observation_path }}
+        run: |
+          set -euo pipefail
+          OUT="kubernetes-observation-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          CMD=(
+            python
+            experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/observe_kubernetes_master_v0_1.py
+            --output-dir "$OUT"
+          )
+          if [[ -n "$PREVIOUS" ]]; then
+            CMD+=(--previous-observation "$PREVIOUS")
+          fi
+          "${CMD[@]}"
+          python experiments/exterior-longitudinal-observation/kubernetes-master-v0.1/tools/check_kubernetes_observation_v0_1.py \
+            "$OUT/observation.json" --artifact-root "$OUT"
+          printf '%s\n' "$OUT" > observation-output-directory.txt
+      - name: Upload append-only run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kubernetes-master-observation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            kubernetes-observation-*
+            observation-output-directory.txt
+          if-no-files-found: error
+          retention-days: 30
