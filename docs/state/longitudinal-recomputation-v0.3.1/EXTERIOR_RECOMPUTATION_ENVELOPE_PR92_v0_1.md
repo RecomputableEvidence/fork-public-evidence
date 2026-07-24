@@ -44,16 +44,43 @@ git rev-parse HEAD^{tree}
 
 ## 3. Isolated dependency surface
 
-Create a fresh environment and record the OS, interpreter version, dependency
-installation exit code, and lock-file digests.
+Create a fresh environment **outside the repository checkout** and record the
+OS, interpreter version, dependency installation exit code, and lock-file
+digests. Keep review logs and generated artifacts outside the checkout too.
+This prevents the verification environment from entering repository-wide file
+inventories or changing the surface being measured.
+
+POSIX:
 
 ```bash
-python -m venv .venv-fork-review
+review_env_root="$(mktemp -d)"
+python -m venv "$review_env_root/venv"
+. "$review_env_root/venv/bin/activate"
 python -m pip install --require-hashes \
   -r requirements-proof-surface.lock.txt
 python --version
 python -m pip freeze
+git status --short --untracked-files=all
 ```
+
+PowerShell:
+
+```powershell
+$ReviewEnvRoot = Join-Path ([IO.Path]::GetTempPath()) (
+  "fork-pr92-review-" + [guid]::NewGuid()
+)
+New-Item -ItemType Directory -Path $ReviewEnvRoot | Out-Null
+python -m venv (Join-Path $ReviewEnvRoot "venv")
+& (Join-Path $ReviewEnvRoot "venv\Scripts\Activate.ps1")
+python -m pip install --require-hashes `
+  -r requirements-proof-surface.lock.txt
+python --version
+python -m pip freeze
+git status --short --untracked-files=all
+```
+
+Preserve the final `git status` output. An unexpected review-created path is a
+finding; do not silently delete it and report an uncontaminated checkout.
 
 Expected lock digests are comparison values, not observations:
 

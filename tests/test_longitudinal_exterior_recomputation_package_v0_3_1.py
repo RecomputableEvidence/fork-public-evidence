@@ -241,3 +241,14 @@ def test_stack_coordinates_are_bottom_up_and_exact() -> None:
     assert stack["stack"][3]["exact_predecessor"] == (
         checker.EXPECTED_TARGETS[91]["head_sha"]
     )
+
+
+def test_reviewer_environments_are_required_outside_checkout() -> None:
+    checker = load_checker()
+    for relative in (checker.ENVELOPE_91, checker.ENVELOPE_92):
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        assert "outside the repository checkout" in text
+        assert 'review_env_root="$(mktemp -d)"' in text
+        assert "[IO.Path]::GetTempPath()" in text
+        assert "git status --short --untracked-files=all" in text
+        assert ".venv-fork-review" not in text

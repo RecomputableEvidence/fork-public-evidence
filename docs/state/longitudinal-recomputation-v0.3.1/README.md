@@ -37,6 +37,12 @@ The schema and validator are shared between the two targets. When transmitting
 files outside the repository, place the schema beside the validator or pass it
 explicitly with `--schema`.
 
+Each envelope now requires the verifier's environment, logs, and generated
+artifacts to remain outside the target checkout, with POSIX and PowerShell
+examples and a preserved final `git status`. This turns the in-checkout virtual
+environment contamination observed during PR #91's first review into a
+regression-protected reviewer instruction rather than a repeated ambiguity.
+
 ## Package and receipt checks
 
 Validate this package:

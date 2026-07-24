@@ -551,6 +551,10 @@ def evaluate(root: Path = ROOT) -> dict[str, Any]:
             "PRIOR_EXPOSURE_DISCLOSED",
             "Expected values must not replace",
             "NO_ADMISSION_OR_EXECUTION_EFFECT",
+            "outside the repository checkout",
+            'review_env_root="$(mktemp -d)"',
+            "[IO.Path]::GetTempPath()",
+            "git status --short --untracked-files=all",
             "check_longitudinal_exterior_recomputation_return_v0_1.py",
             "fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json",
         }
@@ -564,6 +568,13 @@ def evaluate(root: Path = ROOT) -> dict[str, Any]:
                         f"required token {token!r} is absent",
                         envelope.as_posix(),
                     )
+            if ".venv-fork-review" in text:
+                add_finding(
+                    findings,
+                    "ENVELOPE_IN_CHECKOUT_ENVIRONMENT",
+                    "review environment must not be created inside the target checkout",
+                    envelope.as_posix(),
+                )
             pr = 91 if envelope == ENVELOPE_91 else 92
             expected = EXPECTED_TARGETS[pr]
             for coordinate in (expected["head_sha"], expected["tree_sha"]):
