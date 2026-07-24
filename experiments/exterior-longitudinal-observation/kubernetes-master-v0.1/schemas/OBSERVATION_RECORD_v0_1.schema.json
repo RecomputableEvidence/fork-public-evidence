@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/kubernetes_observation_v0_1.schema.json",
+  "title": "Fork Kubernetes Exterior Observation v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "observation_id",
+    "observer",
+    "source",
+    "request_policy",
+    "timing",
+    "retrieval_status",
+    "retrievals",
+    "projection",
+    "projection_sha256",
+    "previous_observation",
+    "findings",
+    "unresolved",
+    "effects",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "experiment_id": {
+      "const": "FORK_ELO_KUBERNETES_MASTER_v0_1"
+    },
+    "observation_id": {
+      "type": "string",
+      "pattern": "^K8S-MASTER-OBS-[0-9]{8}T[0-9]{6}Z-[0-9a-f]{12}$"
+    },
+    "observer": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "request_policy": {
+      "type": "object"
+    },
+    "timing": {
+      "type": "object"
+    },
+    "retrieval_status": {
+      "enum": [
+        "OBSERVED",
+        "RETRIEVAL_FAILED",
+        "WINDOW_INACTIVE"
+      ]
+    },
+    "retrievals": {
+      "type": "array",
+      "maxItems": 2
+    },
+    "projection": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "projection_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "previous_observation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "effects": {
+      "type": "object"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
