@@ -1,0 +1,89 @@
+{
+  "entries": [
+    {
+      "path": "docs/state/FORK_STATE_ROUTING_v0_2.json",
+      "sha256": "df6f6ac28dbcd8d4a978d8692f42952acb12f6fa3cce367c55bb254b42ac0c32",
+      "size_bytes": 1541
+    },
+    {
+      "path": "docs/state/README.md",
+      "sha256": "bd11ab581410a000e1593dda7ed25bcc5f1a5406ed193c8a5b91718240cca472",
+      "size_bytes": 1616
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/ADVERSARIAL_CASES_v0_2.json",
+      "sha256": "07b7968e319b96ce40fefdfd79946630171ba9fdb03ee332d51d80b12371d0c7",
+      "size_bytes": 1776
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/CLAIM_ADMISSION_RECEIPT_RECOMPUTATION_v0_1.md",
+      "sha256": "81c1baeff71b65aaf4e0bbc27e8d4d2457e0c047244ec4b5f45dc32b7f6937a5",
+      "size_bytes": 1401
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_CURRENT_PROJECTION_v0_2.json",
+      "sha256": "4f0f754ede5d48bc0dafa3e5c55e4132078d4390d6857b44b7b1e2ddf9783e5c",
+      "size_bytes": 9650
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_EVENT_COVERAGE_RECEIPT_v0_1.json",
+      "sha256": "97784f0f07db5d41c800aa02d65f1f80f72e425d59453b7b3f0d0d463a214068",
+      "size_bytes": 2537
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_EVENT_REGISTRY_v0_2.json",
+      "sha256": "87ac80ab18a6670319cbc531ba9ea53b1ffefbeaad228b729d0269731c022355",
+      "size_bytes": 6376
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_REPLAY_CONTRACT_v0_2.json",
+      "sha256": "e9d16108153911ba4b2cd6312d9a0c4f7a9fe4fe5cbd89d03a4c9dc1e6633c5d",
+      "size_bytes": 4680
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/NON_CLAIMS_AND_LIMITS_v0_2.md",
+      "sha256": "f3ec94a385abac39ea917d5308f41b682e7547a5c76b30778c486f37585a080b",
+      "size_bytes": 1461
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/README.md",
+      "sha256": "489a59e971ddf8f5dd4134e3e7f14fa47983b3b3b6e444d3ab54ddd94acf7969",
+      "size_bytes": 2414
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/STANDING_TRANSITION_RECEIPT_v0_1.json",
+      "sha256": "ace245f37cdcb4b2fc371b2dc4c84ec23ff695169dc0a2a9baed45b83e014605",
+      "size_bytes": 3583
+    },
+    {
+      "path": "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+      "sha256": "9c69619178137f9b20d7f7a93fe5a88bdb45c8b417dd76b8771c36d54d8d48de",
+      "size_bytes": 1997
+    },
+    {
+      "path": "schemas/fork_longitudinal_event_registry_v0_2.schema.json",
+      "sha256": "ce1e8be7f93389c6de4553ea8a962ac0cbc3747757aa7c88f57b60f235f010d5",
+      "size_bytes": 6920
+    },
+    {
+      "path": "tests/test_longitudinal_recomputation_v0_2.py",
+      "sha256": "daf19e8b825f87f30533f493d346b2895fdc409dd9da4c3f6bfdab60aa39f6eb",
+      "size_bytes": 10487
+    },
+    {
+      "path": "tools/check_longitudinal_recomputation_v0_2.py",
+      "sha256": "d014c4463c92c827ac464c64b0ded54d2aed8939707d6af21b782b47f31bf6e0",
+      "size_bytes": 47856
+    }
+  ],
+  "non_claims": [
+    "Package integrity is not admission, authority, correctness, or execution permission."
+  ],
+  "package_id": "FORK_LONGITUDINAL_RECOMPUTATION_REPLAY_v0_2",
+  "record_kind": "fork_longitudinal_recomputation_package_manifest",
+  "schema_version": "v0.2",
+  "self_exclusion": {
+    "path": "docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  }
+}

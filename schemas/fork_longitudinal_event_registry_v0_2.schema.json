@@ -1,0 +1,300 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.org/schemas/fork_longitudinal_event_registry_v0_2.schema.json",
+  "title": "Fork Longitudinal Event Registry v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_kind",
+    "registry_id",
+    "coverage_interval",
+    "events",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "v0.2"
+    },
+    "record_kind": {
+      "const": "fork_longitudinal_event_registry"
+    },
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "coverage_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "base_commit_exclusive",
+        "closure_commit_inclusive",
+        "traversal",
+        "scope"
+      ],
+      "properties": {
+        "base_commit_exclusive": {
+          "$ref": "#/$defs/sha1"
+        },
+        "closure_commit_inclusive": {
+          "$ref": "#/$defs/sha1"
+        },
+        "traversal": {
+          "const": "GIT_ANCESTRY_PATH_ALL_COMMITS"
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "sha1": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "evidence_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes",
+        "role"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/path"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dimension_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation",
+        "after"
+      ],
+      "properties": {
+        "operation": {
+          "enum": [
+            "REPLACE",
+            "PRESERVE"
+          ]
+        },
+        "after": {
+          "type": "object"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ordinal",
+        "event_id",
+        "event_kind",
+        "source_commit",
+        "source_tree",
+        "source_parent_commits",
+        "occurred_at_utc",
+        "predecessor_event_ids",
+        "changed_paths",
+        "coverage_classification",
+        "affected_dimensions",
+        "dimension_effects",
+        "admission_effect",
+        "authority_effect",
+        "execution_effect",
+        "revokes_event_ids",
+        "reconciles_event_ids",
+        "evidence_refs",
+        "unresolved",
+        "non_claims"
+      ],
+      "properties": {
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_kind": {
+          "enum": [
+            "EVIDENCE_PRESERVATION",
+            "STATE_CHANGE_ADMISSION",
+            "AUTHORITY_CONFERRED",
+            "AUTHORITY_REVOKED",
+            "AUTHORITY_EXPIRED",
+            "LINEAGE_RECONCILIATION",
+            "EXCLUDED_NO_STANDING_EFFECT",
+            "UNRESOLVED_CLASSIFICATION"
+          ]
+        },
+        "source_commit": {
+          "$ref": "#/$defs/sha1"
+        },
+        "source_tree": {
+          "$ref": "#/$defs/sha1"
+        },
+        "source_parent_commits": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/sha1"
+          }
+        },
+        "occurred_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "predecessor_event_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "changed_paths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/path"
+          }
+        },
+        "coverage_classification": {
+          "enum": [
+            "ACCOUNTED_EVIDENCE_PRESERVATION_EVENT_NOT_ADMISSION",
+            "ACCOUNTED_ADMITTED_STATE_CHANGE",
+            "ACCOUNTED_EXCLUDED_WITH_REASON",
+            "ACCOUNTED_UNRESOLVED"
+          ]
+        },
+        "affected_dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "dimension_effects": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/dimension_effect"
+          }
+        },
+        "admission_effect": {
+          "enum": [
+            "NONE",
+            "CONFER",
+            "REVOKE"
+          ]
+        },
+        "authority_effect": {
+          "enum": [
+            "NONE",
+            "CONFER",
+            "REVOKE",
+            "EXPIRE"
+          ]
+        },
+        "execution_effect": {
+          "enum": [
+            "NONE",
+            "OBSERVED_CALLS",
+            "PERMISSION_CHANGED"
+          ]
+        },
+        "revokes_event_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reconciles_event_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidence_reference"
+          }
+        },
+        "unresolved": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "non_claims": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "v0.2",
+  "record_kind": "fork_state_routing",
+  "route_id": "FORK_STATE_ROUTING_v0_2",
+  "historical_projection": {
+    "path": "docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json",
+    "sha256": "8e62fdf1adc5cacb087b8f1b2a1a1d8674521990d42b4d3897d17c49f433b098",
+    "standing": "HISTORICAL_PROJECTION_VALID_AT_RECORDED_TEMPORAL_CLOSURE_NOT_CURRENT_RELIANCE_STANDING"
+  },
+  "governed_projection": {
+    "path": "docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json",
+    "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+    "standing": "CURRENT_WITH_RESPECT_TO_EXACT_GOVERNED_PRESERVATION_COORDINATE_NOT_DEFAULT_BRANCH"
+  },
+  "longitudinal_replay_candidate": {
+    "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_CURRENT_PROJECTION_v0_2.json",
+    "base_commit": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "closure_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+    "standing": "RESEARCH_CANDIDATE_NOT_ADMITTED"
+  },
+  "interpretation_order": [
+    "Read the historical projection only at its recorded temporal closure.",
+    "Use the governed projection only with respect to its exact source coordinate.",
+    "Treat the longitudinal replay as a candidate reconstruction, not admission or authority."
+  ],
+  "non_claims": [
+    "The route does not make the default branch the governed current line.",
+    "The route does not admit the longitudinal replay candidate.",
+    "Routing does not establish truth, correctness, authority, approval, or execution permission."
+  ]
+}
