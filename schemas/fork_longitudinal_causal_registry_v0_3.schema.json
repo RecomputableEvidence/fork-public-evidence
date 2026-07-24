@@ -1,0 +1,311 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.org/schemas/fork_longitudinal_causal_registry_v0_3.schema.json",
+  "title": "Fork longitudinal causal registry v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_kind",
+    "registry_id",
+    "status",
+    "frontier",
+    "events",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "v0.3"
+    },
+    "record_kind": {
+      "const": "fork_longitudinal_causal_registry"
+    },
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "RESEARCH_CANDIDATE_NOT_ADMITTED"
+    },
+    "frontier": {
+      "$ref": "#/$defs/frontier"
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "non_claims": {
+      "$ref": "#/$defs/nonClaims"
+    }
+  },
+  "$defs": {
+    "sha1": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*\\\\).+$"
+    },
+    "nonClaims": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "state": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "anchor_id",
+        "commit_sha",
+        "tree_sha",
+        "standing",
+        "state",
+        "state_sha256"
+      ],
+      "properties": {
+        "anchor_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit_sha": {
+          "$ref": "#/$defs/sha1"
+        },
+        "tree_sha": {
+          "$ref": "#/$defs/sha1"
+        },
+        "standing": {
+          "const": "EXACT_FRONTIER_ANCHOR_NOT_MOVING_BRANCH_NAME"
+        },
+        "state": {
+          "$ref": "#/$defs/state"
+        },
+        "state_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "frontier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frontier_id",
+        "anchors",
+        "closure_commit_inclusive",
+        "standing"
+      ],
+      "properties": {
+        "frontier_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anchors": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/anchor"
+          }
+        },
+        "closure_commit_inclusive": {
+          "$ref": "#/$defs/sha1"
+        },
+        "standing": {
+          "const": "BOUNDED_MULTI_ROOT_CAUSAL_FRONTIER"
+        }
+      }
+    },
+    "dimensionEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation",
+        "before_sha256",
+        "after"
+      ],
+      "properties": {
+        "operation": {
+          "const": "REPLACE"
+        },
+        "before_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "after": true
+      }
+    },
+    "reconciliationDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy",
+        "parent_state_sha256",
+        "result",
+        "result_sha256",
+        "rationale"
+      ],
+      "properties": {
+        "policy": {
+          "enum": [
+            "REQUIRE_EQUAL",
+            "SELECT_PARENT",
+            "EXPLICIT_JOIN"
+          ]
+        },
+        "parent_state_sha256": {
+          "type": "object",
+          "minProperties": 2,
+          "propertyNames": {
+            "$ref": "#/$defs/sha1"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/sha256"
+          }
+        },
+        "selected_parent": {
+          "$ref": "#/$defs/sha1"
+        },
+        "result": true,
+        "result_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "parentDeltas": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "$ref": "#/$defs/sha1"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "$ref": "#/$defs/path"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "event_kind",
+        "source_commit",
+        "source_tree",
+        "source_parent_commits",
+        "occurred_at_utc",
+        "subject",
+        "parent_deltas",
+        "coverage_classification",
+        "dimension_effects",
+        "reconciliation_decisions",
+        "admission_effect",
+        "authority_effect",
+        "execution_effect",
+        "non_claims"
+      ],
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_kind": {
+          "enum": [
+            "BRANCH_STATE_CHANGE",
+            "CAUSAL_MERGE_RECONCILIATION"
+          ]
+        },
+        "source_commit": {
+          "$ref": "#/$defs/sha1"
+        },
+        "source_tree": {
+          "$ref": "#/$defs/sha1"
+        },
+        "source_parent_commits": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/sha1"
+          }
+        },
+        "occurred_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parent_deltas": {
+          "$ref": "#/$defs/parentDeltas"
+        },
+        "coverage_classification": {
+          "enum": [
+            "ACCOUNTED_BRANCH_STATE_CHANGE_NOT_ADMISSION",
+            "ACCOUNTED_CAUSAL_MERGE_NOT_ADMISSION"
+          ]
+        },
+        "dimension_effects": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/dimensionEffect"
+          }
+        },
+        "reconciliation_decisions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/reconciliationDecision"
+          }
+        },
+        "admission_effect": {
+          "enum": [
+            "NONE",
+            "CONFER",
+            "REVOKE",
+            "REPLACE"
+          ]
+        },
+        "authority_effect": {
+          "enum": [
+            "NONE",
+            "CONFER",
+            "REVOKE",
+            "REPLACE"
+          ]
+        },
+        "execution_effect": {
+          "enum": [
+            "NONE",
+            "CONFER",
+            "REVOKE",
+            "REPLACE"
+          ]
+        },
+        "non_claims": {
+          "$ref": "#/$defs/nonClaims"
+        }
+      }
+    }
+  }
+}

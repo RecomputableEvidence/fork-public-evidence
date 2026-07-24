@@ -1,0 +1,375 @@
+{
+  "active_event_heads": [
+    "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d"
+  ],
+  "frontier": {
+    "anchors": [
+      {
+        "anchor_id": "FRONTIER-A-MAINLINE-BEFORE-SEQUENCE-JOIN",
+        "commit_sha": "5fbabbd486d4e863d23e0096600185ada92539a6",
+        "standing": "EXACT_FRONTIER_ANCHOR_NOT_MOVING_BRANCH_NAME",
+        "state": {
+          "admission_state": {
+            "basis": "PR81_AND_PR82_PRECEDE_SEPARATE_PR83_ADMISSION_ANCHOR",
+            "standing": "NONE"
+          },
+          "artifact_state": {
+            "commit_sha": "5fbabbd486d4e863d23e0096600185ada92539a6",
+            "standing": "EXACT_GIT_COORDINATE",
+            "tree_sha": "f620d107eeb6c0a601a8f1a5f4eb7a0d3a5e122d"
+          },
+          "authority_state": {
+            "basis": "NO_AUTHORITY_EFFECT_IN_CAUSAL_FRONTIER",
+            "standing": "NONE"
+          },
+          "execution_state": {
+            "pair_001_calls": 0,
+            "provider_calls": 0,
+            "standing": "NO_EXECUTION_AUTHORITY"
+          },
+          "review_state": {
+            "freshness": "NONE",
+            "reviewed_commit": null,
+            "standing": "NOT_ASSERTED_BY_THIS_REPLAY"
+          },
+          "temporal_closure": {
+            "as_of_utc": "2026-07-20T01:20:39Z",
+            "commit_sha": "5fbabbd486d4e863d23e0096600185ada92539a6",
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "tree_sha": "f620d107eeb6c0a601a8f1a5f4eb7a0d3a5e122d"
+          },
+          "unresolved_state": {
+            "items": [
+              "SEQUENCE_LINEAGE_NOT_PRESENT_ON_THIS_FRONTIER",
+              "ROOT_CHECKSUM_LINEAGE_NOT_PRESENT_ON_THIS_FRONTIER"
+            ],
+            "standing": "OPEN"
+          },
+          "verification_state": {
+            "root_checksum_surface": "NOT_PRESENT_ON_THIS_FRONTIER",
+            "sequence_surface": "NOT_PRESENT_ON_THIS_FRONTIER",
+            "standing": "FRONTIER_SPECIFIC_UNRECONCILED"
+          }
+        },
+        "state_sha256": "fc5e6e8597d74ef1f36fd17c0ee1cc40ee40c55df6cc4ccefae35fde51374616",
+        "tree_sha": "f620d107eeb6c0a601a8f1a5f4eb7a0d3a5e122d"
+      },
+      {
+        "anchor_id": "FRONTIER-B-SEQUENCE-CANDIDATE-BASE",
+        "commit_sha": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+        "standing": "EXACT_FRONTIER_ANCHOR_NOT_MOVING_BRANCH_NAME",
+        "state": {
+          "admission_state": {
+            "basis": "PR81_AND_PR82_PRECEDE_SEPARATE_PR83_ADMISSION_ANCHOR",
+            "standing": "NONE"
+          },
+          "artifact_state": {
+            "commit_sha": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+            "standing": "EXACT_GIT_COORDINATE",
+            "tree_sha": "1ca0c3dffffe4153867439e584c14070b5bcdeeb"
+          },
+          "authority_state": {
+            "basis": "NO_AUTHORITY_EFFECT_IN_CAUSAL_FRONTIER",
+            "standing": "NONE"
+          },
+          "execution_state": {
+            "pair_001_calls": 0,
+            "provider_calls": 0,
+            "standing": "NO_EXECUTION_AUTHORITY"
+          },
+          "review_state": {
+            "freshness": "NONE",
+            "reviewed_commit": null,
+            "standing": "NOT_ASSERTED_BY_THIS_REPLAY"
+          },
+          "temporal_closure": {
+            "as_of_utc": "2026-07-19T11:16:00Z",
+            "commit_sha": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "tree_sha": "1ca0c3dffffe4153867439e584c14070b5bcdeeb"
+          },
+          "unresolved_state": {
+            "items": [
+              "SEQUENCE_FIX_NOT_YET_BOUND",
+              "ROOT_CHECKSUM_LINEAGE_NOT_PRESENT_ON_THIS_FRONTIER"
+            ],
+            "standing": "OPEN"
+          },
+          "verification_state": {
+            "root_checksum_surface": "NOT_PRESENT_ON_THIS_FRONTIER",
+            "sequence_surface": "CANDIDATE_PRESENT_UNBOUND",
+            "standing": "FRONTIER_SPECIFIC_UNRECONCILED"
+          }
+        },
+        "state_sha256": "853d90918cd6eb4a3f1dccc088a79def1d65f71d373c10a1c293565e9edd9592",
+        "tree_sha": "1ca0c3dffffe4153867439e584c14070b5bcdeeb"
+      }
+    ],
+    "closure_commit_inclusive": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+    "frontier_id": "FORK_CAUSAL_FRONTIER_SEQUENCE_CHECKSUM_v0_1",
+    "standing": "BOUNDED_MULTI_ROOT_CAUSAL_FRONTIER"
+  },
+  "merge_event_count": 2,
+  "merge_events": [
+    {
+      "dimension_effects": {},
+      "event_id": "FCR-E003-SEQUENCE-LINEAGE-JOIN",
+      "event_kind": "CAUSAL_MERGE_RECONCILIATION",
+      "node_digest_sha256": "092ea35c9f46e7d5402c194d8d37a1b06923ceab0b3f24525120cddb00de281d",
+      "parent_commits": [
+        "5fbabbd486d4e863d23e0096600185ada92539a6",
+        "c879242c4dafad68bdd8e7bcf2466e4169351969"
+      ],
+      "reconciliation_decisions": {
+        "admission_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "4fe36c54cadfe6dc78b7363f7fe549f2609d45dc4c8f2bae6b7a384ee3199918",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "4fe36c54cadfe6dc78b7363f7fe549f2609d45dc4c8f2bae6b7a384ee3199918"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent confers admission; PR #83 is a later separate event.",
+          "result": {
+            "basis": "PR81_AND_PR82_PRECEDE_SEPARATE_PR83_ADMISSION_ANCHOR",
+            "standing": "NONE"
+          },
+          "result_sha256": "4fe36c54cadfe6dc78b7363f7fe549f2609d45dc4c8f2bae6b7a384ee3199918"
+        },
+        "artifact_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "7b6e2040fc1b4bd917a91aaedf472eecfab038a85e1a3605d498183d90a1d8ec",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "3d6fca9e50528750ee78c88944cb5243ebc2c51e1f739169b5a0e11ce9a974a8"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "The merge coordinate and tree are distinct from both causal inputs.",
+          "result": {
+            "commit_sha": "97abe21daed2daec8a608851467875df42a99f0a",
+            "standing": "EXACT_GIT_COORDINATE",
+            "tree_sha": "31f1838e6cff6035370c4d99fc58cff620cdb42f"
+          },
+          "result_sha256": "81297202c1d8a15176cb945c25b17a5033617f3f1fcfc8944a4ef3c26f0b3c3c"
+        },
+        "authority_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "c6e7d053bc14082ec951c3014c1822e8ad7aa0d516284b48190775b004e93401",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "c6e7d053bc14082ec951c3014c1822e8ad7aa0d516284b48190775b004e93401"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent confers authority.",
+          "result": {
+            "basis": "NO_AUTHORITY_EFFECT_IN_CAUSAL_FRONTIER",
+            "standing": "NONE"
+          },
+          "result_sha256": "c6e7d053bc14082ec951c3014c1822e8ad7aa0d516284b48190775b004e93401"
+        },
+        "execution_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "5c911f280a5b8c77cd603352cf237c9409226f09960b22f105ba98c049b3b9eb",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "5c911f280a5b8c77cd603352cf237c9409226f09960b22f105ba98c049b3b9eb"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent authorizes execution or provider calls.",
+          "result": {
+            "pair_001_calls": 0,
+            "provider_calls": 0,
+            "standing": "NO_EXECUTION_AUTHORITY"
+          },
+          "result_sha256": "5c911f280a5b8c77cd603352cf237c9409226f09960b22f105ba98c049b3b9eb"
+        },
+        "review_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "9ed223764168fcd74ae2ddadbd670d149a3d17e373a5d0cdb4ccda9d95fed4aa",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "9ed223764168fcd74ae2ddadbd670d149a3d17e373a5d0cdb4ccda9d95fed4aa"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent confers review standing.",
+          "result": {
+            "freshness": "NONE",
+            "reviewed_commit": null,
+            "standing": "NOT_ASSERTED_BY_THIS_REPLAY"
+          },
+          "result_sha256": "9ed223764168fcd74ae2ddadbd670d149a3d17e373a5d0cdb4ccda9d95fed4aa"
+        },
+        "temporal_closure": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "bf1931024fff762f3d85262a1d318f11dc25f300c705543d887392854728a076",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "a27516d74eba25c553d1e3e1cd193a0a66f76f3c111c161fc03aa4b96486bfcb"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "The join closes at the exact PR #81 merge coordinate.",
+          "result": {
+            "as_of_utc": "2026-07-20T02:06:34Z",
+            "commit_sha": "97abe21daed2daec8a608851467875df42a99f0a",
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "tree_sha": "31f1838e6cff6035370c4d99fc58cff620cdb42f"
+          },
+          "result_sha256": "b751257defada94b14fcb2b744243eb5efcf5db4caa1ac5ea6744d577fcb5a02"
+        },
+        "unresolved_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "070e31869cddf55271e2bb20512e72f457dafffe8bff74dccd31ea44351b7caf",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "e245e61fd7bfe657dcd5d360879ac67298b6122c2df89e91cdca86e115c587bc"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "The Sequence Surface divergence closes while root-checksum reconciliation remains open.",
+          "result": {
+            "items": [
+              "ROOT_CHECKSUM_LINEAGE_NOT_YET_RECONCILED"
+            ],
+            "standing": "OPEN"
+          },
+          "result_sha256": "945fe04b9c0ef68229ea80c358cd5e43f5288054dcfb98557dbb8257ec72d940"
+        },
+        "verification_state": {
+          "parent_state_sha256": {
+            "5fbabbd486d4e863d23e0096600185ada92539a6": "cf65532089ae5f90528122c80135b52181b58e725debe949a2fa679d469cc203",
+            "c879242c4dafad68bdd8e7bcf2466e4169351969": "dcefa63e9ef7a2918decb28c74793c8601f9efb409e66e9d7ceba176405b610e"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "PR #81 carries the bound Sequence Surface result into a new joined standing while leaving root-checksum reconciliation open.",
+          "result": {
+            "root_checksum_surface": "NOT_PRESENT_ON_THIS_JOIN",
+            "sequence_surface": "AUTHORIZATION_AND_RETRY_OUTCOMES_BOUND",
+            "standing": "SEQUENCE_LINEAGE_JOINED_CHECKSUM_PENDING"
+          },
+          "result_sha256": "6ff4c6a630c220c05e4085152183a7a0a13a0346a9590b27fefa0b9a9a735248"
+        }
+      },
+      "reconciliation_kind": "MULTI_PARENT_EXPLICIT",
+      "source_commit": "97abe21daed2daec8a608851467875df42a99f0a",
+      "state_sha256": "47c4975010ec0bbd325e7bc09b1901694b848138d3621fc6f85931222b82e08e"
+    },
+    {
+      "dimension_effects": {},
+      "event_id": "FCR-E004-SEQUENCE-CHECKSUM-JOIN",
+      "event_kind": "CAUSAL_MERGE_RECONCILIATION",
+      "node_digest_sha256": "28f504cdc071bd0b15767a3c41fc4511ae1bd7455bfef4d362c01eff8ca403d7",
+      "parent_commits": [
+        "97abe21daed2daec8a608851467875df42a99f0a",
+        "5150ece4c29cea38cfe5e25daeb781423c680834"
+      ],
+      "reconciliation_decisions": {
+        "admission_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "4fe36c54cadfe6dc78b7363f7fe549f2609d45dc4c8f2bae6b7a384ee3199918",
+            "97abe21daed2daec8a608851467875df42a99f0a": "4fe36c54cadfe6dc78b7363f7fe549f2609d45dc4c8f2bae6b7a384ee3199918"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent confers admission; PR #83 remains a later separate event.",
+          "result": {
+            "basis": "PR81_AND_PR82_PRECEDE_SEPARATE_PR83_ADMISSION_ANCHOR",
+            "standing": "NONE"
+          },
+          "result_sha256": "4fe36c54cadfe6dc78b7363f7fe549f2609d45dc4c8f2bae6b7a384ee3199918"
+        },
+        "artifact_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "a48daf0bd615e43cd1945b8c2fe5e4b20446e77020af7c32575a839e0ec5399b",
+            "97abe21daed2daec8a608851467875df42a99f0a": "81297202c1d8a15176cb945c25b17a5033617f3f1fcfc8944a4ef3c26f0b3c3c"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "The PR #82 merge produces a new exact tree containing both joined surfaces.",
+          "result": {
+            "commit_sha": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+            "standing": "EXACT_GIT_COORDINATE",
+            "tree_sha": "34be4be69ef7c684c14b49a88df382e2db065bd3"
+          },
+          "result_sha256": "35d13bb8c41cb3d7a2448e839790c8c07a7cec1df69706cfd67a5f6910577bde"
+        },
+        "authority_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "c6e7d053bc14082ec951c3014c1822e8ad7aa0d516284b48190775b004e93401",
+            "97abe21daed2daec8a608851467875df42a99f0a": "c6e7d053bc14082ec951c3014c1822e8ad7aa0d516284b48190775b004e93401"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent confers authority.",
+          "result": {
+            "basis": "NO_AUTHORITY_EFFECT_IN_CAUSAL_FRONTIER",
+            "standing": "NONE"
+          },
+          "result_sha256": "c6e7d053bc14082ec951c3014c1822e8ad7aa0d516284b48190775b004e93401"
+        },
+        "execution_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "5c911f280a5b8c77cd603352cf237c9409226f09960b22f105ba98c049b3b9eb",
+            "97abe21daed2daec8a608851467875df42a99f0a": "5c911f280a5b8c77cd603352cf237c9409226f09960b22f105ba98c049b3b9eb"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent authorizes execution or provider calls.",
+          "result": {
+            "pair_001_calls": 0,
+            "provider_calls": 0,
+            "standing": "NO_EXECUTION_AUTHORITY"
+          },
+          "result_sha256": "5c911f280a5b8c77cd603352cf237c9409226f09960b22f105ba98c049b3b9eb"
+        },
+        "review_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "9ed223764168fcd74ae2ddadbd670d149a3d17e373a5d0cdb4ccda9d95fed4aa",
+            "97abe21daed2daec8a608851467875df42a99f0a": "9ed223764168fcd74ae2ddadbd670d149a3d17e373a5d0cdb4ccda9d95fed4aa"
+          },
+          "policy": "REQUIRE_EQUAL",
+          "rationale": "Neither parent confers review standing.",
+          "result": {
+            "freshness": "NONE",
+            "reviewed_commit": null,
+            "standing": "NOT_ASSERTED_BY_THIS_REPLAY"
+          },
+          "result_sha256": "9ed223764168fcd74ae2ddadbd670d149a3d17e373a5d0cdb4ccda9d95fed4aa"
+        },
+        "temporal_closure": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "76a73c4a9a4d9ec19df1b4d023764fba449a5c06736b6e86d92b796423d4940c",
+            "97abe21daed2daec8a608851467875df42a99f0a": "b751257defada94b14fcb2b744243eb5efcf5db4caa1ac5ea6744d577fcb5a02"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "The causal frontier closes at the exact PR #82 merge coordinate.",
+          "result": {
+            "as_of_utc": "2026-07-20T02:20:05Z",
+            "commit_sha": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "tree_sha": "34be4be69ef7c684c14b49a88df382e2db065bd3"
+          },
+          "result_sha256": "d234511db644d256e9245eb9e4afc3044c961e9803529a97e93674d69650e894"
+        },
+        "unresolved_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "c13557bf8d34e4d5ee8105c6510eab4f53bf467734e1542e49b2c085729d9b31",
+            "97abe21daed2daec8a608851467875df42a99f0a": "945fe04b9c0ef68229ea80c358cd5e43f5288054dcfb98557dbb8257ec72d940"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "Both declared branch-local reconciliation items close at the PR #82 join.",
+          "result": {
+            "items": [],
+            "standing": "CLOSED_WITHIN_DECLARED_FRONTIER"
+          },
+          "result_sha256": "ee29316d0a59e4d8b91888d2699e25f928bd35c22aa754cccba2310ac2b0b9f1"
+        },
+        "verification_state": {
+          "parent_state_sha256": {
+            "5150ece4c29cea38cfe5e25daeb781423c680834": "c22f78ab02d222d050c1c9c07109bc962658ecb9a61dd6a45d241841fe63acaf",
+            "97abe21daed2daec8a608851467875df42a99f0a": "6ff4c6a630c220c05e4085152183a7a0a13a0346a9590b27fefa0b9a9a735248"
+          },
+          "policy": "EXPLICIT_JOIN",
+          "rationale": "The result explicitly combines the joined Sequence Surface with enforced root-checksum integrity.",
+          "result": {
+            "root_checksum_surface": "ENFORCED_WITH_DISCREPANCY_PRESERVED",
+            "sequence_surface": "AUTHORIZATION_AND_RETRY_OUTCOMES_BOUND",
+            "standing": "SEQUENCE_AND_CHECKSUM_LINEAGES_JOINED"
+          },
+          "result_sha256": "e1c235614718df5266a3f20338f5e8f09e56263d1552e1a09eb51de6291806ca"
+        }
+      },
+      "reconciliation_kind": "MULTI_PARENT_EXPLICIT",
+      "source_commit": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+      "state_sha256": "356a64ee2dd317d752c5cbba2457942de4baa0506b9a0a2b119dce45a6f831c1"
+    }
+  ],
+  "non_claims": [
+    "Explicit reconciliation records how declared state dimensions join; it does not prove the semantic classification correct.",
+    "A Git merge does not itself confer admission, authority, review, or execution standing."
+  ],
+  "receipt_id": "FORK_CAUSAL_RECONCILIATION_PR81_PR82_v0_1",
+  "record_kind": "fork_causal_reconciliation_receipt",
+  "result": "EXPLICIT_CAUSAL_RECONCILIATION_REPRODUCED",
+  "schema_version": "v0.1"
+}
