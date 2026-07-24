@@ -26,7 +26,7 @@ REGISTRY = BASE / "LONGITUDINAL_EVENT_REGISTRY_v0_2.json"
 PROJECTION = BASE / "LONGITUDINAL_CURRENT_PROJECTION_v0_2.json"
 COVERAGE = BASE / "LONGITUDINAL_EVENT_COVERAGE_RECEIPT_v0_1.json"
 TRANSITION = BASE / "STANDING_TRANSITION_RECEIPT_v0_1.json"
-MANIFEST = BASE / "PACKAGE_MANIFEST_v0_2.json"
+MANIFEST = BASE / "PACKAGE_MANIFEST_v0_2_1.json"
 SCHEMA = Path("schemas/fork_longitudinal_event_registry_v0_2.schema.json")
 SEQUENCE_CHECKER = Path("tools/check_fork_sequence_surface_v0_1.py")
 TEMPORAL_CHECKER = Path("tools/check_temporal_succession_v0_1.py")
@@ -34,6 +34,7 @@ ADVERSARIAL_CASES = BASE / "ADVERSARIAL_CASES_v0_2.json"
 README = BASE / "README.md"
 NON_CLAIMS = BASE / "NON_CLAIMS_AND_LIMITS_v0_2.md"
 CLAIM_ADMISSION_CORRECTION = BASE / "CLAIM_ADMISSION_RECEIPT_RECOMPUTATION_v0_1.md"
+PACKAGE_SCOPE_CORRECTION = BASE / "PACKAGE_DEPENDENCY_SCOPE_CORRECTION_v0_2_1.md"
 CLAIM_ADMISSION_RECEIPT = Path(
     "receipts/claim-admission/"
     "FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json"
@@ -47,15 +48,14 @@ SHA1_RE = re.compile(r"^[0-9a-f]{40}$")
 EXPECTED_PACKAGE_PATHS = {
     ADVERSARIAL_CASES.as_posix(),
     CLAIM_ADMISSION_CORRECTION.as_posix(),
-    CLAIM_ADMISSION_RECEIPT.as_posix(),
     CONTRACT.as_posix(),
     COVERAGE.as_posix(),
     NON_CLAIMS.as_posix(),
+    PACKAGE_SCOPE_CORRECTION.as_posix(),
     PROJECTION.as_posix(),
     README.as_posix(),
     REGISTRY.as_posix(),
     SCHEMA.as_posix(),
-    STATE_README.as_posix(),
     STATE_ROUTE.as_posix(),
     TEST_PATH.as_posix(),
     TOOL_PATH.as_posix(),
@@ -1230,16 +1230,31 @@ def build_package_manifest(root: Path) -> dict[str, Any]:
             }
         )
     return {
-        "schema_version": "v0.2",
+        "schema_version": "v0.2.1",
         "record_kind": "fork_longitudinal_recomputation_package_manifest",
-        "package_id": "FORK_LONGITUDINAL_RECOMPUTATION_REPLAY_v0_2",
+        "package_id": "FORK_LONGITUDINAL_RECOMPUTATION_REPLAY_v0_2_1",
         "entries": entries,
+        "historical_predecessor_manifest": {
+            "path": (BASE / "PACKAGE_MANIFEST_v0_2.json").as_posix(),
+            "standing": "PRESERVED_UNCHANGED_AT_PR91_SOURCE_COORDINATE",
+        },
+        "external_moving_dependencies_not_package_members": [
+            {
+                "path": CLAIM_ADMISSION_RECEIPT.as_posix(),
+                "reason": "GLOBAL_SELF_CHECK_RECEIPT_CHANGES_WITH_SUCCESSOR_TREE_INVENTORY",
+            },
+            {
+                "path": STATE_README.as_posix(),
+                "reason": "SHARED_FRONT_DOOR_ACCUMULATES_SUCCESSOR_ROUTES",
+            },
+        ],
         "self_exclusion": {
             "path": MANIFEST.as_posix(),
             "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST",
         },
         "non_claims": [
-            "Package integrity is not admission, authority, correctness, or execution permission."
+            "Package integrity is not admission, authority, correctness, or execution permission.",
+            "External moving dependencies are validated by their owning checks, not frozen as v0.2.1 package members.",
         ],
     }
 
