@@ -1,0 +1,76 @@
+{
+  "entries": [
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_ENVELOPE_PR91_v0_1.md",
+      "sha256": "fadaf1fb7e609a4d4f9d600fc0af1be371331885a3302abacb8bdb85f34d4733",
+      "size_bytes": 4574
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_ENVELOPE_PR92_v0_1.md",
+      "sha256": "c6537011dfc7b195321f280bbca041ac45e0d6a00514a9e2950fda99d7fa6c3a",
+      "size_bytes": 5717
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_RECEIPT_TEMPLATE_PR91_v0_1.json",
+      "sha256": "1f00deeb7ebe33cd708c06f3d20a1896ee0a81a9785fac15bd4eeb7cc39ce0a9",
+      "size_bytes": 2799
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_RECEIPT_TEMPLATE_PR92_v0_1.json",
+      "sha256": "1847d0b10a23c5b12a7008c4d9aa3f75cce29e6dbb7fb43f3a1e7e7cd7711959",
+      "size_bytes": 2811
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.3.1/README.md",
+      "sha256": "27fec49d06a6f1d6f008f99da689bb79c93d6a0d377f8d2993f126c45b30793b",
+      "size_bytes": 2386
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.3.1/STACK_REVIEW_COORDINATES_v0_1.json",
+      "sha256": "ba8b39e5b948786d6c7fa4d0127787846298112d7b2ac9c7a0ef6d6c203faffa",
+      "size_bytes": 2746
+    },
+    {
+      "path": "schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json",
+      "sha256": "727313489907599d860e0bb6684f8b9e6194240962ebaa7078a7e42be943b046",
+      "size_bytes": 11099
+    },
+    {
+      "path": "tests/test_longitudinal_exterior_recomputation_package_v0_3_1.py",
+      "sha256": "83128f4db86425955605c71984a6a6188342ab0ab9829fe07238aae5ba81bfc8",
+      "size_bytes": 8386
+    },
+    {
+      "path": "tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py",
+      "sha256": "7adb16f4f52b5af37d8d59c43a32266f2e8055aaae3efde1a76852eb9412a94f",
+      "size_bytes": 24079
+    }
+  ],
+  "external_moving_dependencies_not_package_members": [
+    {
+      "path": "docs/state/README.md",
+      "reason": "SHARED_FRONT_DOOR_ACCUMULATES_SUCCESSOR_ROUTES"
+    },
+    {
+      "path": "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+      "reason": "GLOBAL_SELF_CHECK_RECEIPT_CHANGES_WITH_SUCCESSOR_TREE_INVENTORY"
+    }
+  ],
+  "non_claims": [
+    "Package conformance is not exterior recomputation.",
+    "A valid adverse receipt remains adverse evidence.",
+    "This package does not authorize admission, merge, publication, authority, or execution."
+  ],
+  "package_id": "FORK_LONGITUDINAL_EXTERIOR_RECOMPUTATION_v0_3_1",
+  "predecessor_package": {
+    "path": "docs/state/longitudinal-recomputation-v0.3/PACKAGE_MANIFEST_v0_3.json",
+    "sha256": "0f00137a91b34206aa844b41bae951ef19157bdbc8095b6ed1b69ec2cff0a677",
+    "standing": "PRESERVED_UNCHANGED_AT_PR92_SOURCE_COORDINATE"
+  },
+  "record_kind": "fork_longitudinal_exterior_recomputation_package_manifest",
+  "schema_version": "v0.3.1",
+  "self_exclusion": {
+    "path": "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_PACKAGE_MANIFEST_v0_3_1.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  }
+}

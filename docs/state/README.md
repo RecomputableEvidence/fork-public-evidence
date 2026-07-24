@@ -63,6 +63,19 @@ Run:
 python tools/check_longitudinal_causal_reconciliation_v0_3.py
 ```
 
+## Exterior recomputation package candidate
+
+`longitudinal-recomputation-v0.3.1/README.md` freezes feature expansion and
+provides exact-target envelopes plus machine-checkable receipt templates for
+separate exterior recomputation of PR #91 and PR #92. It contains no completed
+review receipt and creates no inherited review standing.
+
+Run:
+
+```bash
+python tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py
+```
+
 A passing result on any of these checkers establishes only its declared
 structural and evidentiary scope. It does not establish truth, compliance,
 legal sufficiency, safety, authorization, approval, certification,
