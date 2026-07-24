@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/kubernetes_comparison_v0_1.schema.json",
+  "title": "Fork Kubernetes Exterior Comparison v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "comparison_id",
+    "left",
+    "right",
+    "classification",
+    "differences",
+    "observation_gap_present",
+    "underlying_change_time",
+    "cause",
+    "intermediate_state_completeness",
+    "effects",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "experiment_id": {
+      "const": "FORK_ELO_KUBERNETES_MASTER_v0_1"
+    },
+    "comparison_id": {
+      "type": "string"
+    },
+    "left": {
+      "type": "object"
+    },
+    "right": {
+      "type": "object"
+    },
+    "classification": {
+      "enum": [
+        "OBSERVED_REPRESENTATION_UNCHANGED",
+        "OBSERVED_REPRESENTATION_CHANGED",
+        "RAW_BYTES_CHANGED_SEMANTICS_STABLE",
+        "OBSERVATION_GAP",
+        "PARSER_VERSION_CHANGED_UNRESOLVED"
+      ]
+    },
+    "differences": {
+      "type": "object"
+    },
+    "observation_gap_present": {
+      "type": "boolean"
+    },
+    "underlying_change_time": {
+      "const": "UNRESOLVED"
+    },
+    "cause": {
+      "const": "UNRESOLVED"
+    },
+    "intermediate_state_completeness": {
+      "const": "UNRESOLVED"
+    },
+    "effects": {
+      "type": "object"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
