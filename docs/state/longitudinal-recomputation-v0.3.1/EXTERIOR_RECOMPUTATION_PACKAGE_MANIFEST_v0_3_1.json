@@ -22,13 +22,13 @@
     },
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/README.md",
-      "sha256": "30ba5b07039a661b5737953c6a89487ea586f8494855b197bc5c46316de839f6",
-      "size_bytes": 4010
+      "sha256": "4f481ea8a97697509778e1b37bf2dad4666f896a6cdbcc5f53f8ff0084f2f531",
+      "size_bytes": 4683
     },
     {
       "path": "docs/state/longitudinal-recomputation-v0.3.1/STACK_REVIEW_COORDINATES_v0_1.json",
-      "sha256": "c7ebc154af5f096c102df21139a3feb30d0f0709714a06bb4a28b63cf40c50ee",
-      "size_bytes": 2770
+      "sha256": "a146a84bbc1d4965d1741472f73a6d39ee9f2283d8258202c2cf277e8068b563",
+      "size_bytes": 2772
     },
     {
       "path": "schemas/fork_longitudinal_exterior_recomputation_receipt_v0_1.schema.json",
@@ -47,8 +47,8 @@
     },
     {
       "path": "tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py",
-      "sha256": "17fc0990733ab03c076f85476363ae41ce5b3cebf8a46239571c1b87a81a05f1",
-      "size_bytes": 24977
+      "sha256": "4c6b9a1b2609ad3500988c9ad82210ef52ae1e77130c70b3f4d5b09f2bc14610",
+      "size_bytes": 24979
     },
     {
       "path": "tools/check_longitudinal_exterior_recomputation_return_v0_1.py",

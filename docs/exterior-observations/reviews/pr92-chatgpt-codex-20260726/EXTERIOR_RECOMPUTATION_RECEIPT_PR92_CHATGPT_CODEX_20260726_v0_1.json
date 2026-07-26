@@ -1,0 +1,963 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_longitudinal_exterior_recomputation_receipt",
+  "receipt_id": "FORK_EXTERIOR_RECOMPUTATION_PR92_CHATGPT_CODEX_20260726_v0_1",
+  "review_target": {
+    "target_id": "PR92_CAUSAL_RECONCILIATION_V0_3",
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "pull_request": 92,
+    "head_sha": "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84",
+    "tree_sha": "a85af6ef1c7db88dcddbc709944d9872320cdb96",
+    "acquired_head_sha": "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84",
+    "acquired_tree_sha": "a85af6ef1c7db88dcddbc709944d9872320cdb96",
+    "acquisition_method": "Fresh filtered no-checkout clone after disclosure; exact branch ref fetch; detached checkout by full commit SHA; independent HEAD and tree resolution."
+  },
+  "reviewer_disclosure": {
+    "reviewer_id": "OpenAI ChatGPT Codex Work Mode, this conversation instance",
+    "affiliation": "OpenAI model acting for repository owner Ryan Feller",
+    "relationship_to_fork": "Not arms-length. This reviewer has materially assisted Ryan Feller with Fork repository architecture, preservation, review, and publication work.",
+    "prior_exposure": "Prior exposure to Fork doctrine, the governed preservation lineage, PR #91 review material, and adjacent PR #92/#93 context was disclosed before the fresh exact-target acquisition used for this return.",
+    "independence_class": "NOT_INDEPENDENT_AUTHOR_ASSISTED"
+  },
+  "environment": {
+    "observed_os": "Linux a243b5090c6e 6.12.13 #1 SMP Wed Jul 22 00:33:13 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux",
+    "python_version": "Python 3.12.13",
+    "proof_surface_lock_sha256": "188768b6b1167c0f556482d72be7a6fc1d938afc086c870c071e46510c0f4387",
+    "claim_admission_lock_sha256": "b7c60b29661c5cd5ffaba6651962f3db20c9612fb06accfcc9dc03b0efd5d5ab",
+    "dependency_install_exit_code": 0
+  },
+  "executions": [
+    {
+      "command": "git -C /tmp/fork-pr92-review-20260726-i7P2My/checkout fetch --no-tags origin refs/heads/agent/longitudinal-causal-reconciliation-v0-3",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "bf4302ce8d75078b8bb00c3c58788572985fe9fb32a15927c8654dbc5df590ee",
+      "observed_result": "exit 0; stderr concluded:  * branch            agent/longitudinal-causal-reconciliation-v0-3 -> FETCH_HEAD"
+    },
+    {
+      "command": "git -C /tmp/fork-pr92-review-20260726-i7P2My/checkout checkout --detach 353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8aba3cdee118ae5309fcaf6cf2adc4f2611c92b5ceaa5674f1a643501711a2a6",
+      "observed_result": "exit 0; stderr concluded: HEAD is now at 353c1b8 feat(state): add causal reconciliation replay v0.3"
+    },
+    {
+      "command": "git -C /tmp/fork-pr92-review-20260726-i7P2My/checkout rev-parse HEAD",
+      "exit_code": 0,
+      "stdout_sha256": "dfaf1203665184dc6c4ca006ef0bfd05488758bdbf05fdf29b9805953286a034",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84"
+    },
+    {
+      "command": "git -C /tmp/fork-pr92-review-20260726-i7P2My/checkout rev-parse HEAD\\^\\{tree\\}",
+      "exit_code": 0,
+      "stdout_sha256": "d0819b1da89f03b31062b51b5d379c19cb854f1449ab3df97c739e6b2593e64a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: a85af6ef1c7db88dcddbc709944d9872320cdb96"
+    },
+    {
+      "command": "python -m venv /tmp/fork-pr92-review-20260726-i7P2My/venv",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; no stdout or stderr"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python -m pip install --require-hashes -r /tmp/fork-pr92-review-20260726-i7P2My/checkout/requirements-proof-surface.lock.txt",
+      "exit_code": 0,
+      "stdout_sha256": "8822bd386bce3b3d97dc656ec1c72e5e795e5c4a9782a6ca2a5bdd6169e2a23c",
+      "stderr_sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+      "observed_result": "exit 0; stdout concluded: Successfully installed attrs-26.1.0 iniconfig-2.3.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 packaging-26.2 pluggy-1.6.0 pygments-2.20.0 pytest-8.4.2 referencing-0.37.0 rpds-py-2026.6.3 typing-extensions-4.16.0"
+    },
+    {
+      "command": "uname -a",
+      "exit_code": 0,
+      "stdout_sha256": "d889bb2bc58ae433a5b4c7a177ee596867c1651b339da7920f5adab3c010f1d8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: Linux a243b5090c6e 6.12.13 #1 SMP Wed Jul 22 00:33:13 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python --version",
+      "exit_code": 0,
+      "stdout_sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: Python 3.12.13"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python -m pip freeze",
+      "exit_code": 0,
+      "stdout_sha256": "4585ccaa8bdbd1a8635eb0eb4b1bdc686d4166a8d4399bf65145a87ae4ce4e6e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: typing_extensions==4.16.0"
+    },
+    {
+      "command": "sha256sum requirements-proof-surface.lock.txt",
+      "exit_code": 0,
+      "stdout_sha256": "b066176c3e6821cfb0f2fdd23c1580b4cdd794f18950d4fe956b692e77a9ec92",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 188768b6b1167c0f556482d72be7a6fc1d938afc086c870c071e46510c0f4387  requirements-proof-surface.lock.txt"
+    },
+    {
+      "command": "sha256sum requirements-claim-admission.lock.txt",
+      "exit_code": 0,
+      "stdout_sha256": "5d8902ce72909cc12a8e5b45291dc19bf740710fb3c499fe55ab6def5d31845f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: b7c60b29661c5cd5ffaba6651962f3db20c9612fb06accfcc9dc03b0efd5d5ab  requirements-claim-admission.lock.txt"
+    },
+    {
+      "command": "git status --short --untracked-files=all",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; no stdout or stderr"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python tools/check_longitudinal_causal_reconciliation_v0_3.py",
+      "exit_code": 0,
+      "stdout_sha256": "ff45e17b27b9127734cc3835cf1fd44a9aedc865b730751aca185605339979b5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: CAUSAL_RECONCILIATION_REPRODUCED"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python tools/check_longitudinal_causal_reconciliation_v0_3.py --coordinate 5150ece4c29cea38cfe5e25daeb781423c680834",
+      "exit_code": 0,
+      "stdout_sha256": "227586e1dfdba823fc28623d6cfdc10e516c4590018cd7cbd27b7d8e162cd044",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: }"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python tools/check_longitudinal_causal_reconciliation_v0_3.py --compare-left c879242c4dafad68bdd8e7bcf2466e4169351969 --compare-right 5150ece4c29cea38cfe5e25daeb781423c680834",
+      "exit_code": 0,
+      "stdout_sha256": "d6c1ca5691124dca3175ff5124f129d88d295cc4480c99c987dfae609da5cc33",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: }"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python -m pytest tests/test_longitudinal_causal_reconciliation_v0_3.py -q",
+      "exit_code": 0,
+      "stdout_sha256": "10b1887826527f24a26fc048379adc173e8eb25da6336a7eb2a9490d34683757",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 18 passed in 0.86s"
+    },
+    {
+      "command": "git rev-list --reverse --topo-order 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d \\^5fbabbd486d4e863d23e0096600185ada92539a6 \\^c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+      "exit_code": 0,
+      "stdout_sha256": "e8337a5dbbb56681bf025dac057ddadd62aab104aeaa5170eddc2d3bc92a41cb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d"
+    },
+    {
+      "command": "git show -s --format=%P 97abe21daed2daec8a608851467875df42a99f0a",
+      "exit_code": 0,
+      "stdout_sha256": "9c68e225f38be344cf2589696326bda9fcb8b317807c6d4a104281f5e9e6a473",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 5fbabbd486d4e863d23e0096600185ada92539a6 c879242c4dafad68bdd8e7bcf2466e4169351969"
+    },
+    {
+      "command": "git show -s --format=%P 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+      "exit_code": 0,
+      "stdout_sha256": "41401db19b85e0924b638cd9b469795c10ef69ebcbfbfd7049db470cd6654d80",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 97abe21daed2daec8a608851467875df42a99f0a 5150ece4c29cea38cfe5e25daeb781423c680834"
+    },
+    {
+      "command": "git diff-tree --no-commit-id --name-only -r 97abe21daed2daec8a608851467875df42a99f0a\\^1 97abe21daed2daec8a608851467875df42a99f0a",
+      "exit_code": 0,
+      "stdout_sha256": "aa2efd450e4ebb4203d38db78e92d57d6ec552fd6d951ee089ca05dba5093f5c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: tools/check_fork_sequence_surface_v0_1.py"
+    },
+    {
+      "command": "git diff-tree --no-commit-id --name-only -r 97abe21daed2daec8a608851467875df42a99f0a\\^2 97abe21daed2daec8a608851467875df42a99f0a",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; no stdout or stderr"
+    },
+    {
+      "command": "git diff-tree --no-commit-id --name-only -r 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d\\^1 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+      "exit_code": 0,
+      "stdout_sha256": "61ce1a7be1f40ab4103471599b930f5e0646808c4854e8bc4ef45e676317f1e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: tools/check_root_checksum_manifest_v0_1.py"
+    },
+    {
+      "command": "git diff-tree --no-commit-id --name-only -r 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d\\^2 0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+      "exit_code": 0,
+      "stdout_sha256": "6bb13e28e634192d48540dd17d9cf2cb9436c6135fb8a8e298d707ddc51aa50a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: tools/check_fork_sequence_surface_v0_1.py"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python -m pip install --require-hashes -r /tmp/fork-pr92-review-20260726-i7P2My/checkout/requirements-claim-admission.lock.txt",
+      "exit_code": 0,
+      "stdout_sha256": "3f626688d4e402e9414e942b06b6d595dd8a877e8e9d4ce3dbfdfda5f6fbb38e",
+      "stderr_sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+      "observed_result": "exit 0; stdout concluded: Successfully installed pyyaml-6.0.3"
+    },
+    {
+      "command": "sha256sum docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2.json",
+      "exit_code": 0,
+      "stdout_sha256": "bc964b250d931b5c6ac5b20c96ced3c6784bda694e0348ac60b8bcf7ccdbed0f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: d2bbfc8fa6ec31872071706a85a036164baeb93de4a57287d2d790164463f4fa  docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2.json"
+    },
+    {
+      "command": "git rev-parse e848ea0825bafc1aa3754d89e719d71b5a9f3982:docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2.json",
+      "exit_code": 0,
+      "stdout_sha256": "65d27beb32bf6cde5b120e53b157b0a72ab6a0e6c6d5123f451601438eb1ae85",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 5b5cebb2e095cc196056d79ec6c7f1a9c8fe193c"
+    },
+    {
+      "command": "git rev-parse HEAD:docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2.json",
+      "exit_code": 0,
+      "stdout_sha256": "65d27beb32bf6cde5b120e53b157b0a72ab6a0e6c6d5123f451601438eb1ae85",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 5b5cebb2e095cc196056d79ec6c7f1a9c8fe193c"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "stdout_sha256": "cef45025100147f1784983f68ee58d29bff988bd8f85b7a1da7449a484f83d94",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: 794 passed in 108.73s (0:01:48)"
+    },
+    {
+      "command": "/tmp/fork-pr92-review-20260726-i7P2My/venv/bin/python -c import\\ hashlib\\,json\\,pathlib\\;p=pathlib.Path\\(\\\"docs/state/longitudinal-recomputation-v0.3/CAUSAL_CURRENT_PROJECTION_v0_3.json\\\"\\)\\;v=json.loads\\(p.read_text\\(encoding=\\\"utf-8\\\"\\)\\)\\;d=hashlib.sha256\\(json.dumps\\(v\\[\\\"state_vector\\\"\\]\\,sort_keys=True\\,ensure_ascii=False\\,separators=\\(\\\"\\,\\\"\\,\\\":\\\"\\)\\).encode\\(\\\"utf-8\\\"\\)\\).hexdigest\\(\\)\\;print\\(\\\"checker_recorded_state_vector_sha256=\\\"+v\\[\\\"state_vector_sha256\\\"\\]\\)\\;print\\(\\\"independently_derived_state_vector_sha256=\\\"+d\\)\\;print\\(\\\"closure_node_digest_sha256=\\\"+v\\[\\\"closure_node_digest_sha256\\\"\\]\\)\\;print\\(\\\"active_event_head=\\\"+v\\[\\\"active_event_heads\\\"\\]\\[0\\]\\)",
+      "exit_code": 0,
+      "stdout_sha256": "fc34e38be662c5241116245668bbd8733a3f34439799c47b8baf845697429233",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; stdout concluded: active_event_head=0bac4f60986e0be4da53d6b69c49aab1f7e73e7d"
+    },
+    {
+      "command": "git status --short --untracked-files=all",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_result": "exit 0; no stdout or stderr"
+    }
+  ],
+  "measurements": {
+    "checker_status": "CAUSAL_RECONCILIATION_REPRODUCED",
+    "state_vector_sha256": "356a64ee2dd317d752c5cbba2457942de4baa0506b9a0a2b119dce45a6f831c1",
+    "closure_node_digest_sha256": "28f504cdc071bd0b15767a3c41fc4511ae1bd7455bfef4d362c01eff8ca403d7",
+    "focused_tests": {
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "not_run_reason": null
+    },
+    "full_suite": {
+      "passed": 794,
+      "failed": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "not_run_reason": null
+    },
+    "adversarial_results": [
+      {
+        "case_id": "FCR-ADV-001",
+        "expected": "CAUSAL_COVERAGE_UNRESOLVED",
+        "observed": "test_missing_frontier_event_is_unresolved_not_absent passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-002",
+        "expected": "CAUSAL_EVENT_GIT_BINDING_MISMATCH",
+        "observed": "test_changed_parent_delta_breaks_git_binding passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-003",
+        "expected": "MERGE_DECISION_MISSING",
+        "observed": "test_merge_requires_every_dimension_decision passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-004",
+        "expected": "MERGE_EQUALITY_VIOLATION",
+        "observed": "test_require_equal_rejects_divergent_inputs passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-005",
+        "expected": "MERGE_RESULT_MISMATCH",
+        "observed": "test_selected_parent_output_must_match_selected_bytes passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-006",
+        "expected": "MERGE_INPUT_DIGEST_MISMATCH",
+        "observed": "test_parent_dimension_digest_is_recomputed passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-007",
+        "expected": "MERGE_RESULT_DIGEST_MISMATCH",
+        "observed": "test_merge_result_digest_is_recomputed passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-008",
+        "expected": "ADMISSION_EFFECT_MISMATCH",
+        "observed": "test_silent_admission_change_is_rejected passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-009",
+        "expected": "CAUSAL_RECONCILIATION_REPRODUCED after registry shuffle",
+        "observed": "test_registry_order_does_not_control_causal_order passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-010",
+        "expected": "PROJECTION_CACHE_DIVERGENCE",
+        "observed": "test_changed_projection_cache_is_rejected passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-011",
+        "expected": "FRONTIER_STATE_DIGEST_MISMATCH",
+        "observed": "test_frontier_state_digest_is_not_trusted passed",
+        "conforms": true
+      },
+      {
+        "case_id": "FCR-ADV-012",
+        "expected": "MERGE_POLICY_OVERBROAD",
+        "observed": "test_explicit_join_is_not_allowed_to_hide_equal_inputs passed",
+        "conforms": true
+      }
+    ]
+  },
+  "findings": [],
+  "raw_output_artifacts": [
+    {
+      "path": "raw/01_fetch_exact_ref.command.txt",
+      "sha256": "174e9ee47fe5d473c52101836f83117a7c5b43ed2c7244bafde7c398caad07d9",
+      "size_bytes": 135
+    },
+    {
+      "path": "raw/01_fetch_exact_ref.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/01_fetch_exact_ref.stderr.txt",
+      "sha256": "bf4302ce8d75078b8bb00c3c58788572985fe9fb32a15927c8654dbc5df590ee",
+      "size_bytes": 147
+    },
+    {
+      "path": "raw/01_fetch_exact_ref.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/02_checkout_exact_head.command.txt",
+      "sha256": "44283bbec925c6476c0dfe8cdbcc5a7f3e205dc6048c9b8ac72206bc1a739572",
+      "size_bytes": 114
+    },
+    {
+      "path": "raw/02_checkout_exact_head.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/02_checkout_exact_head.stderr.txt",
+      "sha256": "8aba3cdee118ae5309fcaf6cf2adc4f2611c92b5ceaa5674f1a643501711a2a6",
+      "size_bytes": 74
+    },
+    {
+      "path": "raw/02_checkout_exact_head.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/03_rev_parse_head.command.txt",
+      "sha256": "b83eae64e4515f9a461a2c1efe201ec62d7d550527589d2f788f79bb735a8651",
+      "size_bytes": 70
+    },
+    {
+      "path": "raw/03_rev_parse_head.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/03_rev_parse_head.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/03_rev_parse_head.stdout.txt",
+      "sha256": "dfaf1203665184dc6c4ca006ef0bfd05488758bdbf05fdf29b9805953286a034",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/04_rev_parse_tree.command.txt",
+      "sha256": "f54907537ef74e0631c24c722be12c6bcc413cee1a9e0be9028ec774d594a45f",
+      "size_bytes": 80
+    },
+    {
+      "path": "raw/04_rev_parse_tree.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/04_rev_parse_tree.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/04_rev_parse_tree.stdout.txt",
+      "sha256": "d0819b1da89f03b31062b51b5d379c19cb854f1449ab3df97c739e6b2593e64a",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/05_create_venv.command.txt",
+      "sha256": "23245d7ed4e7693ea06ca6a805e60ec90ab95b3610a3996ff8b7ee08cb86090a",
+      "size_bytes": 59
+    },
+    {
+      "path": "raw/05_create_venv.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/05_create_venv.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/05_create_venv.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/06_install_dependencies.command.txt",
+      "sha256": "8a810baed746d096f7b6adf44b9f62492a7d2227751d20579c2c6343cfb59485",
+      "size_bytes": 173
+    },
+    {
+      "path": "raw/06_install_dependencies.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/06_install_dependencies.stderr.txt",
+      "sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+      "size_bytes": 64
+    },
+    {
+      "path": "raw/06_install_dependencies.stdout.txt",
+      "sha256": "8822bd386bce3b3d97dc656ec1c72e5e795e5c4a9782a6ca2a5bdd6169e2a23c",
+      "size_bytes": 2770
+    },
+    {
+      "path": "raw/07_observed_os.command.txt",
+      "sha256": "7446db204d3d648102e0a7c6a1927ef99f31badcdd585a5cebf3b488a06809ff",
+      "size_bytes": 10
+    },
+    {
+      "path": "raw/07_observed_os.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/07_observed_os.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/07_observed_os.stdout.txt",
+      "sha256": "d889bb2bc58ae433a5b4c7a177ee596867c1651b339da7920f5adab3c010f1d8",
+      "size_bytes": 94
+    },
+    {
+      "path": "raw/08_python_version.command.txt",
+      "sha256": "78fa2ad38f675d5529e38e3d2a0f8c1e4bf927bd1fc9e0386b30bf856439e186",
+      "size_bytes": 65
+    },
+    {
+      "path": "raw/08_python_version.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/08_python_version.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/08_python_version.stdout.txt",
+      "sha256": "55ae85cf4bdb38743edbcd53ea68ff36511997ec6c21b1e83d8bebc939bf056b",
+      "size_bytes": 15
+    },
+    {
+      "path": "raw/09_pip_freeze.command.txt",
+      "sha256": "2bf0c847b8b7ab22e9e917e19e55f60c7fc1fc1c015921253867d358d1fff92c",
+      "size_bytes": 69
+    },
+    {
+      "path": "raw/09_pip_freeze.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/09_pip_freeze.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/09_pip_freeze.stdout.txt",
+      "sha256": "4585ccaa8bdbd1a8635eb0eb4b1bdc686d4166a8d4399bf65145a87ae4ce4e6e",
+      "size_bytes": 211
+    },
+    {
+      "path": "raw/10_proof_lock_sha256.command.txt",
+      "sha256": "7327b3cb24880d57451bb8e0fdfea55ca608feeb7f90b3811d9f6070f43c2234",
+      "size_bytes": 47
+    },
+    {
+      "path": "raw/10_proof_lock_sha256.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/10_proof_lock_sha256.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/10_proof_lock_sha256.stdout.txt",
+      "sha256": "b066176c3e6821cfb0f2fdd23c1580b4cdd794f18950d4fe956b692e77a9ec92",
+      "size_bytes": 102
+    },
+    {
+      "path": "raw/11_claim_lock_sha256.command.txt",
+      "sha256": "75853213650b39e6aa03259b114fcc3e900954db40f67490574fb39de8686049",
+      "size_bytes": 49
+    },
+    {
+      "path": "raw/11_claim_lock_sha256.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/11_claim_lock_sha256.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/11_claim_lock_sha256.stdout.txt",
+      "sha256": "5d8902ce72909cc12a8e5b45291dc19bf740710fb3c499fe55ab6def5d31845f",
+      "size_bytes": 104
+    },
+    {
+      "path": "raw/12_initial_git_status.command.txt",
+      "sha256": "d3c0f1e35141a67498f1d052f9c13069b9cf8702388979f01024bcc2d2ece32c",
+      "size_bytes": 42
+    },
+    {
+      "path": "raw/12_initial_git_status.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/12_initial_git_status.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/12_initial_git_status.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/13_checker_default.command.txt",
+      "sha256": "3c7f1bfac481a17c8d77d0fde1cbd7cf2a99e4592bdc92d4e9e4f7a16c0d2d23",
+      "size_bytes": 110
+    },
+    {
+      "path": "raw/13_checker_default.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/13_checker_default.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/13_checker_default.stdout.txt",
+      "sha256": "ff45e17b27b9127734cc3835cf1fd44a9aedc865b730751aca185605339979b5",
+      "size_bytes": 33
+    },
+    {
+      "path": "raw/14_checker_coordinate.command.txt",
+      "sha256": "367a21fee54132cfb9281296570145b8da19f057a0be128b6c7972edc83ac6d1",
+      "size_bytes": 164
+    },
+    {
+      "path": "raw/14_checker_coordinate.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/14_checker_coordinate.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/14_checker_coordinate.stdout.txt",
+      "sha256": "227586e1dfdba823fc28623d6cfdc10e516c4590018cd7cbd27b7d8e162cd044",
+      "size_bytes": 1206
+    },
+    {
+      "path": "raw/15_checker_compare.command.txt",
+      "sha256": "933ff772087837bb249f9f5cd82383229e6ed11796d9f3d59817bfe8bd3714ab",
+      "size_bytes": 223
+    },
+    {
+      "path": "raw/15_checker_compare.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/15_checker_compare.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/15_checker_compare.stdout.txt",
+      "sha256": "d6c1ca5691124dca3175ff5124f129d88d295cc4480c99c987dfae609da5cc33",
+      "size_bytes": 2113
+    },
+    {
+      "path": "raw/16_focused_tests.command.txt",
+      "sha256": "1e37929f710637df5553f35e34a636d232bcd2c8f32ee0f84e84f9f0bf859954",
+      "size_bytes": 122
+    },
+    {
+      "path": "raw/16_focused_tests.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/16_focused_tests.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/16_focused_tests.stdout.txt",
+      "sha256": "10b1887826527f24a26fc048379adc173e8eb25da6336a7eb2a9490d34683757",
+      "size_bytes": 99
+    },
+    {
+      "path": "raw/17_causal_inventory.command.txt",
+      "sha256": "777da39e911e88e1b57c72c66fcaf96992fad8c2de32c2362a12bf5d431722f0",
+      "size_bytes": 164
+    },
+    {
+      "path": "raw/17_causal_inventory.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/17_causal_inventory.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/17_causal_inventory.stdout.txt",
+      "sha256": "e8337a5dbbb56681bf025dac057ddadd62aab104aeaa5170eddc2d3bc92a41cb",
+      "size_bytes": 164
+    },
+    {
+      "path": "raw/18_pr81_merge_parents.command.txt",
+      "sha256": "45f5e773dee478739cda5ea292ac7dba076398d4684723fe1e4b989535ae1dc2",
+      "size_bytes": 66
+    },
+    {
+      "path": "raw/18_pr81_merge_parents.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/18_pr81_merge_parents.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/18_pr81_merge_parents.stdout.txt",
+      "sha256": "9c68e225f38be344cf2589696326bda9fcb8b317807c6d4a104281f5e9e6a473",
+      "size_bytes": 82
+    },
+    {
+      "path": "raw/19_pr82_merge_parents.command.txt",
+      "sha256": "f0808af935b237c196284e477d27d70935afb6f753ce910140440d3f9aeb14b7",
+      "size_bytes": 66
+    },
+    {
+      "path": "raw/19_pr82_merge_parents.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/19_pr82_merge_parents.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/19_pr82_merge_parents.stdout.txt",
+      "sha256": "41401db19b85e0924b638cd9b469795c10ef69ebcbfbfd7049db470cd6654d80",
+      "size_bytes": 82
+    },
+    {
+      "path": "raw/20_pr81_parent1_delta.command.txt",
+      "sha256": "c8e8a213955b705e41b8c6b12c88c325772e121764b72a0c12bf0f4132ac57ae",
+      "size_bytes": 130
+    },
+    {
+      "path": "raw/20_pr81_parent1_delta.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/20_pr81_parent1_delta.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/20_pr81_parent1_delta.stdout.txt",
+      "sha256": "aa2efd450e4ebb4203d38db78e92d57d6ec552fd6d951ee089ca05dba5093f5c",
+      "size_bytes": 524
+    },
+    {
+      "path": "raw/21_pr81_parent2_delta.command.txt",
+      "sha256": "23be61202e724d8664ae8fbf364a7c6b5091bc076f35884f72ba1923c91b69b9",
+      "size_bytes": 130
+    },
+    {
+      "path": "raw/21_pr81_parent2_delta.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/21_pr81_parent2_delta.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/21_pr81_parent2_delta.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/22_pr82_parent1_delta.command.txt",
+      "sha256": "76b8a526606714ef7eaffd5da082ff1070244646aa472fb576aed411a75c4e4e",
+      "size_bytes": 130
+    },
+    {
+      "path": "raw/22_pr82_parent1_delta.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/22_pr82_parent1_delta.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/22_pr82_parent1_delta.stdout.txt",
+      "sha256": "61ce1a7be1f40ab4103471599b930f5e0646808c4854e8bc4ef45e676317f1e5",
+      "size_bytes": 499
+    },
+    {
+      "path": "raw/23_pr82_parent2_delta.command.txt",
+      "sha256": "819495ff4b6ee637b4723963955645d034eab30f92f119890f4603f3ae7b8c34",
+      "size_bytes": 130
+    },
+    {
+      "path": "raw/23_pr82_parent2_delta.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/23_pr82_parent2_delta.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/23_pr82_parent2_delta.stdout.txt",
+      "sha256": "6bb13e28e634192d48540dd17d9cf2cb9436c6135fb8a8e298d707ddc51aa50a",
+      "size_bytes": 439
+    },
+    {
+      "path": "raw/24_install_claim_admission_dependencies.command.txt",
+      "sha256": "9b88740b91c818e3a59e952df206339a884db53c181c6aefcda1f0f13fb83102",
+      "size_bytes": 175
+    },
+    {
+      "path": "raw/24_install_claim_admission_dependencies.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/24_install_claim_admission_dependencies.stderr.txt",
+      "sha256": "1b50500a0a75557c78c4a61d6829101964dc175512c078e26f35a78ae4d2213f",
+      "size_bytes": 64
+    },
+    {
+      "path": "raw/24_install_claim_admission_dependencies.stdout.txt",
+      "sha256": "3f626688d4e402e9414e942b06b6d595dd8a877e8e9d4ce3dbfdfda5f6fbb38e",
+      "size_bytes": 477
+    },
+    {
+      "path": "raw/25_predecessor_manifest_sha256.command.txt",
+      "sha256": "3cd85716c8beab9bcab224b820e42d38664bf754e2c2759fcce0969059abb2c9",
+      "size_bytes": 81
+    },
+    {
+      "path": "raw/25_predecessor_manifest_sha256.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/25_predecessor_manifest_sha256.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/25_predecessor_manifest_sha256.stdout.txt",
+      "sha256": "bc964b250d931b5c6ac5b20c96ced3c6784bda694e0348ac60b8bcf7ccdbed0f",
+      "size_bytes": 136
+    },
+    {
+      "path": "raw/26_predecessor_manifest_blob.command.txt",
+      "sha256": "38b56d27dfa82e78da7f299186fcdc2acd6120a15ab030725d0a6697a396687f",
+      "size_bytes": 126
+    },
+    {
+      "path": "raw/26_predecessor_manifest_blob.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/26_predecessor_manifest_blob.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/26_predecessor_manifest_blob.stdout.txt",
+      "sha256": "65d27beb32bf6cde5b120e53b157b0a72ab6a0e6c6d5123f451601438eb1ae85",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/27_current_manifest_blob.command.txt",
+      "sha256": "2705bb913a08bbc236743aec478cca943f5de54328c1b2559c6978751f2a5f99",
+      "size_bytes": 90
+    },
+    {
+      "path": "raw/27_current_manifest_blob.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/27_current_manifest_blob.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/27_current_manifest_blob.stdout.txt",
+      "sha256": "65d27beb32bf6cde5b120e53b157b0a72ab6a0e6c6d5123f451601438eb1ae85",
+      "size_bytes": 41
+    },
+    {
+      "path": "raw/28_full_suite.command.txt",
+      "sha256": "4b8100b4cac8f68bbb243ca13fad28eeaf6e11ceafcedf01908e50386554168f",
+      "size_bytes": 68
+    },
+    {
+      "path": "raw/28_full_suite.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/28_full_suite.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/28_full_suite.stdout.txt",
+      "sha256": "cef45025100147f1784983f68ee58d29bff988bd8f85b7a1da7449a484f83d94",
+      "size_bytes": 992
+    },
+    {
+      "path": "raw/29_projection_measurements.command.txt",
+      "sha256": "da84948f6c01dad25d658bb3600ff7c514036c84c3d2604103edd03f25c71f87",
+      "size_bytes": 683
+    },
+    {
+      "path": "raw/29_projection_measurements.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/29_projection_measurements.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/29_projection_measurements.stdout.txt",
+      "sha256": "fc34e38be662c5241116245668bbd8733a3f34439799c47b8baf845697429233",
+      "size_bytes": 360
+    },
+    {
+      "path": "raw/30_final_git_status.command.txt",
+      "sha256": "d3c0f1e35141a67498f1d052f9c13069b9cf8702388979f01024bcc2d2ece32c",
+      "size_bytes": 42
+    },
+    {
+      "path": "raw/30_final_git_status.exit_code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size_bytes": 2
+    },
+    {
+      "path": "raw/30_final_git_status.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "raw/30_final_git_status.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    }
+  ],
+  "disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+  "effects": {
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "admission": "NONE",
+    "merge_authorization": "NONE",
+    "publication": "NONE",
+    "authority_transfer": "NONE",
+    "execution_permission": "NONE"
+  },
+  "non_claims": [
+    "Package conformance is not substantive recomputation.",
+    "A reviewer receipt is not admission or merge authorization.",
+    "Recomputation does not establish truth, legal sufficiency, compliance, safety, or institutional authority.",
+    "Expected values must not replace observed commands, outputs, exit codes, and digests.",
+    "Frontier completeness is exact only within the declared Git interval; semantic classification outside that frontier remains unresolved.",
+    "EXPLICIT_JOIN binds a declared result but does not prove that the reconciliation decision is correct."
+  ],
+  "reviewer_attestation": {
+    "statement": "The exact PR #92 head and tree were freshly acquired after disclosure. The four-commit frontier inventory, both-parent merge deltas, causal projection, state-vector digest, closure digest, 18 focused tests, 12 registered adversarial cases, predecessor-manifest preservation, and a clean 794-test full suite reproduced within the declared scope. The frontier is Git-complete for its exact interval; semantic completeness outside it and correctness of explicit reconciliation choices remain non-claims. No substantive defect was observed.",
+    "recorded_at_utc": "2026-07-26T06:53:54Z"
+  },
+  "integrity": {
+    "receipt_payload_sha256": "231732114c00ffe33cb3e31a46d432e6ad474944cf4eec596f8fb6edafa5d646"
+  }
+}

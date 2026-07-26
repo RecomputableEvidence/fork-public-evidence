@@ -72,13 +72,20 @@ contain no completed review result and create no inherited review standing.
 
 PR #91's first completed return, its unchanged raw ZIP, and a mechanically
 normalized schema-conforming successor are preserved separately under
-`../exterior-observations/reviews/pr91-chatgpt-20260724/`. The recorded
-disposition is `REPRODUCED_WITH_CORRECTION_REQUIRED`; PR #92 remains pending.
+`../exterior-observations/reviews/pr91-chatgpt-20260724/`. Its recorded
+disposition is `REPRODUCED_WITH_CORRECTION_REQUIRED`.
+
+PR #92's separately disclosed exact-head return and its raw-output ZIP are
+preserved under
+`../exterior-observations/reviews/pr92-chatgpt-codex-20260726/`. Its recorded
+disposition is `REPRODUCED_WITHIN_DECLARED_SCOPE`; reviewer independence is
+`NOT_INDEPENDENT_AUTHOR_ASSISTED`.
 
 Run:
 
 ```bash
 python tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py
+python tools/check_pr92_exterior_recomputation_preservation_v0_1.py
 ```
 
 A passing result on any of these checkers establishes only its declared

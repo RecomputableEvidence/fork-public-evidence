@@ -109,7 +109,7 @@ EXPECTED_STACK = [
         "tree_sha": EXPECTED_TARGETS[92]["tree_sha"],
         "depends_on_pull_request": 91,
         "exact_predecessor": EXPECTED_TARGETS[91]["head_sha"],
-        "standing": "OPEN_DRAFT_EXTERIOR_RECOMPUTATION_PENDING_NOT_ADMITTED",
+        "standing": "OPEN_DRAFT_REPRODUCED_WITHIN_DECLARED_SCOPE_NOT_ADMITTED",
     },
 ]
 
@@ -482,7 +482,7 @@ def evaluate(root: Path = ROOT) -> dict[str, Any]:
             "schema_version": "v0.1",
             "record_kind": "fork_longitudinal_recomputation_stack_review_coordinates",
             "repository": "RecomputableEvidence/fork-public-evidence",
-            "snapshot_date": "2026-07-24",
+            "snapshot_date": "2026-07-26",
         }
         for field, value in expected_stack_header.items():
             if stack.get(field) != value:

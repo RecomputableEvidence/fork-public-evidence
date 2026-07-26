@@ -1,6 +1,6 @@
 # Longitudinal exterior recomputation and interoperability v0.3.1
 
-**Standing:** `REVIEW_PACKAGE_CANDIDATE_NO_REVIEW_RESULT`
+**Standing:** `REVIEW_PACKAGE_WITH_SEPARATE_RESULTS_PRESERVED_NOT_ADMITTED`
 **Exact predecessor:** PR #92 head
 `353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84`, tree
 `a85af6ef1c7db88dcddbc709944d9872320cdb96`
@@ -14,8 +14,9 @@ templates for separate recomputation of:
 1. PR #91's bounded linear replay v0.2; and
 2. PR #92's frontier-bounded causal reconciliation v0.3.
 
-The package contains no completed reviewer receipt and makes no claim that
-either target has been independently reproduced.
+The templates remain pending examples and contain no completed result. Separate
+returned receipts are preserved outside this package so the reusable kit does
+not silently become its own review authority.
 
 ## Reviewer route
 
@@ -76,6 +77,14 @@ normalization are preserved under
 `docs/exterior-observations/reviews/pr91-chatgpt-20260724/`. No rerun or
 substantive reinterpretation occurred.
 
+PR #92's separately disclosed return is preserved under
+`docs/exterior-observations/reviews/pr92-chatgpt-codex-20260726/`. It records
+`REPRODUCED_WITHIN_DECLARED_SCOPE` at the exact target, with 18 focused tests,
+794 full-suite tests, 12 adversarial results, and all raw outputs bound inside
+the preserved ZIP. The reviewer disclosed
+`NOT_INDEPENDENT_AUTHOR_ASSISTED`; the result is not represented as arms-length
+peer review.
+
 ## Acceptance benchmark
 
 Feature work should remain paused until:
@@ -86,6 +95,9 @@ Feature work should remain paused until:
 - raw outputs and their digests are preserved;
 - any findings are answered append-only rather than rewritten; and
 - admission or merge is considered as a separate, bottom-up decision.
+
+All review-return benchmarks above are now satisfied. Admission and merge
+remain separate decisions; no standing is inherited from either return.
 
 ## Boundary
 
