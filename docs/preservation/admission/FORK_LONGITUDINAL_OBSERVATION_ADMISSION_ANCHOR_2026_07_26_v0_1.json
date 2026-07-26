@@ -1,0 +1,222 @@
+{
+  "anchor_id": "FORK_LONGITUDINAL_OBSERVATION_ADMISSION_ANCHOR_2026_07_26_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_APPEND_ONLY_ADMISSION",
+  "time_basis": "2026-07-26 America/Los_Angeles",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "anchor_base_commit": "59b11ca21a3d3e374cab054e7a926394a837e972",
+  "anchor_base_tree": "9aeeb68f41238c47266e53e172a4074e5615cd21",
+  "responsible_repository_role": "MAINTAINER",
+  "append_only": true,
+  "admission_effect_if_merged": {
+    "standing": "ADMITTED_TO_PRESERVATION_LINEAGE",
+    "pull_requests": [
+      89,
+      90,
+      91,
+      92,
+      93,
+      96
+    ],
+    "thesis_manifestation_standing": "ADMITTED_RESEARCH_SYNTHESIS_NOT_TRUTH_OR_AUTHORITY",
+    "temporal_succession_standing": "ADMITTED_HISTORICAL_PROJECTION_WITH_CURRENT_RELIANCE_SEPARATE",
+    "longitudinal_replay_standing": "ADMITTED_WITH_EXTERIOR_CORRECTION_RETAINED",
+    "causal_reconciliation_standing": "ADMITTED_WITHIN_DECLARED_FRONTIER_AND_DISCLOSED_REVIEWER_NONINDEPENDENCE",
+    "exterior_return_standing": "ADMITTED_PORTABLE_RECOMPUTATION_CONTRACT_AND_PRESERVED_RETURNS",
+    "kubernetes_experiment_standing": "ADMITTED_PREREGISTERED_PACKAGE_LIVE_OBSERVATION_NOT_AUTHORIZED",
+    "does_not_authorize_workflow_dispatch": true,
+    "does_not_authorize_live_observation": true,
+    "does_not_authorize_provider_calls": true,
+    "does_not_promote_present_reliance": true,
+    "does_not_transfer_authority": true
+  },
+  "merge_records": [
+    {
+      "pull_request": 89,
+      "reviewed_head": "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1",
+      "reviewed_head_tree": "78703afea0d4b4208f6226207e8a2e44bdaed6a0",
+      "merge_commit": "cbedf9d26f0034d847cc23099f464b50878c5ddc",
+      "merge_tree": "78703afea0d4b4208f6226207e8a2e44bdaed6a0",
+      "merge_parents": [
+        "1241c0084900f2c60f362205525464582e57b4a7",
+        "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1"
+      ],
+      "standing_if_anchor_admitted": "ADMITTED_RESEARCH_SYNTHESIS_NOT_TRUTH_OR_AUTHORITY"
+    },
+    {
+      "pull_request": 90,
+      "reviewed_head": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "reviewed_head_tree": "52ca08a41173e031ade01b9b6ec529cc80776380",
+      "merge_commit": "4055122d3d662360849cb90168cdf3b28837e373",
+      "merge_tree": "52ca08a41173e031ade01b9b6ec529cc80776380",
+      "merge_parents": [
+        "cbedf9d26f0034d847cc23099f464b50878c5ddc",
+        "f955834681d2f2ee257276acbf68afde0ae0e69d"
+      ],
+      "standing_if_anchor_admitted": "ADMITTED_TEMPORAL_SUCCESSION_PROJECTION"
+    },
+    {
+      "pull_request": 91,
+      "reviewed_head": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "reviewed_head_tree": "0b5f11eb6c1cd8c90b4cacce2a747045da917741",
+      "merge_commit": "9f65a3b3d0dda3a0116a6438a6e24118ff63fddb",
+      "merge_tree": "0b5f11eb6c1cd8c90b4cacce2a747045da917741",
+      "merge_parents": [
+        "4055122d3d662360849cb90168cdf3b28837e373",
+        "e848ea0825bafc1aa3754d89e719d71b5a9f3982"
+      ],
+      "standing_if_anchor_admitted": "ADMITTED_LINEAR_REPLAY_WITH_CORRECTION_REQUIRED_RETAINED"
+    },
+    {
+      "pull_request": 92,
+      "reviewed_head": "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84",
+      "reviewed_head_tree": "a85af6ef1c7db88dcddbc709944d9872320cdb96",
+      "merge_commit": "a48a75ad229e40c29234fa17678d20820d6c4ecc",
+      "merge_tree": "a85af6ef1c7db88dcddbc709944d9872320cdb96",
+      "merge_parents": [
+        "9f65a3b3d0dda3a0116a6438a6e24118ff63fddb",
+        "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84"
+      ],
+      "standing_if_anchor_admitted": "ADMITTED_CAUSAL_REPLAY_WITHIN_DECLARED_SCOPE"
+    },
+    {
+      "pull_request": 93,
+      "reviewed_head": "583bfcc17e2ca456967bc1bd202b88c2f23c3ad5",
+      "reviewed_head_tree": "d71222a460277ab0412841f4dedb1f30d4b2b677",
+      "merge_commit": "dc8535221cf78e5bde02d0505011db298feb4997",
+      "merge_tree": "d71222a460277ab0412841f4dedb1f30d4b2b677",
+      "merge_parents": [
+        "a48a75ad229e40c29234fa17678d20820d6c4ecc",
+        "583bfcc17e2ca456967bc1bd202b88c2f23c3ad5"
+      ],
+      "standing_if_anchor_admitted": "ADMITTED_PORTABLE_EXTERIOR_RETURN_CONTRACT_AND_RETURNS"
+    },
+    {
+      "pull_request": 96,
+      "reviewed_head": "26db567857d7103b4a258c8466a3b19224e1f175",
+      "reviewed_head_tree": "9aeeb68f41238c47266e53e172a4074e5615cd21",
+      "merge_commit": "59b11ca21a3d3e374cab054e7a926394a837e972",
+      "merge_tree": "9aeeb68f41238c47266e53e172a4074e5615cd21",
+      "merge_parents": [
+        "dc8535221cf78e5bde02d0505011db298feb4997",
+        "26db567857d7103b4a258c8466a3b19224e1f175"
+      ],
+      "standing_if_anchor_admitted": "ADMITTED_PREREGISTERED_EXPERIMENT_PACKAGE_LIVE_OBSERVATION_NOT_AUTHORIZED"
+    }
+  ],
+  "successful_workflow_runs": [
+    {
+      "pull_request": 89,
+      "head_commit": "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1",
+      "runs": [
+        {"id": 29939721971, "workflow": "Fork Evidence CI", "run_number": 422, "conclusion": "success"},
+        {"id": 29939722169, "workflow": "Root Checksum Manifest v0.1", "run_number": 43, "conclusion": "success"},
+        {"id": 29939721803, "workflow": "Fork Proof-Surface Integration", "run_number": 121, "conclusion": "success"}
+      ]
+    },
+    {
+      "pull_request": 90,
+      "head_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+      "runs": [
+        {"id": 29986009046, "workflow": "Fork Evidence CI", "run_number": 428, "conclusion": "success"},
+        {"id": 29986009026, "workflow": "Root Checksum Manifest v0.1", "run_number": 49, "conclusion": "success"},
+        {"id": 29986009067, "workflow": "Fork Proof-Surface Integration", "run_number": 127, "conclusion": "success"}
+      ]
+    },
+    {
+      "pull_request": 91,
+      "head_commit": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+      "runs": [
+        {"id": 30082374788, "workflow": "Fork Evidence CI", "run_number": 429, "conclusion": "success"},
+        {"id": 30082374713, "workflow": "Root Checksum Manifest v0.1", "run_number": 50, "conclusion": "success"},
+        {"id": 30082374773, "workflow": "Fork Proof-Surface Integration", "run_number": 128, "conclusion": "success"}
+      ]
+    },
+    {
+      "pull_request": 92,
+      "head_commit": "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84",
+      "runs": [
+        {"id": 30087707586, "workflow": "Fork Evidence CI", "run_number": 430, "conclusion": "success"},
+        {"id": 30087707584, "workflow": "Root Checksum Manifest v0.1", "run_number": 51, "conclusion": "success"},
+        {"id": 30087707582, "workflow": "Fork Proof-Surface Integration", "run_number": 129, "conclusion": "success"}
+      ]
+    },
+    {
+      "pull_request": 93,
+      "head_commit": "583bfcc17e2ca456967bc1bd202b88c2f23c3ad5",
+      "runs": [
+        {"id": 30192281800, "workflow": "Fork Evidence CI", "run_number": 439, "conclusion": "success"},
+        {"id": 30192281794, "workflow": "Root Checksum Manifest v0.1", "run_number": 60, "conclusion": "success"},
+        {"id": 30192281809, "workflow": "Fork Proof-Surface Integration", "run_number": 138, "conclusion": "success"}
+      ]
+    },
+    {
+      "pull_request": 96,
+      "head_commit": "26db567857d7103b4a258c8466a3b19224e1f175",
+      "runs": [
+        {"id": 30192871127, "workflow": "Fork Evidence CI", "run_number": 441, "conclusion": "success"},
+        {"id": 30192871101, "workflow": "Root Checksum Manifest v0.1", "run_number": 67, "conclusion": "success"},
+        {"id": 30192871135, "workflow": "Fork Proof-Surface Integration", "run_number": 140, "conclusion": "success"},
+        {"id": 30192871114, "workflow": "Kubernetes Exterior Longitudinal Observation v0.1", "run_number": 7, "conclusion": "success"}
+      ]
+    }
+  ],
+  "review_evidence": {
+    "pr_91": {
+      "disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+      "clean_exact_target_suite": "726 passed, 3 skipped",
+      "original_public_test_count_reproduced": false
+    },
+    "pr_92": {
+      "disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+      "reviewer_standing": "NOT_INDEPENDENT_AUTHOR_ASSISTED",
+      "clean_exact_target_suite": "794 passed",
+      "adversarial_cases": "12/12"
+    },
+    "pr_93": {
+      "portable_return_contract": "EXTERIOR_RECOMPUTATION_RETURN_CONFORMS",
+      "preserved_pr_91_return_sha256": "51d8249fe85fff34d288c1bfd7198639eecbd11e6fc4ae4872666fe63fcfacb9",
+      "preserved_pr_92_return_sha256": "ecb0b7767ea7bd86e8f76eb235782f197d4b35fcea713e11084a1c171c2ddd59"
+    },
+    "pr_96": {
+      "original_exact_head_negative_result": "760 passed, 1 failed",
+      "original_failure": "STALE_REPOSITORY_WIDE_SELF_CHECK_RECEIPT",
+      "corrected_exact_head_suite": "761 passed",
+      "integrated_final_suite": "830 passed",
+      "package_checker": "KUBERNETES_EXPERIMENT_PACKAGE_CONFORMS",
+      "experiment_paths_byte_equivalent_to_pr_94": 13
+    }
+  },
+  "supersession_records": [
+    {
+      "pull_request": 94,
+      "head": "50b982356928635929729817c931544838f461f3",
+      "disposition": "CLOSED_WITHOUT_MERGE_SUPERSEDED_BY_REGENERATED_PR_96",
+      "history_preserved": true,
+      "does_not_invalidate_experiment_design": true
+    }
+  ],
+  "current_state_projection": {
+    "source_commit": "59b11ca21a3d3e374cab054e7a926394a837e972",
+    "source_tree": "9aeeb68f41238c47266e53e172a4074e5615cd21",
+    "historical_validity": "PRESERVED",
+    "current_reliance": "SEPARATE_DECISION_REQUIRED",
+    "live_kubernetes_observations": 0,
+    "workflow_dispatches_authorized": 0,
+    "provider_calls_performed_by_anchor": 0,
+    "pair_001_repetitions": 0,
+    "authority_effect": "NONE",
+    "execution_effect": "NONE",
+    "next_governed_stage": "PRESENT_RELIANCE_TRANSITION_BOUNDARY"
+  },
+  "non_claims": [
+    "No live Kubernetes observation or workflow dispatch",
+    "No provider call or Pair-001 repetition",
+    "No present-reliance promotion",
+    "No authority transfer from evidence, recomputation, review, merge, or admission",
+    "No truth, causality, endorsement, compliance, legal, safety, or production-readiness certification",
+    "No semantic completeness beyond each artifact's declared frontier",
+    "No independent reviewer standing for the PR #92 return"
+  ]
+}
