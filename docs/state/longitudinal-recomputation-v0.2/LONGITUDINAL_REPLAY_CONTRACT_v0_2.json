@@ -1,0 +1,126 @@
+{
+  "schema_version": "v0.2",
+  "record_kind": "fork_longitudinal_replay_contract",
+  "contract_id": "FORK_LONGITUDINAL_REPLAY_CONTRACT_v0_2",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "dimensions": [
+    "artifact_state",
+    "verification_state",
+    "review_state",
+    "admission_state",
+    "authority_state",
+    "execution_state",
+    "unresolved_state",
+    "temporal_closure"
+  ],
+  "initial_coordinate": {
+    "commit_sha": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "tree_sha": "aa8b1e5f47d2ca062588b8f50c58fa6014ee29ba",
+    "standing": "EXACT_REPLAY_START_NOT_MOVING_BRANCH_NAME"
+  },
+  "initial_state": {
+    "artifact_state": {
+      "standing": "EXACT_ARTIFACT_COORDINATE_AT_REPLAY_START",
+      "basis_commit": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "basis_tree": "aa8b1e5f47d2ca062588b8f50c58fa6014ee29ba",
+      "freshness": "CURRENT_ONLY_AT_EXACT_REPLAY_START"
+    },
+    "verification_state": {
+      "standing": "SOURCE_HEAD_CONFORMANCE_DECLARED_IN_SOURCE_MATERIAL_NOT_YET_EXTERIORLY_RECOMPUTED_IN_THIS_LINEAGE",
+      "basis_commit": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "freshness": "PENDING_RECORDED_EXTERIOR_RECOMPUTATION"
+    },
+    "review_state": {
+      "standing": "NO_EXTERIOR_REVIEW_RECEIPT_PRESENT_AT_REPLAY_START",
+      "reviewed_head": null,
+      "freshness": "NONE"
+    },
+    "admission_state": {
+      "standing": "NONE",
+      "basis": "NO_ADMISSION_EFFECT_IN_REPLAY_INTERVAL",
+      "freshness": "UNCHANGED"
+    },
+    "authority_state": {
+      "standing": "NONE",
+      "valid_from_utc": null,
+      "valid_until_utc": null,
+      "revoked_by_event_id": null,
+      "freshness": "UNCHANGED"
+    },
+    "execution_state": {
+      "standing": "DERIVE_FROM_FORK_SEQUENCE_SURFACE_v0_1",
+      "freshness": "DERIVED_FROM_BOUND_PRIMARY_EVIDENCE"
+    },
+    "unresolved_state": {
+      "standing": "OPEN",
+      "items": [
+        "EVENT_REGISTRY_COMPLETENESS_OUTSIDE_DECLARED_GIT_INTERVAL",
+        "EXTERIOR_REVIEW_ATTRIBUTION_NOT_YET_RECORDED"
+      ],
+      "freshness": "AT_REPLAY_START"
+    },
+    "temporal_closure": {
+      "standing": "CLOSED_AT_EXACT_COMMIT",
+      "commit_sha": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+      "tree_sha": "aa8b1e5f47d2ca062588b8f50c58fa6014ee29ba",
+      "as_of_utc": "2026-07-22T21:05:49Z"
+    }
+  },
+  "reducer_rules": {
+    "committed_projection_is_cache": true,
+    "projection_must_recompute_from_predecessor_and_events": true,
+    "undeclared_dimension_change_fails": true,
+    "preserved_dimensions_must_remain_byte_equivalent": true,
+    "review_standing_is_exact_head_bound": true,
+    "verification_does_not_inherit_across_head_change": true,
+    "admission_requires_explicit_admission_effect": true,
+    "authority_requires_explicit_authority_effect": true,
+    "execution_requires_explicit_execution_effect": true,
+    "expired_or_revoked_authority_cannot_remain_active": true,
+    "concurrent_successors_require_explicit_reconciliation": true,
+    "unclassified_interval_commit_is_unresolved_not_absent": true
+  },
+  "surface_reducers": [
+    {
+      "reducer_id": "FORK_SEQUENCE_SURFACE_REDUCER_v0_1",
+      "checker_path": "tools/check_fork_sequence_surface_v0_1.py",
+      "input_paths": [
+        "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+        "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+        "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json"
+      ],
+      "contributes_dimensions": [
+        "execution_state"
+      ],
+      "hardcoded_domain_state_in_longitudinal_checker": false
+    },
+    {
+      "reducer_id": "FORK_TEMPORAL_SUCCESSION_VALIDATOR_v0_1",
+      "checker_path": "tools/check_temporal_succession_v0_1.py",
+      "input_paths": [
+        "docs/state/FORK_TEMPORAL_SUCCESSION_LEDGER_v0_1.json",
+        "docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json"
+      ],
+      "contributes_dimensions": [],
+      "role": "PREDECESSOR_SURFACE_CONFORMANCE_ONLY"
+    }
+  ],
+  "expected_non_effects": {
+    "main_ref": "NONE",
+    "preservation_ref": "NONE",
+    "existing_pull_requests": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "readiness": "NONE",
+    "retry_authorization": "NONE",
+    "execution_authority": "NONE",
+    "admission": "NONE"
+  },
+  "non_claims": [
+    "The contract does not discover semantic events outside its exact declared Git interval.",
+    "Commit enumeration is not admission, authority, review, execution, or truth.",
+    "A reducer result is bounded by its primary evidence and checker contract.",
+    "The candidate does not alter Pair-001 or authorize any provider call."
+  ]
+}
