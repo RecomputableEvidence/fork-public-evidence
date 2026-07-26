@@ -1,0 +1,65 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_thesis_manifestation_package_manifest",
+  "manifest_id": "FTM-PACKAGE-MANIFEST-2026-07-22-001",
+  "candidate_id": "FTM-CANDIDATE-2026-07-22-001",
+  "status": "BYTE_BOUND_CANDIDATE_PACKAGE",
+  "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+  "digest_algorithm": "SHA-256",
+  "entries": [
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/ALTERNATIVE_INTERPRETATIONS_AND_FALSIFIERS_v0_1.md",
+      "sha256": "9d051bafb272fd6c0d4d03f71e2fa2e2a3ffac42741821b6ad5175990fc578a3",
+      "size_bytes": 3373
+    },
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/BASE_COORDINATE_v0_1.json",
+      "sha256": "bb4383b27e6220e8d18111a501ab5fc7cd539207084f24d6c63be0649fbcd8bd",
+      "size_bytes": 1309
+    },
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/CLAIM_LEDGER_v0_1.json",
+      "sha256": "f2d250b3f96752a77c219e59ac1439bda875aa427ef70c13edf70392d7c7e46e",
+      "size_bytes": 9800
+    },
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/EVIDENCE_MAP_v0_1.json",
+      "sha256": "50c0d72c2d51de0859b21b088cd63e5a790988cb9252f83effc9a179f7b265f2",
+      "size_bytes": 7515
+    },
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/NO_ADMISSION_OR_EXECUTION_EFFECT_v0_1.json",
+      "sha256": "372ce86ef255fec2a65e4652b397b457a2c3cfbec7466dba99a02778435b3807",
+      "size_bytes": 1522
+    },
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/README.md",
+      "sha256": "b63fa3910878b69c5d624ed24bcda68ea3b7f6eebaedba039a9500f413930143",
+      "size_bytes": 3778
+    },
+    {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/THESIS_MANIFESTATION_RECORD_v0_1.json",
+      "sha256": "8c2b8cff653f5db2d89de6d3d9bdc903456705ea82ae4f8a2ec92f1c51f27238",
+      "size_bytes": 5386
+    },
+    {
+      "path": "tests/test_fork_thesis_manifestation_v0_1.py",
+      "sha256": "e3d16dadfc8012e9a9785f9b5821112d2182f1b6517def42556adeaac95edd47",
+      "size_bytes": 3461
+    },
+    {
+      "path": "tools/check_fork_thesis_manifestation_v0_1.py",
+      "sha256": "55f548e3c50c14b295d73465aa18ed84409d6ca8aeb8db9088e800ae06e5adb4",
+      "size_bytes": 26234
+    }
+  ],
+  "self_exclusion": {
+    "path": "docs/research/fork-thesis-manifestation-v0.1/PACKAGE_MANIFEST_v0_1.json",
+    "reason": "The manifest excludes itself to avoid a circular digest."
+  },
+  "non_claims": [
+    "Package byte conformance is not semantic truth, causal proof, admission, approval, or authority.",
+    "This manifest does not bind files outside its declared entries or mutate the exact-base evidence.",
+    "The candidate checker and tests are bound as reviewable code, not inherited as independent authority."
+  ]
+}
