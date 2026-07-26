@@ -1,0 +1,22 @@
+{
+  "record_id": "FORK_ELO_KUBERNETES_MASTER_NO_EFFECTS_v0_1",
+  "schema_version": "0.1",
+  "status": "BOUNDARY_DECLARATION",
+  "main_effect": "NONE",
+  "preservation_branch_effect": "NONE",
+  "existing_pull_request_effect": "NONE",
+  "kubernetes_repository_effect": "NONE",
+  "github_repository_setting_effect": "NONE",
+  "remote_write_requests_authorized": 0,
+  "authenticated_requests_authorized": 0,
+  "provider_or_model_calls": 0,
+  "pair_001_effect": "NONE",
+  "admission_effect": "NONE",
+  "authority_effect": "NONE",
+  "execution_effect": "NONE",
+  "truth_effect": "NONE",
+  "causality_effect": "NONE",
+  "endorsement_effect": "NONE",
+  "scheduled_observation_effect": "NONE",
+  "live_observation_effect_from_opening_pr": "NONE"
+}
