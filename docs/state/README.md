@@ -6,6 +6,7 @@ coordinates. They must not be read as interchangeable current-state claims.
 The machine-readable route is:
 
 - `docs/state/FORK_STATE_ROUTING_v0_2.json`
+- `docs/state/FORK_STATE_ROUTING_v0_3.json`
 
 ## Historical projection
 
@@ -36,16 +37,30 @@ Run:
 python tools/check_temporal_succession_v0_1.py --json
 ```
 
-## Longitudinal replay candidate
+## Linear replay predecessor
 
 `longitudinal-recomputation-v0.2/LONGITUDINAL_CURRENT_PROJECTION_v0_2.json`
 replays the bounded PR #90 review-preservation transition. It is a research
-candidate, not an admitted projection or authority source.
+predecessor candidate, not an admitted projection or authority source.
 
 Run:
 
 ```bash
 python tools/check_longitudinal_recomputation_v0_2.py --json
+```
+
+## Causal reconciliation candidate
+
+`longitudinal-recomputation-v0.3/CAUSAL_CURRENT_PROJECTION_v0_3.json`
+replays the endogenous PR #81 and PR #82 branch convergence from two exact
+frontier anchors. It derives causal order from Git parents and requires an
+explicit decision for every state dimension at each merge. It is a research
+candidate, not an admitted projection or authority source.
+
+Run:
+
+```bash
+python tools/check_longitudinal_causal_reconciliation_v0_3.py
 ```
 
 A passing result on any of these checkers establishes only its declared

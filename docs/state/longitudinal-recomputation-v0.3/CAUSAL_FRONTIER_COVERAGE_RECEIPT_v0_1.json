@@ -1,0 +1,253 @@
+{
+  "classified_commit_count": 4,
+  "commit_count": 4,
+  "frontier": {
+    "anchors": [
+      {
+        "anchor_id": "FRONTIER-A-MAINLINE-BEFORE-SEQUENCE-JOIN",
+        "commit_sha": "5fbabbd486d4e863d23e0096600185ada92539a6",
+        "standing": "EXACT_FRONTIER_ANCHOR_NOT_MOVING_BRANCH_NAME",
+        "state": {
+          "admission_state": {
+            "basis": "PR81_AND_PR82_PRECEDE_SEPARATE_PR83_ADMISSION_ANCHOR",
+            "standing": "NONE"
+          },
+          "artifact_state": {
+            "commit_sha": "5fbabbd486d4e863d23e0096600185ada92539a6",
+            "standing": "EXACT_GIT_COORDINATE",
+            "tree_sha": "f620d107eeb6c0a601a8f1a5f4eb7a0d3a5e122d"
+          },
+          "authority_state": {
+            "basis": "NO_AUTHORITY_EFFECT_IN_CAUSAL_FRONTIER",
+            "standing": "NONE"
+          },
+          "execution_state": {
+            "pair_001_calls": 0,
+            "provider_calls": 0,
+            "standing": "NO_EXECUTION_AUTHORITY"
+          },
+          "review_state": {
+            "freshness": "NONE",
+            "reviewed_commit": null,
+            "standing": "NOT_ASSERTED_BY_THIS_REPLAY"
+          },
+          "temporal_closure": {
+            "as_of_utc": "2026-07-20T01:20:39Z",
+            "commit_sha": "5fbabbd486d4e863d23e0096600185ada92539a6",
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "tree_sha": "f620d107eeb6c0a601a8f1a5f4eb7a0d3a5e122d"
+          },
+          "unresolved_state": {
+            "items": [
+              "SEQUENCE_LINEAGE_NOT_PRESENT_ON_THIS_FRONTIER",
+              "ROOT_CHECKSUM_LINEAGE_NOT_PRESENT_ON_THIS_FRONTIER"
+            ],
+            "standing": "OPEN"
+          },
+          "verification_state": {
+            "root_checksum_surface": "NOT_PRESENT_ON_THIS_FRONTIER",
+            "sequence_surface": "NOT_PRESENT_ON_THIS_FRONTIER",
+            "standing": "FRONTIER_SPECIFIC_UNRECONCILED"
+          }
+        },
+        "state_sha256": "fc5e6e8597d74ef1f36fd17c0ee1cc40ee40c55df6cc4ccefae35fde51374616",
+        "tree_sha": "f620d107eeb6c0a601a8f1a5f4eb7a0d3a5e122d"
+      },
+      {
+        "anchor_id": "FRONTIER-B-SEQUENCE-CANDIDATE-BASE",
+        "commit_sha": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+        "standing": "EXACT_FRONTIER_ANCHOR_NOT_MOVING_BRANCH_NAME",
+        "state": {
+          "admission_state": {
+            "basis": "PR81_AND_PR82_PRECEDE_SEPARATE_PR83_ADMISSION_ANCHOR",
+            "standing": "NONE"
+          },
+          "artifact_state": {
+            "commit_sha": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+            "standing": "EXACT_GIT_COORDINATE",
+            "tree_sha": "1ca0c3dffffe4153867439e584c14070b5bcdeeb"
+          },
+          "authority_state": {
+            "basis": "NO_AUTHORITY_EFFECT_IN_CAUSAL_FRONTIER",
+            "standing": "NONE"
+          },
+          "execution_state": {
+            "pair_001_calls": 0,
+            "provider_calls": 0,
+            "standing": "NO_EXECUTION_AUTHORITY"
+          },
+          "review_state": {
+            "freshness": "NONE",
+            "reviewed_commit": null,
+            "standing": "NOT_ASSERTED_BY_THIS_REPLAY"
+          },
+          "temporal_closure": {
+            "as_of_utc": "2026-07-19T11:16:00Z",
+            "commit_sha": "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e",
+            "standing": "CLOSED_AT_EXACT_COMMIT",
+            "tree_sha": "1ca0c3dffffe4153867439e584c14070b5bcdeeb"
+          },
+          "unresolved_state": {
+            "items": [
+              "SEQUENCE_FIX_NOT_YET_BOUND",
+              "ROOT_CHECKSUM_LINEAGE_NOT_PRESENT_ON_THIS_FRONTIER"
+            ],
+            "standing": "OPEN"
+          },
+          "verification_state": {
+            "root_checksum_surface": "NOT_PRESENT_ON_THIS_FRONTIER",
+            "sequence_surface": "CANDIDATE_PRESENT_UNBOUND",
+            "standing": "FRONTIER_SPECIFIC_UNRECONCILED"
+          }
+        },
+        "state_sha256": "853d90918cd6eb4a3f1dccc088a79def1d65f71d373c10a1c293565e9edd9592",
+        "tree_sha": "1ca0c3dffffe4153867439e584c14070b5bcdeeb"
+      }
+    ],
+    "closure_commit_inclusive": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+    "frontier_id": "FORK_CAUSAL_FRONTIER_SEQUENCE_CHECKSUM_v0_1",
+    "standing": "BOUNDED_MULTI_ROOT_CAUSAL_FRONTIER"
+  },
+  "git_inventory": [
+    {
+      "changed_paths": [
+        "docs/sequence-surface/FORK_SEQUENCE_SURFACE_v0_1.md",
+        "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+        "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+        "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+        "schemas/fork_sequence_ledger_v0_1.schema.json",
+        "tests/fixtures/fork-sequence-surface-v0.1/adversarial_cases_v0_1.json",
+        "tests/test_fork_sequence_surface_v0_1.py",
+        "tools/check_fork_sequence_surface_v0_1.py"
+      ],
+      "commit_sha": "c879242c4dafad68bdd8e7bcf2466e4169351969",
+      "committed_at_utc": "2026-07-20T01:56:49Z",
+      "parent_commits": [
+        "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e"
+      ],
+      "parent_deltas": {
+        "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e": [
+          "docs/sequence-surface/FORK_SEQUENCE_SURFACE_v0_1.md",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+          "schemas/fork_sequence_ledger_v0_1.schema.json",
+          "tests/fixtures/fork-sequence-surface-v0.1/adversarial_cases_v0_1.json",
+          "tests/test_fork_sequence_surface_v0_1.py",
+          "tools/check_fork_sequence_surface_v0_1.py"
+        ]
+      },
+      "subject": "fix(fork): bind authorization and retry outcomes",
+      "tree_sha": "31f1838e6cff6035370c4d99fc58cff620cdb42f"
+    },
+    {
+      "changed_paths": [],
+      "commit_sha": "97abe21daed2daec8a608851467875df42a99f0a",
+      "committed_at_utc": "2026-07-20T02:06:34Z",
+      "parent_commits": [
+        "5fbabbd486d4e863d23e0096600185ada92539a6",
+        "c879242c4dafad68bdd8e7bcf2466e4169351969"
+      ],
+      "parent_deltas": {
+        "5fbabbd486d4e863d23e0096600185ada92539a6": [
+          "docs/sequence-surface/FORK_SEQUENCE_SURFACE_v0_1.md",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+          "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+          "schemas/fork_sequence_ledger_v0_1.schema.json",
+          "tests/fixtures/fork-sequence-surface-v0.1/adversarial_cases_v0_1.json",
+          "tests/test_fork_sequence_surface_v0_1.py",
+          "tools/check_fork_sequence_surface_v0_1.py"
+        ],
+        "c879242c4dafad68bdd8e7bcf2466e4169351969": []
+      },
+      "subject": "Merge pull request #81 from RecomputableEvidence/agent/fork-sequence-surface-v0-1",
+      "tree_sha": "31f1838e6cff6035370c4d99fc58cff620cdb42f"
+    },
+    {
+      "changed_paths": [
+        ".github/workflows/root-checksum-manifest-v0-1.yml",
+        "CHECKSUMS_SHA256.txt",
+        "docs/preservation/root-checksum-integrity-v0.1/ROOT_CHECKSUM_DISCREPANCY_RECORD_v0_1.json",
+        "docs/preservation/root-checksum-integrity-v0.1/specimens/CHECKSUMS_SHA256.8f3f07e.pre-repair.txt",
+        "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+        "tests/fixtures/root-checksum-manifest-v0.1/adversarial_cases_v0_1.json",
+        "tests/test_root_checksum_manifest_v0_1.py",
+        "tools/check_root_checksum_manifest_v0_1.py"
+      ],
+      "commit_sha": "5150ece4c29cea38cfe5e25daeb781423c680834",
+      "committed_at_utc": "2026-07-20T00:45:20Z",
+      "parent_commits": [
+        "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e"
+      ],
+      "parent_deltas": {
+        "c6bb2df424193e7ef043ee3c0436bf97ba10fc6e": [
+          ".github/workflows/root-checksum-manifest-v0-1.yml",
+          "CHECKSUMS_SHA256.txt",
+          "docs/preservation/root-checksum-integrity-v0.1/ROOT_CHECKSUM_DISCREPANCY_RECORD_v0_1.json",
+          "docs/preservation/root-checksum-integrity-v0.1/specimens/CHECKSUMS_SHA256.8f3f07e.pre-repair.txt",
+          "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+          "tests/fixtures/root-checksum-manifest-v0.1/adversarial_cases_v0_1.json",
+          "tests/test_root_checksum_manifest_v0_1.py",
+          "tools/check_root_checksum_manifest_v0_1.py"
+        ]
+      },
+      "subject": "fix(integrity): enforce root checksum manifest",
+      "tree_sha": "015e5b5ad7116b4a57e336ef5962397473d7660d"
+    },
+    {
+      "changed_paths": [],
+      "commit_sha": "0bac4f60986e0be4da53d6b69c49aab1f7e73e7d",
+      "committed_at_utc": "2026-07-20T02:20:05Z",
+      "parent_commits": [
+        "97abe21daed2daec8a608851467875df42a99f0a",
+        "5150ece4c29cea38cfe5e25daeb781423c680834"
+      ],
+      "parent_deltas": {
+        "5150ece4c29cea38cfe5e25daeb781423c680834": [
+          "docs/sequence-surface/FORK_SEQUENCE_SURFACE_v0_1.md",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+          "docs/sequence-surface/PAIR_001_SEQUENCE_TRANSITION_CONTRACT_v0_1.json",
+          "schemas/fork_sequence_ledger_v0_1.schema.json",
+          "tests/fixtures/fork-sequence-surface-v0.1/adversarial_cases_v0_1.json",
+          "tests/test_fork_sequence_surface_v0_1.py",
+          "tools/check_fork_sequence_surface_v0_1.py"
+        ],
+        "97abe21daed2daec8a608851467875df42a99f0a": [
+          ".github/workflows/root-checksum-manifest-v0-1.yml",
+          "CHECKSUMS_SHA256.txt",
+          "docs/preservation/root-checksum-integrity-v0.1/ROOT_CHECKSUM_DISCREPANCY_RECORD_v0_1.json",
+          "docs/preservation/root-checksum-integrity-v0.1/specimens/CHECKSUMS_SHA256.8f3f07e.pre-repair.txt",
+          "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+          "tests/fixtures/root-checksum-manifest-v0.1/adversarial_cases_v0_1.json",
+          "tests/test_root_checksum_manifest_v0_1.py",
+          "tools/check_root_checksum_manifest_v0_1.py"
+        ]
+      },
+      "subject": "Merge pull request #82 from RecomputableEvidence/agent/root-checksum-v0-1",
+      "tree_sha": "34be4be69ef7c684c14b49a88df382e2db065bd3"
+    }
+  ],
+  "interpretation": {
+    "does_not_prove": [
+      "semantic event completeness outside the frontier",
+      "correct semantic classification",
+      "admission",
+      "authority",
+      "truth",
+      "execution permission"
+    ],
+    "proves": [
+      "every Git commit reachable from closure and not reachable from any frontier anchor is classified",
+      "merge events bind per-parent path deltas instead of an empty combined merge diff"
+    ]
+  },
+  "receipt_id": "FORK_CAUSAL_FRONTIER_COVERAGE_PR81_PR82_v0_1",
+  "record_kind": "fork_causal_frontier_coverage_receipt",
+  "registered_commits_outside_frontier": [],
+  "result": "FRONTIER_BOUNDED_CAUSAL_COVERAGE_REPRODUCED",
+  "schema_version": "v0.1",
+  "unclassified_commits": []
+}
