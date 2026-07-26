@@ -1,0 +1,46 @@
+{
+  "schema": "FORK_EXTERIOR_REVIEW_PACKAGE_MANIFEST_v0_1",
+  "reviewed_pr_90_head": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+  "reviewed_pr_90_tree": "aa8b1e5f47d2ca062588b8f50c58fa6014ee29ba",
+  "entries": [
+    {
+      "path": "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECOMPUTATION_v0_1.md",
+      "sha256": "36713db2c7e32b396a0d2046af5e4a4ca658512e483361963efcd4412072cf40",
+      "size_bytes": 14827
+    },
+    {
+      "path": "docs/exterior-observations/reviews/EDITORIAL_CORRECTION_GOVERNED_PRESERVATION_SHA_v0_1.md",
+      "sha256": "3034dff86bdc7a1494f13e4d4da51d3e07bfcc72a8cd3482c0a430330b8346f9",
+      "size_bytes": 1334
+    },
+    {
+      "path": "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECEIPT_v0_1.json",
+      "sha256": "f1baba87c56731b10066d2daec362b05770e5deaa33447fdf6a1dcc8dab31aa9",
+      "size_bytes": 5856
+    },
+    {
+      "path": "docs/exterior-observations/reviews/NARROW_SUCCESSOR_REVIEW_INSTRUCTIONS_v0_1.md",
+      "sha256": "d1e2321bdcf62c5bfac9a72bea884145316bf4db980c384c9ee8a310380308e9",
+      "size_bytes": 1589
+    },
+    {
+      "path": "tools/check_exterior_review_pr89_pr90_v0_1.py",
+      "sha256": "1940d61c4fa3f3175e7ac751046a868b921d72e3d401d9928d2a2de3f20939ea",
+      "size_bytes": 2185
+    },
+    {
+      "path": "tests/test_exterior_review_pr89_pr90_v0_1.py",
+      "sha256": "0b52734a503cb675e5a9880607a762e3cfb4f1c7635c7203b758a99e1e8af72e",
+      "size_bytes": 1560
+    },
+    {
+      "path": "docs/exterior-observations/reviews/README.md",
+      "sha256": "797c770a1274b4fc6c42a9e1420744e6388d73e0d1da9ac1fb038b309ed0b8f1",
+      "size_bytes": 1776
+    }
+  ],
+  "self_exclusion": {
+    "path": "docs/exterior-observations/reviews/REVIEW_PACKAGE_MANIFEST_v0_1.json",
+    "reason": "avoids circular full-file digest"
+  }
+}

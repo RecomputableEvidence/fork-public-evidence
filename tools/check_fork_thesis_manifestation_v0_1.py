@@ -10,6 +10,7 @@ import math
 import os
 from pathlib import Path, PurePosixPath
 import stat
+import subprocess
 import sys
 from typing import Any
 
@@ -57,6 +58,7 @@ EXPECTED_PACKAGE_PATHS = {
     "docs/research/fork-thesis-manifestation-v0.1/EVIDENCE_MAP_v0_1.json",
     "docs/research/fork-thesis-manifestation-v0.1/CLAIM_LEDGER_v0_1.json",
     "docs/research/fork-thesis-manifestation-v0.1/ALTERNATIVE_INTERPRETATIONS_AND_FALSIFIERS_v0_1.md",
+    "docs/research/fork-thesis-manifestation-v0.1/ENDOGENOUS_CASE_HISTORICAL_VALIDITY_CURRENT_RELIANCE_v0_1.md",
     "docs/research/fork-thesis-manifestation-v0.1/NO_ADMISSION_OR_EXECUTION_EFFECT_v0_1.json",
     "tools/check_fork_thesis_manifestation_v0_1.py",
     "tests/test_fork_thesis_manifestation_v0_1.py",
@@ -109,6 +111,22 @@ def sha256_bytes(data: bytes) -> str:
 def git_blob_sha1(data: bytes) -> str:
     header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
+
+
+def git_file_bytes(root: Path, commit: str, rel: str) -> bytes:
+    pure = PurePosixPath(rel)
+    if not rel or pure.is_absolute() or ".." in pure.parts or "\\" in rel:
+        raise ValueError(f"unsafe Git path: {rel!r}")
+    result = subprocess.run(
+        ["git", "-C", os.fspath(root), "show", f"{commit}:{rel}"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", errors="replace").strip()
+        raise ValueError(f"cannot read {rel} from {commit}: {detail}")
+    return result.stdout
 
 
 def safe_regular_file(root: Path, rel: str) -> Path:
@@ -197,7 +215,7 @@ def check(root: Path) -> list[str]:
         expect_equal(errors, entry.get("role"), role, f"{rel} role")
         expect_equal(errors, entry.get("source_commit"), BASE_COMMIT, f"{rel} source commit")
         try:
-            data = safe_regular_file(root, rel).read_bytes()
+            data = git_file_bytes(root, BASE_COMMIT, rel)
         except Exception as exc:
             errors.append(f"{rel}: {exc}")
             continue
@@ -314,6 +332,27 @@ def check(root: Path) -> list[str]:
     expect_equal(errors, dimensions, EXPECTED_DIMENSIONS, "standing vector dimensions")
     expect_equal(errors, record.get("surface_posture", {}).get("seventh_modular_surface_claimed"), False, "seventh surface claim")
     expect_equal(errors, record.get("surface_posture", {}).get("canonical_theory_claimed"), False, "canonical theory claim")
+    cases = record.get("post_base_endogenous_cases", [])
+    expect(errors, isinstance(cases, list) and len(cases) == 1, "one post-base endogenous case required")
+    if isinstance(cases, list) and len(cases) == 1 and isinstance(cases[0], dict):
+        case = cases[0]
+        expect_equal(errors, case.get("case_id"), "FTM-ENDO-001", "endogenous case id")
+        expect_equal(errors, case.get("standing"), "POST_BASE_ENDOGENOUS_CASE_NOT_FIXED_BASE_EVIDENCE", "endogenous case standing")
+        expect_equal(errors, case.get("classification"), "REPOSITORY_ENDOGENOUS_MANIFESTATION_NOT_CAUSAL_PROOF", "endogenous case classification")
+        expect_equal(errors, case.get("manifested_distinction"), "HISTORICAL_VALIDITY_IS_NOT_CURRENT_RELIANCE_STANDING", "endogenous case distinction")
+        expect_equal(errors, case.get("fixed_base_evidence_effect"), "NONE", "endogenous case fixed-base effect")
+        expect_equal(errors, case.get("causal_hypothesis_effect"), "NONE", "endogenous case causal effect")
+        expect_equal(errors, case.get("pair_001_effect"), "NONE", "endogenous case Pair-001 effect")
+        case_path = case.get("path")
+        if isinstance(case_path, str):
+            try:
+                case_text = safe_regular_file(root, case_path).read_text(encoding="utf-8")
+                expect(errors, "Historical validity does not carry current reliance standing" in case_text, "endogenous case thesis distinction")
+                expect(errors, "post-base manifestation and challenge surface" in case_text, "endogenous case fixed-base boundary")
+            except Exception as exc:
+                errors.append(f"endogenous case: {exc}")
+        else:
+            errors.append("endogenous case path is missing")
     expected_effects = {
         "main_ref": "NONE",
         "pair_001": "NONE",

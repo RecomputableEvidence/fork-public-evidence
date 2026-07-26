@@ -1,6 +1,10 @@
 # Fork Proof-Surface State Summary v0.1
 
-This file is generated from `FORK_PROOF_SURFACE_STATE_v0_1.json`.
+This file is generated from `FORK_PROOF_SURFACE_STATE_v0_1.json` and preserves its July 11 temporal closure.
+
+- Projection standing: `HISTORICAL_PROJECTION_VALID_AT_RECORDED_TEMPORAL_CLOSURE`
+- Current reliance standing: `NOT_CURRENT_AFTER_ADMITTED_SUCCESSOR_EVENTS`
+- Successor current projection: `docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json`
 
 - As of: `2026-07-11`
 - Current public-review round: `round-006`
@@ -38,4 +42,4 @@ This file is generated from `FORK_PROOF_SURFACE_STATE_v0_1.json`.
 - No institutional authority transfer
 - No reviewer endorsement inheritance
 
-A synchronized state summary is repository hygiene evidence only. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.
+This historical state summary is repository hygiene evidence only. Its historical validity does not establish present reliance standing. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, production readiness, or institutional authority.

@@ -1,0 +1,160 @@
+{
+  "projection_id": "FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2",
+  "schema_version": "v0.1",
+  "record_kind": "successor_current_state_projection",
+  "represented_as_current": true,
+  "projection_standing": "CURRENT_WITH_RESPECT_TO_EXACT_GOVERNED_PRESERVATION_COORDINATE_NOT_DEFAULT_BRANCH",
+  "projection_as_of_utc": "2026-07-20T02:39:57Z",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "source_coordinate": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "1241c0084900f2c60f362205525464582e57b4a7",
+    "commit_kind": "MERGE_COMMIT",
+    "binding": "EXACT_IMMUTABLE_GIT_COMMIT"
+  },
+  "predecessor_projection": {
+    "projection_id": "FORK_PROOF_SURFACE_STATE_v0_1",
+    "path": "docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json",
+    "sha256": "8e62fdf1adc5cacb087b8f1b2a1a1d8674521990d42b4d3897d17c49f433b098",
+    "as_of_date": "2026-07-11",
+    "standing": "HISTORICAL_PROJECTION_VALID_AT_RECORDED_TEMPORAL_CLOSURE_NOT_CURRENT_RELIANCE_STANDING",
+    "mutated_by_successor": false
+  },
+  "branch_standing": {
+    "main": {
+      "coordinate": "fd93d051235ec43bee925878bc916d09179b3c90",
+      "standing": "REPAIRED_HISTORICAL_MAIN_LINE_NOT_GOVERNED_PRESERVATION_TIP"
+    },
+    "preservation/clean-continuance-v0.1": {
+      "coordinate": "1241c0084900f2c60f362205525464582e57b4a7",
+      "standing": "GOVERNED_PRESERVATION_LINEAGE_TIP_AT_PROJECTION_CLOSURE"
+    },
+    "research/fork-thesis-manifestation-v0-1": {
+      "coordinate_at_successor_construction": "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1",
+      "standing": "OPEN_RESEARCH_CANDIDATE_NOT_ADMITTED_AND_NOT_A_GOVERNED_TIP"
+    }
+  },
+  "reconciled_event_ids": [
+    "FTS-E001-CORPUS-FREEZE",
+    "FTS-E002-ORIGINAL-ATTEMPTS-AND-AMENDMENT",
+    "FTS-E003-PRESERVATION-ADMISSION",
+    "FTS-E004-PROVIDER-VALIDATION-AND-DRIFT",
+    "FTS-E005-SEQUENCE-AND-INTEGRITY-ADMISSION"
+  ],
+  "proof_surface": {
+    "historical_july_11_projection_preserved": true,
+    "current_public_review_round": "round-006",
+    "current_recomputation_surface": "boundary-state-interop-v0.1.2",
+    "current_experimental_phase": "controlled_experiment_pre_execution_blocked",
+    "cross_system_claim_handoff_v0_1": {
+      "corpus_freeze_status": "frozen",
+      "original_attempt_receipts_present": 2,
+      "original_attempt_execution_outcomes": [
+        "success",
+        "http_error"
+      ],
+      "instrumentation_amendment_status": "final",
+      "pre_execution_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+      "sequence_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+      "provider_validation_request_status": "BLOCKED_PROVIDER_VALIDATION_FAILED",
+      "receiver_drift_cause": "UNRESOLVED",
+      "provider_validation_prerequisite_satisfied": false,
+      "uppercase_retry_authorization_present": false,
+      "pair_001_execution_permitted": false,
+      "pair_001_repetitions": 0,
+      "provider_calls_in_observed_sequence": 8,
+      "pair_001_original_attempts": 2,
+      "provider_validation_calls": 6
+    },
+    "root_checksum_integrity": {
+      "declared_manifest_entries": 51,
+      "historical_discrepancy_preserved": true,
+      "repair_standing": "PROSPECTIVE_MECHANICAL_ENFORCEMENT_NOT_RETROACTIVE_CI_PROMOTION"
+    }
+  },
+  "source_bindings": [
+    {
+      "path": "docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json",
+      "sha256": "8e62fdf1adc5cacb087b8f1b2a1a1d8674521990d42b4d3897d17c49f433b098",
+      "role": "HISTORICAL_PREDECESSOR_PROJECTION"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/CORPUS_FREEZE_v0_1.json",
+      "sha256": "35dca2a290033f6297924449a80297155c9c93e530be0cb7c3dfebffe9354822",
+      "role": "FROZEN_CORPUS_STATE"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/execution-metadata.json",
+      "sha256": "7e310188bdc195189fc06e966a433a850146c4d2daea0c08aca40519c59dc0f6",
+      "role": "ORIGINAL_ATTEMPT_001_EXECUTION_METADATA"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002/execution-metadata.json",
+      "sha256": "832d83c78cd53983133a3f5e77256fb335f1a4c64837b43e1de1a2645b3ee8b6",
+      "role": "ORIGINAL_ATTEMPT_002_EXECUTION_METADATA"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/CSH-AMEND-002_v0_1_1.json",
+      "sha256": "6fc24674454eb3e830b6fc787df30096aa05e6e8ae8faa067b88ec157e1d1be8",
+      "role": "FINAL_INSTRUMENTATION_AMENDMENT"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PRE_EXECUTION_BINDING_v0_1_2.json",
+      "sha256": "cf2014655042199ed27656e652f2c5fda205dbb94dd960c08317a8a15690993f",
+      "role": "PRE_EXECUTION_STATUS_AND_AUTHORITY_BOUNDARY"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
+      "sha256": "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865",
+      "role": "PROVIDER_VALIDATION_BLOCKED_DISPOSITION"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/DEEPSEEK_RECEIVER_DRIFT_CLASSIFICATION_CONTRACT_v0_1_3.json",
+      "sha256": "7c03bee1be8c6d436a067364b3558873690f766f48f2adf40100b5350215ed37",
+      "role": "DRIFT_CLASSIFICATION_AND_RETRY_BOUNDARY"
+    },
+    {
+      "path": "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
+      "sha256": "8bcf2387241ad40b146e3422a1bf2ed067a0b2489c10eb1e4a6c723f75c570e0",
+      "role": "DETERMINISTIC_SEQUENCE_PROJECTION"
+    },
+    {
+      "path": "docs/preservation/admission/FORK_SEQUENCE_INTEGRITY_ADMISSION_ANCHOR_2026_07_19_v0_1.json",
+      "sha256": "1f2708170e29df03c7b3fb721a85689b9e95390dd77023d2dec9e50047ab1954",
+      "role": "SUCCESSOR_CONFERRED_SEQUENCE_AND_INTEGRITY_STANDING"
+    }
+  ],
+  "preserved_conflicts": [
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/EXPERIMENT_MANIFEST_v0_1.json",
+      "field": "baseline_run_status",
+      "preserved_value": "not_started",
+      "interpretation": "ARTIFACT_LOCAL_PREREGISTRATION_STATE_NOT_CURRENT_LONGITUDINAL_PROJECTION"
+    },
+    {
+      "path": "docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json",
+      "field": "cross_system_claim_handoff_v0_1.corpus_freeze_status",
+      "preserved_value": "draft_unfrozen",
+      "interpretation": "HISTORICAL_PROJECTION_VALUE_NOT_CURRENT_LONGITUDINAL_PROJECTION"
+    }
+  ],
+  "effects": {
+    "main_ref": "NONE",
+    "preservation_ref": "NONE",
+    "existing_pull_requests": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "readiness": "NONE",
+    "retry_authorization": "NONE",
+    "execution_authority": "NONE",
+    "admission": "NONE"
+  },
+  "non_claims": [
+    "Current means current only with respect to the exact governed preservation coordinate, not the moving branch name or default branch.",
+    "The projection does not invalidate or rewrite its historical predecessor.",
+    "The projection does not establish truth, correctness, causality, security, compliance, legal sufficiency, safety, production readiness, or institutional authority.",
+    "The projection does not authorize a provider call, retry, readiness promotion, Pair-001 repetition, or Pair-001 execution.",
+    "A passing checker establishes declared temporal reconciliation only; it cannot infer or discover an unregistered state-changing event."
+  ]
+}

@@ -6,6 +6,35 @@ Fork does **not** certify, validate, approve, authorize, guarantee, or establish
 
 Start here: [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md)
 
+<!-- FORK_BRANCH_STANDING_AND_TEMPORAL_ROUTING:START -->
+
+## Branch standing and temporal routing
+
+Fork's public branches do not silently inherit one another's standing.
+
+- `main@fd93d051235ec43bee925878bc916d09179b3c90` is the repaired historical
+  default-branch line. It is not the current governed preservation tip.
+- `preservation/clean-continuance-v0.1@1241c0084900f2c60f362205525464582e57b4a7`
+  is the governed preservation coordinate used by the current successor
+  projection.
+- Open pull requests and research branches are candidates. Their presence,
+  checks, or review does not confer admission to the preservation lineage.
+
+Use these state records according to their temporal standing:
+
+- Historical July 11 projection, preserved unchanged:
+  [`docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json`](docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json)
+- Successor current-state projection from the exact governed preservation tip:
+  [`docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json`](docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json)
+- Temporal-succession rule and checker:
+  [`docs/state/FORK_TEMPORAL_SUCCESSION_v0_1.md`](docs/state/FORK_TEMPORAL_SUCCESSION_v0_1.md)
+
+Here, `current` means current only with respect to the named immutable
+coordinate. It does not mean current with respect to an unpinned branch name,
+all open work, external truth, or execution authority.
+
+<!-- FORK_BRANCH_STANDING_AND_TEMPORAL_ROUTING:END -->
+
 ## Research Status
 
 Fork's current evidence supports an engineering pattern and a motivated hypothesis, not a proven general systems theory.
@@ -396,7 +425,18 @@ Current bounded public-review round:
 
 - `docs/review/public-rounds/round-006/`
 
-Cross-System Claim Handoff v0.1 is preregistered as a scaffold, but its baseline has not started. The corpus/configuration freeze remains incomplete and optimization remains prohibited.
+The preserved July 11 projection recorded Cross-System Claim Handoff v0.1 as
+a preregistered scaffold with baseline `not_started` and corpus
+`draft_unfrozen`. Those values remain historically valid at that temporal
+closure; they are not the current governed projection.
+
+At governed preservation coordinate `1241c008...`, the corpus is frozen, two
+original-attempt receipts are preserved, instrumentation amendment v0.1.1 is
+final, and Pair-001 is `STRUCTURALLY_READY_EXECUTION_BLOCKED`. Receiver-drift
+cause remains `UNRESOLVED`, retry authorization is absent, and Pair-001
+repetitions remain zero. See
+`docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json` for the bound
+successor projection.
 
 Canonical integration verification:
 

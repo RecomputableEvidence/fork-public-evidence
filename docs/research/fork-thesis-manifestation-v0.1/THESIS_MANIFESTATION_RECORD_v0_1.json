@@ -132,6 +132,18 @@
       ]
     }
   ],
+  "post_base_endogenous_cases": [
+    {
+      "case_id": "FTM-ENDO-001",
+      "path": "docs/research/fork-thesis-manifestation-v0.1/ENDOGENOUS_CASE_HISTORICAL_VALIDITY_CURRENT_RELIANCE_v0_1.md",
+      "standing": "POST_BASE_ENDOGENOUS_CASE_NOT_FIXED_BASE_EVIDENCE",
+      "classification": "REPOSITORY_ENDOGENOUS_MANIFESTATION_NOT_CAUSAL_PROOF",
+      "manifested_distinction": "HISTORICAL_VALIDITY_IS_NOT_CURRENT_RELIANCE_STANDING",
+      "fixed_base_evidence_effect": "NONE",
+      "causal_hypothesis_effect": "NONE",
+      "pair_001_effect": "NONE"
+    }
+  ],
   "surface_posture": {
     "relation_to_six_modular_surfaces": "CROSS_SURFACE_RESEARCH_SYNTHESIS_ONLY",
     "seventh_modular_surface_claimed": false,

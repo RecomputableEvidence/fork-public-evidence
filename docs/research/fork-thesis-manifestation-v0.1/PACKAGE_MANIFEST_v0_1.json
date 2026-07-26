@@ -28,29 +28,34 @@
       "size_bytes": 7515
     },
     {
+      "path": "docs/research/fork-thesis-manifestation-v0.1/ENDOGENOUS_CASE_HISTORICAL_VALIDITY_CURRENT_RELIANCE_v0_1.md",
+      "sha256": "40ca1ab1cd05519009f3386c843a981b85095e5bda11a3e0e58c90cbc824fcef",
+      "size_bytes": 2875
+    },
+    {
       "path": "docs/research/fork-thesis-manifestation-v0.1/NO_ADMISSION_OR_EXECUTION_EFFECT_v0_1.json",
       "sha256": "372ce86ef255fec2a65e4652b397b457a2c3cfbec7466dba99a02778435b3807",
       "size_bytes": 1522
     },
     {
       "path": "docs/research/fork-thesis-manifestation-v0.1/README.md",
-      "sha256": "b63fa3910878b69c5d624ed24bcda68ea3b7f6eebaedba039a9500f413930143",
-      "size_bytes": 3778
+      "sha256": "d79b8328912616d30603b944899b111b3e8044ca41c58f92c34dffb69e65e397",
+      "size_bytes": 4664
     },
     {
       "path": "docs/research/fork-thesis-manifestation-v0.1/THESIS_MANIFESTATION_RECORD_v0_1.json",
-      "sha256": "8c2b8cff653f5db2d89de6d3d9bdc903456705ea82ae4f8a2ec92f1c51f27238",
-      "size_bytes": 5386
+      "sha256": "c093c625e7053995f42e48b7266f31ff3ba2b16055c5653a80eda554478e385c",
+      "size_bytes": 5950
     },
     {
       "path": "tests/test_fork_thesis_manifestation_v0_1.py",
-      "sha256": "e3d16dadfc8012e9a9785f9b5821112d2182f1b6517def42556adeaac95edd47",
-      "size_bytes": 3461
+      "sha256": "2c59cb8addf270ef84802336e0561bf6ee4b56aef5180b9b52211c026506de8b",
+      "size_bytes": 4080
     },
     {
       "path": "tools/check_fork_thesis_manifestation_v0_1.py",
-      "sha256": "55f548e3c50c14b295d73465aa18ed84409d6ca8aeb8db9088e800ae06e5adb4",
-      "size_bytes": 26234
+      "sha256": "619fe336174e737a7bc2aa77ed958245d4b4c49bf546037566a7a18dbcad9be1",
+      "size_bytes": 28717
     }
   ],
   "self_exclusion": {

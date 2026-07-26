@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Fork's canonical proof-surface state and selected repository summaries."""
+"""Validate Fork's preserved July 11 proof-surface projection and summary."""
 
 from __future__ import annotations
 
@@ -54,7 +54,11 @@ def render_summary(state: dict[str, Any]) -> str:
     lines = [
         "# Fork Proof-Surface State Summary v0.1",
         "",
-        "This file is generated from `FORK_PROOF_SURFACE_STATE_v0_1.json`.",
+        "This file is generated from `FORK_PROOF_SURFACE_STATE_v0_1.json` and preserves its July 11 temporal closure.",
+        "",
+        "- Projection standing: `HISTORICAL_PROJECTION_VALID_AT_RECORDED_TEMPORAL_CLOSURE`",
+        "- Current reliance standing: `NOT_CURRENT_AFTER_ADMITTED_SUCCESSOR_EVENTS`",
+        "- Successor current projection: `docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json`",
         "",
         f"- As of: `{state['as_of_date']}`",
         f"- Current public-review round: `{state['current_public_review_round']}`",
@@ -89,7 +93,8 @@ def render_summary(state: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "A synchronized state summary is repository hygiene evidence only. "
+            "This historical state summary is repository hygiene evidence only. "
+            "Its historical validity does not establish present reliance standing. "
             "It does not establish truth, compliance, legal sufficiency, safety, "
             "authorization, approval, certification, endorsement, production readiness, "
             "or institutional authority.",
@@ -205,9 +210,9 @@ def main() -> int:
         "checks": checks,
         "interpretation": {
             "proves": [
-                "the canonical state file satisfies its schema",
+                "the preserved July 11 state file satisfies its schema",
                 "declared required artifacts are present",
-                "selected summary surfaces are synchronized",
+                "the historical summary remains synchronized with that projection",
                 "known stale-status patterns are absent",
             ],
             "does_not_prove": [
