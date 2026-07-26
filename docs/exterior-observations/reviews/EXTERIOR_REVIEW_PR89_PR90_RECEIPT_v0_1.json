@@ -1,0 +1,132 @@
+{
+  "schema": "FORK_BOUNDED_EXTERIOR_REVIEW_RECEIPT_v0_1",
+  "identifier": "FORK-EXTERIOR-REVIEW-PR89-PR90-2026-07-22-001",
+  "disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+  "qualifications": [
+    "ATTRIBUTION_UNRESOLVED_NOT_AUTHENTICATED",
+    "PRIOR_EXPOSURE_DISCLOSED",
+    "REPOSITORY_WIDE_REVIEW_NOT_PERFORMED",
+    "CLAIM_LEDGER_NOT_VERIFIED_CLAIM_BY_CLAIM",
+    "NO_ADMISSION_OR_EXECUTION_EFFECT"
+  ],
+  "reviewer": {
+    "designation": "Claude (Anthropic), conversation instance",
+    "standing": "PRIOR_EXPOSURE_DISCLOSED",
+    "exposure_statement": "General background familiarity with Fork methodology and vocabulary; no specific prior exposure recalled to PR #89, PR #90, or this PR pair content before fresh acquisition in the review session.",
+    "attribution_status": "UNRESOLVED_NOT_AUTHENTICATED"
+  },
+  "acquisition": {
+    "method": "fresh git clone and explicit fetch of immutable commits plus refs/pull/89/head and refs/pull/90/head in a clean container",
+    "cross_session_tool_state": false,
+    "coordinate_resolution": "ALL_DECLARED_COORDINATES_RESOLVED_EXACTLY"
+  },
+  "coordinates": {
+    "governed_preservation_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+    "historical_audit_commit": "fd93d051235ec43bee925878bc916d09179b3c90",
+    "pr_89_head": "b93f9a1bce094e8c65e0d1ef04dbe52a11aab0b1",
+    "pr_90_reviewed_head": "bac40d9bdbd7f6b4927a676fef8def70756ad9d5",
+    "pr_90_reviewed_tree": "aa8b1e5f47d2ca062588b8f50c58fa6014ee29ba"
+  },
+  "environment": {
+    "container_state": "clean container; no prior local repository copy",
+    "initially_missing_dependencies": [
+      "pytest",
+      "jsonschema"
+    ],
+    "installed_dependencies": [
+      "pytest",
+      "jsonschema"
+    ],
+    "installation_method": "pip install <pkg> --break-system-packages"
+  },
+  "commands_executed": [
+    "git clone https://github.com/RecomputableEvidence/fork-public-evidence.git",
+    "git fetch --force origin <four exact commits>",
+    "git fetch --force origin refs/pull/89/head:refs/remotes/review/pr-89-head refs/pull/90/head:refs/remotes/review/pr-90-head",
+    "git rev-parse <coordinate>^{commit}",
+    "git rev-parse refs/remotes/review/pr-90-head^{tree}",
+    "git worktree add --detach <path> <exact commit>",
+    "git diff --stat / --name-status <base> <head>",
+    "sha256sum and sha256sum -c against declared files",
+    "git rev-parse <commit>:<path> and git cat-file for evidence-map entries",
+    "python tools/check_fork_thesis_manifestation_v0_1.py --json",
+    "python tools/check_temporal_succession_v0_1.py --json",
+    "pytest -q at historical main",
+    "pytest tests/test_fork_thesis_manifestation_v0_1.py tests/test_temporal_succession_v0_1.py"
+  ],
+  "results": {
+    "historical_main_tests": {
+      "passed": 666,
+      "subtests_passed": 96,
+      "elapsed_seconds": 42.31
+    },
+    "targeted_successor_tests": {
+      "passed": 11,
+      "subtests_passed": 3,
+      "elapsed_seconds": 1.44
+    },
+    "package_manifest_verification": {
+      "verified": 10,
+      "total": 10,
+      "result": "BYTE_EXACT"
+    },
+    "evidence_map_verification": {
+      "verified": 15,
+      "total": 15,
+      "result": "BYTE_EXACT"
+    },
+    "thesis_checker": {
+      "result": "THESIS_MANIFESTATION_CANDIDATE_CONFORMS",
+      "finding_count": 0
+    },
+    "temporal_succession_checker": {
+      "result": "TEMPORAL_SUCCESSION_CONFORMS",
+      "finding_count": 0
+    },
+    "historical_checksum_manifest": {
+      "entries": 51,
+      "failed": 1,
+      "failed_path": "research/standards/README.md"
+    },
+    "combined_successor_state": "NO_DEFECT_CONTRADICTION_OR_UNRECONCILED_CLAIM_FOUND_WITHIN_SCOPE"
+  },
+  "unresolved_conditions": [
+    "Original audit authorship and session attribution were not independently authenticated.",
+    "Repository-wide review was not performed.",
+    "CLAIM_LEDGER_v0_1.json was not verified claim-by-claim.",
+    "Event-registry completeness is outside the temporal checker proof boundary.",
+    "The temporal checker expected_csh block is checker-embedded rather than freshly derived from dedicated CSH primary evidence.",
+    "README routing validation is lexical presence-based rather than positional or semantic."
+  ],
+  "reviewer_self_correction": {
+    "classification": "REVIEWER_METHOD_TARGET_ERROR_SELF_CORRECTED",
+    "description": "An initial EVIDENCE_MAP README.md spot check used the PR #90 worktree rather than the entry's declared base source commit and produced a false mismatch.",
+    "correction": "Each entry was resolved against its own declared source_commit through git objects; all 15 then verified byte-exact.",
+    "repository_defect": false
+  },
+  "editorial_correction": {
+    "classification": "EDITORIAL_COORDINATE_ABBREVIATION_CORRECTION",
+    "incorrect_abbreviation": "1241c008…e296",
+    "correct_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+    "safe_abbreviation": "1241c008…b4a7",
+    "substantive_review_effect": "NONE"
+  },
+  "integrity": {
+    "preserved_review_path": "docs/exterior-observations/reviews/EXTERIOR_REVIEW_PR89_PR90_RECOMPUTATION_v0_1.md",
+    "preserved_review_sha256": "36713db2c7e32b396a0d2046af5e4a4ca658512e483361963efcd4412072cf40",
+    "receipt_payload_hash_rule": "SHA-256 of canonical UTF-8 JSON with integrity.receipt_payload_sha256 omitted; sorted keys; separators comma and colon; ensure_ascii=false",
+    "receipt_payload_sha256": "408977266252d0fb7faf1a9793464c81733b9cc3438e0619bc9943e07e237002",
+    "full_receipt_file_sha256_location": "REVIEW_PACKAGE_MANIFEST_v0_1.json"
+  },
+  "effects": {
+    "pr_89_head_mutation": false,
+    "reviewed_pr_90_head_mutation": false,
+    "admission": false,
+    "publication": false,
+    "merge_authorization": false,
+    "authority_transfer": false,
+    "execution_authority": false,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0
+  }
+}

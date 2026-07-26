@@ -1,0 +1,42 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_pr92_chatgpt_codex_exterior_recomputation_preservation_manifest",
+  "package_id": "FORK_PR92_CHATGPT_CODEX_EXTERIOR_RECOMPUTATION_PRESERVATION_20260726_v0_1",
+  "entries": [
+    {
+      "path": "docs/exterior-observations/reviews/pr92-chatgpt-codex-20260726/EXTERIOR_RECOMPUTATION_RECEIPT_PR92_CHATGPT_CODEX_20260726_v0_1.json",
+      "sha256": "ecb0b7767ea7bd86e8f76eb235782f197d4b35fcea713e11084a1c171c2ddd59",
+      "size_bytes": 41485,
+      "standing": "PRESERVED_CONFORMING_RETURN"
+    },
+    {
+      "path": "docs/exterior-observations/reviews/pr92-chatgpt-codex-20260726/README.md",
+      "sha256": "e1716160776f88165905d6e65f27cfcf5a7c8df771fb2cd694e929246d1787ea",
+      "size_bytes": 2722,
+      "standing": "BOUNDED_INTERPRETATION_AND_ROUTING"
+    },
+    {
+      "path": "docs/exterior-observations/reviews/pr92-chatgpt-codex-20260726/RETURN_PACKAGE_PR92_CHATGPT_CODEX_20260726_v0_1.zip",
+      "sha256": "000558adb56a74470dff8f76ed97c255a248763a50a9a72aa9cc888a939c293e",
+      "size_bytes": 33515,
+      "standing": "PRESERVED_RAW_RETURN_PACKAGE"
+    }
+  ],
+  "self_exclusion": {
+    "path": "docs/exterior-observations/reviews/pr92-chatgpt-codex-20260726/PRESERVATION_MANIFEST_v0_1.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  },
+  "substantive_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+  "reviewer_independence": "NOT_INDEPENDENT_AUTHOR_ASSISTED",
+  "return_contract_standing": "EXTERIOR_RECOMPUTATION_RETURN_CONFORMS",
+  "effects": {
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "admission": "NONE",
+    "merge_authorization": "NONE",
+    "publication": "NONE",
+    "authority_transfer": "NONE",
+    "execution_permission": "NONE"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "v0.3",
+  "record_kind": "fork_causal_reconciliation_contract",
+  "contract_id": "FORK_CAUSAL_RECONCILIATION_CONTRACT_v0_3",
+  "status": "RESEARCH_CANDIDATE_NOT_ADMITTED",
+  "dimensions": [
+    "artifact_state",
+    "verification_state",
+    "review_state",
+    "admission_state",
+    "authority_state",
+    "execution_state",
+    "unresolved_state",
+    "temporal_closure"
+  ],
+  "frontier_rules": {
+    "multiple_exact_anchor_commits_required": true,
+    "every_anchor_must_be_ancestor_of_closure": true,
+    "coverage_basis": "REACHABLE_FROM_CLOSURE_NOT_REACHABLE_FROM_ANY_FRONTIER_ANCHOR",
+    "every_interval_commit_requires_one_event": true,
+    "every_event_parent_must_be_an_anchor_or_interval_event": true
+  },
+  "reducer_rules": {
+    "registry_order_is_non_authoritative": true,
+    "causal_order_is_derived_from_parent_edges": true,
+    "single_parent_changes_require_dimension_effects": true,
+    "multi_parent_events_require_a_decision_for_every_dimension": true,
+    "require_equal_rejects_different_parent_states": true,
+    "select_parent_must_name_and_reproduce_one_parent": true,
+    "explicit_join_requires_different_inputs_and_a_bound_result": true,
+    "parent_dimension_digests_must_recompute": true,
+    "merge_path_deltas_are_bound_per_parent": true,
+    "silent_admission_change_fails": true,
+    "silent_authority_change_fails": true,
+    "silent_execution_change_fails": true,
+    "committed_projection_and_receipts_are_recomputable_caches": true
+  },
+  "predecessor": {
+    "checker_path": "tools/check_longitudinal_recomputation_v0_2.py",
+    "manifest_path": "docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2_1.json",
+    "role": "LINEAR_REPLAY_PREDECESSOR_MUST_CONFORM"
+  },
+  "expected_non_effects": {
+    "main_ref": "NONE",
+    "preservation_ref": "NONE",
+    "existing_pull_requests": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "readiness": "NONE",
+    "retry_authorization": "NONE",
+    "execution_authority": "NONE",
+    "admission": "NONE"
+  },
+  "non_claims": [
+    "Causal replay does not discover semantic events outside the declared frontier.",
+    "A Git parent edge proves ancestry, not semantic inheritance or correctness.",
+    "A merge commit is not admission, authority, review, approval, or execution permission.",
+    "Explicit join decisions expose declared reconciliation; they do not prove the decisions correct.",
+    "This contract performs no provider call and no Pair-001 repetition."
+  ]
+}

@@ -28,6 +28,12 @@ The purpose of this corpus is to:
 - `observations/` â€“ Individual exterior observation receipts.
 - `sandbox-v0_2/` â€“ Draft design for the next adverse-condition sandbox.
 
+Current bounded repository-audit observation:
+
+- `observations/EXTERIOR_OBSERVATION_CLAUDE_MAIN_FD93D05_REPOSITORY_AUDIT_v0_1.md`
+  — Claude's audit is bound to exact historical coordinate `main@fd93d05` and
+  is not represented as an audit of the governed preservation tip.
+
 ## Purpose
 
 This directory preserves bounded exterior observations of Fork.

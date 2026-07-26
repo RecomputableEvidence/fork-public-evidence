@@ -1,0 +1,69 @@
+{
+  "schema_version": "v0.3",
+  "record_kind": "fork_causal_reconciliation_adversarial_register",
+  "cases": [
+    {
+      "case_id": "FCR-ADV-001",
+      "mutation": "remove one frontier-interval event",
+      "expected_code": "CAUSAL_COVERAGE_UNRESOLVED"
+    },
+    {
+      "case_id": "FCR-ADV-002",
+      "mutation": "change one merge parent delta",
+      "expected_code": "CAUSAL_EVENT_GIT_BINDING_MISMATCH"
+    },
+    {
+      "case_id": "FCR-ADV-003",
+      "mutation": "remove a per-dimension merge decision",
+      "expected_code": "MERGE_DECISION_MISSING"
+    },
+    {
+      "case_id": "FCR-ADV-004",
+      "mutation": "require equality for divergent parent states",
+      "expected_code": "MERGE_EQUALITY_VIOLATION"
+    },
+    {
+      "case_id": "FCR-ADV-005",
+      "mutation": "select a parent but emit different state bytes",
+      "expected_code": "MERGE_RESULT_MISMATCH"
+    },
+    {
+      "case_id": "FCR-ADV-006",
+      "mutation": "change a bound parent dimension digest",
+      "expected_code": "MERGE_INPUT_DIGEST_MISMATCH"
+    },
+    {
+      "case_id": "FCR-ADV-007",
+      "mutation": "change a bound merge result digest",
+      "expected_code": "MERGE_RESULT_DIGEST_MISMATCH"
+    },
+    {
+      "case_id": "FCR-ADV-008",
+      "mutation": "change admission state while declaring no admission effect",
+      "expected_code": "ADMISSION_EFFECT_MISMATCH"
+    },
+    {
+      "case_id": "FCR-ADV-009",
+      "mutation": "shuffle registry event order",
+      "expected_status": "CAUSAL_RECONCILIATION_REPRODUCED"
+    },
+    {
+      "case_id": "FCR-ADV-010",
+      "mutation": "change committed projection cache",
+      "expected_code": "PROJECTION_CACHE_DIVERGENCE"
+    },
+    {
+      "case_id": "FCR-ADV-011",
+      "mutation": "make a frontier anchor state digest stale",
+      "expected_code": "FRONTIER_STATE_DIGEST_MISMATCH"
+    },
+    {
+      "case_id": "FCR-ADV-012",
+      "mutation": "use explicit join for equal parent states",
+      "expected_code": "MERGE_POLICY_OVERBROAD"
+    }
+  ],
+  "non_claims": [
+    "The register names executable negative cases; it is not an assurance claim."
+  ]
+}

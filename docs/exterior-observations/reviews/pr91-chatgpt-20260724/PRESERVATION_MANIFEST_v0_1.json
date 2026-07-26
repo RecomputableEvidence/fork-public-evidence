@@ -1,0 +1,48 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_pr91_chatgpt_exterior_recomputation_preservation_manifest",
+  "package_id": "FORK_PR91_CHATGPT_EXTERIOR_RECOMPUTATION_PRESERVATION_20260724_v0_1",
+  "entries": [
+    {
+      "path": "EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_NORMALIZED_v0_1_1.json",
+      "sha256": "acfabbfabaea0011dfef2216261555faab6e3d161ce86e6734f5c4fb9969fd5f",
+      "size_bytes": 25576,
+      "standing": "MECHANICALLY_NORMALIZED_SUCCESSOR_NOT_ORIGINAL_REPLACEMENT"
+    },
+    {
+      "path": "ORIGINAL_EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_v0_1.json",
+      "sha256": "51d8249fe85fff34d288c1bfd7198639eecbd11e6fc4ae4872666fe63fcfacb9",
+      "size_bytes": 53662,
+      "standing": "PRESERVED_ORIGINAL_UNCHANGED"
+    },
+    {
+      "path": "ORIGINAL_FORK_PR91_EXTERIOR_RECOMPUTATION_CHATGPT_20260724_v0_1.zip",
+      "sha256": "cb37f93be096d80f0f8ec5bc6082829ba4273bc1b214608da341949d46625155",
+      "size_bytes": 94901,
+      "standing": "PRESERVED_ORIGINAL_UNCHANGED"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9902b4807d1a2040b2f4fc3c1e06b470e38fbb5455f9ef61e6ca203dae07e55d",
+      "size_bytes": 4053,
+      "standing": "BOUNDED_INTERPRETATION_AND_ROUTING"
+    }
+  ],
+  "self_exclusion": {
+    "path": "PRESERVATION_MANIFEST_v0_1.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  },
+  "substantive_disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+  "original_receipt_contract_standing": "EXTERIOR_RECOMPUTATION_RECEIPT_NONCONFORMING",
+  "normalized_successor_contract_standing": "EXTERIOR_RECOMPUTATION_RETURN_CONFORMS",
+  "effects": {
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "pair_001_repetitions": 0,
+    "admission": "NONE",
+    "merge_authorization": "NONE",
+    "publication": "NONE",
+    "authority_transfer": "NONE",
+    "execution_permission": "NONE"
+  }
+}
