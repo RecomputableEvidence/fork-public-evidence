@@ -45,6 +45,8 @@
     },
     {
       "artifact": "SUPPLEMENTARY-FIRST-CLAUDE-TRANSCRIPT.txt",
+      "byte_size": 49859,
+      "sha256": "2574354bab8a98e31b258289c8492aab453268b64de0e17332bbdc4780359fb8",
       "reason": "conversation transcript and session-specific procedural evidence"
     },
     {
