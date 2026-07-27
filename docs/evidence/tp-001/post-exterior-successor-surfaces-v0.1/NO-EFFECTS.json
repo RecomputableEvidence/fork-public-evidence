@@ -1,0 +1,18 @@
+{
+  "record_id": "TP001-POST-EXTERIOR-ADMISSION-CANDIDATE-NO-EFFECTS-001",
+  "branch": "admission/tp001-post-exterior-successor-surfaces-v0-1",
+  "base_ref": "preservation/clean-continuance-v0.1",
+  "exact_base_commit": "9c779c305be8455f355051a561e9ea89e7feee36",
+  "effects": {
+    "main": "NONE",
+    "existing_branches": "NONE",
+    "existing_pull_requests": "NONE",
+    "repository_settings": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "execution_authority": "NONE",
+    "admission": "NONE",
+    "production_readiness": "NONE"
+  },
+  "standing": "REVIEW_ELIGIBLE_NOT_ADMITTED"
+}
