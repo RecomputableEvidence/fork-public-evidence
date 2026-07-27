@@ -1,0 +1,48 @@
+{
+  "anchor_id": "TP001-V01-EXTERIOR-RECOMPUTATION-SUCCESS-ANCHOR-001",
+  "residuals": [
+    {
+      "classification": "PACKAGING_REPRODUCIBILITY_DEFECT",
+      "effect": "First clean-environment execution could not complete until jsonschema was installed.",
+      "package_failure_established": false,
+      "preservation": "The failed-attempt traceback is preserved in the deviations note and supplementary transcript; the original raw attempt-one files were overwritten by attempt two.",
+      "residual_id": "TP001-V01-RESIDUAL-DEPENDENCY-001",
+      "standing": "UNDECLARED_JSONSCHEMA_DEPENDENCY_OBSERVED"
+    },
+    {
+      "classification": "TOOL_CONTRACT_REACHABILITY_DEFECT",
+      "effect": "The written four-way disposition vocabulary exceeded the implemented success/failure branch.",
+      "package_failure_established": false,
+      "residual_id": "TP001-V01-RESIDUAL-DISPOSITION-001",
+      "standing": "INCOMPLETE_AND_MINOR_DEFECT_DISPOSITIONS_NOT_REACHABLE_IN_V0_1_TOOL"
+    },
+    {
+      "classification": "RETURN_PRESERVATION_DEFECT",
+      "effect": "Attempt-two execution overwrote the fixed raw-log paths.",
+      "package_failure_established": false,
+      "residual_id": "TP001-V01-RESIDUAL-ATTEMPT-LOGS-001",
+      "standing": "ATTEMPT_ONE_RAW_LOG_BYTES_NOT_PRESERVED"
+    },
+    {
+      "classification": "ENVELOPE_MANIFEST_MUTABILITY_DEFECT",
+      "effect": "Phase-zero completion changed a manifest-listed file by design.",
+      "package_failure_established": false,
+      "residual_id": "TP001-V01-RESIDUAL-DISCLOSURE-MUTABILITY-001",
+      "standing": "COMPLETED_DISCLOSURE_NECESSARILY_DIVERGED_FROM_PRECOMPLETION_MANIFEST_DIGEST"
+    },
+    {
+      "classification": "REVIEWER_STANDING_BOUNDARY",
+      "effect": "Execution corroborates the package across a different provider/runtime but does not establish arms-length independence.",
+      "package_failure_established": false,
+      "residual_id": "TP001-V01-RESIDUAL-INDEPENDENCE-001",
+      "standing": "CROSS_VENDOR_DIVERSITY_OBSERVED_NO_ARMS_LENGTH_OR_ORGANIZATIONAL_INDEPENDENCE_CLAIMED"
+    },
+    {
+      "classification": "DECLARED_NON_CLAIMS",
+      "effect": "No architecture correctness, production readiness, compliance, authority, repository admission, or provider-native completeness is established.",
+      "package_failure_established": false,
+      "residual_id": "TP001-V01-RESIDUAL-SCOPE-001",
+      "standing": "SYNTHETIC_SCOPE_ONLY"
+    }
+  ]
+}
