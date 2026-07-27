@@ -34,11 +34,11 @@ Opening, reviewing, or merging this candidate does not establish architecture co
 From this directory:
 
 ```bash
-python3 CHECKS/check_tp001_post_exterior_candidate_v0_1.py
+python3 CHECKS/check_public_boundary_candidate_v0_1.py
 ```
 
 Expected result:
 
 ```text
-TP001_POST_EXTERIOR_ADMISSION_CANDIDATE_CONFORMS_NOT_ADMITTED
+TP001_PUBLIC_BOUNDARY_CANDIDATE_CONFORMS_NOT_ADMITTED
 ```
