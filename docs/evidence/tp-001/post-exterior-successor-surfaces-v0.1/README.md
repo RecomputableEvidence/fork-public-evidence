@@ -3,7 +3,7 @@
 This isolated candidate publishes the public-safe portions of four TP-001 successor surfaces:
 
 1. the v0.1 exterior-recomputation success anchor and residual register;
-2. the corrected v0.1.1 recomputation-envelope contracts and executable checker;
+2. the corrected v0.1.1 recomputation-envelope contracts and executable-artifact bindings;
 3. the out-of-band evidence-sidecar enterprise reference architecture v0.1.1;
 4. the v0.2 later-standing lineage anchor.
 
