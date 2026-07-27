@@ -2,7 +2,7 @@
   "receipt_id": "TP001-POST-EXTERIOR-CONNECTOR-CANDIDATE-ROOT-RECEIPT-001",
   "manifest_path": "CANDIDATE-MANIFEST.json",
   "manifest_byte_size": 3011,
-  "manifest_sha256": "10b6dc7e1320b9cacbed348f3a22ef18fcb47ed81a50718c69c07c26ed3d6b67",
+  "manifest_sha256": "4af4adbadc4c22a718f8656165d0648a41f0f6926a2150d7f28ebf4341eea34c",
   "base_commit": "9c779c305be8455f355051a561e9ea89e7feee36",
   "standing": "CONNECTOR_PUBLICATION_CANDIDATE_NOT_ADMITTED"
 }
