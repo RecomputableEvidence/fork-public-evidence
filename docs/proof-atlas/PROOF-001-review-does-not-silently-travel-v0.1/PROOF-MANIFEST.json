@@ -1,0 +1,144 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_public_proof_manifest",
+  "manifest_id": "FORK-PROOF-001-MANIFEST-v0.1",
+  "construction_base": {
+    "commit_sha": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+    "tree_sha": "a9addcb4903ce4e4098a7f554cef85bc60e2ccb8"
+  },
+  "bindings": [
+    {
+      "path": "docs/evidence/tp-001/admission/PR98-ADMISSION-ANCHOR-001/ADMISSION-ANCHOR.json",
+      "role": "LATEST_ADMITTED_CHECKPOINT_ANCHOR",
+      "size_bytes": 924,
+      "sha256": "9cb230ab39e01a1e00600fbe343aefe61e3d2941d069164af61d72c1fd94fc45"
+    },
+    {
+      "path": "docs/exterior-observations/reviews/pr91-chatgpt-20260724/EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_NORMALIZED_v0_1_1.json",
+      "role": "PR91_NORMALIZED_EXTERIOR_RETURN",
+      "size_bytes": 25576,
+      "sha256": "acfabbfabaea0011dfef2216261555faab6e3d161ce86e6734f5c4fb9969fd5f"
+    },
+    {
+      "path": "docs/exterior-observations/reviews/pr91-chatgpt-20260724/ORIGINAL_EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_v0_1.json",
+      "role": "PR91_SOURCE_EXTERIOR_RETURN",
+      "size_bytes": 53662,
+      "sha256": "51d8249fe85fff34d288c1bfd7198639eecbd11e6fc4ae4872666fe63fcfacb9"
+    },
+    {
+      "path": "docs/preservation/admission/FORK_LONGITUDINAL_OBSERVATION_ADMISSION_ANCHOR_2026_07_26_v0_1.json",
+      "role": "PR97_LATER_ADMISSION_ANCHOR_MACHINE_RECORD",
+      "size_bytes": 10215,
+      "sha256": "4b530beef96cbfe9f8ddd9d5ff9fb858a9d133bb15602029fc63d1acf2a3ae28"
+    },
+    {
+      "path": "docs/preservation/admission/FORK_LONGITUDINAL_OBSERVATION_ADMISSION_ANCHOR_2026_07_26_v0_1.md",
+      "role": "PR97_LATER_ADMISSION_ANCHOR_HUMAN_RECORD",
+      "size_bytes": 4392,
+      "sha256": "8c039d6e0fcbb6f0067d024bf4522975a7b4ae6f69ab29e9677dfa4d7ddcc530"
+    },
+    {
+      "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-SUMMARY.md",
+      "role": "MECHANICALLY_DERIVED_HUMAN_SUMMARY",
+      "size_bytes": 2235,
+      "sha256": "e1f974836af82496f6240b69b160d9f8f06396e938f20ecf302fecf3200beeb9"
+    },
+    {
+      "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PUBLIC-ROUTE-FRESHNESS-CONTRACT.json",
+      "role": "PUBLIC_ROUTE_FRESHNESS_CONTRACT",
+      "size_bytes": 1663,
+      "sha256": "2b44dc7b52e703f31951954c2226308a184af3cdbbc73631d1ca3ff637d45e9d"
+    },
+    {
+      "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/README.md",
+      "role": "PROOF_001_HUMAN_ROUTE",
+      "size_bytes": 2749,
+      "sha256": "1f3dcac46514740a1b6e9db3b30d43ca4e744fb2bcbf6d6f7b5188b9d89387be"
+    },
+    {
+      "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/STANDING.json",
+      "role": "PROOF_001_STANDING_RECORD",
+      "size_bytes": 3650,
+      "sha256": "075f0368d4665a2d077c82fc0c36b87f47cf685bb6a144a1eefa5c6e38263de2"
+    },
+    {
+      "path": "docs/proof-atlas/PROOF_INDEX_v0_1.json",
+      "role": "PROOF_ATLAS_MACHINE_INDEX",
+      "size_bytes": 1408,
+      "sha256": "b7e9f8feaaf1f62f1e1150182674f0b309382406c1745e2c4ea081445871510d"
+    },
+    {
+      "path": "docs/proof-atlas/README.md",
+      "role": "PROOF_ATLAS_HUMAN_INDEX",
+      "size_bytes": 1071,
+      "sha256": "8cb1f4e28d0f17c3bad1ecbced988f9ba00cccb211c97ee768ffb4c762c4efe8"
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/ADVERSARIAL_CASES_v0_2.json",
+      "role": "UNDERLYING_ADVERSARIAL_REGISTER",
+      "size_bytes": 1776,
+      "sha256": "07b7968e319b96ce40fefdfd79946630171ba9fdb03ee332d51d80b12371d0c7"
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_EVENT_REGISTRY_v0_2.json",
+      "role": "UNDERLYING_EVENT_REGISTRY",
+      "size_bytes": 6376,
+      "sha256": "87ac80ab18a6670319cbc531ba9ea53b1ffefbeaad228b729d0269731c022355"
+    },
+    {
+      "path": "docs/state/longitudinal-recomputation-v0.2/LONGITUDINAL_REPLAY_CONTRACT_v0_2.json",
+      "role": "UNDERLYING_REPLAY_CONTRACT",
+      "size_bytes": 4680,
+      "sha256": "e9d16108153911ba4b2cd6312d9a0c4f7a9fe4fe5cbd89d03a4c9dc1e6633c5d"
+    },
+    {
+      "path": "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+      "role": "EXACT_HEAD_STRUCTURAL_SELF_CHECK_RECEIPT",
+      "size_bytes": 1997,
+      "sha256": "4507c6a6045a762c975d644aa0e6359c180ce17d6b724584094da354847ac576"
+    },
+    {
+      "path": "tests/test_longitudinal_recomputation_v0_2.py",
+      "role": "UNDERLYING_REPLAY_TESTS",
+      "size_bytes": 10487,
+      "sha256": "daf19e8b825f87f30533f493d346b2895fdc409dd9da4c3f6bfdab60aa39f6eb"
+    },
+    {
+      "path": "tests/test_proof_001_review_does_not_silently_travel_v0_1.py",
+      "role": "PROOF_001_TESTS",
+      "size_bytes": 3906,
+      "sha256": "92330dc0c318f9da7d63198eae55f521f030887571134e93365d616674e5f1e4"
+    },
+    {
+      "path": "tools/check_longitudinal_recomputation_v0_2.py",
+      "role": "UNDERLYING_REPLAY_CHECKER",
+      "size_bytes": 48645,
+      "sha256": "fca92bc2551547f46c383913a9c81cecd37cc95391b65aea11c76f52fd14da3a"
+    },
+    {
+      "path": "tools/check_public_route_freshness_v0_1.py",
+      "role": "PUBLIC_ROUTE_FRESHNESS_CHECKER",
+      "size_bytes": 12387,
+      "sha256": "552d639328c0dfaf876269ed2fffeecf1b1b666e45ef14cb7ae6c5651d3c0d85"
+    },
+    {
+      "path": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
+      "role": "PROOF_001_ONE_COMMAND_WRAPPER",
+      "size_bytes": 27368,
+      "sha256": "5695cd026775031fd2c44cde298c2e753bb2c5103c3c1c4f5b77d2b1a056301f"
+    }
+  ],
+  "self_exclusion": {
+    "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  },
+  "standing": "BOUNDED_NONSEMANTIC_PACKAGING_CANDIDATE_NOT_ADMITTED",
+  "non_effects": {
+    "main": "NONE",
+    "default_branch_settings": "NONE",
+    "pages": "NONE",
+    "existing_pull_requests": "NONE",
+    "repository_settings": "NONE",
+    "authority_state": "NONE"
+  }
+}

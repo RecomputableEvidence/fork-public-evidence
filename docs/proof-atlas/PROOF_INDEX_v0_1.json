@@ -1,0 +1,28 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_public_proof_index",
+  "index_id": "FORK-PROOF-INDEX-v0.1",
+  "construction_base": {
+    "commit_sha": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+    "tree_sha": "a9addcb4903ce4e4098a7f554cef85bc60e2ccb8"
+  },
+  "proofs": [
+    {
+      "proof_id": "PROOF-001",
+      "title": "A Review Does Not Silently Travel",
+      "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1",
+      "manifest_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json",
+      "standing_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/STANDING.json",
+      "wrapper_path": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
+      "expected_result": "PROOF_001_REPRODUCED_PACKAGING_CANDIDATE_NOT_ADMITTED",
+      "packaging_standing": "BOUNDED_NONSEMANTIC_PACKAGING_CANDIDATE_NOT_ADMITTED",
+      "underlying_lineage_standing": "ADMITTED_LINEAR_REPLAY_WITH_CORRECTION_REQUIRED_RETAINED",
+      "exterior_recomputation_disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED"
+    }
+  ],
+  "non_claims": [
+    "Index inclusion is not admission.",
+    "Index inclusion is not independent recomputation.",
+    "Index inclusion does not create truth, correctness, authority, approval, compliance, legal sufficiency, safety, production readiness, present reliance, or execution permission."
+  ]
+}

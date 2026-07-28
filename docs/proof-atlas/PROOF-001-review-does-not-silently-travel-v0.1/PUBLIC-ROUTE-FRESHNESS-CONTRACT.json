@@ -1,0 +1,45 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_public_route_freshness_contract",
+  "contract_id": "FORK-PUBLIC-ROUTE-FRESHNESS-PROOF-001-v0.1",
+  "latest_admitted_checkpoint": {
+    "commit_sha": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+    "tree_sha": "a9addcb4903ce4e4098a7f554cef85bc60e2ccb8",
+    "admission_pull_request": 99,
+    "admission_anchor_path": "docs/evidence/tp-001/admission/PR98-ADMISSION-ANCHOR-001/ADMISSION-ANCHOR.json",
+    "standing": "LATEST_ADMITTED_CHECKPOINT_FOR_THIS_CANDIDATE_CONTRACT"
+  },
+  "routes": [
+    {
+      "route_id": "ROOT_README_GOVERNED_COORDINATE",
+      "path": "README.md",
+      "selector": {
+        "kind": "markdown_branch_coordinate",
+        "branch": "preservation/clean-continuance-v0.1"
+      }
+    },
+    {
+      "route_id": "STATE_ROUTING_GOVERNED_PROJECTION",
+      "path": "docs/state/FORK_STATE_ROUTING_v0_3.json",
+      "selector": {
+        "kind": "json_keys",
+        "keys": [
+          "governed_projection",
+          "source_commit"
+        ]
+      }
+    }
+  ],
+  "expected_status": "PUBLIC_ROUTE_STALE",
+  "preserved_interpretation": {
+    "staleness_effect": "PUBLIC_ROUTING_GAP_DETECTED_NOT_REPAIRED_BY_THIS_CANDIDATE",
+    "historical_projection_effect": "NONE",
+    "admission_effect": "NONE",
+    "authority_effect": "NONE"
+  },
+  "non_claims": [
+    "A stale public route does not invalidate an exact-coordinate historical projection.",
+    "A newer candidate branch tip does not become an admitted checkpoint.",
+    "This contract does not modify README.md, state routing, main, the default branch, Pages, repository settings, existing pull requests, or authority state."
+  ]
+}
