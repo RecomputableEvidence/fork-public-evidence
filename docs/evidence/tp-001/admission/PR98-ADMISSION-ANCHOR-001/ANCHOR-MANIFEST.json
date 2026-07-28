@@ -8,8 +8,8 @@
     },
     {
       "path": "CHECKS/check_admission_anchor_candidate.py",
-      "byte_size": 2699,
-      "sha256": "34a5bc3f5184147ab0c2a14d2b9561e90c7613aa9d1e075da72fe3c404af4bdc"
+      "byte_size": 7070,
+      "sha256": "44629f8842fbe2d93734438b9ba540952bf0e8e25d864ea9a35bd1633883a14e"
     },
     {
       "path": "CI-BINDING.json",
