@@ -14,6 +14,7 @@ if str(TOOLS) not in sys.path:
 
 from build_ghch_fixtures_v0_1 import fixtures  # noqa: E402
 from check_ghch_cadence_v0_1 import evaluate  # noqa: E402
+from check_ghch_candidate_v0_1 import main as check_candidate  # noqa: E402
 from ghch_common_v0_1 import pretty_json, sha256_value  # noqa: E402
 
 FIXTURE_ROOT = REPO / "fixtures/governed-handoff-cadence/v0_1"
@@ -138,6 +139,9 @@ class GovernedHandoffCadenceTests(unittest.TestCase):
         for stale_route in stale_routes:
             with self.subTest(stale_route=stale_route):
                 self.assertNotIn(stale_route, route_text)
+
+    def test_repository_candidate_manifest_and_receipt(self):
+        self.assertEqual(check_candidate(), 0)
 
     def test_schema_and_control_documents_are_valid_json(self):
         json_paths = [
