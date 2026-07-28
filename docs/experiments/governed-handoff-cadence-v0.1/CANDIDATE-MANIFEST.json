@@ -14,8 +14,8 @@
   "files": [
     {
       "path": "docs/experiments/governed-handoff-cadence-v0.1/GHCH-CONTROL-PLANE.json",
-      "byte_size": 17741,
-      "sha256": "cfb8237d8d2f4da350bf0293a7c9a497c2576b14d4ebd7642f15ec7aeefc241d"
+      "byte_size": 13563,
+      "sha256": "b1792ba01ebcf4890dc732d800d51bbd1bf6a52df857056b26d255b2c6a9ef96"
     },
     {
       "path": "docs/experiments/governed-handoff-cadence-v0.1/README.md",
@@ -39,8 +39,8 @@
     },
     {
       "path": "tests/test_ghch_cadence_v0_1.py",
-      "byte_size": 5399,
-      "sha256": "b6de0b20bb1bb145f95e5d1c1db3881b39f20b51025440b2ee0dfbfd43545438"
+      "byte_size": 6084,
+      "sha256": "e5a0be56fa75c059823cbeeb5891ff849901aa399d803389ca11ab945f5428aa"
     },
     {
       "path": "tools/build_ghch_fixtures_v0_1.py",
@@ -54,8 +54,8 @@
     },
     {
       "path": "tools/check_ghch_candidate_v0_1.py",
-      "byte_size": 2862,
-      "sha256": "6b0dab739a7c3ae225aa2a20ce0e8a1553e5379588081bdafb0d17af77a8fd1c"
+      "byte_size": 3318,
+      "sha256": "f8c44201a0ed36fb9bf29ab4fce6204b9ea81cf95016e9a6a218b75b8faf7064"
     },
     {
       "path": "tools/ghch_common_v0_1.py",
