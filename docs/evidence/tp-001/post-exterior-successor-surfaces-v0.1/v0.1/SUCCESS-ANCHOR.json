@@ -1,0 +1,58 @@
+{
+  "anchor_id": "TP001-V01-EXTERIOR-RECOMPUTATION-SUCCESS-ANCHOR-001",
+  "anchor_standing": "EXTERIOR_RECOMPUTATION_SUCCESS_ANCHOR_WITH_PRESERVED_RESIDUALS",
+  "computed_result": {
+    "archive_byte_size_match": true,
+    "archive_sha256_match": true,
+    "failures": [],
+    "receipt_final_disposition": "REPRODUCED_WITHIN_DECLARED_SYNTHETIC_SCOPE",
+    "receipt_standing": "REPRODUCED_WITHIN_DECLARED_SYNTHETIC_SCOPE",
+    "run_package_exit_code": 0,
+    "unexpected_added_paths": [],
+    "unexpected_changed_paths": [],
+    "unit_tests_exit_code": 0
+  },
+  "created_at": "2026-07-27T20:37:32Z",
+  "exterior_return": {
+    "archive_path": "BINDINGS/TP001-V01-EXTERIOR-RECOMPUTATION-ENVELOPE-001-RETURN.zip",
+    "byte_size": 9208,
+    "deviations_path": "EVIDENCE/DEVIATIONS-FROM-PRESCRIBED-PROCEDURE.md",
+    "deviations_sha256": "257856eec75967f50c6c015fb8061d1c16e22eb592624649d549ccbdd51e05d2",
+    "disclosure_path": "EVIDENCE/REVIEWER-DISCLOSURE.json",
+    "disclosure_sha256": "210d48ac4de85f7ef93049ab722feb3d8a2bd730ba42b4074b459a6dd609eaf4",
+    "receipt_path": "EVIDENCE/EXTERIOR-RECOMPUTATION-RECEIPT.json",
+    "receipt_sha256": "aa4f640ebe30f22cba686ba9c545ef650fc1235677b20df44cb60e096dda66e3",
+    "sha256": "f2ef3f826b5b3dd59aea48a64e3f69842c03e6321e5f69262723f9a61908605a"
+  },
+  "non_claims": [
+    "not a production deployment or readiness determination",
+    "not architecture correctness proof",
+    "not a compliance or authority determination",
+    "not repository admission",
+    "not provider-native source completeness proof",
+    "not organizational or arms-length independence by construction"
+  ],
+  "predecessor_and_successor_effect": {
+    "repository_effect": "NONE",
+    "v0_1_bytes_modified": false,
+    "v0_2_bytes_modified": false,
+    "v0_2_exterior_verification_inherited": false
+  },
+  "residuals_path": "RESIDUALS.json",
+  "reviewer_standing": {
+    "arms_length_or_organizational_independence_claimed": "NO",
+    "cross_vendor_diversity_observed": true,
+    "disclosure_standing": "REVIEWER_DISCLOSURE_COMPLETED_PRE_TARGET_EXAMINATION",
+    "organization": "Anthropic",
+    "prior_exposure": "PRIOR_EXPOSURE_DISCLOSED - extensive, across many prior conversations with this user on Fork and its surrounding ecosystem.",
+    "reviewer": "Claude (Anthropic) - Claude Sonnet 5, claude.ai chat interface with code-execution tooling"
+  },
+  "target": {
+    "archive_path": "BINDINGS/TP-001_SYNTHETIC_VERTICAL_CONFORMANCE_PACKAGE_v0_1.zip",
+    "byte_size": 119486,
+    "package_id": "TP-001_SYNTHETIC_VERTICAL_CONFORMANCE_PACKAGE_v0_1",
+    "sha256": "3f00021363e746b87e22d3cc9db8e34b8d7154c944d0759130a625e142fd4c07",
+    "standing_after": "EXTERIOR_RECOMPUTED_WITHIN_DECLARED_SYNTHETIC_SCOPE_WITH_RESIDUALS",
+    "standing_before": "LOCALLY_REPRODUCED_WITHIN_DECLARED_SYNTHETIC_SCOPE"
+  }
+}

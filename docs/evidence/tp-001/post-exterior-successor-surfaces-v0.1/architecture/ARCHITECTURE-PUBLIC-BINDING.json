@@ -1,0 +1,9 @@
+{
+  "binding_id": "OOB-SIDECAR-ARCH-v0_1_1-PUBLIC-BINDING-001",
+  "artifact": "OUT_OF_BAND_EVIDENCE_SIDECAR_ENTERPRISE_REFERENCE_ARCHITECTURE_v0_1_1.md",
+  "byte_size": 82923,
+  "sha256": "7f3005abd65a3991c6aca9c653f39e3ecfd3f3f30643961cba23f1c2eff20018",
+  "publication_state": "PUBLIC_ARTIFACT_DIGEST_BOUND_FULL_BYTES_NOT_EMBEDDED_IN_CONNECTOR_CANDIDATE",
+  "reason": "The connector-only repository candidate publishes the exact changeset and corrected normative excerpts; the complete successor artifact remains separately preserved and digest-bound.",
+  "standing": "REFERENCE_ARCHITECTURE_CANDIDATE_NOT_ADMITTED"
+}
