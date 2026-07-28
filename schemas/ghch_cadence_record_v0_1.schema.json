@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://fork.example/schemas/ghch_cadence_record_v0_1.schema.json",
   "title": "Governed Handoff Cadence Record v0.1",
+  "description": "Descriptive structural envelope. Normative v0.1 semantics and exact key sets are executed by ghch_contract_v0_1.py and the semantic evaluator modules.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -16,7 +17,8 @@
     "non_claim_set",
     "events",
     "reconciliation",
-    "declared_non_effects"
+    "declared_non_effects",
+    "record_integrity"
   ],
   "properties": {
     "schema_version": {
@@ -26,8 +28,11 @@
       "const": "GHCH_CADENCE_RECORD"
     },
     "cadence_id": {
-      "type": "string",
-      "pattern": "^GHCH-CAD-[0-9]{3}$"
+      "enum": [
+        "GHCH-CAD-001",
+        "GHCH-CAD-002",
+        "GHCH-CAD-003"
+      ]
     },
     "profile": {
       "enum": [
@@ -44,33 +49,7 @@
       "minItems": 4,
       "maxItems": 4,
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "participant_id",
-          "role",
-          "authority_domain"
-        ],
-        "properties": {
-          "participant_id": {
-            "type": "string"
-          },
-          "role": {
-            "enum": [
-              "SIMULATION_HARNESS",
-              "UPSTREAM_GOVERNANCE",
-              "FORK_EVIDENCE_SIDECAR",
-              "DOWNSTREAM_GOVERNANCE"
-            ]
-          },
-          "authority_domain": {
-            "enum": [
-              "NONE",
-              "UPSTREAM_LOCAL_ONLY",
-              "DOWNSTREAM_LOCAL_ONLY"
-            ]
-          }
-        }
+        "$ref": "#/$defs/participant"
       }
     },
     "claim_bundle": {
@@ -91,82 +70,39 @@
       }
     },
     "reconciliation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "relationship",
-        "downstream_local_disposition",
-        "upstream_acknowledgment",
-        "unresolved_items"
-      ],
-      "properties": {
-        "relationship": {
-          "enum": [
-            "PRESERVED",
-            "NARROWED",
-            "DIVERGENT_UNRESOLVED"
-          ]
-        },
-        "downstream_local_disposition": {
-          "enum": [
-            "ACCEPTED_FOR_LOCAL_PROCESSING",
-            "ACCEPTED_WITH_NARROWING",
-            "REJECTED_FOR_LOCAL_PROCESSING",
-            "UNRESOLVED"
-          ]
-        },
-        "upstream_acknowledgment": {
-          "enum": [
-            "ACKNOWLEDGED_WITHOUT_ENDORSEMENT",
-            "DISPUTED",
-            "UNAVAILABLE"
-          ]
-        },
-        "unresolved_items": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
+      "type": "object"
     },
     "declared_non_effects": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "authority_transfer",
-        "standing_inheritance",
-        "endorsement_inheritance",
-        "production_or_compliance_effect",
-        "provider_calls",
-        "pair_001_calls"
-      ],
-      "properties": {
-        "authority_transfer": {
-          "const": "NONE"
-        },
-        "standing_inheritance": {
-          "const": "NONE"
-        },
-        "endorsement_inheritance": {
-          "const": "NONE"
-        },
-        "production_or_compliance_effect": {
-          "const": "NONE"
-        },
-        "provider_calls": {
-          "const": 0
-        },
-        "pair_001_calls": {
-          "const": 0
-        }
-      }
+      "type": "object"
+    },
+    "record_integrity": {
+      "$ref": "#/$defs/recordIntegrity"
     }
   },
   "$defs": {
     "sha256": {
       "type": "string",
       "pattern": "^[0-9a-f]{64}$"
+    },
+    "participant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "participant_id",
+        "role",
+        "authority_domain"
+      ],
+      "properties": {
+        "participant_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "authority_domain": {
+          "type": "string"
+        }
+      }
     },
     "digestBoundObject": {
       "type": "object",
@@ -182,51 +118,6 @@
           "$ref": "#/$defs/sha256"
         }
       }
-    },
-    "digestRef": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "sha256"
-      ],
-      "properties": {
-        "bundle_id": {
-          "type": "string"
-        },
-        "policy_id": {
-          "type": "string"
-        },
-        "non_claim_set_id": {
-          "type": "string"
-        },
-        "sha256": {
-          "$ref": "#/$defs/sha256"
-        }
-      }
-    },
-    "predecessorRef": {
-      "oneOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "event_id",
-            "sha256"
-          ],
-          "properties": {
-            "event_id": {
-              "type": "string",
-              "pattern": "^GHCH-EVT-[0-9]{3}$"
-            },
-            "sha256": {
-              "$ref": "#/$defs/sha256"
-            }
-          }
-        }
-      ]
     },
     "event": {
       "type": "object",
@@ -248,148 +139,35 @@
       ],
       "properties": {
         "event_id": {
-          "type": "string",
           "pattern": "^GHCH-EVT-[0-9]{3}$"
         },
         "stage": {
-          "enum": [
-            "PREREGISTER",
-            "UPSTREAM_EMIT",
-            "FORK_CAPTURE_INGRESS",
-            "DOWNSTREAM_INGEST",
-            "DOWNSTREAM_LOCAL_DISPOSITION",
-            "FORK_CAPTURE_EGRESS",
-            "UPSTREAM_RECONCILE",
-            "CADENCE_CLOSE"
-          ]
+          "type": "string"
         },
         "actor_id": {
           "type": "string"
         },
-        "predecessor_ref": {
-          "$ref": "#/$defs/predecessorRef"
-        },
+        "predecessor_ref": {},
         "claim_bundle_ref": {
-          "$ref": "#/$defs/digestRef"
+          "type": "object"
         },
         "exchange_policy_ref": {
-          "$ref": "#/$defs/digestRef"
+          "type": "object"
         },
         "non_claim_set_ref": {
-          "$ref": "#/$defs/digestRef"
+          "type": "object"
         },
         "claim_delta": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "operation",
-              "claim_id",
-              "basis"
-            ],
-            "properties": {
-              "operation": {
-                "enum": [
-                  "NARROW"
-                ]
-              },
-              "claim_id": {
-                "type": "string"
-              },
-              "basis": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
-          }
+          "type": "array"
         },
         "local_effects": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "authority_action",
-            "authority_source",
-            "standing_action",
-            "standing_basis"
-          ],
-          "properties": {
-            "authority_action": {
-              "enum": [
-                "NONE",
-                "LOCAL_ONLY"
-              ]
-            },
-            "authority_source": {
-              "enum": [
-                "NONE",
-                "PREEXISTING_LOCAL_GOVERNANCE"
-              ]
-            },
-            "standing_action": {
-              "enum": [
-                "NONE",
-                "LOCAL_REASSESSMENT"
-              ]
-            },
-            "standing_basis": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "type": "string",
-                  "minLength": 1
-                }
-              ]
-            }
-          }
+          "type": "object"
         },
         "observed_status": {
-          "enum": [
-            "COMPLETED",
-            "UNAVAILABLE",
-            "COMPLETED_WITH_OBSERVATION_GAPS",
-            "REJECTED",
-            "BLOCKED",
-            "FAILED"
-          ]
+          "type": "string"
         },
         "detected_flags": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "authority_transfer",
-            "authority_inheritance",
-            "standing_inheritance",
-            "endorsement_inheritance",
-            "evidence_reference_promotion",
-            "unresolved_resolved_by_assumption",
-            "declared_vs_observed_mismatch"
-          ],
-          "properties": {
-            "authority_transfer": {
-              "type": "boolean"
-            },
-            "authority_inheritance": {
-              "type": "boolean"
-            },
-            "standing_inheritance": {
-              "type": "boolean"
-            },
-            "endorsement_inheritance": {
-              "type": "boolean"
-            },
-            "evidence_reference_promotion": {
-              "type": "boolean"
-            },
-            "unresolved_resolved_by_assumption": {
-              "type": "boolean"
-            },
-            "declared_vs_observed_mismatch": {
-              "type": "boolean"
-            }
-          }
+          "type": "object"
         },
         "notes": {
           "type": "array",
@@ -398,20 +176,23 @@
           }
         },
         "event_integrity": {
-          "type": "object",
-          "additionalProperties": false,
-          "required": [
-            "canonicalization_profile",
-            "canonical_event_sha256"
-          ],
-          "properties": {
-            "canonicalization_profile": {
-              "const": "GHCH-CANONICAL-JSON-v0.1"
-            },
-            "canonical_event_sha256": {
-              "$ref": "#/$defs/sha256"
-            }
-          }
+          "type": "object"
+        }
+      }
+    },
+    "recordIntegrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonicalization_profile",
+        "canonical_record_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "GHCH-CANONICAL-JSON-v0.1"
+        },
+        "canonical_record_sha256": {
+          "$ref": "#/$defs/sha256"
         }
       }
     }

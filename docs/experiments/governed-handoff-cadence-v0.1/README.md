@@ -4,260 +4,142 @@
 
 `DETERMINISTIC_SIMULATION_CANDIDATE_NOT_ADMITTED`
 
-This surface models a bounded enterprise cadence in which upstream governance, Fork as an out-of-band evidence sidecar, and downstream governance exchange claim-bearing records without transferring authority, inheriting standing, importing endorsement, or promoting referenced evidence.
+GHCH v0.1 is a deterministic simulation surface for repeated bounded exchanges among upstream governance, Fork as an out-of-band evidence sidecar, and downstream governance.
 
-It is a successor composition layer above the existing Cross-System Claim Handoff work. It does not replace CSH, modify Pair-001, authorize provider calls, or represent a production integration.
+It tests whether provenance, claim scope, non-claims, unresolved items, evidence references, lineage, and whole-record identity remain inspectable without transferring authority, inheriting standing, importing endorsement, or promoting a reference into verification.
 
-## Why this surface exists
+## Fixed cadence
 
-Existing CSH surfaces classify individual receiver outputs, evidence-chain integrity, pair comparability, reviewer boundaries, authority-inheritance flags, non-claim loss, reference promotion, and representation degradation.
+```text
+PREREGISTER
+→ UPSTREAM_EMIT
+→ FORK_CAPTURE_INGRESS
+→ DOWNSTREAM_INGEST
+→ DOWNSTREAM_LOCAL_DISPOSITION
+→ FORK_CAPTURE_EGRESS
+→ UPSTREAM_RECONCILE
+→ CADENCE_CLOSE
+```
 
-The missing enterprise-facing proof surface is a repeated, role-separated cadence:
+Upstream and downstream participants may exercise authority only inside their preexisting local domains. No message, acknowledgment, receipt, Fork capture, standing, or evidence reference creates or transfers authority.
 
-1. freeze the route, roles, policy, canonical claim bundle, and non-claims;
-2. upstream governance emits under its own local authority;
-3. Fork records ingress when available and preserves an observation gap when unavailable;
-4. downstream governance ingests without importing upstream authority or standing;
-5. downstream governance exercises only its preexisting local authority;
-6. Fork records egress without approving the downstream result;
-7. upstream reconciles without endorsement inheritance;
-8. the harness closes the cadence without conferring authority or admission.
+Fork remains:
 
-## Architectural correction to the initial idea
+```text
+READ_ONLY
+OUT_OF_BAND
+FAIL_OPEN
+NON_AUTHORITATIVE
+```
 
-The harness does **not** require every stage to have no authority effect. Upstream and downstream governance models may exercise authority inside their own preexisting domains. The enforced invariant is narrower and stronger:
+When a Fork capture is unavailable, the capture stage remains present as `UNAVAILABLE`, the workflow continues, and the unresolved observation gap remains visible.
 
-> No authority crosses the exchange boundary, and no participant acquires authority from another participant, Fork, an acknowledgment, a receipt, or an evidence reference.
+## Bound surfaces
 
-This distinction prevents the harness from accidentally disabling legitimate local governance while still rejecting authority transfer and inheritance.
+| Surface | Purpose |
+|---|---|
+| `GHCH-CONTROL-PLANE.json` | Invariants, proof map, progression gates, non-effects, exact base, predecessor relationships, and dependency contract |
+| `GHCH-QA-LINEAGE.json` | Construction defect, review corrections, local QA, anti-tautology rules, and blocking conditions |
+| `ghch_contract_v0_1.py` | Fixed v0.1 vocabulary, object key sets, stage rules, canonical claims, notes, standing bases, and non-effects |
+| `ghch_evaluator_record_v0_1.py` | Top-level, participant, canonical-object, and whole-record integrity checks |
+| `ghch_evaluator_events_v0_1.py` | Event order, predecessor lineage, local-authority, reference, status, flag, note, and delta checks |
+| `ghch_evaluator_v0_1.py` | Reconciliation, fail-open continuity, narrowing, acknowledgment, and final disposition |
+| `ghch_cadence_record_v0_1.schema.json` | Descriptive structural envelope; it does not replace executable semantic enforcement |
+| `FIXTURE-SPECS.json` | Compact deterministic fixture-generation instructions without expected outcomes |
+| `FIXTURE-CORPUS-ROOT.json` | Byte size, SHA-256, and corpus-root binding for the generated 20-case corpus |
+| `test_ghch_cadence_v0_1.py` | Expected outcomes kept outside fixture bytes; also invokes the repository candidate checker |
+| Candidate manifest and root receipt | Exact repository-candidate file binding |
 
-## Redundancy strategy
+## Current proof coverage
 
-The cadence defines the following once:
+Valid profiles:
 
-- canonical claim bundle;
-- exchange policy;
-- non-claim set.
+1. `CLEAN_ROUND_TRIP`
+2. `PERMISSIBLE_NARROWING`
+3. `SIDECAR_UNAVAILABLE_FAIL_OPEN`
 
-Every stage carries exact digest references plus an explicit claim delta. Full claim and policy prose is not recopied into each stage. This reduces accidental divergence while retaining safety boundaries at every handoff.
+Seventeen fully rehashed adversarial families cover:
 
-## Implemented proof surfaces
+- authority inheritance;
+- standing promotion;
+- non-claim loss;
+- unresolved resolution by assumption;
+- evidence-reference promotion;
+- stale predecessor lineage;
+- duplicate event identifiers;
+- hidden claim expansion;
+- Fork unavailability converted into workflow blocking;
+- stage-order regression;
+- undeclared authority fields;
+- canonical claim-standing promotion;
+- invalid stage status;
+- approval-bearing notes;
+- inherited-standing basis;
+- misleading narrowing rationale;
+- stale whole-record integrity.
 
-- deterministic canonicalization and digest-bound event lineage;
-- fixed eight-stage state machine;
-- local-authority versus transferred-authority semantics;
-- read-only, out-of-band, fail-open Fork stages;
-- explicit permissible narrowing;
-- exact unresolved-item preservation;
-- semantic-regression checker;
-- deterministic fixture builder;
-- a digest-bound generated 13-case fixture corpus containing three valid profiles and ten adversarial fixtures;
-- unit tests that keep expected outcomes outside fixture bytes;
-- claim-to-proof map;
-- staged progression gates through exterior recomputation, shadow adapters, bounded pilot, and longitudinal replay.
+The checker imports no fixture index, fixture expectations, or expected-result oracle. Expected dispositions and required findings exist only in the test module.
 
 ## Run locally
 
 ```bash
+python -m py_compile \
+  tools/ghch_common_v0_1.py \
+  tools/ghch_contract_v0_1.py \
+  tools/ghch_evaluator_record_v0_1.py \
+  tools/ghch_evaluator_events_v0_1.py \
+  tools/ghch_evaluator_v0_1.py \
+  tools/build_ghch_fixtures_v0_1.py \
+  tools/check_ghch_cadence_v0_1.py \
+  tools/check_ghch_candidate_v0_1.py \
+  tests/test_ghch_cadence_v0_1.py
+
+python -m unittest tests/test_ghch_cadence_v0_1.py -v
+python tools/check_ghch_candidate_v0_1.py
 python tools/build_ghch_fixtures_v0_1.py --output-root /tmp/ghch-fixtures
-python -m unittest tests/test_ghch_cadence_v0_1.py
 python tools/check_ghch_cadence_v0_1.py \
   /tmp/ghch-fixtures/valid/clean_round_trip.json
 ```
 
-Expected clean result:
+Expected candidate result:
+
+```text
+GHCH_V0_1_REPOSITORY_CANDIDATE_CONFORMS_NOT_ADMITTED
+```
+
+Expected clean cadence result:
 
 ```text
 GHCH_CADENCE_CONFORMS_PRESERVED
 ```
 
-## Non-claims
-
-This surface does not establish enterprise interoperability, production readiness, compliance, legal sufficiency, model correctness, governance-model equivalence, authority transfer, provider execution, Pair-001 execution, admission, or a change to `main`.
-
 ## Review order
 
-1. Review the protocol and invariant sections in this README together with `GHCH-CONTROL-PLANE.json`.
-2. Inspect `ghch_common_v0_1.py` for canonicalization and builder separation.
-3. Inspect the checker for semantic enforcement independent of fixture expectations.
-4. Run the fixture builder and compare bytes.
-5. Run the unit tests.
-6. Adversarially mutate a valid fixture, recompute its internal hashes, and confirm semantic rejection.
-7. Review the `next_stage_gates` section in `GHCH-CONTROL-PLANE.json` before proposing any live adapter or enterprise workflow.
+1. Read this orientation and `GHCH-CONTROL-PLANE.json`.
+2. Inspect `GHCH-QA-LINEAGE.json`; do not treat the corrected head as erasing predecessor defects.
+3. Inspect `ghch_contract_v0_1.py` before evaluator logic.
+4. Verify that record, event-chain, and reconciliation evaluation are separate from fixture expectations.
+5. Build the corpus and compare every generated byte against `FIXTURE-CORPUS-ROOT.json`.
+6. Run the full unit suite and candidate checker.
+7. Mutate a valid record, recompute nested and whole-record digests, and confirm semantic rejection.
+8. Confirm fail-open continuity preserves observation gaps without blocking downstream local governance.
+9. Review `GHCH-CONTROL-PLANE.json#sections.next_stage_gates` before proposing exterior recomputation, shadow adapters, or enterprise use.
 
+## Progression boundary
 
----
+```text
+G0 local construction
+→ G1 exact-head CI and bounded review
+→ G2 exterior recomputation
+→ G3 separately authorized shadow adapters
+→ G4 separately authorized bounded enterprise pilot
+→ G5 longitudinal replay after admitted cadence events
+```
 
-# Governed Handoff Cadence Protocol v0.1
+No gate authorizes the next gate automatically.
 
-## 1. Objective
+Shadow adapters remain closed until exterior recomputation is completed and separately adjudicated. An enterprise pilot remains closed until institutional authorization, privacy and data-handling review, retention, rollback, and incident procedures are established.
 
-The cadence tests whether a claim-bearing exchange can traverse upstream governance, Fork, and downstream governance while preserving provenance, scope, non-claims, unresolved items, and lineage without transferring authority or inheriting standing.
+## Non-claims
 
-The protocol is deterministic and simulated. No network, model, provider, production system, or institutional decision is invoked.
-
-## 2. Roles
-
-| Participant | Role | Authority domain |
-|---|---|---|
-| `HARNESS-001` | Simulation harness | None |
-| `UPSTREAM-001` | Upstream governance | Upstream local only |
-| `FORK-001` | Fork evidence sidecar | None |
-| `DOWNSTREAM-001` | Downstream governance | Downstream local only |
-
-Fork records declared and observed evidence boundaries. It does not approve, authorize, rank, or execute either governance model.
-
-## 3. Canonical objects
-
-Three objects are defined once and referenced by digest at every stage:
-
-1. **Claim bundle** — claims, standing, scope, and evidence references.
-2. **Exchange policy** — prohibited authority/standing/endorsement inheritance and Fork mode.
-3. **Non-claim set** — required exclusions and non-effects.
-
-A stage may carry a `claim_delta`, but it may not silently reproduce or rewrite the canonical objects.
-
-## 4. Fixed cadence
-
-| Order | Stage | Actor | Required meaning |
-|---:|---|---|---|
-| 1 | `PREREGISTER` | Harness | Freeze route, roles, policy, and stage order |
-| 2 | `UPSTREAM_EMIT` | Upstream | Release under upstream-local authority only |
-| 3 | `FORK_CAPTURE_INGRESS` | Fork | Record ingress or preserve unavailability |
-| 4 | `DOWNSTREAM_INGEST` | Downstream | Receive without importing authority or standing |
-| 5 | `DOWNSTREAM_LOCAL_DISPOSITION` | Downstream | Exercise downstream-local authority only |
-| 6 | `FORK_CAPTURE_EGRESS` | Fork | Record egress without approval |
-| 7 | `UPSTREAM_RECONCILE` | Upstream | Acknowledge or dispute without endorsement inheritance |
-| 8 | `CADENCE_CLOSE` | Harness | Close simulation without admission or authority |
-
-Each event binds the exact predecessor event ID and canonical event digest.
-
-## 5. Local authority rule
-
-`LOCAL_ONLY` is permitted only when:
-
-- the actor is the upstream or downstream governance participant;
-- the authority source is `PREEXISTING_LOCAL_GOVERNANCE`;
-- no transfer or inheritance flag is set;
-- the action remains inside that participant's declared authority domain.
-
-A handoff cannot create, delegate, sublicense, imply, or inherit authority.
-
-## 6. Standing rule
-
-Downstream governance may perform `LOCAL_REASSESSMENT`. It may not inherit upstream standing.
-
-Permissible narrowing requires:
-
-- stage `DOWNSTREAM_LOCAL_DISPOSITION`;
-- operation `NARROW`;
-- an existing claim ID;
-- a non-empty basis;
-- reconciliation relationship `NARROWED`.
-
-Expansion, promotion, equivalence, or silent resolution is rejected.
-
-## 7. Fork fail-open rule
-
-If Fork capture is unavailable:
-
-- both Fork capture stages remain present with status `UNAVAILABLE`;
-- downstream stages continue;
-- the cadence closes as `COMPLETED_WITH_OBSERVATION_GAPS`;
-- both capture gaps remain listed as unresolved;
-- no evidence is fabricated and no workflow block is inferred.
-
-## 8. Redundancy and gap rule
-
-Repeated prose is not treated as stronger evidence. The canonical objects remain single-source; stage records contain exact references and deltas.
-
-The checker rejects:
-
-- missing or duplicated stages;
-- stale or severed lineage;
-- duplicate event IDs;
-- non-claim loss;
-- authority transfer or inheritance;
-- standing or endorsement inheritance;
-- evidence-reference promotion;
-- unresolved resolution by assumption;
-- hidden expansion;
-- Fork unavailability converted into workflow blocking;
-- route-order regression;
-- declared versus observed mismatch.
-
-## 9. Semantic-regression rule
-
-Adversarial fixtures are internally rehashed after mutation wherever possible. Rejection must therefore arise from semantic enforcement, not merely stale checksums.
-
-Fixture expectations live in the test module, not in the fixture records, and the checker never reads an oracle or expected-result file.
-
-## 10. Version and admission boundary
-
-v0.1 is a local deterministic harness candidate. A later version may add shadow adapters, but only after exact-head review and exterior recomputation.
-
-No merge, CI result, or review of this candidate authorizes live execution or admission. Any admission requires a separate append-only act.
-
-
----
-
-# Redundancy and Gap Policy v0.1
-
-## Intentional safety repetition
-
-The following concepts must remain inspectable at every stage through digest references:
-
-- claim bundle identity;
-- exchange-policy identity;
-- non-claim-set identity;
-- predecessor event identity.
-
-Their repeated references are intentional control bindings, not redundant prose.
-
-## Prohibited duplication
-
-Stages must not copy the full canonical claim bundle, policy, or non-claim set. Changes are expressed only as explicit deltas.
-
-This prevents:
-
-- version skew between repeated copies;
-- accidental omission of a non-claim;
-- semantic drift hidden by similar prose;
-- a downstream rewrite being mistaken for the upstream record.
-
-## Required gaps
-
-A missing observation must remain a gap. It must not be replaced by:
-
-- a synthetic success receipt;
-- an inferred provider result;
-- an assumed acknowledgment;
-- an inherited standing;
-- a default approval;
-- a collapsed unresolved state.
-
-## Gap closure
-
-A gap closes only through a successor event with a new artifact and explicit evidence basis. Replaying or restating the earlier record does not close it.
-
-## Duplicate and replay handling
-
-Duplicate event IDs, repeated stages, stale predecessor references, and out-of-order transitions reject the cadence. A later replay must use a new cadence ID and preserve the prior cadence as predecessor evidence.
-
-
----
-
-# Exact-head review questions
-
-1. Does the harness distinguish local governance authority from transferred or inherited authority correctly?
-2. Can any actor obtain `LOCAL_ONLY` authority from a message, acknowledgment, evidence reference, or Fork capture?
-3. Can a mutated fixture recompute all digests and still bypass a semantic invariant?
-4. Does the checker ever read fixture expectations or an oracle?
-5. Are claim bundle, exchange policy, and non-claim set defined once and referenced consistently?
-6. Can non-claim loss be hidden by recomputing the non-claim-set digest?
-7. Can a downstream expansion be mislabeled as preservation or narrowing?
-8. Does Fork unavailability remain fail-open while preserving negative evidence?
-9. Can route reordering, event replay, duplicate IDs, or stale predecessor references survive?
-10. Can an acknowledgment be overread as endorsement, approval, or authority?
-11. Does any language imply production readiness, compliance, governance equivalence, or provider authorization?
-12. Are the next-stage gates strict enough to prevent a deterministic simulation from silently becoming a live enterprise pilot?
+This candidate does not establish enterprise interoperability, production readiness, compliance, legal sufficiency, model correctness, governance-model equivalence, authority transfer, provider execution, Pair-001 execution, admission, or a change to `main`.

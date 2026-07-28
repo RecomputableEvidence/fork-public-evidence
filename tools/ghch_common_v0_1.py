@@ -56,6 +56,15 @@ def sha256_value(value: Any) -> str:
 def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
+def add_record_integrity(record: Dict[str, Any]) -> Dict[str, Any]:
+    record = copy.deepcopy(record)
+    record.pop("record_integrity", None)
+    record["record_integrity"] = {
+        "canonicalization_profile": CANONICAL_PROFILE,
+        "canonical_record_sha256": sha256_value(record),
+    }
+    return record
+
 def add_integrity(event: Dict[str, Any]) -> Dict[str, Any]:
     event = copy.deepcopy(event)
     event.pop("event_integrity", None)
@@ -329,7 +338,7 @@ def build_cadence(profile: str) -> Dict[str, Any]:
     ]
     events = recompute_chain(events)
 
-    return {
+    record = {
         "schema_version": "0.1",
         "artifact_type": "GHCH_CADENCE_RECORD",
         "cadence_id": {
@@ -365,6 +374,7 @@ def build_cadence(profile: str) -> Dict[str, Any]:
             "pair_001_calls": 0,
         },
     }
+    return add_record_integrity(record)
 
 def refresh_record(record: Dict[str, Any]) -> Dict[str, Any]:
     record = copy.deepcopy(record)
@@ -382,7 +392,7 @@ def refresh_record(record: Dict[str, Any]) -> Dict[str, Any]:
         event["exchange_policy_ref"]["sha256"] = record["exchange_policy"]["canonical_sha256"]
         event["non_claim_set_ref"]["sha256"] = record["non_claim_set"]["canonical_sha256"]
     record["events"] = recompute_chain(record["events"])
-    return record
+    return add_record_integrity(record)
 
 def pretty_json(value: Any) -> bytes:
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode("utf-8")

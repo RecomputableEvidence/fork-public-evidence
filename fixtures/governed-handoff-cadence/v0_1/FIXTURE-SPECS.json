@@ -8,6 +8,11 @@
       "mutation_family": "AUTHORITY_INHERITANCE"
     },
     {
+      "fixture_path": "invalid/claim_bundle_standing_promotion.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "CLAIM_BUNDLE_STANDING_PROMOTION"
+    },
+    {
       "fixture_path": "invalid/duplicate_event_id.json",
       "fixture_class": "ADVERSARIAL",
       "mutation_family": "DUPLICATE_EVENT_ID"
@@ -23,9 +28,24 @@
       "mutation_family": "HIDDEN_CLAIM_EXPANSION"
     },
     {
+      "fixture_path": "invalid/invalid_event_status.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "INVALID_EVENT_STATUS"
+    },
+    {
       "fixture_path": "invalid/missing_non_claim.json",
       "fixture_class": "ADVERSARIAL",
       "mutation_family": "NON_CLAIM_LOSS"
+    },
+    {
+      "fixture_path": "invalid/narrowing_basis_overread.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "NARROWING_BASIS_OVERREAD"
+    },
+    {
+      "fixture_path": "invalid/notes_authority_overread.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "NOTES_AUTHORITY_OVERREAD"
     },
     {
       "fixture_path": "invalid/sidecar_unavailability_blocks_workflow.json",
@@ -43,9 +63,24 @@
       "mutation_family": "STALE_PREDECESSOR"
     },
     {
+      "fixture_path": "invalid/stale_record_integrity.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STALE_RECORD_INTEGRITY"
+    },
+    {
+      "fixture_path": "invalid/standing_basis_inheritance.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STANDING_BASIS_INHERITANCE"
+    },
+    {
       "fixture_path": "invalid/standing_promotion.json",
       "fixture_class": "ADVERSARIAL",
       "mutation_family": "STANDING_PROMOTION"
+    },
+    {
+      "fixture_path": "invalid/undeclared_authority_field.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "UNDECLARED_AUTHORITY_FIELD"
     },
     {
       "fixture_path": "invalid/unresolved_resolved_by_assumption.json",

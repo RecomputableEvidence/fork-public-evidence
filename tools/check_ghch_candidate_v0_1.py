@@ -68,11 +68,16 @@ def main() -> int:
         "NEXT-STAGE-GATES.json",
         "NO-EFFECTS.json",
     }
-    route_text = (DOC_ROOT / "README.md").read_text(encoding="utf-8") + "\n" + (
-        DOC_ROOT / "GHCH-CONTROL-PLANE.json"
-    ).read_text(encoding="utf-8")
+    readme_text = (DOC_ROOT / "README.md").read_text(encoding="utf-8")
+    control_plane = json.loads(
+        (DOC_ROOT / "GHCH-CONTROL-PLANE.json").read_text(encoding="utf-8")
+    )
+    active_route_values = []
+    for entry in control_plane["sections"]["claim_to_proof_map"]["entries"]:
+        active_route_values.extend(entry.get("proof_surfaces", []))
+    active_route_text = readme_text + "\n" + "\n".join(active_route_values)
     for stale_route in sorted(stale_routes):
-        if stale_route in route_text:
+        if stale_route in active_route_text:
             findings.append("STALE_COMPACT_ROUTE:" + stale_route)
 
     tokens = SIDECAR.read_text(encoding="utf-8").strip().split()

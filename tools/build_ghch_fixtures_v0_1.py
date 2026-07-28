@@ -16,6 +16,7 @@ if str(HERE) not in sys.path:
 
 from ghch_common_v0_1 import (  # noqa: E402
     add_integrity,
+    add_record_integrity,
     build_cadence,
     pretty_json,
     refresh_record,
@@ -69,7 +70,7 @@ def fixtures() -> Dict[str, Dict[str, Any]]:
         "sha256": "9" * 64,
     }
     record["events"][3] = add_integrity(record["events"][3])
-    result["invalid/stale_predecessor.json"] = record
+    result["invalid/stale_predecessor.json"] = add_record_integrity(record)
 
     record = build_cadence("CLEAN_ROUND_TRIP")
     record["events"][4]["event_id"] = record["events"][3]["event_id"]
@@ -96,6 +97,41 @@ def fixtures() -> Dict[str, Dict[str, Any]]:
     record = build_cadence("CLEAN_ROUND_TRIP")
     record["events"][3], record["events"][4] = record["events"][4], record["events"][3]
     result["invalid/stage_order_regression.json"] = refresh_record(record)
+
+    record = build_cadence("CLEAN_ROUND_TRIP")
+    ingest = stage(record, "DOWNSTREAM_INGEST")
+    ingest["inherited_authority_grant"] = True
+    result["invalid/undeclared_authority_field.json"] = refresh_record(record)
+
+    record = build_cadence("CLEAN_ROUND_TRIP")
+    record["claim_bundle"]["claims"][0]["standing"] = "VERIFIED"
+    result["invalid/claim_bundle_standing_promotion.json"] = refresh_record(record)
+
+    record = build_cadence("CLEAN_ROUND_TRIP")
+    stage(record, "UPSTREAM_RECONCILE")["observed_status"] = "BLOCKED"
+    result["invalid/invalid_event_status.json"] = refresh_record(record)
+
+    record = build_cadence("CLEAN_ROUND_TRIP")
+    stage(record, "FORK_CAPTURE_EGRESS")["notes"].append(
+        "Fork approves the downstream governance disposition."
+    )
+    result["invalid/notes_authority_overread.json"] = refresh_record(record)
+
+    record = build_cadence("CLEAN_ROUND_TRIP")
+    stage(record, "DOWNSTREAM_LOCAL_DISPOSITION")["local_effects"][
+        "standing_basis"
+    ] = "UPSTREAM_STANDING_INHERITED"
+    result["invalid/standing_basis_inheritance.json"] = refresh_record(record)
+
+    record = build_cadence("PERMISSIBLE_NARROWING")
+    stage(record, "DOWNSTREAM_LOCAL_DISPOSITION")["claim_delta"][0][
+        "basis"
+    ] = "Upstream confidence authorizes broader downstream reliance."
+    result["invalid/narrowing_basis_overread.json"] = refresh_record(record)
+
+    record = build_cadence("CLEAN_ROUND_TRIP")
+    record["declared_non_effects"]["provider_calls"] = 1
+    result["invalid/stale_record_integrity.json"] = record
 
     return result
 

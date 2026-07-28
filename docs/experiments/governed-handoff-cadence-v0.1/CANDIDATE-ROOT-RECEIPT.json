@@ -1,8 +1,8 @@
 {
-  "receipt_id": "GHCH-V0-1-COMPACT-ROOT-RECEIPT-001",
+  "receipt_id": "GHCH-V0-1-MODULAR-ROOT-RECEIPT-001",
   "manifest_path": "docs/experiments/governed-handoff-cadence-v0.1/CANDIDATE-MANIFEST.json",
-  "manifest_byte_size": 2642,
-  "manifest_sha256": "3be0c8c1d3decd66c723f2b727f70a4a5a32c9b3ba0d92b0dbcb5ab7744d6d77",
+  "manifest_byte_size": 3684,
+  "manifest_sha256": "348d937bea2c31025d971474f93ac78b73163876e0337ff4f2c81c2ac5585c5f",
   "exact_base_commit": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
   "standing": "CONNECTOR_PUBLICATION_CANDIDATE_NOT_ADMITTED"
 }

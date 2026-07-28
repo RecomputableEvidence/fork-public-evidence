@@ -51,11 +51,11 @@ class GovernedHandoffCadenceTests(unittest.TestCase):
         expected_findings = {
             "invalid/authority_inheritance.json": {
                 "AUTHORITY_INHERITANCE:DOWNSTREAM_INGEST",
-                "LOCAL_EFFECTS:DOWNSTREAM_INGEST",
+                "LOCAL_EFFECT_VALUES:DOWNSTREAM_INGEST",
             },
             "invalid/standing_promotion.json": {
                 "STANDING_INHERITANCE:DOWNSTREAM_LOCAL_DISPOSITION",
-                "LOCAL_EFFECTS:DOWNSTREAM_LOCAL_DISPOSITION",
+                "LOCAL_EFFECT_VALUES:DOWNSTREAM_LOCAL_DISPOSITION",
             },
             "invalid/missing_non_claim.json": {"NON_CLAIM_GAP"},
             "invalid/unresolved_resolved_by_assumption.json": {
@@ -77,13 +77,35 @@ class GovernedHandoffCadenceTests(unittest.TestCase):
                 "UNDECLARED_DELTA",
             },
             "invalid/sidecar_unavailability_blocks_workflow.json": {
-                "FAIL_OPEN_CONTINUITY_INGEST",
-                "FAIL_OPEN_CONTINUITY_DISPOSITION",
-                "FAIL_OPEN_CLOSE_STANDING",
+                "EVENT_STATUS:DOWNSTREAM_INGEST",
+                "EVENT_STATUS:DOWNSTREAM_LOCAL_DISPOSITION",
+                "EVENT_STATUS:CADENCE_CLOSE",
             },
             "invalid/stage_order_regression.json": {
                 "STAGE_ORDER",
                 "EVENT_ID_SEQUENCE",
+            },
+            "invalid/undeclared_authority_field.json": {
+                "EVENT:3_KEYS",
+            },
+            "invalid/claim_bundle_standing_promotion.json": {
+                "CLAIM_BUNDLE_SEMANTICS",
+            },
+            "invalid/invalid_event_status.json": {
+                "EVENT_STATUS:UPSTREAM_RECONCILE",
+            },
+            "invalid/notes_authority_overread.json": {
+                "NOTES_SEMANTICS:FORK_CAPTURE_EGRESS",
+            },
+            "invalid/standing_basis_inheritance.json": {
+                "STANDING_BASIS_SEMANTICS:DOWNSTREAM_LOCAL_DISPOSITION",
+            },
+            "invalid/narrowing_basis_overread.json": {
+                "NARROWING_DELTA_SEMANTICS",
+            },
+            "invalid/stale_record_integrity.json": {
+                "RECORD_DIGEST",
+                "DECLARED_NON_EFFECT_VALUES",
             },
         }
         for relative, required in expected_findings.items():
@@ -130,15 +152,22 @@ class GovernedHandoffCadenceTests(unittest.TestCase):
             "NEXT-STAGE-GATES.json",
             "NO-EFFECTS.json",
         }
-        route_text = (
+        readme_text = (
             REPO / "docs/experiments/governed-handoff-cadence-v0.1/README.md"
-        ).read_text(encoding="utf-8") + "\n" + (
-            REPO
-            / "docs/experiments/governed-handoff-cadence-v0.1/GHCH-CONTROL-PLANE.json"
         ).read_text(encoding="utf-8")
+        control_plane = json.loads(
+            (
+                REPO
+                / "docs/experiments/governed-handoff-cadence-v0.1/GHCH-CONTROL-PLANE.json"
+            ).read_text(encoding="utf-8")
+        )
+        active_route_values = []
+        for entry in control_plane["sections"]["claim_to_proof_map"]["entries"]:
+            active_route_values.extend(entry.get("proof_surfaces", []))
+        active_route_text = readme_text + "\n" + "\n".join(active_route_values)
         for stale_route in stale_routes:
             with self.subTest(stale_route=stale_route):
-                self.assertNotIn(stale_route, route_text)
+                self.assertNotIn(stale_route, active_route_text)
 
     def test_repository_candidate_manifest_and_receipt(self):
         self.assertEqual(check_candidate(), 0)
@@ -148,6 +177,8 @@ class GovernedHandoffCadenceTests(unittest.TestCase):
             REPO / "schemas/ghch_cadence_record_v0_1.schema.json",
             REPO
             / "docs/experiments/governed-handoff-cadence-v0.1/GHCH-CONTROL-PLANE.json",
+            REPO
+            / "docs/experiments/governed-handoff-cadence-v0.1/GHCH-QA-LINEAGE.json",
             SPECS_PATH,
             CORPUS_ROOT_PATH,
         ]
