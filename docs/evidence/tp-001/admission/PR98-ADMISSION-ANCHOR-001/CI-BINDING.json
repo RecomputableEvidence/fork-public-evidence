@@ -1,0 +1,40 @@
+{
+  "record_id": "PR98-TP001-CI-BINDING-001",
+  "reviewed_head": "aa07846cdea30ab06ee8c56cbf72946fc9266bca",
+  "exact_head_workflows": [
+    {
+      "name": "Fork Evidence CI",
+      "run_id": 30314414968,
+      "run_number": 448,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Root Checksum Manifest v0.1",
+      "run_id": 30314415002,
+      "run_number": 76,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Fork Proof-Surface Integration",
+      "run_id": 30314414978,
+      "run_number": 147,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "post_merge_observation": {
+    "merge_commit": "1d6350cd4545e873078e8c088da608416dee3802",
+    "workflow_runs_returned_by_commit_query": [],
+    "combined_status_entries": [],
+    "standing": "POST_MERGE_WORKFLOWS_NOT_OBSERVED_BY_AVAILABLE_CONNECTOR",
+    "non_claim": "This does not establish that no GitHub Actions event existed outside the connector query surface."
+  },
+  "review": {
+    "review_id": 4792390081,
+    "reviewed_commit": "aa07846cdea30ab06ee8c56cbf72946fc9266bca",
+    "disposition": "REVIEWED_WITHIN_DECLARED_PUBLICATION_BOUNDARY_NO_BLOCKING_FINDINGS",
+    "reviewer_standing": "NOT_INDEPENDENT_CONSTRUCTION_ASSISTED"
+  }
+}
