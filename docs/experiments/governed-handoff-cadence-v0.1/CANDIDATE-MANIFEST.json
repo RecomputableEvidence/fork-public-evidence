@@ -27,6 +27,11 @@
       "sha256": "65ebb41d731d9097a7a9c36f3a0224da1e90ec888845e318baf932e06a07f91b"
     },
     {
+      "path": "docs/experiments/governed-handoff-cadence-v0.1/GHCH-PUBLICATION-INCIDENT-001.json",
+      "byte_size": 1097,
+      "sha256": "073957456cec8f044f6c5c356d70ac43293b973ac0e6f724098ace58537cee40"
+    },
+    {
       "path": "docs/experiments/governed-handoff-cadence-v0.1/README.md",
       "byte_size": 5980,
       "sha256": "3583b09f27fcbcfa879b61007edb2537a9ce854c5920f300dfef4725c7fc4292"
