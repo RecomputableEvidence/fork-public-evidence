@@ -1,0 +1,19 @@
+{
+  "record_id": "PR98-TP001-CORRECTION-LINEAGE-001",
+  "initial_green_head": "54e0632fb298c04afb4f9aadb4a52000d4f1f148",
+  "initial_green_head_standing": "CI_GREEN_BUT_REVIEW_DEFECTS_IDENTIFIED",
+  "defects_preserved": [
+    "boundary checker rejected only three restricted filenames and did not reject undeclared public files",
+    "supplementary first-Claude transcript was classified as digest-bound without a recorded SHA-256"
+  ],
+  "append_only_correction_commits": [
+    "43f0541aae324671a9f708087cf1a2956ac86acb",
+    "66e9bd67ff3716af856f6abf823a49caabec7065",
+    "5473128e61d69b33440d5c30ab75cef9997111df",
+    "f85ed9b4c5f6224da4eb1e3e78eaa2aebf27746a",
+    "aa07846cdea30ab06ee8c56cbf72946fc9266bca"
+  ],
+  "corrected_reviewed_head": "aa07846cdea30ab06ee8c56cbf72946fc9266bca",
+  "correction_effect": "PUBLICATION_BOUNDARY_CHECKER_AND_BINDINGS_HARDENED_BEFORE_MERGE",
+  "history_rewritten": false
+}

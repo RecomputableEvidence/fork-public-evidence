@@ -1,0 +1,21 @@
+{
+  "anchor_id": "PR98-TP001-POST-EXTERIOR-SURFACES-ADMISSION-ANCHOR-001",
+  "generated_at": "2026-07-28T00:09:11Z",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "bound_merge_event": "MERGE-EVENT.json",
+  "bound_ci": "CI-BINDING.json",
+  "bound_correction_lineage": "CORRECTION-LINEAGE.json",
+  "bound_surfaces": "SURFACE-BINDINGS.json",
+  "bound_non_claims": "NON-CLAIMS.json",
+  "terminal_anchor_rule": "TERMINAL-ANCHOR-RULE.md",
+  "current_standing": "APPEND_ONLY_ADMISSION_ANCHOR_CANDIDATE_NOT_ADMITTED",
+  "intended_effect_if_separately_reviewed_and_merged": "ADMIT_PR98_PUBLIC_SURFACES_TO_GOVERNED_PRESERVATION_LINEAGE_WITHOUT_WIDENING_DECLARED_STANDING",
+  "current_effect": {
+    "repository_admission": "NONE",
+    "main": "NONE",
+    "production_readiness": "NONE",
+    "authority": "NONE",
+    "v0_2_exterior_verification": "NONE"
+  }
+}

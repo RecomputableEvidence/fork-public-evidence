@@ -1,0 +1,33 @@
+{
+  "record_id": "PR98-TP001-MERGE-EVENT-001",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "pull_request": 98,
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "merge_method": "merge_commit",
+  "merged_at": "2026-07-28T00:05:47Z",
+  "branch_tip_before_merge": "9c779c305be8455f355051a561e9ea89e7feee36",
+  "reviewed_head": "aa07846cdea30ab06ee8c56cbf72946fc9266bca",
+  "actual_merge_commit": "1d6350cd4545e873078e8c088da608416dee3802",
+  "ordered_parents": [
+    "9c779c305be8455f355051a561e9ea89e7feee36",
+    "aa07846cdea30ab06ee8c56cbf72946fc9266bca"
+  ],
+  "post_merge_branch_tip": "1d6350cd4545e873078e8c088da608416dee3802",
+  "branch_tip_verification": {
+    "comparison_base": "1d6350cd4545e873078e8c088da608416dee3802",
+    "comparison_head": "preservation/clean-continuance-v0.1",
+    "status": "IDENTICAL",
+    "ahead_by": 0,
+    "behind_by": 0
+  },
+  "merge_tree_binding": {
+    "git_commit_transitively_binds_tree": true,
+    "reviewed_head_to_merge_commit_file_delta": [],
+    "tree_content_relationship": "MERGE_COMMIT_TREE_CONTENT_IDENTICAL_TO_REVIEWED_HEAD_TREE",
+    "verification_method": "GITHUB_COMPARE_COMMITS_EMPTY_FILE_DELTA",
+    "exact_tree_sha": null,
+    "exact_tree_sha_standing": "NOT_EXPOSED_BY_AVAILABLE_CONNECTOR",
+    "non_claim": "No exact tree object SHA is asserted. Tree content identity is bound by the actual merge commit and the empty file-delta comparison."
+  },
+  "standing": "MERGED_TO_PRESERVATION_PENDING_APPEND_ONLY_ADMISSION_ANCHOR"
+}

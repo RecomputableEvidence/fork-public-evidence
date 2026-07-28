@@ -1,0 +1,8 @@
+{
+  "receipt_id": "PR98-TP001-ADMISSION-ANCHOR-CANDIDATE-ROOT-RECEIPT-001",
+  "manifest_path": "ANCHOR-MANIFEST.json",
+  "manifest_byte_size": 1711,
+  "manifest_sha256": "7e29c3d8570df80c657be5a1e61391e79aeabb6b92e9b40605ed524559fbae84",
+  "branch_base_commit": "1d6350cd4545e873078e8c088da608416dee3802",
+  "standing": "APPEND_ONLY_ADMISSION_ANCHOR_CANDIDATE_NOT_ADMITTED"
+}

@@ -1,0 +1,15 @@
+{
+  "record_id": "PR98-TP001-ADMISSION-NON-CLAIMS-001",
+  "non_claims": [
+    "not organizational or arms-length independence",
+    "not production readiness or deployment authorization",
+    "not architecture correctness proof",
+    "not legal, regulatory, or compliance sufficiency",
+    "not authority transfer or execution permission",
+    "not v0.2 exterior recomputation",
+    "not publication of restricted raw evidence",
+    "not a change to main",
+    "not provider execution or Pair-001 execution",
+    "not self-admission of this anchor candidate"
+  ]
+}
