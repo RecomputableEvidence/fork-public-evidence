@@ -62,6 +62,19 @@ def main() -> int:
     if receipt["exact_base_commit"] != "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0":
         findings.append("EXACT_BASE")
 
+    stale_routes = {
+        "PROTOCOL.md",
+        "SEMANTIC-INVARIANTS.json",
+        "NEXT-STAGE-GATES.json",
+        "NO-EFFECTS.json",
+    }
+    route_text = (DOC_ROOT / "README.md").read_text(encoding="utf-8") + "\n" + (
+        DOC_ROOT / "GHCH-CONTROL-PLANE.json"
+    ).read_text(encoding="utf-8")
+    for stale_route in sorted(stale_routes):
+        if stale_route in route_text:
+            findings.append("STALE_COMPACT_ROUTE:" + stale_route)
+
     tokens = SIDECAR.read_text(encoding="utf-8").strip().split()
     if len(tokens) < 2 or tokens[0] != sha256(RECEIPT):
         findings.append("RECEIPT_SIDECAR")
