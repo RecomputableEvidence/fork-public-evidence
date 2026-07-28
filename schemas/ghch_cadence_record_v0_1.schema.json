@@ -1,0 +1,419 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/schemas/ghch_cadence_record_v0_1.schema.json",
+  "title": "Governed Handoff Cadence Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "cadence_id",
+    "profile",
+    "canonicalization_profile",
+    "participants",
+    "claim_bundle",
+    "exchange_policy",
+    "non_claim_set",
+    "events",
+    "reconciliation",
+    "declared_non_effects"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "artifact_type": {
+      "const": "GHCH_CADENCE_RECORD"
+    },
+    "cadence_id": {
+      "type": "string",
+      "pattern": "^GHCH-CAD-[0-9]{3}$"
+    },
+    "profile": {
+      "enum": [
+        "CLEAN_ROUND_TRIP",
+        "PERMISSIBLE_NARROWING",
+        "SIDECAR_UNAVAILABLE_FAIL_OPEN"
+      ]
+    },
+    "canonicalization_profile": {
+      "const": "GHCH-CANONICAL-JSON-v0.1"
+    },
+    "participants": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "participant_id",
+          "role",
+          "authority_domain"
+        ],
+        "properties": {
+          "participant_id": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "SIMULATION_HARNESS",
+              "UPSTREAM_GOVERNANCE",
+              "FORK_EVIDENCE_SIDECAR",
+              "DOWNSTREAM_GOVERNANCE"
+            ]
+          },
+          "authority_domain": {
+            "enum": [
+              "NONE",
+              "UPSTREAM_LOCAL_ONLY",
+              "DOWNSTREAM_LOCAL_ONLY"
+            ]
+          }
+        }
+      }
+    },
+    "claim_bundle": {
+      "$ref": "#/$defs/digestBoundObject"
+    },
+    "exchange_policy": {
+      "$ref": "#/$defs/digestBoundObject"
+    },
+    "non_claim_set": {
+      "$ref": "#/$defs/digestBoundObject"
+    },
+    "events": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "reconciliation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relationship",
+        "downstream_local_disposition",
+        "upstream_acknowledgment",
+        "unresolved_items"
+      ],
+      "properties": {
+        "relationship": {
+          "enum": [
+            "PRESERVED",
+            "NARROWED",
+            "DIVERGENT_UNRESOLVED"
+          ]
+        },
+        "downstream_local_disposition": {
+          "enum": [
+            "ACCEPTED_FOR_LOCAL_PROCESSING",
+            "ACCEPTED_WITH_NARROWING",
+            "REJECTED_FOR_LOCAL_PROCESSING",
+            "UNRESOLVED"
+          ]
+        },
+        "upstream_acknowledgment": {
+          "enum": [
+            "ACKNOWLEDGED_WITHOUT_ENDORSEMENT",
+            "DISPUTED",
+            "UNAVAILABLE"
+          ]
+        },
+        "unresolved_items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "declared_non_effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority_transfer",
+        "standing_inheritance",
+        "endorsement_inheritance",
+        "production_or_compliance_effect",
+        "provider_calls",
+        "pair_001_calls"
+      ],
+      "properties": {
+        "authority_transfer": {
+          "const": "NONE"
+        },
+        "standing_inheritance": {
+          "const": "NONE"
+        },
+        "endorsement_inheritance": {
+          "const": "NONE"
+        },
+        "production_or_compliance_effect": {
+          "const": "NONE"
+        },
+        "provider_calls": {
+          "const": 0
+        },
+        "pair_001_calls": {
+          "const": 0
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "digestBoundObject": {
+      "type": "object",
+      "required": [
+        "canonicalization_profile",
+        "canonical_sha256"
+      ],
+      "properties": {
+        "canonicalization_profile": {
+          "const": "GHCH-CANONICAL-JSON-v0.1"
+        },
+        "canonical_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "digestRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sha256"
+      ],
+      "properties": {
+        "bundle_id": {
+          "type": "string"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "non_claim_set_id": {
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "predecessorRef": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "event_id",
+            "sha256"
+          ],
+          "properties": {
+            "event_id": {
+              "type": "string",
+              "pattern": "^GHCH-EVT-[0-9]{3}$"
+            },
+            "sha256": {
+              "$ref": "#/$defs/sha256"
+            }
+          }
+        }
+      ]
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "stage",
+        "actor_id",
+        "predecessor_ref",
+        "claim_bundle_ref",
+        "exchange_policy_ref",
+        "non_claim_set_ref",
+        "claim_delta",
+        "local_effects",
+        "observed_status",
+        "detected_flags",
+        "notes",
+        "event_integrity"
+      ],
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "pattern": "^GHCH-EVT-[0-9]{3}$"
+        },
+        "stage": {
+          "enum": [
+            "PREREGISTER",
+            "UPSTREAM_EMIT",
+            "FORK_CAPTURE_INGRESS",
+            "DOWNSTREAM_INGEST",
+            "DOWNSTREAM_LOCAL_DISPOSITION",
+            "FORK_CAPTURE_EGRESS",
+            "UPSTREAM_RECONCILE",
+            "CADENCE_CLOSE"
+          ]
+        },
+        "actor_id": {
+          "type": "string"
+        },
+        "predecessor_ref": {
+          "$ref": "#/$defs/predecessorRef"
+        },
+        "claim_bundle_ref": {
+          "$ref": "#/$defs/digestRef"
+        },
+        "exchange_policy_ref": {
+          "$ref": "#/$defs/digestRef"
+        },
+        "non_claim_set_ref": {
+          "$ref": "#/$defs/digestRef"
+        },
+        "claim_delta": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "operation",
+              "claim_id",
+              "basis"
+            ],
+            "properties": {
+              "operation": {
+                "enum": [
+                  "NARROW"
+                ]
+              },
+              "claim_id": {
+                "type": "string"
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "local_effects": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority_action",
+            "authority_source",
+            "standing_action",
+            "standing_basis"
+          ],
+          "properties": {
+            "authority_action": {
+              "enum": [
+                "NONE",
+                "LOCAL_ONLY"
+              ]
+            },
+            "authority_source": {
+              "enum": [
+                "NONE",
+                "PREEXISTING_LOCAL_GOVERNANCE"
+              ]
+            },
+            "standing_action": {
+              "enum": [
+                "NONE",
+                "LOCAL_REASSESSMENT"
+              ]
+            },
+            "standing_basis": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        },
+        "observed_status": {
+          "enum": [
+            "COMPLETED",
+            "UNAVAILABLE",
+            "COMPLETED_WITH_OBSERVATION_GAPS",
+            "REJECTED",
+            "BLOCKED",
+            "FAILED"
+          ]
+        },
+        "detected_flags": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "authority_transfer",
+            "authority_inheritance",
+            "standing_inheritance",
+            "endorsement_inheritance",
+            "evidence_reference_promotion",
+            "unresolved_resolved_by_assumption",
+            "declared_vs_observed_mismatch"
+          ],
+          "properties": {
+            "authority_transfer": {
+              "type": "boolean"
+            },
+            "authority_inheritance": {
+              "type": "boolean"
+            },
+            "standing_inheritance": {
+              "type": "boolean"
+            },
+            "endorsement_inheritance": {
+              "type": "boolean"
+            },
+            "evidence_reference_promotion": {
+              "type": "boolean"
+            },
+            "unresolved_resolved_by_assumption": {
+              "type": "boolean"
+            },
+            "declared_vs_observed_mismatch": {
+              "type": "boolean"
+            }
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "event_integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "canonicalization_profile",
+            "canonical_event_sha256"
+          ],
+          "properties": {
+            "canonicalization_profile": {
+              "const": "GHCH-CANONICAL-JSON-v0.1"
+            },
+            "canonical_event_sha256": {
+              "$ref": "#/$defs/sha256"
+            }
+          }
+        }
+      }
+    }
+  }
+}
