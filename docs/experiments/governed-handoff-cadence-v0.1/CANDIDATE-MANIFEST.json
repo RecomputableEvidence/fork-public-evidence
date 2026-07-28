@@ -1,0 +1,72 @@
+{
+  "manifest_id": "GHCH-V0-1-COMPACT-REPOSITORY-CANDIDATE-MANIFEST-001",
+  "version": "0.1",
+  "candidate_roots": [
+    "docs/experiments/governed-handoff-cadence-v0.1",
+    "fixtures/governed-handoff-cadence/v0_1",
+    "schemas/ghch_cadence_record_v0_1.schema.json",
+    "tools/ghch_common_v0_1.py",
+    "tools/build_ghch_fixtures_v0_1.py",
+    "tools/check_ghch_cadence_v0_1.py",
+    "tools/check_ghch_candidate_v0_1.py",
+    "tests/test_ghch_cadence_v0_1.py"
+  ],
+  "files": [
+    {
+      "path": "docs/experiments/governed-handoff-cadence-v0.1/GHCH-CONTROL-PLANE.json",
+      "byte_size": 17741,
+      "sha256": "cfb8237d8d2f4da350bf0293a7c9a497c2576b14d4ebd7642f15ec7aeefc241d"
+    },
+    {
+      "path": "docs/experiments/governed-handoff-cadence-v0.1/README.md",
+      "byte_size": 11356,
+      "sha256": "541f632e52866c026bc7dc5c091ca6a831cb170d1d98efa8bd7ea6c3bcfe78a5"
+    },
+    {
+      "path": "fixtures/governed-handoff-cadence/v0_1/FIXTURE-CORPUS-ROOT.json",
+      "byte_size": 2717,
+      "sha256": "4c89d57482503e85da1aada2ebc8107033db2b2742c584d20cc64d7788effb32"
+    },
+    {
+      "path": "fixtures/governed-handoff-cadence/v0_1/FIXTURE-SPECS.json",
+      "byte_size": 2350,
+      "sha256": "6c2809d5efa153fc7f85bb34cd664becba22d6b6750bc7ab301343e923519505"
+    },
+    {
+      "path": "schemas/ghch_cadence_record_v0_1.schema.json",
+      "byte_size": 10085,
+      "sha256": "0c019d1b5233000189e709efd642a79fdcb946b30f35d87c795711635fac30e6"
+    },
+    {
+      "path": "tests/test_ghch_cadence_v0_1.py",
+      "byte_size": 5399,
+      "sha256": "b6de0b20bb1bb145f95e5d1c1db3881b39f20b51025440b2ee0dfbfd43545438"
+    },
+    {
+      "path": "tools/build_ghch_fixtures_v0_1.py",
+      "byte_size": 4643,
+      "sha256": "452ee3510005d30c58812371eb4808585c145e04f8c4e4530b16fd9647518cec"
+    },
+    {
+      "path": "tools/check_ghch_cadence_v0_1.py",
+      "byte_size": 14167,
+      "sha256": "a3e99d5430eb3a777b4bb9d885756f5df670496fd40b9e769c699080855552a2"
+    },
+    {
+      "path": "tools/check_ghch_candidate_v0_1.py",
+      "byte_size": 2862,
+      "sha256": "6b0dab739a7c3ae225aa2a20ce0e8a1553e5379588081bdafb0d17af77a8fd1c"
+    },
+    {
+      "path": "tools/ghch_common_v0_1.py",
+      "byte_size": 12991,
+      "sha256": "0b1099ada06e299c4291e7f3bffbdd5592904dcf84be7bad92eec2276f17db0f"
+    }
+  ],
+  "excluded_paths": [
+    "docs/experiments/governed-handoff-cadence-v0.1/CANDIDATE-MANIFEST.json",
+    "docs/experiments/governed-handoff-cadence-v0.1/CANDIDATE-ROOT-RECEIPT.json",
+    "docs/experiments/governed-handoff-cadence-v0.1/CANDIDATE-ROOT-RECEIPT.sha256"
+  ],
+  "standing": "REVIEW_ELIGIBLE_NOT_ADMITTED"
+}
