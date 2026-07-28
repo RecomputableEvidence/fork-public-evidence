@@ -1,0 +1,28 @@
+{
+  "record_id": "PR98-TP001-ADMITTED-SURFACE-BINDINGS-001",
+  "candidate_manifest": {
+    "path": "docs/evidence/tp-001/post-exterior-successor-surfaces-v0.1/CANDIDATE-MANIFEST.json",
+    "byte_size": 3010,
+    "sha256": "40825ad8680b225dae1c11bab815f74c8d4ca1ecdf7aa398099a303f62809d4a"
+  },
+  "candidate_root_receipt": {
+    "path": "docs/evidence/tp-001/post-exterior-successor-surfaces-v0.1/CANDIDATE-ROOT-RECEIPT.json",
+    "sha256": "0c269c6c276062d1ca5c11fbd0295d7268472a0550aaee7c046d13c5df9b08d6"
+  },
+  "public_restricted_boundary": {
+    "path": "docs/evidence/tp-001/post-exterior-successor-surfaces-v0.1/PUBLIC-RESTRICTED-EVIDENCE-BOUNDARY.json",
+    "byte_size": 5489,
+    "sha256": "3caf1f9489dd712db248f5a2d3c28e8e26186fb589ce3503269b9404ef591c5e"
+  },
+  "boundary_checker": {
+    "path": "docs/evidence/tp-001/post-exterior-successor-surfaces-v0.1/CHECKS/check_public_boundary_candidate_v0_1.py",
+    "byte_size": 3248,
+    "sha256": "d129e670fdf3d1df3dd4fa885df6afc4a24efdc45deb28d7d034e8109a17b1b1"
+  },
+  "surface_standings_if_anchor_admitted": {
+    "v0_1_success_record": "ADMITTED_EXTERIOR_RECOMPUTATION_RECORD_WITH_PRESERVED_RESIDUALS",
+    "envelope_v0_1_1_contract_subset": "ADMITTED_SUCCESSOR_RECOMPUTATION_CONTRACT_SUBSET",
+    "architecture_v0_1_1_record": "ADMITTED_REFERENCE_ARCHITECTURE_SUCCESSOR_RECORD_NOT_CORRECTNESS_PROOF",
+    "v0_2_lineage": "ADMITTED_LATER_PREDECESSOR_STANDING_RECONCILIATION_WITHOUT_INHERITANCE"
+  }
+}
