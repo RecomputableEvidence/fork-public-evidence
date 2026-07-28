@@ -1,0 +1,75 @@
+{
+  "corpus_root_id": "GHCH-FIXTURE-CORPUS-ROOT-001",
+  "version": "0.1",
+  "fixture_count": 13,
+  "fixtures": [
+    {
+      "fixture_path": "invalid/authority_inheritance.json",
+      "byte_size": 16293,
+      "sha256": "d3616ccd8a45a7efd8b742ab75f0b3ec2b2fcaac3ceaf08ef2a9aeca3a418d7a"
+    },
+    {
+      "fixture_path": "invalid/duplicate_event_id.json",
+      "byte_size": 16274,
+      "sha256": "20030a81e9705efec3e1c2c41d0b7e3bde14c2ea60140df761f3e5adcd39e9d9"
+    },
+    {
+      "fixture_path": "invalid/evidence_reference_promotion.json",
+      "byte_size": 16343,
+      "sha256": "e127b6614061526ce44a57244cc95c90310c856c484e8dbdd519e6662a89b458"
+    },
+    {
+      "fixture_path": "invalid/hidden_claim_expansion.json",
+      "byte_size": 16425,
+      "sha256": "21eb876684aaec7bbe737365e7ed99574c699356669072b4cfd70f366986e701"
+    },
+    {
+      "fixture_path": "invalid/missing_non_claim.json",
+      "byte_size": 16238,
+      "sha256": "0ab3bc6d28171e7283ac18ecc3832f5f1726ae8b87f7514ce04268de2a91cbf2"
+    },
+    {
+      "fixture_path": "invalid/sidecar_unavailability_blocks_workflow.json",
+      "byte_size": 16371,
+      "sha256": "5f4dcb524c8910c21122b38d671931d685ba34cc119f61c17ad3747d34ceb46b"
+    },
+    {
+      "fixture_path": "invalid/stage_order_regression.json",
+      "byte_size": 16274,
+      "sha256": "1b24d99f8ddf82a4dab8625717bda91d5091a2e205d48e9e566d915ae0c9c3de"
+    },
+    {
+      "fixture_path": "invalid/stale_predecessor.json",
+      "byte_size": 16274,
+      "sha256": "ad812d767309465c98801dbd4c746c3a0b48efd113f4bb3f7a4bc779a2a3cae0"
+    },
+    {
+      "fixture_path": "invalid/standing_promotion.json",
+      "byte_size": 16255,
+      "sha256": "bd1baccbdedf0e8c25036d3fdfe41474455f9bf619d64579e1941ef06fa3a34d"
+    },
+    {
+      "fixture_path": "invalid/unresolved_resolved_by_assumption.json",
+      "byte_size": 16337,
+      "sha256": "455da0b5ccd92b33f1eb753742961524164c1ee306ad7169369efbd132cf2be0"
+    },
+    {
+      "fixture_path": "valid/clean_round_trip.json",
+      "byte_size": 16274,
+      "sha256": "1166c9891d3ae1bebe3b4d8357671ef945f7ad17fce77de2a3e50f93a35b589a"
+    },
+    {
+      "fixture_path": "valid/permissible_narrowing.json",
+      "byte_size": 16441,
+      "sha256": "9a65e667894915c038fc3690e9408fd441136f73bacaf8c5ad0a7e97ab7ab96b"
+    },
+    {
+      "fixture_path": "valid/sidecar_unavailable_fail_open.json",
+      "byte_size": 16400,
+      "sha256": "b5ce56c240136282aed1651dedfa0d493530b583e8fa87de87dbe07b5c31ca0c"
+    }
+  ],
+  "root_canonicalization": "GHCH-CANONICAL-JSON-v0.1",
+  "corpus_root_sha256": "ee3b0b8af0b810dcf66dc3060fcebf2d6cd82f208bc8bf6070726d7b457bf7ab",
+  "standing": "DIGEST_BOUND_GENERATED_FIXTURE_CORPUS_CANDIDATE"
+}
