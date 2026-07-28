@@ -122,6 +122,23 @@ class GovernedHandoffCadenceTests(unittest.TestCase):
             self.corpus_root["corpus_root_sha256"],
         )
 
+    def test_compact_control_plane_has_no_stale_file_routes(self):
+        stale_routes = {
+            "PROTOCOL.md",
+            "SEMANTIC-INVARIANTS.json",
+            "NEXT-STAGE-GATES.json",
+            "NO-EFFECTS.json",
+        }
+        route_text = (
+            REPO / "docs/experiments/governed-handoff-cadence-v0.1/README.md"
+        ).read_text(encoding="utf-8") + "\n" + (
+            REPO
+            / "docs/experiments/governed-handoff-cadence-v0.1/GHCH-CONTROL-PLANE.json"
+        ).read_text(encoding="utf-8")
+        for stale_route in stale_routes:
+            with self.subTest(stale_route=stale_route):
+                self.assertNotIn(stale_route, route_text)
+
     def test_schema_and_control_documents_are_valid_json(self):
         json_paths = [
             REPO / "schemas/ghch_cadence_record_v0_1.schema.json",
