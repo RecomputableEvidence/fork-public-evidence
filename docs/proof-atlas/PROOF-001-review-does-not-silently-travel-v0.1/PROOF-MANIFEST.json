@@ -46,8 +46,8 @@
     {
       "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PUBLIC-ROUTE-FRESHNESS-CONTRACT.json",
       "role": "PUBLIC_ROUTE_FRESHNESS_CONTRACT",
-      "size_bytes": 1663,
-      "sha256": "2b44dc7b52e703f31951954c2226308a184af3cdbbc73631d1ca3ff637d45e9d"
+      "size_bytes": 1919,
+      "sha256": "00038116aadb8546a1f27ef121357d49ca60872173aba9c855b9e952e5bb6f7a"
     },
     {
       "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/README.md",
@@ -118,8 +118,8 @@
     {
       "path": "tools/check_public_route_freshness_v0_1.py",
       "role": "PUBLIC_ROUTE_FRESHNESS_CHECKER",
-      "size_bytes": 12387,
-      "sha256": "552d639328c0dfaf876269ed2fffeecf1b1b666e45ef14cb7ae6c5651d3c0d85"
+      "size_bytes": 15555,
+      "sha256": "1c3daba1c8e3873a2b1f7d35f48543d2fb264a552d6af541b2a89acf7d4979ad"
     },
     {
       "path": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
