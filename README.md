@@ -36,6 +36,7 @@ Use these records according to scope and temporal standing:
   [FORK_PUBLIC_ROUTE_CURRENT_PROJECTION_v0_1.json](docs/state/FORK_PUBLIC_ROUTE_CURRENT_PROJECTION_v0_1.json)
 - Broader predecessor projection at its exact source coordinate:
   [FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json](docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json)
+  Source coordinate: `1241c0084900f2c60f362205525464582e57b4a7`.
 - Historical July 11 projection:
   [FORK_PROOF_SURFACE_STATE_v0_1.json](docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json)
 - Temporal-succession rule and checker:
