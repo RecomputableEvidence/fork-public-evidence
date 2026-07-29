@@ -61,7 +61,17 @@ def strict_load(path: Path) -> Any:
     return value
 
 
-def safe_regular_file(root: Path, relative: Any) -> Path:
+def strict_load_text(text: str) -> Any:
+    value = json.loads(
+        text,
+        object_pairs_hook=reject_duplicate_keys,
+        parse_constant=reject_constant,
+    )
+    assert_finite(value)
+    return value
+
+
+def safe_relative_path(relative: Any) -> PurePosixPath:
     if not isinstance(relative, str) or not relative:
         raise ValueError("path must be a non-empty repository-relative string")
     pure = PurePosixPath(relative)
@@ -73,6 +83,11 @@ def safe_regular_file(root: Path, relative: Any) -> Path:
         or relative != pure.as_posix()
     ):
         raise ValueError(f"unsafe or non-canonical path: {relative!r}")
+    return pure
+
+
+def safe_regular_file(root: Path, relative: Any) -> Path:
+    pure = safe_relative_path(relative)
     root_real = root.resolve(strict=True)
     current = root
     for part in pure.parts:
@@ -103,6 +118,22 @@ def run_git(root: Path, *args: str, check: bool = True) -> subprocess.CompletedP
     return completed
 
 
+def read_route_text(
+    root: Path,
+    relative: Any,
+    observation_ref: str | None,
+) -> str:
+    pure = safe_relative_path(relative)
+    if observation_ref is None:
+        return safe_regular_file(root, pure.as_posix()).read_text(encoding="utf-8")
+    completed = run_git(
+        root,
+        "show",
+        f"{observation_ref}:{pure.as_posix()}",
+    )
+    return completed.stdout
+
+
 def resolve_json_keys(value: Any, keys: list[Any]) -> Any:
     current = value
     for key in keys:
@@ -114,20 +145,23 @@ def resolve_json_keys(value: Any, keys: list[Any]) -> Any:
     return current
 
 
-def extract_route_coordinate(root: Path, route: dict[str, Any]) -> str:
-    path = safe_regular_file(root, route.get("path"))
+def extract_route_coordinate(
+    root: Path,
+    route: dict[str, Any],
+    observation_ref: str | None = None,
+) -> str:
+    text = read_route_text(root, route.get("path"), observation_ref)
     selector = route.get("selector")
     if not isinstance(selector, dict):
         raise ValueError("route selector must be an object")
     kind = selector.get("kind")
     if kind == "json_keys":
-        value = strict_load(path)
+        value = strict_load_text(text)
         coordinate = resolve_json_keys(value, selector.get("keys", []))
     elif kind == "markdown_branch_coordinate":
         branch = selector.get("branch")
         if not isinstance(branch, str) or not branch:
             raise ValueError("markdown branch selector requires a branch")
-        text = path.read_text(encoding="utf-8")
         pattern = re.compile(re.escape(branch) + r"@([0-9a-f]{40})")
         matches = pattern.findall(text)
         if len(matches) != 1:
@@ -154,6 +188,7 @@ def evaluate(root: Path) -> dict[str, Any]:
             "expected_status": None,
             "expectation_matches": False,
             "latest_admitted_checkpoint": None,
+            "observation_ref": None,
             "candidate_head": None,
             "routes": [],
             "findings": [
@@ -168,7 +203,44 @@ def evaluate(root: Path) -> dict[str, Any]:
     checkpoint = contract.get("latest_admitted_checkpoint", {})
     checkpoint_sha = checkpoint.get("commit_sha")
     checkpoint_tree = checkpoint.get("tree_sha")
+    observation = contract.get("observation", {})
+    observation_ref = observation.get("commit_sha")
     candidate_head: str | None = None
+
+    if (
+        not isinstance(observation_ref, str)
+        or SHA1_RE.fullmatch(observation_ref) is None
+    ):
+        findings.append(
+            {
+                "code": "OBSERVATION_COORDINATE_INVALID",
+                "detail": "observation commit must be a full lowercase SHA-1",
+                "path": CONTRACT_PATH.as_posix(),
+            }
+        )
+        observation_ref = None
+    else:
+        observed_commit = run_git(
+            root,
+            "rev-parse",
+            f"{observation_ref}^{{commit}}",
+            check=False,
+        )
+        if (
+            observed_commit.returncode != 0
+            or observed_commit.stdout.strip() != observation_ref
+        ):
+            findings.append(
+                {
+                    "code": "OBSERVATION_COMMIT_UNAVAILABLE",
+                    "detail": (
+                        f"configured observation commit {observation_ref} "
+                        "is not available as an exact commit object"
+                    ),
+                    "path": "$git",
+                }
+            )
+
     if (
         not isinstance(checkpoint_sha, str)
         or SHA1_RE.fullmatch(checkpoint_sha) is None
@@ -222,6 +294,26 @@ def evaluate(root: Path) -> dict[str, Any]:
                         "path": "$git",
                     }
                 )
+            if isinstance(observation_ref, str):
+                observed_descendant = run_git(
+                    root,
+                    "merge-base",
+                    "--is-ancestor",
+                    checkpoint_sha,
+                    observation_ref,
+                    check=False,
+                )
+                if observed_descendant.returncode != 0:
+                    findings.append(
+                        {
+                            "code": "OBSERVATION_NOT_DESCENDED_FROM_CHECKPOINT",
+                            "detail": (
+                                f"observation {observation_ref} is not descended from "
+                                f"{checkpoint_sha}"
+                            ),
+                            "path": "$git",
+                        }
+                    )
         except Exception as exc:
             findings.append(
                 {
@@ -244,7 +336,7 @@ def evaluate(root: Path) -> dict[str, Any]:
             continue
         route_id = str(route.get("route_id"))
         try:
-            coordinate = extract_route_coordinate(root, route)
+            coordinate = extract_route_coordinate(root, route, observation_ref)
             ancestry = "UNRESOLVED"
             if isinstance(checkpoint_sha, str) and SHA1_RE.fullmatch(checkpoint_sha):
                 relationship = run_git(
@@ -275,6 +367,7 @@ def evaluate(root: Path) -> dict[str, Any]:
                 {
                     "route_id": route_id,
                     "path": route.get("path"),
+                    "observation_ref": observation_ref,
                     "declared_coordinate": coordinate,
                     "checkpoint_match": coordinate == checkpoint_sha,
                     "lineage_relationship": ancestry,
@@ -303,17 +396,20 @@ def evaluate(root: Path) -> dict[str, Any]:
         "expected_status": expected_status,
         "expectation_matches": status == expected_status,
         "latest_admitted_checkpoint": checkpoint,
+        "observation_ref": observation_ref,
         "candidate_head": candidate_head,
         "routes": route_results,
         "findings": findings,
         "interpretation": {
             "proves": [
-                "declared public route coordinates were compared with the exact configured admitted checkpoint",
+                "declared public route coordinates were read from the exact configured observation commit",
+                "those observed coordinates were compared with the exact configured admitted checkpoint",
                 "configured Git commit and tree bindings were recomputed locally",
             ],
             "does_not_prove": [
                 "that the configured checkpoint is globally latest outside the bound admission record",
                 "that an older exact-coordinate projection is invalid",
+                "that later live public-route changes rewrite the historical observation",
                 "truth",
                 "correctness",
                 "authority",
@@ -330,7 +426,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--require-current",
         action="store_true",
-        help="Return nonzero unless every declared route matches the checkpoint.",
+        help="Return nonzero unless every historically observed route matches the checkpoint.",
     )
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parents[1]
@@ -339,6 +435,7 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:
         print(result["status"])
+        print(f"observation_ref: {result['observation_ref']}")
         for route in result["routes"]:
             print(
                 f"{route['route_id']}: {route['declared_coordinate']} "

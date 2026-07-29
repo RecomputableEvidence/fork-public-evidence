@@ -2,6 +2,10 @@
   "schema_version": "v0.1",
   "record_kind": "fork_public_route_freshness_contract",
   "contract_id": "FORK-PUBLIC-ROUTE-FRESHNESS-PROOF-001-v0.1",
+  "observation": {
+    "commit_sha": "a273ab0a95decb0d43f1c091743a72ac4261027e",
+    "standing": "HISTORICAL_ROUTE_OBSERVATION_AT_EXACT_PROOF001_REVIEWED_HEAD"
+  },
   "latest_admitted_checkpoint": {
     "commit_sha": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
     "tree_sha": "a9addcb4903ce4e4098a7f554cef85bc60e2ccb8",
@@ -31,15 +35,20 @@
     }
   ],
   "expected_status": "PUBLIC_ROUTE_STALE",
-  "preserved_interpretation": {
-    "staleness_effect": "PUBLIC_ROUTING_GAP_DETECTED_NOT_REPAIRED_BY_THIS_CANDIDATE",
-    "historical_projection_effect": "NONE",
-    "admission_effect": "NONE",
-    "authority_effect": "NONE"
+  "standing": "HISTORICAL_NEGATIVE_EVIDENCE_BOUND_TO_EXACT_OBSERVATION_COMMIT",
+  "non_effects": {
+    "route_repair": "NONE",
+    "main": "NONE",
+    "default_branch_settings": "NONE",
+    "pages": "NONE",
+    "admission": "NONE",
+    "authority": "NONE",
+    "execution": "NONE"
   },
   "non_claims": [
-    "A stale public route does not invalidate an exact-coordinate historical projection.",
-    "A newer candidate branch tip does not become an admitted checkpoint.",
-    "This contract does not modify README.md, state routing, main, the default branch, Pages, repository settings, existing pull requests, or authority state."
+    "The observation commit preserves the route state that existed when Proof 001 was reviewed.",
+    "Later live-route changes do not retroactively alter this historical observation.",
+    "A stale route does not make the older exact-coordinate projection invalid.",
+    "This contract does not establish truth, correctness, authority, approval, or admission."
   ]
 }
