@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import math
 from pathlib import Path, PurePosixPath
@@ -98,14 +97,6 @@ def safe_regular_file(relative: Any) -> Path:
         raise ValueError(f"not a regular file: {relative}")
     current.resolve(strict=True).relative_to(root_real)
     return current
-
-
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
 
 
 def run_git(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
@@ -265,11 +256,14 @@ def evaluate() -> dict[str, Any]:
                 continue
             listed.add(path)
             try:
-                target = safe_regular_file(path)
-                if target.stat().st_size != binding.get("size_bytes"):
-                    add("MANIFEST_SIZE_MISMATCH", path, path)
-                if sha256_file(target) != binding.get("sha256"):
-                    add("MANIFEST_DIGEST_MISMATCH", path, path)
+                safe_regular_file(path)
+                observed_blob = run_git("hash-object", path).stdout.strip()
+                if observed_blob != binding.get("git_blob_sha1"):
+                    add(
+                        "MANIFEST_BLOB_MISMATCH",
+                        f"expected {binding.get('git_blob_sha1')!r}, found {observed_blob!r}",
+                        path,
+                    )
             except Exception as exc:
                 add("MANIFEST_BINDING_INVALID", str(exc), str(path))
         if listed != EXPECTED_BINDINGS:
