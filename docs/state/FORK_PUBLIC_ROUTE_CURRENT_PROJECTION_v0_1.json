@@ -1,0 +1,53 @@
+{
+  "projection_id": "FORK_PUBLIC_ROUTE_CURRENT_PROJECTION_v0_1",
+  "schema_version": "v0.1",
+  "record_kind": "narrow_public_route_current_projection",
+  "represented_as_current": true,
+  "projection_scope": "PUBLIC_DISCOVERY_AND_PROOF_ROUTING_ONLY",
+  "projection_standing": "CURRENT_WITH_RESPECT_TO_EXACT_ADMITTED_EVIDENCE_CHECKPOINT_NOT_MOVING_BRANCH_TIP",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "source_coordinate": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "723aa9aee8c329f760bcdabd323fd471a916e822",
+    "commit_kind": "MERGE_COMMIT",
+    "binding": "EXACT_IMMUTABLE_GIT_COMMIT"
+  },
+  "admitted_public_surfaces": {
+    "proof_atlas_index": "docs/proof-atlas/README.md",
+    "proof_atlas_machine_index": "docs/proof-atlas/PROOF_INDEX_v0_1.json",
+    "proof_001": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/README.md",
+    "proof_001_admission_anchor": "docs/proof-atlas/admission/PR101-PROOF001-ADMISSION-ANCHOR-001/ADMISSION-ANCHOR.json"
+  },
+  "preserved_predecessors": [
+    {
+      "path": "docs/state/FORK_PROOF_SURFACE_CURRENT_PROJECTION_v0_2.json",
+      "source_commit": "1241c0084900f2c60f362205525464582e57b4a7",
+      "standing": "BROADER_PREDECESSOR_PROJECTION_VALID_ONLY_AT_ITS_EXACT_SOURCE_COORDINATE"
+    },
+    {
+      "path": "docs/state/FORK_STATE_ROUTING_v0_3.json",
+      "standing": "PREDECESSOR_ROUTE_PRESERVED_NOT_REWRITTEN"
+    }
+  ],
+  "historical_negative_evidence": {
+    "status": "PUBLIC_ROUTE_STALE",
+    "observation_commit": "a273ab0a95decb0d43f1c091743a72ac4261027e",
+    "effect_of_successor": "PRESERVED_WITHOUT_RETROACTIVE_REPAIR"
+  },
+  "effects": {
+    "evidence_standing": "NONE",
+    "review_standing": "NONE",
+    "authority_state": "NONE",
+    "execution_state": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "main_ref": "NONE",
+    "repository_settings": "NONE"
+  },
+  "non_claims": [
+    "This narrow projection is not a comprehensive current-state projection of all Fork artifacts or open work.",
+    "This projection does not invalidate or rewrite broader predecessor projections.",
+    "This projection does not establish truth, correctness, causality, security, compliance, legal sufficiency, safety, production readiness, present reliance, or institutional authority.",
+    "This projection does not authorize execution, provider calls, retries, Pair-001, or downstream reliance."
+  ]
+}
