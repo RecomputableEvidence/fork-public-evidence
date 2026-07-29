@@ -1,0 +1,32 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_append_only_anchor_manifest",
+  "manifest_id": "PR101-PROOF001-ADMISSION-ANCHOR-001-MANIFEST",
+  "bindings": [
+    {
+      "path": "docs/proof-atlas/admission/PR101-PROOF001-ADMISSION-ANCHOR-001/ADMISSION-ANCHOR.json",
+      "role": "MACHINE_ADMISSION_ANCHOR",
+      "git_blob_sha1": "0a937902eeec0cf7e4ed3aacec53d4a7ab40f930"
+    },
+    {
+      "path": "docs/proof-atlas/admission/PR101-PROOF001-ADMISSION-ANCHOR-001/README.md",
+      "role": "HUMAN_ADMISSION_ANCHOR",
+      "git_blob_sha1": "e6cd3a314a5882472d129242dc9487c6bbf19e68"
+    },
+    {
+      "path": "tests/test_pr101_proof001_admission_anchor_v0_1.py",
+      "role": "ANCHOR_CHECKER_TEST",
+      "git_blob_sha1": "058fef25e559bc33a1b10f2597bad5785274f6fa"
+    },
+    {
+      "path": "tools/check_pr101_proof001_admission_anchor_v0_1.py",
+      "role": "DETERMINISTIC_ANCHOR_CHECKER",
+      "git_blob_sha1": "27b8d9b807d37f2cf93ba27b59caf977bfcec3b5"
+    }
+  ],
+  "self_exclusion": {
+    "path": "docs/proof-atlas/admission/PR101-PROOF001-ADMISSION-ANCHOR-001/FILE-MANIFEST.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  },
+  "standing": "APPEND_ONLY_ADMISSION_ANCHOR_CANDIDATE_NOT_ADMITTED"
+}
