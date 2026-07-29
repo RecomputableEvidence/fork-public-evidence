@@ -1,0 +1,39 @@
+{
+  "schema_version": "v0.4",
+  "record_kind": "fork_state_routing",
+  "route_id": "FORK_STATE_ROUTING_v0_4",
+  "route_scope": "PUBLIC_DISCOVERY_AND_PROOF_ROUTING_ONLY",
+  "predecessor_route": {
+    "path": "docs/state/FORK_STATE_ROUTING_v0_3.json",
+    "standing": "PRESERVED_PREDECESSOR_ROUTE_NOT_REWRITTEN"
+  },
+  "governed_projection": {
+    "path": "docs/state/FORK_PUBLIC_ROUTE_CURRENT_PROJECTION_v0_1.json",
+    "source_commit": "723aa9aee8c329f760bcdabd323fd471a916e822",
+    "standing": "CURRENT_PUBLIC_ROUTE_WITH_RESPECT_TO_EXACT_ADMITTED_EVIDENCE_CHECKPOINT_NOT_MOVING_BRANCH_TIP"
+  },
+  "proof_atlas": {
+    "index_path": "docs/proof-atlas/README.md",
+    "machine_index_path": "docs/proof-atlas/PROOF_INDEX_v0_1.json",
+    "first_proof_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/README.md",
+    "first_proof_standing": "ADMITTED_PROOF_PACKAGING_WITH_UNDERLYING_CORRECTION_REQUIRED_STANDING_RETAINED"
+  },
+  "historical_route_observation": {
+    "contract_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PUBLIC-ROUTE-FRESHNESS-CONTRACT.json",
+    "observation_commit": "a273ab0a95decb0d43f1c091743a72ac4261027e",
+    "observed_status": "PUBLIC_ROUTE_STALE",
+    "standing": "PRESERVED_HISTORICAL_NEGATIVE_EVIDENCE_NOT_RETROACTIVELY_REPAIRED"
+  },
+  "interpretation_order": [
+    "Use this v0.4 record for current public discovery and Proof Atlas routing.",
+    "Treat v0.3 as the preserved predecessor route at its own temporal standing.",
+    "Treat the Proof 001 stale-route result as a historical observation at its exact observation commit.",
+    "Do not infer that routing publication changes evidentiary, review, authority, or execution standing."
+  ],
+  "non_claims": [
+    "The route does not make the default branch the governed current line.",
+    "The route does not claim that the routing-only merge becomes a new evidentiary checkpoint.",
+    "The route does not convert Proof 001 into truth, correctness, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, or institutional authority.",
+    "Routing does not authorize execution, provider calls, Pair-001, or downstream reliance."
+  ]
+}
