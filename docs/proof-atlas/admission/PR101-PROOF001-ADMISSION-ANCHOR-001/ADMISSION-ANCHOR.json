@@ -1,0 +1,83 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_append_only_admission_anchor",
+  "anchor_id": "PR101-PROOF001-ADMISSION-ANCHOR-001",
+  "bound_transition": {
+    "pull_request": 101,
+    "base_branch": "preservation/clean-continuance-v0.1",
+    "base_before_merge": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+    "reviewed_head": "a273ab0a95decb0d43f1c091743a72ac4261027e",
+    "merge_commit": "ded38bf56f950b8813614132c92bf531553a8b34",
+    "expected_ordered_parents": [
+      "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+      "a273ab0a95decb0d43f1c091743a72ac4261027e"
+    ],
+    "merge_method": "merge_commit",
+    "reviewed_head_to_merge_commit_file_delta": 0,
+    "merge_tree_sha": "NOT_EXPOSED_BY_AVAILABLE_CONNECTOR"
+  },
+  "exact_head_ci": [
+    {
+      "workflow": "Root Checksum Manifest v0.1",
+      "run_id": 30364643071,
+      "run_number": 100,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "workflow": "Fork Proof-Surface Integration",
+      "run_id": 30364639521,
+      "run_number": 169,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "workflow": "Fork Evidence CI",
+      "run_id": 30364639476,
+      "run_number": 470,
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "bounded_review": {
+    "review_id": 4804264700,
+    "reviewed_head": "a273ab0a95decb0d43f1c091743a72ac4261027e",
+    "disposition": "REVIEWED_PROOF_PACKAGING_EXACT_HEAD_NO_BLOCKING_FINDINGS",
+    "reviewer_standing": "NOT_INDEPENDENT_CONSTRUCTION_ASSISTED",
+    "review_mode": "CONNECTOR_BOUND_STATIC_AND_EXACT_HEAD_CI_REVIEW",
+    "independent_local_execution": "NOT_PERFORMED"
+  },
+  "authorization": {
+    "observed": true,
+    "date": "2026-07-28",
+    "scope": "PROCEEDING_SEQUENCED_ITERATIONS_FOR_PR101_REVIEW_MERGE_ANCHOR_AND_PUBLIC_ROUTE_SUCCESSOR",
+    "private_source_bytes_published": false
+  },
+  "admitted_standing": {
+    "proof_packaging": "PROOF_001_PACKAGING_ADMITTED",
+    "underlying_replay": "ADMITTED_LINEAR_REPLAY_WITH_CORRECTION_REQUIRED_RETAINED",
+    "underlying_exterior_disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+    "review_inheritance_to_merge_commit": "NONE",
+    "retroactive_effect_inside_replay_interval": "NONE",
+    "public_route_state": "STALE_RECORDED_PENDING_SEPARATE_SUCCESSOR"
+  },
+  "candidate_anchor_standing": "APPEND_ONLY_ADMISSION_ANCHOR_CANDIDATE_NOT_ADMITTED",
+  "terminal_rule": "THIS_ANCHOR_BINDS_PR101_MERGE_AND_CANNOT_PREBIND_ITS_OWN_FUTURE_MERGE",
+  "non_effects": {
+    "main": "NONE",
+    "default_branch_settings": "NONE",
+    "pages": "NONE",
+    "repository_settings": "NONE",
+    "authority_state": "NONE",
+    "execution_state": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "existing_pull_requests": "NONE"
+  },
+  "non_claims": [
+    "Admission of Proof 001 packaging does not convert the underlying correction-required exterior disposition into an unqualified reproduction.",
+    "The merge does not transfer review standing from the reviewed head to the merge commit.",
+    "The anchor does not establish truth, correctness, causality, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, institutional authority, or execution permission.",
+    "The anchor does not repair public routes; it preserves the stale-route observation pending a separate successor."
+  ]
+}
