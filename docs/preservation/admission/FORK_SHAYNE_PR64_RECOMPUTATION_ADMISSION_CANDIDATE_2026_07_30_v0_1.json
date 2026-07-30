@@ -1,0 +1,126 @@
+{
+  "anchor_id": "FORK_SHAYNE_PR64_RECOMPUTATION_ADMISSION_CANDIDATE_2026_07_30_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_APPEND_ONLY_ADMISSION",
+  "append_only": true,
+  "time_basis": "2026-07-30 America/Los_Angeles",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "anchor_base_commit": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+  "anchor_base_tree": "69ffb59b56790ed202108c7c81ca172e8f2a4922",
+  "responsible_repository_role": "MAINTAINER",
+  "predecessor_admission_context": {
+    "anchor_id": "FORK_PRESERVATION_ADMISSION_ANCHOR_2026_07_18_v0_1",
+    "machine_record_path": "docs/preservation/admission/FORK_PRESERVATION_ADMISSION_ANCHOR_2026_07_18_v0_1.json",
+    "machine_record_sha256": "573f4bfc0eaff0f895979230c827bb97c88bdc82ce4dc0dfdea6799addd54d20",
+    "human_record_path": "docs/preservation/admission/FORK_PRESERVATION_ADMISSION_ANCHOR_2026_07_18_v0_1.md",
+    "human_record_sha256": "98d004d7c842673a11ac862a8b5d0c41b8861ed5234f1018e4caebf1426d9601",
+    "admission_merge_commit": "33726e6e79be430809121673e71f85e3eedcae90",
+    "prior_pr_64_reviewer": "Mac McFall / M87",
+    "prior_pr_64_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "prior_record_rewritten": false
+  },
+  "review_subject": {
+    "pull_request": 64,
+    "reviewed_head": "d911ad5c33e0ec32037414effa7749326983d5ff",
+    "reviewed_head_source_prefix": "d911ad5c",
+    "reviewed_head_resolution_basis": "PR_64_IMMUTABLE_GITHUB_METADATA",
+    "merge_commit": "528f4306acf75b9b4e349aaf191fcda2c1c1430b",
+    "platform_scope": "macOS 15.7.7",
+    "runtime_scope": "Python 3.14.4"
+  },
+  "review_evidence": {
+    "reviewer_display_name": "Shayne",
+    "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "activity_standing": "INDEPENDENT_RECOMPUTATION_AS_ATTRIBUTED_BY_SUPPLIED_TRANSMISSION",
+    "identity_authentication": "NOT_PERFORMED_BY_THIS_REPOSITORY_RECORD",
+    "source_completeness": "TRANSMISSION_SUMMARY_PRESERVED_REFERENCED_ATTACHMENT_NOT_RECEIVED",
+    "source_attachment_gap": "PRESERVED_NOT_SILENTLY_FILLED"
+  },
+  "artifact_bindings": [
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/PROCESS_EVIDENCE_v0_1.json",
+      "role": "WITHDRAWN_HEURISTIC_PROCESS_EVIDENCE",
+      "size_bytes": 1793,
+      "sha256": "1e173c4849ab266a21740351cac3fa466a5a993ab2e64a77b8f5c66a10206a6b"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/README.md",
+      "role": "HUMAN_READ_ROUTE",
+      "size_bytes": 2582,
+      "sha256": "3c474cb98e44f674208e05c1c0d1ce83985de864866c8659dc5e3789355524c4"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/RECOMPUTATION_RECORD_v0_1.json",
+      "role": "MACHINE_ADJUDICATION",
+      "size_bytes": 9196,
+      "sha256": "992e77c86d71ba523595a823a32f4452d500ad4e1d888883d21821d63b372df4"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/SHA256SUMS",
+      "role": "SOURCE_DIGEST_SIDECAR",
+      "size_bytes": 127,
+      "sha256": "80396d3d743f6d0550da2518c98c34f475f75e6ac3dd99d05686d45b16dc24fb"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/SHAYNE_PR64_RECOMPUTATION_TRANSMISSION_2026_07_30.txt",
+      "role": "EXACT_SUPPLIED_REVIEWER_TRANSMISSION",
+      "size_bytes": 2672,
+      "sha256": "ae4c6bc553f8aaf1073bd846fb72ffca10fd5acccc3de798af609d99346c5eb0"
+    }
+  ],
+  "changed_path_observation": {
+    "classification": "CHANGED_PATH_INVENTORY_TRANSITIVELY_BOUND_NOT_FIRST_CLASS_ENUMERATED",
+    "standing": "OBSERVATION_NOT_DEFECT",
+    "effects": [
+      "NO_INTEGRITY_GAP",
+      "NO_RECOMPUTATION_FAILURE",
+      "REVIEWER_DERIVATION_REQUIRED"
+    ],
+    "possible_successor_improvement": "ENUMERATE_CHANGED_PATH_INVENTORY_AND_BIND_ITS_DIGEST",
+    "retroactive_pr_64_effect": "NONE"
+  },
+  "process_evidence": {
+    "classification": "DEGRADED_REPRESENTATION_NEAR_MISS",
+    "withdrawn_false_finding": "19_OF_20_PATHS_MISSING",
+    "withdrawn_before_transmission": true,
+    "pr_64_defect_effect": "NONE"
+  },
+  "admission_effect_if_merged": {
+    "standing": "ADMITTED_ATTRIBUTABLE_EXTERIOR_RECOMPUTATION_TRANSMISSION_WITH_ATTACHMENT_GAP_PRESERVED",
+    "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "pr_64_standing": "ADDITIONAL_BOUNDED_INDEPENDENT_RECOMPUTATION_RECORD",
+    "pr_64_prior_admission_rewritten": false,
+    "referenced_full_attachment_admitted": false,
+    "pr_63_continuing_state": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "does_not_authorize_pair_001_execution": true,
+    "does_not_transfer_authority": true
+  },
+  "current_state_projection": {
+    "source_commit": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+    "pr_63_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "executable": false,
+    "provider_calls_performed_by_record": 0,
+    "pair_001_execution_authorized": false,
+    "execution_authority_delta": "NONE",
+    "projection_does_not_rewrite_historical_state": true
+  },
+  "terminal_rule": {
+    "candidate_cannot_prebind_its_own_future_merge": true,
+    "opening_or_passing_ci_does_not_admit_candidate": true,
+    "merge_requires_separate_explicit_authorization": true,
+    "immediate_recursive_self_anchor_required": false
+  },
+  "non_claims": [
+    "No claim that the referenced full findings attachment is present, preserved, or digest-bound",
+    "No endorsement",
+    "No GitHub-native approval or merge authority",
+    "No execution authorization or Pair-001 permission",
+    "No live revalidation of recorded external observations",
+    "No cross-platform or cross-version universality",
+    "No security, compliance, legal, safety, semantic-correctness, or production-readiness certification",
+    "No reviewer identity authentication beyond the attributable display name in the supplied transmission",
+    "No authority transfer from evidence, recomputation, review, preservation, admission, or a future merge",
+    "No retroactive modification or weakening of PR #64's existing standing"
+  ]
+}
