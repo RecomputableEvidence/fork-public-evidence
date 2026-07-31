@@ -1,0 +1,551 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_proof_portfolio_sequence",
+  "sequence_id": "FORK-PROOF-PORTFOLIO-SEQUENCE-v0.1",
+  "captured_at": "2026-07-31T07:06:00-07:00",
+  "construction_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+    "standing": "ADMITTED_PROOF_FIRST_PUBLIC_ROUTE_CHECKPOINT"
+  },
+  "portfolio_objective": "Promote bounded evidence, correction, experiment, and exterior-recomputation lineages into sequenced finished proof surfaces that demonstrate Fork utility without transferring standing, authority, or commercial readiness.",
+  "promotion_contract_path": "docs/proof-atlas/development/PROOF_PORTFOLIO_PROMOTION_CONTRACT_v0_1.json",
+  "descriptive_schema_path": "schemas/fork_proof_portfolio_sequence_v0_1.schema.json",
+  "portfolio_rules": [
+    "Every source pull request has one declared primary evidentiary purpose.",
+    "Not every pull request becomes a public proof.",
+    "A proof sequence may compose multiple admitted or adjudicated sources without inheriting their standing.",
+    "Scientific standing, institutional utility, and commercial relevance remain separately declared dimensions.",
+    "Market relevance does not promote technical, evidentiary, review, admission, authority, or execution standing.",
+    "A finished proof requires a separate packaging-admission act after all declared gates are satisfied.",
+    "Negative evidence, unresolved items, and predecessor failures remain visible in successor proofs."
+  ],
+  "commercialization_ladder": [
+    {
+      "stage": "PUBLIC_PROOF",
+      "entry_gate": "FINISHED_PROOF_SURFACE_ADMITTED",
+      "purpose": "Demonstrate one bounded Fork capability through independent recomputation.",
+      "standing_effect": "NONE_BEYOND_DECLARED_PROOF"
+    },
+    {
+      "stage": "BUYER_SPECIFIC_DEMONSTRATION",
+      "entry_gate": "PUBLIC_PROOF_PLUS_BUYER_SCENARIO_BOUNDARY",
+      "purpose": "Map the bounded capability to a named institutional workflow without claiming deployment effectiveness.",
+      "standing_effect": "NONE"
+    },
+    {
+      "stage": "BOUNDED_PROOF_OF_VALUE",
+      "entry_gate": "SEPARATE_INSTITUTIONAL_AUTHORIZATION_AND_DATA_CONTROLS",
+      "purpose": "Evaluate the capability against a bounded client workflow with declared success and stopping criteria.",
+      "standing_effect": "NONE_UNLESS_SEPARATELY_ADJUDICATED"
+    },
+    {
+      "stage": "LIMITED_PRODUCTION",
+      "entry_gate": "SEPARATE_OPERATIONAL_SECURITY_PRIVACY_RETENTION_AND_INCIDENT_CONTROLS",
+      "purpose": "Operate an approved evidence sidecar within a bounded production scope.",
+      "standing_effect": "NONE_OUTSIDE_CONTRACTED_SCOPE"
+    },
+    {
+      "stage": "ENTERPRISE_EVIDENCE_SERVICE",
+      "entry_gate": "SEPARATE_LONGITUDINAL_VALIDATION_AND_ENTERPRISE_AUTHORIZATION",
+      "purpose": "Provide recurring evidence preservation and recomputation across authorized workflows.",
+      "standing_effect": "NONE_OUTSIDE_CONTRACTED_SCOPE"
+    }
+  ],
+  "source_pr_purpose_registry": [
+    {
+      "pr_number": 104,
+      "exact_head": "2c58b95bd5d075f4e56c07939ec9c93dd374c07f",
+      "merge_commit": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+      "primary_role": "PUBLIC_ROUTING",
+      "serves_proof_ids": [
+        "PROOF-001",
+        "PROOF-002",
+        "PROOF-003",
+        "PROOF-004",
+        "PROOF-005",
+        "PROOF-006"
+      ],
+      "current_standing": "MERGED_ROUTING_SUCCESSOR",
+      "exact_head_ci": "SUCCESS",
+      "required_next_gate": "NONE_FOR_ROUTING_ROLE",
+      "admission_effect": "ROUTING_ONLY"
+    },
+    {
+      "pr_number": 65,
+      "exact_head": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+      "primary_role": "CORRECTION_AND_NEGATIVE_EVIDENCE",
+      "serves_proof_ids": [
+        "PROOF-002"
+      ],
+      "current_standing": "DRAFT_CORRECTED_HEAD_RECOMPUTATION_PENDING_NOT_MERGE_AUTHORIZED",
+      "exact_head_ci": "SUCCESS",
+      "required_next_gate": "INDEPENDENT_EXACT_HEAD_RECOMPUTATION",
+      "admission_effect": "NONE"
+    },
+    {
+      "pr_number": 105,
+      "exact_head": "b5c9d12109055a258b5ef33dac48f4f504b0a212",
+      "primary_role": "EXTERIOR_RECOMPUTATION_AND_TEMPORAL_SUCCESSION",
+      "serves_proof_ids": [
+        "PROOF-003"
+      ],
+      "current_standing": "DRAFT_EXTERIOR_RECOMPUTATION_RECORD_NOT_ADMITTED",
+      "exact_head_ci": "SUCCESS",
+      "required_next_gate": "BOUNDED_REVIEW_THEN_SEPARATE_ADMISSION_DECISION",
+      "admission_effect": "NONE"
+    },
+    {
+      "pr_number": 100,
+      "exact_head": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+      "primary_role": "DETERMINISTIC_INTEROPERABILITY_EXPERIMENT",
+      "serves_proof_ids": [
+        "PROOF-004"
+      ],
+      "current_standing": "DETERMINISTIC_SIMULATION_CANDIDATE_NOT_ADMITTED",
+      "exact_head_ci": "SUCCESS",
+      "required_next_gate": "EXTERIOR_RECOMPUTATION",
+      "admission_effect": "NONE"
+    },
+    {
+      "pr_number": 84,
+      "exact_head": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "primary_role": "RESEARCH_PROTOCOL_AND_CANDIDATE_CASE",
+      "serves_proof_ids": [
+        "PROOF-005"
+      ],
+      "current_standing": "DRAFT_RESEARCH_REVIEW_PENDING_NOT_ADMITTED",
+      "exact_head_ci": "SUCCESS",
+      "required_next_gate": "EXACT_HEAD_EXTERIOR_REVIEW_AND_SOURCE_GROUNDING",
+      "admission_effect": "NONE"
+    },
+    {
+      "pr_number": 86,
+      "exact_head": "f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+      "primary_role": "SECOND_ORDER_META_ASSESSMENT",
+      "serves_proof_ids": [
+        "PROOF-005"
+      ],
+      "current_standing": "DRAFT_COMPANION_REVIEW_PENDING_NOT_MERGE_AUTHORIZED",
+      "exact_head_ci": "SUCCESS",
+      "required_next_gate": "PARENT_REVIEW_THEN_SOURCE_VERSION_RECONCILIATION",
+      "admission_effect": "NONE"
+    }
+  ],
+  "proof_sequence": [
+    {
+      "sequence": 1,
+      "proof_id": "PROOF-001",
+      "target_title": "A Review Does Not Silently Travel",
+      "target_form": "FINISHED_PROOF_SURFACE",
+      "current_form": "RECOMPUTABLE_PACKAGING_CANDIDATE_NOT_ADMITTED",
+      "depends_on": [],
+      "source_prs": [
+        104
+      ],
+      "source_kind": "ADMITTED_LONGITUDINAL_LINEAGE_PLUS_PACKAGING_CANDIDATE",
+      "institutional_audiences": [
+        "LEGAL",
+        "COMPLIANCE",
+        "AUDIT",
+        "GOVERNANCE_BOARDS",
+        "RESEARCH_REVIEWERS"
+      ],
+      "institutional_problem": "An earlier review is reused as though it covered a later artifact or system state.",
+      "bounded_claim": "Review standing remains attached to the exact artifact coordinate that was reviewed and does not silently transfer to a successor.",
+      "scientific_grade": {
+        "research_question": "Can exact-coordinate review binding reject a later successor that attempts to inherit earlier review standing?",
+        "falsification_condition": "A fully rebound successor mutation inherits prior review standing without rejection.",
+        "recomputation_path": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
+        "adverse_case_required": true
+      },
+      "commercial_track": {
+        "capability": "REVIEW_LINEAGE_ASSURANCE",
+        "buyer_roles": [
+          "GC_CLO",
+          "CCO_COMPLIANCE",
+          "AUDIT_LEADERSHIP",
+          "CRO_RISK"
+        ],
+        "service_path": [
+          "PUBLIC_PROOF",
+          "BUYER_SPECIFIC_DEMONSTRATION",
+          "BOUNDED_PROOF_OF_VALUE"
+        ],
+        "offer_state": "GATED_NOT_PRODUCTION_CLAIM",
+        "value_hypothesis": "Reduce unsupported reliance on stale reviews and lower the cost of reconstructing which artifact was actually reviewed."
+      },
+      "gates": {
+        "exact_source_binding": true,
+        "exact_head_ci": true,
+        "exterior_recomputation_or_declared_not_required": true,
+        "source_disposition_adjudicated": true,
+        "source_admission_or_explicit_bounded_basis": true,
+        "recomputation_wrapper": true,
+        "adverse_case": true,
+        "claim_and_non_claim_boundary": true,
+        "proof_packaging_admission": false,
+        "institutional_validation": false
+      },
+      "promotion_state": "PROOF_CANDIDATE_NOT_FINISHED",
+      "next_required_action": "Perform a separate proof-packaging admission review without widening the underlying claim.",
+      "execution_authorized": false,
+      "provider_calls": 0,
+      "non_claims": [
+        "Does not establish truth or correctness of the reviewed artifact.",
+        "Does not establish legal, compliance, safety, production, or institutional sufficiency.",
+        "Does not authorize execution or downstream reliance."
+      ]
+    },
+    {
+      "sequence": 2,
+      "proof_id": "PROOF-002",
+      "target_title": "Correction Does Not Erase Failure",
+      "target_form": "FINISHED_PROOF_SURFACE",
+      "current_form": "SOURCE_CORRECTION_CANDIDATE_AWAITING_EXTERIOR_RECOMPUTATION",
+      "depends_on": [
+        "PROOF-001"
+      ],
+      "source_prs": [
+        65
+      ],
+      "source_kind": "ADVERSE_REVIEW_PLUS_CORRECTED_SUCCESSOR",
+      "institutional_audiences": [
+        "SECURITY_REVIEW",
+        "REGULATED_ENTERPRISE",
+        "RISK",
+        "TECHNICAL_AUDIT"
+      ],
+      "institutional_problem": "A corrected successor is represented as though the predecessor failure never occurred or the earlier review automatically validates the repair.",
+      "bounded_claim": "Fork preserves the adverse predecessor result and requires the corrected successor to earn new standing independently.",
+      "scientific_grade": {
+        "research_question": "Can negative evidence remain historically valid while a corrected successor is independently recomputed?",
+        "falsification_condition": "The correction rewrites the predecessor failure or inherits its review as successor approval.",
+        "recomputation_path": "tools/check_longitudinal_reconstruction_day0_packet_v0_1_1.py",
+        "adverse_case_required": true
+      },
+      "commercial_track": {
+        "capability": "REMEDIATION_EVIDENCE_AND_AUDIT_DEFENSIBILITY",
+        "buyer_roles": [
+          "CISO_SECURITY",
+          "AUDIT_LEADERSHIP",
+          "CRO_RISK",
+          "PROCUREMENT_ASSURANCE"
+        ],
+        "service_path": [
+          "PUBLIC_PROOF",
+          "BUYER_SPECIFIC_DEMONSTRATION",
+          "BOUNDED_PROOF_OF_VALUE"
+        ],
+        "offer_state": "GATED_NOT_PRODUCTION_CLAIM",
+        "value_hypothesis": "Make defect discovery, remediation, and successor validation reconstructable without failure erasure."
+      },
+      "gates": {
+        "exact_source_binding": true,
+        "exact_head_ci": true,
+        "exterior_recomputation_or_declared_not_required": false,
+        "source_disposition_adjudicated": false,
+        "source_admission_or_explicit_bounded_basis": false,
+        "recomputation_wrapper": true,
+        "adverse_case": true,
+        "claim_and_non_claim_boundary": true,
+        "proof_packaging_admission": false,
+        "institutional_validation": false
+      },
+      "promotion_state": "SOURCE_NOT_READY_FOR_PROOF_PACKAGING",
+      "next_required_action": "Obtain independent exact-head recomputation of PR #65 and adjudicate the returned disposition.",
+      "execution_authorized": false,
+      "provider_calls": 0,
+      "non_claims": [
+        "Does not certify security or completeness.",
+        "Does not erase ADV_003 or resolve unrelated findings.",
+        "Does not authorize merge, production use, or institutional reliance."
+      ]
+    },
+    {
+      "sequence": 3,
+      "proof_id": "PROOF-003",
+      "target_title": "Independent Recomputation Has Temporal Boundaries",
+      "target_form": "FINISHED_PROOF_SURFACE",
+      "current_form": "EXTERIOR_RECOMPUTATION_RECORD_CANDIDATE_AWAITING_REVIEW_AND_ADMISSION",
+      "depends_on": [
+        "PROOF-001",
+        "PROOF-002"
+      ],
+      "source_prs": [
+        105
+      ],
+      "source_kind": "EXTERIOR_RECOMPUTATION_PLUS_LATER_ATTACHMENT_SUCCESSOR",
+      "institutional_audiences": [
+        "AUDIT",
+        "RESEARCH_INSTITUTIONS",
+        "ASSURANCE",
+        "TECHNICAL_DUE_DILIGENCE"
+      ],
+      "institutional_problem": "Later-received evidence is treated as though it had been available during the earlier review.",
+      "bounded_claim": "An exterior recomputation remains bounded to what was actually received and tested, while later evidence is preserved as a temporal successor.",
+      "scientific_grade": {
+        "research_question": "Can a review record preserve initial evidence absence and later attachment receipt without retroactive reconstruction?",
+        "falsification_condition": "The later attachment silently changes the earlier review input set or standing.",
+        "recomputation_path": "tools/check_shayne_pr63_pr64_attachment_successor_v0_1.py",
+        "adverse_case_required": true
+      },
+      "commercial_track": {
+        "capability": "THIRD_PARTY_ASSURANCE_CHAIN",
+        "buyer_roles": [
+          "AUDIT_LEADERSHIP",
+          "PROCUREMENT",
+          "TECHNICAL_DUE_DILIGENCE",
+          "RESEARCH_PROGRAMS"
+        ],
+        "service_path": [
+          "PUBLIC_PROOF",
+          "BUYER_SPECIFIC_DEMONSTRATION",
+          "BOUNDED_PROOF_OF_VALUE"
+        ],
+        "offer_state": "GATED_NOT_PRODUCTION_CLAIM",
+        "value_hypothesis": "Reduce ambiguity about what an external reviewer actually possessed, executed, and concluded at each point in time."
+      },
+      "gates": {
+        "exact_source_binding": true,
+        "exact_head_ci": true,
+        "exterior_recomputation_or_declared_not_required": true,
+        "source_disposition_adjudicated": false,
+        "source_admission_or_explicit_bounded_basis": false,
+        "recomputation_wrapper": true,
+        "adverse_case": true,
+        "claim_and_non_claim_boundary": true,
+        "proof_packaging_admission": false,
+        "institutional_validation": false
+      },
+      "promotion_state": "SOURCE_NOT_READY_FOR_PROOF_PACKAGING",
+      "next_required_action": "Complete bounded review of PR #105, preserve corrections, and decide admission separately.",
+      "execution_authorized": false,
+      "provider_calls": 0,
+      "non_claims": [
+        "Does not turn the exterior reviewer into an authority.",
+        "Does not manufacture absent runtime output or exit-code evidence.",
+        "Does not admit PR #63, PR #64, Pair-001, or any execution capability."
+      ]
+    },
+    {
+      "sequence": 4,
+      "proof_id": "PROOF-004",
+      "target_title": "Evidence Can Cross Systems Without Authority Transfer",
+      "target_form": "FINISHED_PROOF_SURFACE",
+      "current_form": "DETERMINISTIC_INTEROPERABILITY_EXPERIMENT_AWAITING_EXTERIOR_RECOMPUTATION",
+      "depends_on": [
+        "PROOF-001",
+        "PROOF-002",
+        "PROOF-003"
+      ],
+      "source_prs": [
+        100
+      ],
+      "source_kind": "DETERMINISTIC_MULTI_STAGE_HANDOFF_SIMULATION",
+      "institutional_audiences": [
+        "ENTERPRISE_AI",
+        "SYSTEM_INTEGRATORS",
+        "REGULATED_WORKFLOWS",
+        "MULTI_AGENT_RESEARCH"
+      ],
+      "institutional_problem": "Claims, limitations, unresolved items, or authority boundaries change silently as work crosses systems.",
+      "bounded_claim": "Fork can record and deterministically test whether declared evidence and claim boundaries survive a governed multi-stage handoff without authority transfer.",
+      "scientific_grade": {
+        "research_question": "Can a fixed handoff cadence preserve claim scope, non-claims, unresolved items, lineage, and local authority boundaries under adversarial mutation?",
+        "falsification_condition": "A fully rebound adversarial mutation expands standing or transfers authority without rejection.",
+        "recomputation_path": "tools/check_governed_handoff_cadence_v0_1.py",
+        "adverse_case_required": true
+      },
+      "commercial_track": {
+        "capability": "CROSS_SYSTEM_EVIDENCE_CONTINUITY",
+        "buyer_roles": [
+          "AI_PLATFORM_LEADERSHIP",
+          "CISO_SECURITY",
+          "CRO_RISK",
+          "PROCUREMENT",
+          "SYSTEM_INTEGRATORS"
+        ],
+        "service_path": [
+          "PUBLIC_PROOF",
+          "BUYER_SPECIFIC_DEMONSTRATION",
+          "BOUNDED_PROOF_OF_VALUE",
+          "LIMITED_PRODUCTION"
+        ],
+        "offer_state": "GATED_NOT_PRODUCTION_CLAIM",
+        "value_hypothesis": "Lower the cost of reconstructing what changed across vendors, agents, models, and institutional workflow boundaries."
+      },
+      "gates": {
+        "exact_source_binding": true,
+        "exact_head_ci": true,
+        "exterior_recomputation_or_declared_not_required": false,
+        "source_disposition_adjudicated": false,
+        "source_admission_or_explicit_bounded_basis": false,
+        "recomputation_wrapper": true,
+        "adverse_case": true,
+        "claim_and_non_claim_boundary": true,
+        "proof_packaging_admission": false,
+        "institutional_validation": false
+      },
+      "promotion_state": "SOURCE_NOT_READY_FOR_PROOF_PACKAGING",
+      "next_required_action": "Obtain exact-head exterior recomputation of PR #100 before any shadow-adapter or proof-packaging progression.",
+      "execution_authorized": false,
+      "provider_calls": 0,
+      "non_claims": [
+        "Does not establish enterprise interoperability or production readiness.",
+        "Does not authorize live adapters, provider calls, or workflow blocking.",
+        "Does not transfer governance authority between participants."
+      ]
+    },
+    {
+      "sequence": 5,
+      "proof_id": "PROOF-005",
+      "target_title": "Conversational Authority Drift Is Detectable",
+      "target_form": "FINISHED_RESEARCH_PROOF_SURFACE",
+      "current_form": "RESEARCH_PROTOCOL_AND_META_ASSESSMENT_CANDIDATES",
+      "depends_on": [
+        "PROOF-001"
+      ],
+      "source_prs": [
+        84,
+        86
+      ],
+      "source_kind": "MIXED_AI_ASSISTED_REVIEW_CORPUS_AND_SECOND_ORDER_ASSESSMENT",
+      "institutional_audiences": [
+        "AI_SAFETY_RESEARCH",
+        "MODEL_BEHAVIOR_RESEARCH",
+        "POLICY_RESEARCH",
+        "GOVERNANCE_RESEARCH"
+      ],
+      "institutional_problem": "Suggestions, observations, unresolved claims, or model self-reports acquire apparent authority through conversational repetition or reformulation.",
+      "bounded_claim": "Fork can structure candidate authority-drift observations while preserving source, version, modality, contradiction, correction, and unresolved standing.",
+      "scientific_grade": {
+        "research_question": "Can conversational transitions be classified without promoting model self-report, missing evidence, or provisional candidate families into verified mechanisms?",
+        "falsification_condition": "The protocol classifies a candidate as established despite missing source, chronology, modality, or version binding.",
+        "recomputation_path": "tools/check_conversational_authority_drift_v0_1.py",
+        "adverse_case_required": true
+      },
+      "commercial_track": {
+        "capability": "MODEL_RISK_AND_GOVERNANCE_RESEARCH_INSTRUMENTATION",
+        "buyer_roles": [
+          "MODEL_RISK",
+          "AI_SAFETY",
+          "RESEARCH_INSTITUTIONS",
+          "POLICY_LABS"
+        ],
+        "service_path": [
+          "PUBLIC_PROOF",
+          "RESEARCH_COLLABORATION",
+          "BOUNDED_EVALUATION"
+        ],
+        "offer_state": "RESEARCH_GATED_NOT_COMMERCIAL_VALIDATION",
+        "value_hypothesis": "Provide inspectable evidence for where apparent authority, certainty, or legitimacy changed during AI-assisted communication."
+      },
+      "gates": {
+        "exact_source_binding": false,
+        "exact_head_ci": true,
+        "exterior_recomputation_or_declared_not_required": false,
+        "source_disposition_adjudicated": false,
+        "source_admission_or_explicit_bounded_basis": false,
+        "recomputation_wrapper": true,
+        "adverse_case": true,
+        "claim_and_non_claim_boundary": true,
+        "proof_packaging_admission": false,
+        "institutional_validation": false
+      },
+      "promotion_state": "SOURCE_NOT_READY_FOR_PROOF_PACKAGING",
+      "next_required_action": "Complete exact-head exterior review, source/version grounding, and parent-supplement reconciliation.",
+      "execution_authorized": false,
+      "provider_calls": 0,
+      "non_claims": [
+        "Does not prove provider-internal mechanisms or provider-wide behavior.",
+        "Does not establish that provisional candidate families are canonical failure modes.",
+        "Does not determine the technical correctness of the underlying Fracture invention."
+      ]
+    },
+    {
+      "sequence": 6,
+      "proof_id": "PROOF-006",
+      "target_title": "Cross-Model Reconstruction Preserves or Degrades Declared Structure",
+      "target_form": "FINISHED_EXPERIMENTAL_PROOF_SURFACE",
+      "current_form": "OFFLINE_PREREGISTRATION_SUCCESSOR_REPAIRS_PENDING_EXECUTION_GATE_CLOSED",
+      "depends_on": [
+        "PROOF-004",
+        "PROOF-005"
+      ],
+      "source_prs": [],
+      "source_kind": "INTERIOR_CROSS_SYSTEM_HANDOFF_SEQUENCE_PREREGISTRATION",
+      "source_identifier": "CROSS_SYSTEM_HANDOFF_SEQUENCE_PREREGISTRATION_v0_1",
+      "institutional_audiences": [
+        "MODEL_PROVIDERS",
+        "EVALUATION_LABS",
+        "INTEROPERABILITY_RESEARCH",
+        "MULTI_AGENT_RESEARCH"
+      ],
+      "institutional_problem": "Compression, translation, model substitution, and serial handoffs may silently alter claim structure, non-claims, unresolved items, or authority boundaries.",
+      "bounded_claim": "After separately authorized execution, Fork can report which declared structures were preserved, narrowed, expanded, degraded, or left unresolved across frozen model-role rotations.",
+      "scientific_grade": {
+        "research_question": "How does declared claim structure survive direct and serial cross-model reconstruction under preregistered roles, arms, rotations, stopping rules, and raw capture?",
+        "falsification_condition": "The experiment cannot distinguish structural preservation from execution failure, missing capture, or post-outcome methodology drift.",
+        "recomputation_path": "INTERIOR_ONLY_UNTIL_SEPARATELY_PUBLISHED",
+        "adverse_case_required": true
+      },
+      "commercial_track": {
+        "capability": "MODEL_AND_PROVIDER_HANDOFF_EVALUATION",
+        "buyer_roles": [
+          "MODEL_PROVIDERS",
+          "AI_PLATFORM_LEADERSHIP",
+          "EVALUATION_LABS",
+          "ENTERPRISE_AI"
+        ],
+        "service_path": [
+          "RESEARCH_PROOF",
+          "PROVIDER_EVALUATION",
+          "BOUNDED_PROOF_OF_VALUE"
+        ],
+        "offer_state": "EXECUTION_GATE_CLOSED_NO_OFFER",
+        "value_hypothesis": "Make model and provider handoff degradation measurable without treating one model's reconstruction as inherited truth or authority."
+      },
+      "gates": {
+        "exact_source_binding": false,
+        "exact_head_ci": false,
+        "exterior_recomputation_or_declared_not_required": false,
+        "source_disposition_adjudicated": false,
+        "source_admission_or_explicit_bounded_basis": false,
+        "recomputation_wrapper": false,
+        "adverse_case": true,
+        "claim_and_non_claim_boundary": true,
+        "proof_packaging_admission": false,
+        "institutional_validation": false
+      },
+      "promotion_state": "PREREGISTRATION_REPAIR_AND_EXECUTION_AUTHORIZATION_REQUIRED",
+      "next_required_action": "Close successor repair findings, independently rerun mutation surfaces, preserve an exact preregistration digest, and obtain separate live-execution authorization.",
+      "execution_authorized": false,
+      "provider_calls": 0,
+      "non_claims": [
+        "Does not report a live experimental outcome.",
+        "Does not authorize provider calls or Pair-001 execution.",
+        "Does not establish model ranking, provider equivalence, or production readiness."
+      ]
+    }
+  ],
+  "global_non_claims": [
+    "This registry is a development control surface, not a proof index.",
+    "Registry inclusion is not proof completion, admission, endorsement, authority, execution permission, or commercial readiness.",
+    "Exact-head CI success establishes only the declared workflow scope.",
+    "Commercial value hypotheses do not establish realized savings, risk reduction, product-market fit, or institutional effectiveness.",
+    "No source pull request acquires standing from its assigned portfolio role."
+  ],
+  "effects": {
+    "evidence_standing": "NONE",
+    "review_standing": "NONE",
+    "admission_standing": "NONE",
+    "authority_state": "NONE",
+    "execution_state": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "repository_settings": "NONE",
+    "main": "NONE"
+  },
+  "standing": "PROOF_PORTFOLIO_DEVELOPMENT_SEQUENCE_CANDIDATE_NOT_ADMITTED"
+}
