@@ -95,7 +95,7 @@
       "path": "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
       "role": "EXACT_HEAD_STRUCTURAL_SELF_CHECK_RECEIPT",
       "size_bytes": 1997,
-      "sha256": "f9239630a034587af6f07f6fa0ad749bf884ff7aad080ed874dad9df9c36f7a4"
+      "sha256": "7dbaf05e185b92eb1ec852f3ca7a41bec07bf15f55641abde1a5e9f23546326a"
     },
     {
       "path": "tests/test_longitudinal_recomputation_v0_2.py",

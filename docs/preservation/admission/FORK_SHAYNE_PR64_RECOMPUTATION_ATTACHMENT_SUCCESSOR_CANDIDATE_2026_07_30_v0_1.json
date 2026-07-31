@@ -1,0 +1,156 @@
+{
+  "anchor_id": "FORK_SHAYNE_PR64_RECOMPUTATION_ATTACHMENT_SUCCESSOR_CANDIDATE_2026_07_30_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_APPEND_ONLY_SUCCESSOR_ADMISSION",
+  "append_only": true,
+  "time_basis": "2026-07-30 America/Los_Angeles",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "target_branch_base_commit": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+  "responsible_repository_role": "MAINTAINER",
+  "candidate_predecessor": {
+    "commit": "e245f86457ac9ed9d4e52c76edc5c395970492d9",
+    "tree": "21ea6ba69b09925f37d816258a538fc80e2f564c",
+    "pull_request": 105,
+    "draft": true,
+    "admitted": false,
+    "anchor_path": "docs/preservation/admission/FORK_SHAYNE_PR64_RECOMPUTATION_ADMISSION_CANDIDATE_2026_07_30_v0_1.json",
+    "anchor_sha256": "9b6c8a08143ace887366d808d2f1c1c3a12320f16940c0f0ff8c76a4855a7d46",
+    "record_path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/RECOMPUTATION_RECORD_v0_1.json",
+    "record_sha256": "992e77c86d71ba523595a823a32f4452d500ad4e1d888883d21821d63b372df4",
+    "attachment_state": "REFERENCED_NOT_RECEIVED",
+    "historical_state_preserved": true,
+    "rewritten": false
+  },
+  "successor_event": {
+    "event_id": "SHAYNE_PR63_PR64_RELEASE_BUNDLE_RECEIVED_2026_07_30",
+    "event_class": "EXTERIOR_EVIDENCE_ATTACHMENT_RECEIPT",
+    "transition": "REFERENCED_NOT_RECEIVED_TO_EXACT_RELEASE_ATTACHMENT_RECEIVED_AND_VERIFIED_WITH_INTERNAL_CAPTURE_GAP",
+    "release_repository": "Icon369/verdict-evidence-transfers",
+    "release_tag": "pr63-pr64-ivs-v0_1_1",
+    "release_url": "https://github.com/Icon369/verdict-evidence-transfers/releases/tag/pr63-pr64-ivs-v0_1_1",
+    "asset_name": "pr63-pr64-evidence-bundle.zip",
+    "asset_sha256": "1ccf11595fcc88b1bab187f2dd301a04e123e02ba92867e90491b619b0a11d2d",
+    "asset_size_bytes": 16901
+  },
+  "review_subject": {
+    "pull_request": 64,
+    "reviewed_head": "d911ad5c33e0ec32037414effa7749326983d5ff",
+    "related_pr_63_candidate": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+    "related_pr_63_merge_base": "1102113556edfc54b43a328317961c4896d6dd6c",
+    "platform_scope": "macOS 15.7.7",
+    "runtime_scope": "Python 3.14.4",
+    "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE"
+  },
+  "artifact_bindings": [
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/ATTACHMENT_PRESERVATION_MANIFEST_v0_1.json",
+      "role": "FIRST_CLASS_ATTACHMENT_FILE_INVENTORY",
+      "size_bytes": 6100,
+      "sha256": "fee727fb5fdde0506ca18bad1e2cf0d3e638cfcd53425c34ed27bc307c882944"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/ATTACHMENT_RECEIPT_v0_1.json",
+      "role": "MACHINE_ATTACHMENT_SUCCESSOR_ADJUDICATION",
+      "size_bytes": 10293,
+      "sha256": "5f5cdf7092fa801e78db4a06247a343d45aeb3e5d4d974666ca91ad6c3c19ba7"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/ATTACHMENT_SUCCESSOR_v0_1.md",
+      "role": "HUMAN_ATTACHMENT_SUCCESSOR_ROUTE",
+      "size_bytes": 3935,
+      "sha256": "0c7598889ca8f7c5056d28d7257e55b7b2cc71f996690fc1627fde72389cb3b2"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/pr63-pr64-evidence-bundle.zip",
+      "role": "EXACT_GITHUB_RELEASE_ASSET",
+      "size_bytes": 16901,
+      "sha256": "1ccf11595fcc88b1bab187f2dd301a04e123e02ba92867e90491b619b0a11d2d"
+    }
+  ],
+  "source_completeness": {
+    "exact_findings_memo_received": true,
+    "listed_surviving_raw_artifacts_received": true,
+    "complete_shell_transcript_received": false,
+    "complete_raw_stdout_and_stderr_set_received": false,
+    "complete_machine_exit_code_record_received": false,
+    "fresh_runner_json_stdout_original_bytes_received": false,
+    "environment_record_time_basis": "BUNDLE_ASSEMBLY_TIME_SAME_ATTRIBUTED_HOST_SESSION",
+    "standing": "ATTACHMENT_RECEIVED_RAW_COVERAGE_PARTIAL_AS_DISCLOSED"
+  },
+  "precision_adjudications": {
+    "changed_path_inventory": {
+      "status": "FIRST_CLASS_SUCCESSOR_ARTIFACT_DIGEST_BOUND",
+      "line_count": 20,
+      "byte_exact_to_recipient_git_object_recomputation": true,
+      "retroactive_plan_schema_effect": "NONE"
+    },
+    "tamper_probe": {
+      "reviewer_language": "SINGLE_BYTE_OR_ONE_HEX_CHARACTER_TAMPER",
+      "raw_file_result": "ONE_SHA_NIBBLE_CHANGE_PROPAGATED_ACROSS_SIX_REDUNDANT_OCCURRENCES",
+      "file_byte_difference_count": 6,
+      "checker_verdict": "INCONCLUSIVE_EVIDENCE_GAP",
+      "reported_exit_code": 2,
+      "separate_machine_exit_code_artifact_present": false,
+      "fail_closed_result_effect": "UNCHANGED"
+    },
+    "fresh_runner_stdout": {
+      "status": "ORIGINAL_BYTES_NOT_PRESERVED",
+      "memo_account": "TRANSCRIPTION",
+      "rerun_to_fill_gap": false,
+      "gap_standing": "PRESERVED_NOT_REPAIRED"
+    }
+  },
+  "admission_order": [
+    {
+      "ordinal": 1,
+      "record": "FORK_SHAYNE_PR64_RECOMPUTATION_ADMISSION_CANDIDATE_2026_07_30_v0_1",
+      "state": "INITIAL_TRANSMISSION_WITH_REFERENCED_ATTACHMENT_NOT_RECEIVED"
+    },
+    {
+      "ordinal": 2,
+      "record": "FORK_SHAYNE_PR64_RECOMPUTATION_ATTACHMENT_SUCCESSOR_CANDIDATE_2026_07_30_v0_1",
+      "state": "EXACT_RELEASE_ATTACHMENT_RECEIVED_WITH_INTERNAL_CAPTURE_GAP_PRESERVED"
+    }
+  ],
+  "admission_effect_if_merged": {
+    "standing": "ADMITTED_ATTRIBUTABLE_EXTERIOR_RECOMPUTATION_WITH_EXACT_ATTACHMENT_BUNDLE_AND_DECLARED_INTERNAL_CAPTURE_GAP",
+    "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "initial_attachment_gap_preserved_as_historical_state": true,
+    "exact_release_attachment_admitted": true,
+    "complete_raw_execution_record_admitted": false,
+    "fresh_runner_stdout_original_bytes_admitted": false,
+    "pr_64_prior_admission_rewritten": false,
+    "pr_63_continuing_state": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "does_not_authorize_pair_001_execution": true,
+    "does_not_transfer_authority": true
+  },
+  "current_state_projection": {
+    "source_commit": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+    "pr_63_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "executable": false,
+    "provider_calls_performed_by_record": 0,
+    "pair_001_execution_authorized": false,
+    "execution_authority_delta": "NONE",
+    "projection_does_not_rewrite_historical_state": true
+  },
+  "terminal_rule": {
+    "candidate_cannot_prebind_its_own_future_merge": true,
+    "opening_or_passing_ci_does_not_admit_candidate": true,
+    "merge_requires_separate_explicit_authorization": true,
+    "immediate_recursive_self_anchor_required": false
+  },
+  "non_claims": [
+    "No claim that the original fresh-runner JSON stdout bytes were recovered or reconstructed",
+    "No claim of a complete shell transcript, complete raw stdout and stderr set, or separately machine-captured exit code for every reported step",
+    "No endorsement",
+    "No GitHub-native approval or merge authority",
+    "No execution authorization or Pair-001 permission",
+    "No live revalidation of the memo's recorded external observations",
+    "No cross-platform or cross-version universality",
+    "No security, compliance, legal, safety, semantic-correctness, or production-readiness certification",
+    "No reviewer identity authentication from the public release account, commit author display, correspondence, or screenshot",
+    "No authority transfer from evidence, recomputation, review, preservation, admission, or a future merge",
+    "No retroactive modification or weakening of PR #64's existing standing"
+  ]
+}
