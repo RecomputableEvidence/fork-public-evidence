@@ -1,0 +1,90 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_internal_bounded_review_record",
+  "review_id": "FORK-PR106-BOUNDED-REVIEW-2026-07-31-v0.1",
+  "reviewed_pull_request": 106,
+  "reviewed_head": "1cbb4f93564a8f1bda512a237191f7741b323a4d",
+  "review_class": "MODEL_ASSISTED_INTERNAL_BOUNDED_REVIEW_NOT_EXTERIOR_NOT_ARMS_LENGTH",
+  "review_scope": [
+    "exact-head workflow standing",
+    "schema and executable-checker agreement",
+    "source-PR purpose and source-role separation",
+    "proof recomputation-route bindings",
+    "proof-promotion and commercial-offer boundaries",
+    "mutation-test sufficiency for discovered defects"
+  ],
+  "initial_exact_head_ci": [
+    {
+      "workflow": "Fork Evidence CI",
+      "run_id": 30638764072,
+      "conclusion": "success"
+    },
+    {
+      "workflow": "Fork Proof-Surface Integration",
+      "run_id": 30638763985,
+      "conclusion": "success"
+    },
+    {
+      "workflow": "Root Checksum Manifest v0.1",
+      "run_id": 30638764427,
+      "conclusion": "success"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "PR106-BR-F001",
+      "severity": "MATERIAL",
+      "finding": "The checker loaded the descriptive JSON Schema but did not validate the schema or registry against it.",
+      "risk": "Schema-required structure, additional-property rejection, and format constraints could diverge from executable conformance.",
+      "resolution": "The successor checker now validates the schema and registry with Draft 2020-12 and a format checker; a schema-bypass mutation test was added."
+    },
+    {
+      "finding_id": "PR106-BR-F002",
+      "severity": "MATERIAL",
+      "finding": "Proof 004 and Proof 005 named recomputation checker paths that do not exist at their declared source PR heads.",
+      "risk": "A portfolio entry could appear recomputation-ready while routing reviewers to nonexistent commands.",
+      "resolution": "Proof 004 now binds tools/check_ghch_candidate_v0_1.py and Proof 005 now binds tools/check_fork_cad_candidate_v0_1.py; exact-path mutation rejection was added."
+    },
+    {
+      "finding_id": "PR106-BR-F003",
+      "severity": "MATERIAL",
+      "finding": "Routing-only PR #104 was listed as Proof 001's evidence source and was assigned as serving proposed Proofs 002 through 006 despite not routing those unconstructed proofs.",
+      "risk": "Routing support could be conflated with evidence provenance or future proof standing.",
+      "resolution": "Proof 001 now binds its existing proof manifest as source; PR #104 remains routing-only and serves only the currently routed Proof 001."
+    },
+    {
+      "finding_id": "PR106-BR-F004",
+      "severity": "MATERIAL",
+      "finding": "The candidate checker could accept self-declared proof admission if every gate boolean was flipped true and could accept an active production capability without a separately bound operational authorization record.",
+      "risk": "Self-asserted booleans could silently substitute for a separate admission or operational authorization act.",
+      "resolution": "The contract and checker now prohibit candidate self-admission and active production offers; adversarial tests cover all-gates-true and active-offer mutations."
+    }
+  ],
+  "correction_commits": [
+    "26d06e3dca19f3bf8f4d23f31191f02057641914",
+    "814d34f85d712504fdc3849f4e15bd9237640317",
+    "2c859e4e5bbe17bf9a4c5430156aa70e675c2b6d",
+    "0fd6d1c0c55f198b3115d662935cab15f51b6efd"
+  ],
+  "corrected_tree_tip_before_review_record": "0fd6d1c0c55f198b3115d662935cab15f51b6efd",
+  "post_correction_validation": {
+    "local_isolated_rehearsal": "PASS_WITH_DISCOVERED_MUTATIONS_REJECTED",
+    "exact_head_repository_ci": "PENDING_AFTER_REVIEW_RECORD_COMMIT"
+  },
+  "disposition": "CORRECTED_SUCCESSOR_EXACT_HEAD_CI_PENDING_NOT_ADMITTED",
+  "non_claims": [
+    "This internal review is not independent exterior recomputation.",
+    "Successful correction or CI does not admit or merge PR #106.",
+    "This record does not establish scientific validity, institutional effectiveness, commercial readiness, authority, approval, or execution permission."
+  ],
+  "effects": {
+    "admission": "NONE",
+    "merge": "NONE",
+    "authority": "NONE",
+    "execution": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "repository_settings": "NONE",
+    "main": "NONE"
+  }
+}
