@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/RecomputableEvidence/fork-public-evidence/schemas/fork_proof_portfolio_sequence_v0_1.schema.json",
+  "title": "Fork Proof Portfolio Sequence v0.1",
+  "description": "Descriptive schema for a bounded proof-portfolio development registry. Executable checker semantics remain controlling.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_kind",
+    "sequence_id",
+    "captured_at",
+    "construction_base",
+    "portfolio_objective",
+    "promotion_contract_path",
+    "descriptive_schema_path",
+    "portfolio_rules",
+    "commercialization_ladder",
+    "source_pr_purpose_registry",
+    "proof_sequence",
+    "global_non_claims",
+    "effects",
+    "standing"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "v0.1"
+    },
+    "record_kind": {
+      "const": "fork_proof_portfolio_sequence"
+    },
+    "sequence_id": {
+      "const": "FORK-PROOF-PORTFOLIO-SEQUENCE-v0.1"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "construction_base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "branch",
+        "commit_sha",
+        "standing"
+      ],
+      "properties": {
+        "branch": {
+          "const": "preservation/clean-continuance-v0.1"
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "standing": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "portfolio_objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "promotion_contract_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "descriptive_schema_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "portfolio_rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "commercialization_ladder": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stage",
+          "entry_gate",
+          "purpose",
+          "standing_effect"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entry_gate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "standing_effect": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "source_pr_purpose_registry": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pr_number",
+          "exact_head",
+          "primary_role",
+          "serves_proof_ids",
+          "current_standing",
+          "exact_head_ci",
+          "required_next_gate",
+          "admission_effect"
+        ],
+        "properties": {
+          "pr_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "exact_head": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "merge_commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "primary_role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "serves_proof_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^PROOF-[0-9]{3}$"
+            }
+          },
+          "current_standing": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exact_head_ci": {
+            "enum": [
+              "SUCCESS",
+              "PENDING",
+              "FAILED",
+              "UNKNOWN"
+            ]
+          },
+          "required_next_gate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "admission_effect": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "proof_sequence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sequence",
+          "proof_id",
+          "target_title",
+          "target_form",
+          "current_form",
+          "depends_on",
+          "source_prs",
+          "source_kind",
+          "institutional_audiences",
+          "institutional_problem",
+          "bounded_claim",
+          "scientific_grade",
+          "commercial_track",
+          "gates",
+          "promotion_state",
+          "next_required_action",
+          "execution_authorized",
+          "provider_calls",
+          "non_claims"
+        ],
+        "properties": {
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "proof_id": {
+            "type": "string",
+            "pattern": "^PROOF-[0-9]{3}$"
+          },
+          "target_title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_form": {
+            "type": "string",
+            "minLength": 1
+          },
+          "current_form": {
+            "type": "string",
+            "minLength": 1
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^PROOF-[0-9]{3}$"
+            }
+          },
+          "source_prs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "source_kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_identifier": {
+            "type": "string",
+            "minLength": 1
+          },
+          "institutional_audiences": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "institutional_problem": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bounded_claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scientific_grade": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "research_question",
+              "falsification_condition",
+              "recomputation_path",
+              "adverse_case_required"
+            ],
+            "properties": {
+              "research_question": {
+                "type": "string",
+                "minLength": 1
+              },
+              "falsification_condition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "recomputation_path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "adverse_case_required": {
+                "const": true
+              }
+            }
+          },
+          "commercial_track": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "capability",
+              "buyer_roles",
+              "service_path",
+              "offer_state",
+              "value_hypothesis"
+            ],
+            "properties": {
+              "capability": {
+                "type": "string",
+                "minLength": 1
+              },
+              "buyer_roles": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "service_path": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "offer_state": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value_hypothesis": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "gates": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean"
+            },
+            "minProperties": 1
+          },
+          "promotion_state": {
+            "type": "string",
+            "minLength": 1
+          },
+          "next_required_action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "execution_authorized": {
+            "const": false
+          },
+          "provider_calls": {
+            "const": 0
+          },
+          "non_claims": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "global_non_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_standing",
+        "review_standing",
+        "admission_standing",
+        "authority_state",
+        "execution_state",
+        "provider_calls",
+        "pair_001_calls",
+        "repository_settings",
+        "main"
+      ],
+      "properties": {
+        "evidence_standing": {
+          "const": "NONE"
+        },
+        "review_standing": {
+          "const": "NONE"
+        },
+        "admission_standing": {
+          "const": "NONE"
+        },
+        "authority_state": {
+          "const": "NONE"
+        },
+        "execution_state": {
+          "const": "NONE"
+        },
+        "provider_calls": {
+          "const": 0
+        },
+        "pair_001_calls": {
+          "const": 0
+        },
+        "repository_settings": {
+          "const": "NONE"
+        },
+        "main": {
+          "const": "NONE"
+        }
+      }
+    },
+    "standing": {
+      "const": "PROOF_PORTFOLIO_DEVELOPMENT_SEQUENCE_CANDIDATE_NOT_ADMITTED"
+    }
+  }
+}
