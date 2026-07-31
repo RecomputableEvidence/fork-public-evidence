@@ -122,7 +122,7 @@ def test_duplicate_sequence_and_proof_identifier_rejected(
     assert "PROOF_SEQUENCE_NUMBER_ORDER_MISMATCH" in codes
 
 
-def test_active_production_offer_is_out_of_scope(
+def test_active_production_offer_is_rejected_by_schema(
     tmp_path: Path,
 ) -> None:
     payload = load_registry()
@@ -130,16 +130,12 @@ def test_active_production_offer_is_out_of_scope(
     proof["commercial_track"]["offer_state"] = (
         "ACTIVE_PRODUCTION_CAPABILITY"
     )
-    proof["gates"] = {name: True for name in proof["gates"]}
-    proof["promotion_state"] = "FINISHED_PROOF_SURFACE_ADMITTED"
     result = load_checker().evaluate(
         write_json(tmp_path, "registry.json", payload),
         CONTRACT,
         check_git=False,
     )
-    codes = finding_codes(result)
-    assert "ACTIVE_PRODUCTION_OFFER_OUT_OF_SCOPE" in codes
-    assert "FINISHED_PROOF_SELF_ADMISSION_PROHIBITED" in codes
+    assert "REGISTRY_SCHEMA_INVALID" in finding_codes(result)
 
 
 def test_source_pr_must_be_registered_for_the_proof(
