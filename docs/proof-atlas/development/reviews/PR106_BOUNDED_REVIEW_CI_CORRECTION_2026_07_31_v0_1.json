@@ -1,0 +1,61 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_internal_bounded_review_ci_correction",
+  "record_id": "FORK-PR106-BOUNDED-REVIEW-CI-CORRECTION-2026-07-31-v0.1",
+  "pull_request": 106,
+  "predecessor_review_record": "docs/proof-atlas/development/reviews/PR106_BOUNDED_REVIEW_2026_07_31_v0_1.json",
+  "failed_exact_head": "1d868fd73d0e8297aba0694b31226fbe971382be",
+  "failed_workflow": {
+    "name": "Fork Proof-Surface Integration",
+    "run_id": 30642331842,
+    "conclusion": "failure",
+    "affected_jobs": [
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)"
+    ],
+    "failure_scope": "FINAL_FULL_PYTHON_REGRESSION_SUITE_AFTER_ALL_PRIOR_PROOF_SURFACE_STEPS_PASSED"
+  },
+  "preserved_successes_at_failed_head": [
+    {
+      "workflow": "Fork Evidence CI",
+      "run_id": 30642332057,
+      "conclusion": "success"
+    },
+    {
+      "workflow": "Root Checksum Manifest v0.1",
+      "run_id": 30642332045,
+      "conclusion": "success"
+    }
+  ],
+  "finding": {
+    "finding_id": "PR106-BR-F005",
+    "severity": "CORRECTIVE_TEST_EXPECTATION_DEFECT",
+    "description": "The active-production mutation used a value prohibited by the descriptive schema but expected later semantic findings. The checker correctly failed closed at schema validation, so the test asserted unreachable downstream codes.",
+    "boundary_effect": "NONE_ON_CANONICAL_REGISTRY_CONFORMANCE",
+    "negative_evidence_preserved": true
+  },
+  "prospective_correction": {
+    "commit_sha": "0e1876ab3df3bdfe4ad041549872eafc62b054e9",
+    "change": "The mutation test now requires REGISTRY_SCHEMA_INVALID for ACTIVE_PRODUCTION_CAPABILITY, preserving schema-first fail-closed behavior.",
+    "schema_changed": false,
+    "registry_changed": false,
+    "checker_changed": false
+  },
+  "post_correction_exact_head_ci": "PENDING_AFTER_THIS_RECORD_COMMIT",
+  "disposition": "TEST_EXPECTATION_CORRECTED_EXACT_HEAD_CI_PENDING_NOT_ADMITTED",
+  "non_claims": [
+    "This correction does not erase the failed workflow at 1d868fd73d0e8297aba0694b31226fbe971382be.",
+    "This internal correction is not exterior recomputation or institutional validation.",
+    "CI success, if returned, will not admit, approve, or merge PR #106."
+  ],
+  "effects": {
+    "admission": "NONE",
+    "merge": "NONE",
+    "authority": "NONE",
+    "execution": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "repository_settings": "NONE",
+    "main": "NONE"
+  }
+}
