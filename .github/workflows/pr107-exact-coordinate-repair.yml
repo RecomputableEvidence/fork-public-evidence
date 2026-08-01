@@ -74,6 +74,16 @@ jobs:
           )
           PY
 
+      - name: Finalize candidate inventory and self-check receipt
+        run: |
+          rm .github/workflows/pr107-exact-coordinate-repair.yml
+          rm tools/pr107_exact_coordinate_repair.py
+          python tools/check_claim_admission_gate_v0_1.py \
+            --repo-root . \
+            --self-check \
+            --write-receipt receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json \
+            > /tmp/pr107-claim-admission-self-check.json
+
       - name: Verify repaired dependency chain
         run: |
           python -m pytest \
@@ -81,8 +91,10 @@ jobs:
             tests/test_temporal_succession_v0_1.py \
             tests/test_longitudinal_recomputation_v0_2.py \
             tests/test_longitudinal_causal_reconciliation_v0_3.py \
+            tests/test_longitudinal_exterior_recomputation_package_v0_3_1.py \
             tests/test_fork_thesis_manifestation_v0_1.py \
             tests/test_proof_001_review_does_not_silently_travel_v0_1.py \
+            tests/test_claim_admission_gate_v0_1.py \
             -q
           python -m pytest -q
 
