@@ -76,8 +76,8 @@ jobs:
 
       - name: Finalize candidate inventory and self-check receipt
         run: |
-          rm .github/workflows/pr107-exact-coordinate-repair.yml
-          rm tools/pr107_exact_coordinate_repair.py
+          git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
+          git rm -f tools/pr107_exact_coordinate_repair.py
           python tools/check_claim_admission_gate_v0_1.py \
             --repo-root . \
             --self-check \
