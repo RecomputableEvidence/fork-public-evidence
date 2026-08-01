@@ -293,6 +293,104 @@ def patch_longitudinal_checker() -> None:
     write_text(path, text)
 
 
+def patch_exterior_package_checker() -> None:
+    path = ROOT / "tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py"
+    text = path.read_text(encoding="utf-8")
+    if "import subprocess\n" not in text:
+        text = replace_once(
+            text,
+            "import sys\n",
+            "import subprocess\nimport sys\n",
+            "exterior package subprocess import",
+        )
+
+    constant_marker = 'SHA256_RE = re.compile(r"^[0-9a-f]{64}$")\n'
+    constant_replacement = (
+        constant_marker
+        + 'PREDECESSOR_PACKAGE_COMMIT = "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84"\n'
+    )
+    text = replace_once(
+        text,
+        constant_marker,
+        constant_replacement,
+        "exterior package predecessor coordinate",
+    )
+
+    helper_marker = '''def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def build_manifest(root: Path) -> dict[str, Any]:
+'''
+    helper_replacement = '''def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def git_file_sha256(root: Path, commit: str, relative: str) -> str | None:
+    completed = subprocess.run(
+        ["git", "-C", str(root), "show", f"{commit}:{relative}"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if completed.returncode != 0:
+        return None
+    return hashlib.sha256(completed.stdout).hexdigest()
+
+
+def build_manifest(root: Path) -> dict[str, Any]:
+'''
+    text = replace_once(
+        text,
+        helper_marker,
+        helper_replacement,
+        "exterior package Git object digest helper",
+    )
+
+    old_block = '''        predecessor = safe_file(
+            root,
+            "docs/state/longitudinal-recomputation-v0.3/PACKAGE_MANIFEST_v0_3.json",
+        )
+        predecessor_sha = sha256_file(predecessor)
+        if (
+            predecessor_sha
+            != "0f00137a91b34206aa844b41bae951ef19157bdbc8095b6ed1b69ec2cff0a677"
+        ):
+            add_finding(
+                findings,
+                "PREDECESSOR_PACKAGE_DIVERGENCE",
+                f"v0.3 package manifest changed to {predecessor_sha}",
+                predecessor.relative_to(root).as_posix(),
+            )
+'''
+    new_block = '''        predecessor_path = (
+            "docs/state/longitudinal-recomputation-v0.3/PACKAGE_MANIFEST_v0_3.json"
+        )
+        predecessor_sha = git_file_sha256(
+            root,
+            PREDECESSOR_PACKAGE_COMMIT,
+            predecessor_path,
+        )
+        if (
+            predecessor_sha
+            != "0f00137a91b34206aa844b41bae951ef19157bdbc8095b6ed1b69ec2cff0a677"
+        ):
+            add_finding(
+                findings,
+                "PREDECESSOR_PACKAGE_DIVERGENCE",
+                f"v0.3 package manifest at the declared PR92 coordinate resolved to {predecessor_sha}",
+                predecessor_path,
+            )
+'''
+    text = replace_once(
+        text,
+        old_block,
+        new_block,
+        "exterior package exact predecessor validation",
+    )
+    write_text(path, text)
+
+
 def refresh_manifest(path: str, key: str) -> None:
     target = ROOT / path
     payload = json.loads(target.read_text(encoding="utf-8"))
@@ -315,8 +413,13 @@ def main() -> int:
     patch_temporal_checker()
     patch_thesis_checker()
     patch_longitudinal_checker()
+    patch_exterior_package_checker()
     refresh_manifest(
         "docs/research/fork-thesis-manifestation-v0.1/PACKAGE_MANIFEST_v0_1.json",
+        "entries",
+    )
+    refresh_manifest(
+        "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_PACKAGE_MANIFEST_v0_3_1.json",
         "entries",
     )
     print("PR107_EXACT_COORDINATE_SOURCE_REPAIR_WRITTEN")
