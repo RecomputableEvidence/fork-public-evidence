@@ -1,6 +1,7 @@
 name: PR107 exact-coordinate repair
 
 on:
+  pull_request:
   push:
     branches:
       - agent/csh-uppercase-retry-current-line-v0-1
@@ -9,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: pr107-exact-coordinate-repair-${{ github.ref }}
+  group: pr107-exact-coordinate-repair-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
