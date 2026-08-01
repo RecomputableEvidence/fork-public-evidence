@@ -1,0 +1,50 @@
+{
+  "authorization_id": "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22",
+  "schema_version": "v0.1",
+  "record_kind": "explicit_external_authorization_anchor",
+  "status": "ACTIVE",
+  "subject": {
+    "experiment_id": "cross_system_claim_handoff_v0_1",
+    "pair_id": "PAIR-001"
+  },
+  "authorization_kind": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY",
+  "authorized_transition_ids": [
+    "FSS-PAIR001-T012",
+    "FSS-PAIR001-T013",
+    "FSS-PAIR001-T014",
+    "FSS-PAIR001-T015",
+    "FSS-PAIR001-T016"
+  ],
+  "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+  "maximum_provider_calls": 1,
+  "not_before_utc": "2026-07-20T07:55:24.374494+00:00",
+  "authorized_at_utc": "2026-07-22T11:03:08+00:00",
+  "external_source": {
+    "source_kind": "USER_DIRECT_AUTHORIZATION_IN_CHAT",
+    "source_id": "chat-authorization-2026-07-22-uppercase-provider-validation-retry",
+    "source_sha256": "946b45345cbfa861e4c34ac618457fe680986c2634eb146b5ca199161c6c48e7"
+  },
+  "execution_boundary": {
+    "automatic_execution": false,
+    "pair_001_execution_authorized": false,
+    "readiness_promotion_authorized": false
+  },
+  "outcome_contract": {
+    "success_transition": "FSS-PAIR001-T014",
+    "identical_failure_transition": "FSS-PAIR001-T015",
+    "different_outcome_transition": "FSS-PAIR001-T016",
+    "pair_001_calls_performed": 0,
+    "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE"
+  },
+  "explicit_exclusions": [
+    "AUTOMATIC_EXECUTION",
+    "LOWERCASE_DIAGNOSTIC",
+    "PAIR_001_EXECUTION",
+    "READINESS_PROMOTION",
+    "ADDITIONAL_RETRIES",
+    "MODEL_SUBSTITUTION",
+    "REQUEST_BYTE_MODIFICATION",
+    "REPOSITORY_SETTING_CHANGE",
+    "MAIN_MODIFICATION"
+  ]
+}
