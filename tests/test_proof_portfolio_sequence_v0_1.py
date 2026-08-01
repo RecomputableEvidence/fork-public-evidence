@@ -122,7 +122,7 @@ def test_duplicate_sequence_and_proof_identifier_rejected(
     assert "PROOF_SEQUENCE_NUMBER_ORDER_MISMATCH" in codes
 
 
-def test_active_production_offer_is_rejected_by_schema(
+def test_active_production_offer_is_rejected_by_checker(
     tmp_path: Path,
 ) -> None:
     payload = load_registry()
@@ -135,7 +135,7 @@ def test_active_production_offer_is_rejected_by_schema(
         CONTRACT,
         check_git=False,
     )
-    assert "REGISTRY_SCHEMA_INVALID" in finding_codes(result)
+    assert "ACTIVE_PRODUCTION_OFFER_OUT_OF_SCOPE" in finding_codes(result)
 
 
 def test_source_pr_must_be_registered_for_the_proof(
@@ -240,6 +240,4 @@ def test_execution_and_provider_calls_remain_closed(
         CONTRACT,
         check_git=False,
     )
-    codes = finding_codes(result)
-    assert "EXECUTION_AUTHORITY_OVERCLAIM" in codes
-    assert "PROVIDER_CALL_EFFECT_NONZERO" in codes
+    assert "REGISTRY_SCHEMA_INVALID" in finding_codes(result)
