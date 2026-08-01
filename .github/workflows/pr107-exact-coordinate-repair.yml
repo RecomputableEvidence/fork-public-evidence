@@ -6,29 +6,29 @@ on:
       - agent/csh-uppercase-retry-current-line-v0-1
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: pr107-exact-coordinate-repair-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  repair:
-    if: github.actor != 'github-actions[bot]'
+  generate-repair:
+    name: Generate bounded exact-coordinate repair
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Checkout exact PR branch
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
-          ref: agent/csh-uppercase-retry-current-line-v0-1
           fetch-depth: 0
-          persist-credentials: true
+          persist-credentials: false
 
-      - name: Configure Git and Python
-        run: |
-          git config core.autocrlf false
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
 
       - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.11"
 
@@ -38,238 +38,23 @@ jobs:
           -r requirements-proof-surface.lock.txt
           -r requirements-claim-admission.lock.txt
 
-      - name: Repair exact-coordinate coupling
-        shell: bash
+      - name: Patch historical consumers to exact coordinates
+        run: python tools/pr107_exact_coordinate_repair.py
+
+      - name: Regenerate deterministic current-line and replay artifacts
         run: |
-          python - <<'PY'
-          from __future__ import annotations
-
-          import hashlib
-          import json
-          from pathlib import Path
-          import re
-
-          ROOT = Path.cwd()
-
-          def replace_once(path: str, old: str, new: str) -> None:
-              target = ROOT / path
-              text = target.read_text(encoding="utf-8")
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f"{path}: expected exactly one replacement target, found {count}")
-              target.write_text(text.replace(old, new, 1), encoding="utf-8", newline="\n")
-
-          # The temporal projection declares an immutable governed coordinate.
-          # Validate its source bindings against that commit, not moving candidate bytes.
-          temporal = ROOT / "tools/check_temporal_succession_v0_1.py"
-          temporal_text = temporal.read_text(encoding="utf-8")
-          if "import subprocess\n" not in temporal_text:
-              temporal_text = temporal_text.replace("import stat\n", "import stat\nimport subprocess\n", 1)
-          old_temporal = '''        try:
-              expect_equal(
-                  errors,
-                  sha256_file(safe_regular_file(root, path)),
-                  expected_digest,
-                  f"current source binding {path}",
-              )
-          except Exception as exc:
-              errors.append(f"current source binding {path}: {exc}")
-          '''
-          new_temporal = '''        try:
-              source_bytes = subprocess.run(
-                  ["git", "-C", str(root), "show", f"{GOVERNED_COMMIT}:{path}"],
-                  check=True,
-                  stdout=subprocess.PIPE,
-                  stderr=subprocess.PIPE,
-              ).stdout
-              expect_equal(
-                  errors,
-                  hashlib.sha256(source_bytes).hexdigest(),
-                  expected_digest,
-                  f"current source binding {path}",
-              )
-          except Exception as exc:
-              errors.append(f"current source binding {path}: {exc}")
-          '''
-          if temporal_text.count(old_temporal) != 1:
-              raise SystemExit("temporal checker: exact source-binding block not found once")
-          temporal.write_text(
-              temporal_text.replace(old_temporal, new_temporal, 1),
-              encoding="utf-8",
-              newline="\n",
-          )
-
-          # The thesis candidate is fixed to BASE_COMMIT. Read the two moving CSH
-          # artifacts from that exact commit rather than inheriting the PR working tree.
-          thesis = ROOT / "tools/check_fork_thesis_manifestation_v0_1.py"
-          thesis_text = thesis.read_text(encoding="utf-8")
-          provider_old = '''    provider = read_json("docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json")
-          '''
-          provider_new = '''    provider = json.loads(
-              git_file_bytes(
-                  root,
-                  BASE_COMMIT,
-                  "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
-              ).decode("utf-8"),
-              object_pairs_hook=_object_no_duplicates,
-              parse_constant=_reject_constant,
-          )
-              _assert_finite(provider)
-          '''
-          projection_old = '''    projection = read_json("docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json")
-          '''
-          projection_new = '''    projection = json.loads(
-              git_file_bytes(
-                  root,
-                  BASE_COMMIT,
-                  "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json",
-              ).decode("utf-8"),
-              object_pairs_hook=_object_no_duplicates,
-              parse_constant=_reject_constant,
-          )
-              _assert_finite(projection)
-          '''
-          for old, new, label in (
-              (provider_old, provider_new, "provider fixed-base read"),
-              (projection_old, projection_new, "projection fixed-base read"),
-          ):
-              if thesis_text.count(old) != 1:
-                  raise SystemExit(f"thesis checker: {label} target not found once")
-              thesis_text = thesis_text.replace(old, new, 1)
-          thesis.write_text(thesis_text, encoding="utf-8", newline="\n")
-
-          # The v0.2 longitudinal replay closes at an exact historical commit.
-          # Its execution-state reducer must consume the sequence projection from
-          # that closure rather than the moving PR head.
-          longitudinal = ROOT / "tools/check_longitudinal_recomputation_v0_2.py"
-          longitudinal_text = longitudinal.read_text(encoding="utf-8")
-          pattern = re.compile(
-              r"def derive_sequence_contribution\(\n.*?\n\ndef validate_predecessor_temporal_surface\(",
-              re.DOTALL,
-          )
-          replacement = '''def derive_sequence_contribution(
-              root: Path,
-              findings: list[dict[str, str]],
-          ) -> dict[str, Any]:
-              projection_path = Path(
-                  "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json"
-              )
-              try:
-                  registry = strict_load(safe_regular_file(root, REGISTRY.as_posix()))
-                  closure = registry.get("coverage_interval", {}).get(
-                      "closure_commit_inclusive"
-                  )
-                  if not isinstance(closure, str) or SHA1_RE.fullmatch(closure) is None:
-                      raise ValueError("longitudinal closure commit is invalid")
-                  completed = subprocess.run(
-                      [
-                          "git",
-                          "-C",
-                          str(root),
-                          "show",
-                          f"{closure}:{projection_path.as_posix()}",
-                      ],
-                      check=False,
-                      stdout=subprocess.PIPE,
-                      stderr=subprocess.PIPE,
-                  )
-                  if completed.returncode != 0:
-                      detail = completed.stderr.decode(
-                          "utf-8", errors="replace"
-                      ).strip()
-                      raise ValueError(
-                          f"cannot read sequence projection at {closure}: {detail}"
-                      )
-                  projection = json.loads(
-                      completed.stdout.decode("utf-8"),
-                      object_pairs_hook=reject_duplicate_keys,
-                      parse_constant=reject_constant,
-                  )
-                  assert_finite(projection)
-                  if projection.get("sequence", {}).get("current_state") != (
-                      "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED"
-                  ):
-                      raise ValueError(
-                          "historical sequence projection has unexpected current_state"
-                      )
-              except Exception as exc:
-                  add_finding(
-                      findings,
-                      "SURFACE_REDUCER_FAILED",
-                      str(exc),
-                      projection_path.as_posix(),
-                  )
-                  return {}
-              return {
-                  "standing": projection.get("publication_and_control", {}).get(
-                      "pre_execution_status"
-                  ),
-                  "reducer_id": "FORK_SEQUENCE_SURFACE_REDUCER_v0_1",
-                  "reducer_result": "SEQUENCE_SURFACE_CONFORMS_CANDIDATE_NOT_ADMITTED",
-                  "source": copy.deepcopy(projection.get("source")),
-                  "sequence": copy.deepcopy(projection.get("sequence")),
-                  "observed_history": copy.deepcopy(
-                      projection.get("observed_history")
-                  ),
-                  "execution_boundary": copy.deepcopy(
-                      projection.get("execution_boundary")
-                  ),
-                  "retry": copy.deepcopy(projection.get("retry")),
-                  "drift": copy.deepcopy(projection.get("drift")),
-                  "freshness": "DERIVED_FROM_BOUND_PRIMARY_EVIDENCE",
-              }
-
-
-def validate_predecessor_temporal_surface('''
-          longitudinal_text, count = pattern.subn(replacement, longitudinal_text, count=1)
-          if count != 1:
-              raise SystemExit(f"longitudinal checker: reducer replacement count {count}")
-          longitudinal.write_text(
-              longitudinal_text,
-              encoding="utf-8",
-              newline="\n",
-          )
-
-          def refresh_manifest(path: str, collection_key: str) -> None:
-              target = ROOT / path
-              payload = json.loads(target.read_text(encoding="utf-8"))
-              entries = payload.get(collection_key)
-              if not isinstance(entries, list):
-                  raise SystemExit(f"{path}: {collection_key} is not a list")
-              for entry in entries:
-                  relative = entry.get("path")
-                  if not isinstance(relative, str):
-                      raise SystemExit(f"{path}: manifest entry lacks path")
-                  source = ROOT / relative
-                  data = source.read_bytes()
-                  entry["sha256"] = hashlib.sha256(data).hexdigest()
-                  if "size_bytes" in entry:
-                      entry["size_bytes"] = len(data)
-              target.write_text(
-                  json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-                  encoding="utf-8",
-                  newline="\n",
-              )
-
-          # The thesis checker is itself a package member.
-          refresh_manifest(
-              "docs/research/fork-thesis-manifestation-v0.1/PACKAGE_MANIFEST_v0_1.json",
-              "entries",
-          )
-          PY
-
           python tools/check_fork_sequence_surface_v0_1.py \
             --write-projection docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json
           python tools/check_temporal_succession_v0_1.py
           python tools/check_longitudinal_recomputation_v0_2.py --write-derived
           python tools/check_longitudinal_causal_reconciliation_v0_3.py --write-derived
-
           python tools/run_proof_001_review_does_not_silently_travel_v0_1.py \
             --render-summary-only > \
             docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-SUMMARY.md
 
+      - name: Refresh Proof 001 manifest bindings
+        run: |
           python - <<'PY'
-          from __future__ import annotations
           import hashlib
           import json
           from pathlib import Path
@@ -298,10 +83,54 @@ def validate_predecessor_temporal_surface('''
             tests/test_fork_thesis_manifestation_v0_1.py \
             tests/test_proof_001_review_does_not_silently_travel_v0_1.py \
             -q
+          python -m pytest -q
 
-      - name: Commit exact-coordinate repair
+      - name: Assemble repair artifact
+        shell: bash
         run: |
-          rm .github/workflows/pr107-exact-coordinate-repair.yml
-          git add -A
-          git commit -m "fix(csh): bind historical consumers to exact coordinates"
-          git push origin HEAD:agent/csh-uppercase-retry-current-line-v0-1
+          rm -rf repair-output
+          mkdir -p repair-output/files
+          while IFS= read -r -d '' path; do
+            mkdir -p "repair-output/files/$(dirname "$path")"
+            cp "$path" "repair-output/files/$path"
+          done < <(git diff --name-only --diff-filter=ACMRT -z)
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          root = Path("repair-output/files")
+          entries = []
+          for path in sorted(item for item in root.rglob("*") if item.is_file()):
+              data = path.read_bytes()
+              entries.append({
+                  "path": path.relative_to(root).as_posix(),
+                  "sha256": hashlib.sha256(data).hexdigest(),
+                  "size_bytes": len(data),
+              })
+          Path("repair-output/REPAIR_MANIFEST.json").write_text(
+              json.dumps({
+                  "record_kind": "pr107_exact_coordinate_repair_artifact",
+                  "source_head": "${{ github.sha }}",
+                  "entries": entries,
+                  "effects": {
+                      "repository_refs": "NONE",
+                      "provider_calls": 0,
+                      "pair_001_calls": 0,
+                      "admission": "NONE"
+                  }
+              }, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+          if not entries:
+              raise SystemExit("repair artifact has no changed files")
+          PY
+
+      - name: Upload exact-coordinate repair artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: pr107-exact-coordinate-repair-${{ github.sha }}
+          path: repair-output
+          if-no-files-found: error
+          retention-days: 7
