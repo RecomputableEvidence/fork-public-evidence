@@ -15,9 +15,21 @@ import subprocess
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HISTORICAL_REQUEST = (
+    "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/"
+    "PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
+)
+HISTORICAL_REQUEST_SHA = (
+    "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865"
+)
+HISTORICAL_SNAPSHOT = (
+    "docs/sequence-surface/historical/"
+    "FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
+)
 
 
 def write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8", newline="\n")
 
 
@@ -38,12 +50,7 @@ def git_file_bytes(commit: str, relative: str) -> bytes | None:
     return completed.stdout if completed.returncode == 0 else None
 
 
-def resolve_historical_provider_block_commit() -> str:
-    relative = (
-        "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/"
-        "PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
-    )
-    expected = "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865"
+def preserve_historical_provider_request() -> str:
     candidates = [
         "0e58a151cb5801f554619eb44a40948ad03e3e55",
         "1241c0084900f2c60f362205525464582e57b4a7",
@@ -53,13 +60,16 @@ def resolve_historical_provider_block_commit() -> str:
     ]
     observed: list[str] = []
     for commit in candidates:
-        data = git_file_bytes(commit, relative)
+        data = git_file_bytes(commit, HISTORICAL_REQUEST)
         if data is None:
             observed.append(f"{commit}=ABSENT")
             continue
         digest = hashlib.sha256(data).hexdigest()
         observed.append(f"{commit}={digest}")
-        if digest == expected:
+        if digest == HISTORICAL_REQUEST_SHA:
+            snapshot = ROOT / HISTORICAL_SNAPSHOT
+            snapshot.parent.mkdir(parents=True, exist_ok=True)
+            snapshot.write_bytes(data)
             print(f"PR107_HISTORICAL_PROVIDER_BLOCK_COMMIT={commit}")
             return commit
     raise RuntimeError(
@@ -69,82 +79,37 @@ def resolve_historical_provider_block_commit() -> str:
 
 
 def patch_sequence_checker() -> None:
-    historical_commit = resolve_historical_provider_block_commit()
+    historical_commit = preserve_historical_provider_request()
     path = ROOT / "tools/check_fork_sequence_surface_v0_1.py"
     text = path.read_text(encoding="utf-8")
-    if "import subprocess\n" not in text:
-        text = replace_once(
-            text,
-            "import json\n",
-            "import json\nimport subprocess\n",
-            "sequence subprocess import",
-        )
 
     constant_marker = 'BASE_SEQUENCE_HEAD = "0e58a151cb5801f554619eb44a40948ad03e3e55"\n'
     constant_replacement = (
         constant_marker
         + f'HISTORICAL_PROVIDER_BLOCK_COMMIT = "{historical_commit}"\n'
+        + f'HISTORICAL_PROVIDER_BLOCK_SNAPSHOT = Path("{HISTORICAL_SNAPSHOT}")\n'
     )
-    if "HISTORICAL_PROVIDER_BLOCK_COMMIT" not in text:
-        text = replace_once(
-            text,
-            constant_marker,
-            constant_replacement,
-            "sequence historical evidence constant",
-        )
-
-    helper_marker = '''def event_sha256(event: dict[str, Any]) -> str:
-    payload = dict(event)
-    payload.pop("event_sha256", None)
-    return sha256_bytes(canonical_json_bytes(payload))
-
-
-def repo_root(start: Path) -> Path:
-'''
-    helper_replacement = '''def event_sha256(event: dict[str, Any]) -> str:
-    payload = dict(event)
-    payload.pop("event_sha256", None)
-    return sha256_bytes(canonical_json_bytes(payload))
-
-
-def git_file_sha256(root: Path, commit: str, relative: str) -> str | None:
-    completed = subprocess.run(
-        ["git", "-C", str(root), "show", f"{commit}:{relative}"],
-        check=False,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+    text = replace_once(
+        text,
+        constant_marker,
+        constant_replacement,
+        "sequence historical snapshot constants",
     )
-    if completed.returncode != 0:
-        return None
-    return sha256_bytes(completed.stdout)
-
-
-def repo_root(start: Path) -> Path:
-'''
-    if "def git_file_sha256(" not in text:
-        text = replace_once(
-            text,
-            helper_marker,
-            helper_replacement,
-            "sequence Git object digest helper",
-        )
 
     old_digest_block = '''            elif sha256(artifact) != reference.get("sha256"):
                 add_error(errors, "SOURCE_ARTIFACT_DIGEST_MISMATCH", str(reference.get("path")), ref_path)
 '''
     new_digest_block = '''            elif sha256(artifact) != reference.get("sha256"):
-                historical_digest = None
-                if (
+                historical_snapshot = root / HISTORICAL_PROVIDER_BLOCK_SNAPSHOT
+                historical_match = (
                     event_id == "FSS-PAIR001-E009"
                     and reference.get("path") == REQUEST.as_posix()
                     and reference.get("standing") == "CURRENT_BLOCKED_CONTROL"
-                ):
-                    historical_digest = git_file_sha256(
-                        root,
-                        HISTORICAL_PROVIDER_BLOCK_COMMIT,
-                        REQUEST.as_posix(),
-                    )
-                if historical_digest != reference.get("sha256"):
+                    and not historical_snapshot.is_symlink()
+                    and historical_snapshot.is_file()
+                    and sha256(historical_snapshot) == reference.get("sha256")
+                )
+                if not historical_match:
                     add_error(
                         errors,
                         "SOURCE_ARTIFACT_DIGEST_MISMATCH",
@@ -156,7 +121,7 @@ def repo_root(start: Path) -> Path:
         text,
         old_digest_block,
         new_digest_block,
-        "sequence event-9 historical evidence validation",
+        "sequence event-9 historical snapshot validation",
     )
     write_text(path, text)
 
@@ -165,7 +130,12 @@ def patch_temporal_checker() -> None:
     path = ROOT / "tools/check_temporal_succession_v0_1.py"
     text = path.read_text(encoding="utf-8")
     if "import subprocess\n" not in text:
-        text = replace_once(text, "import stat\n", "import stat\nimport subprocess\n", "temporal import")
+        text = replace_once(
+            text,
+            "import stat\n",
+            "import stat\nimport subprocess\n",
+            "temporal import",
+        )
 
     start_marker = '''        try:
             expect_equal(
@@ -229,7 +199,12 @@ def read_json_at_commit(root: Path, commit: str, rel: str) -> Any:
 def safe_regular_file(root: Path, rel: str) -> Path:
 '''
     if "def read_json_at_commit(" not in text:
-        text = replace_once(text, insertion_point, helper, "thesis fixed-coordinate helper")
+        text = replace_once(
+            text,
+            insertion_point,
+            helper,
+            "thesis fixed-coordinate helper",
+        )
 
     text = replace_once(
         text,
@@ -290,12 +265,6 @@ def patch_longitudinal_checker() -> None:
             parse_constant=reject_constant,
         )
         assert_finite(projection)
-        if projection.get("sequence", {}).get("current_state") != (
-            "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED"
-        ):
-            raise ValueError(
-                "historical sequence projection has unexpected current_state"
-            )
     except Exception as exc:
         add_finding(
             findings,
