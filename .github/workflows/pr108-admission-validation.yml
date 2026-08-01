@@ -1,0 +1,48 @@
+name: PR108 admission validation
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr108-admission-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate-final-tree:
+    name: Validate intended final admission tree
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.11"
+
+      - name: Install deterministic dependencies
+        run: >-
+          python -m pip install --require-hashes
+          -r requirements-proof-surface.lock.txt
+          -r requirements-claim-admission.lock.txt
+
+      - name: Remove temporary workflow from ephemeral candidate
+        run: git rm -f .github/workflows/pr108-admission-validation.yml
+
+      - name: Verify PR107 provider-result admission surface
+        run: |
+          python tools/check_pr107_provider_result_admission_v0_1.py
+          python -m pytest tests/test_pr107_provider_result_admission_v0_1.py -q
+
+      - name: Run full repository regression
+        run: python -m pytest -q
