@@ -55,6 +55,7 @@ jobs:
 
       - name: Finalize candidate inventory and self-check receipt
         run: |
+          git add -N docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json
           git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
           git rm -f tools/pr107_exact_coordinate_repair.py
           python tools/check_claim_admission_gate_v0_1.py \
