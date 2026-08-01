@@ -129,6 +129,16 @@ def git_file_bytes(root: Path, commit: str, rel: str) -> bytes:
     return result.stdout
 
 
+def read_json_at_commit(root: Path, commit: str, rel: str) -> Any:
+    value = json.loads(
+        git_file_bytes(root, commit, rel).decode("utf-8"),
+        object_pairs_hook=_object_no_duplicates,
+        parse_constant=_reject_constant,
+    )
+    _assert_finite(value)
+    return value
+
+
 def safe_regular_file(root: Path, rel: str) -> Path:
     pure = PurePosixPath(rel)
     if not rel or pure.is_absolute() or ".." in pure.parts or "\\" in rel:
@@ -269,7 +279,7 @@ def check(root: Path) -> list[str]:
     expect_equal(errors, binding.get("status"), "STRUCTURALLY_READY_EXECUTION_BLOCKED", "pre-execution status")
     expect_equal(errors, binding.get("provider_execution_permitted"), False, "pre-execution provider permission")
 
-    provider = read_json("docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json")
+    provider = read_json_at_commit(root, BASE_COMMIT, "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json")
     expect_equal(errors, provider.get("status"), "BLOCKED_PROVIDER_VALIDATION_FAILED", "provider-validation status")
     expect_equal(errors, provider.get("execution_boundary", {}).get("provider_validation_calls_performed"), 6, "provider-validation calls")
     expect_equal(errors, provider.get("execution_boundary", {}).get("pair_001_calls_performed"), 0, "provider-validation Pair-001 calls")
@@ -281,7 +291,7 @@ def check(root: Path) -> list[str]:
     expect_equal(errors, drift.get("precommitted_stopping_rule", {}).get("authorization", {}).get("present"), False, "retry authorization present")
     expect_equal(errors, drift.get("execution_boundary", {}).get("pair_001_execution_effect"), "NONE", "drift Pair-001 effect")
 
-    projection = read_json("docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json")
+    projection = read_json_at_commit(root, BASE_COMMIT, "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json")
     expect_equal(errors, projection.get("status"), "CANDIDATE_NOT_ADMITTED", "sequence projection artifact-local status")
     expect_equal(errors, projection.get("sequence", {}).get("current_state"), "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED", "sequence current state")
     expect_equal(errors, projection.get("sequence", {}).get("currently_eligible_successor_transition_ids"), [], "eligible successors")

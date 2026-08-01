@@ -54,8 +54,8 @@
     },
     {
       "path": "tools/check_fork_thesis_manifestation_v0_1.py",
-      "sha256": "619fe336174e737a7bc2aa77ed958245d4b4c49bf546037566a7a18dbcad9be1",
-      "size_bytes": 28717
+      "sha256": "a72b28529c5cb8a92ec3bbc3bd311c72209436814eb0dac9f9cf7da30d89ac4b",
+      "size_bytes": 29066
     }
   ],
   "self_exclusion": {

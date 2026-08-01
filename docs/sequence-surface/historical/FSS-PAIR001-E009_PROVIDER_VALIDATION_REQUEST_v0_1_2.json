@@ -2,7 +2,7 @@
   "request_id": "CSH_PROVIDER_VALIDATION_REQUEST_v0_1_2",
   "schema_version": "v0.1.2",
   "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
-  "status": "RETRY_REQUESTED",
+  "status": "BLOCKED_PROVIDER_VALIDATION_FAILED",
   "repository": "RecomputableEvidence/fork-public-evidence",
   "trusted_lineage": {
     "preservation_merge_commit": "a82c4fdc16b4cc7f10df396458b1a1d0ff9fc1f3",
@@ -14,8 +14,7 @@
     "initial_request_merge_commit": "a10fa59875c10a3b44ea27e8a13976c5b10fea45",
     "attempt_002_request_merge_commit": "1ea494b86c097323c27591195c3aea01e778bbf6",
     "deepseek_probe_budget_hardening_merge_commit": "bf8077325ec57b2a1ad997d4c5014c424fe5cfd4",
-    "attempt_003_request_merge_commit": "a4eec818d19530e500e4e651012d2cd9fb4fded0",
-    "uppercase_retry_authorization_merge_commit": "8996a65d02952945062fdf1f29b75aa128d2f9f2"
+    "attempt_003_request_merge_commit": "a4eec818d19530e500e4e651012d2cd9fb4fded0"
   },
   "attempts": [
     {
@@ -67,61 +66,26 @@
     "credential_scope_models_read": "OBSERVED",
     "receipt_destination_round_trip": "PASS_ALL_ATTEMPTS"
   },
-  "retry_authorization": {
-    "present": true,
-    "authorization_anchor": {
-      "path": "docs/sequence-surface/authorizations/PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_v0_1.json",
-      "sha256": "c57247c10d9366ba6f99859cc56f6676f2f111942f91dbb510bf818f5586bd94"
-    },
-    "current_line_successor": {
-      "path": "docs/sequence-surface/authorizations/PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_CURRENT_LINE_SUCCESSOR_v0_1.json",
-      "sha256": "220e3e6a318f90463589e9422873833db58d997a0ab7d1f464cdf126c12acf67"
-    },
-    "authorization_merge_commit": "8996a65d02952945062fdf1f29b75aa128d2f9f2",
-    "authorization_id": "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22",
-    "requested_model": "deepseek/DeepSeek-V3-0324",
-    "expected_returned_model": "DeepSeek-V3-0324",
-    "max_tokens": 2048,
-    "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
-    "maximum_provider_calls": 1,
-    "not_before_utc": "2026-07-20T07:55:24.374494+00:00",
-    "automatic_execution": false,
-    "one_call_mode": "UPPERCASE_DEEPSEEK_ONLY"
-  },
   "disposition": {
     "provider_validation_prerequisite_satisfied": false,
     "provider_execution_permitted": false,
     "pair_001_execution_permitted": false,
-    "blocking_reason": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY_OUTCOME_PENDING",
+    "blocking_reason": "EXACT_CONFIGURED_DEEPSEEK_PROVIDER_REQUEST_HTTP_500",
     "model_substitution_performed": false,
     "preregistered_request_bytes_changed": false,
     "additional_authority_required_for_model_id_or_request_byte_amendment": true
   },
   "execution_boundary": {
     "provider_validation_calls_performed": 6,
-    "additional_provider_validation_calls_requested": 1,
-    "maximum_additional_provider_validation_calls": 1,
+    "additional_provider_validation_calls_requested": 0,
     "pair_001_calls_performed": 0,
     "pair_001_execution_effect": "NONE",
-    "readiness_effect": "NONE",
     "experiment_run_ids_created": []
-  },
-  "outcome_contract": {
-    "success_transition": "FSS-PAIR001-T014",
-    "identical_failure_transition": "FSS-PAIR001-T015",
-    "different_outcome_transition": "FSS-PAIR001-T016",
-    "identical_failure_http_status": 500,
-    "identical_failure_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
-    "automatic_pair_001_execution": false,
-    "automatic_readiness_promotion": false,
-    "additional_uppercase_retries_after_identical_failure": 0
   },
   "non_claims": [
     "Not a Pair-001 request or repetition",
     "Not included in the CSH baseline or hypothesis test",
-    "The one requested provider call is an excluded uppercase validation diagnostic",
-    "A successful retry does not itself authorize Pair-001 or promote readiness",
-    "A failed or different outcome does not automatically authorize another call",
+    "Not authorization to execute Pair-001",
     "Not merge authority",
     "Not a security, compliance, safety, truth, or production-readiness certification"
   ]

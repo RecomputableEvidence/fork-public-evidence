@@ -19,7 +19,7 @@ def load(path: Path, name: str):
     return module
 
 
-def test_contract_passes_without_authorizing_retry_or_pair_001() -> None:
+def test_contract_preserves_history_and_validates_current_line_retry() -> None:
     checker = load(CHECKER, "csh_drift_contract")
     result = checker.evaluate(ROOT)
     assert result["failed"] == 0
@@ -28,7 +28,7 @@ def test_contract_passes_without_authorizing_retry_or_pair_001() -> None:
         "pair_001_execution_effect": "NONE",
         "provider_calls_performed": 0,
         "readiness_effect": "NONE",
-        "status": "DRIFT_CONTRACT_VALID_RETRY_NOT_AUTHORIZED",
+        "status": "DRIFT_CONTRACT_VALID_ONE_TIME_UPPERCASE_RETRY_REQUESTED",
         "valid": True,
     }
 
@@ -46,7 +46,7 @@ def test_cause_cannot_be_promoted_from_unresolved(tmp_path: Path) -> None:
     assert result["result"]["status"] == "DRIFT_CONTRACT_INVALID"
 
 
-def test_publishing_authorization_cannot_authorize_retry(tmp_path: Path) -> None:
+def test_historical_contract_cannot_be_rewritten_as_authorization(tmp_path: Path) -> None:
     root = tmp_path / "repo"
     shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns(".git"))
     checker = load(CHECKER, "csh_drift_contract_authority")
@@ -58,6 +58,33 @@ def test_publishing_authorization_cannot_authorize_retry(tmp_path: Path) -> None
     result = checker.evaluate(root)
     assert result["failed"] > 0
     assert result["result"]["provider_calls_performed"] == 0
+
+
+def test_current_line_successor_digest_tamper_fails_closed(tmp_path: Path) -> None:
+    root = tmp_path / "repo"
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns(".git"))
+    checker = load(CHECKER, "csh_drift_contract_successor")
+    path = root / checker.CURRENT_LINE_SUCCESSOR
+    successor = json.loads(path.read_text(encoding="utf-8"))
+    successor["current_line_revalidation"]["remaining_authorized_attempts"] = 2
+    path.write_text(json.dumps(successor, indent=2) + "\n", encoding="utf-8", newline="\n")
+    result = checker.evaluate(root)
+    assert result["failed"] > 0
+    assert result["result"]["status"] == "DRIFT_CONTRACT_INVALID"
+    assert result["result"]["pair_001_execution_effect"] == "NONE"
+
+
+def test_retry_request_cannot_expand_to_pair_001(tmp_path: Path) -> None:
+    root = tmp_path / "repo"
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns(".git"))
+    checker = load(CHECKER, "csh_drift_contract_request_boundary")
+    path = root / checker.REQUEST
+    request = json.loads(path.read_text(encoding="utf-8"))
+    request["disposition"]["pair_001_execution_permitted"] = True
+    path.write_text(json.dumps(request, indent=2) + "\n", encoding="utf-8", newline="\n")
+    result = checker.evaluate(root)
+    assert result["failed"] > 0
+    assert result["result"]["pair_001_execution_effect"] == "NONE"
 
 
 def test_retry_is_byte_identical_to_attempt_003_probe() -> None:

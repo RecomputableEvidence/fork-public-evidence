@@ -1,0 +1,97 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "current_line_authorization_successor",
+  "record_id": "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_CURRENT_LINE_SUCCESSOR_2026_08_01_v0_1",
+  "status": "CURRENT_LINE_REVALIDATED_ONE_TIME_RETRY_ELIGIBLE_REQUEST_TRANSITION_PENDING",
+  "subject": {
+    "experiment_id": "cross_system_claim_handoff_v0_1",
+    "pair_id": "PAIR-001"
+  },
+  "governed_line": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "predecessor_tip_before_authorization_merge": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+    "authorization_merge_commit": "8996a65d02952945062fdf1f29b75aa128d2f9f2"
+  },
+  "authorization_anchor": {
+    "path": "docs/sequence-surface/authorizations/PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_v0_1.json",
+    "sha256": "c57247c10d9366ba6f99859cc56f6676f2f111942f91dbb510bf818f5586bd94",
+    "authorization_id": "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22",
+    "authorization_kind": "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY",
+    "maximum_provider_calls": 1,
+    "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+    "not_before_utc": "2026-07-20T07:55:24.374494+00:00"
+  },
+  "sequence_coordinate": {
+    "ledger_path": "docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json",
+    "ledger_sha256": "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681",
+    "last_event_id": "FSS-PAIR001-E011",
+    "last_event_sha256": "6a6764bd759fb8be972c7e09321369d241164a7ca0bab4cb1bc2aba1c5780b45",
+    "historical_state": "DRIFT_CLASSIFIED_RETRY_NOT_AUTHORIZED",
+    "authorized_transition": "FSS-PAIR001-T012",
+    "time_gate_transition": "FSS-PAIR001-T013",
+    "outcome_transitions": [
+      "FSS-PAIR001-T014",
+      "FSS-PAIR001-T015",
+      "FSS-PAIR001-T016"
+    ]
+  },
+  "current_line_revalidation": {
+    "authorization_anchor_bytes_present": true,
+    "authorization_anchor_digest_matches": true,
+    "preregistered_request_bytes_unchanged": true,
+    "requested_model": "deepseek/DeepSeek-V3-0324",
+    "max_tokens": 2048,
+    "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+    "time_gate_elapsed": true,
+    "automatic_attempts_permitted": 0,
+    "remaining_authorized_attempts": 1,
+    "outcome_mapping_unchanged": true,
+    "cause": "UNRESOLVED"
+  },
+  "request_transition": {
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/PROVIDER_VALIDATION_REQUEST_v0_1_2.json",
+    "predecessor_sha256": "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865",
+    "required_pre_execution_status": "RETRY_REQUESTED",
+    "execution_occurs_only_after_reviewed_merge_to_governed_branch": true,
+    "trusted_workflow_path": ".github/workflows/csh-provider-validation-v0-1-2.yml",
+    "one_call_mode": "UPPERCASE_DEEPSEEK_ONLY"
+  },
+  "outcome_contract": {
+    "success": {
+      "transition_id": "FSS-PAIR001-T014",
+      "next_state": "UPPERCASE_RETRY_SUCCEEDED_FRESHNESS_PENDING",
+      "automatic_pair_001_execution": false,
+      "automatic_readiness_promotion": false
+    },
+    "identical_failure": {
+      "transition_id": "FSS-PAIR001-T015",
+      "http_status": 500,
+      "response_body_sha256": "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23",
+      "next_state": "UPPERCASE_RETRY_IDENTICAL_FAILURE_STOPPED",
+      "additional_uppercase_retries": 0
+    },
+    "different_outcome": {
+      "transition_id": "FSS-PAIR001-T016",
+      "next_state": "UPPERCASE_RETRY_DIFFERENT_OUTCOME_CLASSIFICATION_REQUIRED",
+      "retry_budget_automatically_replenished": false
+    }
+  },
+  "execution_boundary": {
+    "provider_validation_calls_authorized": 1,
+    "provider_validation_calls_performed_by_this_record": 0,
+    "pair_001_calls_performed": 0,
+    "pair_001_execution_authorized": false,
+    "readiness_promotion_authorized": false,
+    "lowercase_diagnostic_authorized": false,
+    "model_substitution_authorized": false,
+    "request_byte_modification_authorized": false,
+    "main_effect": "NONE",
+    "repository_settings_effect": "NONE"
+  },
+  "non_claims": [
+    "This successor revalidates one excluded provider diagnostic only; it is not Pair-001 execution.",
+    "Authorization and elapsed time do not establish provider availability, semantic validity, freshness, or readiness.",
+    "A successful retry requires separate freshness validation and a separate readiness anchor before any Pair-001 execution decision.",
+    "A failed or different outcome is preserved and classified without automatic additional calls."
+  ]
+}

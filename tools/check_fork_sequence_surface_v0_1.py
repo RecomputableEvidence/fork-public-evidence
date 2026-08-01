@@ -24,11 +24,30 @@ REQUEST = CSH / "pre-execution" / "PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
 STATE = CSH / "execution-state" / "PAIR-001_EXECUTION_STATE_v0_1_1.json"
 BINDING = CSH / "pre-execution" / "PRE_EXECUTION_BINDING_v0_1_2.json"
 RELEASE_ANCHOR = CSH / "pre-execution" / "INSTRUMENTATION_RELEASE_ANCHOR_v0_1_2.json"
+UPPERCASE_AUTHORIZATION = (
+    BASE
+    / "authorizations"
+    / "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_v0_1.json"
+)
+CURRENT_LINE_SUCCESSOR = (
+    BASE
+    / "authorizations"
+    / "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_CURRENT_LINE_SUCCESSOR_v0_1.json"
+)
 BASE_SEQUENCE_HEAD = "0e58a151cb5801f554619eb44a40948ad03e3e55"
+HISTORICAL_PROVIDER_BLOCK_COMMIT = "0e58a151cb5801f554619eb44a40948ad03e3e55"
+HISTORICAL_PROVIDER_BLOCK_SNAPSHOT = Path("docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json")
 GENESIS_HASH = "0" * 64
 UPPERCASE_REQUEST_SHA = "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
 IDENTICAL_FAILURE_BODY_SHA = "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
 UPPERCASE_MODEL_ID = "deepseek/DeepSeek-V3-0324"
+UPPERCASE_AUTHORIZATION_SHA = "c57247c10d9366ba6f99859cc56f6676f2f111942f91dbb510bf818f5586bd94"
+CURRENT_LINE_SUCCESSOR_SHA = "220e3e6a318f90463589e9422873833db58d997a0ab7d1f464cdf126c12acf67"
+UPPERCASE_AUTHORIZATION_MERGE_COMMIT = "8996a65d02952945062fdf1f29b75aa128d2f9f2"
+UPPERCASE_AUTHORIZATION_ID = (
+    "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22"
+)
+UPPERCASE_NOT_BEFORE = "2026-07-20T07:55:24.374494+00:00"
 UPPERCASE_AUTH_TRANSITIONS = {
     "FSS-PAIR001-T012",
     "FSS-PAIR001-T013",
@@ -214,7 +233,7 @@ def validate_authorization_anchor(
         "authorized_transition_ids": sorted(UPPERCASE_AUTH_TRANSITIONS),
         "request_sha256": UPPERCASE_REQUEST_SHA,
         "maximum_provider_calls": 1,
-        "not_before_utc": "2026-07-20T07:55:24.374494+00:00",
+        "not_before_utc": UPPERCASE_NOT_BEFORE,
     }
     expected_lowercase_scope = {
         "authorization_kind": "ONE_TIME_LOWERCASE_PROVIDER_VALIDATION_DIAGNOSTIC",
@@ -289,7 +308,11 @@ def classify_retry_receipt(receipt: dict[str, Any]) -> tuple[str | None, dict[st
     calls = receipt.get("calls")
     if not isinstance(calls, list):
         return None, None
-    deepseek_calls = [item for item in calls if isinstance(item, dict) and item.get("provider") == "DeepSeek"]
+    deepseek_calls = [
+        item
+        for item in calls
+        if isinstance(item, dict) and item.get("provider") == "DeepSeek"
+    ]
     if len(deepseek_calls) != 1:
         return None, None
     call = deepseek_calls[0]
@@ -383,6 +406,121 @@ def validate_retry_outcome(
         )
 
 
+def validate_current_line_request(
+    root: Path,
+    request: dict[str, Any],
+    errors: list[dict[str, str]],
+) -> bool:
+    path = REQUEST.as_posix()
+    authorization_path = root / UPPERCASE_AUTHORIZATION
+    successor_path = root / CURRENT_LINE_SUCCESSOR
+    if not authorization_path.is_file() or not successor_path.is_file():
+        add_error(errors, "CURRENT_LINE_RETRY_CONTROL_INVALID", "authorization successor files are absent", path)
+        return False
+    try:
+        anchor = strict_load(authorization_path)
+        successor = strict_load(successor_path)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, DuplicateKeyError, ValueError) as exc:
+        add_error(errors, "CURRENT_LINE_RETRY_CONTROL_INVALID", str(exc), path)
+        return False
+    retry = request.get("retry_authorization", {})
+    execution = request.get("execution_boundary", {})
+    disposition = request.get("disposition", {})
+    governed = successor.get("governed_line", {}) if isinstance(successor, dict) else {}
+    bound_anchor = successor.get("authorization_anchor", {}) if isinstance(successor, dict) else {}
+    revalidation = successor.get("current_line_revalidation", {}) if isinstance(successor, dict) else {}
+    transition = successor.get("request_transition", {}) if isinstance(successor, dict) else {}
+    successor_boundary = successor.get("execution_boundary", {}) if isinstance(successor, dict) else {}
+    valid = (
+        isinstance(anchor, dict)
+        and isinstance(successor, dict)
+        and sha256(authorization_path) == UPPERCASE_AUTHORIZATION_SHA
+        and sha256(successor_path) == CURRENT_LINE_SUCCESSOR_SHA
+        and anchor.get("authorization_id") == UPPERCASE_AUTHORIZATION_ID
+        and anchor.get("record_kind") == "explicit_external_authorization_anchor"
+        and anchor.get("status") == "ACTIVE"
+        and anchor.get("authorization_kind") == "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY"
+        and anchor.get("request_sha256") == UPPERCASE_REQUEST_SHA
+        and anchor.get("maximum_provider_calls") == 1
+        and anchor.get("not_before_utc") == UPPERCASE_NOT_BEFORE
+        and anchor.get("execution_boundary")
+        == {
+            "automatic_execution": False,
+            "pair_001_execution_authorized": False,
+            "readiness_promotion_authorized": False,
+        }
+        and successor.get("record_kind") == "current_line_authorization_successor"
+        and successor.get("status")
+        == "CURRENT_LINE_REVALIDATED_ONE_TIME_RETRY_ELIGIBLE_REQUEST_TRANSITION_PENDING"
+        and governed.get("branch") == "preservation/clean-continuance-v0.1"
+        and governed.get("authorization_merge_commit") == UPPERCASE_AUTHORIZATION_MERGE_COMMIT
+        and bound_anchor.get("path") == UPPERCASE_AUTHORIZATION.as_posix()
+        and bound_anchor.get("sha256") == UPPERCASE_AUTHORIZATION_SHA
+        and bound_anchor.get("authorization_id") == UPPERCASE_AUTHORIZATION_ID
+        and bound_anchor.get("request_sha256") == UPPERCASE_REQUEST_SHA
+        and bound_anchor.get("maximum_provider_calls") == 1
+        and revalidation.get("preregistered_request_bytes_unchanged") is True
+        and revalidation.get("requested_model") == UPPERCASE_MODEL_ID
+        and revalidation.get("max_tokens") == 2048
+        and revalidation.get("request_sha256") == UPPERCASE_REQUEST_SHA
+        and revalidation.get("time_gate_elapsed") is True
+        and revalidation.get("automatic_attempts_permitted") == 0
+        and revalidation.get("remaining_authorized_attempts") == 1
+        and revalidation.get("outcome_mapping_unchanged") is True
+        and revalidation.get("cause") == "UNRESOLVED"
+        and transition.get("path") == REQUEST.as_posix()
+        and transition.get("required_pre_execution_status") == "RETRY_REQUESTED"
+        and transition.get("one_call_mode") == "UPPERCASE_DEEPSEEK_ONLY"
+        and successor_boundary.get("provider_validation_calls_authorized") == 1
+        and successor_boundary.get("provider_validation_calls_performed_by_this_record") == 0
+        and successor_boundary.get("pair_001_calls_performed") == 0
+        and successor_boundary.get("pair_001_execution_authorized") is False
+        and successor_boundary.get("readiness_promotion_authorized") is False
+        and request.get("status") == "RETRY_REQUESTED"
+        and request.get("classification") == "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE"
+        and request.get("trusted_lineage", {}).get("uppercase_retry_authorization_merge_commit")
+        == UPPERCASE_AUTHORIZATION_MERGE_COMMIT
+        and isinstance(retry, dict)
+        and retry.get("present") is True
+        and retry.get("authorization_anchor")
+        == {
+            "path": UPPERCASE_AUTHORIZATION.as_posix(),
+            "sha256": UPPERCASE_AUTHORIZATION_SHA,
+        }
+        and retry.get("current_line_successor")
+        == {
+            "path": CURRENT_LINE_SUCCESSOR.as_posix(),
+            "sha256": CURRENT_LINE_SUCCESSOR_SHA,
+        }
+        and retry.get("authorization_merge_commit") == UPPERCASE_AUTHORIZATION_MERGE_COMMIT
+        and retry.get("authorization_id") == UPPERCASE_AUTHORIZATION_ID
+        and retry.get("requested_model") == UPPERCASE_MODEL_ID
+        and retry.get("max_tokens") == 2048
+        and retry.get("request_sha256") == UPPERCASE_REQUEST_SHA
+        and retry.get("maximum_provider_calls") == 1
+        and retry.get("automatic_execution") is False
+        and retry.get("one_call_mode") == "UPPERCASE_DEEPSEEK_ONLY"
+        and execution.get("additional_provider_validation_calls_requested") == 1
+        and execution.get("maximum_additional_provider_validation_calls") == 1
+        and execution.get("pair_001_calls_performed") == 0
+        and execution.get("pair_001_execution_effect") == "NONE"
+        and execution.get("readiness_effect") == "NONE"
+        and execution.get("experiment_run_ids_created") == []
+        and disposition.get("provider_validation_prerequisite_satisfied") is False
+        and disposition.get("provider_execution_permitted") is False
+        and disposition.get("pair_001_execution_permitted") is False
+        and disposition.get("preregistered_request_bytes_changed") is False
+    )
+    if not valid:
+        add_error(
+            errors,
+            "CURRENT_LINE_RETRY_CONTROL_INVALID",
+            "current-line authorization successor or one-call request binding mismatch",
+            path,
+        )
+    return valid
+
+
 def derive_projection(
     *,
     root: Path,
@@ -393,6 +531,7 @@ def derive_projection(
     state: dict[str, Any],
     binding: dict[str, Any],
     release_anchor: dict[str, Any],
+    current_line_authorization_present: bool,
 ) -> dict[str, Any]:
     events = ledger.get("events", [])
     typed_events = [item for item in events if isinstance(item, dict)] if isinstance(events, list) else []
@@ -419,17 +558,24 @@ def derive_projection(
     originals = sum(
         item.get("pair_001_original_attempts_observed_delta", 0)
         for item in effects
-        if isinstance(item, dict) and isinstance(item.get("pair_001_original_attempts_observed_delta", 0), int)
+        if isinstance(item, dict)
+        and isinstance(item.get("pair_001_original_attempts_observed_delta", 0), int)
     )
     repetitions = sum(
         item.get("pair_001_repetitions_observed_delta", 0)
         for item in effects
-        if isinstance(item, dict) and isinstance(item.get("pair_001_repetitions_observed_delta", 0), int)
+        if isinstance(item, dict)
+        and isinstance(item.get("pair_001_repetitions_observed_delta", 0), int)
     )
     validation_events = [
-        item for item in typed_events if item.get("event_type") == "PROVIDER_VALIDATION_ATTEMPT_OBSERVED"
+        item
+        for item in typed_events
+        if item.get("event_type") == "PROVIDER_VALIDATION_ATTEMPT_OBSERVED"
     ]
-    validation_calls = sum(item.get("effects", {}).get("provider_calls_observed_delta", 0) for item in validation_events)
+    validation_calls = sum(
+        item.get("effects", {}).get("provider_calls_observed_delta", 0)
+        for item in validation_events
+    )
     deepseek_http_500_attempts = 0
     meta_successful_validation_calls = 0
     for event in validation_events:
@@ -453,7 +599,6 @@ def derive_projection(
     uppercase = stopping.get("uppercase_retry", {}) if isinstance(stopping, dict) else {}
     identical = stopping.get("identical_failure", {}) if isinstance(stopping, dict) else {}
     drift_stopping = drift.get("precommitted_stopping_rule", {})
-    drift_authorization = drift_stopping.get("authorization", {}) if isinstance(drift_stopping, dict) else {}
     drift_budget = drift_stopping.get("retry_budget", {}) if isinstance(drift_stopping, dict) else {}
     request_disposition = request.get("disposition", {})
     anchor_boundary = contract.get("anchor_boundary", {})
@@ -505,7 +650,7 @@ def derive_projection(
         },
         "retry": {
             "explicit_authorization_required": uppercase.get("explicit_authorization_required"),
-            "authorization_present": drift_authorization.get("present"),
+            "authorization_present": current_line_authorization_present,
             "minimum_gap_hours": uppercase.get("minimum_gap_hours"),
             "earliest_permitted_at_utc": uppercase.get("earliest_permitted_at_utc"),
             "remaining_byte_identical_uppercase_attempts": drift_budget.get(
@@ -528,7 +673,9 @@ def derive_projection(
         "successor_anchor": {
             "status": anchor_boundary.get("status"),
             "must_bind_exact_merge_commit": anchor_boundary.get("must_bind_exact_merge_commit"),
-            "must_bind_successful_workflow_runs": anchor_boundary.get("must_bind_successful_workflow_runs"),
+            "must_bind_successful_workflow_runs": anchor_boundary.get(
+                "must_bind_successful_workflow_runs"
+            ),
             "provider_call_effect": anchor_boundary.get("provider_call_effect"),
             "pair_001_execution_effect": anchor_boundary.get("pair_001_execution_effect"),
             "readiness_effect": anchor_boundary.get("readiness_effect"),
@@ -538,7 +685,7 @@ def derive_projection(
             "A declared successor is not authorization to take it.",
             "No diagnostic is classified as a Pair-001 repetition.",
             "No provider call, readiness promotion, or Pair-001 execution is performed by this surface.",
-            "Sequence conformance does not establish truth, approval, compliance, safety, legal sufficiency, production readiness, or institutional authority."
+            "Sequence conformance does not establish truth, approval, compliance, safety, legal sufficiency, production readiness, or institutional authority.",
         ],
     }
 
@@ -550,7 +697,18 @@ def evaluate(
     compare_projection: bool = True,
 ) -> dict[str, Any]:
     errors: list[dict[str, str]] = []
-    required = [SCHEMA, CONTRACT, LEDGER, DRIFT, REQUEST, STATE, BINDING, RELEASE_ANCHOR]
+    required = [
+        SCHEMA,
+        CONTRACT,
+        LEDGER,
+        DRIFT,
+        REQUEST,
+        STATE,
+        BINDING,
+        RELEASE_ANCHOR,
+        UPPERCASE_AUTHORIZATION,
+        CURRENT_LINE_SUCCESSOR,
+    ]
     if compare_projection:
         required.append(PROJECTION)
     missing = [path.as_posix() for path in required if not (root / path).is_file()]
@@ -637,6 +795,7 @@ def evaluate(
     recorded_authorization_ids: set[str] = set()
     active_authorizations: dict[str, tuple[str, dict[str, str]]] = {}
     uppercase_eligible_at: datetime | None = None
+
     for index, event in enumerate(events):
         path = f"events/{index}"
         if not isinstance(event, dict):
@@ -778,7 +937,22 @@ def evaluate(
             elif not artifact.is_file():
                 add_error(errors, "EVIDENCE_REFERENCE_INVALID", str(reference.get("path")), ref_path)
             elif sha256(artifact) != reference.get("sha256"):
-                add_error(errors, "SOURCE_ARTIFACT_DIGEST_MISMATCH", str(reference.get("path")), ref_path)
+                historical_snapshot = root / HISTORICAL_PROVIDER_BLOCK_SNAPSHOT
+                historical_match = (
+                    event_id == "FSS-PAIR001-E009"
+                    and reference.get("path") == REQUEST.as_posix()
+                    and reference.get("standing") == "CURRENT_BLOCKED_CONTROL"
+                    and not historical_snapshot.is_symlink()
+                    and historical_snapshot.is_file()
+                    and sha256(historical_snapshot) == reference.get("sha256")
+                )
+                if not historical_match:
+                    add_error(
+                        errors,
+                        "SOURCE_ARTIFACT_DIGEST_MISMATCH",
+                        str(reference.get("path")),
+                        ref_path,
+                    )
 
         if transition_id in RETRY_OUTCOME_TRANSITIONS:
             validate_retry_outcome(
@@ -817,7 +991,7 @@ def evaluate(
             "authorized_transition_ids": sorted(UPPERCASE_AUTH_TRANSITIONS),
             "request_sha256": UPPERCASE_REQUEST_SHA,
             "maximum_provider_calls": 1,
-            "not_before_utc": "2026-07-20T07:55:24.374494+00:00",
+            "not_before_utc": UPPERCASE_NOT_BEFORE,
         },
         "lowercase_scope": {
             "authorization_kind": "ONE_TIME_LOWERCASE_PROVIDER_VALIDATION_DIAGNOSTIC",
@@ -846,12 +1020,14 @@ def evaluate(
         and drift.get("status") == "CLASSIFIED_RETRY_NOT_AUTHORIZED"
         and uppercase.get("explicit_authorization_required") is True
         and uppercase.get("minimum_gap_hours") == 24
-        and uppercase.get("earliest_permitted_at_utc") == "2026-07-20T07:55:24.374494+00:00"
+        and uppercase.get("earliest_permitted_at_utc") == UPPERCASE_NOT_BEFORE
         and uppercase.get("request_sha256") == UPPERCASE_REQUEST_SHA
         and uppercase.get("remaining_attempts")
         == drift_budget.get("additional_byte_identical_uppercase_attempts_permitted")
         == 1
-        and uppercase.get("automatic_attempts") == drift_budget.get("automatic_retries_permitted") == 0
+        and uppercase.get("automatic_attempts")
+        == drift_budget.get("automatic_retries_permitted")
+        == 0
         and identical.get("http_status") == 500
         and identical.get("response_body_sha256") == IDENTICAL_FAILURE_BODY_SHA
         and identical.get("additional_uppercase_retries") == 0
@@ -864,10 +1040,11 @@ def evaluate(
     if not stopping_ok:
         add_error(errors, "STOPPING_RULE_MISMATCH", "sequence and drift stopping rules diverge")
 
-    control_boundary_ok = (
-        request.get("status") == "BLOCKED_PROVIDER_VALIDATION_FAILED"
-        and request.get("disposition", {}).get("provider_validation_prerequisite_satisfied") is False
-        and request.get("disposition", {}).get("pair_001_execution_permitted") is False
+    current_line_authorization_present = validate_current_line_request(root, request, errors)
+    historical_control_boundary_ok = (
+        drift.get("execution_boundary", {}).get("provider_validation_request_status")
+        == "BLOCKED_PROVIDER_VALIDATION_FAILED"
+        and drift.get("execution_boundary", {}).get("retry_authorized") is False
         and state.get("publication", {}).get("status") == "anchor_ci_green"
         and state.get("repeat_runs") == []
         and binding.get("status") == "STRUCTURALLY_READY_EXECUTION_BLOCKED"
@@ -876,8 +1053,8 @@ def evaluate(
         and release_anchor.get("status") == "published"
         and release_anchor.get("pair_001_execution_effect") == "NONE"
     )
-    if not control_boundary_ok:
-        add_error(errors, "CONTROL_BOUNDARY_MISMATCH", "Pair-001 control boundary is not fail closed")
+    if not historical_control_boundary_ok:
+        add_error(errors, "CONTROL_BOUNDARY_MISMATCH", "historical Pair-001 control boundary is not fail closed")
 
     projection = derive_projection(
         root=root,
@@ -888,6 +1065,7 @@ def evaluate(
         state=state,
         binding=binding,
         release_anchor=release_anchor,
+        current_line_authorization_present=current_line_authorization_present,
     )
     if compare_projection and committed_projection != projection:
         add_error(errors, "PROJECTION_MISMATCH", "committed projection differs from deterministic recomputation")
@@ -909,39 +1087,31 @@ def finish(errors: list[dict[str, str]], *, projection: dict[str, Any] | None) -
             "readiness_effect": "NONE",
             "anchor_status": "SEPARATE_SUCCESSOR_REQUIRED",
         },
-        "errors": errors,
         "error_codes": sorted({item["code"] for item in errors}),
+        "errors": sorted(errors, key=lambda item: (item["code"], item["path"], item["detail"])),
         "projection": projection,
-        "non_claims": {
-            "does_not_establish_truth": True,
-            "does_not_authorize_successor_transition": True,
-            "does_not_authorize_provider_calls": True,
-            "does_not_promote_readiness": True,
-            "does_not_execute_pair_001": True,
-            "does_not_resist_coordinated_resealing_without_successor_anchor": True,
-        },
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd())
+    parser.add_argument("--write-projection", type=Path)
     parser.add_argument("--json", action="store_true", dest="as_json")
-    parser.add_argument("--derive-projection", action="store_true")
     args = parser.parse_args()
     root = repo_root(args.root)
-    result = evaluate(root, compare_projection=not args.derive_projection)
-    if args.derive_projection:
-        if result["projection"] is None or result["errors"]:
-            print(json.dumps(result, indent=2, sort_keys=True))
-            return 1
-        print(pretty_json(result["projection"]), end="")
-        return 0
+    result = evaluate(root, compare_projection=args.write_projection is None)
+    if args.write_projection is not None and result["projection"] is not None:
+        target = args.write_projection
+        if not target.is_absolute():
+            target = root / target
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(pretty_json(result["projection"]), encoding="utf-8", newline="\n")
     if args.as_json:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:
         for error in result["errors"]:
-            print(f"[{error['code']}] {error['path']}: {error['detail']}")
+            print(f"[FAIL] {error['code']}: {error['path']}: {error['detail']}")
         print(result["result"]["status"])
     return 1 if result["errors"] else 0
 

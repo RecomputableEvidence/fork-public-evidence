@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the fail-closed DeepSeek receiver-drift classification contract."""
+"""Verify the historical drift contract and its bounded current-line retry successor."""
 
 from __future__ import annotations
 
@@ -16,10 +16,25 @@ CONTRACT = BASE / "pre-execution" / "DEEPSEEK_RECEIVER_DRIFT_CLASSIFICATION_CONT
 REQUEST = BASE / "pre-execution" / "PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
 STATE = BASE / "execution-state" / "PAIR-001_EXECUTION_STATE_v0_1_1.json"
 ORIGINAL_METADATA = BASE / "receipts" / "baseline" / "pair-001" / "CSH-RUN-001" / "execution-metadata.json"
+SEQUENCE_LEDGER = Path("docs/sequence-surface/PAIR_001_SEQUENCE_LEDGER_v0_1.json")
+AUTHORIZATION = Path(
+    "docs/sequence-surface/authorizations/"
+    "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_v0_1.json"
+)
+CURRENT_LINE_SUCCESSOR = Path(
+    "docs/sequence-surface/authorizations/"
+    "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_CURRENT_LINE_SUCCESSOR_v0_1.json"
+)
 UPPERCASE_ID = "deepseek/DeepSeek-V3-0324"
 LOWERCASE_ID = "deepseek/deepseek-v3-0324"
 IDENTICAL_FAILURE_BODY = "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
 RETRY_REQUEST_SHA = "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
+AUTHORIZATION_SHA = "c57247c10d9366ba6f99859cc56f6676f2f111942f91dbb510bf818f5586bd94"
+CURRENT_LINE_SUCCESSOR_SHA = "220e3e6a318f90463589e9422873833db58d997a0ab7d1f464cdf126c12acf67"
+SEQUENCE_LEDGER_SHA = "d449501c0ee2e71acdf6f7a76fb764002f25562a94bf4f3af3803810aaa65681"
+AUTHORIZATION_MERGE_COMMIT = "8996a65d02952945062fdf1f29b75aa128d2f9f2"
+AUTHORIZATION_ID = "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22"
+NOT_BEFORE_UTC = "2026-07-20T07:55:24.374494+00:00"
 EXPECTED_ATTEMPTS = (
     {
         "attempt_number": 1,
@@ -94,7 +109,15 @@ def evaluate(root: Path) -> dict[str, Any]:
     def record(name: str, passed: bool, detail: str) -> None:
         checks.append({"name": name, "passed": passed, "detail": detail})
 
-    required = [CONTRACT, REQUEST, STATE, ORIGINAL_METADATA]
+    required = [
+        CONTRACT,
+        REQUEST,
+        STATE,
+        ORIGINAL_METADATA,
+        SEQUENCE_LEDGER,
+        AUTHORIZATION,
+        CURRENT_LINE_SUCCESSOR,
+    ]
     missing = [path.as_posix() for path in required if not (root / path).is_file()]
     record("required_surface", not missing, "present" if not missing else "; ".join(missing))
     if missing:
@@ -105,12 +128,24 @@ def evaluate(root: Path) -> dict[str, Any]:
         request = load(root / REQUEST)
         state = load(root / STATE)
         original = load(root / ORIGINAL_METADATA)
+        authorization_anchor = load(root / AUTHORIZATION)
+        current_line_successor = load(root / CURRENT_LINE_SUCCESSOR)
     except (OSError, json.JSONDecodeError, DuplicateKeyError, ValueError) as exc:
         record("strict_json", False, str(exc))
         return finish(checks)
     record("strict_json", True, "control records parse without duplicate keys")
 
-    objects_ok = all(isinstance(item, dict) for item in (contract, request, state, original))
+    objects_ok = all(
+        isinstance(item, dict)
+        for item in (
+            contract,
+            request,
+            state,
+            original,
+            authorization_anchor,
+            current_line_successor,
+        )
+    )
     record("root_object_shape", objects_ok, "objects" if objects_ok else "one or more root records are not objects")
     if not objects_ok:
         return finish(checks)
@@ -122,7 +157,7 @@ def evaluate(root: Path) -> dict[str, Any]:
         and contract.get("cause") == "UNRESOLVED"
         and contract.get("status") == "CLASSIFIED_RETRY_NOT_AUTHORIZED"
     )
-    record("classification_identity", identity_ok, "cause remains UNRESOLVED" if identity_ok else "classification mismatch")
+    record("classification_identity", identity_ok, "historical cause remains UNRESOLVED" if identity_ok else "classification mismatch")
 
     observations = contract.get("observations", {})
     if not isinstance(observations, dict):
@@ -210,11 +245,11 @@ def evaluate(root: Path) -> dict[str, Any]:
     stopping = contract.get("precommitted_stopping_rule", {})
     if not isinstance(stopping, dict):
         stopping = {}
-    authorization = stopping.get("authorization", {})
+    historical_authorization = stopping.get("authorization", {})
     budget = stopping.get("retry_budget", {})
     exact_retry = stopping.get("exact_uppercase_retry", {})
-    if not isinstance(authorization, dict):
-        authorization = {}
+    if not isinstance(historical_authorization, dict):
+        historical_authorization = {}
     if not isinstance(budget, dict):
         budget = {}
     if not isinstance(exact_retry, dict):
@@ -227,7 +262,7 @@ def evaluate(root: Path) -> dict[str, Any]:
         gap_seconds = -1
     stopping_ok = (
         stopping.get("scope") == "DEEPSEEK_PROVIDER_VALIDATION_DIAGNOSTIC_ONLY"
-        and authorization == {
+        and historical_authorization == {
             "explicit_retry_authorization_required": True,
             "present": False,
             "authorization_record": None,
@@ -246,7 +281,7 @@ def evaluate(root: Path) -> dict[str, Any]:
         and exact_retry.get("max_tokens") == 2048
         and exact_retry.get("pair_001_run_id_created") is False
     )
-    record("one_retry_after_authorization_and_24h", stopping_ok, "one dormant byte-identical retry" if stopping_ok else "retry gate mismatch")
+    record("historical_retry_rule_preserved", stopping_ok, "historical dormant retry contract unchanged" if stopping_ok else "retry gate mismatch")
 
     success = stopping.get("success_path", {})
     identical = stopping.get("identical_failure_path", {})
@@ -295,8 +330,8 @@ def evaluate(root: Path) -> dict[str, Any]:
     boundary = contract.get("execution_boundary", {})
     if not isinstance(boundary, dict):
         boundary = {}
-    boundary_ok = (
-        request.get("status") == boundary.get("provider_validation_request_status") == "BLOCKED_PROVIDER_VALIDATION_FAILED"
+    historical_boundary_ok = (
+        boundary.get("provider_validation_request_status") == "BLOCKED_PROVIDER_VALIDATION_FAILED"
         and boundary.get("provider_calls_performed_by_contract_publication") == 0
         and boundary.get("retry_authorized") is False
         and boundary.get("pair_001_calls_performed_by_contract_publication") == 0
@@ -304,7 +339,95 @@ def evaluate(root: Path) -> dict[str, Any]:
         and boundary.get("readiness_effect") == "NONE"
         and state.get("repeat_runs") == []
     )
-    record("no_calls_no_promotion", boundary_ok, "provider lane blocked; Pair-001 unchanged" if boundary_ok else "execution boundary mismatch")
+    record("historical_no_calls_no_promotion", historical_boundary_ok, "historical contract remains fail closed" if historical_boundary_ok else "historical boundary mismatch")
+
+    retry_authorization = request.get("retry_authorization", {})
+    request_execution = request.get("execution_boundary", {})
+    disposition = request.get("disposition", {})
+    successor_governed = current_line_successor.get("governed_line", {})
+    successor_anchor = current_line_successor.get("authorization_anchor", {})
+    successor_revalidation = current_line_successor.get("current_line_revalidation", {})
+    successor_transition = current_line_successor.get("request_transition", {})
+    successor_boundary = current_line_successor.get("execution_boundary", {})
+    current_line_ok = (
+        sha256(root / AUTHORIZATION) == AUTHORIZATION_SHA
+        and sha256(root / CURRENT_LINE_SUCCESSOR) == CURRENT_LINE_SUCCESSOR_SHA
+        and sha256(root / SEQUENCE_LEDGER) == SEQUENCE_LEDGER_SHA
+        and authorization_anchor.get("authorization_id") == AUTHORIZATION_ID
+        and authorization_anchor.get("status") == "ACTIVE"
+        and authorization_anchor.get("authorization_kind") == "ONE_TIME_UPPERCASE_PROVIDER_VALIDATION_RETRY"
+        and authorization_anchor.get("request_sha256") == RETRY_REQUEST_SHA
+        and authorization_anchor.get("maximum_provider_calls") == 1
+        and authorization_anchor.get("not_before_utc") == NOT_BEFORE_UTC
+        and authorization_anchor.get("execution_boundary")
+        == {
+            "automatic_execution": False,
+            "pair_001_execution_authorized": False,
+            "readiness_promotion_authorized": False,
+        }
+        and current_line_successor.get("record_kind") == "current_line_authorization_successor"
+        and current_line_successor.get("status")
+        == "CURRENT_LINE_REVALIDATED_ONE_TIME_RETRY_ELIGIBLE_REQUEST_TRANSITION_PENDING"
+        and successor_governed.get("branch") == "preservation/clean-continuance-v0.1"
+        and successor_governed.get("authorization_merge_commit") == AUTHORIZATION_MERGE_COMMIT
+        and successor_anchor.get("path") == AUTHORIZATION.as_posix()
+        and successor_anchor.get("sha256") == AUTHORIZATION_SHA
+        and successor_anchor.get("authorization_id") == AUTHORIZATION_ID
+        and successor_anchor.get("request_sha256") == RETRY_REQUEST_SHA
+        and successor_anchor.get("maximum_provider_calls") == 1
+        and successor_revalidation.get("preregistered_request_bytes_unchanged") is True
+        and successor_revalidation.get("requested_model") == UPPERCASE_ID
+        and successor_revalidation.get("max_tokens") == 2048
+        and successor_revalidation.get("request_sha256") == RETRY_REQUEST_SHA
+        and successor_revalidation.get("time_gate_elapsed") is True
+        and successor_revalidation.get("automatic_attempts_permitted") == 0
+        and successor_revalidation.get("remaining_authorized_attempts") == 1
+        and successor_revalidation.get("outcome_mapping_unchanged") is True
+        and successor_revalidation.get("cause") == "UNRESOLVED"
+        and successor_transition.get("path") == REQUEST.as_posix()
+        and successor_transition.get("required_pre_execution_status") == "RETRY_REQUESTED"
+        and successor_transition.get("one_call_mode") == "UPPERCASE_DEEPSEEK_ONLY"
+        and successor_boundary.get("provider_validation_calls_authorized") == 1
+        and successor_boundary.get("provider_validation_calls_performed_by_this_record") == 0
+        and successor_boundary.get("pair_001_calls_performed") == 0
+        and successor_boundary.get("pair_001_execution_authorized") is False
+        and successor_boundary.get("readiness_promotion_authorized") is False
+        and request.get("status") == "RETRY_REQUESTED"
+        and request.get("classification") == "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE"
+        and request.get("trusted_lineage", {}).get("uppercase_retry_authorization_merge_commit")
+        == AUTHORIZATION_MERGE_COMMIT
+        and isinstance(retry_authorization, dict)
+        and retry_authorization.get("present") is True
+        and retry_authorization.get("authorization_anchor")
+        == {"path": AUTHORIZATION.as_posix(), "sha256": AUTHORIZATION_SHA}
+        and retry_authorization.get("current_line_successor")
+        == {"path": CURRENT_LINE_SUCCESSOR.as_posix(), "sha256": CURRENT_LINE_SUCCESSOR_SHA}
+        and retry_authorization.get("authorization_merge_commit") == AUTHORIZATION_MERGE_COMMIT
+        and retry_authorization.get("authorization_id") == AUTHORIZATION_ID
+        and retry_authorization.get("requested_model") == UPPERCASE_ID
+        and retry_authorization.get("max_tokens") == 2048
+        and retry_authorization.get("request_sha256") == RETRY_REQUEST_SHA
+        and retry_authorization.get("maximum_provider_calls") == 1
+        and retry_authorization.get("automatic_execution") is False
+        and retry_authorization.get("one_call_mode") == "UPPERCASE_DEEPSEEK_ONLY"
+        and request_execution.get("additional_provider_validation_calls_requested") == 1
+        and request_execution.get("maximum_additional_provider_validation_calls") == 1
+        and request_execution.get("pair_001_calls_performed") == 0
+        and request_execution.get("pair_001_execution_effect") == "NONE"
+        and request_execution.get("readiness_effect") == "NONE"
+        and request_execution.get("experiment_run_ids_created") == []
+        and disposition.get("provider_validation_prerequisite_satisfied") is False
+        and disposition.get("provider_execution_permitted") is False
+        and disposition.get("pair_001_execution_permitted") is False
+        and disposition.get("preregistered_request_bytes_changed") is False
+    )
+    record(
+        "current_line_one_time_retry_requested",
+        current_line_ok,
+        "one uppercase diagnostic requested; Pair-001 and readiness remain closed"
+        if current_line_ok
+        else "current-line successor or request binding mismatch",
+    )
     return finish(checks)
 
 
@@ -314,7 +437,11 @@ def finish(checks: list[dict[str, Any]]) -> dict[str, Any]:
         "checker": Path(__file__).name,
         "result": {
             "valid": not failed,
-            "status": "DRIFT_CONTRACT_VALID_RETRY_NOT_AUTHORIZED" if not failed else "DRIFT_CONTRACT_INVALID",
+            "status": (
+                "DRIFT_CONTRACT_VALID_ONE_TIME_UPPERCASE_RETRY_REQUESTED"
+                if not failed
+                else "DRIFT_CONTRACT_INVALID"
+            ),
             "cause": "UNRESOLVED",
             "provider_calls_performed": 0,
             "pair_001_execution_effect": "NONE",

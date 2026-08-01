@@ -39,11 +39,11 @@
     "instrumentation_release": "PUBLISHED",
     "mutable_publication_state": "anchor_ci_green",
     "pre_execution_status": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
-    "provider_validation_request_status": "BLOCKED_PROVIDER_VALIDATION_FAILED"
+    "provider_validation_request_status": "RETRY_REQUESTED"
   },
   "record_kind": "deterministic_sequence_projection",
   "retry": {
-    "authorization_present": false,
+    "authorization_present": true,
     "automatic_attempts": 0,
     "earliest_permitted_at_utc": "2026-07-20T07:55:24.374494+00:00",
     "explicit_authorization_required": true,
