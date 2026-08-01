@@ -1,0 +1,85 @@
+{
+  "authentication": {
+    "authorization_header_persisted": false,
+    "credential_source": "EPHEMERAL_GITHUB_ACTIONS_GITHUB_TOKEN",
+    "required_permission": "models: read",
+    "secret_persisted": false
+  },
+  "authorization": {
+    "authorization_anchor": {
+      "path": "docs/sequence-surface/authorizations/PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_v0_1.json",
+      "sha256": "c57247c10d9366ba6f99859cc56f6676f2f111942f91dbb510bf818f5586bd94"
+    },
+    "authorization_id": "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22",
+    "authorization_merge_commit": "8996a65d02952945062fdf1f29b75aa128d2f9f2",
+    "current_line_successor": {
+      "path": "docs/sequence-surface/authorizations/PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_CURRENT_LINE_SUCCESSOR_v0_1.json",
+      "sha256": "220e3e6a318f90463589e9422873833db58d997a0ab7d1f464cdf126c12acf67"
+    },
+    "maximum_provider_calls": 1,
+    "pair_001_execution_authorized": false,
+    "readiness_promotion_authorized": false,
+    "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
+  },
+  "calls": [
+    {
+      "expected_returned_model": "DeepSeek-V3-0324",
+      "failure": {
+        "message": "provider returned HTTP 410",
+        "type": "ValueError"
+      },
+      "http_status": 410,
+      "max_tokens": 2048,
+      "passed": false,
+      "provider": "DeepSeek",
+      "quota_headers": {},
+      "receiver_class_id": "llm_receiver_b",
+      "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+      "requested_model": "deepseek/DeepSeek-V3-0324",
+      "response_body_sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+      "response_body_written": false,
+      "sanitized_error": {
+        "body_parsed_as_strict_json": true,
+        "capture_schema": "SANITIZED_PROVIDER_ERROR_CODE_v0_1",
+        "error_code": "github_models_retirement_brownout",
+        "error_type": null,
+        "message_persisted": false,
+        "raw_body_persisted": false
+      }
+    }
+  ],
+  "classification": "PROVIDER_VALIDATION_ONLY_EXCLUDED_FROM_CSH_BASELINE",
+  "endpoint": "https://models.github.ai/inference/chat/completions",
+  "experiment_run_ids_created": [],
+  "non_claims": [
+    "Not a Pair-001 request or repetition",
+    "Not included in the CSH baseline or hypothesis test",
+    "No provider credential or authorization header persisted",
+    "No experiment execution authority",
+    "No security, compliance, safety, truth, or production-readiness certification",
+    "This receipt consumes the one authorized uppercase diagnostic call.",
+    "Success leaves freshness validation and readiness anchoring pending.",
+    "Failure grants no additional uppercase retry."
+  ],
+  "observed_at_utc": "2026-08-01T18:10:37.450309+00:00",
+  "pair_001_calls_performed": 0,
+  "provider_validation_calls_performed": 1,
+  "receipt_destination": {
+    "path": "provider-validation-artifacts/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json",
+    "round_trip_verified": true,
+    "write_mode": "CREATE_NEW"
+  },
+  "receipt_id": "CSH_PROVIDER_VALIDATION_RECEIPT_v0_1_2",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "schema_version": "v0.1.2",
+  "status": "FAIL",
+  "subject_commit": "5cf581c7b95c5ea4e9b662e089fc89f5b552696f",
+  "validation_mode": "UPPERCASE_DEEPSEEK_ONLY",
+  "validations": {
+    "credential_scope_models_read": "FAIL",
+    "provider_identity": "FAIL",
+    "quota_available_at_validation_time": "FAIL",
+    "receipt_destination": "PASS"
+  },
+  "workflow_run_id": 30711931234
+}

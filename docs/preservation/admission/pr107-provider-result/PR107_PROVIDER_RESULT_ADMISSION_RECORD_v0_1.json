@@ -1,0 +1,87 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "provider_result_admission_record",
+  "record_id": "PR107_PROVIDER_RESULT_ADMISSION_2026_08_01_v0_1",
+  "status": "ADMISSION_CANDIDATE_REVIEWED_MERGE_REQUIRED",
+  "governed_line": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "predecessor_tip": "8996a65d02952945062fdf1f29b75aa128d2f9f2",
+    "request_admission_merge_commit": "5cf581c7b95c5ea4e9b662e089fc89f5b552696f",
+    "source_pull_request": 107
+  },
+  "source_workflow": {
+    "name": "CSH Provider Validation v0.1.2",
+    "run_id": 30711931234,
+    "run_number": 7,
+    "run_attempt": 1,
+    "event": "push",
+    "head_sha": "5cf581c7b95c5ea4e9b662e089fc89f5b552696f",
+    "conclusion": "failure",
+    "created_at": "2026-08-01T18:10:26Z",
+    "updated_at": "2026-08-01T18:10:41Z"
+  },
+  "source_artifact": {
+    "artifact_id": 8822142294,
+    "name": "csh-provider-validation-5cf581c7b95c5ea4e9b662e089fc89f5b552696f",
+    "receipt_path": "docs/preservation/admission/pr107-provider-result/PROVIDER_VALIDATION_ATTESTATION_v0_1_2.json",
+    "receipt_sha256": "ba8ee806312288f0259e19e43cd84f71e364fdfcbdb8cb1abf68e1fddf09a899",
+    "run_metadata_path": "docs/preservation/admission/pr107-provider-result/RUN_METADATA.json",
+    "run_metadata_sha256": "ec05b0c5ca4a476662f8a45a9159e51e75a2aba24add37115b74ae9eb6ce15ed",
+    "artifact_metadata_path": "docs/preservation/admission/pr107-provider-result/ARTIFACT_METADATA.json",
+    "artifact_metadata_sha256": "4d9615d45374c79d3605143cd75e7b2d442b7e2e435f55beed5755a2fd52670a",
+    "observer_workflow_run_id": 30712040857,
+    "observer_artifact_id": 8822175349,
+    "observer_artifact_sha256": "5e2a95bb3a0497e52d293843ed2a4ba6ffa1275232531a30da7d56195c7a51e5"
+  },
+  "authorized_request": {
+    "authorization_id": "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_AUTHORIZATION_2026_07_22",
+    "authorization_merge_commit": "8996a65d02952945062fdf1f29b75aa128d2f9f2",
+    "validation_mode": "UPPERCASE_DEEPSEEK_ONLY",
+    "requested_model": "deepseek/DeepSeek-V3-0324",
+    "request_sha256": "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef",
+    "maximum_provider_calls": 1,
+    "provider_calls_performed": 1,
+    "remaining_authorized_calls": 0,
+    "pair_001_calls_performed": 0
+  },
+  "observed_result": {
+    "receipt_status": "FAIL",
+    "http_status": 410,
+    "response_body_sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+    "sanitized_error_capture_schema": "SANITIZED_PROVIDER_ERROR_CODE_v0_1",
+    "sanitized_error_code": "github_models_retirement_brownout",
+    "raw_body_persisted": false,
+    "message_persisted": false,
+    "classification": "DIFFERENT_OUTCOME_PROVIDER_LIFECYCLE_SIGNAL_CAUSE_NOT_INFERRED",
+    "precommitted_transition_id": "FSS-PAIR001-T016",
+    "resulting_state": "UPPERCASE_RETRY_DIFFERENT_OUTCOME_CLASSIFICATION_REQUIRED"
+  },
+  "disposition": {
+    "uppercase_retry_consumed": true,
+    "additional_uppercase_retry_authorized": false,
+    "lowercase_diagnostic_authorized": false,
+    "replacement_endpoint_or_model_authorized": false,
+    "request_byte_modification_authorized": false,
+    "pair_001_execution_authorized": false,
+    "readiness_promotion_authorized": false,
+    "freshness_validated": false,
+    "cause": "UNRESOLVED",
+    "next_action": "PRESERVE_RESULT_AND_REQUIRE_SEPARATE_PROVIDER_LIFECYCLE_CLASSIFICATION_BEFORE_ANY_NEW_REQUEST"
+  },
+  "admission_effect": {
+    "effective_only_on_reviewed_merge_to_governed_branch": true,
+    "admits_exact_provider_result_as_bounded_negative_evidence": true,
+    "admits_provider_or_model_availability_claim": false,
+    "admits_pair_001_result": false,
+    "authority_delta": "NONE",
+    "execution_effect": "NONE",
+    "repository_settings_effect": "NONE"
+  },
+  "non_claims": [
+    "HTTP 410 is not evidence that the requested model is permanently unavailable outside the observed endpoint and time.",
+    "The sanitized retirement-brownout code is provider-supplied evidence, not an independently verified causal explanation.",
+    "The observed result is excluded from the CSH baseline and is not a Pair-001 repetition.",
+    "Failure does not replenish the consumed retry budget or authorize identifier, endpoint, provider, or request-byte substitution.",
+    "Admission of this record does not establish readiness, compliance, safety, truth, legal sufficiency, or production authority."
+  ]
+}

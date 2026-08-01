@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-08-01T18:10:38Z",
+  "expired": false,
+  "expires_at": "2026-08-08T18:10:37Z",
+  "id": 8822142294,
+  "name": "csh-provider-validation-5cf581c7b95c5ea4e9b662e089fc89f5b552696f",
+  "size_in_bytes": 1799,
+  "updated_at": "2026-08-01T18:10:38Z",
+  "workflow_run": {
+    "head_branch": "preservation/clean-continuance-v0.1",
+    "head_repository_id": 1266645998,
+    "head_sha": "5cf581c7b95c5ea4e9b662e089fc89f5b552696f",
+    "id": 30711931234,
+    "repository_id": 1266645998
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "open_pull_request_reconciliation",
+  "record_id": "OPEN_PR_RECONCILIATION_AFTER_PR107_2026_08_01_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "canonical_line": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "tip_after_pr107": "5cf581c7b95c5ea4e9b662e089fc89f5b552696f"
+  },
+  "reconciliation_rule": "Preserve each draft's historical construction and review coordinates. Do not inherit current standing from PR107. Any future merge candidate must demonstrate an explicit successor relationship to the then-current governed tip and refresh moving manifests or receipts without rewriting preserved predecessor evidence.",
+  "pull_requests": [
+    {
+      "number": 106,
+      "title": "feat(proofs): govern sequenced proof portfolio v0.1",
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "recorded_base_sha": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+      "head_sha": "1038be6cf56d2b6ed74d2bee888c38cdd6fd0f92",
+      "standing": "DRAFT_PROOF_PORTFOLIO_CANDIDATE",
+      "disposition": "HOLD_DRAFT_PENDING_PROOF_001_ADMISSION_AND_NEW_TIP_SUCCESSOR_RECONCILIATION",
+      "automatic_rebase": false,
+      "merge_authorized": false
+    },
+    {
+      "number": 105,
+      "title": "docs(verification): preserve Shayne PR #64 recomputation and release bundle",
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "recorded_base_sha": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+      "head_sha": "b5c9d12109055a258b5ef33dac48f4f504b0a212",
+      "standing": "DRAFT_EXTERIOR_RECOMPUTATION_EVIDENCE",
+      "disposition": "PRESERVE_EXACT_REVIEW_COORDINATES; REQUIRE_NEW_TIP_SUCCESSOR_AND_MANIFEST_REFRESH_BEFORE_MERGE_CONSIDERATION",
+      "automatic_rebase": false,
+      "merge_authorized": false
+    },
+    {
+      "number": 100,
+      "title": "feat(interop): add governed handoff cadence harness v0.1",
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "recorded_base_sha": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+      "head_sha": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+      "standing": "DETERMINISTIC_SIMULATION_CANDIDATE_NOT_ADMITTED",
+      "disposition": "HOLD_DRAFT_PENDING_EXTERIOR_RECOMPUTATION_AND_NEW_TIP_SUCCESSOR_RECONCILIATION",
+      "automatic_rebase": false,
+      "merge_authorized": false
+    },
+    {
+      "number": 86,
+      "title": "docs(meta-evidence): add CAD candidate meta-assessment supplement 001",
+      "base_branch": "research/conversational-authority-drift-v0-1",
+      "recorded_base_sha": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "head_sha": "f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+      "standing": "STACKED_DRAFT_COMPANION_REVIEW_PENDING",
+      "disposition": "KEEP_STACKED_ON_FROZEN_PR84_PARENT; DO_NOT_RETARGET_OR_MERGE_INDEPENDENTLY",
+      "automatic_rebase": false,
+      "merge_authorized": false
+    },
+    {
+      "number": 84,
+      "title": "docs(meta-evidence): add conversational authority drift candidate v0.1",
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "recorded_base_sha": "1241c0084900f2c60f362205525464582e57b4a7",
+      "head_sha": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "standing": "FROZEN_EXACT_HEAD_REVIEW_CANDIDATE",
+      "disposition": "PRESERVE_FROZEN_EXTERNAL_REVIEW_COORDINATE; REQUIRE_SEPARATE_SUCCESSOR_AFTER_REVIEW_BEFORE_ANY_MERGE",
+      "automatic_rebase": false,
+      "merge_authorized": false
+    },
+    {
+      "number": 65,
+      "title": "fix(day0): close ADV_003 inventory and packet-root gaps",
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "recorded_base_sha": "599d3e193d86a9661fbbec3213ae1921b4959f10",
+      "head_sha": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+      "standing": "DRAFT_CORRECTED_HEAD_RECOMPUTATION_PENDING",
+      "disposition": "HOLD_DRAFT_PENDING_INDEPENDENT_RECOMPUTATION_AND_NEW_TIP_SUCCESSOR_RECONCILIATION",
+      "automatic_rebase": false,
+      "merge_authorized": false
+    }
+  ],
+  "effects": {
+    "pull_request_bases_changed": 0,
+    "pull_request_heads_changed": 0,
+    "standing_promotions": 0,
+    "merge_authorizations": 0,
+    "provider_calls": 0,
+    "pair_001_calls": 0
+  },
+  "non_claims": [
+    "Reconciliation does not validate the contents of any listed pull request.",
+    "A draft's green historical CI does not validate it against the current governed tip.",
+    "Preserving an exact review coordinate does not require rebasing or grant merge standing.",
+    "This record does not close, retarget, merge, approve, or reject any listed pull request."
+  ]
+}
