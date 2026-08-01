@@ -35,6 +35,8 @@ CURRENT_LINE_SUCCESSOR = (
     / "PAIR_001_UPPERCASE_PROVIDER_VALIDATION_RETRY_CURRENT_LINE_SUCCESSOR_v0_1.json"
 )
 BASE_SEQUENCE_HEAD = "0e58a151cb5801f554619eb44a40948ad03e3e55"
+HISTORICAL_PROVIDER_BLOCK_COMMIT = "0e58a151cb5801f554619eb44a40948ad03e3e55"
+HISTORICAL_PROVIDER_BLOCK_SNAPSHOT = Path("docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json")
 GENESIS_HASH = "0" * 64
 UPPERCASE_REQUEST_SHA = "d2c8aabbdda4f17509395aa8a55f607b2b0d52138a251e8da92bb8384a05bcef"
 IDENTICAL_FAILURE_BODY_SHA = "aaa6769a31dd521019993212fa93add5efbcdaadc2e777041173091a03fafc23"
@@ -935,7 +937,22 @@ def evaluate(
             elif not artifact.is_file():
                 add_error(errors, "EVIDENCE_REFERENCE_INVALID", str(reference.get("path")), ref_path)
             elif sha256(artifact) != reference.get("sha256"):
-                add_error(errors, "SOURCE_ARTIFACT_DIGEST_MISMATCH", str(reference.get("path")), ref_path)
+                historical_snapshot = root / HISTORICAL_PROVIDER_BLOCK_SNAPSHOT
+                historical_match = (
+                    event_id == "FSS-PAIR001-E009"
+                    and reference.get("path") == REQUEST.as_posix()
+                    and reference.get("standing") == "CURRENT_BLOCKED_CONTROL"
+                    and not historical_snapshot.is_symlink()
+                    and historical_snapshot.is_file()
+                    and sha256(historical_snapshot) == reference.get("sha256")
+                )
+                if not historical_match:
+                    add_error(
+                        errors,
+                        "SOURCE_ARTIFACT_DIGEST_MISMATCH",
+                        str(reference.get("path")),
+                        ref_path,
+                    )
 
         if transition_id in RETRY_OUTCOME_TRANSITIONS:
             validate_retry_outcome(

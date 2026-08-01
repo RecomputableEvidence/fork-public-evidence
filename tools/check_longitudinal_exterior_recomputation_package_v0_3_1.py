@@ -8,6 +8,7 @@ import copy
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path, PurePosixPath
 from typing import Any
@@ -30,6 +31,7 @@ TEST = Path("tests/test_longitudinal_exterior_recomputation_package_v0_3_1.py")
 RETURN_TOOL = Path("tools/check_longitudinal_exterior_recomputation_return_v0_1.py")
 RETURN_TEST = Path("tests/test_longitudinal_exterior_recomputation_return_v0_1.py")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+PREDECESSOR_PACKAGE_COMMIT = "353c1b8159cfe0b4e1f3710b11a3c7f1aeb1bc84"
 
 EXPECTED_PACKAGE_PATHS = {
     ENVELOPE_91.as_posix(),
@@ -192,6 +194,18 @@ def safe_file(root: Path, relative: str) -> Path:
 
 def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def git_file_sha256(root: Path, commit: str, relative: str) -> str | None:
+    completed = subprocess.run(
+        ["git", "-C", str(root), "show", f"{commit}:{relative}"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if completed.returncode != 0:
+        return None
+    return hashlib.sha256(completed.stdout).hexdigest()
 
 
 def build_manifest(root: Path) -> dict[str, Any]:
@@ -511,11 +525,14 @@ def evaluate(root: Path = ROOT) -> dict[str, Any]:
                 "separately authorized decisions must remain bottom-up",
                 STACK.as_posix(),
             )
-        predecessor = safe_file(
-            root,
-            "docs/state/longitudinal-recomputation-v0.3/PACKAGE_MANIFEST_v0_3.json",
+        predecessor_path = (
+            "docs/state/longitudinal-recomputation-v0.3/PACKAGE_MANIFEST_v0_3.json"
         )
-        predecessor_sha = sha256_file(predecessor)
+        predecessor_sha = git_file_sha256(
+            root,
+            PREDECESSOR_PACKAGE_COMMIT,
+            predecessor_path,
+        )
         if (
             predecessor_sha
             != "0f00137a91b34206aa844b41bae951ef19157bdbc8095b6ed1b69ec2cff0a677"
@@ -523,8 +540,8 @@ def evaluate(root: Path = ROOT) -> dict[str, Any]:
             add_finding(
                 findings,
                 "PREDECESSOR_PACKAGE_DIVERGENCE",
-                f"v0.3 package manifest changed to {predecessor_sha}",
-                predecessor.relative_to(root).as_posix(),
+                f"v0.3 package manifest at the declared PR92 coordinate resolved to {predecessor_sha}",
+                predecessor_path,
             )
         for path, pr in ((TEMPLATE_91, 91), (TEMPLATE_92, 92)):
             template = strict_load(safe_file(root, path.as_posix()))

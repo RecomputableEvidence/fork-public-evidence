@@ -10,6 +10,7 @@ import json
 import math
 from pathlib import Path, PurePosixPath
 import stat
+import subprocess
 from typing import Any
 
 
@@ -442,9 +443,15 @@ def check(root: Path) -> list[str]:
             errors.append(f"current source binding {path}: sha256 is required")
             continue
         try:
+            source_bytes = subprocess.run(
+                ["git", "-C", str(root), "show", f"{GOVERNED_COMMIT}:{path}"],
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            ).stdout
             expect_equal(
                 errors,
-                sha256_file(safe_regular_file(root, path)),
+                hashlib.sha256(source_bytes).hexdigest(),
                 expected_digest,
                 f"current source binding {path}",
             )

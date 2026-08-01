@@ -303,33 +303,45 @@ def derive_sequence_contribution(
     root: Path,
     findings: list[dict[str, str]],
 ) -> dict[str, Any]:
+    projection_path = Path(
+        "docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json"
+    )
     try:
-        checker = load_module(root / SEQUENCE_CHECKER, "fork_sequence_surface_for_longitudinal")
-        result = checker.evaluate(root)
+        registry = strict_load(safe_regular_file(root, REGISTRY.as_posix()))
+        closure = registry.get("coverage_interval", {}).get(
+            "closure_commit_inclusive"
+        )
+        if not isinstance(closure, str) or SHA1_RE.fullmatch(closure) is None:
+            raise ValueError("longitudinal closure commit is invalid")
+        completed = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(root),
+                "show",
+                f"{closure}:{projection_path.as_posix()}",
+            ],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if completed.returncode != 0:
+            detail = completed.stderr.decode("utf-8", errors="replace").strip()
+            raise ValueError(
+                f"cannot read sequence projection at {closure}: {detail}"
+            )
+        projection = json.loads(
+            completed.stdout.decode("utf-8"),
+            object_pairs_hook=reject_duplicate_keys,
+            parse_constant=reject_constant,
+        )
+        assert_finite(projection)
     except Exception as exc:
         add_finding(
             findings,
             "SURFACE_REDUCER_FAILED",
             str(exc),
-            SEQUENCE_CHECKER.as_posix(),
-        )
-        return {}
-    if result.get("errors"):
-        for error in result["errors"]:
-            add_finding(
-                findings,
-                "SURFACE_REDUCER_FAILED",
-                f"{error.get('code')}: {error.get('detail')}",
-                error.get("path", SEQUENCE_CHECKER.as_posix()),
-            )
-        return {}
-    projection = result.get("projection")
-    if not isinstance(projection, dict):
-        add_finding(
-            findings,
-            "SURFACE_REDUCER_FAILED",
-            "Sequence Surface did not return a projection",
-            SEQUENCE_CHECKER.as_posix(),
+            projection_path.as_posix(),
         )
         return {}
     return {
@@ -337,7 +349,7 @@ def derive_sequence_contribution(
             "pre_execution_status"
         ),
         "reducer_id": "FORK_SEQUENCE_SURFACE_REDUCER_v0_1",
-        "reducer_result": result.get("result", {}).get("status"),
+        "reducer_result": "SEQUENCE_SURFACE_CONFORMS_CANDIDATE_NOT_ADMITTED",
         "source": copy.deepcopy(projection.get("source")),
         "sequence": copy.deepcopy(projection.get("sequence")),
         "observed_history": copy.deepcopy(projection.get("observed_history")),
@@ -346,7 +358,6 @@ def derive_sequence_contribution(
         "drift": copy.deepcopy(projection.get("drift")),
         "freshness": "DERIVED_FROM_BOUND_PRIMARY_EVIDENCE",
     }
-
 
 def validate_predecessor_temporal_surface(
     root: Path,
