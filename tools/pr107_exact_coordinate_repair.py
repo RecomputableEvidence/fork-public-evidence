@@ -2,7 +2,7 @@
 """Generate the bounded PR #107 exact-coordinate repair in a CI worktree.
 
 This helper mutates only the ephemeral checked-out worktree. It performs no
-network calls, does not move repository refs, and is removed before the final
+provider calls, does not move repository refs, and is removed before the final
 repair commit is assembled through the GitHub connector.
 """
 
@@ -11,6 +11,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +26,139 @@ def replace_once(text: str, old: str, new: str, label: str) -> str:
     if count != 1:
         raise RuntimeError(f"{label}: expected one replacement target, found {count}")
     return text.replace(old, new, 1)
+
+
+def git_file_bytes(commit: str, relative: str) -> bytes | None:
+    completed = subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{commit}:{relative}"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    return completed.stdout if completed.returncode == 0 else None
+
+
+def resolve_historical_provider_block_commit() -> str:
+    relative = (
+        "docs/experiments/cross-system-claim-handoff-v0.1/pre-execution/"
+        "PROVIDER_VALIDATION_REQUEST_v0_1_2.json"
+    )
+    expected = "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865"
+    candidates = [
+        "0e58a151cb5801f554619eb44a40948ad03e3e55",
+        "1241c0084900f2c60f362205525464582e57b4a7",
+        "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+        "f955834681d2f2ee257276acbf68afde0ae0e69d",
+        "8996a65d02952945062fdf1f29b75aa128d2f9f2",
+    ]
+    observed: list[str] = []
+    for commit in candidates:
+        data = git_file_bytes(commit, relative)
+        if data is None:
+            observed.append(f"{commit}=ABSENT")
+            continue
+        digest = hashlib.sha256(data).hexdigest()
+        observed.append(f"{commit}={digest}")
+        if digest == expected:
+            print(f"PR107_HISTORICAL_PROVIDER_BLOCK_COMMIT={commit}")
+            return commit
+    raise RuntimeError(
+        "no bounded historical coordinate matches the event-9 provider request: "
+        + "; ".join(observed)
+    )
+
+
+def patch_sequence_checker() -> None:
+    historical_commit = resolve_historical_provider_block_commit()
+    path = ROOT / "tools/check_fork_sequence_surface_v0_1.py"
+    text = path.read_text(encoding="utf-8")
+    if "import subprocess\n" not in text:
+        text = replace_once(
+            text,
+            "import json\n",
+            "import json\nimport subprocess\n",
+            "sequence subprocess import",
+        )
+
+    constant_marker = 'BASE_SEQUENCE_HEAD = "0e58a151cb5801f554619eb44a40948ad03e3e55"\n'
+    constant_replacement = (
+        constant_marker
+        + f'HISTORICAL_PROVIDER_BLOCK_COMMIT = "{historical_commit}"\n'
+    )
+    if "HISTORICAL_PROVIDER_BLOCK_COMMIT" not in text:
+        text = replace_once(
+            text,
+            constant_marker,
+            constant_replacement,
+            "sequence historical evidence constant",
+        )
+
+    helper_marker = '''def event_sha256(event: dict[str, Any]) -> str:
+    payload = dict(event)
+    payload.pop("event_sha256", None)
+    return sha256_bytes(canonical_json_bytes(payload))
+
+
+def repo_root(start: Path) -> Path:
+'''
+    helper_replacement = '''def event_sha256(event: dict[str, Any]) -> str:
+    payload = dict(event)
+    payload.pop("event_sha256", None)
+    return sha256_bytes(canonical_json_bytes(payload))
+
+
+def git_file_sha256(root: Path, commit: str, relative: str) -> str | None:
+    completed = subprocess.run(
+        ["git", "-C", str(root), "show", f"{commit}:{relative}"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if completed.returncode != 0:
+        return None
+    return sha256_bytes(completed.stdout)
+
+
+def repo_root(start: Path) -> Path:
+'''
+    if "def git_file_sha256(" not in text:
+        text = replace_once(
+            text,
+            helper_marker,
+            helper_replacement,
+            "sequence Git object digest helper",
+        )
+
+    old_digest_block = '''            elif sha256(artifact) != reference.get("sha256"):
+                add_error(errors, "SOURCE_ARTIFACT_DIGEST_MISMATCH", str(reference.get("path")), ref_path)
+'''
+    new_digest_block = '''            elif sha256(artifact) != reference.get("sha256"):
+                historical_digest = None
+                if (
+                    event_id == "FSS-PAIR001-E009"
+                    and reference.get("path") == REQUEST.as_posix()
+                    and reference.get("standing") == "CURRENT_BLOCKED_CONTROL"
+                ):
+                    historical_digest = git_file_sha256(
+                        root,
+                        HISTORICAL_PROVIDER_BLOCK_COMMIT,
+                        REQUEST.as_posix(),
+                    )
+                if historical_digest != reference.get("sha256"):
+                    add_error(
+                        errors,
+                        "SOURCE_ARTIFACT_DIGEST_MISMATCH",
+                        str(reference.get("path")),
+                        ref_path,
+                    )
+'''
+    text = replace_once(
+        text,
+        old_digest_block,
+        new_digest_block,
+        "sequence event-9 historical evidence validation",
+    )
+    write_text(path, text)
 
 
 def patch_temporal_checker() -> None:
@@ -208,6 +342,7 @@ def refresh_manifest(path: str, key: str) -> None:
 
 
 def main() -> int:
+    patch_sequence_checker()
     patch_temporal_checker()
     patch_thesis_checker()
     patch_longitudinal_checker()
