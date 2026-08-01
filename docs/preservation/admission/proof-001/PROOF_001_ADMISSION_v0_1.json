@@ -9,9 +9,21 @@
     "branch": "preservation/clean-continuance-v0.1",
     "predecessor_tip": "85448bee5b78396bae58e4f270b12990547edb02",
     "proof_packaging_pull_request": 101,
-    "proof_packaging_merge_commit": "ded38bf56f950b8813614132c92bf531553a8b34",
-    "canonical_tip_ci_run_id": 30712525316,
-    "canonical_tip_ci_conclusion": "success"
+    "proof_packaging_merge_commit": "ded38bf56f950b8813614132c92bf531553a8b34"
+  },
+  "canonical_tip_ci_observation": {
+    "path": "docs/preservation/admission/proof-001/CANONICAL_TIP_CI_OBSERVATION.json",
+    "sha256": "220d88317ab973b1d14dea57763af578929886a0a22221df7090a9ed55b1f711",
+    "run_id": 30712525316,
+    "head_sha": "85448bee5b78396bae58e4f270b12990547edb02",
+    "workflow": "Fork Evidence CI",
+    "event": "push",
+    "conclusion": "success",
+    "observer_run_id": 30712799497,
+    "observer_artifact_id": 8822411127,
+    "observer_artifact_sha256": "201cb6f0bbd47259302ee23f5908f2dea4d1139acab28267742d1a874f5a01f8",
+    "provider_calls": 0,
+    "pair_001_calls": 0
   },
   "preserved_package": {
     "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1",
@@ -23,8 +35,10 @@
     "tests_path": "tests/test_proof_001_review_does_not_silently_travel_v0_1.py",
     "packaging_standing": "BOUNDED_NONSEMANTIC_PACKAGING_CANDIDATE_NOT_ADMITTED",
     "wrapper_result": "PROOF_001_REPRODUCED_PACKAGING_CANDIDATE_NOT_ADMITTED",
-    "package_bytes_rewritten": false,
-    "construction_index_rewritten": false
+    "package_file_set_changed": false,
+    "construction_index_rewritten": false,
+    "moving_global_receipt_binding_refresh_permitted": true,
+    "evidentiary_member_bytes_rewritten": false
   },
   "source_evidence": {
     "underlying_replay_pull_request": 91,
@@ -70,7 +84,8 @@
     "pair_001_calls": 0
   },
   "non_claims": [
-    "Admission does not rewrite the original packaging candidate standing, package file set, construction index, or construction coordinates.",
+    "Admission does not rewrite the original packaging standing, package file set, construction index, or construction coordinates.",
+    "A deterministic refresh of the manifest binding to the moving global self-check receipt is not an admission or semantic evidence rewrite.",
     "Admission does not convert the exterior recomputation into an unqualified independent reproduction or authority source.",
     "Admission does not establish event completeness outside the declared replay interval.",
     "Admission does not establish truth, correctness, causality, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, institutional authority, or execution permission.",
