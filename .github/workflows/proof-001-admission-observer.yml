@@ -1,0 +1,83 @@
+name: Proof 001 admission observer
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  observe-and-recompute:
+    name: Observe canonical CI and recompute Proof 001
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CANONICAL_TIP: 85448bee5b78396bae58e4f270b12990547edb02
+    steps:
+      - name: Checkout exact proof-admission candidate
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.11"
+
+      - name: Install deterministic dependencies
+        run: >-
+          python -m pip install --require-hashes
+          -r requirements-proof-surface.lock.txt
+          -r requirements-claim-admission.lock.txt
+
+      - name: Observe exact canonical-tip Fork Evidence CI run
+        run: |
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${GITHUB_REPOSITORY}/actions/runs?head_sha=${CANONICAL_TIP}&event=push&per_page=100" \
+            > /tmp/canonical-runs.json
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          payload = json.loads(Path('/tmp/canonical-runs.json').read_text(encoding='utf-8'))
+          matches = [
+              run for run in payload.get('workflow_runs', [])
+              if run.get('name') == 'Fork Evidence CI'
+              and run.get('head_sha') == os.environ['CANONICAL_TIP']
+              and run.get('event') == 'push'
+          ]
+          if len(matches) != 1:
+              raise SystemExit(f"expected one canonical-tip Fork Evidence CI run, found {len(matches)}")
+          run = matches[0]
+          if run.get('status') != 'completed' or run.get('conclusion') != 'success':
+              raise SystemExit(f"canonical-tip CI not green: {run.get('status')} / {run.get('conclusion')}")
+          record = {
+              key: run.get(key)
+              for key in ('id', 'name', 'event', 'status', 'conclusion', 'head_sha', 'run_number', 'run_attempt', 'created_at', 'updated_at', 'html_url')
+          }
+          Path('CANONICAL_TIP_CI_OBSERVATION.json').write_text(
+              json.dumps(record, indent=2, sort_keys=True) + '\n',
+              encoding='utf-8',
+              newline='\n',
+          )
+          print(json.dumps(record, sort_keys=True))
+          PY
+
+      - name: Recompute Proof 001 and mutation fixtures
+        run: |
+          python tools/run_proof_001_review_does_not_silently_travel_v0_1.py
+          python -m pytest tests/test_proof_001_review_does_not_silently_travel_v0_1.py -q
+
+      - name: Upload bounded observation
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: proof-001-admission-observation-${{ github.sha }}
+          path: CANONICAL_TIP_CI_OBSERVATION.json
+          if-no-files-found: error
+          retention-days: 7
