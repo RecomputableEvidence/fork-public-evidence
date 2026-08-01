@@ -13,20 +13,16 @@
       "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1",
       "manifest_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json",
       "standing_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/STANDING.json",
-      "admission_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/ADMISSION_v0_1.json",
       "wrapper_path": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
       "expected_result": "PROOF_001_REPRODUCED_PACKAGING_CANDIDATE_NOT_ADMITTED",
       "packaging_standing": "BOUNDED_NONSEMANTIC_PACKAGING_CANDIDATE_NOT_ADMITTED",
-      "admission_standing_on_reviewed_merge": "ADMITTED_BOUNDED_PUBLIC_PROOF_SLICE_WITH_CORRECTION_REQUIRED_RETAINED",
       "underlying_lineage_standing": "ADMITTED_LINEAR_REPLAY_WITH_CORRECTION_REQUIRED_RETAINED",
-      "exterior_recomputation_disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
-      "wider_portfolio_admitted": false
+      "exterior_recomputation_disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED"
     }
   ],
   "non_claims": [
-    "Index inclusion alone is not admission; admission requires the reviewed successor record and governed merge.",
-    "Proof 001 admission does not admit any wider proof portfolio.",
-    "Exterior recomputation remains correction-bearing and is not converted into unqualified independent authority.",
-    "Index inclusion or admission does not create truth, correctness, authority, approval, compliance, legal sufficiency, safety, production readiness, present reliance, or execution permission."
+    "Index inclusion is not admission.",
+    "Index inclusion is not independent recomputation.",
+    "Index inclusion does not create truth, correctness, authority, approval, compliance, legal sufficiency, safety, production readiness, present reliance, or execution permission."
   ]
 }
