@@ -2,9 +2,6 @@ name: PR107 finalize exact-coordinate repair
 
 on:
   pull_request:
-  push:
-    branches:
-      - agent/csh-uppercase-retry-current-line-v0-1
 
 permissions:
   contents: write
@@ -15,7 +12,7 @@ concurrency:
 
 jobs:
   finalize-repair:
-    if: github.event_name == 'pull_request' && github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]'
     name: Finalize verified exact-coordinate repair
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -44,56 +41,10 @@ jobs:
           -r requirements-proof-surface.lock.txt
           -r requirements-claim-admission.lock.txt
 
-      - name: Generate exact-coordinate repair from immutable helper blob
-        run: |
-          git show fdf3be95b636850c5fb20605f388d35013501131:tools/pr107_exact_coordinate_repair.py \
-            > tools/.pr107_exact_coordinate_repair.py
-          python tools/.pr107_exact_coordinate_repair.py
-          rm tools/.pr107_exact_coordinate_repair.py
+      - name: Remove temporary finalizer from candidate tree
+        run: git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
 
-      - name: Regenerate deterministic current-line and replay artifacts
-        run: |
-          python tools/check_fork_sequence_surface_v0_1.py \
-            --write-projection docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json
-          python tools/check_temporal_succession_v0_1.py
-          python tools/check_longitudinal_recomputation_v0_2.py --write-derived
-          python tools/check_longitudinal_causal_reconciliation_v0_3.py --write-derived
-          python tools/run_proof_001_review_does_not_silently_travel_v0_1.py \
-            --render-summary-only > \
-            docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-SUMMARY.md
-
-      - name: Finalize candidate inventory and self-check receipt
-        run: |
-          git add -N docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json
-          git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
-          python tools/check_claim_admission_gate_v0_1.py \
-            --repo-root . \
-            --self-check \
-            --write-receipt receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json \
-            > /tmp/pr107-claim-admission-self-check.json
-
-      - name: Seal Proof 001 against final candidate bytes
-        run: |
-          python - <<'PY'
-          import hashlib
-          import json
-          from pathlib import Path
-
-          root = Path.cwd()
-          target = root / "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json"
-          payload = json.loads(target.read_text(encoding="utf-8"))
-          for entry in payload["bindings"]:
-              data = (root / entry["path"]).read_bytes()
-              entry["sha256"] = hashlib.sha256(data).hexdigest()
-              entry["size_bytes"] = len(data)
-          target.write_text(
-              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
-              newline="\n",
-          )
-          PY
-
-      - name: Verify exact artifact bytes and final path set
+      - name: Verify exact green-artifact bytes
         run: |
           python - <<'PY'
           import hashlib
@@ -119,22 +70,20 @@ jobs:
               if observed != digest:
                   raise SystemExit(f"digest mismatch: {path}: {observed} != {digest}")
 
-          expected_changes = set(expected) | {
-              ".github/workflows/pr107-exact-coordinate-repair.yml",
-          }
           observed_changes = set(
               subprocess.check_output(
                   ["git", "diff", "--name-only", "HEAD"],
                   text=True,
               ).splitlines()
           )
+          expected_changes = {".github/workflows/pr107-exact-coordinate-repair.yml"}
           if observed_changes != expected_changes:
               raise SystemExit(
-                  "unexpected final path set: "
+                  "unexpected finalization delta: "
                   f"missing={sorted(expected_changes - observed_changes)} "
                   f"extra={sorted(observed_changes - expected_changes)}"
               )
-          print("PR107_FINAL_BYTES_MATCH_GREEN_ARTIFACT")
+          print("PR107_CURRENT_TREE_MATCHES_GREEN_ARTIFACT")
           PY
 
       - name: Verify repaired dependency chain
@@ -151,8 +100,7 @@ jobs:
             -q
           python -m pytest -q
 
-      - name: Commit exact verified repair
+      - name: Commit final verified tree
         run: |
-          git add -A
-          git commit -m "fix(csh): bind historical consumers to exact coordinates"
+          git commit -m "fix(csh): finalize exact-coordinate repair"
           git push origin HEAD:agent/csh-uppercase-retry-current-line-v0-1
