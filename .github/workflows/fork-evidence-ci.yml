@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - "v0_*"
+      - preservation/clean-continuance-v0.1
 
 permissions:
   contents: read
