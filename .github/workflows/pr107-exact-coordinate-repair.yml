@@ -44,8 +44,11 @@ jobs:
           -r requirements-proof-surface.lock.txt
           -r requirements-claim-admission.lock.txt
 
-      - name: Generate exact-coordinate repair
-        run: python tools/pr107_exact_coordinate_repair.py
+      - name: Generate exact-coordinate repair from immutable helper blob
+        run: |
+          git show fdf3be95b636850c5fb20605f388d35013501131:tools/pr107_exact_coordinate_repair.py \
+            > /tmp/pr107_exact_coordinate_repair.py
+          python /tmp/pr107_exact_coordinate_repair.py
 
       - name: Regenerate deterministic current-line and replay artifacts
         run: |
@@ -62,7 +65,6 @@ jobs:
         run: |
           git add -N docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json
           git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
-          git rm -f tools/pr107_exact_coordinate_repair.py
           python tools/check_claim_admission_gate_v0_1.py \
             --repo-root . \
             --self-check \
@@ -118,7 +120,6 @@ jobs:
 
           expected_changes = set(expected) | {
               ".github/workflows/pr107-exact-coordinate-repair.yml",
-              "tools/pr107_exact_coordinate_repair.py",
           }
           observed_changes = set(
               subprocess.check_output(
