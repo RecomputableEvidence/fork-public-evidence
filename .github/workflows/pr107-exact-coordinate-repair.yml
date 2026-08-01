@@ -1,0 +1,156 @@
+name: PR107 finalize exact-coordinate repair
+
+on:
+  pull_request:
+  push:
+    branches:
+      - agent/csh-uppercase-retry-current-line-v0-1
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pr107-finalize-exact-coordinate-repair
+  cancel-in-progress: false
+
+jobs:
+  finalize-repair:
+    if: github.event_name == 'pull_request' && github.actor != 'github-actions[bot]'
+    name: Finalize verified exact-coordinate repair
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact PR branch
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          ref: agent/csh-uppercase-retry-current-line-v0-1
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Configure Git and line endings
+        run: |
+          git config --global core.autocrlf false
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.11"
+
+      - name: Install deterministic checker dependencies
+        run: >-
+          python -m pip install --require-hashes
+          -r requirements-proof-surface.lock.txt
+          -r requirements-claim-admission.lock.txt
+
+      - name: Generate exact-coordinate repair
+        run: python tools/pr107_exact_coordinate_repair.py
+
+      - name: Regenerate deterministic current-line and replay artifacts
+        run: |
+          python tools/check_fork_sequence_surface_v0_1.py \
+            --write-projection docs/sequence-surface/PAIR_001_SEQUENCE_PROJECTION_v0_1.json
+          python tools/check_temporal_succession_v0_1.py
+          python tools/check_longitudinal_recomputation_v0_2.py --write-derived
+          python tools/check_longitudinal_causal_reconciliation_v0_3.py --write-derived
+          python tools/run_proof_001_review_does_not_silently_travel_v0_1.py \
+            --render-summary-only > \
+            docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-SUMMARY.md
+
+      - name: Finalize candidate inventory and self-check receipt
+        run: |
+          git add -N docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json
+          git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
+          git rm -f tools/pr107_exact_coordinate_repair.py
+          python tools/check_claim_admission_gate_v0_1.py \
+            --repo-root . \
+            --self-check \
+            --write-receipt receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json \
+            > /tmp/pr107-claim-admission-self-check.json
+
+      - name: Seal Proof 001 against final candidate bytes
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          root = Path.cwd()
+          target = root / "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json"
+          payload = json.loads(target.read_text(encoding="utf-8"))
+          for entry in payload["bindings"]:
+              data = (root / entry["path"]).read_bytes()
+              entry["sha256"] = hashlib.sha256(data).hexdigest()
+              entry["size_bytes"] = len(data)
+          target.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+          PY
+
+      - name: Verify exact artifact bytes and final path set
+        run: |
+          python - <<'PY'
+          import hashlib
+          import subprocess
+          from pathlib import Path
+
+          expected = {
+              "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json": "73de59b729b66d794888edd95a7df3d250c786790d752737d06051428bd9b574",
+              "docs/research/fork-thesis-manifestation-v0.1/PACKAGE_MANIFEST_v0_1.json": "6da0c20a643f8699c3af0d9578d89307386e0778c1fc47d500986e7d44085a41",
+              "docs/sequence-surface/historical/FSS-PAIR001-E009_PROVIDER_VALIDATION_REQUEST_v0_1_2.json": "febce3875423d7c0cc293519e6ddd1b73a3cc6872a1b75a754aa3a07e5504865",
+              "docs/state/longitudinal-recomputation-v0.2/PACKAGE_MANIFEST_v0_2_1.json": "d6a5bd8725fc00936284a74997a72612e11830f49b82ba4fc234d59343b0210c",
+              "docs/state/longitudinal-recomputation-v0.3/PACKAGE_MANIFEST_v0_3.json": "039ad9346da16570d95ab05eee3b331990d41d4e71ba6a17557c8063c0112985",
+              "docs/state/longitudinal-recomputation-v0.3.1/EXTERIOR_RECOMPUTATION_PACKAGE_MANIFEST_v0_3_1.json": "c4388e693264e938404b0d17a8554d0f7f79582afd38910161044a94b6421848",
+              "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json": "eb71dd0471cc72ded12dad78888892d4ab2ad8c1bae8a4dfef1bfd4f84898e2e",
+              "tools/check_fork_sequence_surface_v0_1.py": "b7f2b327c2d4ee44b7218d3c82fe0a5c5bf9feec64591d8bce0d2b79fe194b16",
+              "tools/check_fork_thesis_manifestation_v0_1.py": "a72b28529c5cb8a92ec3bbc3bd311c72209436814eb0dac9f9cf7da30d89ac4b",
+              "tools/check_longitudinal_exterior_recomputation_package_v0_3_1.py": "d5650838b24121dc82df2a99746fe355a5131d4773a5b5258aa8f1cb15a362d9",
+              "tools/check_longitudinal_recomputation_v0_2.py": "e41b55bd5d072e19db3b0d42ea11c292c45ae3fecc75419bc7b8254825dff5bb",
+              "tools/check_temporal_succession_v0_1.py": "cac3c10f21b4dd412da1b1db10156bf242483a524e30527ee7a77ff8476a31af",
+          }
+          for path, digest in expected.items():
+              observed = hashlib.sha256(Path(path).read_bytes()).hexdigest()
+              if observed != digest:
+                  raise SystemExit(f"digest mismatch: {path}: {observed} != {digest}")
+
+          expected_changes = set(expected) | {
+              ".github/workflows/pr107-exact-coordinate-repair.yml",
+              "tools/pr107_exact_coordinate_repair.py",
+          }
+          observed_changes = set(
+              subprocess.check_output(
+                  ["git", "diff", "--name-only", "HEAD"],
+                  text=True,
+              ).splitlines()
+          )
+          if observed_changes != expected_changes:
+              raise SystemExit(
+                  "unexpected final path set: "
+                  f"missing={sorted(expected_changes - observed_changes)} "
+                  f"extra={sorted(observed_changes - expected_changes)}"
+              )
+          print("PR107_FINAL_BYTES_MATCH_GREEN_ARTIFACT")
+          PY
+
+      - name: Verify repaired dependency chain
+        run: |
+          python -m pytest \
+            tests/test_fork_sequence_surface_v0_1.py \
+            tests/test_temporal_succession_v0_1.py \
+            tests/test_longitudinal_recomputation_v0_2.py \
+            tests/test_longitudinal_causal_reconciliation_v0_3.py \
+            tests/test_longitudinal_exterior_recomputation_package_v0_3_1.py \
+            tests/test_fork_thesis_manifestation_v0_1.py \
+            tests/test_proof_001_review_does_not_silently_travel_v0_1.py \
+            tests/test_claim_admission_gate_v0_1.py \
+            -q
+          python -m pytest -q
+
+      - name: Commit exact verified repair
+        run: |
+          git add -A
+          git commit -m "fix(csh): bind historical consumers to exact coordinates"
+          git push origin HEAD:agent/csh-uppercase-retry-current-line-v0-1
