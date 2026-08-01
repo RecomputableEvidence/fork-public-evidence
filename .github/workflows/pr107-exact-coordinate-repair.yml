@@ -53,7 +53,17 @@ jobs:
             --render-summary-only > \
             docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-SUMMARY.md
 
-      - name: Refresh Proof 001 manifest bindings
+      - name: Finalize candidate inventory and self-check receipt
+        run: |
+          git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
+          git rm -f tools/pr107_exact_coordinate_repair.py
+          python tools/check_claim_admission_gate_v0_1.py \
+            --repo-root . \
+            --self-check \
+            --write-receipt receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json \
+            > /tmp/pr107-claim-admission-self-check.json
+
+      - name: Seal Proof 001 against final candidate bytes
         run: |
           python - <<'PY'
           import hashlib
@@ -73,16 +83,6 @@ jobs:
               newline="\n",
           )
           PY
-
-      - name: Finalize candidate inventory and self-check receipt
-        run: |
-          git rm -f .github/workflows/pr107-exact-coordinate-repair.yml
-          git rm -f tools/pr107_exact_coordinate_repair.py
-          python tools/check_claim_admission_gate_v0_1.py \
-            --repo-root . \
-            --self-check \
-            --write-receipt receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json \
-            > /tmp/pr107-claim-admission-self-check.json
 
       - name: Verify repaired dependency chain
         run: |
