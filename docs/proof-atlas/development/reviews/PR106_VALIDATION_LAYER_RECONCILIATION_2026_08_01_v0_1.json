@@ -1,0 +1,63 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_internal_validation_layer_reconciliation",
+  "record_id": "FORK-PR106-VALIDATION-LAYER-RECONCILIATION-2026-08-01-v0.1",
+  "pull_request": 106,
+  "predecessor_record": "docs/proof-atlas/development/reviews/PR106_BOUNDED_REVIEW_CI_CORRECTION_2026_07_31_v0_1.json",
+  "failed_exact_head": "e744213ca066af5d578abc0862873a19fdf2af2b",
+  "failed_workflow": {
+    "name": "Fork Proof-Surface Integration",
+    "run_id": 30643016281,
+    "conclusion": "failure",
+    "affected_jobs": [
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)"
+    ],
+    "failure_scope": "FINAL_FULL_PYTHON_REGRESSION_SUITE_AFTER_ALL_PRIOR_PROOF_SURFACE_STEPS_PASSED",
+    "observed_summary": "2 failed, 800 passed, 3 skipped"
+  },
+  "findings": [
+    {
+      "finding_id": "PR106-BR-F006",
+      "severity": "CORRECTIVE_TEST_EXPECTATION_DEFECT",
+      "description": "At the failed exact head, ACTIVE_PRODUCTION_CAPABILITY was structurally permitted by the descriptive schema and rejected by the executable checker with ACTIVE_PRODUCTION_OFFER_OUT_OF_SCOPE, while the test incorrectly required REGISTRY_SCHEMA_INVALID.",
+      "canonical_surface_effect": "NONE"
+    },
+    {
+      "finding_id": "PR106-BR-F007",
+      "severity": "CORRECTIVE_TEST_EXPECTATION_DEFECT",
+      "description": "At the failed exact head, execution_authorized=true and provider_calls=1 violated schema const constraints, so validation returned REGISTRY_SCHEMA_INVALID before downstream semantic findings; the test incorrectly required unreachable semantic codes.",
+      "canonical_surface_effect": "NONE"
+    }
+  ],
+  "correction": {
+    "commit_sha": "3a6be141b730bd1e0667e6fce631069f9651ab58",
+    "change": "Align each mutation assertion with the validation layer actually controlling at the exact schema and checker bytes: semantic rejection for the active production offer and schema-first rejection for execution authorization and nonzero provider calls.",
+    "schema_changed": false,
+    "registry_changed": false,
+    "checker_changed": false,
+    "test_changed": true
+  },
+  "negative_evidence_preserved": [
+    "workflow run 30643016281",
+    "failed exact head e744213ca066af5d578abc0862873a19fdf2af2b",
+    "predecessor correction record retained unchanged"
+  ],
+  "post_correction_exact_head_ci": "PENDING_AFTER_THIS_RECORD_COMMIT",
+  "disposition": "VALIDATION_LAYER_EXPECTATIONS_RECONCILED_EXACT_HEAD_CI_PENDING_NOT_ADMITTED",
+  "non_claims": [
+    "This record does not erase or relabel the failed workflow.",
+    "This internal reconciliation is not exterior recomputation or independent review.",
+    "A successful successor workflow would establish only its declared CI scope and would not admit, approve, merge, or authorize execution from PR #106."
+  ],
+  "effects": {
+    "admission": "NONE",
+    "merge": "NONE",
+    "authority": "NONE",
+    "execution": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0,
+    "repository_settings": "NONE",
+    "main": "NONE"
+  }
+}
