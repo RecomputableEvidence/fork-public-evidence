@@ -1,0 +1,94 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_public_proof_admission",
+  "record_id": "FORK_PROOF_001_ADMISSION_2026_08_01_v0_1",
+  "proof_id": "PROOF-001",
+  "title": "A Review Does Not Silently Travel",
+  "status": "ADMISSION_CANDIDATE_REVIEWED_MERGE_REQUIRED",
+  "governed_line": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "predecessor_tip": "85448bee5b78396bae58e4f270b12990547edb02",
+    "proof_packaging_pull_request": 101,
+    "proof_packaging_merge_commit": "ded38bf56f950b8813614132c92bf531553a8b34"
+  },
+  "canonical_tip_ci_observation": {
+    "path": "docs/preservation/admission/proof-001/CANONICAL_TIP_CI_OBSERVATION.json",
+    "sha256": "220d88317ab973b1d14dea57763af578929886a0a22221df7090a9ed55b1f711",
+    "run_id": 30712525316,
+    "head_sha": "85448bee5b78396bae58e4f270b12990547edb02",
+    "workflow": "Fork Evidence CI",
+    "event": "push",
+    "conclusion": "success",
+    "observer_run_id": 30712799497,
+    "observer_artifact_id": 8822411127,
+    "observer_artifact_sha256": "201cb6f0bbd47259302ee23f5908f2dea4d1139acab28267742d1a874f5a01f8",
+    "provider_calls": 0,
+    "pair_001_calls": 0
+  },
+  "preserved_package": {
+    "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1",
+    "manifest_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json",
+    "standing_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/STANDING.json",
+    "summary_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-SUMMARY.md",
+    "limitations_path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/README.md",
+    "wrapper_path": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
+    "tests_path": "tests/test_proof_001_review_does_not_silently_travel_v0_1.py",
+    "packaging_standing": "BOUNDED_NONSEMANTIC_PACKAGING_CANDIDATE_NOT_ADMITTED",
+    "wrapper_result": "PROOF_001_REPRODUCED_PACKAGING_CANDIDATE_NOT_ADMITTED",
+    "package_file_set_changed": false,
+    "construction_index_rewritten": false,
+    "moving_global_receipt_binding_refresh_permitted": true,
+    "evidentiary_member_bytes_rewritten": false
+  },
+  "source_evidence": {
+    "underlying_replay_pull_request": 91,
+    "reviewed_head": "e848ea0825bafc1aa3754d89e719d71b5a9f3982",
+    "replay_closure_commit": "f955834681d2f2ee257276acbf68afde0ae0e69d",
+    "later_admission_pull_request": 97,
+    "later_admission_merge_commit": "9c779c305be8455f355051a561e9ea89e7feee36",
+    "later_admission_standing": "ADMITTED_LINEAR_REPLAY_WITH_CORRECTION_REQUIRED_RETAINED"
+  },
+  "deterministic_verification": {
+    "one_command_wrapper": "tools/run_proof_001_review_does_not_silently_travel_v0_1.py",
+    "underlying_checker": "tools/check_longitudinal_recomputation_v0_2.py",
+    "mutation_case": "FLR-ADV-003",
+    "mutation_expected_result": "CURRENT_HEAD_REVIEW_STALE",
+    "mutation_meaning": "Review standing bound to one exact head is rejected when silently promoted to a different successor head."
+  },
+  "exterior_recomputation": {
+    "source_receipt_path": "docs/exterior-observations/reviews/pr91-chatgpt-20260724/ORIGINAL_EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_v0_1.json",
+    "source_receipt_sha256": "51d8249fe85fff34d288c1bfd7198639eecbd11e6fc4ae4872666fe63fcfacb9",
+    "normalized_receipt_path": "docs/exterior-observations/reviews/pr91-chatgpt-20260724/EXTERIOR_RECOMPUTATION_RECEIPT_PR91_CHATGPT_20260724_NORMALIZED_v0_1_1.json",
+    "normalized_receipt_sha256": "acfabbfabaea0011dfef2216261555faab6e3d161ce86e6734f5c4fb9969fd5f",
+    "disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+    "independence_claim": "EXTERIOR_RECOMPUTATION_EVIDENCE_NOT_UNQUALIFIED_INDEPENDENT_AUTHORITY",
+    "correction_retained": "ORIGINAL_PUBLIC_TEST_COUNT_NOT_REPRODUCED"
+  },
+  "admitted_claim": {
+    "statement": "Within the exact bound replay interval and registered adversarial case, Fork deterministically recomputes changed and preserved evidence-standing dimensions and rejects promotion of predecessor-head review standing to a different successor head.",
+    "scope": "EXACT_BOUND_REPLAY_INTERVAL_AND_FLR_ADV_003_ONLY",
+    "standing_on_reviewed_merge": "ADMITTED_BOUNDED_PUBLIC_PROOF_SLICE_WITH_CORRECTION_REQUIRED_RETAINED",
+    "generalization_outside_scope": "NONE"
+  },
+  "admission_effect": {
+    "effective_only_on_reviewed_merge_to_governed_branch": true,
+    "source_evidence_admitted": true,
+    "deterministic_verifier_admitted": true,
+    "mutation_failure_admitted": true,
+    "exterior_receipt_admitted_with_correction_retained": true,
+    "limitations_admitted": true,
+    "wider_proof_portfolio_admitted": false,
+    "authority_delta": "NONE",
+    "execution_effect": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0
+  },
+  "non_claims": [
+    "Admission does not rewrite the original packaging standing, package file set, construction index, or construction coordinates.",
+    "A deterministic refresh of the manifest binding to the moving global self-check receipt is not an admission or semantic evidence rewrite.",
+    "Admission does not convert the exterior recomputation into an unqualified independent reproduction or authority source.",
+    "Admission does not establish event completeness outside the declared replay interval.",
+    "Admission does not establish truth, correctness, causality, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, institutional authority, or execution permission.",
+    "Admission of Proof 001 does not admit Proofs 002 through 005 or PR #106's proof portfolio."
+  ]
+}
