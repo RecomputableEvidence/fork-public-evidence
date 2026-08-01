@@ -47,8 +47,9 @@ jobs:
       - name: Generate exact-coordinate repair from immutable helper blob
         run: |
           git show fdf3be95b636850c5fb20605f388d35013501131:tools/pr107_exact_coordinate_repair.py \
-            > /tmp/pr107_exact_coordinate_repair.py
-          python /tmp/pr107_exact_coordinate_repair.py
+            > tools/.pr107_exact_coordinate_repair.py
+          python tools/.pr107_exact_coordinate_repair.py
+          rm tools/.pr107_exact_coordinate_repair.py
 
       - name: Regenerate deterministic current-line and replay artifacts
         run: |
