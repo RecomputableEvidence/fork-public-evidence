@@ -1,26 +1,29 @@
-name: Proof 001 admission observer
+name: Proof 001 admission final-tree validation
 
 on:
   pull_request:
 
 permissions:
   contents: read
-  actions: read
+
+concurrency:
+  group: proof-001-admission-final-tree-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
-  observe-and-recompute:
-    name: Observe canonical CI and recompute Proof 001
+  validate-final-tree:
+    name: Validate intended Proof 001 admission tree
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    env:
-      GH_TOKEN: ${{ github.token }}
-      CANONICAL_TIP: 85448bee5b78396bae58e4f270b12990547edb02
+    timeout-minutes: 30
     steps:
-      - name: Checkout exact proof-admission candidate
+      - name: Checkout exact candidate
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Configure Git line endings
+        run: git config --global core.autocrlf false
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
@@ -33,51 +36,103 @@ jobs:
           -r requirements-proof-surface.lock.txt
           -r requirements-claim-admission.lock.txt
 
-      - name: Observe exact canonical-tip Fork Evidence CI run
+      - name: Remove temporary validator from ephemeral final tree
+        run: git rm -f .github/workflows/proof-001-admission-observer.yml
+
+      - name: Reseal global self-check receipt
         run: |
-          gh api \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "/repos/${GITHUB_REPOSITORY}/actions/runs?head_sha=${CANONICAL_TIP}&event=push&per_page=100" \
-            > /tmp/canonical-runs.json
+          python tools/check_claim_admission_gate_v0_1.py \
+            --repo-root . \
+            --self-check \
+            --write-receipt receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json \
+            > /tmp/proof-001-self-check.json
+
+      - name: Refresh Proof 001 moving receipt binding
+        run: |
           python - <<'PY'
+          import hashlib
           import json
-          import os
           from pathlib import Path
 
-          payload = json.loads(Path('/tmp/canonical-runs.json').read_text(encoding='utf-8'))
-          matches = [
-              run for run in payload.get('workflow_runs', [])
-              if run.get('name') == 'Fork Evidence CI'
-              and run.get('head_sha') == os.environ['CANONICAL_TIP']
-              and run.get('event') == 'push'
-          ]
-          if len(matches) != 1:
-              raise SystemExit(f"expected one canonical-tip Fork Evidence CI run, found {len(matches)}")
-          run = matches[0]
-          if run.get('status') != 'completed' or run.get('conclusion') != 'success':
-              raise SystemExit(f"canonical-tip CI not green: {run.get('status')} / {run.get('conclusion')}")
-          record = {
-              key: run.get(key)
-              for key in ('id', 'name', 'event', 'status', 'conclusion', 'head_sha', 'run_number', 'run_attempt', 'created_at', 'updated_at', 'html_url')
-          }
-          Path('CANONICAL_TIP_CI_OBSERVATION.json').write_text(
-              json.dumps(record, indent=2, sort_keys=True) + '\n',
-              encoding='utf-8',
-              newline='\n',
+          root = Path.cwd()
+          manifest_path = root / "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json"
+          payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+          for entry in payload["bindings"]:
+              data = (root / entry["path"]).read_bytes()
+              entry["sha256"] = hashlib.sha256(data).hexdigest()
+              entry["size_bytes"] = len(data)
+          manifest_path.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+              newline="\n",
           )
-          print(json.dumps(record, sort_keys=True))
           PY
 
-      - name: Recompute Proof 001 and mutation fixtures
+      - name: Verify proof package and admission successor
         run: |
           python tools/run_proof_001_review_does_not_silently_travel_v0_1.py
-          python -m pytest tests/test_proof_001_review_does_not_silently_travel_v0_1.py -q
+          python tools/check_proof_001_admission_v0_1.py
+          python -m pytest \
+            tests/test_proof_001_review_does_not_silently_travel_v0_1.py \
+            tests/test_proof_001_admission_v0_1.py \
+            -q
 
-      - name: Upload bounded observation
+      - name: Run full repository regression
+        run: python -m pytest -q
+
+      - name: Assemble deterministic reseal artifact
+        shell: bash
+        run: |
+          rm -rf proof-admission-output
+          mkdir -p proof-admission-output/files
+          while IFS= read -r -d '' path; do
+            mkdir -p "proof-admission-output/files/$(dirname "$path")"
+            cp "$path" "proof-admission-output/files/$path"
+          done < <(git diff --name-only --diff-filter=ACMRT -z)
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+
+          root = Path("proof-admission-output/files")
+          entries = []
+          for path in sorted(item for item in root.rglob("*") if item.is_file()):
+              data = path.read_bytes()
+              entries.append({
+                  "path": path.relative_to(root).as_posix(),
+                  "sha256": hashlib.sha256(data).hexdigest(),
+                  "size_bytes": len(data),
+              })
+          expected = {
+              "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/PROOF-MANIFEST.json",
+              "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json",
+          }
+          observed = {entry["path"] for entry in entries}
+          if observed != expected:
+              raise SystemExit(f"unexpected reseal path set: {sorted(observed)}")
+          Path("proof-admission-output/RESEAL_MANIFEST.json").write_text(
+              json.dumps({
+                  "record_kind": "proof_001_admission_deterministic_reseal",
+                  "source_head": "${{ github.sha }}",
+                  "entries": entries,
+                  "effects": {
+                      "package_file_set_change": "NONE",
+                      "construction_index_change": "NONE",
+                      "evidentiary_member_rewrite": "NONE",
+                      "provider_calls": 0,
+                      "pair_001_calls": 0,
+                      "admission": "NONE"
+                  }
+              }, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+          PY
+
+      - name: Upload deterministic reseal artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: proof-001-admission-observation-${{ github.sha }}
-          path: CANONICAL_TIP_CI_OBSERVATION.json
+          name: proof-001-admission-reseal-${{ github.sha }}
+          path: proof-admission-output
           if-no-files-found: error
           retention-days: 7
