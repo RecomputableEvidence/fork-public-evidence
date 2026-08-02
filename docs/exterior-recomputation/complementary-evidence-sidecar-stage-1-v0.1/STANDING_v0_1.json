@@ -1,1 +1,19 @@
-PLACEHOLDER
+{
+  "admission_effect": "NONE",
+  "authority_delta": "NONE",
+  "draft_required": true,
+  "execution_effect": "NONE",
+  "merge_authorized": false,
+  "pair_001_calls_authorized": 0,
+  "pilot_authorized": false,
+  "provider_calls_authorized": 0,
+  "record_kind": "fork_exterior_recomputation_delivery_standing",
+  "required_next_actions": [
+    "exterior recomputation",
+    "preserve raw evidence and corrections",
+    "exact-tip reconciliation if governed branch changes",
+    "separate reviewed merge authority"
+  ],
+  "schema_version": "v0.1",
+  "standing": "EXTERIOR_RECOMPUTATION_DELIVERY_PACKET_CANDIDATE_NOT_ADMITTED_NOT_MERGE_AUTHORIZED"
+}

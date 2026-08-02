@@ -1,0 +1,46 @@
+{
+  "admission_effect": "NONE",
+  "authority_delta": "NONE",
+  "compressed_patch": {
+    "bytes": 27323,
+    "decompresses_to_sha256": "5cc5e819df354bbec1f6691d7c37f02ea1b720a121b32cb9e8b42b59e021463c",
+    "path": "docs/exterior-recomputation/complementary-evidence-sidecar-stage-1-v0.1/artifacts/FORK_STAGE1_COMPLEMENTARY_EVIDENCE_SIDECAR_EXTERIOR_RECOMPUTATION_PACKET_v0_1.patch.gz",
+    "sha256": "014849997944f5c63af71ccfff23708f2fea5e39142e4a990447b8a035877c60"
+  },
+  "delivery_branch": "agent/complementary-evidence-sidecar-stage-1-exterior-recompute-v0-1",
+  "execution_effect": "NONE",
+  "governed_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "1ae03971c680e361d2d81cefc8319dfccb50d8d3"
+  },
+  "local_prepublication_checks": {
+    "combined_tests": "26 passed",
+    "exterior_packet_tests": "8 passed",
+    "pair_001_calls": 0,
+    "provider_calls": 0,
+    "stage_1_tests": "18 passed"
+  },
+  "merge_authorized": false,
+  "patch": {
+    "bytes": 181263,
+    "path": "docs/exterior-recomputation/complementary-evidence-sidecar-stage-1-v0.1/artifacts/FORK_STAGE1_COMPLEMENTARY_EVIDENCE_SIDECAR_EXTERIOR_RECOMPUTATION_PACKET_v0_1.patch",
+    "sha256": "5cc5e819df354bbec1f6691d7c37f02ea1b720a121b32cb9e8b42b59e021463c"
+  },
+  "permitted_exterior_dispositions": [
+    "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "REPRODUCED_WITH_CORRECTION_REQUIRED",
+    "NOT_REPRODUCED",
+    "UNRESOLVED"
+  ],
+  "pilot_authorized": false,
+  "record_kind": "fork_exterior_recomputation_delivery_manifest",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "retained_correction": "ORIGINAL_MANIFEST_COVERAGE_WAS_ISOLATED_OVERLAY_ONLY_NOT_FULL_REPOSITORY_INTEGRATED",
+  "review_coordinate_components": [
+    "exact governed base commit",
+    "exact delivery branch head resolved by reviewer",
+    "patch SHA-256"
+  ],
+  "schema_version": "v0.1",
+  "standing": "EXTERIOR_RECOMPUTATION_DELIVERY_PACKET_CANDIDATE_NOT_ADMITTED_NOT_MERGE_AUTHORIZED"
+}
