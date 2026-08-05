@@ -1,0 +1,106 @@
+{
+  "admission_effect": "NONE",
+  "aggregate_base64": {
+    "bytes": 55196,
+    "sha256": "4a0d90eef5ee0a2da5b60fab44e265372f8e75f2d08df6a1bcea96c03f42da81"
+  },
+  "authority_delta": "NONE",
+  "base64_parts": [
+    {
+      "bytes": 7000,
+      "path": "source-bundle/part-000",
+      "sha256": "c164be8231da91e574372ec98fea457603c5a8c37ca361cf1c914000bdbde99b"
+    },
+    {
+      "bytes": 2500,
+      "path": "source-bundle/part-001-0",
+      "sha256": "319a06c25564d3c9f01f5dd482c7bb29e876bc90225ad4cc38f0feb65b1a3873"
+    },
+    {
+      "bytes": 2500,
+      "path": "source-bundle/part-001-1",
+      "sha256": "e656e07bffbf9ee2eb30291f7570fb2301c02a3bd4af04c9bd0a0f0cc69eced5"
+    },
+    {
+      "bytes": 2000,
+      "path": "source-bundle/part-001-2",
+      "sha256": "fc14c2c23b6591d45e08f226d3522f6955cc5d0d51e2bb34b2a651e0b4ff89eb"
+    },
+    {
+      "bytes": 2500,
+      "path": "source-bundle/part-002-0",
+      "sha256": "351492b25aec9253882b6abcb7fa7d5feff069d7b83173fa6963af2b44c34397"
+    },
+    {
+      "bytes": 2500,
+      "path": "source-bundle/part-002-1",
+      "sha256": "db10b743a7a1def96ee7639b80fbfac9460a6afbb8b22a6aefbf12406c0c63b6"
+    },
+    {
+      "bytes": 2000,
+      "path": "source-bundle/part-002-2",
+      "sha256": "50ccf2045ae215aece916ed2f6957cf4c5037408cd5ccb857543ce8b7ac9d7db"
+    },
+    {
+      "bytes": 7000,
+      "path": "source-bundle/part-003",
+      "sha256": "1863053a2ba58dc6bd1090fae7885e20d1f0b39b6390de91fc3c01eed637a63b"
+    },
+    {
+      "bytes": 7000,
+      "path": "source-bundle/part-004",
+      "sha256": "7cedcc5e0504601e0dcb1676fb336e66f2937c9be45317a6e7b017ef8b6b3126"
+    },
+    {
+      "bytes": 7000,
+      "path": "source-bundle/part-005",
+      "sha256": "aab853d7bd9bea29022cb26fdadef91013119b2357b03a2f41e935d8fac468ed"
+    },
+    {
+      "bytes": 7000,
+      "path": "source-bundle/part-006",
+      "sha256": "25bba08f6b4b941ff802ab49a433ec774f06b0709930d2388868b20d8aecfc64"
+    },
+    {
+      "bytes": 2500,
+      "path": "source-bundle/part-007-0",
+      "sha256": "b932855664bc34b50bee9352b43acde03af7c460076487eb8424abcb70149b2d"
+    },
+    {
+      "bytes": 2500,
+      "path": "source-bundle/part-007-1",
+      "sha256": "35f46ac001f697475ec0286bdb2cda89bdf28033f8a27fc7c608814b7cf7a01e"
+    },
+    {
+      "bytes": 1196,
+      "path": "source-bundle/part-007-2",
+      "sha256": "b3dc1aa63760ca8794726c562bc39b0bd9c8cb2e3982f531d7d4431c89150256"
+    }
+  ],
+  "candidate_branch": "agent/fork-pilot-deployment-prerequisite-v0-1",
+  "decoded_archive": {
+    "bytes": 41395,
+    "filename": "FORK_PILOT_DEPLOYMENT_PREREQUISITE_v0_1.zip",
+    "member_count": 28,
+    "sha256": "fc8deb027678099d0da353684166c91991d4451ae60e54e9969310055a9636b2"
+  },
+  "execution_effect": "NONE",
+  "governed_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "1ae03971c680e361d2d81cefc8319dfccb50d8d3"
+  },
+  "local_verification": {
+    "network_capable_imports": 0,
+    "package_checker": "FORK_PILOT_SIDECAR_PACKAGE_CANDIDATE_CONFORMS_NOT_ADMITTED",
+    "pair_001_calls": 0,
+    "provider_calls": 0,
+    "pytest": "11 passed",
+    "synthetic_end_to_end_bundle_sha256": "1d161766d495f453f562b5a804a2a4362a620cb0727f962af706d9bff868f160"
+  },
+  "merge_authorized": false,
+  "pilot_authorized": false,
+  "record_kind": "fork_pilot_prerequisite_text_transport_manifest",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "schema_version": "v0.1",
+  "standing": "PILOT_DEPLOYMENT_PREREQUISITE_IMPLEMENTATION_CANDIDATE_NOT_ADMITTED_NOT_PILOT_AUTHORIZED"
+}

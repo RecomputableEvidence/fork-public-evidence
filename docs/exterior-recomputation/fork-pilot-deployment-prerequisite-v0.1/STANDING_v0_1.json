@@ -1,0 +1,24 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_pilot_prerequisite_delivery_standing",
+  "standing": "PILOT_DEPLOYMENT_PREREQUISITE_IMPLEMENTATION_CANDIDATE_NOT_ADMITTED_NOT_PILOT_AUTHORIZED",
+  "governed_base": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+  "draft_required": true,
+  "merge_authorized": false,
+  "pilot_authorized": false,
+  "provider_calls_authorized": 0,
+  "pair_001_calls_authorized": 0,
+  "runtime_control": false,
+  "upstream_blocking": false,
+  "authority_delta": "NONE",
+  "admission_effect": "NONE",
+  "execution_effect": "NONE",
+  "required_next_actions": [
+    "exterior recomputation",
+    "preserve raw results and corrections",
+    "named workflow intake",
+    "privacy and security review",
+    "separate admission decision",
+    "separate shadow-pilot authorization"
+  ]
+}
