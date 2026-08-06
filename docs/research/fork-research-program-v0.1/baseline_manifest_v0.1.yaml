@@ -1,0 +1,58 @@
+artifact:
+  name: Fork Candidate Model Baseline Manifest
+  version: "0.1"
+  instantiated_at: "2026-08-06"
+binding_scope: STANDALONE_ARTIFACT_SET
+candidate_model:
+  version: "0.1"
+  standing: PROVISIONAL_RESEARCH_BASELINE
+repository_identity:
+  state: UNRESOLVED_PENDING_REPOSITORY_ADMISSION
+  url: null
+  commit_sha: null
+  tree_digest: null
+normative_artifacts:
+  - artifact_id: fork-rfc-0-v0.1
+    path: FORK_RFC_0_v0.1.md
+    version: "0.1"
+    sha256: e1935c39a262ff1b9ad87323a6340183c844eabc5e7965d831783a6439f3a794
+  - artifact_id: fork-candidate-model-v0.1-freeze-record
+    path: FORK_CANDIDATE_MODEL_v0.1_FREEZE_RECORD.md
+    version: "0.1"
+    sha256: 000e5de34439a3ad8412434ffc462abadbbbecbca7ee884ca37fc894e62ffa73
+schemas:
+  - schema_id: classification-event-v0.1
+    path: schemas/classification-event-v0.1.schema.yaml
+    version: "0.1"
+    sha256: e41467338f897cd9cd2937ab6ea09615bbffa6c6c9c665a7d35388055499e86b
+  - schema_id: transformation-case-v0.1
+    path: schemas/transformation-case-v0.1.schema.yaml
+    version: "0.1"
+    sha256: 2af9fb888492ad5b2936c176565b7d0378c1ef4546512acdb786330376996de7
+  - schema_id: failure-ledger-entry-v0.1
+    path: schemas/failure-ledger-entry-v0.1.schema.yaml
+    version: "0.1"
+    sha256: 4bf60f33d1c5073ea96d19818bfec9185dc311e58f6420a9f81f16be1f24a0c2
+  - schema_id: negative-result-entry-v0.1
+    path: schemas/negative-result-entry-v0.1.schema.yaml
+    version: "0.1"
+    sha256: b2d3ca2830b123b5b9c45014dd9b8d030c8096f91e89226e080b1d57c45f4bea
+procedures:
+  - procedure_id: independent-challenge-procedure-v0.1
+    path: procedures/independent-challenge-procedure-v0.1.md
+    version: "0.1"
+    sha256: 6a50b7c40538b37c9c67b5f87e3466b3fa75fc03a0061c0549671b34a44bc5bc
+profiles: []
+conformance_rules: []
+fixture_baseline:
+  path: corpus/fixture-manifest-v0.1.yaml
+  version: "0.1"
+  sha256: 9724cd98f1ca5ce34db97450ca5328926595fb0413091d4c487bc4e09b3bbfb2
+binding_state:
+  standalone_artifact_binding: COMPLETE
+  repository_binding: UNRESOLVED_PENDING_REPOSITORY_ADMISSION
+  admitted_evaluation: BLOCKED
+non_claims:
+  - STANDALONE_BINDING_DOES_NOT_ESTABLISH_REPOSITORY_IDENTITY
+  - BINDING_DOES_NOT_ESTABLISH_EMPIRICAL_VALIDATION
+  - BINDING_DOES_NOT_ESTABLISH_SUBSTANTIVE_CORRECTNESS

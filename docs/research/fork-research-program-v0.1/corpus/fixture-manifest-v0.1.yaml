@@ -1,0 +1,13 @@
+artifact:
+  name: Fork Fixture Manifest
+  version: "0.1"
+  instantiated_at: "2026-08-06"
+status: EMPTY_READY_FOR_ADMISSION
+baseline_version: "0.1"
+fixture_count: 0
+fixtures: []
+non_claims:
+  - NO_EMPIRICAL_RESULTS_RECORDED
+  - NO_CONFORMANCE_ESTABLISHED
+  - NO_INDEPENDENT_VALIDATION_ESTABLISHED
+

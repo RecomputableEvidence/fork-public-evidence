@@ -1,0 +1,162 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://fork.example/schemas/failure-ledger-entry-v0.1.schema.json"
+title: Fork Failure Ledger Entry v0.1
+description: >-
+  Provisional append-only record separating observation, reproduction,
+  diagnosis, and governance disposition histories.
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - ledger_entry_id
+  - observation
+  - reproduction_history
+  - diagnosis_history
+  - disposition_history
+properties:
+  schema_version: {const: "0.1"}
+  ledger_entry_id: {type: string, minLength: 1}
+  observation:
+    type: object
+    additionalProperties: false
+    required:
+      - observation_id
+      - recorded_at
+      - source_state_digest
+      - target_state_digest
+      - transformation_id
+      - environment
+      - artifact_references
+      - execution_status
+    properties:
+      observation_id: {type: string, minLength: 1}
+      recorded_at: {type: string, format: date-time}
+      source_state_digest: {type: string, pattern: "^[a-fA-F0-9]{64}$"}
+      target_state_digest: {type: string, pattern: "^[a-fA-F0-9]{64}$"}
+      transformation_id: {type: string, minLength: 1}
+      transformation_receipt_digest:
+        type: [string, "null"]
+        pattern: "^[a-fA-F0-9]{64}$"
+      environment: {type: object, additionalProperties: true}
+      artifact_references:
+        type: array
+        items: {type: string, minLength: 1}
+      execution_status:
+        enum: [EXECUTED, NOT_EXECUTED, PARTIAL, UNKNOWN]
+      correction_of_observation_id: {type: [string, "null"]}
+  reproduction_history:
+    type: array
+    items: {$ref: "#/$defs/reproductionEvent"}
+  diagnosis_history:
+    type: array
+    items: {$ref: "#/$defs/diagnosisEvent"}
+  disposition_history:
+    type: array
+    items: {$ref: "#/$defs/dispositionEvent"}
+$defs:
+  commonEvent:
+    type: object
+    required: [event_id, recorded_at, actor_id, procedure_id, procedure_version]
+    properties:
+      event_id: {type: string, minLength: 1}
+      recorded_at: {type: string, format: date-time}
+      actor_id: {type: string, minLength: 1}
+      procedure_id: {type: string, minLength: 1}
+      procedure_version: {type: string, minLength: 1}
+      evidence_references:
+        type: array
+        items: {type: string}
+      supersedes_event_ids:
+        type: array
+        items: {type: string}
+  reproductionEvent:
+    allOf:
+      - {$ref: "#/$defs/commonEvent"}
+      - type: object
+        additionalProperties: false
+        required: [event_id, recorded_at, actor_id, procedure_id, procedure_version, result]
+        properties:
+          event_id: {type: string, minLength: 1}
+          recorded_at: {type: string, format: date-time}
+          actor_id: {type: string, minLength: 1}
+          procedure_id: {type: string, minLength: 1}
+          procedure_version: {type: string, minLength: 1}
+          evidence_references: {type: array, items: {type: string}}
+          supersedes_event_ids: {type: array, items: {type: string}}
+          result: {enum: [REPRODUCED, NOT_REPRODUCED, CONSTRAINED, UNRESOLVED]}
+          constraints: {type: array, items: {type: string}}
+  diagnosisEvent:
+    allOf:
+      - {$ref: "#/$defs/commonEvent"}
+      - type: object
+        additionalProperties: false
+        required:
+          - event_id
+          - recorded_at
+          - actor_id
+          - procedure_id
+          - procedure_version
+          - failure_loci
+          - uncertainty
+        properties:
+          event_id: {type: string, minLength: 1}
+          recorded_at: {type: string, format: date-time}
+          actor_id: {type: string, minLength: 1}
+          procedure_id: {type: string, minLength: 1}
+          procedure_version: {type: string, minLength: 1}
+          evidence_references: {type: array, items: {type: string}}
+          supersedes_event_ids: {type: array, items: {type: string}}
+          failure_loci:
+            type: array
+            minItems: 1
+            uniqueItems: true
+            items:
+              enum:
+                - IMPLEMENTATION_FAILURE
+                - SPECIFICATION_AMBIGUITY
+                - VOCABULARY_INSUFFICIENCY
+                - CONSTITUTIONAL_INSUFFICIENCY
+                - PROFILE_INSUFFICIENCY
+                - INPUT_INSUFFICIENCY
+                - PROCEDURE_DIVERGENCE
+                - FIXTURE_DEFECT
+                - LEGITIMATE_UNRESOLVED
+          uncertainty: {type: string}
+          competing_diagnosis_event_ids: {type: array, items: {type: string}}
+  dispositionEvent:
+    allOf:
+      - {$ref: "#/$defs/commonEvent"}
+      - type: object
+        additionalProperties: false
+        required:
+          - event_id
+          - recorded_at
+          - actor_id
+          - procedure_id
+          - procedure_version
+          - disposition
+          - linked_diagnosis_event_ids
+          - unresolved_questions
+        properties:
+          event_id: {type: string, minLength: 1}
+          recorded_at: {type: string, format: date-time}
+          actor_id: {type: string, minLength: 1}
+          procedure_id: {type: string, minLength: 1}
+          procedure_version: {type: string, minLength: 1}
+          evidence_references: {type: array, items: {type: string}}
+          supersedes_event_ids: {type: array, items: {type: string}}
+          disposition:
+            enum:
+              - IMPLEMENTATION_REPAIR
+              - SPECIFICATION_CLARIFICATION
+              - PROFILE_REVISION
+              - FIXTURE_CORRECTION
+              - MODEL_EXTENSION
+              - MODEL_REDUCTION
+              - NO_CHANGE
+              - UNRESOLVED_PRESERVATION
+          linked_diagnosis_event_ids: {type: array, items: {type: string}}
+          disagreements: {type: array, items: {type: string}}
+          unresolved_questions: {type: array, items: {type: string}}
+          change_authorization_id: {type: [string, "null"]}
+
