@@ -1,0 +1,147 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "fork_research_program_repository_admission_binding",
+  "record_id": "FORK_RESEARCH_PROGRAM_V0_1_PR113_REPOSITORY_ADMISSION_BINDING_2026_08_06_V0_1",
+  "status": "APPEND_ONLY_REPOSITORY_BINDING_CANDIDATE",
+  "record_date": "2026-08-06",
+  "time_basis": "America/Los_Angeles",
+  "author": {
+    "name": "Ryan Feller",
+    "github_actor": "RecomputableEvidence",
+    "capacity": "INDIVIDUAL",
+    "orcid": "0009-0000-7863-5792"
+  },
+  "append_only": true,
+  "source_package": {
+    "name": "Fork Research Program v0.1",
+    "path": "docs/research/fork-research-program-v0.1",
+    "candidate_model_version": "0.1",
+    "standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "frozen_package_files_modified_by_this_record": false,
+    "frozen_package_files_added_by_this_record": 0,
+    "binding_record_is_outside_frozen_package": true
+  },
+  "repository_admission": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "repository_url": "https://github.com/RecomputableEvidence/fork-public-evidence",
+    "pull_request": 113,
+    "pull_request_url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/113",
+    "target_branch": "preservation/clean-continuance-v0.1",
+    "pre_merge_base_commit": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+    "pre_merge_base_tree": "15c1a06001ae2c67cbcef385ac883a7f2e1cfe2e",
+    "reviewed_head_commit": "7e358c468819f1145aca5ea2686ef90624dd53b0",
+    "reviewed_head_parent": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+    "reviewed_head_tree": "f09eebdbcb9ef54996f7b20fc2ab91cf4e8f5ae9",
+    "merge_commit": "fd395540cf82c3e578510172d500c9e03ba1a86b",
+    "merge_tree": "f09eebdbcb9ef54996f7b20fc2ab91cf4e8f5ae9",
+    "merge_parents": [
+      "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+      "7e358c468819f1145aca5ea2686ef90624dd53b0"
+    ],
+    "merge_method": "MERGE_COMMIT",
+    "reviewed_head_rewritten": false,
+    "merge_tree_equals_reviewed_head_tree": true,
+    "merged_at": "2026-08-07T01:48:11Z",
+    "merged_by": "RecomputableEvidence",
+    "destination_tip_observed_after_merge": "fd395540cf82c3e578510172d500c9e03ba1a86b"
+  },
+  "authorization": {
+    "kind": "EXACT_HEAD_REPOSITORY_ADMISSION_AND_MERGE_AUTHORIZATION",
+    "github_comment_id": 5211078238,
+    "github_comment_url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/113#issuecomment-5211078238",
+    "created_at": "2026-08-07T01:44:55Z",
+    "authorized_by": "Ryan Feller",
+    "github_actor": "RecomputableEvidence",
+    "capacity": "INDIVIDUAL",
+    "body_normalization": "UTF8_LF",
+    "body_sha256": "0fdfb650c8638e45f8c48e2c2ee6eaedc7ebb6f519747e1ea2bdffde360117ea"
+  },
+  "review_evidence": {
+    "kind": "EXACT_HEAD_DOCUMENTARY_AND_STRUCTURAL_REVIEW",
+    "github_review_id": 4877872302,
+    "github_review_url": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/113#pullrequestreview-4877872302",
+    "submitted_at": "2026-08-06T20:00:03Z",
+    "review_state": "COMMENTED",
+    "disposition": "REVIEWED_WITHIN_DECLARED_DOCUMENTARY_AND_STRUCTURAL_SCOPE",
+    "independence": "NOT_INDEPENDENT_AUTHOR_ASSISTED",
+    "body_normalization": "UTF8_LF",
+    "body_sha256": "ec6f9f61f8d0d98caebc6785eb85bd8d6bc811c5a24decdf0c16ee33ed4eb6bc"
+  },
+  "repository_ci_observation": {
+    "bound_head_commit": "7e358c468819f1145aca5ea2686ef90624dd53b0",
+    "event": "pull_request",
+    "workflow_runs": [
+      {
+        "run_id": 31136311019,
+        "workflow": "Root Checksum Manifest v0.1",
+        "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/31136311019",
+        "created_at": "2026-08-07T00:55:29Z",
+        "completed_at": "2026-08-07T00:55:48Z",
+        "conclusion": "success"
+      },
+      {
+        "run_id": 31136311020,
+        "workflow": "Fork Evidence CI",
+        "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/31136311020",
+        "created_at": "2026-08-07T00:55:29Z",
+        "completed_at": "2026-08-07T00:55:48Z",
+        "conclusion": "success"
+      },
+      {
+        "run_id": 31136311031,
+        "workflow": "Fork Proof-Surface Integration",
+        "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/31136311031",
+        "created_at": "2026-08-07T00:55:29Z",
+        "completed_at": "2026-08-07T00:59:14Z",
+        "conclusion": "success"
+      }
+    ],
+    "workflow_run_summary": "3_OF_3_SUCCESS",
+    "check_run_summary": "8_OF_8_SUCCESS",
+    "standing": "REPOSITORY_CI_OBSERVATION_ONLY",
+    "does_not_establish_substantive_correctness": true
+  },
+  "artifact_binding": {
+    "baseline_manifest_path": "docs/research/fork-research-program-v0.1/baseline_manifest_v0.1.yaml",
+    "baseline_manifest_sha256": "5f1ac8b42185fe6096da7642bfc40bd82037e0d0d51aa9f5a52187755eedeba6",
+    "checksum_manifest_path": "docs/research/fork-research-program-v0.1/SHA256SUMS",
+    "checksum_manifest_sha256": "ac3867da87ed74e4b2a2ee83fe8476712711ecbe55358abaf26d756ab851f023",
+    "declared_checksum_entries": 11,
+    "exact_head_review_result": "11_OF_11_MATCH",
+    "binding_scope": "STANDALONE_ARTIFACT_SET_ADMITTED_AT_EXACT_REPOSITORY_COORDINATE"
+  },
+  "binding_transition_if_admitted": {
+    "effective_only_on_reviewed_merge_to_target_branch": true,
+    "from": {
+      "standalone_artifact_binding": "COMPLETE",
+      "repository_binding": "UNRESOLVED_PENDING_REPOSITORY_ADMISSION",
+      "admitted_evaluation": "BLOCKED_PENDING_REPOSITORY_BINDING"
+    },
+    "to": {
+      "standalone_artifact_binding": "COMPLETE",
+      "repository_binding": "BOUND_BY_APPEND_ONLY_SUCCESSOR_RECORD",
+      "repository_binding_gate": "SATISFIED_IF_THIS_RECORD_IS_ADMITTED",
+      "admitted_evaluation_effect": "REPOSITORY_BINDING_BLOCKER_SATISFIED_ONLY"
+    },
+    "corpus_cases_admitted": 0,
+    "model_standing_advanced": false,
+    "source_package_rewritten": false,
+    "main_modified": false
+  },
+  "current_effect_before_this_record_is_merged": {
+    "repository_binding_effect": "NONE",
+    "admitted_evaluation_effect": "NONE",
+    "model_change_effect": "NONE",
+    "corpus_admission_effect": "NONE"
+  },
+  "non_claims": [
+    "This record does not rewrite or complete fields inside the frozen v0.1 package.",
+    "Repository binding does not establish empirical validation or independent validation.",
+    "Repository binding does not establish substantive correctness, completeness, conformance, production readiness, legality, compliance, institutional acceptance, or endorsement.",
+    "The documentary and structural review is author-assisted and does not become independent through admission or binding.",
+    "Successful repository CI establishes only the recorded workflow and check observations against the exact head.",
+    "No corpus case is admitted and no model standing is advanced.",
+    "No provider execution, Pair-001 execution, workflow authority, or modification of main is authorized or performed by this record.",
+    "No authority transfers from authorship, review, CI, merge, admission, or repository binding."
+  ]
+}
