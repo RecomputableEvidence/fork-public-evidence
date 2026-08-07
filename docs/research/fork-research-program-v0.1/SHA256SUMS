@@ -1,0 +1,11 @@
+000e5de34439a3ad8412434ffc462abadbbbecbca7ee884ca37fc894e62ffa73  fork-research-program-v0.1/FORK_CANDIDATE_MODEL_v0.1_FREEZE_RECORD.md
+e1935c39a262ff1b9ad87323a6340183c844eabc5e7965d831783a6439f3a794  fork-research-program-v0.1/FORK_RFC_0_v0.1.md
+2541a02470efa389ff09d9bd666d2fc3331dd3934506248a23a0fc6c23e27c1d  fork-research-program-v0.1/README.md
+5f1ac8b42185fe6096da7642bfc40bd82037e0d0d51aa9f5a52187755eedeba6  fork-research-program-v0.1/baseline_manifest_v0.1.yaml
+9724cd98f1ca5ce34db97450ca5328926595fb0413091d4c487bc4e09b3bbfb2  fork-research-program-v0.1/corpus/fixture-manifest-v0.1.yaml
+5c58c2111b5033d048b084fd844eb4597572acb606ec1af5dd1a674b41fcd10f  fork-research-program-v0.1/corpus/validation-corpus-manifest-v0.1.yaml
+6a50b7c40538b37c9c67b5f87e3466b3fa75fc03a0061c0549671b34a44bc5bc  fork-research-program-v0.1/procedures/independent-challenge-procedure-v0.1.md
+e41467338f897cd9cd2937ab6ea09615bbffa6c6c9c665a7d35388055499e86b  fork-research-program-v0.1/schemas/classification-event-v0.1.schema.yaml
+4bf60f33d1c5073ea96d19818bfec9185dc311e58f6420a9f81f16be1f24a0c2  fork-research-program-v0.1/schemas/failure-ledger-entry-v0.1.schema.yaml
+b2d3ca2830b123b5b9c45014dd9b8d030c8096f91e89226e080b1d57c45f4bea  fork-research-program-v0.1/schemas/negative-result-entry-v0.1.schema.yaml
+2af9fb888492ad5b2936c176565b7d0378c1ef4546512acdb786330376996de7  fork-research-program-v0.1/schemas/transformation-case-v0.1.schema.yaml

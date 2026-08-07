@@ -1,0 +1,85 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://fork.example/schemas/negative-result-entry-v0.1.schema.json"
+title: Fork Negative Result Entry v0.1
+description: Provisional record of concept testing, reduction evidence, and reopening conditions.
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - entry_id
+  - proposal
+  - expected_distinction
+  - existing_concepts_tested
+  - tests
+  - results
+  - review
+  - disposition
+  - reopening_conditions
+properties:
+  schema_version: {const: "0.1"}
+  entry_id: {type: string, minLength: 1}
+  proposal:
+    type: object
+    additionalProperties: false
+    required: [proposal_id, concept, proposed_role]
+    properties:
+      proposal_id: {type: string, minLength: 1}
+      concept: {type: string, minLength: 1}
+      proposed_role:
+        enum: [PRIMITIVE, INVARIANT, RELATION, EVENT_TYPE, MANDATORY_FIELD, OTHER]
+  expected_distinction: {type: string, minLength: 1}
+  existing_concepts_tested:
+    type: array
+    items: {type: string, minLength: 1}
+  tests:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [test_id, test_type, procedure_id, evidence_references]
+      properties:
+        test_id: {type: string, minLength: 1}
+        test_type:
+          enum:
+            - DERIVABILITY
+            - DISTINGUISHABILITY
+            - INDEPENDENT_FAILURE
+            - INTERVENTION
+            - CONFORMANCE_NECESSITY
+            - COMPOSITION
+            - EVALUATOR_CONSISTENCY
+        procedure_id: {type: string, minLength: 1}
+        evidence_references: {type: array, items: {type: string}}
+  derivation_or_redundancy_argument: {type: [string, "null"]}
+  results:
+    type: array
+    minItems: 1
+    items: {type: string, minLength: 1}
+  review:
+    type: object
+    additionalProperties: false
+    required: [reviewers, conflicts, disagreements]
+    properties:
+      reviewers: {type: array, items: {type: string}}
+      conflicts: {type: array, items: {type: string}}
+      disagreements: {type: array, items: {type: string}}
+  disposition:
+    enum:
+      - RETAIN_AS_PRIMITIVE
+      - RETAIN_AS_INVARIANT
+      - RETAIN_AS_DERIVED_RULE
+      - RETAIN_AS_PROFILE_REQUIREMENT
+      - RETAIN_AS_REPRESENTATION
+      - COLLAPSE_INTO_EXISTING_CONCEPT
+      - REJECT_AS_REDUNDANT
+      - REJECT_AS_UNOBSERVABLE
+      - REJECT_AS_OUT_OF_SCOPE
+      - UNRESOLVED
+  reopening_conditions:
+    type: array
+    minItems: 1
+    items: {type: string, minLength: 1}
+  recorded_by: {type: string}
+  recorded_at: {type: string, format: date-time}
+

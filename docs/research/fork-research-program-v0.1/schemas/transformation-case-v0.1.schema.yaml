@@ -1,0 +1,111 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://fork.example/schemas/transformation-case-v0.1.schema.json"
+title: Fork Transformation Case v0.1
+description: Provisional submission format for one preserved transformation case.
+type: object
+additionalProperties: false
+required:
+  - schema_version
+  - case_id
+  - case_origin
+  - category
+  - submitted_by
+  - source_state
+  - target_state
+  - transformation
+  - environment
+  - reproduction
+  - evidence_references
+properties:
+  schema_version: {const: "0.1"}
+  case_id: {type: string, minLength: 1}
+  case_origin:
+    enum:
+      - OPERATIONAL_OBSERVATION
+      - INDEPENDENT_SUBMISSION
+      - DETERMINISTIC_COUNTEREXAMPLE
+      - ADVERSARIAL_FIXTURE
+      - RULE_CONTRADICTION
+      - DISTINGUISHABILITY_TEST
+  category:
+    enum:
+      - FORMATTING
+      - CANONICALIZATION
+      - TRANSLATION
+      - SUMMARIZATION
+      - REDACTION
+      - SCHEMA_MIGRATION
+      - AGGREGATION
+      - DECOMPOSITION
+      - RECOMPOSITION
+      - HUMAN_REVISION
+      - AI_ASSISTED_REVISION
+      - EVIDENCE_AUGMENTATION
+      - EVIDENCE_SUBSTITUTION
+      - SUPERSESSION
+      - REVOCATION
+  submitted_by:
+    type: object
+    additionalProperties: false
+    required: [id, submitted_at]
+    properties:
+      id: {type: string, minLength: 1}
+      submitted_at: {type: string, format: date-time}
+      affiliation: {type: [string, "null"]}
+      conflicts_disclosed:
+        type: array
+        items: {type: string}
+  source_state: {$ref: "#/$defs/artifactReference"}
+  target_state: {$ref: "#/$defs/artifactReference"}
+  transformation:
+    type: object
+    additionalProperties: false
+    required: [id, method, version, scope]
+    properties:
+      id: {type: string, minLength: 1}
+      method: {type: string, minLength: 1}
+      version: {type: string, minLength: 1}
+      scope:
+        type: array
+        minItems: 1
+        items: {type: string, minLength: 1}
+      receipt_digest:
+        type: [string, "null"]
+        pattern: "^[a-fA-F0-9]{64}$"
+  environment:
+    type: object
+    additionalProperties: true
+    required: [description]
+    properties:
+      description: {type: string, minLength: 1}
+  reproduction:
+    type: object
+    additionalProperties: false
+    required: [status, instructions]
+    properties:
+      status:
+        enum: [NOT_ATTEMPTED, REPRODUCED, NOT_REPRODUCED, CONSTRAINED]
+      instructions: {type: string}
+      constraints:
+        type: array
+        items: {type: string}
+  evidence_references:
+    type: array
+    items: {type: string, minLength: 1}
+  declared_expectation:
+    type: [string, "null"]
+  explicit_non_claims:
+    type: array
+    items: {type: string}
+$defs:
+  artifactReference:
+    type: object
+    additionalProperties: false
+    required: [artifact_id, sha256]
+    properties:
+      artifact_id: {type: string, minLength: 1}
+      path: {type: [string, "null"]}
+      sha256:
+        type: string
+        pattern: "^[a-fA-F0-9]{64}$"
+
