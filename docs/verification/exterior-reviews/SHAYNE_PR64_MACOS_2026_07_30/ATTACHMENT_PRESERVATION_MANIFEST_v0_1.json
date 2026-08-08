@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "fork_shayne_pr63_pr64_attachment_preservation_manifest",
+  "package_id": "FORK_SHAYNE_PR63_PR64_ATTACHMENT_PRESERVATION_2026_07_30_v0_1",
+  "source_release": {
+    "repository": "Icon369/verdict-evidence-transfers",
+    "tag": "pr63-pr64-ivs-v0_1_1",
+    "tag_target_commit": "c9ddbe6f81dd06a719cd0c72da7a38d242e8b362",
+    "release_id": 362827531,
+    "asset_id": 496157418,
+    "asset_name": "pr63-pr64-evidence-bundle.zip",
+    "release_url": "https://github.com/Icon369/verdict-evidence-transfers/releases/tag/pr63-pr64-ivs-v0_1_1",
+    "asset_url": "https://github.com/Icon369/verdict-evidence-transfers/releases/download/pr63-pr64-ivs-v0_1_1/pr63-pr64-evidence-bundle.zip"
+  },
+  "entries": [
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/pr63-pr64-evidence-bundle.zip",
+      "sha256": "1ccf11595fcc88b1bab187f2dd301a04e123e02ba92867e90491b619b0a11d2d",
+      "size_bytes": 16901,
+      "standing": "PRESERVED_EXACT_GITHUB_RELEASE_ASSET"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/BUNDLE_NOTE.md",
+      "sha256": "d73fcd7373dffe4cfcb66bf1f18aacebbcab626bcd0940f74ef8efb93d87bd69",
+      "size_bytes": 1475,
+      "standing": "BYTE_EXACT_INSPECTION_COPY"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/ENVIRONMENT_RECORD.txt",
+      "sha256": "55da2d4d9014c44ebcea8cfc4e7ece181a25d682baabc8f6eb814e7bacbe7de9",
+      "size_bytes": 527,
+      "standing": "BYTE_EXACT_INSPECTION_COPY"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/FINDINGS-MEMO-PR63-PR64-IVS-v0_1_1.md",
+      "sha256": "ce87d8edd759b97fd2b4910a1a1cc597cfb07d107ff84f43cc4462f337533e3a",
+      "size_bytes": 6368,
+      "standing": "BYTE_EXACT_REVIEWER_MEMO"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/SHA256SUMS.txt",
+      "sha256": "667facd44f14b3e7e665772c661d18fbf0ff03e422008465bf62e2bcbbd5358e",
+      "size_bytes": 950,
+      "standing": "BYTE_EXACT_UPSTREAM_PAYLOAD_MANIFEST"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/PR_63_receipt_mine.json",
+      "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083",
+      "size_bytes": 2380,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/checker_out.txt",
+      "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083",
+      "size_bytes": 2380,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/diff_real.txt",
+      "sha256": "66df3038c620dfcbd5fca7da3bdb691d9321e5a4e44fd7d9d721ec609b159af6",
+      "size_bytes": 1486,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/plan_tampered.json",
+      "sha256": "8950e9a2abea3e47e96da8d7a0848b7ac75337f29c4578f9b2d2daa19eebe0f5",
+      "size_bytes": 5328,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/r_1.json",
+      "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083",
+      "size_bytes": 2380,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/r_2.json",
+      "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083",
+      "size_bytes": 2380,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/r_42.json",
+      "sha256": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083",
+      "size_bytes": 2380,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    },
+    {
+      "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/raw/tamper_out.txt",
+      "sha256": "d3382015cc84dfa3b7f58d1cc1bb823075ce56eee51fb89a62b29ff4e084587c",
+      "size_bytes": 6925,
+      "standing": "BYTE_EXACT_RAW_ARTIFACT"
+    }
+  ],
+  "archive_scope": {
+    "member_count": 14,
+    "directory_member_count": 2,
+    "regular_file_member_count": 12,
+    "duplicate_member_count": 0,
+    "unsafe_member_count": 0,
+    "archive_integrity_test": "PASS",
+    "extracted_copies_match_archive_members_byte_for_byte": true,
+    "zip_timestamp_metadata_bound_by_archive_bytes": true,
+    "git_does_not_preserve_extracted_file_mtime_semantics": true
+  },
+  "upstream_internal_manifest": {
+    "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/pr63-pr64-ivs-v0_1_1/extracted/pr63-pr64-evidence-bundle/SHA256SUMS.txt",
+    "entry_count": 11,
+    "all_declared_entries_verified": true,
+    "covers_every_other_regular_file": true,
+    "contains_self_entry": false,
+    "self_integrity_is_bound_by_exact_outer_archive_and_this_manifest": true
+  },
+  "self_exclusion": {
+    "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/ATTACHMENT_PRESERVATION_MANIFEST_v0_1.json",
+    "reason": "AVOIDS_CIRCULAR_FULL_FILE_DIGEST"
+  }
+}

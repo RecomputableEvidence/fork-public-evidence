@@ -1,0 +1,67 @@
+{
+  "checker_id": "FORK_INDEPENDENT_VERIFICATION_SURFACE_v0_1_1",
+  "control_errors": [],
+  "git_modes": {
+    "checked_path_count": 20,
+    "non_regular_paths": [],
+    "regular_blob_count": 20
+  },
+  "legacy_evidence": {
+    "available": true,
+    "committed_receipt_byte_exact": true,
+    "plan_git_blob_sha1": "7c2c2b71636c6fb7696e47f7d1f3e882b2dc271e",
+    "plan_path": "verification/plans/PR_63_CSH_AMENDMENT_v0_1.json",
+    "receipt_git_blob_sha1": "4694285c56206a316f8426481539814061fa830a",
+    "receipt_path": "receipts/independent-verification/PR_63_CSH_AMENDMENT_VERIFICATION_v0_1.json",
+    "recomputed_verdict": "VERIFIED_WITHIN_DECLARED_SCOPE"
+  },
+  "mode": "CONTRIBUTION_VERIFICATION_HARDENING",
+  "non_claims": [
+    "No merge approval",
+    "No repository standing",
+    "No security certification",
+    "No producer-intent determination",
+    "No universal semantic correctness claim",
+    "No independent human review unless separately attributed",
+    "No experiment execution authorization",
+    "No endorsement"
+  ],
+  "observations": {
+    "contract_errors": [],
+    "count": 4
+  },
+  "plan": {
+    "available": true,
+    "git_blob_sha1": "3cf751f6e0d8d0dc65ef8504611691057b733f1a",
+    "path": "verification/plans/PR_63_CSH_AMENDMENT_v0_1_1.json",
+    "plan_id": "FORK_IVS_PR_63_CSH_AMENDMENT_V0_1_1"
+  },
+  "result": {
+    "contradicted_count": 0,
+    "control_error_count": 0,
+    "experiment_execution_effect": "NONE",
+    "inconclusive_count": 0,
+    "merge_effect": "NONE",
+    "ok": true,
+    "precedence_applied": "INCONCLUSIVE_EVIDENCE_GAP>INVALIDATED_BY_RECOMPUTATION>VERIFIED_WITHIN_DECLARED_SCOPE",
+    "repository_standing_effect": "NONE",
+    "verdict": "VERIFIED_WITHIN_DECLARED_SCOPE"
+  },
+  "schema_version": "0.1.1",
+  "subject": {
+    "available": true,
+    "base_commit": "599d3e193d86a9661fbbec3213ae1921b4959f10",
+    "candidate_commit": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+    "changed_path_count": 20,
+    "merge_base": "1102113556edfc54b43a328317961c4896d6dd6c",
+    "repository": "RecomputableEvidence/fork-public-evidence"
+  },
+  "verifier_provenance": {
+    "available": true,
+    "component_count": 8,
+    "component_mismatches": [],
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "running_checker_matches_declared_blob": true,
+    "source_commit": "e366e44cb2059f5cb7243757b95fa8d44859b811"
+  }
+}

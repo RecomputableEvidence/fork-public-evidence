@@ -1,0 +1,15 @@
+Ryan,
+
+Ran it. Disposition: REPRODUCED_WITHIN_DECLARED_SCOPE. Full findings memo attached with environment, exact commands, exit codes, and limitations, but here is the shape of it.
+
+Fresh clone on macOS 15.7.7, Python 3.14.4, bound to the exact PR #64 head d911ad5c. Both lock files installed clean under --require-hashes, no platform deviation needed anywhere in the procedure. The fresh runner returned FRESH_RECOMPUTATION_PASS with candidate_checkout NONE, and I confirmed from source that it builds its workspace in a disposable temp directory rather than trusting my working copy. The direct checker's receipt is byte-identical to the committed one by cmp, all 8 IVS tests pass, and the receipt hash is identical across four PYTHONHASHSEED conditions.
+
+Your pressure checks, tested rather than assumed. I independently recomputed the merge base and it equals the plan's declared value. A single-byte tamper to the candidate SHA in a plan copy made the checker exit 2, so it fails closed, and worth noting plainly: this checker family does not carry the exit-code-0 defect I flagged on the v0.2.1 mapping checker. Verdict precedence in the plan is adverse-first, which is the right ordering. On PR #63, both archived predecessor workflows are byte-identical to the actual blobs at the merge base, checked purely over git objects, and the readiness checker's own success state is STRUCTURALLY_READY_EXECUTION_BLOCKED. There is no terminal state that grants execution, which answers the promotion question at the vocabulary level. I also ran the PR #63 readiness tests, 5 of 5 passing, in my own sandbox and recorded explicitly that candidate code ran outside the trusted lane, by me, on purpose.
+
+One observation, filed as an observation and not a defect: the plan binds the subject by commit SHAs, which transitively covers every path, but the 20-file changed-path inventory is not enumerated as a first-class assertion. I derived it myself with git diff against the merge base. Integrity coverage is complete either way; enumeration would just save the next reviewer the derivation.
+
+And one process note you will appreciate. My first pass at the inventory question used a crude path-extraction heuristic over the plan JSON and nearly produced a false "19 of 20 paths missing" finding. Reading the plan's actual binding mechanism killed it before it reached you. The degraded-representation lesson keeps earning its keep.
+
+Limitations are in the memo: single platform, single Python version, external_observations accepted as recorded snapshots and not re-queried live, and none of this is endorsement, merge authority, or authorization to execute Pair-001.
+
+Shayne
