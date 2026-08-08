@@ -1,0 +1,48 @@
+{
+  "contract_id": "FORK-PROOF-PORTFOLIO-PROMOTION-CONTRACT-v0.2",
+  "version": "0.2",
+  "governing_principle": "Source evidence standing, proof-packaging standing, model standing, execution authority, institutional authority, and commercial relevance are independent dimensions. No dimension inherits standing from another.",
+  "proof_order": ["PROOF-001", "PROOF-002", "PROOF-003", "PROOF-004", "PROOF-005", "PROOF-006"],
+  "required_global_state": {
+    "candidate_model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "corpus_cases_admitted": 0,
+    "empirical_validation": "NOT_ESTABLISHED",
+    "independent_validation": "NOT_ESTABLISHED",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0
+  },
+  "disallowed_promotions": [
+    {"from": "CI_SUCCESS", "to": "ADMISSION"},
+    {"from": "EXTERIOR_REVIEW", "to": "AUTHORITY_OR_ENDORSEMENT"},
+    {"from": "SOURCE_EVIDENCE_ADMITTED", "to": "PROOF_PACKAGING_ADMITTED"},
+    {"from": "SOURCE_PR_MERGED", "to": "PROOF_STANDING"},
+    {"from": "MARKET_RELEVANCE", "to": "TECHNICAL_OR_EVIDENTIARY_STANDING"},
+    {"from": "CORRECTION", "to": "PREDECESSOR_FAILURE_ERASED"},
+    {"from": "PREREGISTRATION_COMPLETE", "to": "EXECUTION_AUTHORIZED"},
+    {"from": "PROOF_SEQUENCE_ORDER", "to": "AUTOMATIC_PREDECESSOR_OR_SUCCESSOR_STANDING"}
+  ],
+  "proof_specific_invariants": {
+    "PROOF-001": ["V0_2_DOES_NOT_REOPEN_OR_PROMOTE_EXISTING_SURFACE"],
+    "PROOF-002": ["PR65_CORRECTED_HEAD_REQUIRES_INDEPENDENT_EXACT_HEAD_EXTERIOR_RECOMPUTATION"],
+    "PROOF-003": ["PR118_SOURCE_EVIDENCE_IS_ADMITTED", "SOURCE_EVIDENCE_ADMISSION_DOES_NOT_ADMIT_PROOF_PACKAGING"],
+    "PROOF-004": ["PR100_REMAINS_SIMULATION_CANDIDATE", "EXTERIOR_RECOMPUTATION_REQUIRED", "LIVE_ADAPTERS_CLOSED"],
+    "PROOF-005": ["PR84_CORRECTION_AND_SOURCE_GROUNDING_PRECEDE_PR86", "EXTERIOR_REVIEW_REQUIRED"],
+    "PROOF-006": ["LIVE_PROVIDER_EXECUTION_CLOSED", "SEPARATE_EXECUTION_AUTHORIZATION_REQUIRED"]
+  },
+  "finished_proof_required_gates": [
+    "BOUND_CLAIM",
+    "BOUND_SOURCE_EVIDENCE",
+    "ADVERSE_CASE",
+    "RECOMPUTATION_ROUTE",
+    "EXTERIOR_REVIEW_WHERE_DECLARED",
+    "SEPARATE_PROOF_PACKAGING_REVIEW",
+    "SEPARATE_PROOF_ADMISSION_DECISION"
+  ],
+  "non_claims": [
+    "Portfolio sequence conformance is not proof completion.",
+    "Portfolio sequence conformance is not empirical model validation.",
+    "An admitted evidence source does not transfer reviewer endorsement or institutional authority.",
+    "No sequence position authorizes execution, provider calls, pilot use, or production use."
+  ]
+}

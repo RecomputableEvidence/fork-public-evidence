@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/fork_proof_portfolio_sequence_v0_2.schema.json",
+  "title": "Fork Proof Portfolio Sequence v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sequence_id", "status", "historical_predecessor", "construction_base", "promotion_contract_path", "descriptive_schema_path", "model_state", "proof_sequence", "effects"],
+  "properties": {
+    "schema_version": {"const": "0.2"},
+    "sequence_id": {"const": "FORK-PROOF-PORTFOLIO-SEQUENCE-v0.2"},
+    "status": {"const": "GOVERNANCE_SEQUENCE_SUCCESSOR_CANDIDATE_NOT_ADMITTED"},
+    "historical_predecessor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pull_request", "exact_head", "version", "direct_merge_selected", "treatment"],
+      "properties": {
+        "pull_request": {"const": 106},
+        "exact_head": {"const": "1038be6cf56d2b6ed74d2bee888c38cdd6fd0f92"},
+        "version": {"const": "v0.1"},
+        "direct_merge_selected": {"const": false},
+        "treatment": {"const": "PRESERVE_HISTORICAL_V0_1_CONSTRUCT_CURRENT_V0_2_SUCCESSOR"}
+      }
+    },
+    "construction_base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["branch", "commit_sha"],
+      "properties": {
+        "branch": {"const": "preservation/clean-continuance-v0.1"},
+        "commit_sha": {"const": "8f17d3de2d22e9dcb1f49c3813926d6166bc1bb8"}
+      }
+    },
+    "promotion_contract_path": {"const": "docs/proof-atlas/development/v0.2/PROOF_PORTFOLIO_PROMOTION_CONTRACT_v0_2.json"},
+    "descriptive_schema_path": {"const": "schemas/fork_proof_portfolio_sequence_v0_2.schema.json"},
+    "model_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_model", "standing", "corpus_cases_admitted", "empirical_validation", "independent_validation", "pilot_eligibility", "production_standing"],
+      "properties": {
+        "candidate_model": {"const": "Fork Candidate Model v0.1"},
+        "standing": {"const": "PROVISIONAL_RESEARCH_BASELINE"},
+        "corpus_cases_admitted": {"const": 0},
+        "empirical_validation": {"const": "NOT_ESTABLISHED"},
+        "independent_validation": {"const": "NOT_ESTABLISHED"},
+        "pilot_eligibility": {"const": "NOT_ESTABLISHED"},
+        "production_standing": {"const": "NOT_ESTABLISHED"}
+      }
+    },
+    "proof_sequence": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["proof_id", "title", "source_prs", "source_evidence_state", "proof_packaging_state", "execution_state", "sequence_gate"],
+        "properties": {
+          "proof_id": {"pattern": "^PROOF-[0-9]{3}$"},
+          "title": {"type": "string", "minLength": 1},
+          "source_prs": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
+          "source_evidence_state": {"type": "string", "minLength": 1},
+          "source_admission": {"type": "object"},
+          "proof_packaging_state": {"type": "string", "minLength": 1},
+          "execution_state": {"type": "string", "minLength": 1},
+          "sequence_gate": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "effects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_standing_delta", "proof_admission_delta", "model_standing_delta", "authority_delta", "execution_authorized", "provider_calls_authorized", "pair_001_calls_authorized", "pilot_authorized", "production_authorized", "repository_settings_effect", "main_effect"],
+      "properties": {
+        "evidence_standing_delta": {"const": "PROOF_003_SOURCE_EVIDENCE_ALREADY_ADMITTED_BY_PR_118_ONLY"},
+        "proof_admission_delta": {"const": "NONE"},
+        "model_standing_delta": {"const": "NONE"},
+        "authority_delta": {"const": "NONE"},
+        "execution_authorized": {"const": false},
+        "provider_calls_authorized": {"const": 0},
+        "pair_001_calls_authorized": {"const": 0},
+        "pilot_authorized": {"const": false},
+        "production_authorized": {"const": false},
+        "repository_settings_effect": {"const": "NONE"},
+        "main_effect": {"const": "NONE"}
+      }
+    }
+  }
+}
