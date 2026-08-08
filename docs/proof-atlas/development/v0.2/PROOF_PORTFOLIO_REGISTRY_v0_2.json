@@ -1,0 +1,103 @@
+{
+  "schema_version": "0.2",
+  "sequence_id": "FORK-PROOF-PORTFOLIO-SEQUENCE-v0.2",
+  "status": "GOVERNANCE_SEQUENCE_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "historical_predecessor": {
+    "pull_request": 106,
+    "exact_head": "1038be6cf56d2b6ed74d2bee888c38cdd6fd0f92",
+    "version": "v0.1",
+    "direct_merge_selected": false,
+    "treatment": "PRESERVE_HISTORICAL_V0_1_CONSTRUCT_CURRENT_V0_2_SUCCESSOR"
+  },
+  "construction_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "8f17d3de2d22e9dcb1f49c3813926d6166bc1bb8"
+  },
+  "promotion_contract_path": "docs/proof-atlas/development/v0.2/PROOF_PORTFOLIO_PROMOTION_CONTRACT_v0_2.json",
+  "descriptive_schema_path": "schemas/fork_proof_portfolio_sequence_v0_2.schema.json",
+  "model_state": {
+    "candidate_model": "Fork Candidate Model v0.1",
+    "standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "corpus_cases_admitted": 0,
+    "empirical_validation": "NOT_ESTABLISHED",
+    "independent_validation": "NOT_ESTABLISHED",
+    "pilot_eligibility": "NOT_ESTABLISHED",
+    "production_standing": "NOT_ESTABLISHED"
+  },
+  "proof_sequence": [
+    {
+      "proof_id": "PROOF-001",
+      "title": "A Review Does Not Silently Travel",
+      "source_prs": [104],
+      "source_evidence_state": "CURRENT_GOVERNED_SURFACE_UNCHANGED_BY_V0_2",
+      "proof_packaging_state": "UNCHANGED_BY_V0_2_NO_PROMOTION",
+      "execution_state": "NO_NEW_EXECUTION_AUTHORIZED",
+      "sequence_gate": "NO_ACTION_FROM_V0_2"
+    },
+    {
+      "proof_id": "PROOF-002",
+      "title": "Correction Does Not Erase Failure",
+      "source_prs": [65],
+      "source_evidence_state": "CORRECTED_HEAD_EXTERIOR_RECOMPUTATION_PENDING",
+      "proof_packaging_state": "NOT_ADMITTED",
+      "execution_state": "NO_NEW_EXECUTION_AUTHORIZED",
+      "sequence_gate": "INDEPENDENT_EXACT_HEAD_EXTERIOR_RECOMPUTATION_REQUIRED"
+    },
+    {
+      "proof_id": "PROOF-003",
+      "title": "Independent Recomputation Has Temporal Boundaries",
+      "source_prs": [105, 118],
+      "source_evidence_state": "ADMITTED_EXTERIOR_EVIDENCE_SUCCESSOR",
+      "source_admission": {
+        "pull_request": 118,
+        "merge_commit": "8f17d3de2d22e9dcb1f49c3813926d6166bc1bb8",
+        "review_target_pr": 64,
+        "review_target_head": "d911ad5c33e0ec32037414effa7749326983d5ff",
+        "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE"
+      },
+      "proof_packaging_state": "NOT_ADMITTED",
+      "execution_state": "NO_NEW_EXECUTION_AUTHORIZED",
+      "sequence_gate": "SEPARATE_PROOF_PACKAGING_REVIEW_AND_ADMISSION_REQUIRED"
+    },
+    {
+      "proof_id": "PROOF-004",
+      "title": "Evidence Can Cross Systems Without Authority Transfer",
+      "source_prs": [100],
+      "source_evidence_state": "DETERMINISTIC_SIMULATION_CANDIDATE_EXTERIOR_RECOMPUTATION_PENDING",
+      "proof_packaging_state": "NOT_ADMITTED",
+      "execution_state": "LIVE_ADAPTERS_NOT_AUTHORIZED",
+      "sequence_gate": "EXACT_HEAD_EXTERIOR_RECOMPUTATION_REQUIRED_BEFORE_SIMULATION_ONLY_ADMISSION"
+    },
+    {
+      "proof_id": "PROOF-005",
+      "title": "Conversational Authority Drift Is Detectable",
+      "source_prs": [84, 86],
+      "source_evidence_state": "CORRECTION_SOURCE_GROUNDING_AND_EXTERIOR_REVIEW_PENDING",
+      "proof_packaging_state": "NOT_ADMITTED",
+      "execution_state": "NO_NEW_EXECUTION_AUTHORIZED",
+      "sequence_gate": "PR84_CORRECTION_AND_EXTERIOR_REVIEW_THEN_PR86_DEPENDENCY_REVIEW"
+    },
+    {
+      "proof_id": "PROOF-006",
+      "title": "Cross-Model Reconstruction Preserves or Degrades Declared Structure",
+      "source_prs": [],
+      "source_evidence_state": "PREREGISTERED_OR_OFFLINE_ONLY",
+      "proof_packaging_state": "NOT_ADMITTED",
+      "execution_state": "LIVE_EXECUTION_AND_PROVIDER_CALLS_CLOSED",
+      "sequence_gate": "SEPARATE_EXECUTION_AUTHORIZATION_AND_EMPIRICAL_PROTOCOL_REQUIRED"
+    }
+  ],
+  "effects": {
+    "evidence_standing_delta": "PROOF_003_SOURCE_EVIDENCE_ALREADY_ADMITTED_BY_PR_118_ONLY",
+    "proof_admission_delta": "NONE",
+    "model_standing_delta": "NONE",
+    "authority_delta": "NONE",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "repository_settings_effect": "NONE",
+    "main_effect": "NONE"
+  }
+}
