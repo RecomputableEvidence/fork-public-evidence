@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "proof_portfolio_governance_sequence_admission",
+  "record_id": "FORK_PROOF_PORTFOLIO_SEQUENCE_V0_2_ADMISSION_2026_08_08_V0_1",
+  "record_date": "2026-08-08",
+  "append_only": true,
+  "governed_basis": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "branch": "preservation/clean-continuance-v0.1",
+    "exact_base": "dc7190b4ae7985e81e365bf0ab89326dab07873d"
+  },
+  "candidate": {
+    "pull_request": 119,
+    "candidate_head": "956e4e4b88b1f9c7b79915dea88391d7fbd32113",
+    "merge_commit": "dc7190b4ae7985e81e365bf0ab89326dab07873d",
+    "registry_path": "docs/proof-atlas/development/v0.2/PROOF_PORTFOLIO_REGISTRY_v0_2.json",
+    "checker_path": "tools/check_proof_portfolio_sequence_v0_2.py",
+    "historical_predecessor_pr": 106,
+    "historical_predecessor_head": "1038be6cf56d2b6ed74d2bee888c38cdd6fd0f92"
+  },
+  "verification_before_merge": {
+    "fork_evidence_ci": "SUCCESS",
+    "root_checksum_manifest_v0_1": "SUCCESS",
+    "fork_proof_surface_integration": "SUCCESS",
+    "windows_full_regression": "SUCCESS",
+    "ubuntu_full_regression": "SUCCESS"
+  },
+  "authorization_basis": {
+    "type": "EXPLICIT_REPOSITORY_OWNER_SEQUENCE_MERGE_AUTHORIZATION",
+    "scope": "aligned sequence and proof surfaces, experimental and empirical, subject to each surface's declared evidentiary and dependency gates",
+    "does_not_waive_declared_gates": true
+  },
+  "admission_effect": {
+    "governance_sequence_v0_2": "ADMITTED_CURRENT_GOVERNANCE_CONTROL_SURFACE",
+    "proof_001_delta": "NONE",
+    "proof_002_admitted": false,
+    "proof_003_source_evidence_admitted": true,
+    "proof_003_proof_packaging_admitted": false,
+    "proof_004_admitted": false,
+    "proof_005_admitted": false,
+    "proof_006_admitted": false,
+    "candidate_model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "corpus_cases_admitted": 0,
+    "empirical_validation": "NOT_ESTABLISHED",
+    "independent_validation": "NOT_ESTABLISHED",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "authority_delta": "NONE"
+  },
+  "next_sequence_gates": [
+    {
+      "proof_id": "PROOF-002",
+      "source_pr": 65,
+      "gate": "INDEPENDENT_EXACT_HEAD_EXTERIOR_RECOMPUTATION"
+    },
+    {
+      "proof_id": "PROOF-004",
+      "source_pr": 100,
+      "gate": "EXACT_HEAD_EXTERIOR_RECOMPUTATION_BEFORE_SIMULATION_ONLY_ADMISSION"
+    },
+    {
+      "proof_id": "PROOF-005",
+      "source_prs": [84, 86],
+      "gate": "PR84_CORRECTION_AND_EXTERIOR_REVIEW_THEN_PR86_DEPENDENCY_REVIEW"
+    },
+    {
+      "proof_id": "PROOF-006",
+      "gate": "SEPARATE_EXECUTION_AUTHORIZATION_AND_EMPIRICAL_PROTOCOL"
+    }
+  ],
+  "non_claims": [
+    "Admission of the v0.2 governance sequence does not admit unfinished proofs.",
+    "Sequence ordering does not create evidentiary standing by inheritance.",
+    "The PR #118 source-evidence admission for PROOF-003 does not establish PROOF-003 packaging admission.",
+    "This record does not establish empirical validation, independent model validation, truth, compliance, safety, approval, certification, endorsement, production readiness, or institutional authority."
+  ]
+}
