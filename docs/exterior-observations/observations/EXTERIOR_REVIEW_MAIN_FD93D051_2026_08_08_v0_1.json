@@ -1,0 +1,120 @@
+{
+  "record_id": "EXTERIOR_REVIEW_MAIN_FD93D051_2026_08_08_v0_1",
+  "record_version": "0.1",
+  "record_type": "bounded_exterior_observation",
+  "status": "PRESERVED_EXTERIOR_OBSERVATION_NO_AUTOMATIC_DEFECT_OR_STANDING_EFFECT",
+  "observed_repository": "RecomputableEvidence/fork-public-evidence",
+  "review_coordinate": {
+    "branch": "main",
+    "commit_sha": "fd93d051235ec43bee925878bc916d09179b3c90",
+    "scope_rule": "All technical observations in this record are bound to this exact reviewed coordinate unless explicitly identified as later repository context."
+  },
+  "source_binding": {
+    "supplied_source_name": "Pasted markdown(20260808-110544).md",
+    "sha256": "22e01d8e9b2c53e2573f2b07032ffa4e2b1221ffcadf238ffba9464103f032fc",
+    "byte_length": 86627,
+    "line_count_observed_by_local_wc": 365,
+    "source_role": "supplied exterior technical review transcript",
+    "independence_boundary": "The source is preserved as an exterior observation. This record does not infer human independence, institutional independence, endorsement, certification, or authority from the source alone."
+  },
+  "observations": [
+    {
+      "observation_id": "OBS-CHECKSUM-HISTORICAL-DISCREPANCY-001",
+      "classification": "CONFIRMED_INDEPENDENTLY_REPRODUCED_HISTORICAL_DISCREPANCY",
+      "subject": "CHECKSUMS_SHA256.txt entry for research/standards/README.md",
+      "recorded_sha256": "f134c55f5fd927a2c9564352eafed4e58b2145f7432bd18b5b3bb79b8e3ddc9c",
+      "observed_file_sha256": "c69ce9f411313ec5738b4b99d21d385a2498a3519182a38489e1bbe04ee158b2",
+      "lineage": [
+        {
+          "commit": "8ffd263",
+          "observation": "The checksum-matching historical README blob contained the malformed Windows command caused by an encoded control-character path defect."
+        },
+        {
+          "commit": "56f83fc",
+          "observation": "The README command encoding was repaired; the historical checksum entry was not regenerated."
+        },
+        {
+          "commit": "8f3f07e",
+          "observation": "The root checksum manifest still carried the predecessor digest after the README repair."
+        },
+        {
+          "commit": "fd93d051235ec43bee925878bc916d09179b3c90",
+          "observation": "The mismatch remained reproducible at the exact reviewed main coordinate."
+        }
+      ],
+      "governance_effect": "NONE_AUTOMATIC",
+      "preservation_rule": "Do not rewrite CHECKSUMS_SHA256.txt as part of this observation. Historical discrepancy remains visible. Any current root-manifest requirement must be satisfied by a separately versioned successor with mechanical binding."
+    },
+    {
+      "observation_id": "OBS-STATE-SUMMARY-CADENCE-LAG-001",
+      "classification": "HISTORICAL_CADENCE_LAG_OBSERVATION",
+      "subject": "docs/state/FORK_PROOF_SURFACE_STATE_SUMMARY_v0_1.md",
+      "observation": "At the reviewed main coordinate, the state summary remained dated 2026-07-11 while later main commits existed.",
+      "later_architecture_note": "Subsequent append-only temporal standing projections supersede the continuously-current-summary method. That later architecture does not erase or reinterpret this historical cadence-lag observation.",
+      "governance_effect": "NONE_AUTOMATIC"
+    },
+    {
+      "observation_id": "OBS-CHANGELOG-COSMETIC-001",
+      "classification": "COSMETIC_NON_GOVERNANCE_BEARING_OBSERVATION",
+      "subject": "CHANGELOG.md",
+      "observation": "The supplied review observed content preceding the primary Changelog heading.",
+      "defect_standing": "NOT_GRANTED_BY_THIS_RECORD",
+      "governance_effect": "NONE"
+    },
+    {
+      "observation_id": "OBS-ARCH-RISK-SINGLE-AUTHOR-001",
+      "classification": "ARCHITECTURAL_RISK_OBSERVATION",
+      "subject": "author concentration",
+      "observation": "The reviewed repository history was observed as concentrated under one author across multiple Git identities.",
+      "defect_standing": "NOT_GRANTED_BY_THIS_RECORD",
+      "governance_effect": "NONE_AUTOMATIC"
+    },
+    {
+      "observation_id": "OBS-ARCH-RISK-CROSSREF-DENSITY-001",
+      "classification": "ARCHITECTURAL_RISK_OBSERVATION",
+      "subject": "cross-reference and versioned-document density",
+      "observation": "The supplied review identified a large, densely cross-referenced graph of versioned Markdown, JSON, schemas, fixtures, and checkers whose synchronization can create maintenance risk when surfaces exist outside mechanical enforcement.",
+      "defect_standing": "NOT_GRANTED_BY_THIS_RECORD",
+      "governance_effect": "NONE_AUTOMATIC"
+    },
+    {
+      "observation_id": "OBS-ARCH-RISK-REVIEWER-FRICTION-001",
+      "classification": "ARCHITECTURAL_RISK_OBSERVATION",
+      "subject": "reviewer execution friction",
+      "observation": "The supplied review observed that PowerShell-primary reviewer paths can create friction in environments without pwsh, while documented Python fallback paths executed successfully in the review environment.",
+      "defect_standing": "NOT_GRANTED_BY_THIS_RECORD",
+      "governance_effect": "NONE_AUTOMATIC"
+    }
+  ],
+  "positive_recomputation_observations": {
+    "pytest": {
+      "passed": 666,
+      "subtests_passed": 96,
+      "failed": 0
+    },
+    "reviewer_reported_checker_results": [
+      "schema bundle passed for 46 artifacts",
+      "meta-evidence package reported 60 of 60 entries with zero defects",
+      "CSH preregistration scaffold reported 20 of 20",
+      "round-006 observations reported 2 of 2",
+      "reviewer access-path integrity passed",
+      "longitudinal adversarial checks reproduced declared limitations"
+    ],
+    "interpretation_boundary": "These observations preserve reviewer-reported recomputation results at the exact reviewed coordinate. They do not establish truth, completeness, empirical validation, independent validation, production readiness, compliance, approval, endorsement, or institutional authority."
+  },
+  "explicit_non_effects": [
+    "does not modify main",
+    "does not rewrite CHECKSUMS_SHA256.txt",
+    "does not repair or erase historical evidence",
+    "does not grant defect standing automatically to architectural-risk observations",
+    "does not advance Candidate Model standing",
+    "does not admit corpus cases",
+    "does not authorize pilot or production use",
+    "does not apply repository settings",
+    "does not infer reviewer endorsement or institutional authority"
+  ],
+  "successor_rule": {
+    "current_root_manifest": "If needed, create a separately versioned successor manifest bound to an exact governed coordinate and enforce it mechanically; never silently replace the historical root manifest.",
+    "repository_enforcement": "Repository enforcement remains a separate administrative act and may occur only after exact required GitHub Actions check-context names are verified against the present governed coordinate."
+  }
+}
