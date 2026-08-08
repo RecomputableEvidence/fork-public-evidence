@@ -1,0 +1,21 @@
+# ENVIRONMENT_RECORD — generated 2026-07-30 at bundle-assembly time (post-run, same session/host)
+os: macOS 15.7.7 (Darwin 24.6.0)
+python: Python 3.14.4
+git: git version 2.39.5 (Apple Git-154)
+pip: 26.1
+reviewed_commit: d911ad5c33e0ec32037414effa7749326983d5ff
+
+## pip freeze (review venv)
+attrs==26.1.0
+iniconfig==2.3.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+packaging==26.2
+pip==26.1
+pluggy==1.6.0
+Pygments==2.20.0
+pytest==8.4.2
+PyYAML==6.0.3
+referencing==0.37.0
+rpds-py==2026.6.3
+typing_extensions==4.16.0

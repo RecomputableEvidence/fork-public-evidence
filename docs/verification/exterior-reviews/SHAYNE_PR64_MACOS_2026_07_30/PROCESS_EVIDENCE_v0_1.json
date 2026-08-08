@@ -1,0 +1,44 @@
+{
+  "process_evidence_id": "FORK_SHAYNE_PR64_DEGRADED_REPRESENTATION_NEAR_MISS_2026_07_30_v0_1",
+  "schema_version": "0.1",
+  "status": "PRESERVED_WITHDRAWN_FALSE_FINDING",
+  "source_path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/SHAYNE_PR64_RECOMPUTATION_TRANSMISSION_2026_07_30.txt",
+  "source_sha256": "ae4c6bc553f8aaf1073bd846fb72ffca10fd5acccc3de798af609d99346c5eb0",
+  "sequence": [
+    {
+      "ordinal": 1,
+      "state": "CRUDE_REPRESENTATION",
+      "detail": "A path-extraction heuristic was applied over the plan JSON."
+    },
+    {
+      "ordinal": 2,
+      "state": "APPARENT_COVERAGE_DEFECT",
+      "detail": "The heuristic nearly produced a false 19-of-20-paths-missing finding."
+    },
+    {
+      "ordinal": 3,
+      "state": "CANONICAL_BINDING_INSPECTED",
+      "detail": "The reviewer inspected the plan's actual commit-SHA binding mechanism."
+    },
+    {
+      "ordinal": 4,
+      "state": "FALSE_FINDING_WITHDRAWN_BEFORE_TRANSMISSION",
+      "detail": "The inaccurate interpretation was killed before it reached the recipient as a finding."
+    }
+  ],
+  "classification": {
+    "failure_mode": "DEGRADED_REPRESENTATION_NEAR_MISS",
+    "canonical_structure_corrective_effect": "ENABLED_FALSE_FINDING_WITHDRAWAL",
+    "review_defect_created": false,
+    "pr_64_integrity_effect": "NONE",
+    "pr_64_recomputation_effect": "NONE",
+    "admission_effect": "NONE",
+    "authority_effect": "NONE",
+    "execution_effect": "NONE"
+  },
+  "non_claims": [
+    "The withdrawn heuristic result is not a defect in PR #64.",
+    "The near miss does not establish that every future reviewer will correct a degraded representation.",
+    "Preserving this process evidence does not grant review, merge, admission, authority, or execution standing."
+  ]
+}

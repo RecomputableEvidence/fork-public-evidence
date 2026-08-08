@@ -1,0 +1,207 @@
+{
+  "record_id": "FORK_SHAYNE_PR64_MACOS_RECOMPUTATION_2026_07_30_v0_1",
+  "schema_version": "0.1",
+  "status": "PROPOSED_APPEND_ONLY_EXTERIOR_RECOMPUTATION_RECORD",
+  "capture": {
+    "capture_date": "2026-07-30",
+    "capture_timezone": "America/Los_Angeles",
+    "source_declared_timestamp": "NOT_DECLARED_IN_TRANSMISSION",
+    "capture_method": "USER_SUPPLIED_DIRECT_TEXT"
+  },
+  "attribution": {
+    "reviewer_display_name": "Shayne",
+    "reviewer_full_identity": "NOT_DECLARED_IN_TRANSMISSION",
+    "identity_authentication": "NOT_PERFORMED_BY_THIS_REPOSITORY_RECORD",
+    "recipient_display_name": "Ryan",
+    "source_form": "DIRECT_TEXT_TRANSMISSION_SUMMARY"
+  },
+  "source": {
+    "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/source/SHAYNE_PR64_RECOMPUTATION_TRANSMISSION_2026_07_30.txt",
+    "sha256": "ae4c6bc553f8aaf1073bd846fb72ffca10fd5acccc3de798af609d99346c5eb0",
+    "size_bytes": 2672,
+    "preserved_byte_exact_from_supplied_transmission": true,
+    "source_class": "ATTRIBUTABLE_REVIEWER_TRANSMISSION_SUMMARY",
+    "referenced_full_findings_attachment": {
+      "described_by_source": true,
+      "repository_bytes_received": false,
+      "status": "REFERENCED_NOT_RECEIVED",
+      "not_available_for_direct_digest_binding": true,
+      "not_reconstructed_from_summary": true,
+      "unavailable_details": [
+        "exact environment record beyond the summarized platform and runtime",
+        "exact commands",
+        "complete outputs",
+        "complete exit-code record",
+        "complete limitations text"
+      ]
+    }
+  },
+  "subject": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "review_target": "PR #64",
+    "pull_request": 64,
+    "source_declared_head_prefix": "d911ad5c",
+    "repository_resolved_exact_head": "d911ad5c33e0ec32037414effa7749326983d5ff",
+    "head_resolution_basis": "PR_64_IMMUTABLE_GITHUB_METADATA",
+    "pr_64_merge_commit": "528f4306acf75b9b4e349aaf191fcda2c1c1430b",
+    "related_pr_63_candidate": "82c34252d7b8d9e8957fb5a86500e12da6cf363a",
+    "related_pr_63_merge_base": "1102113556edfc54b43a328317961c4896d6dd6c",
+    "platform_scope": "macOS 15.7.7",
+    "runtime_scope": "Python 3.14.4"
+  },
+  "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+  "reported_findings": [
+    {
+      "finding_id": "SHAYNE_PR64_RF_001_EXACT_ACQUISITION",
+      "result": "SUPPORTED",
+      "detail": "Fresh clone bound to PR #64 head prefix d911ad5c.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_002_HASH_LOCKS",
+      "result": "SUPPORTED",
+      "detail": "Both lock files installed cleanly under --require-hashes without platform deviation.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_003_FRESH_RUNNER",
+      "result": "FRESH_RECOMPUTATION_PASS",
+      "detail": "Fresh runner reported candidate_checkout NONE; source inspection confirmed a disposable temporary workspace.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_004_BYTE_EXACT_RECEIPT",
+      "result": "SUPPORTED",
+      "detail": "Direct-checker receipt compared byte-identically with the committed receipt using cmp.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_005_IVS_TESTS",
+      "result": "8_OF_8_PASS",
+      "detail": "All eight IVS tests passed in the reviewer environment.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_006_HASH_SEED_DETERMINISM",
+      "result": "SUPPORTED",
+      "detail": "Receipt hash remained identical across four PYTHONHASHSEED conditions.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_007_MERGE_BASE",
+      "result": "SUPPORTED",
+      "detail": "Independently recomputed merge base equaled the plan's declared value.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_008_CANDIDATE_SHA_TAMPER",
+      "result": "FAIL_CLOSED_EXIT_2",
+      "detail": "A single-byte candidate-SHA tamper in a plan copy caused checker exit code 2.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_009_EXIT_CODE_COMPARISON",
+      "result": "DEFECT_NOT_OBSERVED_IN_THIS_CHECKER_FAMILY",
+      "detail": "Reviewer distinguished this checker from a previously reported v0.2.1 mapping-checker exit-code-0 defect.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_010_VERDICT_PRECEDENCE",
+      "result": "ADVERSE_FIRST",
+      "detail": "Plan verdict order is inconclusive, invalidated, then verified.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY_AND_REPOSITORY_CORRELATION"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_011_PREDECESSOR_WORKFLOWS",
+      "result": "SUPPORTED",
+      "detail": "Both archived predecessor workflows were reported byte-identical to the merge-base blobs using Git-object inspection.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_012_PR63_READINESS",
+      "result": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+      "detail": "Readiness checker succeeded without an execution-granting terminal state.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY_AND_CURRENT_REPOSITORY_CORRELATION"
+    },
+    {
+      "finding_id": "SHAYNE_PR64_RF_013_PR63_READINESS_TESTS",
+      "result": "5_OF_5_PASS",
+      "detail": "Reviewer ran the PR #63 readiness tests in a separate sandbox and explicitly recorded intentional candidate-code execution outside the trusted lane.",
+      "evidence_basis": "REVIEWER_TRANSMISSION_SUMMARY"
+    }
+  ],
+  "changed_path_observation": {
+    "classification": "CHANGED_PATH_INVENTORY_TRANSITIVELY_BOUND_NOT_FIRST_CLASS_ENUMERATED",
+    "standing": "OBSERVATION_NOT_DEFECT",
+    "derived_changed_path_count": 20,
+    "binding_mechanism": "COMMIT_SHA_TRANSITIVELY_BINDS_COMPLETE_TREE",
+    "effects": [
+      "NO_INTEGRITY_GAP",
+      "NO_RECOMPUTATION_FAILURE",
+      "REVIEWER_DERIVATION_REQUIRED"
+    ],
+    "possible_successor_improvement": "ENUMERATE_CHANGED_PATH_INVENTORY_AND_BIND_ITS_DIGEST",
+    "pr_64_standing_effect": "NONE"
+  },
+  "process_evidence": {
+    "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30/PROCESS_EVIDENCE_v0_1.json",
+    "classification": "DEGRADED_REPRESENTATION_NEAR_MISS",
+    "withdrawn_false_finding": "19_OF_20_PATHS_MISSING",
+    "withdrawn_before_transmission": true,
+    "canonical_structure_enabled_correction": true,
+    "pr_64_standing_effect": "NONE"
+  },
+  "repository_correlations": [
+    {
+      "correlation": "PR_64_HEAD_PREFIX_RESOLVES_TO_REVIEWED_FULL_SHA",
+      "result": "SUPPORTED"
+    },
+    {
+      "correlation": "PR_63_PLAN_SHA256",
+      "result": "4978976bfebe2c8e94af100b1f419f8abe076b7156ee7090ab57d50c5fc8f581"
+    },
+    {
+      "correlation": "COMMITTED_IVS_RECEIPT_SHA256",
+      "result": "5baf0e04e06e7bc69efa91ec35dbc5605d6594fcff5830fe02117a300d7fd083"
+    },
+    {
+      "correlation": "PR_63_CHANGED_PATH_COUNT_FROM_GIT_OBJECTS",
+      "result": 20
+    },
+    {
+      "correlation": "CURRENT_SUCCESSOR_READINESS_STATE",
+      "result": "STRUCTURALLY_READY_EXECUTION_BLOCKED"
+    }
+  ],
+  "limitations": [
+    "Single platform: macOS 15.7.7.",
+    "Single runtime version: Python 3.14.4.",
+    "Recorded external observations were accepted as snapshots and not re-queried live.",
+    "The referenced full findings attachment was not supplied to this repository construction and is not represented as preserved.",
+    "Reviewer identity is attributable only to the display name in the supplied transmission and is not authenticated by this record.",
+    "No cross-platform or cross-version universality claim."
+  ],
+  "standing": {
+    "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "repository_record_standing": "ATTRIBUTABLE_EXTERIOR_RECOMPUTATION_TRANSMISSION_PRESERVED",
+    "source_completeness": "TRANSMISSION_SUMMARY_PRESERVED_REFERENCED_ATTACHMENT_NOT_RECEIVED",
+    "admission_state": "REVIEW_ELIGIBLE_NOT_ADMITTED",
+    "pr_64_historical_standing_effect": "NO_RETROACTIVE_MODIFICATION_OR_WEAKENING",
+    "pr_63_continuing_state": "STRUCTURALLY_READY_EXECUTION_BLOCKED",
+    "execution_authority_delta": "NONE",
+    "pair_001_execution_authorized": false,
+    "provider_calls_performed_by_record": 0
+  },
+  "non_claims": [
+    "No endorsement",
+    "No merge authority",
+    "No GitHub-native approval",
+    "No execution authorization",
+    "No live revalidation of recorded external observations",
+    "No authorization to execute or repeat Pair-001",
+    "No cross-platform or cross-version universality",
+    "No security, compliance, legal, safety, semantic-correctness, or production-readiness certification",
+    "No claim that the referenced full findings attachment is present or digest-bound",
+    "No authority transfer from evidence, recomputation, review, preservation, or admission"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "exterior_evidence_successor_admission",
+  "record_id": "SHAYNE_PR64_EXTERIOR_EVIDENCE_SUCCESSOR_ADMISSION_2026_08_08_V0_1",
+  "record_date": "2026-08-08",
+  "append_only": true,
+  "governed_basis": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "branch": "preservation/clean-continuance-v0.1",
+    "exact_base": "1a175af3fe574c91492f8573c93575bb2687848f"
+  },
+  "source_candidate": {
+    "pull_request": 105,
+    "source_head": "b5c9d12109055a258b5ef33dac48f4f504b0a212",
+    "source_role": "historical exterior-evidence preservation candidate",
+    "direct_merge_selected": false,
+    "reason": "The historical candidate also carries proof-manifest and claim-admission self-check rebinding that is not required for the evidence-only successor."
+  },
+  "admitted_evidence_surface": {
+    "path": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30",
+    "source_tree_reconstructed_from_exact_git_objects": "2544cbb60d4d5fda0f48aab9e90e157d596786e2",
+    "byte_rewrite_authorized": false,
+    "review_target_pr": 64,
+    "review_target_head": "d911ad5c33e0ec32037414effa7749326983d5ff",
+    "reviewer_declared_disposition": "REPRODUCED_WITHIN_DECLARED_SCOPE",
+    "release_bundle_sha256": "1ccf11595fcc88b1bab187f2dd301a04e123e02ba92867e90491b619b0a11d2d",
+    "effect": "EVIDENCE_ONLY"
+  },
+  "preserved_boundaries": {
+    "proof_001_reopened": false,
+    "proof_001_standing_changed": false,
+    "claim_admission_self_check_rebound_from_source_pr": false,
+    "historical_source_pr_reinterpreted": false,
+    "pair_001_authorized": false,
+    "provider_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "candidate_model_standing_changed": false
+  },
+  "merge_semantics": {
+    "authorization_basis": "Explicit user authorization on 2026-08-08 to merge aligned sequence and proof-surface experimental and empirical work subject to each surface's declared gates.",
+    "if_merged_to_declared_governed_branch": "ADMIT_EXTERIOR_EVIDENCE_SUCCESSOR_ONLY",
+    "does_not_inherit_unsatisfied_gates": true
+  },
+  "non_claims": [
+    "This record does not establish truth, compliance, legal sufficiency, safety, approval, certification, endorsement, production readiness, or institutional authority.",
+    "The reviewer-declared disposition is preserved within its declared target, environment, and evidentiary scope only.",
+    "Admission of this evidence does not admit or merge PR #105 wholesale and does not grant standing to unrelated proof, experiment, pilot, or production surfaces.",
+    "No historical adverse result, evidence gap, or temporal limitation is erased by this successor."
+  ]
+}
