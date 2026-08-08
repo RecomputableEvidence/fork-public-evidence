@@ -1,0 +1,93 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "fork_current_standing_projection",
+  "record_id": "FORK_CURRENT_STANDING_PROJECTION_2026_08_08_V0_1",
+  "record_date": "2026-08-08",
+  "time_basis": "America/Los_Angeles",
+  "projection_nature": "NON_AUTHORITATIVE_DERIVED_TEMPORAL_PROJECTION",
+  "append_only": true,
+  "repository": {
+    "name": "RecomputableEvidence/fork-public-evidence",
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_tip_observed": "b29b7d95a0f2bfcd3a93ff318359df904a384b05",
+    "governed_tip_tree": "14392a5a48418e5215803d96178c995b593b0188",
+    "projection_branch_base_equals_governed_tip": true,
+    "branch_protection_observed": false,
+    "branch_protection_enforcement_observed": "OFF"
+  },
+  "research_program": {
+    "path": "docs/research/fork-research-program-v0.1",
+    "candidate_model_version": "0.1",
+    "model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "conceptual_phase": "CLOSED",
+    "next_phase": "EMPIRICAL_VALIDATION",
+    "change_authority": "DEFINED_NOT_YET_EXERCISED"
+  },
+  "repository_binding": {
+    "frozen_package_internal_state": "BLOCKED_PENDING_REPOSITORY_BINDING",
+    "frozen_package_internal_state_is_historical_and_immutable": true,
+    "successor_binding_record": "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json",
+    "successor_binding_record_admitted_by_merge": "b29b7d95a0f2bfcd3a93ff318359df904a384b05",
+    "current_repository_binding_state": "SATISFIED_BY_ADMITTED_APPEND_ONLY_SUCCESSOR",
+    "binding_effect": "REPOSITORY_BINDING_BLOCKER_SATISFIED_ONLY"
+  },
+  "empirical_state": {
+    "validation_corpus_manifest": "docs/research/fork-research-program-v0.1/corpus/validation-corpus-manifest-v0.1.yaml",
+    "corpus_cases_admitted": 0,
+    "empirical_results_recorded": false,
+    "independent_validation_established": false,
+    "independently_validated_baseline_established": false,
+    "reduction_review_completed": false
+  },
+  "operational_state": {
+    "pilot_eligibility_established": false,
+    "pilot_authorization_present": false,
+    "production_standing_established": false,
+    "runtime_execution_authorized_by_this_projection": false,
+    "provider_execution_authorized_by_this_projection": false,
+    "pair_001_execution_authorized_by_this_projection": false
+  },
+  "standing_summary": {
+    "repository_binding": "SATISFIED",
+    "model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "empirical_validation": "NOT_ESTABLISHED",
+    "independent_validation": "NOT_ESTABLISHED",
+    "pilot_eligibility": "NOT_ESTABLISHED",
+    "pilot_authorization": "ABSENT",
+    "production_readiness": "NOT_ESTABLISHED",
+    "next_governed_research_phase": "EMPIRICAL_VALIDATION"
+  },
+  "source_bindings": [
+    {
+      "path": "docs/research/fork-research-program-v0.1/FORK_RFC_0_v0.1.md",
+      "git_blob_sha": "4489240cc2bd4680cd25c6d268b5bb832b2d2f7f"
+    },
+    {
+      "path": "docs/research/fork-research-program-v0.1/corpus/validation-corpus-manifest-v0.1.yaml",
+      "git_blob_sha": "5490163dc25b7a95eb2a1bd93fd3968b1113a4c7"
+    },
+    {
+      "path": "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json",
+      "git_blob_sha": "27da645e0b8457681b5aaa3befea5d44447a6bc1"
+    }
+  ],
+  "projection_effect": {
+    "changes_model_standing": false,
+    "admits_corpus_cases": false,
+    "establishes_empirical_validation": false,
+    "establishes_independent_validation": false,
+    "authorizes_model_change": false,
+    "authorizes_pilot": false,
+    "authorizes_production": false,
+    "changes_repository_settings": false,
+    "changes_main": false
+  },
+  "non_claims": [
+    "This projection is a derived temporal description of standing at the exact governed coordinate named above; it is not an authority source and does not remain current after the governed coordinate changes.",
+    "This projection does not rewrite the frozen Fork Research Program v0.1 package or reinterpret its historical repository-binding state.",
+    "Repository binding does not establish empirical validation, independent validation, substantive correctness, completeness, conformance, production readiness, legality, compliance, institutional acceptance, or endorsement.",
+    "No elapsed time, publication, review, CI result, merge, or repository binding advances model standing by implication.",
+    "Pilot eligibility is not pilot authorization, and neither is established by this projection.",
+    "No authority transfers from this projection to any workflow, reviewer, implementation, institution, provider, or downstream system."
+  ]
+}
