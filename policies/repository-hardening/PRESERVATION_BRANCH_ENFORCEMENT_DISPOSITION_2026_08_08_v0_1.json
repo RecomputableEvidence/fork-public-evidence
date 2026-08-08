@@ -1,0 +1,102 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "repository_enforcement_disposition",
+  "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_08_08_V0_1",
+  "record_date": "2026-08-08",
+  "time_basis": "America/Los_Angeles",
+  "append_only": true,
+  "basis": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_tip": "d07d77143e08987e317962221d0a994aff051c8c",
+    "governed_tip_tree": "8f31893e30f6018fbc39a7742ecba40ca2ec722d",
+    "current_standing_projection": "docs/preservation/current-standing/FORK_CURRENT_STANDING_PROJECTION_2026_08_08_v0_1.json",
+    "current_standing_projection_admission_pr": 115,
+    "current_standing_projection_admission_merge": "d07d77143e08987e317962221d0a994aff051c8c",
+    "branch_protection_observed_at_basis": false,
+    "branch_protection_enforcement_observed_at_basis": "OFF"
+  },
+  "prior_policy": {
+    "path": "policies/repository-hardening/BRANCH_RULESET_REQUIREMENTS_v0_1.json",
+    "git_blob_sha": "b6eb97f149bdfeab774f418970a136a9b28f7210",
+    "status": "PROPOSED_NOT_APPLIED",
+    "activation_target": "REPOSITORY_DEFAULT_BRANCH_AFTER_PRESERVATION_LINEAGE_ADMISSION",
+    "preserved_without_reinterpretation": true,
+    "current_default_branch_transition_prerequisite_satisfied": false
+  },
+  "control_surface_observations": {
+    "codeowners_path": ".github/CODEOWNERS",
+    "codeowners_git_blob_sha": "bd9dd8cb8040a8d59e70627d5c1cf2049cb7be6f",
+    "codeowner_for_governed_surfaces": "@RecomputableEvidence",
+    "trusted_base_workflow": ".github/workflows/consumer-owned-claim-admission.yml",
+    "trusted_base_workflow_event": "pull_request_target",
+    "trusted_base_workflow_is_loaded_from_default_branch": true,
+    "fork_evidence_workflow": ".github/workflows/fork-evidence-ci.yml",
+    "fork_evidence_workflow_git_blob_sha": "e68290475c226e45448a22c2cd81511ee3132626",
+    "proof_surface_workflow": ".github/workflows/fork-proof-surface-integration.yml",
+    "proof_surface_workflow_git_blob_sha": "daedb72f6f8d62f6c47acb4966928fd2d3ad6801",
+    "root_checksum_workflow": ".github/workflows/root-checksum-manifest-v0-1.yml",
+    "root_checksum_workflow_git_blob_sha": "5551e9154a96bc9783c23c23145b72bf281f369e"
+  },
+  "disposition": {
+    "type": "INTERIM_PRESERVATION_BRANCH_PROTECTION_PROFILE_SELECTED",
+    "reason": "The governed preservation lineage is active and currently unprotected, while the existing v0.1 ruleset proposal is explicitly scoped to a future default-branch state whose prerequisites are not yet satisfied.",
+    "target_branch": "preservation/clean-continuance-v0.1",
+    "profile_scope": "INTERIM_UNTIL_SEPARATE_DEFAULT_BRANCH_LINEAGE_DISPOSITION",
+    "repository_settings_effect_of_this_record": "NONE",
+    "separate_repository_settings_application_required": true
+  },
+  "interim_profile": {
+    "pull_request_required": true,
+    "required_approving_reviews": 0,
+    "code_owner_review_required": false,
+    "dismiss_stale_approvals": false,
+    "conversation_resolution_required": true,
+    "require_branches_up_to_date_before_merge": true,
+    "force_push_prohibited": true,
+    "branch_deletion_prohibited": true,
+    "administrator_enforcement_recommended": true,
+    "required_status_checks": [
+      "Fork Evidence CI / Claim Boundary and Preservation Checks",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (ubuntu-latest)",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (windows-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (ubuntu-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (windows-latest)",
+      "Fork Proof-Surface Integration / PowerShell 5.1 proof-surface entry point"
+    ]
+  },
+  "intentional_differences_from_future_default_branch_policy": {
+    "trusted_base_required_check_deferred": {
+      "value": true,
+      "reason": "The trusted-base workflow uses pull_request_target and the prior policy expressly requires the trusted-base workflow to be present on the repository default branch before activation. That prerequisite is not silently inherited by the preservation branch."
+    },
+    "minimum_approval_count_deferred": {
+      "value": true,
+      "reason": "The currently declared CODEOWNER topology names the repository owner. Requiring one approving review plus CODEOWNER approval on self-authored changes could create a mechanical deadlock without first establishing an eligible reviewer topology. Review standing remains separately preserved and does not arise from this interim mechanical profile."
+    },
+    "codeowner_review_requirement_deferred": {
+      "value": true,
+      "reason": "CODEOWNER enforcement is deferred until a separately governed reviewer topology can satisfy it without converting repository mechanics into implied independence or authority."
+    }
+  },
+  "activation_preconditions_for_interim_profile": [
+    "A repository administrator verifies the exact required-status-check contexts exposed by GitHub before applying settings.",
+    "The target branch still equals the governed preservation lineage at application time.",
+    "No newer governed enforcement disposition supersedes this record.",
+    "Application is preserved as a separate attributable repository-settings act."
+  ],
+  "future_default_branch_policy": {
+    "superseded_by_this_disposition": false,
+    "still_requires_its_declared_activation_prerequisites": true,
+    "future_default_branch_transition_authorized_by_this_disposition": false
+  },
+  "next_required_act": "SEPARATE_REPOSITORY_SETTINGS_APPLICATION_AUTHORIZATION_AND_VERIFIED_APPLICATION",
+  "non_claims": [
+    "This disposition does not itself change GitHub repository settings or branch protection.",
+    "This disposition does not authorize a default-branch transition or rewrite the prior future-default-branch policy.",
+    "The interim profile does not establish reviewer independence, substantive correctness, empirical validation, model standing, production readiness, compliance, endorsement, or institutional acceptance.",
+    "Required status checks are mechanical gates only and do not transfer evidentiary or governance authority.",
+    "Deferring approval and CODEOWNER requirements in the interim profile is a deadlock-avoidance measure, not a claim that review is unnecessary.",
+    "A later repository-settings application must verify actual GitHub check contexts and preserve any mismatch rather than silently substituting names."
+  ]
+}
