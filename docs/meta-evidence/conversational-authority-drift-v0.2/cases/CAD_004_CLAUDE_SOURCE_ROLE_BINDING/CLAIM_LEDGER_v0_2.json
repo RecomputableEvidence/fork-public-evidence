@@ -1,0 +1,95 @@
+{
+  "ledger_id": "FORK_CAD_004_CLAIM_LEDGER_v0_2",
+  "status": "CORRECTION_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "candidate_classifications_are_canonical": false,
+  "claims": [
+    {
+      "claim_id": "CAD-004-C001",
+      "historical_claim_id": "CAD-004-C001",
+      "source_refs": ["SRC-006", "SRC-008", "SRC-010", "SRC-017"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "ACCESS_STATE_DECOMPOSED",
+      "dimensions": {
+        "NOT_SUPPLIED": "CONTRADICTED",
+        "VISIBLE_ATTACHMENT_PRESENCE": "OBSERVED",
+        "EARLIER_TURN_ACCESS": "UNRESOLVED",
+        "LATER_DIRECT_READ": "OBSERVED"
+      },
+      "non_inheritance": ["Visible attachment presence does not prove turn-specific model access."]
+    },
+    {
+      "claim_id": "CAD-004-C002",
+      "historical_claim_id": "CAD-004-C002",
+      "source_refs": ["SRC-017"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "ATTRIBUTED_UNVERIFIED_EXECUTION_REPORT",
+      "verified_execution_receipt_present": false,
+      "missing": ["preserved command invocation", "raw output or execution receipt", "exact file-set binding"]
+    },
+    {
+      "claim_id": "CAD-004-C003",
+      "historical_claim_id": "CAD-004-C003",
+      "source_refs": ["SRC-002", "SRC-009", "SRC-014", "SRC-015"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "ROLE_BINDING_INCOMPLETE_MULTI_ROLE",
+      "roles": ["TAXONOMY_DISCUSSION_CONTENT", "DECLARED_MACHINE_READABLE_CONTEXT_COMPLETION"],
+      "role_equivalence_established": false
+    },
+    {
+      "claim_id": "CAD-004-C004",
+      "historical_claim_id": "CAD-004-C004",
+      "source_refs": ["SRC-011", "SRC-012", "SRC-013", "SRC-014"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "UNRESOLVED_NO_SCOPE_CROSSWALK",
+      "scope_equivalence_established": false,
+      "missing": ["claim-level/project-level crosswalk", "transition-event comparison", "authority/admission-effect comparison"]
+    },
+    {
+      "claim_id": "CAD-004-C005",
+      "historical_claim_id": "CAD-004-C005",
+      "source_refs": ["SRC-001", "SRC-010", "SRC-014"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "SUPPORTED_WITHIN_DECLARED_SOURCE_INSPECTION_SCOPE",
+      "scope_limit": "Does not establish invalidity of every component or later version."
+    },
+    {
+      "claim_id": "CAD-004-C006",
+      "historical_claim_id": "CAD-004-C006",
+      "source_refs": ["SRC-001", "SRC-014"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "PARTIALLY_SUPPORTED_REGISTER_OBSERVED_BEHAVIORAL_INFLUENCE_UNTESTED",
+      "register_observed": "OBSERVED",
+      "behavioral_influence": "UNTESTED"
+    },
+    {
+      "claim_id": "CAD-004-C007",
+      "historical_claim_id": "CAD-004-C007",
+      "source_refs": ["SRC-001", "SRC-002", "SRC-003", "SRC-004", "SRC-005", "SRC-006", "SRC-008", "SRC-015"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "ARTIFACT_PRESENCE_SUPPORTED_COMPLETENESS_NOT_ESTABLISHED",
+      "artifact_presence": "SUPPORTED",
+      "completeness": {
+        "contextual": "UNRESOLVED",
+        "chronological": "UNRESOLVED",
+        "parse_state": "UNRESOLVED",
+        "evidentiary": "UNRESOLVED"
+      }
+    },
+    {
+      "claim_id": "CAD-004-C008",
+      "historical_claim_id": "CAD-004-C008",
+      "source_refs": ["SRC-010", "SRC-014", "SRC-015", "SRC-017"],
+      "source_binding_state": "HISTORICAL_REFERENCE_ONLY_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+      "current_disposition": "MIXED_THESIS_SUPPORTED_ONLY_WITH_DECOMPOSED_ACCESS_STATE",
+      "depends_on": ["CAD-004-C001", "CAD-004-C005"],
+      "automatic_proof_promotion": false
+    }
+  ],
+  "case_non_claims": [
+    "No claim is made that historical source references substitute for fresh source-span grounding.",
+    "No claim is made that attributed execution is mechanically verified execution.",
+    "No claim is made that similar terminology establishes scope equivalence.",
+    "No claim is made that observable register establishes behavioral influence."
+  ]
+}

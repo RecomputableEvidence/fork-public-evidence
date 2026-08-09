@@ -1,0 +1,16 @@
+{
+  "record_id": "FORK_CAD_V0_2_CONTROL_EFFECTS",
+  "status": "CORRECTION_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "pull_request_effect": "REVIEW_SURFACE_ONLY",
+  "admission": false,
+  "publication": false,
+  "endorsement": false,
+  "provider_calls": 0,
+  "pair_001_effect": "NONE",
+  "pair_001_execution_authorized": false,
+  "readiness_effect": "NONE",
+  "readiness_promoted": false,
+  "proof_admission_effect": "NONE",
+  "model_standing_effect": "NONE",
+  "authority_effect": "NONE"
+}
