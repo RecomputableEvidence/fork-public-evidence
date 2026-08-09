@@ -1,0 +1,27 @@
+{
+  "record_type": "PROOF005_V0_2_1_EXTERIOR_REVIEW_SESSION_TERMINATION_OBSERVATION",
+  "record_version": "v0.1",
+  "reviewed_exact_head": "a8b528be8acaa5b69bc928450001a56b4b8335e3",
+  "observation_time_local": "2026-08-09T14:43:00-07:00",
+  "observed_condition": "CLAUDE_MESSAGE_USAGE_LIMIT_REACHED",
+  "user_supplied_screenshot": {
+    "name": "bff45dbc-f204-4a78-b36b-f3e13477994a.png",
+    "size_bytes": 417361,
+    "sha256": "f4c21a604312be98184043456dabcfceaa9c169b141ffbcbecfe8b985757b005",
+    "bytes_preserved_in_repository": false
+  },
+  "interpretation": {
+    "completed_review_note_already_produced": true,
+    "completed_bounded_disposition_already_recorded": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+    "subsequent_interactive_remediation_in_same_session": "NOT_EXECUTED_DUE_TO_PLATFORM_USAGE_LIMIT",
+    "successor_construction_in_same_session": "NOT_EXECUTED_DUE_TO_PLATFORM_USAGE_LIMIT",
+    "re_review_of_any_successor_in_same_session": "NOT_EXECUTED_DUE_TO_PLATFORM_USAGE_LIMIT"
+  },
+  "preservation_rule": "Do not downgrade executed review results to incomplete solely because later interaction was blocked. Do not infer any unexecuted remediation, successor construction, or re-review result from the termination.",
+  "non_effects": [
+    "NO_STANDING_CHANGE",
+    "NO_MERGE_AUTHORIZATION",
+    "NO_EXECUTION_AUTHORIZATION",
+    "NO_ERASURE_OF_EXECUTED_REVIEW_RESULTS"
+  ]
+}

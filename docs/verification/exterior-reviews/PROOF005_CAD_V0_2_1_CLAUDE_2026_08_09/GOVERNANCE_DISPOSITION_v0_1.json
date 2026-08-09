@@ -1,0 +1,40 @@
+{
+  "record_type": "PROOF005_V0_2_1_EXTERIOR_RETURN_GOVERNANCE_DISPOSITION",
+  "record_version": "v0.1",
+  "reviewed_exact_head": "a8b528be8acaa5b69bc928450001a56b4b8335e3",
+  "reviewer_declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+  "governance_interpretation": {
+    "original_v0_2_1_correction_objective": "CONFORMING_WITHIN_DECLARED_CORRECTION_SCOPE",
+    "new_reviewer_originated_residuals": "PRESERVED",
+    "direct_merge_of_pr_126": "NOT_SELECTED",
+    "candidate_governance_disposition": "CORRECTION_REQUIRED_BEFORE_MERGE",
+    "proof005_source_evidence_admission": "NOT_DECIDED_BY_THIS_RECORD",
+    "proof005_packaging_admission": "NOT_ADMITTED",
+    "model_standing_delta": "NONE",
+    "execution_authority_delta": "NONE"
+  },
+  "required_successor_scope": [
+    {
+      "id": "R003",
+      "requirement": "Apply duplicate-key-safe JSON loading to every governed JSON artifact consumed by the PROOF-005 CAD checker, including nested object duplicate-key rejection before interpretation."
+    },
+    {
+      "id": "R004",
+      "requirement": "Close each declared governed schema against undeclared keys while preserving the distinction between schema membership and governance effect for informational fields such as record_id."
+    },
+    {
+      "id": "R005",
+      "requirement": "Require event-level source_refs to be a non-empty list whose members are non-empty strings; syntactic validity must not be promoted into evidence-resolution or sufficiency standing."
+    }
+  ],
+  "successor_identifier": "PROOF-005 CAD v0.2.2",
+  "successor_change_rule": "ADDITIVE_ONLY_NO_REWRITE_OF_REVIEWED_V0_2_OR_V0_2_1_ARTIFACTS",
+  "next_gate": "PRESERVE_THIS_RETURN_THEN_CONSTRUCT_V0_2_2_BOUNDED_SUCCESSOR",
+  "non_effects": [
+    "DO_NOT_MERGE_PR_126",
+    "DO_NOT_ERASE_V0_2_1_EXTERIOR_RETURN",
+    "DO_NOT_PROMOTE_PROOF_OR_MODEL_STANDING",
+    "DO_NOT_AUTHORIZE_EXECUTION",
+    "DO_NOT_INFER_PILOT_OR_PRODUCTION_READINESS"
+  ]
+}
