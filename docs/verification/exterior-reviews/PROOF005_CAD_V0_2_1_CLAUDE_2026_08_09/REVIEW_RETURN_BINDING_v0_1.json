@@ -1,0 +1,87 @@
+{
+  "record_type": "PROOF005_V0_2_1_EXTERIOR_RETURN_BINDING",
+  "record_version": "v0.1",
+  "proof_id": "PROOF-005",
+  "surface": "Conversational Authority Drift v0.2.1 correction successor",
+  "reviewed_pull_request": 126,
+  "reviewed_exact_head": "a8b528be8acaa5b69bc928450001a56b4b8335e3",
+  "governed_preservation_basis_at_review": "68b542b1d173b7165b67ff3e84e3c7edc46a9600",
+  "frozen_reviewed_predecessor": "4ce0413e70fc9355c1319d7e25b5157497faa90c",
+  "reviewer_declared": "Claude (Anthropic)",
+  "reviewer_standing": [
+    "MODEL_ASSISTED_INDEPENDENT_REVIEW",
+    "PRIOR_FORK_FAMILIARITY",
+    "REVIEW_PROTOCOL_AND_PRIOR_THREAD_CONTEXT_SUPPLIED"
+  ],
+  "reviewer_declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+  "completed_review_note": {
+    "name": "Independent_Exterior_Review_Note_COMPLETED_a8b528b.md",
+    "size_bytes": 37339,
+    "sha256": "e2f03da0ccaf5ddd7805102879e410cba7a957801f01cb410261e709a677f3f1",
+    "bytes_preserved_in_repository": false,
+    "binding_semantics": "The repository preserves the received note's name, size, SHA-256, declared disposition, findings, and non-effects. It does not claim repository possession of the exact note bytes."
+  },
+  "baseline_recomputed": {
+    "v0_2_checker": "PASS",
+    "v0_2_1_checker": "PASS",
+    "v0_2_tests": "23/23 PASS",
+    "v0_2_1_tests": "14 PASS; 13 SUBTESTS PASS"
+  },
+  "historical_surface_preservation": {
+    "finding": "UNCHANGED",
+    "v0_2_tree_sha": "8dec69fb5e824d573c7db18aeaffee5ac4e1d6bc",
+    "methods_reported": [
+      "zero name-status diff across complete v0.2 evidence directory plus predecessor checker/test",
+      "identical v0.2 tree object",
+      "per-file Git object identity across ten reviewed predecessor files"
+    ]
+  },
+  "declared_correction_scope_results": {
+    "R001_out_of_band_event_overclaim": "REJECTED",
+    "R002_non_claude_model_origin_causal_promotion": "REJECTED",
+    "allowed_field_substitution": "REJECTED",
+    "C001_through_C008": "SUPPORTED",
+    "control_effect_fields": "13/13 REJECTED_ON_MUTATION",
+    "family_grounding_fabrication": "REJECTED",
+    "assessor_correction_promotion": "REJECTED"
+  },
+  "reviewer_originated_residuals": [
+    {
+      "id": "R003",
+      "finding": "DUPLICATE_KEY_SAFE_LOADING_NOT_UNIFORM",
+      "observation": "A CONTROL_EFFECTS_v0_2.json representation containing duplicate admission keys with contradictory values was accepted by the v0.2.1 checker when the surviving parsed value was compliant.",
+      "admission_or_authority_promotion_demonstrated": false
+    },
+    {
+      "id": "R004",
+      "finding": "GOVERNED_PREDECESSOR_STYLE_SCHEMAS_OPEN_TO_UNDECLARED_KEYS",
+      "observation": "Undeclared fields were accepted on control effects, historical lineage, and a family-grounding entry while declared governed values remained compliant.",
+      "admission_or_authority_promotion_demonstrated": false
+    },
+    {
+      "id": "R005",
+      "finding": "EVENT_SOURCE_REFS_ELEMENT_TYPE_NOT_ENFORCED",
+      "observation": "Reusable event validation accepted non-string or structured source_refs list members in a reviewer-constructed synthetic event.",
+      "current_hash_pinned_historical_register_bypass_demonstrated": false
+    }
+  ],
+  "reviewer_reported_support_artifacts_not_received_here": [
+    {"name": "direct-tests/harness.py", "sha256": "83b63d420769a8bb8c99fd592439fcee50ac51265d63d2b32d6d27bd1221a8a1"},
+    {"name": "direct-tests/e2e_harness.py", "sha256": "e9cf614e18c6aa1494fbe427435057ac24dbc736b5e84e31bda9699212089844"},
+    {"name": "pressure-cases/direct_function_results.json", "sha256": "53d61915faebdafbb54fd161828ea817a4cf5ecd14ae9d7a37043145dc543eaf"},
+    {"name": "pressure-cases/e2e_raw_output.log", "sha256": "2fd89ce86877cdaef4c54be117f9b6cc499ddc580bb96e44fd51c63b8c08650f"},
+    {"name": "pressure-cases/CONTROL_EFFECTS_v0_2_DUPLICATE_KEY_EXHIBIT.json", "sha256": "5924c1065d01efe954623e3b54c225ec893f58f0a79cf16c3ec648c1267a5b31"}
+  ],
+  "support_artifact_bytes_preserved_in_repository": false,
+  "non_effects": [
+    "NO_MERGE_OF_PR_126",
+    "NO_PROOF005_ADMISSION",
+    "NO_PROOF_PACKAGE_ADMISSION",
+    "NO_GLOBAL_EMPIRICAL_VALIDATION",
+    "NO_GLOBAL_INDEPENDENT_VALIDATION",
+    "NO_MODEL_STANDING_PROMOTION",
+    "NO_EXECUTION_AUTHORIZATION",
+    "NO_PILOT_OR_PRODUCTION_STANDING",
+    "NO_AUTHORITY_TRANSFER"
+  ]
+}
