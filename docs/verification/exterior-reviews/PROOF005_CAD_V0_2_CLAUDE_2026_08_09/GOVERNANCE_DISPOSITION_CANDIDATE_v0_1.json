@@ -1,0 +1,40 @@
+{
+  "record_type": "PROOF005_EXTERIOR_RETURN_GOVERNANCE_DISPOSITION_CANDIDATE",
+  "record_version": "v0.1",
+  "reviewed_exact_head": "4ce0413e70fc9355c1319d7e25b5157497faa90c",
+  "reviewer_declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+  "governance_interpretation": {
+    "baseline_recomputation": "CONFORMING",
+    "historical_correction_boundaries": "SUPPORTED_WITHIN_DECLARED_SCOPE",
+    "source_grounding_boundary": "PRESERVED_INCOMPLETE",
+    "event_level_epistemic_boundary": "CORRECTION_REQUIRED_BEFORE_MERGE",
+    "direct_merge_of_pr_124": "NOT_SELECTED",
+    "proof005_source_evidence_admission": "NOT_YET_DECIDED",
+    "proof005_packaging_admission": "NOT_ADMITTED"
+  },
+  "required_successor_corrections": [
+    {
+      "id": "PROOF005-R001",
+      "requirement": "Close the event object schema or equivalently reject undeclared event fields so semantically conflicting out-of-band assertions cannot coexist with compliant governed fields."
+    },
+    {
+      "id": "PROOF005-R002",
+      "requirement": "Apply MODEL_SELF_REPORT causal-standing non-promotion by source_role generally, not only when statement_origin equals CLAUDE."
+    },
+    {
+      "id": "PROOF005-R003",
+      "requirement": "Add focused regression coverage for C005, C008, the untested CONTROL_EFFECTS fields identified by the exterior review, and both reviewer-reproduced residual bypasses."
+    }
+  ],
+  "review_template_correction": {
+    "C005_checklist_omission": "OBSERVED",
+    "required_future_template_state": "C001_THROUGH_C008_EXPLICITLY_ENUMERATED"
+  },
+  "next_gate": "CONSTRUCT_V0_2_1_SUCCESSOR_THEN_EXACT_HEAD_CI_AND_EXTERIOR_REVIEW",
+  "non_effects": [
+    "DO_NOT_MERGE_PR_124",
+    "DO_NOT_ERASE_V0_2_EXTERIOR_RETURN",
+    "DO_NOT_PROMOTE_MODEL_STANDING",
+    "DO_NOT_AUTHORIZE_EXECUTION"
+  ]
+}

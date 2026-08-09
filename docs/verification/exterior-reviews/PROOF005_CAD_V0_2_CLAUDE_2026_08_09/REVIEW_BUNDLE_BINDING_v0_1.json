@@ -1,0 +1,69 @@
+{
+  "record_type": "EXTERIOR_REVIEW_RETURN_BUNDLE_BINDING",
+  "record_version": "v0.1",
+  "proof_id": "PROOF-005",
+  "surface": "Conversational Authority Drift v0.2 correction successor",
+  "reviewed_exact_head": "4ce0413e70fc9355c1319d7e25b5157497faa90c",
+  "reviewer_declared": "Claude (Anthropic)",
+  "reviewer_independence_characterization": "MODEL_ASSISTED_NOT_BLANK_SLATE",
+  "declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+  "baseline_reported": {
+    "candidate_checker": "PASS",
+    "focused_suite": "23/23 PASS"
+  },
+  "received_archive": {
+    "size_bytes": 14382,
+    "sha256": "2a046fcee90a002a9815ff8aa577b0d6442955849fc4db4edb8f688be302b53f",
+    "archive_bytes_preserved_in_repository": false
+  },
+  "members": [
+    {
+      "name": "Independent_Exterior_Review_Note_PROOF-005_CAD_v0_2_COMPLETED.md",
+      "size_bytes": 25974,
+      "sha256": "c744da66d52bb05bed82bbcec8cb56ab5226c3a6f1fe959524e05e5d20530dab"
+    },
+    {
+      "name": "PRESSURE_CASE_RAW_OUTPUT.txt",
+      "size_bytes": 2156,
+      "sha256": "ac565459c9c7293085bee1c754219e9766d97892b2a6df7d46e2d5bc94bf1e05"
+    },
+    {
+      "name": "pressure_case_script.py",
+      "size_bytes": 8006,
+      "sha256": "9b8ba938fc3025de4e6761e6af17da635a7e9b46df78c59c83d1649878abde21"
+    }
+  ],
+  "reviewer_reported_pressure_summary": {
+    "total_reviewer_constructed_mutations": 11,
+    "rejected": 9,
+    "accepted": 2,
+    "accepted_residuals": [
+      "out-of-band overclaim-bearing fields accepted on an otherwise compliant MODEL_SELF_REPORT event",
+      "non-CLAUDE MODEL_SELF_REPORT causal_standing promotion accepted"
+    ]
+  },
+  "preserved_residuals": [
+    "OBSERVABLE_EVENT_REGISTER event objects are not schema-closed; undeclared overclaim-bearing fields were accepted by the v0.2 checker.",
+    "MODEL_SELF_REPORT causal_standing is forced UNRESOLVED only when statement_origin == CLAUDE; a differently-originated model self-report could promote causal_standing without rejection.",
+    "C005 was omitted from the exterior-review template checklist but is mechanically enforced and was separately mutation-tested.",
+    "C005 and C008 lacked dedicated shipped-test coverage at the reviewed head, though both were confirmed live by the reviewer.",
+    "Unicode/confusable and broader malformed-type fuzzing were not tested."
+  ],
+  "reviewer_disclosures": [
+    "Reviewer is Claude (Anthropic), not a human or named external organization.",
+    "Reviewer is the same Claude session that performed the PROOF-002 and PROOF-004 exterior recomputation returns.",
+    "Reviewer was not blank-slate and had prior Fork familiarity.",
+    "Reviewer did not claim privileged access to the historical Claude instance or hidden mechanism.",
+    "Reviewer stated that it did not construct PROOF-005 v0.2."
+  ],
+  "non_effects": [
+    "NO_PROOF005_ADMISSION",
+    "NO_PROOF_PACKAGE_ADMISSION",
+    "NO_GLOBAL_EMPIRICAL_VALIDATION",
+    "NO_GLOBAL_INDEPENDENT_VALIDATION",
+    "NO_MODEL_STANDING_PROMOTION",
+    "NO_EXECUTION_AUTHORIZATION",
+    "NO_PILOT_OR_PRODUCTION_STANDING",
+    "NO_AUTHORITY_TRANSFER"
+  ]
+}
