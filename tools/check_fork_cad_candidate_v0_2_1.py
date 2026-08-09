@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
+import json
 from pathlib import Path
 from typing import Any
 
@@ -30,24 +32,57 @@ EVENT_ALLOWED_KEYS = {
     "causal_standing",
 }
 
+EXPECTED_EVENT_REGISTER_CANONICAL_SHA256 = (
+    "cd107b7ab2da6e49d4e1f2bd1f4f75e3dd4e7718a83592eeeb65735b6ebe36bb"
+)
+
+
+def canonical_json_sha256(value: Any) -> str:
+    encoded = json.dumps(
+        value,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def validate_model_self_report_event(event: dict[str, Any]) -> None:
+    """General non-promotion invariant for any model-self-report event."""
+    keys = set(event)
+    missing = EVENT_ALLOWED_KEYS - keys
+    extras = keys - EVENT_ALLOWED_KEYS
+    eid = str(event.get("event_id", "<unknown>"))
+    if missing:
+        raise CandidateError(f"{eid}: event object missing controlled keys {sorted(missing)!r}")
+    if extras:
+        raise CandidateError(f"{eid}: undeclared event fields are not permitted: {sorted(extras)!r}")
+    if event.get("source_role") != "MODEL_SELF_REPORT":
+        raise CandidateError(f"{eid}: generic model-self-report validator requires MODEL_SELF_REPORT source_role")
+    if event.get("mechanism_verified") is not False:
+        raise CandidateError(f"{eid}: model self-report cannot verify mechanism")
+    if event.get("causal_standing") != "UNRESOLVED":
+        raise CandidateError(
+            f"{eid}: model self-report causal standing must remain unresolved regardless of statement_origin"
+        )
+
 
 def validate_event_register_v0_2_1(register: dict[str, Any]) -> None:
-    """Preserve v0.2 checks and close the two exterior-review residuals."""
+    """Preserve v0.2 checks and bind the reviewed historical register structurally."""
     PREDECESSOR.validate_event_register(register)
+
+    actual = canonical_json_sha256(register)
+    if actual != EXPECTED_EVENT_REGISTER_CANONICAL_SHA256:
+        raise CandidateError(
+            "events: reviewed v0.2 event register structural fingerprint mismatch"
+        )
+
     events = register.get("events")
     assert isinstance(events, list)
     for event in events:
         assert isinstance(event, dict)
-        eid = str(event.get("event_id", "<unknown>"))
-        keys = set(event)
-        missing = EVENT_ALLOWED_KEYS - keys
-        extras = keys - EVENT_ALLOWED_KEYS
-        if missing:
-            raise CandidateError(f"{eid}: event object missing controlled keys {sorted(missing)!r}")
-        if extras:
-            raise CandidateError(f"{eid}: undeclared event fields are not permitted: {sorted(extras)!r}")
-        if event.get("source_role") == "MODEL_SELF_REPORT" and event.get("causal_standing") != "UNRESOLVED":
-            raise CandidateError(f"{eid}: model self-report causal standing must remain unresolved regardless of statement_origin")
+        if event.get("source_role") == "MODEL_SELF_REPORT":
+            validate_model_self_report_event(event)
 
 
 def validate_candidate(root: Path) -> None:

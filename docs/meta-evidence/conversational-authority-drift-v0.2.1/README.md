@@ -7,7 +7,7 @@ This is an additive successor to the frozen PROOF-005 v0.2 candidate at
 
 It does not rewrite that reviewed coordinate. The v0.2 data artifacts remain
 unchanged. v0.2.1 is intentionally narrow because the exterior return identified
-two checker-level residuals rather than a new defect in the underlying corrected
+checker-level residuals rather than a new defect in the underlying corrected
 C001-C008 records.
 
 ## Exterior-return basis
@@ -28,24 +28,39 @@ The return also noted missing dedicated shipped-test coverage for C005 and C008.
 ## v0.2.1 corrections
 
 `tools/check_fork_cad_candidate_v0_2_1.py` first executes the complete v0.2
-checker, then applies two successor invariants:
+checker.
 
-- every event object must contain exactly the controlled event keys; undeclared
-  fields are rejected;
-- any event whose `source_role` is `MODEL_SELF_REPORT` must keep
-  `causal_standing = UNRESOLVED`, regardless of the literal origin string.
+For the fixed historical event register, v0.2.1 then computes a canonical
+parsed-JSON SHA-256 fingerprint. This binds the complete reviewed register,
+including event values and non-claims, rather than only closing the set of
+field names. As a result, an overclaim cannot be moved from an undeclared field
+into an allowed field such as `artifact_grounded_disposition` or
+`observable_text_summary` without changing the structural fingerprint.
 
-The successor deliberately reuses the exact reviewed v0.2 JSON data rather than
-silently rewriting them.
+Separately, the successor exposes a generic model-self-report invariant for
+reviewer-created pressure cases:
+
+- a model-self-report event must use exactly the controlled event keys;
+- `mechanism_verified` must remain `false`;
+- `causal_standing` must remain `UNRESOLVED` regardless of the literal
+  `statement_origin`.
+
+This separates two questions cleanly: the historical v0.2 register is fixed and
+reconstructable, while the epistemic non-promotion rule can still be challenged
+against synthetic events from other model origins.
 
 `tests/test_fork_cad_candidate_v0_2_1.py` adds focused coverage for:
 
 - both exterior-review residual bypasses;
 - origin-agnostic compliant model-self-report handling;
+- overclaim substitution through allowed event fields;
+- mutation of the register non-claims;
 - C005 scope-promotion pressure;
 - C008 automatic-proof-promotion pressure;
-- mutation of every field in `CONTROL_EFFECTS_v0_2.json`;
-- missing controlled event keys.
+- mutation of all 13 actually governed `CONTROL_EFFECTS_v0_2.json` fields;
+- explicit confirmation that informational `record_id` is not misrepresented as
+  a governed effect;
+- missing controlled model-self-report event keys.
 
 ## Review sequence
 
@@ -57,7 +72,8 @@ Required order:
 1. exact-head CI;
 2. bounded construction-assisted review;
 3. freeze exact successor coordinate;
-4. exterior recomputation including both reproduced residual attacks;
+4. exterior recomputation including both reproduced residual attacks and at
+   least one reviewer-originated allowed-field substitution attempt;
 5. preserve the exterior return;
 6. separate source-evidence / proof-packaging disposition.
 

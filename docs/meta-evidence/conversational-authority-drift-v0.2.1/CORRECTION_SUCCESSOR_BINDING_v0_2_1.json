@@ -22,19 +22,24 @@
     {
       "id": "PROOF005-R001",
       "state": "IMPLEMENTED_CANDIDATE",
-      "mechanism": "event objects use an explicit closed allowed-key set; undeclared fields reject"
+      "mechanism": "the reviewed v0.2 event register is bound by a canonical parsed-JSON SHA-256 structural fingerprint; generic MODEL_SELF_REPORT event objects also use an explicit closed allowed-key set"
     },
     {
       "id": "PROOF005-R002",
       "state": "IMPLEMENTED_CANDIDATE",
-      "mechanism": "MODEL_SELF_REPORT causal_standing must remain UNRESOLVED regardless of statement_origin"
+      "mechanism": "MODEL_SELF_REPORT mechanism_verified must remain false and causal_standing must remain UNRESOLVED regardless of statement_origin"
     },
     {
       "id": "PROOF005-R003",
       "state": "IMPLEMENTED_CANDIDATE",
-      "mechanism": "focused regression covers both exterior residuals, C005, C008, every CONTROL_EFFECTS field, and required event keys"
+      "mechanism": "focused regression covers both exterior residuals, allowed-field overclaim attempts, non-claim rewriting, C005, C008, all thirteen governed CONTROL_EFFECTS fields, and required model-self-report event keys"
     }
   ],
+  "event_register_binding": {
+    "canonicalization": "json.dumps(sort_keys=true,separators=[comma,colon],ensure_ascii=false) over parsed JSON",
+    "expected_sha256": "cd107b7ab2da6e49d4e1f2bd1f4f75e3dd4e7718a83592eeeb65735b6ebe36bb",
+    "purpose": "prevent semantic substitution through either undeclared fields or rewritten allowed fields within this fixed historical review surface"
+  },
   "data_surface": {
     "v0_2_artifacts_modified": false,
     "v0_2_data_reused_by_successor_checker": true,
