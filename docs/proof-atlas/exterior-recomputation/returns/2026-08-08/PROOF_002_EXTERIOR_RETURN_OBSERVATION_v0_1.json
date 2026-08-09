@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1",
+  "record_id": "FORK-PROOF-002-EXTERIOR-RETURN-OBSERVATION-2026-08-08-v0.1",
+  "record_type": "EXTERIOR_RECOMPUTATION_RETURN_OBSERVATION",
+  "proof_id": "PROOF-002",
+  "title": "Correction Does Not Erase Failure",
+  "source_pr": 65,
+  "reviewed_exact_head": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+  "declared_disposition": "RECOMPUTED_POST_FIX_CONFORMING",
+  "execution_environment": {
+    "os": "Linux",
+    "kernel": "6.18.5-fc-v20",
+    "architecture": "x86_64",
+    "python": "3.12.3",
+    "symlink_case_executed": true
+  },
+  "reported_results": {
+    "clean_packet": "33_OF_33_PASS",
+    "derivative_harness": {
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "canonical_path_matrix_count": 10,
+      "all_18_required_outcome_codes_present": true
+    },
+    "focused_regression": "1_PASSED_IN_1_40S",
+    "canonical_path_cases_rebound_before_execution": true,
+    "rejection_not_attributed_to_stale_hashes": true
+  },
+  "reviewed_artifact_sha256": {
+    "tools/check_longitudinal_reconstruction_day0_packet_v0_1_1.py": "6f582706f87da628675bde4dfe04ff2562ccfc2cc0e6a598cf51d8830c221798",
+    "tools/check_longitudinal_day0_adv_003_recomputation_v0_1.py": "5f338803546a242e11436fa485372bfc3b65a6f4467f0c29d72d4624bfbddd3c",
+    "tests/test_longitudinal_day0_adv_003_v0_1.py": "273d5feb0102d81199b09f822d5107f1db3efbc8549bb1b14079a1303e6ec0f5",
+    "docs/recomputation/m87-fork/adv-003/ADV_003_CANONICAL_PATH_CORRECTION_v0_1.md": "a47064bb2defbb1a09b6aa8a4205ebd78aad3f7f334a16c4ad8c3157f69867e8"
+  },
+  "raw_output_binding": {
+    "member": "ADV_003_POST_FIX_RECOMPUTATION_v0_1.json",
+    "size_bytes": 147221,
+    "sha256": "f3987c8fd216976af02e9e03d1c9b6ca23b8a80f1c131ec29137153001c8a60b"
+  },
+  "qualification": {
+    "code": "TRANSMISSION_DIGEST_COMPARISON_NOT_PERFORMED",
+    "materiality": "BOUNDED",
+    "detail": "The review instructions asked that recorded artifact digests match the transmission, but the dispatched review material did not supply predeclared digest values for comparison. The return explicitly did not claim that comparison was satisfied and based its disposition on the exact-head execution, expected-summary match, and direct source inspection.",
+    "effect_on_execution_result": "DOES_NOT_CONTRADICT_REPORTED_17_OF_17_RECOMPUTATION",
+    "effect_on_later_admission": "MUST_REMAIN_VISIBLE"
+  },
+  "historical_preservation": {
+    "predecessor_reviewed_head": "c15c105f7277494b335d1d038bda58c1dbc78b16",
+    "predecessor_disposition": "REPRODUCED_WITH_CORRECTION_REQUIRED",
+    "predecessor_failure_erased": false,
+    "adv_001_closed": false,
+    "adv_002_closed": false
+  },
+  "standing_effect": {
+    "exterior_recomputation_return": "CONFORMING_WITH_RECORDED_QUALIFICATION",
+    "source_evidence_admitted": false,
+    "proof_packaging_admitted": false,
+    "independent_validation_established": false,
+    "model_standing_delta": "NONE",
+    "merge_pr_65_authorized_by_this_record": false,
+    "execution_authority_delta": "NONE"
+  }
+}

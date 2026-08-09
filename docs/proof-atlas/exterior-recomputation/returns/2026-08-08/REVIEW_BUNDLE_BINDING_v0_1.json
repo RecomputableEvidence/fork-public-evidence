@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.1",
+  "record_id": "FORK-EXTERIOR-RECOMPUTATION-RETURN-BUNDLE-2026-08-08-v0.1",
+  "record_type": "EXTERIOR_RECOMPUTATION_RETURN_BUNDLE_BINDING",
+  "received_date": "2026-08-08",
+  "governed_basis": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "6fa3f81d9e17d847424b066a0b4364122ed8b0ce",
+    "dispatch_pr": 121
+  },
+  "source_transport": {
+    "type": "CONVERSATION_UPLOAD_ZIP",
+    "archive_filename": "files - 2026-08-08T193008.053.zip",
+    "archive_size_bytes": 20610,
+    "archive_sha256": "58082dbeae38d801ba6529307f064d7ef1f863037f901d775cf2ff814c459761",
+    "reviewer_identity_bound": false,
+    "arms_length_or_institutional_independence_established": false,
+    "independence_note": "The return is presented as independent recomputation and documents isolated exact-head worktrees. The supplied bundle does not bind a reviewer identity or independently establish human, organizational, or arms-length independence."
+  },
+  "members": [
+    {
+      "name": "EVIDENCE_RETURN_PROOF-002.md",
+      "size_bytes": 5878,
+      "sha256": "cc858d8f6d5203aae7b6327d1964ddfa1bd12bb4d9b5781402a2f0fa7e945eca"
+    },
+    {
+      "name": "ADV_003_POST_FIX_RECOMPUTATION_v0_1.json",
+      "size_bytes": 147221,
+      "sha256": "f3987c8fd216976af02e9e03d1c9b6ca23b8a80f1c131ec29137153001c8a60b"
+    },
+    {
+      "name": "EVIDENCE_RETURN_PROOF-004.md",
+      "size_bytes": 10537,
+      "sha256": "4790f786958d2a305af91dfa50e3fb50e45dfef75ad32b97f56dbb1f34bb1448"
+    },
+    {
+      "name": "PRESSURE_CASE_FORK_SILENCE_AS_NARROWING_BASIS_v0_1.json",
+      "size_bytes": 16900,
+      "sha256": "b776c2496d40b41476e79e8645f0f58070ceb1464d242fc95a07acad1e156cfc"
+    },
+    {
+      "name": "PRESSURE_CASE_VARIANT2_NARROWING_BASIS_CITES_FORK_NONOBJECTION_v0_1.json",
+      "size_bytes": 16680,
+      "sha256": "61e14acce49fa47ea82862e32bdee4b77402b9cf3799a58ef2b066b4fcfd143e"
+    }
+  ],
+  "transport_boundary": {
+    "raw_members_copied_into_repository_by_this_record": false,
+    "treatment": "HASH_BOUND_OBSERVATION_ONLY",
+    "reason": "This preservation record binds the received archive and member bytes by SHA-256 without representing a derived summary as the original raw artifacts. Exact byte-copy admission, if later required, must be a separate attributable act."
+  },
+  "effects": {
+    "proof_admission_delta": "NONE",
+    "model_standing_delta": "NONE",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "authority_delta": "NONE"
+  }
+}
