@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1",
+  "record_id": "FORK-PROOF-002-004-SOURCE-EVIDENCE-ADMISSION-2026-08-08-v0.1",
+  "record_type": "SOURCE_EVIDENCE_ADMISSION_DECISION",
+  "decision_date": "2026-08-08",
+  "basis": {
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_commit": "7ffad0e35609f7adce9cfe80eb173b9ba5efd367",
+    "return_preservation_pr": 122,
+    "return_bundle_record": "docs/proof-atlas/exterior-recomputation/returns/2026-08-08/REVIEW_BUNDLE_BINDING_v0_1.json",
+    "promotion_contract": "docs/proof-atlas/development/v0.2/PROOF_PORTFOLIO_PROMOTION_CONTRACT_v0_2.json"
+  },
+  "independence_boundary": {
+    "independent_execution": "DECLARED_BY_RETURN_AND_SUPPORTED_BY_ISOLATED_EXACT_HEAD_WORKTREE_DESCRIPTION",
+    "reviewer_identity": "UNBOUND_IN_SUPPLIED_BUNDLE",
+    "human_independence": "NOT_ESTABLISHED",
+    "organizational_or_arms_length_independence": "NOT_ESTABLISHED",
+    "global_independent_validation_effect": "NONE",
+    "interpretation": "This decision may admit the bounded recomputation return as source evidence without representing it as institutional, human, organizational, or arms-length validation."
+  },
+  "proof_002": {
+    "source_pr": 65,
+    "reviewed_exact_head": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+    "declared_return": "RECOMPUTED_POST_FIX_CONFORMING",
+    "exterior_recomputation_gate": "SATISFIED_FOR_BOUNDED_SOURCE_EVIDENCE_WITH_RECORDED_INDEPENDENCE_BOUNDARY",
+    "source_evidence_admission": "ADMITTED_WITH_BOUNDED_QUALIFICATION",
+    "qualification": "TRANSMISSION_DIGEST_COMPARISON_NOT_PERFORMED",
+    "qualification_effect": "PRESERVED_NO_SILENT_CURE",
+    "predecessor_failure": "PRESERVED_HISTORICAL_REPRODUCED_WITH_CORRECTION_REQUIRED",
+    "predecessor_failure_erased": false,
+    "direct_merge_pr_65_selected": false,
+    "proof_packaging_state": "NOT_ADMITTED",
+    "next_gate": "SEPARATE_PROOF_PACKAGING_REVIEW"
+  },
+  "proof_004": {
+    "source_pr": 100,
+    "reviewed_exact_head": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+    "declared_return": "EXTERIOR_RECOMPUTATION_CONFORMING_WITHIN_DECLARED_SIMULATION_SCOPE",
+    "exterior_recomputation_gate": "SATISFIED_WITHIN_DECLARED_SIMULATION_SCOPE_AND_RECORDED_INDEPENDENCE_BOUNDARY",
+    "source_evidence_admission": "ADMITTED_WITH_SCOPE_CHARACTERIZATION",
+    "mechanism_characterization": "CLOSED_SET_PROFILE_SELECTED_GOLDEN_VALUE_EQUALITY",
+    "semantic_claim_boundary": "ENUMERATED_CANONICAL_PROFILE_CONFORMANCE_NOT_OPEN_ENDED_NATURAL_LANGUAGE_UNDERSTANDING",
+    "unicode_confusable_or_normalization_evasion": "UNTESTED",
+    "direct_merge_pr_100_selected": false,
+    "proof_packaging_state": "NOT_ADMITTED",
+    "shadow_adapters_state": "CLOSED",
+    "live_adapters_state": "CLOSED",
+    "next_gate": "SEPARATE_PROOF_PACKAGING_REVIEW"
+  },
+  "global_state_after_decision": {
+    "candidate_model": "Fork Candidate Model v0.1",
+    "candidate_model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "corpus_cases_admitted": 0,
+    "empirical_validation": "NOT_ESTABLISHED",
+    "independent_validation": "NOT_ESTABLISHED",
+    "proof_002_packaging": "NOT_ADMITTED",
+    "proof_004_packaging": "NOT_ADMITTED",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0,
+    "pilot_eligibility": "NOT_ESTABLISHED",
+    "pilot_authorized": false,
+    "production_standing": "NOT_ESTABLISHED",
+    "production_authorized": false,
+    "authority_delta": "NONE",
+    "main_effect": "NONE",
+    "repository_settings_effect": "NONE"
+  },
+  "status": "SOURCE_EVIDENCE_ADMISSION_DECISION_CANDIDATE_REQUIRES_EXACT_HEAD_CI"
+}
