@@ -30,12 +30,22 @@ The return also noted missing dedicated shipped-test coverage for C005 and C008.
 `tools/check_fork_cad_candidate_v0_2_1.py` first executes the complete v0.2
 checker.
 
-For the fixed historical event register, v0.2.1 then computes a canonical
-parsed-JSON SHA-256 fingerprint. This binds the complete reviewed register,
-including event values and non-claims, rather than only closing the set of
-field names. As a result, an overclaim cannot be moved from an undeclared field
-into an allowed field such as `artifact_grounded_disposition` or
-`observable_text_summary` without changing the structural fingerprint.
+For the fixed historical event register, v0.2.1 uses a strict JSON loader that
+rejects duplicate object keys before interpretation. It then computes a
+canonical parsed-JSON SHA-256 fingerprint. This binds the complete reviewed
+register, including event values and non-claims, rather than only closing the
+set of field names.
+
+The strict-parse step matters because a default JSON loader can collapse
+repeated keys before hashing. Without duplicate-key rejection, raw text could be
+representation-ambiguous while producing the same parsed object. v0.2.1 rejects
+that state rather than treating it as equivalent evidence.
+
+The canonical fingerprint deliberately normalizes formatting and object-key
+ordering. Whitespace or key-order differences that parse to the same
+unambiguous JSON structure therefore do not create a false semantic change.
+Changes to event content, source references, dispositions, summaries,
+non-claims, array ordering, or other parsed values change the fingerprint.
 
 Separately, the successor exposes a generic model-self-report invariant for
 reviewer-created pressure cases:
@@ -51,6 +61,7 @@ against synthetic events from other model origins.
 
 `tests/test_fork_cad_candidate_v0_2_1.py` adds focused coverage for:
 
+- duplicate-key parser ambiguity;
 - both exterior-review residual bypasses;
 - origin-agnostic compliant model-self-report handling;
 - overclaim substitution through allowed event fields;
@@ -72,8 +83,8 @@ Required order:
 1. exact-head CI;
 2. bounded construction-assisted review;
 3. freeze exact successor coordinate;
-4. exterior recomputation including both reproduced residual attacks and at
-   least one reviewer-originated allowed-field substitution attempt;
+4. exterior recomputation including the two reproduced residual attacks,
+   allowed-field substitution pressure, and parser-representation pressure;
 5. preserve the exterior return;
 6. separate source-evidence / proof-packaging disposition.
 

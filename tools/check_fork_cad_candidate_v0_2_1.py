@@ -37,12 +37,35 @@ EXPECTED_EVENT_REGISTER_CANONICAL_SHA256 = (
 )
 
 
+def reject_duplicate_object_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise CandidateError(f"json: duplicate object key {key!r} is not permitted")
+        result[key] = value
+    return result
+
+
+def load_json_strict(path: Path) -> dict[str, Any]:
+    try:
+        text = path.read_text(encoding="utf-8")
+        value = json.loads(text, object_pairs_hook=reject_duplicate_object_keys)
+    except CandidateError:
+        raise
+    except (OSError, json.JSONDecodeError) as exc:
+        raise CandidateError(f"{path}: cannot load strict JSON: {exc}") from exc
+    if not isinstance(value, dict):
+        raise CandidateError(f"{path}: top-level JSON must be object")
+    return value
+
+
 def canonical_json_sha256(value: Any) -> str:
     encoded = json.dumps(
         value,
         sort_keys=True,
         separators=(",", ":"),
         ensure_ascii=False,
+        allow_nan=False,
     ).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 
@@ -71,7 +94,10 @@ def validate_event_register_v0_2_1(register: dict[str, Any]) -> None:
     """Preserve v0.2 checks and bind the reviewed historical register structurally."""
     PREDECESSOR.validate_event_register(register)
 
-    actual = canonical_json_sha256(register)
+    try:
+        actual = canonical_json_sha256(register)
+    except (TypeError, ValueError) as exc:
+        raise CandidateError(f"events: cannot canonicalize reviewed event register: {exc}") from exc
     if actual != EXPECTED_EVENT_REGISTER_CANONICAL_SHA256:
         raise CandidateError(
             "events: reviewed v0.2 event register structural fingerprint mismatch"
@@ -93,7 +119,7 @@ def validate_candidate(root: Path) -> None:
         / "cases/CAD_004_CLAUDE_SOURCE_ROLE_BINDING"
         / "OBSERVABLE_EVENT_REGISTER_v0_2.json"
     )
-    validate_event_register_v0_2_1(PREDECESSOR.load_json(event_path))
+    validate_event_register_v0_2_1(load_json_strict(event_path))
 
 
 def main() -> int:

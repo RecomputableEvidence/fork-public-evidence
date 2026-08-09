@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -57,6 +58,13 @@ class ForkCadCorrectionSuccessorV021Tests(unittest.TestCase):
             CHECKER.canonical_json_sha256(self.events),
             CHECKER.EXPECTED_EVENT_REGISTER_CANONICAL_SHA256,
         )
+
+    def test_strict_loader_rejects_duplicate_object_keys(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "duplicate.json"
+            path.write_text('{"mechanism_verified": true, "mechanism_verified": false}', encoding="utf-8")
+            with self.assertRaises(CHECKER.CandidateError):
+                CHECKER.load_json_strict(path)
 
     def test_exterior_residual_out_of_band_event_fields_rejected(self) -> None:
         event = self.model_self_report()
