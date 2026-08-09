@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1",
+  "record_id": "FORK-EXTERIOR-RETURN-ADJUDICATION-CANDIDATE-2026-08-08-v0.1",
+  "record_type": "GOVERNANCE_ADJUDICATION_CANDIDATE",
+  "basis": {
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_commit_before_candidate": "6fa3f81d9e17d847424b066a0b4364122ed8b0ce",
+    "promotion_contract": "docs/proof-atlas/development/v0.2/PROOF_PORTFOLIO_PROMOTION_CONTRACT_v0_2.json",
+    "dispatch_pr": 121
+  },
+  "proof_002": {
+    "reviewed_head": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+    "return": "RECOMPUTED_POST_FIX_CONFORMING",
+    "qualification": "TRANSMISSION_DIGEST_COMPARISON_NOT_PERFORMED",
+    "proposed_source_evidence_state": "EXTERIOR_RECOMPUTATION_RETURN_CONFORMING_WITH_RECORDED_QUALIFICATION",
+    "predecessor_failure_preserved": true,
+    "direct_merge_pr_65_selected": false,
+    "proof_packaging_state": "NOT_ADMITTED",
+    "next_gate": "SEPARATE_SOURCE_EVIDENCE_ADMISSION_DECISION_THEN_PROOF_PACKAGING_REVIEW"
+  },
+  "proof_004": {
+    "reviewed_head": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+    "return": "EXTERIOR_RECOMPUTATION_CONFORMING_WITHIN_DECLARED_SIMULATION_SCOPE",
+    "mechanism_scope": "CLOSED_SET_PROFILE_SELECTED_GOLDEN_VALUE_EQUALITY",
+    "proposed_source_evidence_state": "EXTERIOR_RECOMPUTATION_RETURN_CONFORMING_WITHIN_DECLARED_SIMULATION_SCOPE",
+    "direct_merge_pr_100_selected": false,
+    "proof_packaging_state": "NOT_ADMITTED",
+    "shadow_adapters_state": "CLOSED",
+    "next_gate": "SEPARATE_SOURCE_EVIDENCE_ADMISSION_DECISION_THEN_PROOF_PACKAGING_REVIEW"
+  },
+  "global_non_effects": {
+    "candidate_model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "corpus_cases_admitted": 0,
+    "empirical_validation": "NOT_ESTABLISHED",
+    "independent_validation": "NOT_ESTABLISHED",
+    "proof_admission_delta": "NONE",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "authority_delta": "NONE"
+  },
+  "status": "CANDIDATE_REQUIRES_EXACT_HEAD_CI_AND_SEPARATE_ADMISSION_DISPOSITION"
+}
