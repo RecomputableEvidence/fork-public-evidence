@@ -1,0 +1,52 @@
+{
+  "record_type": "PROOF005_CORRECTION_SUCCESSOR_BINDING",
+  "record_version": "v0.2.1",
+  "status": "CORRECTION_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "proof_id": "PROOF-005",
+  "predecessor": {
+    "pull_request": 124,
+    "exact_head": "4ce0413e70fc9355c1319d7e25b5157497faa90c",
+    "standing": "FROZEN_REVIEWED_CORRECTION_CANDIDATE_WITH_EXTERIOR_QUALIFICATIONS",
+    "rewritten": false,
+    "direct_merge_selected": false
+  },
+  "exterior_return": {
+    "reviewer": "Claude (Anthropic)",
+    "declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+    "archive_sha256": "2a046fcee90a002a9815ff8aa577b0d6442955849fc4db4edb8f688be302b53f",
+    "review_note_sha256": "c744da66d52bb05bed82bbcec8cb56ab5226c3a6f1fe959524e05e5d20530dab",
+    "raw_pressure_output_sha256": "ac565459c9c7293085bee1c754219e9766d97892b2a6df7d46e2d5bc94bf1e05",
+    "pressure_script_sha256": "9b8ba938fc3025de4e6761e6af17da635a7e9b46df78c59c83d1649878abde21"
+  },
+  "corrections": [
+    {
+      "id": "PROOF005-R001",
+      "state": "IMPLEMENTED_CANDIDATE",
+      "mechanism": "event objects use an explicit closed allowed-key set; undeclared fields reject"
+    },
+    {
+      "id": "PROOF005-R002",
+      "state": "IMPLEMENTED_CANDIDATE",
+      "mechanism": "MODEL_SELF_REPORT causal_standing must remain UNRESOLVED regardless of statement_origin"
+    },
+    {
+      "id": "PROOF005-R003",
+      "state": "IMPLEMENTED_CANDIDATE",
+      "mechanism": "focused regression covers both exterior residuals, C005, C008, every CONTROL_EFFECTS field, and required event keys"
+    }
+  ],
+  "data_surface": {
+    "v0_2_artifacts_modified": false,
+    "v0_2_data_reused_by_successor_checker": true,
+    "reason": "Exterior return identified checker-level residuals; reviewed v0.2 data are preserved unchanged."
+  },
+  "next_gate": "EXACT_HEAD_CI_THEN_BOUNDED_INTERNAL_REVIEW_THEN_EXTERIOR_RECOMPUTATION",
+  "non_effects": [
+    "NO_PROOF005_ADMISSION",
+    "NO_SOURCE_EVIDENCE_ADMISSION_BY_INHERITANCE",
+    "NO_MODEL_STANDING_PROMOTION",
+    "NO_EXECUTION_AUTHORIZATION",
+    "NO_PILOT_OR_PRODUCTION_STANDING",
+    "NO_AUTHORITY_TRANSFER"
+  ]
+}
