@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "record_id": "FORK-PROOF-004-EXTERIOR-RETURN-OBSERVATION-2026-08-08-v0.1",
+  "record_type": "EXTERIOR_RECOMPUTATION_RETURN_OBSERVATION",
+  "proof_id": "PROOF-004",
+  "title": "Evidence Can Cross Systems Without Authority Transfer",
+  "source_pr": 100,
+  "reviewed_exact_head": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+  "declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITHIN_DECLARED_SIMULATION_SCOPE",
+  "execution_environment": {
+    "os": "Linux",
+    "kernel": "6.18.5-fc-v20",
+    "architecture": "x86_64",
+    "python": "3.12.3"
+  },
+  "reported_results": {
+    "candidate_checker": "GHCH_V0_1_REPOSITORY_CANDIDATE_CONFORMS_NOT_ADMITTED",
+    "unit_suite": "7_OF_7_PASS",
+    "fixture_rebuild": {
+      "fixtures_total": 20,
+      "byte_identical_to_corpus_root": 20,
+      "mismatches": 0,
+      "valid_profiles_conforming": 3,
+      "adversarial_profiles_rejected": 17
+    },
+    "reviewer_originated_pressure_cases": [
+      {
+        "member": "PRESSURE_CASE_FORK_SILENCE_AS_NARROWING_BASIS_v0_1.json",
+        "sha256": "b776c2496d40b41476e79e8645f0f58070ceb1464d242fc95a07acad1e156cfc",
+        "record_integrity_sha256": "70d5f53debe7dc39d3ed239ecd438995b4dfaacd9ce80670e824d84b06cf0017",
+        "checker_disposition": "GHCH_CADENCE_REJECTED",
+        "finding": "UNDECLARED_DELTA",
+        "digest_or_lineage_findings": 0
+      },
+      {
+        "member": "PRESSURE_CASE_VARIANT2_NARROWING_BASIS_CITES_FORK_NONOBJECTION_v0_1.json",
+        "sha256": "61e14acce49fa47ea82862e32bdee4b77402b9cf3799a58ef2b066b4fcfd143e",
+        "checker_disposition": "GHCH_CADENCE_REJECTED",
+        "finding": "NARROWING_DELTA_SEMANTICS",
+        "digest_or_lineage_findings": 0
+      }
+    ],
+    "pressure_case_rebinding_method": "PROJECT_REFRESH_RECORD",
+    "rejection_not_attributed_to_stale_hashes": true
+  },
+  "mechanism_characterization": {
+    "reviewer_source_read_lines": 173,
+    "characterization": "CLOSED_SET_PROFILE_SELECTED_GOLDEN_VALUE_EQUALITY",
+    "semantic_term_scope": "MATCHES_ENUMERATED_CANONICAL_MEANING_NOT_OPEN_ENDED_LANGUAGE_UNDERSTANDING",
+    "governed_fields_observed_as_exact_match_constrained": [
+      "local_effects",
+      "standing_basis",
+      "notes",
+      "detected_flags",
+      "claim_bundle",
+      "exchange_policy",
+      "non_claim_set",
+      "declared_non_effects",
+      "participants",
+      "upstream_acknowledgment",
+      "narrowing_delta"
+    ],
+    "scope_note_not_automatic_defect": true,
+    "buyer_facing_overclaim_prohibited": "Do not describe this v0.1 mechanism as understanding arbitrary semantic paraphrases; describe it as deterministic enforcement of an enumerated canonical profile language unless a later surface establishes broader semantics."
+  },
+  "untested_boundary": {
+    "unicode_confusable_or_normalization_evasion": "UNTESTED",
+    "reviewer_expectation": "LIKELY_NON_ISSUE_NOT_ESTABLISHED",
+    "treatment": "PRESERVE_AS_UNRESOLVED_NOT_AS_PASS_OR_FAIL"
+  },
+  "core_question_disposition": {
+    "fork_non_authoritative": "SUPPORTED_WITHIN_TESTED_PROFILES",
+    "local_authority_without_transfer": "SUPPORTED_WITHIN_TESTED_PROFILES",
+    "acknowledgment_without_inherited_standing": "SUPPORTED_WITHIN_TESTED_PROFILES",
+    "reference_not_silently_promoted": "NO_GAP_FOUND_WITHIN_REVIEWED_SURFACE",
+    "unresolved_not_resolved_by_assumption": "NO_GAP_FOUND_WITHIN_REVIEWED_SURFACE",
+    "missing_fork_observation_visible_while_downstream_continues": "SUPPORTED",
+    "fully_rebound_semantic_overread_evades_checker": "NOT_OBSERVED_IN_TWO_ORIGINAL_PROBES",
+    "contradictory_fully_rebound_record_still_conforms": "NO_GAP_FOUND_NOT_EXHAUSTIVE_PROOF"
+  },
+  "standing_effect": {
+    "exterior_recomputation_return": "CONFORMING_WITHIN_DECLARED_SIMULATION_SCOPE",
+    "source_evidence_admitted": false,
+    "proof_packaging_admitted": false,
+    "independent_validation_established": false,
+    "model_standing_delta": "NONE",
+    "merge_pr_100_authorized_by_this_record": false,
+    "shadow_adapters_authorized": false,
+    "live_adapters_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "authority_delta": "NONE"
+  }
+}
