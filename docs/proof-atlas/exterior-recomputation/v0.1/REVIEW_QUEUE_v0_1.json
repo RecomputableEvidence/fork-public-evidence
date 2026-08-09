@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1",
+  "queue_id": "FORK-EXTERIOR-RECOMPUTATION-QUEUE-v0.1",
+  "governed_basis": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "2e2d35711d7b3974257658a44424c6e4696290ea",
+    "proof_sequence_admission": "docs/preservation/admission/FORK_PROOF_PORTFOLIO_SEQUENCE_V0_2_ADMISSION_2026_08_08_v0_1.json"
+  },
+  "purpose": "Dispatch already-declared exterior recomputation gates without altering candidate branches or promoting source, proof, model, execution, pilot, production, or authority standing.",
+  "dispatch_order": [
+    {
+      "priority": 1,
+      "proof_id": "PROOF-002",
+      "pull_request": 65,
+      "exact_head": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+      "candidate_standing": "DRAFT_CORRECTED_HEAD_RECOMPUTATION_PENDING_DIRECT_MERGE_NOT_AUTHORIZED",
+      "required_gate": "INDEPENDENT_EXACT_HEAD_EXTERIOR_RECOMPUTATION_REQUIRED",
+      "handoff": "PROOF_002_ADV_003_EXTERIOR_HANDOFF_v0_1.md",
+      "direct_merge_allowed": false
+    },
+    {
+      "priority": 2,
+      "proof_id": "PROOF-004",
+      "pull_request": 100,
+      "exact_head": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+      "candidate_standing": "DETERMINISTIC_SIMULATION_CANDIDATE_NOT_ADMITTED",
+      "required_gate": "EXACT_HEAD_EXTERIOR_RECOMPUTATION_REQUIRED_BEFORE_SIMULATION_ONLY_ADMISSION",
+      "handoff": "PROOF_004_GHCH_EXTERIOR_HANDOFF_v0_1.md",
+      "direct_merge_allowed": false
+    }
+  ],
+  "held_lanes": [
+    {
+      "proof_id": "PROOF-005",
+      "pull_requests": [84, 86],
+      "state": "CORRECTION_SOURCE_GROUNDING_AND_EXTERIOR_REVIEW_PENDING",
+      "reason": "PR #84 correction and exterior review precede PR #86 dependency review."
+    },
+    {
+      "proof_id": "PROOF-006",
+      "state": "LIVE_EXECUTION_AND_PROVIDER_CALLS_CLOSED",
+      "reason": "Separate execution authorization and empirical protocol are required."
+    },
+    {
+      "surface": "PRE_PILOT_STAGE_1",
+      "pull_requests": [110, 111],
+      "state": "EXTERIOR_RECOMPUTATION_OR_DEPENDENCY_GATES_UNSATISFIED",
+      "reason": "No production, pilot, or proof-standing inheritance from the proof queue."
+    }
+  ],
+  "reviewer_independence_rule": "The exterior result must disclose reviewer identity or pseudonymous handle, relationship to Fork/construction, and whether the reviewer participated in candidate construction. Construction-assisted or same-loop review must not be labeled independent.",
+  "return_rule": "Preserve exact head, environment, commands, raw outputs or machine-readable receipts, exit codes where available, artifact digests, corrections, unresolved matters, and one bounded disposition. A conforming return changes no standing until separately preserved and adjudicated.",
+  "effects": {
+    "evidence_standing_delta": "NONE",
+    "proof_admission_delta": "NONE",
+    "model_standing_delta": "NONE",
+    "execution_authorized": false,
+    "provider_calls_authorized": 0,
+    "pair_001_calls_authorized": 0,
+    "pilot_authorized": false,
+    "production_authorized": false,
+    "authority_delta": "NONE",
+    "repository_settings_effect": "NONE",
+    "main_effect": "NONE"
+  }
+}
