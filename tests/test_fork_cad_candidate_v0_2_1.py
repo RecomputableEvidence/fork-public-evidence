@@ -16,6 +16,21 @@ SPEC.loader.exec_module(CHECKER)
 
 V2 = ROOT / "docs/meta-evidence/conversational-authority-drift-v0.2"
 CASE = V2 / "cases/CAD_004_CLAUDE_SOURCE_ROLE_BINDING"
+CONTROLLED_EFFECT_KEYS = (
+    "status",
+    "pull_request_effect",
+    "admission",
+    "publication",
+    "endorsement",
+    "provider_calls",
+    "pair_001_effect",
+    "pair_001_execution_authorized",
+    "readiness_effect",
+    "readiness_promoted",
+    "proof_admission_effect",
+    "model_standing_effect",
+    "authority_effect",
+)
 
 
 def load(path: Path):
@@ -68,8 +83,10 @@ class ForkCadCorrectionSuccessorV021Tests(unittest.TestCase):
         with self.assertRaises(CHECKER.CandidateError):
             CHECKER.PREDECESSOR.validate_claim_ledger(self.ledger)
 
-    def test_every_control_effect_field_is_mechanically_fixed(self) -> None:
-        for key, original in list(self.effects.items()):
+    def test_all_thirteen_governed_control_effect_fields_are_fixed(self) -> None:
+        self.assertEqual(len(CONTROLLED_EFFECT_KEYS), 13)
+        for key in CONTROLLED_EFFECT_KEYS:
+            original = self.effects[key]
             if isinstance(original, bool):
                 mutated = not original
             elif isinstance(original, int):
@@ -77,12 +94,16 @@ class ForkCadCorrectionSuccessorV021Tests(unittest.TestCase):
             elif isinstance(original, str):
                 mutated = original + "_MUTATED"
             else:
-                self.fail(f"unexpected CONTROL_EFFECTS value type for {key}: {type(original)}")
+                self.fail(f"unexpected governed CONTROL_EFFECTS value type for {key}: {type(original)}")
             candidate = copy.deepcopy(self.effects)
             candidate[key] = mutated
             with self.subTest(key=key):
                 with self.assertRaises(CHECKER.CandidateError):
                     CHECKER.PREDECESSOR.validate_control_effects(candidate)
+
+    def test_record_id_is_not_misrepresented_as_a_governed_control_effect(self) -> None:
+        self.effects["record_id"] = "INFORMATIONAL_IDENTIFIER_MUTATED"
+        CHECKER.PREDECESSOR.validate_control_effects(self.effects)
 
     def test_event_schema_requires_all_controlled_keys(self) -> None:
         del self.events["events"][0]["causal_standing"]
