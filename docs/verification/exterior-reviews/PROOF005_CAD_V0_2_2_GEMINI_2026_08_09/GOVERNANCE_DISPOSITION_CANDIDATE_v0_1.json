@@ -1,0 +1,67 @@
+{
+  "schema_version": "0.1",
+  "record_id": "PROOF005_CAD_V0_2_2_GEMINI_REVIEW_ATTEMPT_2026_08_09",
+  "status": "PRESERVED_EXTERIOR_REVIEW_ATTEMPT_INCONCLUSIVE",
+  "proof_id": "PROOF-005",
+  "candidate": {
+    "version": "v0.2.2",
+    "pull_request": 128,
+    "intended_exact_head": "9e3cdd2fb6d67f9abd6233ce673341bd817d6338",
+    "governed_preservation_basis": "de3a5165d7828a47d31b5b25a260bfef53094f14",
+    "reviewer_exact_head_verified": false,
+    "reviewer_exact_head_value": null
+  },
+  "reviewer_declaration": {
+    "identity_model": "Gemini, a large language model trained by Google",
+    "session_state": "fresh conversation/session",
+    "prior_fork_familiarity": "NONE_DECLARED",
+    "construction_involvement": "NONE_DECLARED",
+    "previous_exact_candidate_access": "NONE_DECLARED",
+    "independence_characterization": "COMPLETE_ISOLATION_SELF_DECLARED",
+    "governance_independence_standing": "MODEL_ASSISTED_FRESH_SESSION_SELF_DECLARED_NOT_EXECUTION_VERIFIED"
+  },
+  "execution_return": {
+    "exact_coordinate_verification": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "historical_preservation": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "baseline_recomputation": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "r003_pressure": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "r004_pressure": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "r005_pressure": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "previous_correction_regression": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "representation_characterization": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "raw_mutation_harness": "UNAVAILABLE",
+    "raw_output": "UNAVAILABLE",
+    "mutated_exhibits": "UNAVAILABLE",
+    "checker_test_hashes": "UNAVAILABLE"
+  },
+  "reviewer_originated_challenge": {
+    "status": "THEORETICAL_CONSTRUCT_RECORDED_UNEXECUTED",
+    "class": "UNICODE_ESCAPE_ALIAS_DUPLICATE_KEY_HYPOTHESIS",
+    "example": "{\"source_refs\":[\"valid\"],\"source\\u005Frefs\":[\"invalid\"]}",
+    "evidentiary_effect": "NONE_UNTIL_EXECUTED"
+  },
+  "reviewer_disposition": "REVIEW_INCONCLUSIVE",
+  "governance_interpretation": {
+    "exact_head_exterior_recomputation_established": false,
+    "candidate_conformance_established_by_this_return": false,
+    "candidate_nonconformance_established_by_this_return": false,
+    "new_executed_defect_established": false,
+    "new_successor_required_by_this_return": false,
+    "direct_merge_selected": false,
+    "proof_admission_effect": "NONE",
+    "source_grounding_effect": "NONE",
+    "model_standing_effect": "NONE",
+    "execution_authority_effect": "NONE",
+    "pilot_readiness_effect": "NONE",
+    "production_standing_effect": "NONE",
+    "authority_transfer_effect": "NONE",
+    "next_required_event": "EXECUTABLE_EXTERIOR_RECOMPUTATION_AT_EXACT_HEAD"
+  },
+  "transcription_binding": {
+    "source": "USER_SUPPLIED_CHAT_TEXT",
+    "repository_transcription_path": "docs/verification/exterior-reviews/PROOF005_CAD_V0_2_2_GEMINI_2026_08_09/INDEPENDENT_EXTERIOR_REVIEW_NOTE_TRANSCRIPTION.md",
+    "repository_transcription_sha256": "654438d93b86c705887c1ce2fd1c3578fcb4a82db2b3af03bbd40581cb191d15",
+    "repository_transcription_size_bytes": 6285,
+    "original_gemini_artifact_byte_identity": "NOT_ESTABLISHED"
+  }
+}
