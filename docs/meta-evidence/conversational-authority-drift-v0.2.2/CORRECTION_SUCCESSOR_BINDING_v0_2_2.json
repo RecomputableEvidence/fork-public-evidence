@@ -1,0 +1,47 @@
+{
+  "record_type": "PROOF005_CAD_V0_2_2_CORRECTION_SUCCESSOR_BINDING",
+  "record_version": "v0.2.2",
+  "status": "BOUNDED_CORRECTION_SUCCESSOR_CANDIDATE",
+  "proof_id": "PROOF-005",
+  "surface": "Conversational Authority Drift",
+  "frozen_v0_2_reviewed_exact_head": "4ce0413e70fc9355c1319d7e25b5157497faa90c",
+  "frozen_v0_2_1_reviewed_exact_head": "a8b528be8acaa5b69bc928450001a56b4b8335e3",
+  "v0_2_1_reviewer_declared_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+  "preserved_second_exterior_return_governed_tip": "de3a5165d7828a47d31b5b25a260bfef53094f14",
+  "construction_merge_base": "11e771a1039f07875dcd594636e8efe8c88a50e3",
+  "construction_rule": "ADDITIVE_ONLY_NO_REWRITE_OF_REVIEWED_V0_2_OR_V0_2_1_ARTIFACTS",
+  "bounded_residuals": {
+    "R003": "DUPLICATE_KEY_SAFE_LOADING_PARITY",
+    "R004": "CLOSED_DECLARED_GOVERNED_SCHEMAS",
+    "R005": "EVENT_SOURCE_REFS_ELEMENT_VALIDATION"
+  },
+  "implementation": {
+    "checker_path": "tools/check_fork_cad_candidate_v0_2_2.py",
+    "checker_sha256": "ab5fcdc144812307c0cd28862a2c613ce55775fd83027d192d6f696e4617d0bf",
+    "checker_git_blob": "27531fc1919dd9b7e809ad140b2280542815e9f7",
+    "test_path": "tests/test_fork_cad_candidate_v0_2_2.py",
+    "test_sha256": "7f0c230498e0eb51cbc092cc188c47b76536e3a98b50ddbdc156777450388db0",
+    "test_git_blob": "e23e205ef0ec83c5cdb897c76066ddedc33a5b52"
+  },
+  "exact_head_binding": {
+    "state": "TO_BE_RECORDED_AFTER_EXACT_HEAD_CI_AND_BOUNDED_INTERNAL_REVIEW",
+    "note": "A Git commit cannot contain its own hash without changing it. The frozen successor exact head is therefore recorded separately at the review handoff after the implementation coordinate is fixed."
+  },
+  "standing_ceiling": "CORRECTION_SUCCESSOR_CANDIDATE_READY_FOR_EXACT_HEAD_REVIEW",
+  "source_grounding": "INCOMPLETE",
+  "proof_packaging": "NOT_ADMITTED",
+  "model_standing_delta": "NONE",
+  "execution_authority_delta": "NONE",
+  "non_effects": [
+    "NO_MERGE_AUTHORIZATION",
+    "NO_PROOF005_ADMISSION",
+    "NO_PROOF_PACKAGE_ADMISSION",
+    "NO_SOURCE_GROUNDING_COMPLETION",
+    "NO_MODEL_STANDING_PROMOTION",
+    "NO_EXECUTION_AUTHORIZATION",
+    "NO_PILOT_OR_PRODUCTION_STANDING",
+    "NO_ENDORSEMENT",
+    "NO_COMPLIANCE_OR_LEGAL_SUFFICIENCY",
+    "NO_AUTHORITY_TRANSFER_OR_INHERITANCE"
+  ]
+}
