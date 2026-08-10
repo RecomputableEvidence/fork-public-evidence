@@ -1,0 +1,124 @@
+{
+  "record_id": "PROOF005_CAD_V0_2_2_EXECUTABLE_EXTERIOR_RETURN_GOVERNANCE_DISPOSITION_2026_08_10_v0_1",
+  "record_type": "APPEND_ONLY_EXTERIOR_RETURN_PRESERVATION_AND_GOVERNANCE_DISPOSITION",
+  "status": "PRESERVATION_CANDIDATE",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "proof_id": "PROOF-005",
+  "candidate_version": "v0.2.2",
+  "candidate_exact_head": "9e3cdd2fb6d67f9abd6233ce673341bd817d6338",
+  "candidate_pull_request": 128,
+  "candidate_direct_merge_selected": false,
+  "governed_preservation_parent": "196015b4f06c62aa20aeaafee5202790b95a5c77",
+  "reviewer": {
+    "identity": "Claude (Anthropic)",
+    "review_mode": "EXECUTABLE_EXACT_HEAD_EXTERIOR_RECOMPUTATION",
+    "session_characterization": "CONTINUATION_OF_SINGLE_EXECUTION_SESSION",
+    "prior_fork_familiarity": "DISCLOSED",
+    "construction_involvement": "NONE_DECLARED",
+    "prior_access_to_exact_candidate_before_session": "NONE_DECLARED",
+    "independence_scope": "MODEL_ASSISTED_EXTERIOR_RECOMPUTATION_NOT_ARMS_LENGTH_HUMAN_OR_ORGANIZATIONAL_INDEPENDENCE"
+  },
+  "reviewer_disposition_verbatim": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+  "execution_status": {
+    "exact_review_coordinates": "EXECUTED_AND_RECORDED",
+    "offline_package_integrity": "EXECUTED_AND_RECORDED_WITH_QUALIFICATION_F1",
+    "reviewer_standing": "EXECUTED_AND_RECORDED",
+    "exact_detached_checkout": "EXECUTED_AND_RECORDED",
+    "historical_preservation": "EXECUTED_AND_RECORDED",
+    "baseline_exact_head_recomputation": "EXECUTED_AND_RECORDED",
+    "r003_duplicate_key_parity": "EXECUTED_AND_RECORDED",
+    "r004_closed_declared_schemas": "EXECUTED_AND_RECORDED",
+    "r005_source_refs_syntax_and_u200b": "EXECUTED_AND_RECORDED",
+    "previous_correction_regression": "EXECUTED_AND_RECORDED",
+    "representation_characterization": "EXECUTED_AND_RECORDED",
+    "reviewer_originated_challenge": "EXECUTED_AND_RECORDED",
+    "unexecuted_required_sections": 0
+  },
+  "baseline_results": {
+    "v0_2_tests_passed": 23,
+    "v0_2_1_tests_passed": 14,
+    "v0_2_1_subtests_passed": 13,
+    "v0_2_2_tests_passed": 17,
+    "v0_2_2_subtests_passed": 30,
+    "all_six_baseline_commands_exit_zero": true
+  },
+  "adversarial_results": {
+    "result_records": 64,
+    "pipeline_pass_fail_executions": 62,
+    "informational_isolated_predicate_records": 2,
+    "expected_outcome_matches": 59,
+    "mismatches": 3,
+    "mismatch_interpretation": {
+      "R005_07": "REVIEWER_TEST_DESIGN_EXPECTATION_MISMATCH_DUE_TO_INDEPENDENT_EVENT_REGISTER_FINGERPRINT_FREEZE_NOT_CANDIDATE_DEFECT",
+      "CHALLENGE_B1_BOOL_FOR_INT": "UNEXPECTED_ACCEPT_NON_ESCALATING_JSON_TYPE_STRICTNESS_GAP",
+      "CHALLENGE_B2_INT_FOR_BOOL": "UNEXPECTED_ACCEPT_NON_ESCALATING_JSON_TYPE_STRICTNESS_GAP"
+    }
+  },
+  "qualifications": {
+    "F1": {
+      "classification": "DISCLOSED_TRANSPORT_REPACKAGING_DIFFERENCE",
+      "candidate_substitution_established": false,
+      "operative_git_bundle_hash_match": true,
+      "review_note_hash_match": true
+    },
+    "F2": {
+      "classification": "OBSERVED_UNICODE_INVISIBLE_REFERENCE_HARDENING_OPPORTUNITY",
+      "u200b_accepted_by_declared_isolated_predicate": true,
+      "additional_observed_codepoints": ["U+FEFF", "U+2060", "U+200C"],
+      "governed_effect_reachability_established": false,
+      "declared_v0_2_2_invariant_contradicted": false
+    },
+    "F3": {
+      "classification": "OBSERVED_NON_ESCALATING_JSON_TYPE_STRICTNESS_GAP",
+      "provider_calls_false_for_integer_zero_accepted": true,
+      "admission_integer_zero_for_boolean_false_accepted": true,
+      "escalating_value_path_established": false,
+      "governed_authority_or_admission_transition_established": false
+    }
+  },
+  "governance_interpretation": {
+    "reviewer_disposition_preserved_without_rewrite": true,
+    "r003_r004_r005_correction_objectives": "ESTABLISHED_WITHIN_DECLARED_SCOPE",
+    "candidate_global_conformance": "NOT_INFERRED",
+    "proof005_admission": "NOT_ADMITTED",
+    "proof_packaging": "NOT_ADMITTED",
+    "source_grounding": "INCOMPLETE",
+    "model_standing_delta": "NONE",
+    "direct_merge_pr_128": "NOT_SELECTED",
+    "f3_disposition": "BOUNDED_TYPE_STRICTNESS_CORRECTION_CANDIDATE_BEFORE_MERGE",
+    "f2_disposition": "PRESERVE_AS_SEPARATE_HARDENING_LEDGER_QUESTION_NOT_SILENTLY_FOLD_INTO_TYPE_STRICTNESS_CORRECTION"
+  },
+  "artifact_bindings": [
+    {
+      "name": "REVIEW_SUMMARY.md",
+      "size_bytes": 15198,
+      "sha256": "ac04aaef33f3b6e0de86f0226afca0a406f89b0b6ab93ceac2e47f2e9d308398",
+      "preservation": "EXACT_UPLOADED_BYTES"
+    },
+    {
+      "name": "mutation_harness (1).py",
+      "size_bytes": 29825,
+      "sha256": "1c48dfd4b75dfd065d93b8dd79662cd7d48d79ebbed8781882f1c4ea4b755129",
+      "preservation": "EXACT_UPLOADED_BYTES"
+    },
+    {
+      "name": "Pasted markdown (2)(20260810-083055).md",
+      "size_bytes": 57629,
+      "sha256": "54986e4380e60fd9e06f116385521c3a1dfa90db8f35ee97d8cc295589f038e2",
+      "preservation": "EXACT_UPLOADED_BYTES"
+    }
+  ],
+  "non_effects": [
+    "DOES_NOT_MERGE_PR_128",
+    "DOES_NOT_ADMIT_PROOF_005",
+    "DOES_NOT_ADMIT_PROOF_PACKAGING",
+    "DOES_NOT_COMPLETE_SOURCE_GROUNDING",
+    "DOES_NOT_PROMOTE_FORK_CANDIDATE_MODEL_STANDING",
+    "DOES_NOT_ESTABLISH_GLOBAL_EMPIRICAL_OR_INDEPENDENT_VALIDATION",
+    "DOES_NOT_AUTHORIZE_PROVIDER_CALLS_OR_PAIR_001",
+    "DOES_NOT_AUTHORIZE_PILOT_OR_PRODUCTION",
+    "DOES_NOT_ESTABLISH_COMPLIANCE_OR_LEGAL_SUFFICIENCY",
+    "DOES_NOT_CONSTITUTE_ENDORSEMENT",
+    "DOES_NOT_TRANSFER_OR_INHERIT_AUTHORITY"
+  ]
+}
