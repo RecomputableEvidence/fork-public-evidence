@@ -1,0 +1,17 @@
+{
+  "event_id": "CAD_ASSESSOR_CORRECTION_SUPPLEMENT_001_v0_2",
+  "version": "0.2",
+  "status": "CORRECTION_BINDING_INCOMPLETE_NOT_ADMITTED",
+  "historical_parent": {
+    "pull_request": 86,
+    "exact_head": "f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+    "historical_event_blob_sha": "5904dedc834c49f913de9dc3a780df423ad34997"
+  },
+  "historical_affected_statement_text": "20 confirmed provisional test cases",
+  "source_addressable_original_statement_ref": null,
+  "binding_state": "INCOMPLETE_ORIGINAL_STATEMENT_NOT_SOURCE_ADDRESSED_IN_AVAILABLE_REPOSITORY_SURFACE",
+  "replacement_statement": "Twenty suggested instances were historically surfaced; fifteen families were proposed by the v0.1 meta-assessment, but consolidation correctness remains unestablished pending source, chronology, version, and merge-lineage binding.",
+  "historical_statement_erased": false,
+  "independent_review_required": true,
+  "admission_effect": "NONE"
+}
