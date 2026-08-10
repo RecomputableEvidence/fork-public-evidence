@@ -1,0 +1,11 @@
+{
+  "status": "DRAFT_PACKET_COMPLETE_EXACT_HEAD_CHECKS_PENDING",
+  "candidate_not_admitted": true,
+  "private_source_artifacts_registered": 21,
+  "independent_human_review_recorded": false,
+  "known_reviewer_review_recorded": false,
+  "new_reviewer_cold_review_recorded": false,
+  "exact_head_recomputation_recorded": false,
+  "workflow_runs_bound": false,
+  "merge_authorized": false
+}

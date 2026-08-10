@@ -1,0 +1,23 @@
+{
+  "correction_id": "FORK_CAD_004_CORRECTION_EVENT_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "actor": "RYAN_WILLIAM_FELLER",
+  "affected_claims": [
+    "CAD-004-C001",
+    "CAD-004-C003",
+    "CAD-004-C004"
+  ],
+  "correction": {
+    "source_role": "Txtbngsntnscrnshot.txt was supplied as machine-readable text needed to interpret the screenshot-carried context, not merely as a standalone taxonomy document.",
+    "source_presence": "The Fracture Markdown was included in the supplied bundle and later directly read by the reviewer.",
+    "existing_work": "Fork and Ryan William Feller had already begun applying reflexive scrutiny and preserving claim standing; the review should not represent that discipline as newly introduced by the reviewer."
+  },
+  "required_disposition": "UPDATE_SOURCE_ROLE_MAP_OR_PRESERVE_REASONED_DISAGREEMENT",
+  "erasure_effect": "NONE",
+  "non_claims": [
+    "The correction does not require automatic acceptance of every user interpretation.",
+    "The correction does not validate the Fracture technical claims.",
+    "The correction does not canonize the candidate taxonomy."
+  ]
+}

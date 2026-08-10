@@ -1,0 +1,43 @@
+{
+  "manifest_id": "FORK_CAD_004_SOURCE_MANIFEST_SUPPLEMENT_001_v0_1",
+  "schema_version": "0.1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "supplements": "SOURCE_MANIFEST_v0_1.json",
+  "raw_sources_published": false,
+  "sources": [
+    {
+      "source_id": "SRC-018",
+      "filename": "Pasted text(1101).txt",
+      "media_type": "text/plain",
+      "size_bytes": 10495,
+      "sha256": "6423c8441ab74b57a9907bf764ea31687ab5d0753931d7d96f931b220cb94300"
+    },
+    {
+      "source_id": "SRC-019",
+      "filename": "image(584).png",
+      "media_type": "image/png",
+      "size_bytes": 337093,
+      "sha256": "625789f211ccc5baacc3d061ea61d0a7234cfdfea3e14ab9f8d51afc70fed9e8"
+    },
+    {
+      "source_id": "SRC-020",
+      "filename": "image(585).png",
+      "media_type": "image/png",
+      "size_bytes": 280254,
+      "sha256": "00e0aa01a72136e6b98597f79f2a231f0c11830ff2bf94267112e1256a583025"
+    },
+    {
+      "source_id": "SRC-021",
+      "filename": "image(586).png",
+      "media_type": "image/png",
+      "size_bytes": 369139,
+      "sha256": "f45d87a3495d99af29618a23cad34cc5b74d9b1b9d6ca2aa5f764edf7ba1dd99"
+    }
+  ],
+  "non_claims": [
+    "The supplement records additional source bytes; it does not amend the standing of earlier claims automatically.",
+    "The screenshots preserve visible text but do not authenticate provider-internal state or causal mechanism.",
+    "The supplement has no admission, publication, Pair-001, or provider-call effect."
+  ]
+}

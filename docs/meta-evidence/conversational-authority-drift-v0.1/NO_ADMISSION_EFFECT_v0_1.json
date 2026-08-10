@@ -1,0 +1,11 @@
+{
+  "record_id": "FORK_CAD_NO_ADMISSION_EFFECT_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "pull_request_effect": "REVIEW_SURFACE_ONLY",
+  "admission": false,
+  "publication": false,
+  "endorsement": false,
+  "provider_calls_authorized": false,
+  "pair_001_execution_authorized": false,
+  "readiness_promoted": false
+}
