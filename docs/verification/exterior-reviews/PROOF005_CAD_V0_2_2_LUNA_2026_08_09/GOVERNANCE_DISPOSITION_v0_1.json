@@ -1,0 +1,89 @@
+{
+  "record_type": "PROOF005_V0_2_2_LUNA_EXTERIOR_REVIEW_PRESERVATION",
+  "schema_version": "0.1",
+  "status": "PRESERVED_REVIEW_RETURN_INCONCLUSIVE",
+  "recorded_date": "2026-08-09",
+  "candidate": {
+    "pull_request": 128,
+    "exact_head": "9e3cdd2fb6d67f9abd6233ce673341bd817d6338",
+    "frozen_v0_2_1_predecessor": "a8b528be8acaa5b69bc928450001a56b4b8335e3",
+    "construction_governed_basis": "de3a5165d7828a47d31b5b25a260bfef53094f14",
+    "governed_basis_before_this_preservation": "5d1e0e555b7a64c9c47148e09ef41d91866ce1d2"
+  },
+  "reviewer": {
+    "declared_identity_model": "GPT-5.6 Luna",
+    "declared_session_state": "fresh execution session for this review",
+    "declared_prior_fork_familiarity": true,
+    "declared_construction_involvement": "NONE",
+    "declared_disposition": "REVIEW_INCONCLUSIVE",
+    "independence_characterization": "INDEPENDENT_RECOMPUTATION_ATTEMPT_WITH_PRIOR_CONTEXTUAL_FAMILIARITY_NOT_FULLY_BLIND"
+  },
+  "received_artifact": {
+    "source": "conversation upload",
+    "original_filename": "Pasted markdown(20260810-024558).md",
+    "size_bytes": 16908,
+    "sha256": "8accaad75340e5af6da06dbb28ee17a945d7218ac5e8056b519775698c31466d",
+    "repository_preservation_representation": "deterministic gzip -n compressed bytes",
+    "repository_gzip_size_bytes": 6040,
+    "repository_gzip_sha256": "4d2c36a7f33c6303cbea8dc0d4692b3680842a282b60e7a4a97a5f9aec1778c3",
+    "repository_gzip_blob_sha": "c2bd65d72bc44ec3e6a42fe1f53a277a0fa90673",
+    "reconstruction": "gunzip the preserved .md.gz bytes to recover the exact uploaded markdown bytes"
+  },
+  "executed_and_recorded": {
+    "exact_candidate_identity_via_github": true,
+    "candidate_ancestry_via_github_compare": true,
+    "historical_preservation_via_compare": true,
+    "representative_predecessor_blob_identity": true,
+    "candidate_implementation_source_inspection": true,
+    "r003_unicode_escape_alias_pressure_against_reproduced_parser_semantics": "REJECTED_NOT_REPRODUCED_AS_DEFECT",
+    "r004_source_inspection": true,
+    "r005_source_inspection": true,
+    "reviewer_originated_edge": {
+      "input": "source_refs contains U+200B ZERO WIDTH SPACE as sole member",
+      "result": "ACCEPTED_BY_EXACT_DECLARED_PREDICATE_SEMANTICS",
+      "classification": "OBSERVED_ACCEPTED_REPRESENTATIONAL_EDGE",
+      "standing_or_authority_promotion_demonstrated": false
+    }
+  },
+  "not_established": {
+    "fresh_detached_local_checkout_at_exact_head": true,
+    "raw_local_rev_parse_status_log": true,
+    "v0_2_checker_execution_at_exact_head": true,
+    "v0_2_1_checker_execution_at_exact_head": true,
+    "v0_2_2_checker_execution_at_exact_head": true,
+    "v0_2_tests_at_exact_head": true,
+    "v0_2_1_tests_at_exact_head": true,
+    "v0_2_2_tests_at_exact_head": true,
+    "r004_exact_mutation_execution_at_exact_head": true,
+    "r005_prescribed_mutation_execution_at_exact_head": true,
+    "exact_candidate_end_to_end_exterior_pass": true
+  },
+  "nonexecution_classification": {
+    "reviewer_reported_label": "NOT_EXECUTED_DUE_TO_SESSION_LIMIT",
+    "reviewer_stated_practical_cause": "execution environment could not resolve github.com during git clone",
+    "governance_causal_classification": "ENVIRONMENT_NETWORK_RESOLUTION_CONSTRAINT",
+    "note": "The reviewer label is preserved verbatim but is not interpreted as elapsed-time exhaustion."
+  },
+  "governance_interpretation": {
+    "review_disposition_preserved": "REVIEW_INCONCLUSIVE",
+    "exterior_recomputation_gate_satisfied": false,
+    "candidate_conformance_established": false,
+    "candidate_nonconformance_established": false,
+    "unicode_escape_alias_hypothesis": "MECHANICALLY_CHALLENGED_NOT_REPRODUCED_AS_DEFECT_WITHIN_REPRODUCED_PARSER_SEMANTICS",
+    "u200b_edge": "PRESERVE_AS_INADEQUACY_QUESTION_NOT_AUTOMATIC_CORRECTION_REQUIRED",
+    "new_successor_authorized_by_this_record": false,
+    "direct_merge_pr128_selected": false,
+    "next_required_event": "EXECUTABLE_EXTERIOR_RECOMPUTATION_AT_EXACT_HEAD_9e3cdd2fb6d67f9abd6233ce673341bd817d6338"
+  },
+  "non_effects": [
+    "NO_PROOF005_ADMISSION",
+    "NO_PROOF_PACKAGING_ADMISSION",
+    "NO_SOURCE_GROUNDING_COMPLETION",
+    "NO_MODEL_STANDING_PROMOTION",
+    "NO_EXECUTION_AUTHORITY",
+    "NO_PILOT_OR_PRODUCTION_READINESS",
+    "NO_ENDORSEMENT",
+    "NO_COMPLIANCE_OR_LEGAL_SUFFICIENCY",
+    "NO_AUTHORITY_TRANSFER_OR_INHERITANCE"
+  ]
+}
