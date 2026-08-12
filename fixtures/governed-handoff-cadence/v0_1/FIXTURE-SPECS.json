@@ -1,0 +1,108 @@
+{
+  "fixture_spec_id": "GHCH-FIXTURE-SPECS-001",
+  "version": "0.1",
+  "fixtures": [
+    {
+      "fixture_path": "invalid/authority_inheritance.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "AUTHORITY_INHERITANCE"
+    },
+    {
+      "fixture_path": "invalid/claim_bundle_standing_promotion.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "CLAIM_BUNDLE_STANDING_PROMOTION"
+    },
+    {
+      "fixture_path": "invalid/duplicate_event_id.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "DUPLICATE_EVENT_ID"
+    },
+    {
+      "fixture_path": "invalid/evidence_reference_promotion.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "EVIDENCE_REFERENCE_PROMOTION"
+    },
+    {
+      "fixture_path": "invalid/hidden_claim_expansion.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "HIDDEN_CLAIM_EXPANSION"
+    },
+    {
+      "fixture_path": "invalid/invalid_event_status.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "INVALID_EVENT_STATUS"
+    },
+    {
+      "fixture_path": "invalid/missing_non_claim.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "NON_CLAIM_LOSS"
+    },
+    {
+      "fixture_path": "invalid/narrowing_basis_overread.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "NARROWING_BASIS_OVERREAD"
+    },
+    {
+      "fixture_path": "invalid/notes_authority_overread.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "NOTES_AUTHORITY_OVERREAD"
+    },
+    {
+      "fixture_path": "invalid/sidecar_unavailability_blocks_workflow.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "SIDECAR_UNAVAILABILITY_BLOCKS_WORKFLOW"
+    },
+    {
+      "fixture_path": "invalid/stage_order_regression.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STAGE_ORDER_REGRESSION"
+    },
+    {
+      "fixture_path": "invalid/stale_predecessor.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STALE_PREDECESSOR"
+    },
+    {
+      "fixture_path": "invalid/stale_record_integrity.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STALE_RECORD_INTEGRITY"
+    },
+    {
+      "fixture_path": "invalid/standing_basis_inheritance.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STANDING_BASIS_INHERITANCE"
+    },
+    {
+      "fixture_path": "invalid/standing_promotion.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "STANDING_PROMOTION"
+    },
+    {
+      "fixture_path": "invalid/undeclared_authority_field.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "UNDECLARED_AUTHORITY_FIELD"
+    },
+    {
+      "fixture_path": "invalid/unresolved_resolved_by_assumption.json",
+      "fixture_class": "ADVERSARIAL",
+      "mutation_family": "UNRESOLVED_RESOLVED_BY_ASSUMPTION"
+    },
+    {
+      "fixture_path": "valid/clean_round_trip.json",
+      "fixture_class": "VALID",
+      "mutation_family": "CLEAN_ROUND_TRIP"
+    },
+    {
+      "fixture_path": "valid/permissible_narrowing.json",
+      "fixture_class": "VALID",
+      "mutation_family": "PERMISSIBLE_NARROWING"
+    },
+    {
+      "fixture_path": "valid/sidecar_unavailable_fail_open.json",
+      "fixture_class": "VALID",
+      "mutation_family": "SIDECAR_UNAVAILABLE_FAIL_OPEN"
+    }
+  ],
+  "non_claim": "No expected disposition or finding code is stored in this fixture specification.",
+  "standing": "DETERMINISTIC_FIXTURE_SPEC_CANDIDATE"
+}
