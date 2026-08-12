@@ -1,0 +1,103 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "fork_independent_mapping_freeze_binding",
+  "record_id": "FORK_INDEPENDENT_MAPPING_V0_1_FREEZE_BINDING",
+  "status": "FROZEN_PRE_EXCHANGE_MAPPING_BINDING",
+  "append_only_intent": true,
+  "mapping": {
+    "artifact_id": "FORK_INDEPENDENT_MAPPING_v0.1",
+    "path": "docs/research/comparative-mapping/FORK_INDEPENDENT_MAPPING_v0.1.md",
+    "content_normalization": "UTF8_LF_NO_BOM",
+    "sha256": "76d08d6fee7a72b94febcd22697b6a926a23d2057a49dba57b70e6a1992f0d1d",
+    "common_event_record_sha256": "3992a77faa1d9e959f8f95bdc729be541e14ecbd8793ef26568921b7e39e1bc1",
+    "non_inference_constraint_sha256": "ad1aaf14665c6a3b3ec37d96c3f0b26e36182e5aa4ab1595292498e07995e540",
+    "counterpart_mapping_seen": false,
+    "cross_review_status": "NOT_PERMITTED",
+    "new_fork_primitives_introduced": false
+  },
+  "source_repository_snapshot": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "branch_label_observed": "preservation/clean-continuance-v0.1",
+    "commit_sha": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "tree_sha": "94e68d68547222506fbf67665db4d75b8649eac9",
+    "coordinate_role": "EXACT_REPOSITORY_SNAPSHOT_USED_FOR_MAPPING",
+    "public_route_projection_not_inherited_from_branch_tip": true,
+    "candidate_model_standing": "PROVISIONAL_RESEARCH_BASELINE"
+  },
+  "repository_basis": [
+    {
+      "path": "README.md",
+      "git_blob_sha": "d04d523bdf56abce482ba7ebb48006b390dbbb0b"
+    },
+    {
+      "path": "docs/state/FORK_PUBLIC_ROUTE_CURRENT_PROJECTION_v0_1.json",
+      "git_blob_sha": "06fbe80b35db499aeba0f84a4018698446700f85"
+    },
+    {
+      "path": "docs/research/fork-research-program-v0.1/FORK_RFC_0_v0.1.md",
+      "git_blob_sha": "4489240cc2bd4680cd25c6d268b5bb832b2d2f7f"
+    },
+    {
+      "path": "docs/research/fork-research-program-v0.1/FORK_CANDIDATE_MODEL_v0.1_FREEZE_RECORD.md",
+      "git_blob_sha": "b1a408367e3ae1154e7d7a0153a180f4f58b4f76"
+    },
+    {
+      "path": "docs/research/fork-research-program-v0.1/schemas/classification-event-v0.1.schema.yaml",
+      "git_blob_sha": "119315d5017a5fe039d0b8470121ec17d92f6ae5"
+    },
+    {
+      "path": "docs/research/fork-research-program-v0.1/schemas/transformation-case-v0.1.schema.yaml",
+      "git_blob_sha": "e9e8d0d55f69d11effa496a68d8bdbd797b26a40"
+    },
+    {
+      "path": "docs/research/fork-research-program-v0.1/schemas/failure-ledger-entry-v0.1.schema.yaml",
+      "git_blob_sha": "389f33097066f408c42faf92418814a440492b63"
+    },
+    {
+      "path": "docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md",
+      "git_blob_sha": "71518a096ff6b8e3a155b15fe985c7318e552ab2"
+    },
+    {
+      "path": "docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md",
+      "git_blob_sha": "3a8983851bec1e7db8ad0fae7cb40937280e14aa"
+    },
+    {
+      "path": "examples/simulations/governance-proof-surface/scenario_04_authority_leakage_attempt.md",
+      "git_blob_sha": "00e65e5de3cc1d931e91744827d6ed53630cd142"
+    },
+    {
+      "path": "README_SCENARIO_07_EXTERNAL_AUTHORITY_BRIDGE_v0_1.md",
+      "git_blob_sha": "74349aedf4e0b3f9d97ea25d8c26ce7bf2e5dc3c"
+    },
+    {
+      "path": "examples/simulations/governance-proof-surface/scenario_08_stale_validity_authority_revocation_boundary.md",
+      "git_blob_sha": "fd258df2452a9cb25bbeb324c6a4f73121f13462"
+    },
+    {
+      "path": "README_SCENARIO_08_STALE_VALIDITY_AUTHORITY_REVOCATION_v0_1.md",
+      "git_blob_sha": "171930e13764bd32847e3f4290150e86b616e029"
+    },
+    {
+      "path": "examples/simulations/governance-proof-surface/scenario_09_revocation_visibility_split_state_boundary.md",
+      "git_blob_sha": "c9f6ad45bbfc02af1ad8eda2fa07051ee17bb292"
+    },
+    {
+      "path": "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json",
+      "git_blob_sha": "27da645e0b8457681b5aaa3befea5d44447a6bc1"
+    }
+  ],
+  "misbinding_corrections_before_freeze": [
+    "SOURCE_COORDINATE_STANDING_NARROWED_TO_EXACT_REPOSITORY_SNAPSHOT",
+    "T4_CLASSIFICATION_EVENT_NOT_PROMOTED_BEYOND_STATE_RELATION",
+    "T6_RFC0_DISPOSITION_NOT_GENERALIZED_TO_EXTERNAL_DEPLOYMENT_DISPOSITION",
+    "PROVENANCE_LANGUAGE_NARROWED_TO_REPOSITORY_SUPPORTED",
+    "NO_AUTHORIZATION_EVENT_OR_SUPPORTING_CONDITION_PRIMITIVE_ADDED"
+  ],
+  "non_claims": [
+    "This binding does not validate Fork or any counterpart framework.",
+    "This binding does not establish framework equivalence or formal composability.",
+    "This binding does not promote Candidate Model v0.1 standing.",
+    "This binding does not authorize execution, deployment, disposition, runtime control, cross-review, or exchange before the counterpart first mapping is independently frozen.",
+    "Later revisions must be preserved separately and must not overwrite the frozen first mapping."
+  ]
+}
