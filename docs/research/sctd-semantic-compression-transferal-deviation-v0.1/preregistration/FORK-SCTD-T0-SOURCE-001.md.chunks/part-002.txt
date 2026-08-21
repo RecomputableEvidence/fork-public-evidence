@@ -1,0 +1,187 @@
+Conversely, preserving only a readable dependency manifest may omit transitive runtime details necessary for exact replay. Strong evidence practice benefits from retaining both.
+Historical/current collapse
+A current evaluator’s failure can be incorrectly used to replace an earlier historical pass:
+CURRENT_EVALUATION = FAIL
+!=>
+HISTORICAL_EVALUATION = NEVER_PASSED
+The current result may alter present standing or support a successor disposition. It does not rewrite what the earlier evaluator observed.
+Recommendation
+Fork should normalize semantic evaluation into independent standings:
+ARTIFACT_BYTE_INTEGRITY
+
+SEMANTIC_ENVIRONMENT_IDENTITY
+
+HISTORICAL_EVALUATOR_AVAILABILITY
+HISTORICAL_SEMANTIC_REPLAY_RESULT
+
+CURRENT_EVALUATOR_IDENTITY
+CURRENT_SEMANTIC_REEVALUATION_RESULT
+
+SEMANTIC_COMPARISON_RESULT =
+EQUIVALENT_WITHIN_DECLARED_TEST_SURFACE
+| DIVERGENT
+| COMPARISON_NOT_POSSIBLE
+| INDETERMINATE
+
+SEMANTIC_CHANGE_DISPOSITION =
+INTENDED_CHANGE
+| DEFECT_CORRECTION
+| SEMANTIC_REGRESSION
+| PROPOSITION_CHANGED
+| ENVIRONMENT_UNRESOLVED
+| NOT_ASSESSED
+| INDETERMINATE
+Required non-implications:
+HASH_MATCH
+!=> SEMANTIC_ENVIRONMENT_MATCH
+
+SCHEMA_VALID
+!=> ALL_GOVERNANCE_KEYWORDS_ENFORCED
+
+UNKNOWN_FIELD_IGNORED
+!=> UNKNOWN_FIELD_IRRELEVANT
+
+HISTORICAL_REPLAY_REPRODUCED
+!=> CURRENT_POLICY_SATISFIED
+
+CURRENT_REEVALUATION_DIFFERS
+!=> SEMANTIC_REGRESSION
+
+SEMANTIC_REGRESSION
+!=> HISTORICAL_DECISION_INVALID
+
+POLICY_COMPILATION_SUCCEEDED
+!=> COMPILED_TARGET_SEMANTICALLY_EQUIVALENT
+Implications for Fork
+Fork’s reboot and D5.1 work should preserve a SemanticT0 as an identified evidence object, not merely a narrative baseline.
+A sufficient SemanticT0 would bind the original artifact population to its historical evaluator, rule registry, policy dialect, data snapshot, entrypoint, status table, and evaluation time. A successor assessment could then compare against it without altering it.
+This reinforces Fork’s posture:
+Technical execution remains separate from interpretation.
+Interpretation remains separate from evidentiary standing.
+Standing remains separate from continuing authorization.
+A successor disposition remains separate from historical truth.
+Neither historical nor current evaluation confers disposition authority over the external consequence.
+What the evidence does not establish
+The evidence does not establish that:
+Every evaluator difference is a semantic regression.
+Pinning an evaluator image captures every external dependency.
+OPA bundle metadata alone guarantees identical evaluation.
+JSON Schema validation establishes enforcement of unrecognized governance extensions.
+in-toto forward compatibility means old consumers understood newer semantics.
+A reproduced historical decision remains authorized or appropriate now.
+A current corrective result makes the preserved historical record false.
+Fork’s current semantic-regression suite establishes general cross-engine semantic equivalence.
+Concrete action worth considering
+Construct a declarative candidate fixture:
+FORK-SEMANTIC-ENVIRONMENT-DIFFERENTIAL-FIXTURE-001
+Use byte-identical schema and instance artifacts with two evaluators:
+A vocabulary-aware evaluator that enforces a Fork governance keyword.
+A generic JSON Schema evaluator that treats the same keyword as annotation.
+The fixture should require the generic evaluator to return either:
+REQUIRED_VOCABULARY_UNSUPPORTED
+or, if the schema did not correctly declare the vocabulary:
+STRUCTURAL_VALIDATION_PASS
+GOVERNANCE_SEMANTIC_ENFORCEMENT = NOT_ESTABLISHED
+It must never convert generic validation success into governance-semantic equivalence.
+Smallest falsifiable test
+Create a custom JSON Schema meta-schema declaring a Fork governance vocabulary as required. Validate an instance missing the evidence required by that vocabulary using:
+A Fork-aware validator.
+A generic validator without vocabulary support.
+Expected result:
+FORK_AWARE_VALIDATOR
+= REJECT_INSTANCE
+
+GENERIC_VALIDATOR
+= REFUSE_UNSUPPORTED_REQUIRED_VOCABULARY
+
+GENERIC_VALIDATOR
+!= PASS
+If the generic validator reports a normal validation pass—or Fork treats refusal, ignored semantics, and governance-aware evaluation as equivalent—the recommendation fails.
+The stronger invariant is concise:
+Recomputable bytes preserve an object. Recomputable semantics require preservation of the interpreter, its dependencies, and the proposition it was authorized to evaluate.
+
+Your core claim is correct and should become a first-class Fork invariant: **artifact identity is necessary for recomputation, but it is not sufficient for semantic replay or governance equivalence**.
+
+The supplied sources support the distinction strongly. OPA makes interpretation contingent on Rego-version metadata and compatibility settings; JSON Schema makes validation contingent on dialect and recognized required vocabularies; and in-toto explicitly permits parsing consumers to ignore unrecognized fields while making runtime-trace meaning dependent on monitor type and configuration.[^1_1][^1_2][^1_3][^1_4]
+
+## The semantic boundary
+
+The relevant equivalence relation is not:
+
+$$
+\operatorname{digest}(A)=\operatorname{digest}(A')
+$$
+
+It is closer to:
+
+$$
+\operatorname{Meaning}(A, E, P, t)
+$$
+
+Where:
+
+- $A$ is the artifact population.
+- $E$ is the semantic environment: dialects, evaluator implementation, dependency closure, capability set, defaults, and configuration.
+- $P$ is the proposition being evaluated.
+- $t$ is the relevant temporal coordinate: evaluation time, target-fact time, and external-data snapshot time.
+
+Therefore:
+
+```text
+SAME_ARTIFACT_BYTES
+  !=> SAME_SEMANTIC_EVALUATION_CONTEXT
+
+SAME_SEMANTIC_EVALUATION_CONTEXT
+  !=> SAME_PROPOSITION
+
+SAME_PROPOSITION_RESULT
+  !=> SAME_GOVERNANCE_DISPOSITION
+```
+
+The second non-implication matters because a technical result can be reused in a different authorization, authority, or continuing-standing question. Fork should treat that as a proposition change, not silently promote an old result into a current disposition.
+
+## Source validation
+
+Your OPA reading is well-founded. The bundle manifest can carry `revision`, `rego_version`, `file_rego_versions`, roots, Wasm entrypoints/modules, and arbitrary metadata. When no manifest Rego version is present, OPA uses v1 syntax unless run with `--v0-compatible`; manifest-level and per-file version declarations override that runtime flag; overlapping per-file glob patterns have undefined behavior.  OPA’s compatibility guidance also prefers setting Rego version at module or manifest granularity and says mixing v0 and v1 Go packages is unsupported.[^1_2][^1_1]
+
+That establishes a useful Fork rule:
+
+```text
+OPA_POLICY_SOURCE_DIGEST
+  !=> OPA_EVALUATION_IDENTITY
+```
+
+At minimum, OPA replay identity needs the bundle digest, manifest bytes or canonical manifest representation, OPA binary/image digest, runtime flags, Rego language selection, compiler target, entrypoint/query, input document, data snapshot, and builtin/capability profile. A Wasm result is especially not self-explanatory without its runtime/ABI and entrypoint binding.
+
+Your JSON Schema analysis is also exact in its essential point. Draft 2020-12 distinguishes assertions, annotations, applicators, and identifiers; defines a dialect as vocabularies and their required-support status; says unknown keywords should normally be treated as annotations; and says schemas containing only unknown properties are empty schemas.  An implementation that does not recognize a *required* vocabulary must not process a schema using that dialect; when `$schema` is absent, dialect selection is implementation-defined.[^1_3]
+
+The in-toto case complements rather than weakens the argument. Runtime Trace says consumers must ignore unrecognized fields, while major predicate-type revisions denote breaking changes and minor revisions are backward-compatible and monotonic. But `monitor.type` determines how `tracePolicy`, process, and network records are parsed, and the specification directly cautions that synchronous and asynchronous monitoring provide different assurance about file digests at use time.[^1_4]
+
+## Recommended Fork model
+
+Your proposed tuple is directionally right. I would make two refinements:
+
+- Separate **declared semantic environment** from **observed/resolved environment**.
+- Bind every evaluation to an explicit **proposition descriptor**, rather than leaving the proposition implicit in query, policy, or status output.
+
+A normalized evidence object could be:
+
+```json
+{
+  "type": "fork.dev/semantic-evaluation-context/v1",
+  "subject": {
+    "artifactDigest": "sha256:...",
+    "artifactMediaType": "application/schema+json",
+    "artifactCanonicalization": {
+      "method": "jcs",
+      "version": "..."
+    }
+  },
+  "proposition": {
+    "propositionId": "fork:continuing-authority-evidence-satisfied",
+    "propositionVersion": "1",
+    "targetTime": "2026-08-19T00:00:00Z",
+    "scope": "..."
+  },
+  "semanticEnvironment": {
+    "declared": {
