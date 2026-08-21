@@ -1,0 +1,21 @@
+{
+  "record_id": "FORK_EVIDENCE_BANDED_INTEGRATION_NO_EFFECT_V0_1",
+  "status": "NO_EFFECTS_DECLARATION",
+  "effects": {
+    "changes_main": false,
+    "changes_governed_preservation_branch": false,
+    "admits_any_artifact": false,
+    "merges_any_open_pull_request": false,
+    "changes_native_standing": false,
+    "promotes_candidate_proof": false,
+    "establishes_empirical_validation": false,
+    "establishes_independent_validation": false,
+    "authorizes_provider_execution": false,
+    "authorizes_pair_001": false,
+    "authorizes_pilot": false,
+    "authorizes_production": false,
+    "establishes_compliance_or_legal_sufficiency": false,
+    "transfers_authority": false
+  },
+  "construction_effect": "CREATES_CANDIDATE_ROUTING_SURFACE_ONLY"
+}
