@@ -1,5 +1,6 @@
 .gitignore text eol=lf
 .gitattributes text eol=lf
+.github/CODEOWNERS text eol=lf
 docs/index.md text eol=lf
 white-paper/Reconstructive_Fidelity_in_the_Age_of_AI_v1_0.md text eol=lf
 
