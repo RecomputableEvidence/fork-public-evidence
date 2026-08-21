@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""Fork SCTD execution harness v0.1-candidate.
+
+Implements the preregistered TF-00 LOSSLESS_TRANSFER_CONTROL only.
+It performs raw byte copies, emits per-generation receipts, compares every
+successor both to its predecessor and to immutable T0, and verifies preserved
+artifacts without normalizing or decoding their content.
+"""
+from __future__ import annotations
+import argparse
+import hashlib
+import json
+import shutil
+from pathlib import Path
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def stat_file(path: Path) -> dict:
+    data = path.read_bytes()
+    return {"sha256": sha256_bytes(data), "byte_count": len(data)}
+
+
+def stable_json(obj) -> str:
+    return json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
+
+
+def copy_exact(src: Path, dst: Path) -> None:
+    # Deliberately byte-oriented: no text decoding, newline conversion, or normalization.
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    with src.open("rb") as r, dst.open("wb") as w:
+        shutil.copyfileobj(r, w, length=1024 * 1024)
+
+
+def exact_dimension_result(exact: bool) -> dict:
+    if exact:
+        return {
+            "D1_byte_continuity": "EXACT",
+            "D2_syntactic_continuity": "PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL",
+            "D3_structural_continuity": "PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL",
+            "D4_propositional_continuity": "PRESERVED_WITHIN_REGISTERED_LEDGER_BY_EXACT_BYTE_IDENTITY_CONTROL",
+            "D5_evidentiary_standing_continuity": "PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL",
+        }
+    return {
+        "D1_byte_continuity": "DIFFERENT",
+        "D2_syntactic_continuity": "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "D3_structural_continuity": "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "D4_propositional_continuity": "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "D5_evidentiary_standing_continuity": "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+    }
+
+
+def run_tf00(config_path: Path, package_root: Path) -> int:
+    cfg = json.loads(config_path.read_text(encoding="utf-8"))
+    t0 = package_root / cfg["t0_relative_path"]
+    t0_stat = stat_file(t0)
+    expected = cfg["t0_identity"]
+    if t0_stat != expected:
+        raise SystemExit(f"T0 identity mismatch: observed={t0_stat} expected={expected}")
+
+    all_receipts=[]
+    overall_pass=True
+    for rep in range(1, cfg["replicates"] + 1):
+        rep_id=f"R{rep:02d}"
+        rep_root=package_root/'runs'/cfg['chain_id']/rep_id
+        artifacts=rep_root/'artifacts'; receipts=rep_root/'receipts'
+        artifacts.mkdir(parents=True, exist_ok=True); receipts.mkdir(parents=True, exist_ok=True)
+        prev=t0
+        prev_id="A00-T0"
+        for gen in range(1, cfg["generations"] + 1):
+            artifact_id=f"A{gen:02d}"
+            out=artifacts/f"{artifact_id}.md"
+            copy_exact(prev, out)
+            instat=stat_file(prev); outstat=stat_file(out)
+            adjacent_exact=(instat==outstat)
+            source_exact=(outstat==t0_stat)
+            passed=adjacent_exact and source_exact
+            overall_pass &= passed
+            receipt={
+                "schema": "fork.sctd/iteration-receipt/v0.1-candidate",
+                "iteration_id": f"{cfg['chain_id']}-{rep_id}-G{gen:02d}",
+                "chain_id": cfg["chain_id"],
+                "replicate_id": rep_id,
+                "generation": gen,
+                "input": {"artifact_id": prev_id, **instat, "relative_path": str(prev.relative_to(package_root))},
+                "transformation": {
+                    "transformation_id": "TF-00-RAW-BYTE-COPY-v0.1",
+                    "operation_class": "TF-00_LOSSLESS_TRANSFER_CONTROL",
+                    "mechanism": "PYTHON_BINARY_STREAM_COPY",
+                    "source_surface": "LOCAL_FILESYSTEM",
+                    "destination_surface": "LOCAL_FILESYSTEM",
+                    "intentional_text_decoding": False,
+                    "intentional_normalization": False,
+                    "harness_sha256": cfg["harness_sha256"],
+                    "declared_environment": cfg["declared_environment"],
+                    "unresolved_environment": [],
+                },
+                "output": {"artifact_id": artifact_id, **outstat, "relative_path": str(out.relative_to(package_root))},
+                "delta_adjacent": exact_dimension_result(adjacent_exact),
+                "delta_from_T0": exact_dimension_result(source_exact),
+                "observed_changes": {
+                    "byte_count_delta_adjacent": outstat["byte_count"]-instat["byte_count"],
+                    "byte_count_delta_from_T0": outstat["byte_count"]-t0_stat["byte_count"],
+                    "sha256_changed_adjacent": instat["sha256"] != outstat["sha256"],
+                    "sha256_changed_from_T0": t0_stat["sha256"] != outstat["sha256"],
+                    "syntax": "NONE_OBSERVABLE_UNDER_EXACT_BYTE_IDENTITY" if source_exact else "NOT_ASSESSED",
+                    "structure": "NONE_OBSERVABLE_UNDER_EXACT_BYTE_IDENTITY" if source_exact else "NOT_ASSESSED",
+                    "proposition": "NONE_OBSERVABLE_UNDER_EXACT_BYTE_IDENTITY" if source_exact else "NOT_ASSESSED",
+                    "standing": "NONE_OBSERVABLE_UNDER_EXACT_BYTE_IDENTITY" if source_exact else "NOT_ASSESSED",
+                },
+                "control_disposition": "PASS" if passed else "FAIL",
+            }
+            rpath=receipts/f"G{gen:02d}-receipt.json"
+            rpath.write_text(stable_json(receipt), encoding="utf-8", newline="\n")
+            all_receipts.append(receipt)
+            prev=out; prev_id=artifact_id
+
+    summary={
+        "schema":"fork.sctd/tf00-summary/v0.1-candidate",
+        "chain_id":cfg["chain_id"],
+        "transformation_family":"TF-00_LOSSLESS_TRANSFER_CONTROL",
+        "replicates":cfg["replicates"],
+        "generations_per_replicate":cfg["generations"],
+        "total_successor_artifacts":cfg["replicates"]*cfg["generations"],
+        "t0_identity":t0_stat,
+        "all_adjacent_hash_matches": all(r["delta_adjacent"]["D1_byte_continuity"]=="EXACT" for r in all_receipts),
+        "all_t0_hash_matches": all(r["delta_from_T0"]["D1_byte_continuity"]=="EXACT" for r in all_receipts),
+        "distinct_successor_sha256_count": len({r["output"]["sha256"] for r in all_receipts}),
+        "expected_successor_sha256":t0_stat["sha256"],
+        "D1_result":"EXACT" if overall_pass else "CONTROL_FAILURE",
+        "D2_result":"PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL" if overall_pass else "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "D3_result":"PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL" if overall_pass else "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "D4_result":"PRESERVED_WITHIN_REGISTERED_LEDGER_BY_EXACT_BYTE_IDENTITY_CONTROL" if overall_pass else "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "D5_result":"PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL" if overall_pass else "NOT_ASSESSED_AFTER_CONTROL_FAILURE",
+        "control_disposition":"PASS" if overall_pass else "FAIL",
+        "standing_effect":{
+            "SCTD_generalization":"NONE",
+            "higher_transfer_family_claims":"NONE",
+            "repository_admission":"NONE",
+            "empirical_claim":"TF-00 raw-byte filesystem transfer preserved T0 exactly for the executed declared runs only" if overall_pass else "TF-00 control failed"
+        }
+    }
+    report_dir=package_root/'reports'; report_dir.mkdir(exist_ok=True)
+    (report_dir/f"{cfg['chain_id']}-SUMMARY.json").write_text(stable_json(summary),encoding='utf-8',newline='\n')
+    md=f'''# {cfg['chain_id']} — TF-00 Lossless Control Summary
+
+**Disposition:** `{summary['control_disposition']}`  
+**Replicates:** {cfg['replicates']}  
+**Generations per replicate:** {cfg['generations']}  
+**Successor artifacts:** {summary['total_successor_artifacts']}  
+**T0 SHA-256:** `{t0_stat['sha256']}`  
+**Successor SHA-256 values observed:** {summary['distinct_successor_sha256_count']} distinct digest(s)
+
+## Result
+
+Every executed successor was compared both with its immediate predecessor and immutable T0.
+
+```text
+D1 = {summary['D1_result']}
+D2 = {summary['D2_result']}
+D3 = {summary['D3_result']}
+D4 = {summary['D4_result']}
+D5 = {summary['D5_result']}
+```
+
+This result establishes only the TF-00 local-filesystem raw-byte-copy control under the declared execution conditions. It does not establish losslessness for TF-01 or any model/interface-mediated transfer.
+'''
+    (report_dir/f"{cfg['chain_id']}-SUMMARY.md").write_text(md,encoding='utf-8',newline='\n')
+    return 0 if overall_pass else 1
+
+
+def verify(config_path: Path, package_root: Path) -> int:
+    cfg=json.loads(config_path.read_text(encoding='utf-8'))
+    expected=cfg['t0_identity']
+    t0=package_root/cfg['t0_relative_path']
+    findings=[]
+    ok=True
+    obs=stat_file(t0)
+    findings.append({"object":"T0","observed":obs,"expected":expected,"pass":obs==expected})
+    ok &= obs==expected
