@@ -1,0 +1,333 @@
+# FORK-SCTD-T0-SOURCE-RECORD-001-v0.1-CANDIDATE
+
+**Program:** Fork Semantic Compression and Transferal Deviation (SCTD)  
+**Record status:** CANDIDATE_IMMUTABLE_SOURCE_RECORD  
+**Record timestamp:** 2026-08-21T04:54:00-07:00  
+**Empirical standing effect:** NONE  
+**Governance standing effect:** NONE  
+**Bound protocol:** `FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE.md`  
+**Bound protocol SHA-256:** `acaf4fd0909cd32f4ccb6583e54c119c739991cbcdb6a304850a9a13791bb8a3`  
+
+---
+
+## 1. T0 designation
+
+```text
+T0_ARTIFACT_ID:
+  FORK-SCTD-T0-SOURCE-001
+
+CORPUS_ID:
+  SCTD-CORPUS-001
+
+CORPUS_LABEL:
+  PERPLEXITY-SEMANTIC-ENVIRONMENT-SOURCE
+```
+
+The exact byte-preserved T0 source artifact included with this record is:
+
+`FORK-SCTD-T0-SOURCE-001.md`
+
+It is a byte-for-byte copy of the user-supplied raw Perplexity export file:
+
+`Deep dive_ byte continuity is not semantic continu.md`
+
+No textual normalization, line-ending conversion, syntax repair, citation repair, Markdown cleanup, or semantic compression was intentionally applied when constructing the T0 copy.
+
+---
+
+## 2. Mechanical identity
+
+```yaml
+artifact_id: FORK-SCTD-T0-SOURCE-001
+filename: FORK-SCTD-T0-SOURCE-001.md
+byte_count: 37255
+sha256: 40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1
+encoding_observation: UTF-8-compatible
+bom_present: false
+line_ending_observation: LF
+crlf_count: 0
+lf_count: 883
+final_lf_present: true
+```
+
+### Required identity rule
+
+```text
+T0_SOURCE_IDENTITY
+  = exact bytes identified by the SHA-256 above
+```
+
+A visually similar, semantically similar, re-exported, re-rendered, copied, normalized, or reconstructed representation is not T0 unless its bytes produce the same digest.
+
+```text
+SEMANTIC_SOURCE_EQUIVALENCE
+  != T0_BYTE_IDENTITY
+```
+
+---
+
+## 3. Source provenance observation
+
+The source artifact identifies the conversation title as:
+
+> Deep dive: byte continuity is not semantic continuity
+
+The artifact contains the originating semantic-environment research, its first refinement, and subsequent pressure on the differential-fixture oracle. The record binds the entire exported artifact as T0 rather than selecting only one response slice, because the longitudinal program must preserve the source from which later transferred/projected representations were derived.
+
+This record establishes artifact identity and declared provenance of the supplied export. It does not establish facts about Perplexity infrastructure that are not present in the artifact or independently observed.
+
+---
+
+## 4. Why the whole export is T0
+
+The file contains multiple temporally ordered refinement states, including:
+
+1. the original semantic-environment problem statement;
+2. the first detailed response separating artifact identity from semantic evaluation;
+3. the declared/resolved environment distinction;
+4. the proposition-identity distinction;
+5. semantic-feature-consumption standings;
+6. the required-vocabulary differential fixture;
+7. the undeclared-extension negative control;
+8. the repair from `FEATURE_IGNORED` to `FEATURE_IGNORED_OBSERVED` / `FEATURE_CONSUMPTION_NOT_ESTABLISHED`;
+9. processing-status separation from validation result;
+10. the final construction-ready candidate state with construction/execution still not performed.
+
+Because those states are themselves part of the observed semantic-compression and transfer problem, deleting “duplicate” or earlier material would itself be a transformation. T0 therefore preserves the complete export exactly.
+
+---
+
+## 5. Registered T0 proposition ledger
+
+The following propositions are preregistered as load-bearing comparison targets. IDs identify propositions for SCTD measurement only; they do not confer governance standing.
+
+### SCTD-P001 — Artifact bytes do not establish semantic evaluation identity
+
+```text
+SAME_ARTIFACT_BYTES
+  !=> SAME_SEMANTIC_EVALUATION_CONTEXT
+```
+
+### SCTD-P002 — Semantic evaluation context does not establish proposition identity
+
+```text
+SAME_SEMANTIC_EVALUATION_CONTEXT
+  !=> SAME_PROPOSITION
+```
+
+### SCTD-P003 — Proposition result does not establish governance disposition
+
+```text
+SAME_PROPOSITION_RESULT
+  !=> SAME_GOVERNANCE_DISPOSITION
+```
+
+### SCTD-P004 — Declared environment does not establish resolved environment
+
+```text
+DECLARED_SEMANTIC_ENVIRONMENT
+  !=> RESOLVED_SEMANTIC_ENVIRONMENT
+```
+
+### SCTD-P005 — Artifact/environment identity does not establish proposition identity
+
+```text
+ARTIFACT_AND_ENVIRONMENT_IDENTITY
+  !=> PROPOSITION_IDENTITY
+```
+
+### SCTD-P006 — Parsing success does not establish semantic-feature consumption
+
+```text
+PARSING_SUCCESS
+  !=> REQUIRED_SEMANTIC_FEATURE_CONSUMPTION
+```
+
+### SCTD-P007 — Validation success cannot prove ignored-feature observation
+
+```text
+VALIDATION_PASS
++ UNKNOWN_KEYWORD_PRESENT
+  !=> FEATURE_IGNORED_OBSERVED
+```
+
+Absent adequate observation evidence, the conservative state is:
+
+```text
+SEMANTIC_FEATURE_CONSUMPTION =
+  FEATURE_CONSUMPTION_NOT_ESTABLISHED
+```
+
+### SCTD-P008 — Processing precedes validation
+
+```text
+PROCESSING_STATUS != PROCESSED
+  => VALIDATION_RESULT = NOT_PRODUCED
+```
+
+### SCTD-P009 — Unsupported-vocabulary refusal requires specific premises
+
+```text
+REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+  requires
+    DIALECT_RESOLVED
+    and REQUIRED_VOCABULARY_DECLARATION_OBSERVED
+    and REQUIRED_VOCABULARY_SUPPORT_DETERMINED_ABSENT
+```
+
+### SCTD-P010 — Historical replay and current reevaluation are distinct
+
+```text
+BYTE_RECOMPUTATION
+  != HISTORICAL_SEMANTIC_REPLAY
+  != CURRENT_SEMANTIC_REEVALUATION
+```
+
+### SCTD-P011 — Current difference does not establish regression
+
+```text
+CURRENT_REEVALUATION_DIFFERS
+  !=> SEMANTIC_REGRESSION
+```
+
+### SCTD-P012 — Regression does not rewrite preserved history
+
+```text
+SEMANTIC_REGRESSION
+  !=> HISTORICAL_DECISION_INVALID
+```
+
+### SCTD-P013 — Structural validation does not establish governance semantics
+
+```text
+SCHEMA_VALID
+  !=> GOVERNANCE_SEMANTICS_ENFORCED
+```
+
+### SCTD-P014 — Unknown-field handling does not establish irrelevance
+
+```text
+UNKNOWN_FIELD_IGNORED
+  !=> UNKNOWN_FIELD_IRRELEVANT
+```
+
+### SCTD-P015 — Historical replay does not establish current policy satisfaction
+
+```text
+HISTORICAL_REPLAY_REPRODUCED
+  !=> CURRENT_POLICY_SATISFIED
+```
+
+### SCTD-P016 — Compilation success does not establish compiled-target equivalence
+
+```text
+POLICY_COMPILATION_SUCCEEDED
+  !=> COMPILED_TARGET_SEMANTICALLY_EQUIVALENT
+```
+
+### SCTD-P017 — Equivalence is bounded
+
+The source prefers:
+
+```text
+EQUIVALENT_WITHIN_DECLARED_TEST_SURFACE
+```
+
+over unqualified:
+
+```text
+EQUIVALENT
+```
+
+### SCTD-P018 — Required-vocabulary and undeclared-extension cases are different
+
+Required-vocabulary case:
+
+```text
+GENERIC PROCESSOR:
+  REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+  | DIALECT_UNRESOLVED
+  | META_SCHEMA_UNAVAILABLE
+
+VALIDATION_RESULT = NOT_PRODUCED
+```
+
+Undeclared-extension negative control:
+
+```text
+GENERIC PROCESSOR:
+  PROCESSING_STATUS = PROCESSED
+  STRUCTURAL_VALIDATION_RESULT = PASS
+  SEMANTIC_FEATURE_CONSUMPTION =
+      FEATURE_IGNORED_OBSERVED
+    | FEATURE_CONSUMPTION_NOT_ESTABLISHED
+```
+
+Those states MUST NOT be collapsed into one another.
+
+### SCTD-P019 — Candidate design does not establish execution
+
+The terminal source standing preserves:
+
+```text
+SEMANTIC_CONTINUITY_MODEL = MATERIALLY_REFINED
+DIFFERENTIAL_FIXTURE_DESIGN = CONSTRUCTION_READY_CANDIDATE
+FIXTURE_CONSTRUCTION = NOT_PERFORMED
+FIXTURE_EXECUTION = NOT_PERFORMED
+INVARIANT_DEMONSTRATION = NOT_ESTABLISHED
+D5.1_ADMISSION = NOT_PERFORMED
+GOVERNANCE_STANDING = UNCHANGED
+EMPIRICAL_STANDING = UNCHANGED
+```
+
+### SCTD-P020 — External consequence authority remains separate
+
+The source preserves that technical interpretation, evidentiary standing, continuing authorization, successor disposition, and authority over an external consequence are not interchangeable states.
+
+---
+
+## 6. Registered standing-sensitive tokens
+
+The following token families are especially sensitive to compression and MUST be tracked explicitly:
+
+```text
+CANDIDATE
+CONSTRUCTION_READY_CANDIDATE
+NOT_PERFORMED
+NOT_EXECUTED
+NOT_ESTABLISHED
+NOT_ESTABLISHED_BY_GENERIC_EVALUATION
+UNCHANGED
+INDETERMINATE
+UNRESOLVED
+REQUIRED
+OBSERVED
+DECLARED
+RESOLVED
+PROCESSED
+REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+DIALECT_UNRESOLVED
+META_SCHEMA_UNAVAILABLE
+REJECT_INSTANCE
+NOT_PRODUCED
+FEATURE_IGNORED_OBSERVED
+FEATURE_CONSUMPTION_NOT_ESTABLISHED
+EQUIVALENT_WITHIN_DECLARED_TEST_SURFACE
+```
+
+Loss, substitution, simplification, or relocation of one of these tokens is not automatically a standing change, but it triggers mandatory D4/D5 review.
+
+---
+
+## 7. Registered syntax/structure classes present at T0
+
+The T0 artifact contains multiple representation classes that SHALL be independently observed during transfer:
+
+- Markdown headings.
+- prose paragraphs.
+- inline and display links.
+- raw URLs in footnotes.
+- Markdown footnote syntax.
+- fenced `text` blocks.
+- fenced `json` blocks.
+- YAML-like status/oracle material represented as text.
