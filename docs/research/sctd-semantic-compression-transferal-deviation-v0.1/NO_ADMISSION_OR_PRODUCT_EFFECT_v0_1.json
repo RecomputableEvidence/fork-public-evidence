@@ -1,0 +1,20 @@
+{
+  "record_id": "FORK_SCTD_NO_ADMISSION_OR_PRODUCT_EFFECT_V0_1",
+  "status": "NO_EFFECTS_DECLARATION",
+  "effects": {
+    "changes_main": false,
+    "changes_governed_preservation_branch": false,
+    "repository_admission": false,
+    "proof_admission": false,
+    "model_standing_promotion": false,
+    "general_empirical_validation": false,
+    "independent_validation": false,
+    "product_capability": false,
+    "pilot_authorization": false,
+    "production_authorization": false,
+    "provider_execution_authorization": false,
+    "pair_001_authorization": false,
+    "authority_transfer": false
+  },
+  "permitted_effect": "PRESERVE_AND_CONTINUE_BOUNDED_SCTD_RESEARCH_ON_A_DEDICATED_BRANCH"
+}
