@@ -1,0 +1,28 @@
+    for rep in range(1,cfg['replicates']+1):
+        rep_id=f"R{rep:02d}"
+        for gen in range(1,cfg['generations']+1):
+            a=package_root/'runs'/cfg['chain_id']/rep_id/'artifacts'/f"A{gen:02d}.md"
+            r=package_root/'runs'/cfg['chain_id']/rep_id/'receipts'/f"G{gen:02d}-receipt.json"
+            ast=stat_file(a)
+            rec=json.loads(r.read_text(encoding='utf-8'))
+            passed=(ast==expected and rec['output']['sha256']==ast['sha256'] and rec['output']['byte_count']==ast['byte_count'] and rec['control_disposition']=='PASS')
+            findings.append({"object":str(a.relative_to(package_root)),"observed":ast,"expected":expected,"receipt_match":passed,"pass":passed})
+            ok &= passed
+    report={"verification":"PASS" if ok else "FAIL","checked_objects":len(findings),"findings":findings}
+    out=package_root/'verification'/'TF-00-EXTERIOR-STYLE-LOCAL-RECOMPUTATION.json'
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(stable_json(report),encoding='utf-8',newline='\n')
+    print(stable_json({"verification":report['verification'],"checked_objects":len(findings)}),end='')
+    return 0 if ok else 2
+
+
+def main():
+    p=argparse.ArgumentParser()
+    p.add_argument('command',choices=['run-tf00','verify'])
+    p.add_argument('--config',required=True,type=Path)
+    p.add_argument('--package-root',required=True,type=Path)
+    args=p.parse_args()
+    if args.command=='run-tf00': raise SystemExit(run_tf00(args.config,args.package_root))
+    raise SystemExit(verify(args.config,args.package_root))
+
+if __name__=='__main__': main()
