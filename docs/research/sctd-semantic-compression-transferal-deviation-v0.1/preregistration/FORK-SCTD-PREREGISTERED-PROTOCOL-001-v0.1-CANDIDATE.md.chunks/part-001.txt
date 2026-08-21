@@ -1,0 +1,300 @@
+# FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE
+
+**Program:** Fork Semantic Compression and Transferal Deviation (SCTD)  
+**Protocol version:** 0.1-CANDIDATE  
+**Preregistration timestamp:** 2026-08-21T04:54:00-07:00  
+**Protocol status:** PREREGISTERED_CANDIDATE — NOT EXECUTED  
+**Governance standing effect:** NONE  
+**Empirical standing effect:** NONE  
+**Repository admission:** NOT PERFORMED  
+**Primary T0 source:** `FORK-SCTD-T0-SOURCE-001.md`  
+**Primary corpus ID:** `SCTD-CORPUS-001 — PERPLEXITY-SEMANTIC-ENVIRONMENT-SOURCE`
+
+---
+
+## 1. Purpose
+
+This protocol preregisters a longitudinal experiment for observing how a preserved source artifact changes when repeatedly transferred, serialized, reformatted, compressed, summarized, reconstructed, or otherwise integrated through human-, software-, interface-, or model-mediated surfaces.
+
+The experiment is designed to distinguish changes in representation from changes in meaning and changes in evidentiary standing. It does not assume that byte change implies semantic change, that semantic continuity implies byte continuity, or that apparent semantic continuity establishes recomputable transfer.
+
+The initiating observation is a transport differential in which substantively continuous semantic-environment material was observed in multiple byte and syntax representations during transfer. This protocol does not assign that observation a generalized cause. It turns the observed phenomenon into a controlled experimental program.
+
+### 1.1 Governing research question
+
+> Under repeated transfer and compression, which properties of an evidence-bearing artifact change first, which changes accumulate, which transformations remain bounded to representation, and at what point—if any—do propositional meaning or evidentiary standing diverge from the T0 source?
+
+### 1.2 Secondary questions
+
+1. Which transfer classes produce byte-only change versus syntax, structure, proposition, or standing change?
+2. Does cumulative drift become material even when each adjacent transfer appears individually minor?
+3. Which syntax classes are most vulnerable to compression or integration loss?
+4. Which semantic forms fail first: qualifiers, negations, enumerated states, citations, non-implications, temporal scope, or authority limitations?
+5. Can representation-level metrics provide an early warning of later propositional or standing divergence?
+6. Are observed deviations reversible from the transferred artifact alone, or does recovery require return to T0?
+7. Does repeated compression converge to a stable representation, continue drifting, or exhibit path-dependent divergence?
+
+---
+
+## 2. Experimental object model
+
+Let the immutable source artifact be:
+
+```text
+A0 = SCTD T0 source artifact
+```
+
+Each applied transfer transformation produces a successor state:
+
+```text
+A(n+1) = T(n+1)(A(n))
+```
+
+Every successor MUST be compared along two paths:
+
+```text
+ADJACENT_COMPARISON:
+  A(n) <-> A(n+1)
+
+SOURCE_RELATIVE_COMPARISON:
+  A0 <-> A(n+1)
+```
+
+The experiment therefore records both:
+
+```text
+LOCAL_TRANSFER_DELTA
+CUMULATIVE_SOURCE_DELTA
+```
+
+No successor replaces its predecessor. Every state remains independently addressable by digest.
+
+---
+
+## 3. Primary measured distinctions
+
+The program preregisters five independent continuity dimensions and one causal/execution coordinate.
+
+### SCTD-D1 — BYTE_CONTINUITY
+
+Question: Are the serialized bytes identical?
+
+Primary observations:
+
+- SHA-256 equality.
+- byte count.
+- byte-count delta.
+- changed-byte regions where computable.
+- line-ending profile.
+- BOM presence.
+- final-newline state.
+- Unicode encoding observation.
+
+Standing vocabulary:
+
+```text
+BYTE_CONTINUITY =
+    EXACT
+  | DIFFERENT
+  | NOT_COMPARABLE
+  | INDETERMINATE
+```
+
+### SCTD-D2 — SYNTACTIC_CONTINUITY
+
+Question: Are the syntax-bearing forms preserved even when the bytes differ?
+
+Tracked syntax includes, where present:
+
+- Markdown headings.
+- code fences and fence language tags.
+- inline code delimiters.
+- LaTeX delimiters and mathematical operators.
+- escaped characters.
+- HTML fragments.
+- URLs and link syntax.
+- citation and footnote markers.
+- blockquotes.
+- list markers and indentation.
+- tables and cell delimiters.
+- whitespace significant to structured blocks.
+- Fork operators such as `!=>`, `!=`, `=>`, and named standing tokens.
+
+Standing vocabulary:
+
+```text
+SYNTACTIC_CONTINUITY =
+    PRESERVED
+  | DIFFERENTIAL_BOUNDED
+  | DIFFERENTIAL_MATERIAL
+  | NOT_COMPARABLE
+  | INDETERMINATE
+```
+
+### SCTD-D3 — STRUCTURAL_CONTINUITY
+
+Question: Are relationships among syntax-bearing elements preserved?
+
+Tracked structure includes:
+
+- section hierarchy.
+- ordering.
+- list nesting.
+- code-block boundaries.
+- table dimensions and row/column relations.
+- paragraph/block segmentation.
+- equation boundaries.
+- source-reference association.
+- label/value association.
+- oracle branch structure.
+- adjacency of qualifiers to the propositions they qualify.
+
+Standing vocabulary:
+
+```text
+STRUCTURAL_CONTINUITY =
+    PRESERVED
+  | DIFFERENTIAL_BOUNDED
+  | DIFFERENTIAL_MATERIAL
+  | NOT_COMPARABLE
+  | INDETERMINATE
+```
+
+### SCTD-D4 — PROPOSITIONAL_CONTINUITY
+
+Question: Does the transferred artifact assert the same propositions, exclusions, qualifications, temporal scopes, and non-implications as T0?
+
+Propositional continuity MUST be evaluated against the preregistered T0 proposition ledger in the accompanying T0 source record. Lexical similarity alone is insufficient.
+
+Standing vocabulary:
+
+```text
+PROPOSITIONAL_CONTINUITY =
+    PRESERVED_WITHIN_REGISTERED_LEDGER
+  | DIVERGENT
+  | PARTIALLY_ASSESSABLE
+  | NOT_ASSESSABLE
+  | INDETERMINATE
+```
+
+A proposition is divergent when a registered load-bearing proposition is added, removed, reversed, strengthened, weakened, temporally shifted, re-scoped, or made ambiguous in a way that changes its permissible interpretation.
+
+### SCTD-D5 — EVIDENTIARY_STANDING_CONTINUITY
+
+Question: Does the transferred artifact preserve the same evidentiary status, uncertainty, qualification, authority boundary, and permissible downstream conclusion?
+
+Standing-sensitive tokens include, but are not limited to:
+
+```text
+CANDIDATE
+NOT_PERFORMED
+NOT_EXECUTED
+NOT_ESTABLISHED
+UNCHANGED
+INDETERMINATE
+UNRESOLVED
+REQUIRED
+OBSERVED
+DECLARED
+PROCESSED
+REFUSED
+REJECT_INSTANCE
+NOT_PRODUCED
+```
+
+Standing vocabulary:
+
+```text
+EVIDENTIARY_STANDING_CONTINUITY =
+    PRESERVED
+  | STANDING_WEAKENED
+  | STANDING_STRENGTHENED
+  | STANDING_COLLAPSED
+  | STANDING_AMBIGUATED
+  | NOT_ASSESSABLE
+  | INDETERMINATE
+```
+
+### SCTD-T — TRANSFORMATION_IDENTITY
+
+This is not a sixth continuity claim. It records what operation is believed or observed to have produced the successor artifact.
+
+Each transformation receipt MUST record, when available:
+
+- transformation ID.
+- input digest.
+- output digest.
+- operation class.
+- source surface.
+- destination surface.
+- exact instruction/prompt, if any.
+- software/model/provider identity.
+- version or build identity, when available.
+- configuration/settings.
+- export/copy mechanism.
+- timestamp.
+- known normalization behavior.
+- unresolved environmental dependencies.
+
+Transformation identity MUST NOT be inferred from output appearance alone.
+
+---
+
+## 4. Core non-inheritance rules
+
+The following are preregistered constraints:
+
+```text
+BYTE_CONTINUITY
+  !=> SYNTACTIC_CONTINUITY
+
+SYNTACTIC_CONTINUITY
+  !=> STRUCTURAL_CONTINUITY
+
+STRUCTURAL_CONTINUITY
+  !=> PROPOSITIONAL_CONTINUITY
+
+PROPOSITIONAL_CONTINUITY
+  !=> EVIDENTIARY_STANDING_CONTINUITY
+
+EVIDENTIARY_STANDING_CONTINUITY
+  !=> TRANSFORMATION_RECOMPUTABILITY
+
+SEMANTIC_SOURCE_CONTINUITY
+  !=> BYTE_REPRESENTATION_CONTINUITY
+
+SOURCE_IDENTITY
+  !=> SERIALIZATION_IDENTITY
+
+TRANSFER_SUCCESS
+  !=> REPRESENTATION_PRESERVATION
+
+SEMANTICALLY_EQUIVALENT_TRANSFER
+  !=> BYTE_IDENTICAL_TRANSFER
+
+SYNTAX_NORMALIZATION
+  !=> NO_TRANSFORMATION
+
+PROPOSITION_CONTINUITY
+  !=> EVIDENCE_BASIS_CONTINUITY
+
+ADJACENT_SIMILARITY
+  !=> CUMULATIVE_SOURCE_CONTINUITY
+```
+
+Reverse implications are likewise not assumed unless separately demonstrated.
+
+---
+
+## 5. Preregistered T0 proposition ledger classes
+
+The definitive ledger is recorded in `FORK-SCTD-T0-SOURCE-RECORD-001-v0.1-CANDIDATE.md`. The following classes are load-bearing and MUST be tracked across every iteration:
+
+1. Byte identity does not establish semantic-evaluation identity.
+2. Semantic-evaluation identity does not establish proposition identity.
+3. Proposition-result identity does not establish governance-disposition identity.
+4. Declared semantic environment does not establish resolved semantic environment.
+5. Parsing/processing success does not establish required semantic-feature consumption.
+6. Validation pass plus unknown keyword presence does not establish `FEATURE_IGNORED_OBSERVED`.
+7. Failure to resolve a dialect or meta-schema does not establish unsupported-required-vocabulary refusal.
+8. A non-processed evaluation does not produce a validation result.
