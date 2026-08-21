@@ -1,0 +1,192 @@
+- `!=>` converted to implication or equivalence.
+- `NOT_ESTABLISHED` converted to established/pass/validated language.
+- `CANDIDATE` removed where its removal implies stronger standing.
+- `NOT_PERFORMED` or `NOT_EXECUTED` removed where execution is then implied.
+- `INDETERMINATE` or `UNRESOLVED` collapsed into fail/pass without evidence.
+- temporal target or proposition identity changed without explicit successor designation.
+- required-vocabulary refusal collapsed into dialect/meta-schema resolution failure or vice versa.
+- `FEATURE_CONSUMPTION_NOT_ESTABLISHED` promoted to `FEATURE_IGNORED_OBSERVED` without observation evidence.
+- citation/evidence-basis removal where the resulting statement appears equally supported despite loss of the basis.
+
+### Not automatically material
+
+The following do not establish semantic materiality by themselves:
+
+- line-ending changes.
+- whitespace changes.
+- Markdown fence language-tag changes.
+- link rendering changes with target preserved.
+- equivalent Unicode/ASCII presentation where proposition interpretation remains demonstrably unchanged.
+- byte-count increase or decrease.
+
+---
+
+## 13. Recovery experiments
+
+When a transfer chain produces D4 or D5 divergence, two recovery conditions SHALL be distinguished.
+
+```text
+RECOVERY_WITHOUT_T0:
+  reconstruct using only the latest transferred artifact
+
+RECOVERY_WITH_T0:
+  reconstruct using the latest transferred artifact plus immutable T0
+```
+
+Possible results:
+
+```text
+RECOVERY_RESULT =
+    EXACT_BYTE_RECOVERY
+  | SYNTAX_RECOVERY_ONLY
+  | STRUCTURE_RECOVERED
+  | PROPOSITION_RECOVERED
+  | STANDING_RECOVERED
+  | PARTIAL_RECOVERY
+  | NOT_RECOVERED
+  | INDETERMINATE
+```
+
+Recovery success does not erase the historical divergence event.
+
+---
+
+## 14. Analysis rules
+
+1. Adjacent and T0-relative results MUST be reported separately.
+2. No majority vote across models or replicates establishes proposition identity.
+3. Automated text similarity MUST NOT substitute for proposition-ledger review.
+4. A human conclusion of “same meaning” MUST be recorded as an assessment, not as byte or syntax identity.
+5. Reviewer/model independence MUST be recorded separately from correctness of the observation.
+6. Unknown transformation behavior MUST remain unresolved; it may not be inferred from apparent output form.
+7. Failed controls invalidate only the conclusions that depend on those controls; they do not erase the preserved artifacts.
+8. Negative results and unexpected transformations remain part of the corpus.
+9. No artifact is overwritten to “clean” a transfer path.
+10. Any protocol change after execution begins requires a successor protocol version and explicit deviation record.
+
+---
+
+## 15. Preregistered reporting surfaces
+
+The first-cycle report SHOULD include:
+
+### 15.1 Chain timeline
+
+For every chain and replicate:
+
+```text
+A0 -> A1 -> A2 -> ... -> An
+```
+
+with all digests and transformation IDs.
+
+### 15.2 Longitudinal continuity table
+
+Rows: generation.  
+Columns: D1-D5 plus transformation identity and principal change class.
+
+### 15.3 First-divergence table
+
+For each chain/replicate, report the first generation at which each D1-D5 dimension changes.
+
+### 15.4 Cumulative-drift table
+
+Compare every generation directly with T0.
+
+### 15.5 Pressure-class matrix
+
+```text
+TRANSFER_FAMILY x PRESSURE_FAMILY x FAILURE_CLASS x GENERATION
+```
+
+### 15.6 Minority/adverse findings
+
+Preserve rare or non-majority divergence patterns rather than averaging them away.
+
+---
+
+## 16. Initial falsifiable expectations
+
+These are hypotheses, not findings.
+
+### H1 — Lossless control
+
+TF-00 will preserve D1-D5 across all registered control repetitions.
+
+### H2 — Syntax integration
+
+TF-01 will frequently alter D1 and sometimes D2 while preserving D4 and D5 more often than TF-03.
+
+### H3 — Structural compression
+
+TF-02 will exhibit greater D3 change than TF-01 and may disproportionately affect source-reference association and oracle boundaries.
+
+### H4 — Semantic compression
+
+Repeated TF-03 generations will produce increasing risk of qualifier, enumeration, non-implication, or standing loss even where local adjacent changes appear small.
+
+### H5 — Cumulative drift
+
+At least some chains will show low adjacent delta but materially greater T0-relative delta at later generations.
+
+### H6 — Recovery asymmetry
+
+T0-assisted reconstruction will recover registered propositions and standing more reliably than reconstruction from the latest transferred artifact alone.
+
+Failure to observe any hypothesis is a valid negative result and SHALL be preserved.
+
+---
+
+## 17. Stop and extension conditions
+
+The first cycle ends for a chain when any of the following occurs:
+
+1. generation 30 is completed;
+2. the transformation can no longer be coherently applied;
+3. an external system prevents preservation of the produced artifact or necessary evidence receipt;
+4. continuation would overwrite or destroy an earlier state;
+5. a safety, legal, or access boundary prevents further execution.
+
+A chain MUST NOT be stopped merely because a desired divergence has or has not appeared.
+
+---
+
+## 18. Standing at preregistration
+
+```text
+SCTD_PROGRAM_CONCEPT = DEFINED
+
+SCTD_PROTOCOL = PREREGISTERED_CANDIDATE
+
+T0_SOURCE_IDENTITY = BOUND_BY_SEPARATE_SOURCE_RECORD
+
+T0_PROPOSITION_LEDGER = PREREGISTERED
+
+TRANSFORMATION_EXECUTION = NOT_PERFORMED
+
+LONGITUDINAL_DATA_COLLECTION = NOT_STARTED
+
+PRESSURE_TEST_EXECUTION = NOT_PERFORMED
+
+PATTERN_DEMONSTRATION = NOT_ESTABLISHED
+
+GENERALIZATION = NOT_ESTABLISHED
+
+GOVERNANCE_STANDING = UNCHANGED
+
+EMPIRICAL_STANDING = UNCHANGED
+```
+
+---
+
+## 19. Authorization boundary
+
+This document preregisters the experimental design. Its existence does not by itself authorize repository admission, governance adoption, production use, external reliance, or claim promotion.
+
+Construction of experiment tooling and execution may proceed only under whatever authorization Fork governance separately requires. If execution begins, this exact protocol version must remain immutable and any subsequent methodological change must be represented as a successor protocol plus deviation record.
+
+---
+
+## 20. Concise experimental invariant
+
+> A transfer may preserve recognizable content while changing its bytes, syntax, structure, propositions, or evidentiary standing. Fork must measure those dimensions separately and preserve every transformation state so cumulative deviation can be recomputed rather than inferred.
