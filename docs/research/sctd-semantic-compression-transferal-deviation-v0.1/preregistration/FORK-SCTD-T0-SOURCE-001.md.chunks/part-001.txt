@@ -1,0 +1,139 @@
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
+
+# Deep dive: byte continuity is not semantic continuity
+
+The next boundary after artifact integrity and population coverage is semantic environment preservation.
+A byte-identical policy, schema, receipt, or derivation rule can produce a different result—or no result—when interpreted under a different dialect, vocabulary, evaluator version, compatibility mode, builtin set, default, or unknown-field policy.
+Accordingly:
+SAME_ARTIFACT_BYTES
+!=>
+SAME_INTERPRETATION
+
+SAME_INTERPRETATION
+!=>
+SAME_GOVERNANCE_DISPOSITION
+Fork must preserve enough of the historical semantic environment to distinguish reproduction of an earlier evaluation from reinterpretation by a later evaluator.
+What is genuinely new
+Relative to the previous completeness briefings, the critical new question is not whether all records are present, but whether their operative meaning remains reconstructable.
+Three maintained specifications expose this boundary particularly well.
+
+1. OPA policy bytes do not identify their own language semantics
+Open Policy Agent’s current [bundle specification](https://openpolicyagent.org/docs/management-bundles), reviewed August 19, 2026, allows a bundle manifest to identify:
+Bundle revision.
+Bundle-owned data roots.
+Bundle-wide rego_version.
+Per-file Rego-version overrides.
+Wasm entrypoints and modules.
+Arbitrary accompanying metadata.
+If rego_version is absent, OPA’s behavior depends on the runtime and its compatibility flags. The bundle’s declared Rego version takes precedence over the runtime’s general compatibility flag. OPA also states that behavior is undefined where per-file version patterns overlap.
+Thus, a policy source digest alone does not fully identify the program that was evaluated. At minimum, the dialect-selection mechanism is part of its semantics.
+OPA’s current [v0 compatibility guidance](https://openpolicyagent.org/docs/v0-compatibility) reinforces this point: mixed v0/v1 package use is unsupported, and setting the Rego version on modules or bundle manifests is preferred precisely because it makes interpretation granular and explicit.
+2. JSON Schema validation depends on dialect and vocabulary recognition
+The official [JSON Schema 2020-12 Core specification](https://json-schema.org/draft/2020-12/json-schema-core) distinguishes assertions, annotations, applicators, identifiers, and extension keywords.
+Its rules create two deliberately different behaviors:
+Unknown keywords should ordinarily be treated as annotations. A schema containing only unknown keywords is effectively an empty schema and therefore validates everything.
+If a meta-schema declares a vocabulary as required, an implementation that does not recognize it must refuse to process schemas using that dialect.
+The specification also says that if a root schema omits \$schema, behavior is implementation-defined.
+This is excellent extensibility machinery, but it creates a governance hazard when a security-significant keyword is included without a required vocabulary declaration. One evaluator may enforce the keyword; another may treat it as non-operative annotation while still reporting structural validation success.
+3. Forward-compatible parsing does not establish semantic consumption
+The current in-toto [Runtime Trace attestation predicate](https://in-toto.io/attestation/runtime-trace/v0.1), reviewed August 19, 2026, instructs consumers to ignore unrecognized fields. It treats major predicate-type changes as breaking and minor changes as backward-compatible and monotonic.
+That is a reasonable wire-compatibility rule. But an older consumer ignoring a newly added field has not evaluated that field’s meaning. It has merely preserved its ability to process the rest of the object.
+The same specification also makes monitor semantics dependent on the identified monitor type and configuration. It notes that synchronous monitoring can pause a process while calculating a file digest, whereas asynchronous monitoring cannot necessarily bind the digest at the same moment of use. Identical output fields can therefore carry different capture standing depending on how the monitor operated.
+These sources are not contradictory. They distinguish:
+PARSING COMPATIBILITY
+SEMANTIC RECOGNITION
+EVALUATION EQUIVALENCE
+The error is allowing the first to establish the latter two.
+Source-established facts
+OPA explicitly makes policy interpretation depend on bundle metadata and runtime configuration. It also supports compilation to Rego, Wasm, or an intermediate plan. Its CLI documentation describes optimized bundles as semantically equivalent to their inputs, but such equivalence is still a proposition about a declared compiler, target, entrypoint set, and version—not a property inferable from the source digest alone.
+JSON Schema explicitly permits unknown keywords to become annotations and requires refusal only when an unsupported vocabulary is declared required. The schema dialect therefore participates in the validation result.
+in-toto’s ignore-unknown rule permits older consumers to continue reading newer objects. It does not say that ignored fields were understood, evaluated, or found irrelevant to a downstream governance proposition.
+These mechanisms collectively support a precise conclusion:
+Recomputability requires preservation of the semantic interpreter and its declared dependencies, not only preservation of the interpreted artifact.
+Reasonable inference
+A minimally identified semantic evaluation is a tuple:
+SEMANTIC_EVALUATION_CONTEXT = {
+artifact_digest,
+artifact_media_type,
+
+schema_or_language_dialect,
+required_vocabularies,
+unknown_field_policy,
+
+evaluator_identity,
+evaluator_version,
+evaluator_binary_or_image_digest,
+compatibility_flags,
+
+compiler_target,
+query_or_entrypoint,
+optimization_profile,
+
+policy_bundle_identity,
+policy_bundle_revision,
+policy_bundle_digest,
+per_file_language_versions,
+
+external_data_snapshot,
+builtin_capability_profile,
+nondeterministic_builtin_cache,
+
+derivation_rule_registry_id,
+derivation_rule_registry_version,
+status_propagation_table_version,
+
+evaluation_time,
+target_proposition_time
+}
+Not every evaluation needs every field. But every omitted coordinate narrows what can later be claimed.
+Three operations that must remain separate
+BYTE_RECOMPUTATION
+= recompute integrity, signatures, digests, and canonical bytes
+
+HISTORICAL_SEMANTIC_REPLAY
+= apply the historically identified semantic environment
+
+CURRENT_SEMANTIC_REEVALUATION
+= apply a later evaluator, policy, schema, or derivation environment
+A later evaluator can produce a more useful current assessment without reproducing the historical evaluation:
+HISTORICAL_SEMANTIC_REPLAY
+= REPRODUCED
+
+CURRENT_SEMANTIC_REEVALUATION
+= DIFFERENT_RESULT
+That difference is not automatically a regression.
+Divergence is not yet regression
+A result difference establishes:
+SEMANTIC_DIVERGENCE_OBSERVED
+Calling it a regression additionally requires a normative comparison basis:
+SEMANTIC_REGRESSION
+only if
+SEMANTIC_DIVERGENCE_OBSERVED
+and BASELINE_EXPECTATION_APPLICABLE
+and SUCCESSOR_EXPECTATION_APPLICABLE
+and PRESERVATION_OBLIGATION_ESTABLISHED
+and DIFFERENCE_CLASSIFIED_AS_UNINTENDED
+Without those premises, the difference may be:
+An intended policy change.
+A corrected historical defect.
+A dialect migration.
+A previously ignored field becoming operative.
+A changed external-data snapshot.
+A current reevaluation answering a different proposition.
+An unresolved incompatibility.
+This is especially important for Fork: a newer, stricter evaluator should not rewrite the preserved historical decision merely because it reaches a different current conclusion.
+Failure modes
+Silent governance-keyword erasure
+Suppose a schema contains:
+{
+"type": "object",
+"fork:continuingAuthorityEvidenceRequired": true
+}
+A Fork-aware validator might enforce the custom keyword. A generic JSON Schema validator may treat it as an annotation and accept an empty object. Both can truthfully report behavior consistent with their recognized vocabulary.
+A bare SCHEMA_VALID = true result is therefore insufficient.
+Runtime-default inheritance
+A Rego bundle without an explicit language version can inherit behavior from the evaluator’s current defaults or launch flags. The preserved policy bytes have not changed, but the semantic environment has.
+Unsupported extension interpreted as irrelevant
+An old in-toto consumer may correctly ignore a new field. That establishes forward parsing, not that the field was unnecessary for the proposition under review.
+Opaque environment pinning
+Preserving only a container digest may allow exact rerun while leaving the operative evaluator, policy, and dependency relationships unintelligible. It supports environmental identity but weak inspectability.
