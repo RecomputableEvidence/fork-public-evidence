@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "sctd_current_research_standing",
+  "record_id": "FORK_SCTD_CURRENT_STANDING_V0_1",
+  "status": "ACTIVE_EMPIRICAL_RESEARCH_CANDIDATE",
+  "integration_band": "C_ACTIVE_EMPIRICAL_RESEARCH",
+  "program": "FORK-SEMANTIC-COMPRESSION-AND-TRANSFERAL-DEVIATION-PROGRAM-001",
+  "corpus": "SCTD-CORPUS-001_PERPLEXITY_SEMANTIC_ENVIRONMENT_SOURCE",
+  "preregistration": {
+    "status": "PREREGISTERED_CANDIDATE",
+    "protocol_sha256": "acaf4fd0909cd32f4ccb6583e54c119c739991cbcdb6a304850a9a13791bb8a3",
+    "t0_source_sha256": "40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1",
+    "t0_source_bytes": 37255,
+    "t0_source_record_sha256": "3bc07b16462a2e1c161da830df5d4c3843619349238f84077d95dc1aa7c0dd64"
+  },
+  "tf00": {
+    "chain_id": "SCTD-TF00-FSCOPY-001",
+    "operation_class": "LOSSLESS_FILESYSTEM_COPY_CONTROL",
+    "replicates": 2,
+    "generations_per_replicate": 10,
+    "successor_artifacts": 20,
+    "successor_hashes_equal_t0": 20,
+    "disposition": "PASS",
+    "mutation_selftest": "ONE_BYTE_MUTATION_REJECTED_WITHIN_TESTED_CASE",
+    "fresh_local_recomputation": "PASS"
+  },
+  "continuity_dimensions_registered": [
+    "D1_BYTE_CONTINUITY",
+    "D2_SYNTACTIC_CONTINUITY",
+    "D3_STRUCTURAL_CONTINUITY",
+    "D4_PROPOSITIONAL_CONTINUITY",
+    "D5_EVIDENTIARY_STANDING_CONTINUITY",
+    "T_TRANSFORMATION_IDENTITY"
+  ],
+  "future_execution": {
+    "tf01_and_later": "NOT_EXECUTED_BY_THIS_REPOSITORY_PLACEMENT",
+    "general_pattern_demonstrated": false,
+    "cross_transfer_generalization_established": false
+  },
+  "standing_effect": {
+    "repository_admission": false,
+    "product_standing": false,
+    "fork_model_standing_delta": "NONE",
+    "pilot_or_production_authority": false,
+    "governance_authority_delta": "NONE"
+  }
+}
