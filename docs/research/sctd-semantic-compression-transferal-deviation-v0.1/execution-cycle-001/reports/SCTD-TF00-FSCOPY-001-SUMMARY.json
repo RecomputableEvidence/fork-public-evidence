@@ -1,0 +1,28 @@
+{
+  "D1_result": "EXACT",
+  "D2_result": "PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL",
+  "D3_result": "PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL",
+  "D4_result": "PRESERVED_WITHIN_REGISTERED_LEDGER_BY_EXACT_BYTE_IDENTITY_CONTROL",
+  "D5_result": "PRESERVED_BY_EXACT_BYTE_IDENTITY_CONTROL",
+  "all_adjacent_hash_matches": true,
+  "all_t0_hash_matches": true,
+  "chain_id": "SCTD-TF00-FSCOPY-001",
+  "control_disposition": "PASS",
+  "distinct_successor_sha256_count": 1,
+  "expected_successor_sha256": "40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1",
+  "generations_per_replicate": 10,
+  "replicates": 2,
+  "schema": "fork.sctd/tf00-summary/v0.1-candidate",
+  "standing_effect": {
+    "SCTD_generalization": "NONE",
+    "empirical_claim": "TF-00 raw-byte filesystem transfer preserved T0 exactly for the executed declared runs only",
+    "higher_transfer_family_claims": "NONE",
+    "repository_admission": "NONE"
+  },
+  "t0_identity": {
+    "byte_count": 37255,
+    "sha256": "40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1"
+  },
+  "total_successor_artifacts": 20,
+  "transformation_family": "TF-00_LOSSLESS_TRANSFER_CONTROL"
+}
