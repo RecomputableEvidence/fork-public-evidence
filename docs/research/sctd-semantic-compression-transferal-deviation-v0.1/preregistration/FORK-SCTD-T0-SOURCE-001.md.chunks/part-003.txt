@@ -1,0 +1,258 @@
+      "dialect": "https://fork.example/dialect/governance/2026-01",
+      "requiredVocabularies": [
+        "https://fork.example/vocab/continuing-authority/2026-01"
+      ],
+      "unknownFieldPolicy": "REJECT_GOVERNANCE_SIGNIFICANT_UNKNOWN",
+      "evaluator": {
+        "identity": "fork-jsonschema-validator",
+        "version": "3.4.0",
+        "binaryOrImageDigest": "sha256:..."
+      },
+      "compatibilityFlags": [],
+      "entrypoint": "validate"
+    },
+    "resolved": {
+      "externalDataSnapshotDigest": "sha256:...",
+      "builtinCapabilityProfileDigest": "sha256:...",
+      "dependencyClosureDigest": "sha256:...",
+      "runtimePlatform": {
+        "os": "linux",
+        "architecture": "amd64"
+      }
+    }
+  },
+  "rules": {
+    "registryId": "fork:derivation-rules",
+    "registryVersion": "2026.08.19",
+    "registryDigest": "sha256:...",
+    "statusPropagationTableVersion": "2026.08.19"
+  },
+  "evaluation": {
+    "performedAt": "2026-08-19T...",
+    "result": "REJECT_INSTANCE",
+    "resultDigest": "sha256:...",
+    "traceDigest": "sha256:..."
+  }
+}
+```
+
+The important addition is that `declared` does not prove `resolved`. For example, a container image digest identifies a packaged runtime but does not itself establish which network dependencies, mounted files, dynamic plugins, time sources, or service endpoints were actually reachable. Conversely, a dependency manifest may be intelligible but incomplete for exact replay.
+
+Fork should preserve both kinds of evidence:
+
+
+| Evidence object | Principal purpose | Insufficient by itself because |
+| :-- | :-- | :-- |
+| Evaluator image/binary digest | Replay identity | It can hide transitive behavior and offers limited inspectability |
+| Resolved dependency closure | Explainability and review | It can omit runtime-level or host-level effects |
+| Configuration and flags | Default/compatibility control | It does not identify executable implementation |
+| External data snapshot | Temporal reproducibility | It does not identify query semantics or evaluator behavior |
+| Execution trace/receipt | What ran | It may not prove semantic equivalence or complete dependency capture |
+| Proposition descriptor | Prevent category error | It does not establish technical execution or evidentiary standing |
+
+## Standings and operations
+
+The independent-standing design is the right one. I would add an explicit semantic-consumption standing so that “ignored” cannot be flattened into “not relevant.”
+
+```text
+ARTIFACT_BYTE_INTEGRITY =
+    VERIFIED
+  | FAILED
+  | INDETERMINATE
+
+SEMANTIC_ENVIRONMENT_IDENTITY =
+    EXACTLY_IDENTIFIED
+  | PARTIALLY_IDENTIFIED
+  | UNRESOLVED
+  | INDETERMINATE
+
+SEMANTIC_FEATURE_CONSUMPTION =
+    ALL_REQUIRED_FEATURES_ENFORCED
+  | REQUIRED_FEATURE_UNSUPPORTED
+  | FEATURE_IGNORED
+  | NOT_ESTABLISHED
+  | INDETERMINATE
+
+HISTORICAL_EVALUATOR_AVAILABILITY =
+    AVAILABLE
+  | UNAVAILABLE
+  | PARTIALLY_RECONSTRUCTED
+  | INDETERMINATE
+
+HISTORICAL_SEMANTIC_REPLAY_RESULT =
+    REPRODUCED
+  | NOT_REPRODUCED
+  | REPLAY_NOT_POSSIBLE
+  | INDETERMINATE
+
+CURRENT_SEMANTIC_REEVALUATION_RESULT =
+    PASS
+  | FAIL
+  | REFUSED
+  | NOT_RUN
+  | INDETERMINATE
+
+SEMANTIC_COMPARISON_RESULT =
+    EQUIVALENT_WITHIN_DECLARED_TEST_SURFACE
+  | DIVERGENT
+  | COMPARISON_NOT_POSSIBLE
+  | INDETERMINATE
+```
+
+“Equivalent within declared test surface” is preferable to bare `EQUIVALENT`. In most real systems, semantic equivalence is not established across every possible input, builtin, error condition, resource bound, ordering behavior, and external state. It is established relative to a declared comparison domain.
+
+The three operations should remain distinct:
+
+```text
+BYTE_RECOMPUTATION
+  = Verify bytes, canonicalization, signatures, and digests.
+
+HISTORICAL_SEMANTIC_REPLAY
+  = Reapply the preserved historical context to the preserved proposition.
+
+CURRENT_SEMANTIC_REEVALUATION
+  = Apply a declared current context to a current or successor proposition.
+```
+
+A valid record can therefore say:
+
+```text
+HISTORICAL_SEMANTIC_REPLAY_RESULT = REPRODUCED
+CURRENT_SEMANTIC_REEVALUATION_RESULT = FAIL
+SEMANTIC_COMPARISON_RESULT = DIVERGENT
+SEMANTIC_CHANGE_DISPOSITION = DEFECT_CORRECTION
+```
+
+That is neither a contradiction nor an attempt to revise history.
+
+## Differential fixture
+
+`FORK-SEMANTIC-ENVIRONMENT-DIFFERENTIAL-FIXTURE-001` is a high-value, falsifiable fixture. The safest form makes the governance requirement visible in a required vocabulary declaration rather than relying on a naked extension keyword.
+
+```json
+{
+  "$schema": "https://fork.example/meta/governance-2026-01",
+  "$id": "urn:fork:fixture:semantic-environment-differential:001",
+  "type": "object",
+  "fork:continuingAuthorityEvidenceRequired": true
+}
+```
+
+The corresponding Fork meta-schema must declare the Fork vocabulary as required:
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fork.example/meta/governance-2026-01",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
+    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+    "https://json-schema.org/draft/2020-12/vocab/validation": true,
+    "https://fork.example/vocab/continuing-authority/2026-01": true
+  }
+}
+```
+
+For an instance lacking the required authority evidence:
+
+```json
+{}
+```
+
+Expected assertions should be stronger than a boolean comparison:
+
+```text
+FORK_AWARE_VALIDATOR:
+  PROCESSING_STATUS = PROCESSED
+  SEMANTIC_FEATURE_CONSUMPTION = ALL_REQUIRED_FEATURES_ENFORCED
+  VALIDATION_RESULT = REJECT_INSTANCE
+
+GENERIC_VALIDATOR_WITHOUT_FORK_VOCABULARY:
+  PROCESSING_STATUS = REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+  SEMANTIC_FEATURE_CONSUMPTION = REQUIRED_FEATURE_UNSUPPORTED
+  VALIDATION_RESULT = NOT_PRODUCED
+
+FORK_COMPARISON_LAYER:
+  SEMANTIC_COMPARISON_RESULT = COMPARISON_NOT_POSSIBLE
+  GOVERNANCE_SEMANTIC_ENFORCEMENT = NOT_ESTABLISHED
+```
+
+The negative control should intentionally omit the required vocabulary declaration:
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "fork:continuingAuthorityEvidenceRequired": true
+}
+```
+
+A generic conforming validator can treat the extension as an annotation and accept `{}` because unknown keywords ordinarily have annotation behavior. That result must be represented as:
+
+```text
+STRUCTURAL_VALIDATION_PASS
+GOVERNANCE_SEMANTIC_ENFORCEMENT = NOT_ESTABLISHED
+SEMANTIC_FEATURE_CONSUMPTION = FEATURE_IGNORED
+```
+
+—not as `GOVERNANCE_VALID`, `EQUIVALENT`, or `PASS` for the Fork proposition. JSON Schema’s vocabulary model specifically exists to make required support expressible; a bare extension keyword cannot reliably communicate that requirement to an unaware implementation.[^1_3]
+
+## Design consequences
+
+Fork should make these non-implications mechanically enforceable, not just documentary:
+
+```text
+HASH_MATCH
+  !=> SEMANTIC_ENVIRONMENT_MATCH
+
+SCHEMA_VALID
+  !=> GOVERNANCE_SEMANTICS_ENFORCED
+
+UNKNOWN_FIELD_IGNORED
+  !=> UNKNOWN_FIELD_IRRELEVANT
+
+HISTORICAL_REPLAY_REPRODUCED
+  !=> CURRENT_POLICY_SATISFIED
+
+CURRENT_REEVALUATION_DIFFERS
+  !=> SEMANTIC_REGRESSION
+
+SEMANTIC_REGRESSION
+  !=> HISTORICAL_DECISION_INVALID
+
+POLICY_COMPILATION_SUCCEEDED
+  !=> COMPILED_TARGET_SEMANTICALLY_EQUIVALENT
+```
+
+For OPA specifically, `POLICY_COMPILATION_SUCCEEDED` should be paired with a separately evidenced equivalence claim, bounded by OPA version, compilation target, entrypoints, input/data corpus, builtin capabilities, and any optimization profile. The OPA bundle format itself records Wasm entrypoints and modules, but that alone does not identify the complete execution context or prove a later runtime executes it identically.[^1_1]
+
+The concise invariant is sound:
+
+> Recomputable bytes preserve an object. Recomputable semantics require preservation of the interpreter, its declared and resolved dependencies, and the temporally scoped proposition being evaluated.
+
+That makes `SemanticT0` an evidentiary object rather than a narrative label. It protects historical truth from later reinterpretation while preserving the ability to make—and clearly label—stricter, corrected, or otherwise different successor assessments.
+
+<div align="center">⁂</div>
+
+[^1_1]: https://openpolicyagent.org/docs/management-bundles
+
+[^1_2]: https://openpolicyagent.org/docs/v0-compatibility
+
+[^1_3]: https://json-schema.org/draft/2020-12/json-schema-core
+
+[^1_4]: https://in-toto.io/attestation/runtime-trace/v0.1
+
+
+---
+
+# The attached review materially strengthens the prior analysis. It turns the semantic-continuity principle into a construction-ready model by adding three missing separations:
+
+DECLARED_SEMANTIC_ENVIRONMENT
+!=>
+RESOLVED_SEMANTIC_ENVIRONMENT
+ARTIFACT_AND_ENVIRONMENT_IDENTITY
+!=>
+PROPOSITION_IDENTITY
+PARSING_SUCCESS
+!=>
+REQUIRED_SEMANTIC_FEATURE_CONSUMPTION
