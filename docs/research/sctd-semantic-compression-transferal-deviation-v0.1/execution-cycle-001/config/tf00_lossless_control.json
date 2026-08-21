@@ -1,0 +1,30 @@
+{
+  "chain_id": "SCTD-TF00-FSCOPY-001",
+  "declared_environment": {
+    "copy_mode": "binary rb -> wb via shutil.copyfileobj",
+    "normalization": false,
+    "os_family": "linux",
+    "runtime": "python3",
+    "text_decoding": false
+  },
+  "expected": {
+    "D1": "EXACT",
+    "D2": "PRESERVED",
+    "D3": "PRESERVED",
+    "D4": "PRESERVED_WITHIN_REGISTERED_LEDGER",
+    "D5": "PRESERVED"
+  },
+  "generations": 10,
+  "harness_sha256": "62cc0291a4c04a0d937944b33bceffddfc48e4a789b0c848e0f6e11f3b677ec1",
+  "mechanism": "PYTHON_BINARY_STREAM_COPY",
+  "protocol_id": "FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE",
+  "replicates": 2,
+  "schema": "fork.sctd/tf00-config/v0.1-candidate",
+  "t0_artifact_id": "FORK-SCTD-T0-SOURCE-001",
+  "t0_identity": {
+    "byte_count": 37255,
+    "sha256": "40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1"
+  },
+  "t0_relative_path": "bindings/FORK-SCTD-T0-SOURCE-001.md",
+  "transformation_family": "TF-00_LOSSLESS_TRANSFER_CONTROL"
+}
