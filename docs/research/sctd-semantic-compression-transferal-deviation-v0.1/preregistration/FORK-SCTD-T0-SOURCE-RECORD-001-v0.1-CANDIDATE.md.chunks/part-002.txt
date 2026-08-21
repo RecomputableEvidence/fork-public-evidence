@@ -1,0 +1,90 @@
+- LaTeX display mathematics.
+- inline code tokens.
+- tables.
+- blockquote syntax.
+- enumerated standing vocabularies.
+- non-implication operators.
+- implication/ordering constraints.
+- repeated material created by successive conversational refinement.
+
+The presence of these classes is one reason the complete artifact is suitable for transfer-pressure testing.
+
+---
+
+## 8. T0 semantic standing
+
+This source record establishes no truth claim beyond identification of the preserved source and preregistration of the propositions to be tested for continuity.
+
+```text
+T0_BYTE_IDENTITY = VERIFIED_AT_CONSTRUCTION
+
+T0_SOURCE_RECORD = CANDIDATE
+
+T0_PROPOSITION_LEDGER = REGISTERED_FOR_EXPERIMENT
+
+SEMANTIC_EQUIVALENCE_OF_FUTURE_TRANSFERS = NOT_ASSESSED
+
+TRANSFER_PATTERN = NOT_ESTABLISHED
+
+TRANSFER_CAUSATION = NOT_ESTABLISHED
+
+LONGITUDINAL_RESULT = NOT_ESTABLISHED
+
+GOVERNANCE_STANDING = UNCHANGED
+
+EMPIRICAL_STANDING = UNCHANGED
+```
+
+---
+
+## 9. Immutability rule
+
+Once experimental execution begins, the following are immutable for protocol v0.1:
+
+1. T0 artifact bytes.
+2. T0 SHA-256.
+3. registered proposition IDs and their T0 meanings.
+4. standing-sensitive token register.
+5. protocol version used for comparison.
+
+If an error is discovered, T0 is not silently edited. A successor T0 record or correction record must preserve the predecessor and explain the change.
+
+```text
+CORRECTION
+  != PREDECESSOR_ERASURE
+```
+
+---
+
+## 10. Relationship to transferred/projected variants
+
+Any earlier or future artifact derived from this source through copy, export, rendering, Markdown integration, syntax normalization, compression, summarization, or other transformation is a successor/derived representation for SCTD purposes unless its bytes match the T0 digest exactly.
+
+This rule does not presume that a differing representation has changed meaning.
+
+```text
+BYTE_DIFFERENCE
+  !=> SEMANTIC_DIFFERENCE
+
+SEMANTIC_SIMILARITY
+  !=> BYTE_IDENTITY
+```
+
+Those are experimental questions measured by the bound protocol.
+
+---
+
+## 11. T0 binding summary
+
+```yaml
+t0_artifact_id: FORK-SCTD-T0-SOURCE-001
+corpus_id: SCTD-CORPUS-001
+source_filename_in_package: FORK-SCTD-T0-SOURCE-001.md
+source_byte_count: 37255
+source_sha256: 40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1
+protocol_filename: FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE.md
+protocol_byte_count: 24396
+protocol_sha256: acaf4fd0909cd32f4ccb6583e54c119c739991cbcdb6a304850a9a13791bb8a3
+record_status: CANDIDATE_IMMUTABLE_SOURCE_RECORD
+execution_status: NOT_STARTED
+```
