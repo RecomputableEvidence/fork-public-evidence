@@ -1,0 +1,244 @@
+Its most valuable addition is SEMANTIC_FEATURE_CONSUMPTION. That gives Fork somewhere precise to record that a validator parsed an artifact but ignored, could not support, or never demonstrated enforcement of a governance-significant feature.
+Disposition of the proposed refinements
+These should be retained:
+Separate declared from resolved environment.
+Require an explicit versioned proposition descriptor.
+Preserve evaluator image identity and an inspectable dependency closure.
+Use EQUIVALENT_WITHIN_DECLARED_TEST_SURFACE, never unqualified EQUIVALENT.
+Separate processing status from validation result.
+Pair the required-vocabulary case with an undeclared-extension negative control.
+Preserve historical replay independently from current reevaluation and change disposition.
+The fixture design is sound:
+CaseGeneric validatorFork-aware validatorFork conclusion
+Fork vocabulary declared required
+Must refuse if unsupported
+Processes and rejects {}
+Comparison not possible; governance enforcement not established by generic result
+Fork extension present but not declared required
+May accept {} while treating keyword as annotation
+Enforces keyword and rejects
+Structural pass only; semantic divergence
+Two final precision repairs
+
+1. FEATURE_IGNORED requires evidence
+A generic validator’s acceptance does not always establish that it consciously ignored the Fork keyword. It may not expose keyword-consumption traces.
+Use:
+SEMANTIC_FEATURE_CONSUMPTION =
+ALL_REQUIRED_FEATURES_ENFORCED
+| REQUIRED_FEATURE_UNSUPPORTED
+| FEATURE_IGNORED_OBSERVED
+| FEATURE_CONSUMPTION_NOT_ESTABLISHED
+| INDETERMINATE
+Therefore:
+VALIDATION_PASS
+
++ UNKNOWN_KEYWORD_PRESENT
+!=>
+FEATURE_IGNORED_OBSERVED
+Absent preserved validator output or an interpretation trace, the conservative result is:
+FEATURE_CONSUMPTION_NOT_ESTABLISHED
+
+2. Resolution failure is not vocabulary refusal
+A validator may fail before determining whether it supports the required Fork vocabulary because the custom meta-schema could not be resolved.
+Keep these separate:
+PROCESSING_STATUS =
+PROCESSED
+| REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+| DIALECT_UNRESOLVED
+| META_SCHEMA_UNAVAILABLE
+| SCHEMA_INVALID
+| PROCESSING_FAILED
+| INDETERMINATE
+Only affirmative evidence that the dialect was resolved and its required vocabulary was unsupported permits:
+REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+No validation result should be emitted for any refusal or pre-validation resolution failure.
+Refined fixture oracle
+REQUIRED-VOCABULARY CASE
+FORK_AWARE:
+PROCESSING_STATUS = PROCESSED
+SEMANTIC_FEATURE_CONSUMPTION =
+ALL_REQUIRED_FEATURES_ENFORCED
+VALIDATION_RESULT = REJECT_INSTANCE
+GENERIC:
+PROCESSING_STATUS =
+REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+| DIALECT_UNRESOLVED
+| META_SCHEMA_UNAVAILABLE
+VALIDATION_RESULT = NOT_PRODUCED
+COMPARISON:
+SEMANTIC_COMPARISON_RESULT =
+COMPARISON_NOT_POSSIBLE
+GOVERNANCE_SEMANTIC_ENFORCEMENT =
+NOT_ESTABLISHED_BY_GENERIC_EVALUATION
+UNDECLARED-EXTENSION NEGATIVE CONTROL
+GENERIC:
+PROCESSING_STATUS = PROCESSED
+STRUCTURAL_VALIDATION_RESULT = PASS
+SEMANTIC_FEATURE_CONSUMPTION =
+FEATURE_IGNORED_OBSERVED
+| FEATURE_CONSUMPTION_NOT_ESTABLISHED
+FORK_AWARE:
+PROCESSING_STATUS = PROCESSED
+VALIDATION_RESULT = REJECT_INSTANCE
+COMPARISON:
+SEMANTIC_COMPARISON_RESULT = DIVERGENT
+GOVERNANCE_SEMANTIC_EQUIVALENCE = NOT_ESTABLISHED
+Current standing
+SEMANTIC_CONTINUITY_MODEL =
+MATERIALLY_REFINED
+DIFFERENTIAL_FIXTURE_DESIGN =
+CONSTRUCTION_READY_CANDIDATE
+FIXTURE_CONSTRUCTION =
+NOT_PERFORMED
+FIXTURE_EXECUTION =
+NOT_PERFORMED
+INVARIANT_DEMONSTRATION =
+NOT_ESTABLISHED
+D5.1_ADMISSION =
+NOT_PERFORMED
+GOVERNANCE_STANDING =
+UNCHANGED
+EMPIRICAL_STANDING =
+UNCHANGED
+The correct next eligible action is construction of FORK-SEMANTIC-ENVIRONMENT-DIFFERENTIAL-FIXTURE-001-v0.1-CANDIDATE with both controls and the refined processing/consumption oracle. That construction requires authorization; the attached review itself neither constructs the fixture nor demonstrates the invariant.
+
+The refinements are correct and materially improve the model’s evidentiary discipline. In particular, they prevent Fork from overclaiming semantic behavior from successful parsing or validation alone.
+
+## Final separations
+
+The model should retain all three distinct boundaries:
+
+```text
+DECLARED_SEMANTIC_ENVIRONMENT
+  !=> RESOLVED_SEMANTIC_ENVIRONMENT
+
+ARTIFACT_AND_ENVIRONMENT_IDENTITY
+  !=> PROPOSITION_IDENTITY
+
+PARSING_SUCCESS
+  !=> REQUIRED_SEMANTIC_FEATURE_CONSUMPTION
+```
+
+These close different failure classes:
+
+- A declared evaluator image, vocabulary list, or data source may not identify the dependencies actually resolved at execution time.
+- Identical artifacts and evaluator conditions can evaluate different propositions—for example, a historical decision proposition versus a present continuing-authority proposition.
+- A processor can parse, structurally validate, and return success without enforcing the governance feature on which the downstream conclusion depends.
+
+
+## Corrected consumption standing
+
+Your revision from `FEATURE_IGNORED` to `FEATURE_IGNORED_OBSERVED` is essential. “Ignored” is an empirical claim about evaluator behavior, not a conclusion that can be inferred from an acceptance result.
+
+```text
+SEMANTIC_FEATURE_CONSUMPTION =
+    ALL_REQUIRED_FEATURES_ENFORCED
+  | REQUIRED_FEATURE_UNSUPPORTED
+  | FEATURE_IGNORED_OBSERVED
+  | FEATURE_CONSUMPTION_NOT_ESTABLISHED
+  | INDETERMINATE
+```
+
+The key constraint is:
+
+```text
+VALIDATION_PASS
++ UNKNOWN_KEYWORD_PRESENT
+  !=> FEATURE_IGNORED_OBSERVED
+```
+
+A generic implementation could have ignored the keyword, implemented a nonstandard extension with another meaning, performed undocumented handling, or simply not emitted evidence adequate to determine consumption. Therefore, absent a preserved trace, diagnostic output, capability declaration, or controlled differential test, Fork should report:
+
+```text
+SEMANTIC_FEATURE_CONSUMPTION =
+  FEATURE_CONSUMPTION_NOT_ESTABLISHED
+```
+
+This preserves the distinction between an observed non-enforcement event and a lack of evidence about enforcement.
+
+## Processing precedes validation
+
+Separating meta-schema and dialect resolution from vocabulary refusal avoids another category error. A processor that cannot resolve the dialect has not necessarily examined the dialect’s vocabulary declaration; it therefore cannot truthfully be described as having refused an unsupported required vocabulary.
+
+```text
+PROCESSING_STATUS =
+    PROCESSED
+  | REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+  | DIALECT_UNRESOLVED
+  | META_SCHEMA_UNAVAILABLE
+  | SCHEMA_INVALID
+  | PROCESSING_FAILED
+  | INDETERMINATE
+```
+
+The ordering constraint should be explicit:
+
+```text
+PROCESSING_STATUS != PROCESSED
+  => VALIDATION_RESULT = NOT_PRODUCED
+```
+
+And more narrowly:
+
+```text
+REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+  requires
+    DIALECT_RESOLVED
+    and REQUIRED_VOCABULARY_DECLARATION_OBSERVED
+    and REQUIRED_VOCABULARY_SUPPORT_DETERMINED_ABSENT
+```
+
+This aligns with JSON Schema’s vocabulary mechanism: implementations must refuse to process a dialect when it declares a vocabulary as required and the implementation does not recognize that vocabulary. It does not justify calling all failures to resolve or retrieve a meta-schema “unsupported vocabulary” failures.[^2_1]
+
+## Fixture oracle
+
+The proposed fixture now has a clean two-control structure.
+
+
+| Case | Generic validator | Fork-aware validator | Required Fork interpretation |
+| :-- | :-- | :-- | :-- |
+| Required Fork vocabulary | `REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY`, `DIALECT_UNRESOLVED`, or `META_SCHEMA_UNAVAILABLE`; no validation result | `PROCESSED`; all required features enforced; reject `{}` | Generic processing cannot establish governance-semantic enforcement |
+| Undeclared Fork extension | `PROCESSED`; structural pass; consumption either observed ignored or not established | `PROCESSED`; reject `{}` | Structural validity is not governance-semantic equivalence |
+
+For the required-vocabulary case:
+
+```text
+FORK_AWARE:
+  PROCESSING_STATUS = PROCESSED
+  SEMANTIC_FEATURE_CONSUMPTION =
+    ALL_REQUIRED_FEATURES_ENFORCED
+  VALIDATION_RESULT = REJECT_INSTANCE
+
+GENERIC:
+  PROCESSING_STATUS =
+    REFUSED_UNSUPPORTED_REQUIRED_VOCABULARY
+    | DIALECT_UNRESOLVED
+    | META_SCHEMA_UNAVAILABLE
+  VALIDATION_RESULT = NOT_PRODUCED
+
+COMPARISON:
+  SEMANTIC_COMPARISON_RESULT = COMPARISON_NOT_POSSIBLE
+  GOVERNANCE_SEMANTIC_ENFORCEMENT =
+    NOT_ESTABLISHED_BY_GENERIC_EVALUATION
+```
+
+For the undeclared-extension negative control:
+
+```text
+GENERIC:
+  PROCESSING_STATUS = PROCESSED
+  STRUCTURAL_VALIDATION_RESULT = PASS
+  SEMANTIC_FEATURE_CONSUMPTION =
+    FEATURE_IGNORED_OBSERVED
+    | FEATURE_CONSUMPTION_NOT_ESTABLISHED
+
+FORK_AWARE:
+  PROCESSING_STATUS = PROCESSED
+  SEMANTIC_FEATURE_CONSUMPTION =
+    ALL_REQUIRED_FEATURES_ENFORCED
+  VALIDATION_RESULT = REJECT_INSTANCE
+
+COMPARISON:
+  SEMANTIC_COMPARISON_RESULT = DIVERGENT
+  GOVERNANCE_SEMANTIC_EQUIVALENCE = NOT_ESTABLISHED
+```
