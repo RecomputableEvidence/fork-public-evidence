@@ -1,0 +1,49 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "sctd_repository_research_surface_binding",
+  "record_id": "FORK_SCTD_REPOSITORY_BINDING_V0_1",
+  "status": "CANDIDATE_RESEARCH_BRANCH_BINDING_NO_ADMISSION_EFFECT",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "construction_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "tree_sha": "94e68d68547222506fbf67665db4d75b8649eac9"
+  },
+  "branch": "research/sctd-semantic-compression-transferal-deviation-v0-1",
+  "repository_surface": "docs/research/sctd-semantic-compression-transferal-deviation-v0.1",
+  "bound_packages": {
+    "preregistration": {
+      "filename": "FORK-SCTD-PREREGISTRATION-001-v0.1-CANDIDATE.zip",
+      "bytes": 25997,
+      "sha256": "db0f8f6d688ae6ffb34d07b393a331f9d19e4742c4a7a03c9025a38e18c7c39b",
+      "repository_transport": "ASCII_BASE64_SEGMENTS_WITH_VERIFIED_MATERIALIZER"
+    },
+    "execution_cycle_001": {
+      "filename": "FORK-SCTD-EXECUTION-CYCLE-001-v0.1-CANDIDATE.zip",
+      "bytes": 313696,
+      "sha256": "ee107945105b4cc2f269f7732a78a4b19445c20777b7d7ce1d24d3bf596ad53d",
+      "repository_transport": "ASCII_BASE64_SEGMENTS_WITH_VERIFIED_MATERIALIZER"
+    }
+  },
+  "critical_artifact_bindings": {
+    "protocol_sha256": "acaf4fd0909cd32f4ccb6583e54c119c739991cbcdb6a304850a9a13791bb8a3",
+    "t0_source_sha256": "40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1",
+    "t0_source_bytes": 37255,
+    "t0_source_record_sha256": "3bc07b16462a2e1c161da830df5d4c3843619349238f84077d95dc1aa7c0dd64",
+    "tf00_execution_record_sha256": "595dc2644dfc1982a48d4ea1862ac58813c0017db78d58c69e735de028b843db",
+    "tf00_longitudinal_csv_sha256": "702c2027a92d27a426e8826932e22c42ca227392a806296788f99c55c96e2b31",
+    "harness_source_sha256": "62cc0291a4c04a0d937944b33bceffddfc48e4a789b0c848e0f6e11f3b677ec1"
+  },
+  "transport_semantics": {
+    "base64_segment_files_are_the_zip_bytes": false,
+    "decoded_and_digest_verified_package_recovers_original_zip_bytes": true,
+    "segment_presence_without_materializer_verification_is_package_identity": false,
+    "materializer_pass_promotes_artifact_standing": false
+  },
+  "non_implications": [
+    "REPOSITORY_BRANCH_PRESENCE != GOVERNED_REPOSITORY_ADMISSION",
+    "TF00_PASS != GENERAL_SCTD_HYPOTHESIS_DEMONSTRATION",
+    "TEXT_TRANSPORT_PRESENCE != DECODED_PACKAGE_INTEGRITY_UNTIL_VERIFIED",
+    "RESEARCH_BRANCH_COMMIT != PRODUCT_STANDING"
+  ]
+}
