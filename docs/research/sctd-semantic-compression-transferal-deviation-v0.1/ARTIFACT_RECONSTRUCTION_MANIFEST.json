@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "sctd_exact_text_artifact_reconstruction_manifest",
+  "chunk_policy": "UTF8_LINE_BOUNDARY_MAX_9000_BYTES",
+  "artifacts": [
+    {
+      "logical_path": "preregistration/FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE.md",
+      "bytes": 24396,
+      "sha256": "acaf4fd0909cd32f4ccb6583e54c119c739991cbcdb6a304850a9a13791bb8a3",
+      "chunks": [
+        {"path": "preregistration/FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE.md.chunks/part-001.txt", "bytes": 8968, "sha256": "3d532da3ec980a9b412cc889b564191886bf7d8210b41f87f22f76fe4e15b7de"},
+        {"path": "preregistration/FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE.md.chunks/part-002.txt", "bytes": 8975, "sha256": "40bfc9f5391f8746452910af447b2e52b3a5e3d126405c28548bcdec11563c5f"},
+        {"path": "preregistration/FORK-SCTD-PREREGISTERED-PROTOCOL-001-v0.1-CANDIDATE.md.chunks/part-003.txt", "bytes": 6453, "sha256": "25f281f5f99753dfcef71a6425cc682cdae6982111a80f2ffc054453b6b5471c"}
+      ]
+    },
+    {
+      "logical_path": "preregistration/FORK-SCTD-T0-SOURCE-001.md",
+      "bytes": 37255,
+      "sha256": "40279366bcce014a5dfb281e4d4c787a39c1cc07c379b5cea7622175368b30f1",
+      "chunks": [
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-001.md.chunks/part-001.txt", "bytes": 8859, "sha256": "d37eeae06fa886fb031ff30f6ef1a93d4364b25faa2d25804b8cc4b213d50d63"},
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-001.md.chunks/part-002.txt", "bytes": 8953, "sha256": "6245954355b5ea2c78eabb3538ca735be6001528b11932ba48c7c434a8461a17"},
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-001.md.chunks/part-003.txt", "bytes": 8807, "sha256": "e21ed165ff857cadbbb6759b6141030496696b153f03f7fcc759f1f967f02c29"},
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-001.md.chunks/part-004.txt", "bytes": 8934, "sha256": "8d1a040d070a7e5c432687bc934655b902438d7e13e96c85fb0f8f77b84f397c"},
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-001.md.chunks/part-005.txt", "bytes": 1702, "sha256": "251c28e2bb3e809d63672e855ba037d0d2aaff3a59c489337f6a35317a4929f5"}
+      ]
+    },
+    {
+      "logical_path": "preregistration/FORK-SCTD-T0-SOURCE-RECORD-001-v0.1-CANDIDATE.md",
+      "bytes": 11517,
+      "sha256": "3bc07b16462a2e1c161da830df5d4c3843619349238f84077d95dc1aa7c0dd64",
+      "chunks": [
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-RECORD-001-v0.1-CANDIDATE.md.chunks/part-001.txt", "bytes": 8977, "sha256": "9a3f567efa7a515e4711bc643cf9759833dcea3c073b906dc2434d485e6ead20"},
+        {"path": "preregistration/FORK-SCTD-T0-SOURCE-RECORD-001-v0.1-CANDIDATE.md.chunks/part-002.txt", "bytes": 2540, "sha256": "ddf8b3ae7548e18c7fdcf8126aaabca73f26fc5b7ab9f8e1dbde820749c3c2e0"}
+      ]
+    },
+    {
+      "logical_path": "execution-cycle-001/harness/sctd_harness.py",
+      "bytes": 10551,
+      "sha256": "62cc0291a4c04a0d937944b33bceffddfc48e4a789b0c848e0f6e11f3b677ec1",
+      "chunks": [
+        {"path": "execution-cycle-001/harness/sctd_harness.py.chunks/part-001.txt", "bytes": 8967, "sha256": "7eba0ecc76ff113c7e1df90eca4101f40f54c0b6593238b2ecf72ea6f3455119"},
+        {"path": "execution-cycle-001/harness/sctd_harness.py.chunks/part-002.txt", "bytes": 1584, "sha256": "4a4724b0c879b5b05201cffb71cb5c1d110bfae1a9e1ea7ee047d88e23e52df1"}
+      ]
+    }
+  ]
+}
