@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "fork_repository_reentry_recomputation",
+  "record_id": "FORK_REPOSITORY_REENTRY_RECOMPUTATION_2026_08_21_V0_1",
+  "record_date": "2026-08-21",
+  "status": "OBSERVATION_RECORD_NO_STANDING_EFFECT",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "observation_method": "FRESH_GITHUB_CONNECTOR_READ_AND_REF_COMPARISON",
+  "default_branch": {
+    "ref": "main",
+    "commit_sha": "fd93d051235ec43bee925878bc916d09179b3c90",
+    "tree_sha": "f1ef71e9836431db811f8ab7103bcbf3596a1dc2",
+    "transport_review_coordinate_match": true,
+    "movement_since_transport_review_observed": false,
+    "role": "REPAIRED_HISTORICAL_DEFAULT_BRANCH_NOT_GOVERNED_EVIDENCE_LINE"
+  },
+  "governed_preservation_branch": {
+    "ref": "preservation/clean-continuance-v0.1",
+    "commit_sha": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "tree_sha": "94e68d68547222506fbf67665db4d75b8649eac9",
+    "comparison_to_reviewed_coordinate": {
+      "reviewed_commit_sha": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+      "status": "IDENTICAL",
+      "ahead_by": 0,
+      "behind_by": 0
+    },
+    "latest_commit_subject": "Preserve PROOF-005 v0.2.2 executable return and synopsis freeze (#131)"
+  },
+  "main_to_preservation_relation": {
+    "status": "DIVERGED",
+    "preservation_ahead_by": 286,
+    "preservation_behind_by": 7,
+    "merge_base": "fc3a100563eb354924787759accfc7ecd39ae94d",
+    "interpretation": "BRANCH_DIVERGENCE_IS_REPOSITORY_TOPOLOGY_NOT_STANDING"
+  },
+  "historical_recovery_coordinates": [
+    {"sha": "934d79470fdd73185a8d04c9111c690c90240edb", "role": "VERIFIED_HISTORICAL_RECOVERY_POINT"},
+    {"sha": "fc3a100563eb354924787759accfc7ecd39ae94d", "role": "META_EVIDENCE_BASE_AND_CURRENT_MAIN_PRESERVATION_MERGE_BASE"},
+    {"sha": "fd93d051235ec43bee925878bc916d09179b3c90", "role": "REPAIRED_HISTORICAL_DEFAULT_BRANCH_TIP"}
+  ],
+  "research_program_observed": {
+    "path": "docs/research/fork-research-program-v0.1",
+    "repository_binding_record": "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json",
+    "native_model_standing": "PROVISIONAL_RESEARCH_BASELINE",
+    "conceptual_phase": "CLOSED",
+    "program_phase": "EMPIRICAL_VALIDATION",
+    "repository_binding": "SATISFIED_BY_ADMITTED_APPEND_ONLY_SUCCESSOR",
+    "corpus_cases_admitted_at_historical_projection": 0,
+    "general_empirical_validation_established_by_research_program_binding": false,
+    "independent_validation_established_by_research_program_binding": false
+  },
+  "observed_open_research_branches": [
+    "research/conversational-authority-drift-meta-assessment-supplement-001",
+    "research/conversational-authority-drift-v0-1",
+    "research/fork-independent-mapping-v0.1",
+    "research/fork-standards-architecture-v0-1",
+    "research/fork-thesis-manifestation-v0-1",
+    "research/kubernetes-exterior-longitudinal-observation-v0-1-regenerated",
+    "research/kubernetes-exterior-longitudinal-observation-v0-1",
+    "research/temporal-succession-observation-v0-1"
+  ],
+  "open_pull_requests_observed": [65, 84, 86, 100, 110, 111, 112, 124, 126, 128, 132],
+  "existing_admission_surfaces_observed": [
+    "docs/preservation/admission/",
+    "docs/proof-atlas/admission/",
+    "docs/evidence/tp-001/admission/",
+    "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json"
+  ],
+  "existing_state_and_proof_surfaces_observed": [
+    "docs/state/",
+    "docs/proof-atlas/",
+    "docs/modular-surface/",
+    "docs/exterior-observations/",
+    "docs/verification/exterior-reviews/"
+  ],
+  "movement_summary": {
+    "main_since_transport_review": "NO_MOVEMENT_OBSERVED",
+    "governed_preservation_ref_relative_to_transport_review_mapping_coordinate": "EXACTLY_AT_REVIEWED_0C60_COORDINATE",
+    "open_candidate_activity_after_0c60": "OBSERVED_ON_SEPARATE_BRANCHES_AND_OPEN_PULL_REQUESTS",
+    "current_notable_successor": "PR_132_F3_ONLY_PROOF005_V0_2_3_CANDIDATE"
+  },
+  "non_claims": [
+    "This record is an observation at the named coordinates, not an authority source.",
+    "No branch name is treated as immutable; exact commit and tree coordinates control each observation.",
+    "An open branch or pull request is not admitted because it exists, passes CI, is mergeable, or has been reviewed.",
+    "Repository binding does not establish substantive correctness, general empirical validation, independent validation, production readiness, compliance, legal sufficiency, or institutional acceptance.",
+    "This observation does not merge, close, retarget, promote, or invalidate any pull request or artifact."
+  ]
+}
