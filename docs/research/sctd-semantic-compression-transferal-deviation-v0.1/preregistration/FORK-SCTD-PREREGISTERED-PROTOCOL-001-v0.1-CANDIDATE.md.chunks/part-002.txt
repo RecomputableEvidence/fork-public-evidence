@@ -1,0 +1,327 @@
+9. Historical semantic replay and current reevaluation are distinct operations.
+10. Current reevaluation difference does not establish semantic regression.
+11. Semantic regression does not invalidate the preserved historical decision.
+12. Unqualified `EQUIVALENT` is prohibited where only a declared test surface is assessed.
+13. A generic structural pass does not establish governance-semantic enforcement.
+14. Candidate/design standing does not establish construction, execution, or invariant demonstration.
+15. Evidentiary standing does not confer external disposition authority.
+
+---
+
+## 6. Initial transformation families
+
+The first experimental cycle SHALL keep transformation classes separate so causal attribution is not obscured.
+
+### TF-00 — LOSSLESS_TRANSFER_CONTROL
+
+Purpose: establish the mechanical no-change baseline.
+
+Examples:
+
+- filesystem copy.
+- archive/unarchive with byte verification.
+- transport through a channel demonstrated to preserve bytes exactly.
+
+Expected T0-relative result:
+
+```text
+D1 = EXACT
+D2 = PRESERVED
+D3 = PRESERVED
+D4 = PRESERVED_WITHIN_REGISTERED_LEDGER
+D5 = PRESERVED
+```
+
+Any failure is an immediate control failure and MUST be investigated before higher-order results from that run are interpreted.
+
+### TF-01 — SYNTAX_INTEGRATION_TRANSFER
+
+Purpose: observe interface-mediated reserialization without intentional summarization.
+
+Pressure targets:
+
+- Markdown rendering/copying.
+- rich-text to Markdown.
+- Markdown to plain text and back.
+- LaTeX rendering/reconstruction.
+- citation/footnote rendering.
+- table flattening/reconstruction.
+- fenced-code integration.
+
+No instruction may intentionally summarize or alter substantive meaning in TF-01.
+
+### TF-02 — STRUCTURAL_COMPRESSION_TRANSFER
+
+Purpose: compress presentation and structure while instructing preservation of all substantive propositions and standing.
+
+Pressure targets:
+
+- heading reduction.
+- paragraph consolidation.
+- table-to-prose transformation.
+- list-to-prose transformation.
+- code/oracle-to-prose representation.
+- removal of redundant presentation scaffolding.
+
+### TF-03 — SEMANTIC_COMPRESSION_TRANSFER
+
+Purpose: repeatedly summarize while explicitly instructing preservation of every load-bearing proposition, qualifier, non-implication, and standing.
+
+This family is expected to pressure D4 and D5 more strongly than TF-01 or TF-02.
+
+### TF-04 — MIXED_TRANSFER_RECONSTRUCTION
+
+Purpose: apply heterogeneous transfer operations and then attempt reconstruction of technical form from the transferred state without consulting T0.
+
+Example path:
+
+```text
+Markdown
+-> rendered interface
+-> copied prose
+-> compressed summary
+-> transferred to another interface/model
+-> reconstructed technical Markdown
+```
+
+Recovery against T0 is measured but T0 may not be supplied to the reconstruction step unless the run is explicitly designated as a T0-assisted recovery control.
+
+---
+
+## 7. Pressure-test families
+
+Every transformation family SHOULD exercise the following registered pressures where applicable.
+
+### PF-01 Presentation and whitespace
+
+- line endings.
+- blank lines.
+- indentation.
+- wrapping.
+- heading hierarchy.
+- bullet nesting.
+
+### PF-02 Code and serialization syntax
+
+- JSON blocks.
+- text oracle blocks.
+- fenced-language labels.
+- inline code.
+- escaped backticks.
+
+### PF-03 Mathematical syntax
+
+- inline/display LaTeX.
+- primes/apostrophes.
+- parentheses.
+- Unicode operators.
+- ASCII Fork operators.
+
+### PF-04 Citations and evidence basis
+
+- URLs.
+- footnotes.
+- citation labels.
+- source attribution.
+- proposition-to-source association.
+
+### PF-05 Terminological compression
+
+High-risk examples include:
+
+```text
+FEATURE_IGNORED_OBSERVED
+  -> FEATURE_IGNORED
+
+FEATURE_CONSUMPTION_NOT_ESTABLISHED
+  -> UNKNOWN
+
+EQUIVALENT_WITHIN_DECLARED_TEST_SURFACE
+  -> EQUIVALENT
+
+NOT_ESTABLISHED_BY_GENERIC_EVALUATION
+  -> NOT_ESTABLISHED
+```
+
+These transformations MUST be treated as potentially material even when edit distance is small.
+
+### PF-06 Negation and non-implication
+
+Track preservation of:
+
+```text
+!=>
+!=
+NOT
+NOT_YET
+NOT_PERFORMED
+NOT_ESTABLISHED
+INDETERMINATE
+UNRESOLVED
+```
+
+### PF-07 Enumeration compression
+
+Track whether distinct states are merged, omitted, or re-labelled, especially processing and semantic-consumption enumerations.
+
+### PF-08 Iterative summarization
+
+Apply repeated compression to determine the first iteration at which each continuity dimension diverges.
+
+---
+
+## 8. Replication and longitudinal depth
+
+### 8.1 Deterministic transformations
+
+A deterministic transformation class MUST be rerun at least twice from the same input. Outputs MUST be compared byte-for-byte. If outputs differ, the transformation is not treated as deterministic for this protocol.
+
+### 8.2 Stochastic/model-mediated transformations
+
+Each registered chain SHOULD be run in at least three independent replicates under the same declared instruction and recorded environment where practicable.
+
+Replicates MUST NOT be averaged into a single artifact. Every branch remains separately preserved.
+
+### 8.3 Initial longitudinal depth
+
+For each transformation family:
+
+- minimum planned depth: 10 successive transfer generations per replicate where the operation can be repeated coherently.
+- assessments occur at every generation, not only at the end.
+- if D4 or D5 divergence occurs before generation 10, the chain continues through generation 10 unless continuation is impossible or would destroy the ability to preserve the observed state.
+
+### 8.4 Extension rule
+
+After generation 10, extend a chain in blocks of 5 generations when at least one of the following remains unresolved:
+
+1. no stable pattern has emerged in D1-D5;
+2. proposition/standing divergence is intermittent across replicates;
+3. cumulative drift continues materially changing despite local stabilization;
+4. a new failure class appeared in the final three generations;
+5. recovery behavior remains unresolved.
+
+Maximum preregistered depth for the first cycle: 30 generations per replicate.
+
+Reaching generation 30 without D4 or D5 divergence is a valid result; it MUST NOT be reported as proof of indefinite semantic preservation.
+
+---
+
+## 9. Per-iteration evidence receipt
+
+Every successor artifact MUST have a machine-readable or equivalently structured receipt containing at least:
+
+```yaml
+iteration_id: SCTD-...
+chain_id: ...
+replicate_id: ...
+generation: ...
+
+input:
+  artifact_id: ...
+  sha256: ...
+  byte_count: ...
+
+transformation:
+  transformation_id: ...
+  operation_class: ...
+  source_surface: ...
+  destination_surface: ...
+  instruction_or_prompt_digest: ...
+  environment_identity: ...
+  unresolved_environment: ...
+
+output:
+  artifact_id: ...
+  sha256: ...
+  byte_count: ...
+
+delta_adjacent:
+  D1_byte_continuity: ...
+  D2_syntactic_continuity: ...
+  D3_structural_continuity: ...
+  D4_propositional_continuity: ...
+  D5_evidentiary_standing_continuity: ...
+
+delta_from_T0:
+  D1_byte_continuity: ...
+  D2_syntactic_continuity: ...
+  D3_structural_continuity: ...
+  D4_propositional_continuity: ...
+  D5_evidentiary_standing_continuity: ...
+
+observed_changes:
+  byte: ...
+  syntax: ...
+  structure: ...
+  proposition: ...
+  standing: ...
+
+review:
+  automated_observation: ...
+  human_or_exterior_observation: ...
+  unresolved: ...
+```
+
+The exact prompt/instruction text SHOULD be preserved separately and hash-bound when a model-mediated transformation is used.
+
+---
+
+## 10. Quantitative longitudinal observations
+
+The following metrics are preregistered where computable without replacing qualitative proposition review:
+
+```text
+FIRST_BYTE_DIVERGENCE_GENERATION
+FIRST_SYNTAX_DIVERGENCE_GENERATION
+FIRST_STRUCTURE_DIVERGENCE_GENERATION
+FIRST_PROPOSITION_DIVERGENCE_GENERATION
+FIRST_STANDING_DIVERGENCE_GENERATION
+
+CUMULATIVE_BYTE_COUNT_DELTA
+CUMULATIVE_TEXT_LENGTH_RATIO
+CUMULATIVE_TOKEN_COUNT_RATIO
+QUALIFIER_RETENTION_RATE
+NEGATION_RETENTION_RATE
+ENUMERATION_RETENTION_RATE
+CITATION_RETENTION_RATE
+NON_IMPLICATION_RETENTION_RATE
+REGISTERED_PROPOSITION_RETENTION_RATE
+STANDING_TOKEN_RETENTION_RATE
+STANDING_STRENGTHENING_EVENTS
+STANDING_WEAKENING_EVENTS
+STANDING_COLLAPSE_EVENTS
+RECOVERY_FROM_TRANSFERRED_STATE_RESULT
+RECOVERY_WITH_T0_RESULT
+```
+
+Any tokenization-dependent metric MUST record the tokenizer identity/version or remain descriptive rather than treated as directly comparable across tokenizer changes.
+
+---
+
+## 11. Change classification
+
+Observed changes SHALL be classified without assuming materiality from edit magnitude.
+
+```text
+CHANGE_CLASS =
+    BYTE_ONLY
+  | SYNTAX_ONLY
+  | STRUCTURAL
+  | EVIDENCE_BASIS
+  | PROPOSITIONAL
+  | STANDING
+  | MULTI_DIMENSIONAL
+  | UNRESOLVED
+```
+
+A small lexical edit can be `PROPOSITIONAL` or `STANDING`. A large byte delta can remain `BYTE_ONLY` or `SYNTAX_ONLY` if the registered proposition ledger and standing are preserved.
+
+---
+
+## 12. Materiality rules
+
+### Material by definition
+
+The following are material regardless of byte magnitude:
+
+- removal or reversal of negation.
