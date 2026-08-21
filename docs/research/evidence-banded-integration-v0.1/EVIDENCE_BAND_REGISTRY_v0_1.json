@@ -1,0 +1,184 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "fork_evidence_band_registry",
+  "record_id": "FORK_EVIDENCE_BAND_REGISTRY_V0_1",
+  "status": "CANDIDATE_ROUTING_REGISTRY_NO_STANDING_EFFECT",
+  "governed_base_observed": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "tree": "94e68d68547222506fbf67665db4d75b8649eac9"
+  },
+  "bands": {
+    "A": "ADOPTION_BASELINE_WITHIN_DECLARED_SCOPE",
+    "B": "QUALIFIED_CANDIDATE_PROOFS",
+    "C": "ACTIVE_EMPIRICAL_RESEARCH",
+    "D": "REPAIR_EXCLUDED_FROM_ADOPTION",
+    "E": "HISTORICAL_PRESERVATION"
+  },
+  "entries": [
+    {
+      "entry_id": "A-001",
+      "surface": "Fork Research Program v0.1 / Candidate Model primitives",
+      "repository_presence": "PRESENT_AT_GOVERNED_BASE",
+      "paths": ["docs/research/fork-research-program-v0.1", "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json"],
+      "native_standing": "PROVISIONAL_RESEARCH_BASELINE_WITH_REPOSITORY_BINDING_SATISFIED_BY_APPEND_ONLY_SUCCESSOR",
+      "integration_band": "A",
+      "purpose_specific_use": "bounded vocabulary, research governance, classification/ledger primitives, and evidence-boundary integration reference",
+      "qualifications": ["repository binding does not establish general empirical or independent validation", "no corpus admission or model-standing promotion inherits from PR113"]
+    },
+    {
+      "entry_id": "A-002",
+      "surface": "Fork Modular Surface and Surface Interaction Contract",
+      "repository_presence": "PRESENT_AT_GOVERNED_BASE",
+      "paths": ["docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md", "docs/modular-surface/FORK_SURFACE_INTERACTION_CONTRACT_v0_1.md"],
+      "native_standing": "REPOSITORY_PRESENT_ARCHITECTURAL_SURFACES",
+      "integration_band": "A",
+      "purpose_specific_use": "bounded architecture and non-inheritance integration reference",
+      "qualifications": ["presence does not imply validation of every derived application"]
+    },
+    {
+      "entry_id": "A-EXT-001",
+      "surface": "D5.0 temporal semantic specification",
+      "repository_presence": "EXTERNAL_PACKET_ONLY_NOT_REPOSITORY_BOUND_AT_REENTRY_BASE",
+      "native_standing": "ADOPTED_AND_CLOSED_AS_SEMANTIC_SPECIFICATION_ONLY_PER_EXTERNAL_RECORD",
+      "integration_band": "A",
+      "purpose_specific_use": "temporal vocabulary/reference only after source identity is preserved",
+      "qualifications": ["checker not instantiated", "adversarial execution not performed", "specification adoption is not capability implementation"],
+      "repository_action": "SEPARATE_SOURCE_BINDING_REQUIRED_BEFORE_REPOSITORY_PRESENCE_IS_CLAIMED"
+    },
+    {
+      "entry_id": "B-EXT-001",
+      "surface": "AP-Q03 nomenclature rebinding v0.1.1",
+      "repository_presence": "EXTERNAL_PACKET_ONLY_NOT_REPOSITORY_BOUND_AT_REENTRY_BASE",
+      "native_standing": "CANDIDATE_PROOF_REPRODUCED_WITH_QUALIFICATIONS",
+      "integration_band": "B",
+      "purpose_specific_use": "nomenclature/semantic-regression candidate proof",
+      "qualifications": ["not frozen", "SC-F11 eligibility unresolved", "single-token registry generality gap", "UNRESOLVED branch untested"]
+    },
+    {
+      "entry_id": "B-EXT-002",
+      "surface": "Capture-Coverage fixture family",
+      "repository_presence": "EXTERNAL_PACKET_ONLY_NOT_REPOSITORY_BOUND_AT_REENTRY_BASE",
+      "native_standing": "ADOPTED_SYNTHETIC_FIXTURE_WITH_BOUNDED_CANDIDATE_PROOF_TREATMENT",
+      "integration_band": "B",
+      "purpose_specific_use": "synthetic capture-completeness and equal-count/identity-mismatch demonstrations",
+      "qualifications": ["synthetic scope only", "generalized necessity not established", "self-reported independent execution must not be conflated with exterior-reviewer verification"]
+    },
+    {
+      "entry_id": "C-001",
+      "surface": "SCTD semantic compression and transferal deviation program",
+      "repository_presence": "DEDICATED_RESEARCH_BRANCH_PLACEMENT_AUTHORIZED_IN_THIS_REENTRY_CYCLE",
+      "native_standing": "PREREGISTERED_CANDIDATE_T0_BYTE_BOUND_TF00_CONTROL_PASS_NO_GENERAL_PATTERN_DEMONSTRATED",
+      "integration_band": "C",
+      "purpose_specific_use": "longitudinal transfer/compression research",
+      "qualifications": ["TF-01 and later pressure families not yet executed", "TF-00 exact-byte control does not demonstrate semantic-drift hypotheses"]
+    },
+    {
+      "entry_id": "C-EXT-001",
+      "surface": "D5.1 closed-rule candidate",
+      "repository_presence": "EXTERNAL_PACKET_ONLY_NOT_REPOSITORY_BOUND_AT_REENTRY_BASE",
+      "native_standing": "CANDIDATE_SPECIFICATION_NOT_IMPLEMENTED_NOT_EXECUTED",
+      "integration_band": "C",
+      "purpose_specific_use": "closed derivation and continuing-authority research",
+      "qualifications": ["schema freeze not performed", "checker/fixture execution/repository admission not authorized by candidate"]
+    },
+    {
+      "entry_id": "C-EXT-002",
+      "surface": "semantic-environment / feature-consumption differential successors",
+      "repository_presence": "EXTERNAL_RESEARCH_SOURCE_NOT_YET_GOVERNED_BASE",
+      "native_standing": "CONSTRUCTION_READY_RESEARCH_LINE_WITH_NO_REPOSITORY_ADMISSION_INFERRED",
+      "integration_band": "C",
+      "purpose_specific_use": "declared/resolved semantic environment and feature-consumption research",
+      "qualifications": ["research source and later fixture work require separate repository binding"]
+    },
+    {
+      "entry_id": "C-REPO-001",
+      "surface": "GHCH v0.1 PR #100",
+      "repository_presence": "OPEN_PR_CANDIDATE",
+      "native_standing": "DETERMINISTIC_SIMULATION_CANDIDATE_NOT_ADMITTED",
+      "integration_band": "C",
+      "purpose_specific_use": "repeated handoff cadence simulation",
+      "qualifications": ["draft", "not admitted", "live adapters separately gated"]
+    },
+    {
+      "entry_id": "C-REPO-002",
+      "surface": "CAD research PR #84 / meta-assessment PR #86",
+      "repository_presence": "OPEN_PR_AND_RESEARCH_BRANCH_CANDIDATES",
+      "native_standing": "DRAFT_RESEARCH_AND_COMPANION_REVIEW_PENDING",
+      "integration_band": "C",
+      "purpose_specific_use": "conversational-authority-drift research and assessor-pressure review",
+      "qualifications": ["not admitted", "source/version binding limits preserved"]
+    },
+    {
+      "entry_id": "C-REPO-003",
+      "surface": "pre-pilot implementation candidates PR #110 / #111",
+      "repository_presence": "OPEN_PR_CANDIDATES",
+      "native_standing": "NOT_ADMITTED_NOT_PILOT_AUTHORIZED",
+      "integration_band": "C",
+      "purpose_specific_use": "implementation/exterior-recomputation research only",
+      "qualifications": ["pilot authorization absent", "institutional/security/privacy/deployment gates remain closed"]
+    },
+    {
+      "entry_id": "D-EXT-001",
+      "surface": "LPT v0.1.1 licensed-property-transfer corpus",
+      "repository_presence": "EXTERNAL_PACKET_ONLY_NOT_REPOSITORY_BOUND_AT_REENTRY_BASE",
+      "native_standing": "DECLARATIVE_NOT_EXECUTED_ORACLE_REQUIRES_MATERIAL_REPAIR",
+      "integration_band": "D",
+      "purpose_specific_use": "repair target only",
+      "qualifications": ["UNDETERMINED coverage gap", "no checker", "not freeze-ready"]
+    },
+    {
+      "entry_id": "D-REPO-001",
+      "surface": "PROOF-005 F3 type-strictness successor PR #132",
+      "repository_presence": "OPEN_PR_CANDIDATE",
+      "native_standing": "CORRECTION_SUCCESSOR_CANDIDATE_READY_FOR_EXACT_HEAD_REVIEW",
+      "integration_band": "D",
+      "purpose_specific_use": "bounded F3 repair candidate",
+      "qualifications": ["exterior delta return pending", "separate merge/admission disposition required"]
+    },
+    {
+      "entry_id": "D-REPO-002",
+      "surface": "Day0 ADV_003 correction PR #65",
+      "repository_presence": "OPEN_PR_CANDIDATE",
+      "native_standing": "DRAFT_CORRECTED_HEAD_RECOMPUTATION_PENDING_NOT_MERGE_AUTHORIZED",
+      "integration_band": "D",
+      "purpose_specific_use": "bounded correction/recomputation work",
+      "qualifications": ["recomputation pending", "historical adverse predecessor preserved"]
+    },
+    {
+      "entry_id": "E-REPO-001",
+      "surface": "PROOF-005 correction predecessors PR #124/#126/#128 and preserved v0.2.2 exterior return",
+      "repository_presence": "MIXED_OPEN_FROZEN_PREDECESSORS_AND_PRESERVED_GOVERNED_RETURN",
+      "native_standing": "HISTORICAL_CORRECTION_LINE_WITH_QUALIFIED_EXTERIOR_OBSERVATIONS",
+      "integration_band": "E",
+      "purpose_specific_use": "correction lineage and adverse-finding preservation",
+      "qualifications": ["predecessor conformity does not self-authorize successor or admission"]
+    },
+    {
+      "entry_id": "E-REPO-002",
+      "surface": "exact-coordinate state projections and stale public-route observations",
+      "repository_presence": "PRESENT_AT_GOVERNED_BASE",
+      "native_standing": "TEMPORALLY_BOUNDED_DERIVED_PROJECTIONS",
+      "integration_band": "E",
+      "purpose_specific_use": "historical state reconstruction",
+      "qualifications": ["current means current only at named coordinate", "stale observations remain historical negative evidence"]
+    },
+    {
+      "entry_id": "E-EXT-001",
+      "surface": "assessment transport/component-27 transfer-integrity discrepancy and correction evidence",
+      "repository_presence": "EXTERNAL_PACKET_ONLY_NOT_REPOSITORY_BOUND_AT_REENTRY_BASE",
+      "native_standing": "OBSERVED_TRANSPORT_INTEGRITY_DIFFERENTIAL",
+      "integration_band": "E",
+      "purpose_specific_use": "historical transfer/compression evidence and SCTD motivation",
+      "qualifications": ["provenance/source continuity preserved separately from byte-transfer continuity"]
+    }
+  ],
+  "global_non_inheritance_rules": [
+    "INTEGRATION_BAND != NATIVE_STANDING",
+    "REPOSITORY_PRESENCE != ADMISSION",
+    "CHECKER_PASS != GENERAL_VALIDATION",
+    "SPECIFICATION_ADOPTED != CAPABILITY_IMPLEMENTED",
+    "MULTI_REVIEWER_AGREEMENT != INDEPENDENT_CORROBORATION_UNLESS_INDEPENDENCE_SEPARATELY_ESTABLISHED",
+    "SOURCE_CONTINUITY != TRANSFER_REPRESENTATION_CONTINUITY"
+  ]
+}
