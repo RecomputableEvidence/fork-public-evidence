@@ -1,0 +1,41 @@
+Claude continuation return — supplied 2026-08-21
+
+Acquisition. Fresh clone, fetched all refs, detached HEAD landed exactly on `a16b1905923354538d6bed1d231fdc810e3d531f`, clean tree, confirmed not an ancestor of `origin/main` — this exists only on `adoption/five-band-instantiation-v0.1-candidate`. Diff against `0c60bbdd2b7c50e1758968464485fac0dfbf008d`: 12 files, 506 insertions, 11 deletions — nine brand-new files under `docs/adoption/`, one purely-additive edit to the root `README.md`, and edits to the two files I flagged last message.
+
+Both bugs are genuinely fixed, at the byte level — checked, not trusted:
+
+- `README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md`: a direct scan for bytes `0x0b`/`0x0c` returns nothing. The PowerShell block now reads `.\fork_public_v0_1_1` and `.\verify_public_disclosure.py` as literal text.
+- `requirements.txt`: now four comment-only lines, valid pip syntax. `pip install -r requirements.txt` exits 0.
+
+But re-running the verifier at this exact candidate commit fails, and this matters more than either original bug. Complete output:
+
+```
+PASS GATE_PUBLIC_001 DECLARED_PACKET_MEMBERSHIP
+PASS GATE_PUBLIC_002 MEMBER_DIGESTS
+PASS GATE_PUBLIC_003 MANIFEST_DIGEST
+PASS GATE_PUBLIC_004 HMAC_SEAL_BINDING
+PASS GATE_PUBLIC_005 PERSISTED_ARTIFACT_RECOMPUTATION
+PASS GATE_PUBLIC_006 GRANULAR_STATE_PRESERVATION; APPEND_ONLY_PERSISTENCE=NOT_CHECKED
+PASS GATE_PUBLIC_007 NO_AGGREGATE_TRUST_VERDICT
+PASS GATE_PUBLIC_008 EXPORT_INVENTORY_AND_DIGESTS
+PASS GATE_PUBLIC_009 SEMANTIC_AUTHORITY_NON_PROMOTION METHOD=MECHANICALLY_REPRODUCED_GATE
+NOT_CHECKED GATE_PUBLIC_010 TIMESTAMP_DISCLOSURE_BOUNDARY
+
+FORK_PUBLIC_TECHNICAL_DISCLOSURE_V0_1_1_FAIL
+ERROR: BUNDLE FILE DIGEST MISMATCH: README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md
+exit status: 1
+```
+
+The reason is mechanical: that file lives inside what the bundle treats as frozen and sealed — checked against a hash recorded when v0.1.1 was sealed. Editing it in place to remove the control characters changed its bytes, and the verifier correctly noticed they no longer match the sealed manifest. That's not a malfunction, it's tamper-evidence doing its job on a change that happened to be legitimate. But it means the real fix for the control-character bug was never a doc edit — it needed a re-seal (regenerate the manifest, recompute its digest, cut an actual v0.1.2 or update every place still declaring the v0.1.1 hash). Right now, at `a16b1905`, the core recomputability claim does not hold. That's a bigger problem than the one it replaced.
+
+One more check, and it's the sharpest version of what I want to say next. `docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_BINDING_v0_1.json` is mostly a faithful transcription of what I actually told you last message — worth saying plainly, not a fabrication. But one entry doesn't hold up. It disposes finding F-001 (root README is Windows-only at the front door) as `NOT_REPRODUCED_AS_GENERAL_FRONT_DOOR_DEFECT_AT_0C60`, on the stated basis that "README@0c60 includes direct cross-platform Python proof recomputation commands plus a cross-platform fallback link." I checked `README.md` at exactly `0c60bbdd` — not the candidate, not main, that specific commit:
+
+```
+99: PowerShell public verifier:
+101: ```powershell
+102: powershell -ExecutionPolicy Bypass -File .\scripts\verify_public_review_package_v0_1.ps1
+```
+
+One verification block, PowerShell-only. Zero occurrences of `python3` anywhere in the file. No second, cross-platform block. And structurally, `0c60bbdd` and the `fd93d051` commit I actually reviewed sit on divergent lines of history — neither is an ancestor of the other — so a finding from reviewing one got marked resolved on the other without anyone, including me, checking that it actually was. That's a concrete instance of exactly what your own Q2 asks me to watch for: a review turning into authority for a claim the review never covered.
+
+So, briefly, on Q1, Q4, the lettered record, and the disposition tokens: I said last message I wasn't going to fill those in, and this round makes the reason sharper rather than softer. Two one-line bugs became nine new files and a request for a certified disposition; the fix broke the thing it was fixing; and an unverified claim about a different commit got filed with the same formal status markers as the two things I actually checked. I'll keep checking anything real you put in front of me, as precisely as I can — that doesn't change. But I'm not the component that signs off on the container this is being built inside, however the request is scoped. The thing that would actually tell you whether any of this works is still what it was last message: one outside person, no stake in it, reading the real repo cold — not a tenth file for me to bind.

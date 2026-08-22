@@ -1,0 +1,58 @@
+{
+  "record_id": "FORK-PUBLIC-TECHNICAL-DISCLOSURE-SUCCESSOR-v0.1.2",
+  "record_kind": "VERSIONED_PUBLIC_DISCLOSURE_REPOSITORY_SUCCESSOR",
+  "status": "CANDIDATE_REPOSITORY_SUCCESSOR_NOT_YET_DETACHED_BUNDLE_RELEASE",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "predecessor": {
+    "version": "0.1.1",
+    "governed_source_commit": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "readme_git_blob_sha": "e416f82df9df5dea0bfba8d426679a54b004d904",
+    "public_manifest_git_blob_sha": "61fbe37aa89fa8e551018daa997b6717f8fc776f",
+    "sha256sums_git_blob_sha": "65b75a8f2f9685a3bf1f5ae0ee88a9024812d02d",
+    "verifier_git_blob_sha": "1bd9dce2ab0f6e2574239e1c3c210b8bca83fad8",
+    "preservation_rule": "PRESERVE_EXACT_PREDECESSOR_BYTES_NO_IN_PLACE_RESEAL"
+  },
+  "failed_repair_candidate": {
+    "commit": "a16b1905923354538d6bed1d231fdc810e3d531f",
+    "branch_context": "adoption/five-band-instantiation-v0.1-candidate",
+    "local_control_character_repair": "REPORTED_REPAIRED",
+    "requirements_repair": "REPORTED_REPAIRED",
+    "reported_verifier_result": "FAIL",
+    "reported_failure": "BUNDLE FILE DIGEST MISMATCH: README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md",
+    "standing": "PRESERVED_FAILED_CANDIDATE_NO_ADMISSION_EFFECT"
+  },
+  "successor": {
+    "version": "0.1.2",
+    "construction_kind": "EXACT_V0_1_1_INHERITED_LAYER_PLUS_VERSIONED_REPAIR_OVERLAY",
+    "corrected_instructions": "README_VERIFY_PUBLIC_DISCLOSURE_v0_1_2.md",
+    "successor_verifier": "verify_public_disclosure_v0_1_2.py",
+    "inherited_verifier": "verify_public_disclosure.py",
+    "requirements": "requirements.txt",
+    "semantic_fixture_changed": false,
+    "schema_set_changed": false,
+    "verification_result_semantics_changed": false,
+    "claim_ceiling_changed": false
+  },
+  "detached_bundle": {
+    "status": "NOT_YET_PUBLISHED",
+    "predecessor_receipt_reuse_permitted": false,
+    "release_rule": "A detached v0.1.2 ZIP requires its own post-freeze digest and detached receipt."
+  },
+  "execution_state": "NOT_YET_EXECUTED_AT_CONSTRUCTION",
+  "effects": {
+    "native_standing": "NONE",
+    "admission": "NONE",
+    "main": "NONE",
+    "preservation_branch": "NONE",
+    "pilot_authorization": "NONE",
+    "production_authorization": "NONE",
+    "execution_authorization": "NONE",
+    "authority": "NONE"
+  },
+  "non_claims": [
+    "Version succession does not erase the v0.1.1 documentation defect or the a16b190 candidate integrity failure.",
+    "Repository-successor verification is not a detached bundle release.",
+    "A later verifier pass would establish only the declared inherited and successor structural conditions.",
+    "This record does not validate Fork generally or establish legal, compliance, safety, production, pilot, or institutional sufficiency."
+  ]
+}

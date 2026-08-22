@@ -1,0 +1,114 @@
+{
+  "_fork_artifact_class": "PUBLIC_DISCLOSURE_MANIFEST",
+  "bundle_id": "FORK_PUBLIC_TECHNICAL_DISCLOSURE_BUNDLE_v0_1_1",
+  "bundle_version": "0.1.1",
+  "public_disclosure_build_time": "2026-06-11T18:49:54Z",
+  "fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "synthetic_event_time_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "production_data": "NONE",
+  "live_institutional_application": "NOT_ESTABLISHED",
+  "membership_eligibility_rule_status": "EXPLICIT",
+  "semantic_non_promotion_method": "MECHANICALLY_REPRODUCED_GATE",
+  "append_only_persistence": "NOT_CHECKED",
+  "timestamp_metadata_record_presence": "PASS",
+  "rfc3161_request_response_pair_presence": "NOT_ESTABLISHED",
+  "inventoried_files": [
+    {
+      "filename": "FORK_PUBLIC_TECHNICAL_CLAIMS_AND_BOUNDARIES_v0_1_1.md",
+      "sha256": "6e57ecdd50c04a9776aec3f4e8d0e6d78b2a695d4bcc3ce5ffa0364d90c5f75d"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/ai_output.json",
+      "sha256": "b8b001225d7cc9b730716fdd5106c8b4af98b0aa229c30a989011d73b4fa858c"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/human_review.json",
+      "sha256": "a5c3d07b56f4b5c5be6d0b649e91cda8be4f3861f871d6c7a72da1da2d85ee25"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/institutional_disposition.json",
+      "sha256": "0970cd867dc40db56fec066d826d951f228c195043b1c8ae6e8c38c7468913e9"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/packet_manifest.json",
+      "sha256": "0358ebe68e312292e1c17a9e10053fc13848942a1800479d5d88e59659e445bc"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/packet_membership.json",
+      "sha256": "62af63ed364fab030c1a15fbaa2d0321c9a511336b56df70790bfb8ec00c9bd5"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/seal_binding.json",
+      "sha256": "24146c50292ca2863a2ea50a89ea723360a7ae0aa613c6a108e19e9d8716db99"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/source_assertion.json",
+      "sha256": "a509d4103ce5866f214a51c247634f42c65c03c51f12eb165981c14e0a5d1042"
+    },
+    {
+      "filename": "PUBLIC_REFERENCE_FIXTURE/timestamp_anchor.json",
+      "sha256": "fe03c681a5f20046d9abd5be58fc18d39f3d364a72ab32f1d8a2c2b1608e55d8"
+    },
+    {
+      "filename": "README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md",
+      "sha256": "d7a8c35cf2fac0092964cd02f20a1f26e2669fd313edcb03e649aff3d345250f"
+    },
+    {
+      "filename": "SELECTED_PUBLIC_SCHEMAS/fork_member_schema_v0_1_1.json",
+      "sha256": "5832263de1907870e66ea39fb367b71bc29eb0a587c8c2dc94853e40fe20cbb4"
+    },
+    {
+      "filename": "SELECTED_PUBLIC_SCHEMAS/fork_packet_manifest_schema_v0_1_1.json",
+      "sha256": "db6cc5b9230e72e53306054ac91a975b5cba64d0a87bc27a3bbcf58634e92043"
+    },
+    {
+      "filename": "SELECTED_PUBLIC_SCHEMAS/fork_verification_result_schema_v0_1_1.json",
+      "sha256": "c59191cc3e2577120eff066f21ca6fa1920e3404b3df92813bb73dc8c8fc1204"
+    },
+    {
+      "filename": "SELECTED_PUBLIC_VERIFICATION_RESULT_v0_1_1.json",
+      "sha256": "de38b2cb858a7df2a863a6c3f18b00fbd01a3df3277a78f0a627aa13a46fb391"
+    },
+    {
+      "filename": "VERIFICATION_TRANSCRIPT_v0_1_1.txt",
+      "sha256": "cee664cb5d706a90035d51420f33422be812e3062095954fd10664abf9672d92"
+    },
+    {
+      "filename": "verify_public_disclosure.py",
+      "sha256": "2a46bcf0c7f63b60a2badde9b7fc390f3d8e128eaea61253df144a8bf2c61d2e"
+    }
+  ],
+  "sha256sums_filename": "SHA256SUMS.txt",
+  "sha256sums_sha256": "289dad5a2357a2b55e332cc386e8fcf65795e3b7db1097cf30e700fe7a618edb",
+  "public_manifest_self_hash": "NOT_INCLUDED_RECURSION_AVOIDED",
+  "outer_zip_anchor": {
+    "status": "PUBLISHED_AS_DETACHED_RECEIPT",
+    "receipt_filename": "FORK_PUBLIC_TECHNICAL_DISCLOSURE_BUNDLE_v0_1_1.zip.sha256",
+    "location": "BESIDE_ZIP_NOT_INSIDE_ZIP",
+    "sha256": "POPULATED_ONLY_IN_DETACHED_RECEIPT_AFTER_ZIP_FREEZE"
+  },
+  "gate_summary": {
+    "gates_declared": 10,
+    "gates_pass": 9,
+    "gates_not_checked": 1,
+    "gates_fail": 0,
+    "aggregate_trust_verdict": "NOT_EMITTED",
+    "aggregate_validity_verdict": "NOT_EMITTED",
+    "aggregate_compliance_verdict": "NOT_EMITTED"
+  },
+  "not_established": [
+    "SOURCE_TRUTH_OR_COMPLETENESS",
+    "PUBLIC_SIGNER_IDENTITY",
+    "NON_REPUDIATION",
+    "LEGAL_ADMISSIBILITY",
+    "COMPLIANCE_OR_ETHICAL_CORRECTNESS",
+    "APPEND_ONLY_PERSISTENCE",
+    "RFC3161_REQUEST_RESPONSE_PAIR_PRESENCE",
+    "INDEPENDENT_TIME_OF_EXISTENCE",
+    "THIRD_PARTY_VERIFIER_INDEPENDENCE",
+    "LIVE_INSTITUTIONAL_DEPLOYMENT",
+    "PRODUCTION_READINESS"
+  ],
+  "inventory_boundary_note": "This manifest inventories every ordinary disclosed file and SHA256SUMS through its digest field. It does not hash itself. The complete ZIP, including this manifest, is anchored by the detached outer-ZIP receipt."
+}

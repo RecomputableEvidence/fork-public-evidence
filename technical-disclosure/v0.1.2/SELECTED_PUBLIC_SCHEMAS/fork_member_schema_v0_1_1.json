@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fork_member_schema_v0_1_1.json",
+  "title": "Fork Member Artifact Schema v0.1.1",
+  "description": "Schema for individual workflow event artifacts within a Fork evidence packet. Each member must declare its artifact class, fixture identity, and authority attribution.",
+  "type": "object",
+  "required": [
+    "_fork_artifact_class",
+    "_fork_fixture_id",
+    "_fork_fixture_class",
+    "_fork_authority_note",
+    "_fork_interpretation_authority"
+  ],
+  "properties": {
+    "_fork_artifact_class": {
+      "type": "string",
+      "enum": [
+        "SOURCE_ASSERTION",
+        "AI_OUTPUT",
+        "HUMAN_REVIEW_RECORD",
+        "INSTITUTIONAL_DISPOSITION",
+        "PACKET_MEMBERSHIP",
+        "PACKET_MANIFEST",
+        "SEAL_BINDING",
+        "TIMESTAMP_ANCHOR",
+        "VERIFICATION_RESULT"
+      ],
+      "description": "The declared class of this artifact. Governs its role in the packet and the authority distinctions Fork preserves for it."
+    },
+    "_fork_fixture_id": {
+      "type": "string",
+      "description": "Unique identifier for the fixture to which this artifact belongs."
+    },
+    "_fork_fixture_class": {
+      "type": "string",
+      "enum": [
+        "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+        "PRODUCTION_WORKFLOW_EVENT"
+      ],
+      "description": "Whether this artifact is part of a synthetic reference corpus or a production workflow event."
+    },
+    "_fork_source_truth": {
+      "type": "string",
+      "enum": [
+        "NOT_CLAIMED",
+        "ASSERTED_BY_SOURCE"
+      ],
+      "description": "Fork's position on the truth of the content. NOT_CLAIMED means Fork does not adopt or certify the content as true."
+    },
+    "_fork_production_data": {
+      "type": "string",
+      "description": "Declares whether production data is present. Must be NONE for synthetic corpus artifacts."
+    },
+    "_fork_authority_note": {
+      "type": "string",
+      "description": "Required plain-language statement of the authority boundary for this artifact type. Must distinguish what Fork records from what Fork establishes."
+    },
+    "_fork_interpretation_authority": {
+      "type": "string",
+      "description": "Identifies who holds the authority to interpret or resolve questions about this artifact that Fork does not address."
+    }
+  },
+  "additionalProperties": true,
+  "_schema_note": "Domain-specific member properties remain extensible. Required evidentiary-frame fields are schema-declared. Class-specific semantic non-promotion rules are mechanically enforced by verify_public_disclosure.py."
+}
