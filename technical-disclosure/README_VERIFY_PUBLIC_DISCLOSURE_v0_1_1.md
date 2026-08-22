@@ -34,9 +34,9 @@ python3 verify_public_disclosure.py
 Windows PowerShell:
 
 ```powershell
-Expand-Archive .\FORK_PUBLIC_TECHNICAL_DISCLOSURE_BUNDLE_v0_1_1.zip -DestinationPath .ork_public_v0_1_1 -Force
-Set-Location .ork_public_v0_1_1\FORK_PUBLIC_DISCLOSURE_v0_1_1
-python .erify_public_disclosure.py
+Expand-Archive .\FORK_PUBLIC_TECHNICAL_DISCLOSURE_BUNDLE_v0_1_1.zip -DestinationPath .\fork_public_v0_1_1 -Force
+Set-Location .\fork_public_v0_1_1\FORK_PUBLIC_DISCLOSURE_v0_1_1
+python .\verify_public_disclosure.py
 if ($LASTEXITCODE -ne 0) { throw "PUBLIC_DISCLOSURE_VERIFICATION_FAILURE" }
 ```
 
