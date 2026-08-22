@@ -1,0 +1,52 @@
+{
+  "record_id": "FORK-ADOPTION-REPOSITORY-INSTANTIATION-RECEIPT-001-v0.1-CANDIDATE",
+  "record_kind": "ADOPTION_FACING_REPOSITORY_INSTANTIATION_RECEIPT",
+  "status": "CANDIDATE_RECEIPT_NO_ADMISSION_EFFECT",
+  "bound_source": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "base_commit": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "base_tree": "94e68d68547222506fbf67665db4d75b8649eac9",
+    "candidate_branch": "adoption/five-band-instantiation-v0.1-candidate",
+    "implementation_head_before_this_receipt": "aaedb04344b78f240d4fb8382f37401054a13f8f"
+  },
+  "observed_delta_before_this_receipt": {
+    "ahead_by": 11,
+    "behind_by": 0,
+    "merge_base": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "changed_files": [
+      "README.md",
+      "docs/adoption/FORK_ADOPTION_FACING_PROJECTION_v0_1_CANDIDATE.json",
+      "docs/adoption/FORK_ADOPTION_NON_CLAIMS_v0_1_CANDIDATE.md",
+      "docs/adoption/FORK_ADOPTION_PURPOSE_INDEX_v0_1_CANDIDATE.json",
+      "docs/adoption/FORK_ADOPTION_SOURCE_BINDINGS_v0_1_CANDIDATE.json",
+      "docs/adoption/README.md",
+      "docs/adoption/evidence/ADVERSARIAL_EXECUTION_BINDING_v0_1.json",
+      "docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_2026_08_21.txt",
+      "docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_BINDING_v0_1.json",
+      "technical-disclosure/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md",
+      "technical-disclosure/requirements.txt"
+    ]
+  },
+  "mechanical_repairs": [
+    "Restored literal PowerShell path backslashes in technical-disclosure/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md.",
+    "Converted technical-disclosure/requirements.txt to comments-only valid pip syntax without adding dependencies."
+  ],
+  "projection_instantiation": {
+    "bands": ["A_ADOPTION_BASELINE", "B_QUALIFIED_BOUNDED_PROOF_SURFACES", "C_ACTIVE_RESEARCH", "D_REPAIR_EXCLUDED_FROM_ADOPTION", "E_HISTORICAL_PRESERVATION"],
+    "native_standing_rewritten": false,
+    "unbound_planned_surfaces_promoted": false,
+    "research_program_expanded": false
+  },
+  "effects": {
+    "main": "NONE",
+    "preservation_branch": "NONE",
+    "native_standing": "NONE",
+    "admission": "NONE",
+    "execution_authorization": "NONE",
+    "pilot_authorization": "NONE",
+    "production_authorization": "NONE",
+    "branch_deletion": "NONE",
+    "gtm_or_public_scope_removal": "NONE"
+  },
+  "terminal_rule": "THIS_RECEIPT DESCRIBES THE CANDIDATE IMPLEMENTATION HEAD BEFORE ITS OWN COMMIT AND DOES NOT PREBIND ITS OWN FUTURE COMMIT, MERGE, ADMISSION, OR STANDING."
+}
