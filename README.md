@@ -17,6 +17,16 @@ Proof 001 demonstrates a bounded proposition: a review remains attached to the e
 
 A passing proof or checker establishes only the bounded result declared by that surface. It does not establish truth, correctness, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, or institutional authority.
 
+## Adoption-facing evidence map — candidate
+
+For a bounded adopter-facing view of the existing governed corpus, use:
+
+- [Adoption-facing five-band projection](docs/adoption/README.md)
+- [Machine-readable five-band projection](docs/adoption/FORK_ADOPTION_FACING_PROJECTION_v0_1_CANDIDATE.json)
+- [Purpose-oriented evidence index](docs/adoption/FORK_ADOPTION_PURPOSE_INDEX_v0_1_CANDIDATE.json)
+
+This is a non-authoritative projection over exact native coordinates. Projection inclusion does not change native standing; source-evidence admission does not become proof-packaging admission; exterior recomputation does not become generalized validation; and research remains research unless its own governed gates close.
+
 <!-- FORK_BRANCH_STANDING_AND_TEMPORAL_ROUTING:START -->
 
 ## Branch standing and temporal routing
