@@ -1,0 +1,52 @@
+{
+  "admission_effect": "NONE",
+  "finding_disposition_against_bound_governed_source": [
+    {
+      "basis": "README@0c60 includes direct cross-platform Python proof recomputation commands plus a cross-platform fallback link. Historical main finding remains preserved.",
+      "finding": "F-001_ROOT_README_WINDOWS_ONLY_FRONT_DOOR",
+      "governed_source_status": "NOT_REPRODUCED_AS_GENERAL_FRONT_DOOR_DEFECT_AT_0C60",
+      "original_subject": "fd93d051235ec43bee925878bc916d09179b3c90"
+    },
+    {
+      "candidate_branch_action": "MECHANICAL_REPAIR_INCLUDED_NO_STANDING_EFFECT",
+      "finding": "F-002_TECHNICAL_DISCLOSURE_CONTROL_CHARACTERS",
+      "governed_source_status": "CONFIRMED_PRESENT_AT_0C60"
+    },
+    {
+      "candidate_branch_action": "MECHANICAL_REPAIR_INCLUDED_NO_STANDING_EFFECT",
+      "finding": "F-003_REQUIREMENTS_TXT_INVALID_PIP_SYNTAX",
+      "governed_source_status": "CONFIRMED_PRESENT_AT_0C60"
+    },
+    {
+      "candidate_branch_action": "PRESERVED_ONLY_NO_REMOVAL_OR_PRIVATIZATION",
+      "finding": "F-004_PUBLIC_SCOPE_GTM_DISCLOSURE_QUESTION",
+      "governed_source_status": "OPEN_GOVERNANCE_DISPOSITION"
+    },
+    {
+      "candidate_branch_action": "NO_BRANCH_DELETION_OR_CLEANUP_PERFORMED",
+      "finding": "F-005_BRANCH_HYGIENE_VARIANTS",
+      "governed_source_status": "BOUNDED_BRANCH_NAME_OBSERVATION_CONFIRMED_IN_PRIOR_EXECUTION_PACKAGE"
+    }
+  ],
+  "record_id": "CLAUDE-REPOSITORY-REVIEW-BINDING-2026-08-21-v0.1",
+  "reported_recomputation": {
+    "command": "python3 verify_public_disclosure.py",
+    "gates_fail": 0,
+    "gates_not_checked": 1,
+    "gates_pass": 9,
+    "working_directory": "technical-disclosure"
+  },
+  "review_limits": [
+    "Correctness of ~90 individual checker scripts not verified beyond the one executed.",
+    "Two external link-resolution questions not verified.",
+    "Review subject does not include later unmerged branches by implication."
+  ],
+  "review_sha256": "e11d4c4ca8831285d7ecef0974c352373d7c9c2bee6d546240134e8549d03af0",
+  "review_subject": {
+    "commit": "fd93d051235ec43bee925878bc916d09179b3c90",
+    "ref": "main",
+    "repository": "RecomputableEvidence/fork-public-evidence"
+  },
+  "standing_effect": "NONE",
+  "status": "EXTERIOR_REVIEW_EVIDENCE_ONLY"
+}
