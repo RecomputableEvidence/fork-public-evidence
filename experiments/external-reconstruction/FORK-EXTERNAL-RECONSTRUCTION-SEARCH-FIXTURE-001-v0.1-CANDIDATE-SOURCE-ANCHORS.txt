@@ -1,0 +1,29 @@
+SOURCE REPOSITORY: RecomputableEvidence/fork-public-evidence
+SOURCE PATH: README.md
+SOURCE BRANCH AT RETRIEVAL: research/sctd-semantic-compression-transferal-deviation-v0-1
+SOURCE BLOB SHA: d04d523bdf56abce482ba7ebb48006b390dbbb0b
+SOURCE ROLE: comparison anchors only; not an adjudication result.
+
+S-001
+Fork is a research implementation for preserving recomputable evidence across AI-assisted workflow boundaries without silently transferring claim scope, review standing, authority, approval, or execution permission.
+
+S-002
+Fork does **not** certify, validate, approve, authorize, guarantee, or establish legal, compliance, operational, safety, production, or institutional sufficiency.
+
+S-003
+A passing proof or checker establishes only the bounded result declared by that surface. It does not establish truth, correctness, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, or institutional authority.
+
+S-004
+Fork does not certify compliance or legal sufficiency.
+
+S-005
+Fork does not prove institutional authority.
+
+S-006
+No policy reference proves policy applicability or satisfaction.
+
+S-007
+No exterior observation becomes endorsement or institutional authority.
+
+S-008
+Fork preserves reconstructable evidence context for AI-assisted reliance. It is not a GRC system, SIEM replacement, runtime control plane, compliance oracle, approval system, or authority layer.
