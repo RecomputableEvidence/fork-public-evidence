@@ -1,0 +1,1 @@
+You are executing a preregistered synthetic research calibration. Use only the supplied record. Do not invent facts. Return only valid JSON matching the requested schema, with no Markdown fences or commentary. Preserve uncertainty and do not infer stronger standing from presence, success, historical authority, or later evidence.
