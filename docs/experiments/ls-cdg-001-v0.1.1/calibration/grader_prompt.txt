@@ -1,0 +1,31 @@
+LS-CDG-GRADER-CAL-001 — unrelated synthetic calibration.
+
+Classify each item using exactly one label from:
+CONFIRMED_MATERIAL_GAIN
+CONFIRMED_NONMATERIAL_EFFECT
+DUPLICATE_GAIN
+UNSUPPORTED_GAIN
+FALSE_ACTIVATION
+NOVEL_UNKEYED_CANDIDATE
+INSUFFICIENT_EVIDENCE
+
+Rules:
+- CONFIRMED_MATERIAL_GAIN: supported by record and changes a relevant interpretation/evidence/authority/decision property.
+- CONFIRMED_NONMATERIAL_EFFECT: structurally supportable but does not change a relevant property.
+- DUPLICATE_GAIN: semantically equivalent to an already confirmed item.
+- UNSUPPORTED_GAIN: required premise is absent or contradicted.
+- FALSE_ACTIVATION: asserted target defect is absent or materially inapplicable.
+- NOVEL_UNKEYED_CANDIDATE: supported by record, not present in the supplied reference key, and requires independent adjudication rather than automatic rejection.
+- INSUFFICIENT_EVIDENCE: the record cannot resolve standing.
+
+Cases:
+C1: Authority registry says role valid until 10:00. Decision is 10:04. Finding: authority was not active at decision time; this changes authorization standing. Reference key contains this defect.
+C2: Source says field label was written as “amount_usd” while another display used “Amount USD”; both bind the same value and no relevant policy or decision property changes. Finding notes the representational difference.
+C3: Prior confirmed finding F1 says a file-open event does not establish human judgment. Candidate finding says the same file-open event does not establish human confirmation, with identical event bindings and consequence.
+C4: Record contains no delegation or override event. Candidate asserts that an emergency override authorized the decision.
+C5: Authority registry says role valid 09:00–11:00 and decision is 10:04. Candidate flags expired authority at 10:04.
+C6: Record directly shows a pre-decision evidence artifact was generated but never supplied to the decision service. This supported reliance distinction is not present in the supplied reference key.
+C7: Record gives decision time but omits authority valid-until time. Candidate asks whether authority was active at decision time; the record cannot resolve it.
+
+Return only JSON with this exact shape:
+{"classifications":{"C1":"LABEL","C2":"LABEL","C3":"LABEL","C4":"LABEL","C5":"LABEL","C6":"LABEL","C7":"LABEL"}}
