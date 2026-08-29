@@ -1,0 +1,113 @@
+name: LS-CDG-001 v0.1.1 hosted preflight
+
+on:
+  push:
+    branches:
+      - experiment/ls-cdg-001-v0.1.1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  models: read
+
+jobs:
+  hosted-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare evidence directory
+        run: mkdir -p artifacts/ls-cdg-001-hosted-preflight
+
+      - name: Budget calibration — 256
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/ls_cdg_001_github_models_runner_v0_1.py \
+            --model llama \
+            --system docs/experiments/ls-cdg-001-v0.1.1/calibration/system.txt \
+            --prompt docs/experiments/ls-cdg-001-v0.1.1/calibration/budget_prompt.txt \
+            --max-tokens 256 \
+            --out-dir artifacts/ls-cdg-001-hosted-preflight/budget-256
+
+      - name: Budget calibration — 384
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/ls_cdg_001_github_models_runner_v0_1.py \
+            --model llama \
+            --system docs/experiments/ls-cdg-001-v0.1.1/calibration/system.txt \
+            --prompt docs/experiments/ls-cdg-001-v0.1.1/calibration/budget_prompt.txt \
+            --max-tokens 384 \
+            --out-dir artifacts/ls-cdg-001-hosted-preflight/budget-384
+
+      - name: Budget calibration — 512
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/ls_cdg_001_github_models_runner_v0_1.py \
+            --model llama \
+            --system docs/experiments/ls-cdg-001-v0.1.1/calibration/system.txt \
+            --prompt docs/experiments/ls-cdg-001-v0.1.1/calibration/budget_prompt.txt \
+            --max-tokens 512 \
+            --out-dir artifacts/ls-cdg-001-hosted-preflight/budget-512
+
+      - name: Grader calibration — Llama
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/ls_cdg_001_github_models_runner_v0_1.py \
+            --model llama \
+            --system docs/experiments/ls-cdg-001-v0.1.1/calibration/system.txt \
+            --prompt docs/experiments/ls-cdg-001-v0.1.1/calibration/grader_prompt.txt \
+            --max-tokens 512 \
+            --out-dir artifacts/ls-cdg-001-hosted-preflight/grader-llama
+
+      - name: Grader calibration — DeepSeek
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/ls_cdg_001_github_models_runner_v0_1.py \
+            --model deepseek \
+            --system docs/experiments/ls-cdg-001-v0.1.1/calibration/system.txt \
+            --prompt docs/experiments/ls-cdg-001-v0.1.1/calibration/grader_prompt.txt \
+            --max-tokens 512 \
+            --out-dir artifacts/ls-cdg-001-hosted-preflight/grader-deepseek
+
+      - name: Validate frozen preflight
+        continue-on-error: true
+        run: python tools/validate_ls_cdg_001_preflight_v0_1.py artifacts/ls-cdg-001-hosted-preflight
+
+      - name: Upload preflight evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ls-cdg-001-v0.1.1-hosted-preflight
+          path: artifacts/ls-cdg-001-hosted-preflight
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Enforce preflight gate
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('artifacts/ls-cdg-001-hosted-preflight/preflight_result.json')
+          if not p.exists():
+              raise SystemExit('preflight result missing')
+          value=json.loads(p.read_text())
+          print(json.dumps(value,indent=2))
+          if value.get('epoch0_generation_gate') != 'PASS':
+              raise SystemExit('LS-CDG-001 Epoch 0 remains blocked')
+          PY
