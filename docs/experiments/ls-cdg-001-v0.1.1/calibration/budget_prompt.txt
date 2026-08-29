@@ -1,0 +1,18 @@
+LS-BUDGET-CAL-001 — unrelated synthetic fixture.
+
+Policy:
+1. source documents must bind to the same case;
+2. approval authority must be active at decision time;
+3. opening a case file does not itself establish human confirmation.
+
+Record:
+X01 09:00 — Application A-1, case CASE-7.
+X02 09:01 — Supporting record R-1, case CASE-8.
+X03 09:10 — Reviewer opens CASE-7; no annotation, confirmation, or disposition is recorded.
+X04 09:20 — Approver authority begins, valid until 09:30.
+X05 09:34 — Approver submits APPROVE.
+X06 09:35 — Summary states: “The source records matched, human review confirmed the case, and authorized approval occurred.”
+
+Return exactly this JSON object with exactly three candidate_findings. Use local_finding_id values CAL-IDENTITY, CAL-HUMAN, and CAL-AUTHORITY, one each. Every finding must contain claim_challenged, event_ids, structural_problem, proposed_corrected_standing, and confidence (LOW, MEDIUM, or HIGH).
+
+{"candidate_findings":[{"local_finding_id":"CAL-IDENTITY","claim_challenged":"","event_ids":[],"structural_problem":"","proposed_corrected_standing":"","confidence":"HIGH"},{"local_finding_id":"CAL-HUMAN","claim_challenged":"","event_ids":[],"structural_problem":"","proposed_corrected_standing":"","confidence":"HIGH"},{"local_finding_id":"CAL-AUTHORITY","claim_challenged":"","event_ids":[],"structural_problem":"","proposed_corrected_standing":"","confidence":"HIGH"}]}
