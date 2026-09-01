@@ -1,0 +1,28 @@
+{
+  "bound_source_commit": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+  "bound_source_tree": "94e68d68547222506fbf67665db4d75b8649eac9",
+  "effect": "REFERENCE_ONLY_NO_SOURCE_REWRITE",
+  "external_evidence": {
+    "adversarial_execution_package_coordinate": "sha256:5f8bc31f31ce64e7b546d154e7ae8fd04108b0567260bcf590b07a99c7d2d8a5",
+    "claude_review_sha256": "e11d4c4ca8831285d7ecef0974c352373d7c9c2bee6d546240134e8549d03af0"
+  },
+  "record_id": "FORK-ADOPTION-SOURCE-BINDINGS-001-v0.1-CANDIDATE",
+  "sources": {
+    "current_standing": {"blob": "db4e61759f0cb33977513f3f75c3deb90f8b2849", "path": "docs/preservation/current-standing/FORK_CURRENT_STANDING_PROJECTION_2026_08_08_v0_1.json"},
+    "portfolio_admission": {"blob": "201f05da2491e6dce134b8399e3afc9b72a63695", "path": "docs/preservation/admission/FORK_PROOF_PORTFOLIO_SEQUENCE_V0_2_ADMISSION_2026_08_08_v0_1.json"},
+    "portfolio_registry": {"blob": "cdfbc4eb169f81b2750bbdad45cc284bcc15ceb6", "path": "docs/proof-atlas/development/v0.2/PROOF_PORTFOLIO_REGISTRY_v0_2.json"},
+    "proof001_admission": {"blob": "0a937902eeec0cf7e4ed3aacec53d4a7ab40f930", "path": "docs/proof-atlas/admission/PR101-PROOF001-ADMISSION-ANCHOR-001/ADMISSION-ANCHOR.json"},
+    "proof001_standing": {"blob": "0475a826c8640e70c0409981e3a50235c30cf4e9", "path": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/STANDING.json"},
+    "proof002004_evidence": {"blob": "51fba530d935e4a3a30e0a83fa5f104ff63fefda", "path": "docs/preservation/admission/FORK_PROOF_002_004_SOURCE_EVIDENCE_ADMISSION_2026_08_08_v0_1.json"},
+    "proof003_evidence": {"blob": "f0951eb43009160137bf9268f09c7fd004e34ab9", "path": "docs/preservation/admission/SHAYNE_PR64_EXTERIOR_EVIDENCE_SUCCESSOR_ADMISSION_2026_08_08_v0_1.json"},
+    "proof005_disposition": {"blob": "cbca4fab1cd99e1c0fc2fd0ab4e7c2619c6db2aa", "path": "docs/verification/exterior-reviews/PROOF005_CAD_V0_2_2_EXECUTABLE_2026_08_10/GOVERNANCE_DISPOSITION_v0_1.json"},
+    "proof005_synopsis": {"blob": "acc8e8e659a034b12383852cd3512f8f49d34752", "path": "docs/verification/exterior-reviews/PROOF005_CAD_V0_2_2_EXECUTABLE_2026_08_10/CLOSURE_SYNOPSIS_FREEZE_v0_1.md"},
+    "proof_index": {"blob": "7c134c194ce23378a7607e4d3a18d9f65315975d", "path": "docs/proof-atlas/PROOF_INDEX_v0_1.json"},
+    "research_binding": {"blob": "27da645e0b8457681b5aaa3befea5d44447a6bc1", "path": "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json"},
+    "root_readme": {"blob": "d04d523bdf56abce482ba7ebb48006b390dbbb0b", "path": "README.md"},
+    "state_routing": {"blob": "ce7cd004c33feeb69e2a87088026ac216f11911f", "path": "docs/state/FORK_STATE_ROUTING_v0_4.json"},
+    "technical_readme": {"blob": "e416f82df9df5dea0bfba8d426679a54b004d904", "path": "technical-disclosure/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md"},
+    "technical_requirements": {"blob": "3fc3c4e0ab718757e18c827e061c582071af60f5", "path": "technical-disclosure/requirements.txt"},
+    "thesis_no_effect": {"blob": "6083f10bf97fdafa4fbf059532d635802f3a589b", "path": "docs/research/fork-thesis-manifestation-v0.1/NO_ADMISSION_OR_EXECUTION_EFFECT_v0_1.json"}
+  }
+}

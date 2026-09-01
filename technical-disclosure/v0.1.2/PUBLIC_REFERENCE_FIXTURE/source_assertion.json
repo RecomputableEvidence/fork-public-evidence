@@ -1,0 +1,26 @@
+{
+  "_fork_artifact_class": "SOURCE_ASSERTION",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "_fork_source_truth": "NOT_CLAIMED",
+  "_fork_source_completeness": "NOT_CLAIMED",
+  "_fork_production_data": "NONE",
+  "_fork_live_institutional_application": "NOT_ESTABLISHED",
+  "assertion_id": "SA-PUBLIC-001",
+  "asserted_by": "UPSTREAM_SOURCE_SYSTEM",
+  "assertion_role": "SOURCE_SYSTEM_INPUT",
+  "effective_timestamp": "2025-11-14T09:00:00Z",
+  "content": {
+    "subject_reference": "SYNTHETIC-ENTITY-7842",
+    "field": "credit_risk_score",
+    "asserted_value": 0.94,
+    "asserted_value_unit": "DIMENSIONLESS_PROBABILITY",
+    "source_system": "UPSTREAM_RISK_PLATFORM",
+    "source_system_version": "NOT_DISCLOSED_BY_SOURCE",
+    "calculation_method": "NOT_DISCLOSED_BY_SOURCE"
+  },
+  "_fork_authority_note": "This value is a source assertion. Fork records what was asserted. Fork does not adopt, verify, or endorse the source calculation method or the truth of the asserted value.",
+  "_fork_interpretation_authority": "INSTITUTION_OR_AUTHORIZED_REVIEWER",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z"
+}

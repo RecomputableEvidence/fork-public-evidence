@@ -1,0 +1,58 @@
+{
+  "record_id": "CLAUDE-ADOPTION-CANDIDATE-DELTA-BINDING-2026-08-21-v0.1",
+  "record_kind": "EXTERIOR_REVIEW_SOURCE_BINDING",
+  "status": "PARTIAL_EXTERIOR_DELTA_REVIEW_EVIDENCE_ONLY",
+  "source_path": "docs/adoption/evidence/CLAUDE_ADOPTION_CANDIDATE_DELTA_RETURN_2026_08_21.txt",
+  "source_git_blob_sha": "36e9f57bb699dd0b781e7c94a12669cfc7d351e9",
+  "review_subject": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "candidate_commit": "a16b1905923354538d6bed1d231fdc810e3d531f",
+    "comparison_base": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "candidate_branch_context": "adoption/five-band-instantiation-v0.1-candidate"
+  },
+  "reported_acquisition": {
+    "fresh_clone": true,
+    "detached_exact_candidate": true,
+    "clean_tree": true,
+    "candidate_on_main": false,
+    "changed_files": 12,
+    "insertions": 506,
+    "deletions": 11
+  },
+  "reported_checks": [
+    {
+      "check": "README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1_CONTROL_BYTES",
+      "result": "REPAIRED",
+      "detail": "No 0x0b or 0x0c bytes reported; literal PowerShell paths observed."
+    },
+    {
+      "check": "TECHNICAL_DISCLOSURE_REQUIREMENTS_PIP_SYNTAX",
+      "result": "REPAIRED",
+      "detail": "Comments-only requirements file; pip install reported exit 0."
+    },
+    {
+      "check": "TECHNICAL_DISCLOSURE_VERIFIER_AT_EXACT_CANDIDATE",
+      "result": "FAIL",
+      "detail": "BUNDLE FILE DIGEST MISMATCH: README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md; reported exit status 1."
+    }
+  ],
+  "reviewer_additional_assertion": {
+    "subject": "F-001 current-source disposition",
+    "assertion": "Reviewer reported no cross-platform Python path at README@0c60 after searching for python3 and inspecting the PowerShell block.",
+    "standing": "REVIEWER_ASSERTION_REQUIRES_SEPARATE_EXACT_SOURCE_RECONCILIATION"
+  },
+  "requested_items_not_supplied_by_reviewer": [
+    "Q1 five-band fidelity disposition",
+    "Q2 complete silent-promotion disposition",
+    "Q4 route-intelligibility disposition",
+    "final bounded disposition token"
+  ],
+  "standing_effect": "NONE",
+  "admission_effect": "NONE",
+  "authority_effect": "NONE",
+  "non_claims": [
+    "The reported verifier failure is preserved as an exterior observation against the exact candidate subject.",
+    "The reviewer's additional F-001 assertion is not automatically adopted as Fork's current-source finding.",
+    "This partial return does not supply the requested final review disposition."
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fork_verification_result_schema_v0_1_1.json",
+  "title": "Fork Verification Result Schema v0.1.1",
+  "description": "Schema for the selected public verification result. Top-level fields are closed. Gate-specific detail fields remain extensible; verifier logic enforces cross-field counts and prohibited aggregate fields.",
+  "type": "object",
+  "required": [
+    "_fork_artifact_class",
+    "_fork_verification_result_class",
+    "_fork_fixture_id",
+    "_fork_fixture_class",
+    "_fork_timestamp_semantics",
+    "verification_run_id",
+    "packet_id",
+    "verification_timestamp",
+    "public_disclosure_build_time",
+    "verification_method_declared",
+    "gate_results",
+    "verification_summary",
+    "_fork_result_note",
+    "_fork_not_established"
+  ],
+  "properties": {
+    "_fork_artifact_class": {
+      "type": "string",
+      "const": "VERIFICATION_RESULT"
+    },
+    "_fork_verification_result_class": {
+      "type": "string",
+      "const": "SELECTED_PUBLIC_VERIFICATION_RESULT"
+    },
+    "_fork_fixture_id": {
+      "type": "string"
+    },
+    "_fork_fixture_class": {
+      "type": "string",
+      "const": "DECLARED_SYNTHETIC_REFERENCE_CORPUS"
+    },
+    "_fork_timestamp_semantics": {
+      "type": "string"
+    },
+    "verification_run_id": {
+      "type": "string"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "verification_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "public_disclosure_build_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verification_method_declared": {
+      "type": "string"
+    },
+    "gate_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "gate_id",
+          "gate_name",
+          "result",
+          "result_reason"
+        ],
+        "properties": {
+          "gate_id": {
+            "type": "string"
+          },
+          "gate_name": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_CHECKED"
+            ]
+          },
+          "result_reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "verification_summary": {
+      "type": "object",
+      "required": [
+        "gates_declared",
+        "gates_pass",
+        "gates_not_checked",
+        "gates_fail",
+        "aggregate_trust_verdict",
+        "aggregate_validity_verdict",
+        "aggregate_compliance_verdict"
+      ],
+      "properties": {
+        "gates_declared": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gates_pass": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gates_not_checked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "gates_fail": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "aggregate_trust_verdict": {
+          "type": "string",
+          "const": "NOT_EMITTED"
+        },
+        "aggregate_validity_verdict": {
+          "type": "string",
+          "const": "NOT_EMITTED"
+        },
+        "aggregate_compliance_verdict": {
+          "type": "string",
+          "const": "NOT_EMITTED"
+        }
+      },
+      "additionalProperties": false
+    },
+    "_fork_result_note": {
+      "type": "string"
+    },
+    "_fork_not_established": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false,
+  "_schema_note": "Top-level unexpected fields, including TRUSTED or PACKET_VALID, are rejected. Cross-field count equality, recursive prohibited-key scanning, and gate-specific semantics are mechanically enforced by verify_public_disclosure.py."
+}

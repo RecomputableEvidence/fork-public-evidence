@@ -1,0 +1,52 @@
+{
+  "schema_version": "v0.5-candidate",
+  "record_kind": "fork_state_routing",
+  "route_id": "FORK_STATE_ROUTING_v0_5_CANDIDATE",
+  "status": "CANDIDATE_ROUTING_ONLY_NO_STANDING_EFFECT",
+  "route_scope": "HUMAN_FIRST_DISCOVERY_AND_PURPOSE_ROUTING_ONLY",
+  "construction_parent": "be9edd66a5e10d973ae070b28c59599d112173f7",
+  "candidate_branch": "adoption/five-band-instantiation-v0.1.1-candidate",
+  "self_commit": "NOT_PREBOUND",
+  "predecessor_route": {
+    "path": "docs/state/FORK_STATE_ROUTING_v0_4.json",
+    "standing": "PRESERVED_PREDECESSOR_ROUTE_NOT_REWRITTEN"
+  },
+  "human_routes": {
+    "root_orientation": "README.md",
+    "reviewer_start": "docs/REVIEWER_START_HERE_v0_2.md",
+    "public_review_quickstart": "docs/review/PUBLIC_REVIEW_QUICKSTART_v0_2.md",
+    "bounded_proof": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1/README.md",
+    "adoption_integration": "docs/adoption/README.md",
+    "research_and_standing": [
+      "docs/research/fork-research-program-v0.1/README.md",
+      "docs/preservation/current-standing/FORK_CURRENT_STANDING_PROJECTION_2026_08_08_v0_1.json"
+    ],
+    "failure_and_history": "docs/preservation/failure-mode-archive-v0.1/README.md",
+    "architecture": "docs/modular-surface/FORK_MODULAR_SURFACE_v0_1.md",
+    "technical_disclosure_successor": "technical-disclosure/v0.1.2/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_2.md"
+  },
+  "routing_rules": [
+    "Expose purpose before exact-coordinate depth on the human entry surface.",
+    "Keep machine standing and source bindings one layer beneath the human route.",
+    "Do not delete or rewrite predecessor routing documents merely because they are no longer primary entry points.",
+    "Do not infer native standing from route placement.",
+    "Do not make a candidate route its own future evidentiary checkpoint."
+  ],
+  "effects": {
+    "native_standing": "NONE",
+    "evidence_standing": "NONE",
+    "review_standing": "NONE",
+    "authority_state": "NONE",
+    "admission": "NONE",
+    "execution_state": "NONE",
+    "main_ref": "NONE",
+    "preservation_ref": "NONE",
+    "repository_settings": "NONE"
+  },
+  "non_claims": [
+    "This candidate routing record does not supersede predecessor evidence or standing records.",
+    "Human-first routing does not simplify or compress the underlying evidence graph.",
+    "A route link is not admission, validation, endorsement, authority, pilot readiness, or production readiness."
+  ],
+  "terminal_rule": "THIS_RECORD_MUST_NOT_PREBIND_ITS_OWN_FUTURE_COMMIT_MERGE_ADMISSION_OR_STANDING"
+}

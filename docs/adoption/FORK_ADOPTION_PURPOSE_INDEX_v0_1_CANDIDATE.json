@@ -1,0 +1,47 @@
+{
+  "bound_projection": "FORK-ADOPTION-FACING-PROJECTION-001-v0.1-CANDIDATE",
+  "non_claims": [
+    "Purpose routing does not change native standing.",
+    "A purpose match does not imply the referenced surface is admitted for production use.",
+    "Unbound planned surfaces are intentionally omitted from answer routes rather than inferred from transcript proximity."
+  ],
+  "queries": [
+    {
+      "answer_ceiling": "Use Proof 001 only within its exact replay and correction-retained scope.",
+      "entries": ["A-002"],
+      "question": "Can review standing silently travel to a successor artifact?"
+    },
+    {
+      "answer_ceiling": "Use bounded source evidence and preserved failure/correction lineage; do not infer packaging admission.",
+      "entries": ["B-002", "E-003", "E-004"],
+      "question": "Does a correction erase predecessor failure?"
+    },
+    {
+      "answer_ceiling": "Use only the declared deterministic closed-set simulation scope; live/open-ended interoperability is not established.",
+      "entries": ["B-003"],
+      "question": "Can evidence cross systems without importing authority?"
+    },
+    {
+      "answer_ceiling": "Repository-bound baseline; model remains PROVISIONAL_RESEARCH_BASELINE with empirical and independent validation not established.",
+      "entries": ["A-001", "C-001"],
+      "question": "What is Fork's governed research/model standing?"
+    },
+    {
+      "answer_ceiling": "Evidence and packaging standing remain distinct for each entry.",
+      "entries": ["B-001", "B-002", "B-003", "B-004"],
+      "question": "What qualified exterior evidence exists without proof admission?"
+    },
+    {
+      "answer_ceiling": "Repair/exclusion does not erase historical evidence and does not authorize successor standing.",
+      "entries": ["D-001", "D-002", "D-003", "D-004"],
+      "question": "What is currently blocked from the adoption route by known defect or unresolved governance disposition?"
+    },
+    {
+      "answer_ceiling": "Historical presence does not imply current defect or current standing.",
+      "entries": ["E-001", "E-002", "E-003", "E-004"],
+      "question": "Where are adverse results and predecessor states preserved?"
+    }
+  ],
+  "record_id": "FORK-ADOPTION-PURPOSE-INDEX-001-v0.1-CANDIDATE",
+  "status": "CANDIDATE_PRESENTATION_ONLY"
+}

@@ -1,0 +1,198 @@
+{
+  "record_id": "FORK-ADOPTION-FACING-PROJECTION-001-v0.1-CANDIDATE",
+  "record_kind": "EXISTING_FIVE_BAND_PROJECTION_REAL_CORPUS_INSTANTIATION",
+  "status": "CANDIDATE_PRESENTATION_INSTANTIATION_ONLY",
+  "created_at": "2026-08-21T17:04:00-07:00",
+  "bound_source": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "commit": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "tree": "94e68d68547222506fbf67665db4d75b8649eac9",
+    "branch_context": "preservation/clean-continuance-v0.1",
+    "claude_review_subject": "main@fd93d051235ec43bee925878bc916d09179b3c90"
+  },
+  "invariants": [
+    "PROJECTION_NOT_RELOCATION",
+    "PROJECTION_INCLUSION != NATIVE_STANDING",
+    "REPOSITORY_PRESENCE != ADMISSION",
+    "SOURCE_EVIDENCE_ADMISSION != PROOF_PACKAGING_ADMISSION",
+    "SPECIFICATION_ADOPTION != IMPLEMENTED_CAPABILITY",
+    "EXTERIOR_RECOMPUTATION != GENERAL_VALIDATION",
+    "VALIDATION_RESULT != GOVERNANCE_EFFECT"
+  ],
+  "bands": {
+    "A_ADOPTION_BASELINE": [
+      {
+        "entry_id": "A-001",
+        "title": "Fork Research Program v0.1 — repository-bound governed primitives",
+        "subject": "docs/research/fork-research-program-v0.1",
+        "native_standing": "PROVISIONAL_RESEARCH_BASELINE",
+        "admission_binding": "docs/preservation/admission/fork-research-program-v0.1/PR113_REPOSITORY_ADMISSION_BINDING_v0_1.json",
+        "binding_scope": "STANDALONE_ARTIFACT_SET_ADMITTED_AT_EXACT_REPOSITORY_COORDINATE; REPOSITORY_BINDING_BLOCKER_SATISFIED_ONLY",
+        "claim_ceiling": "Repository binding does not establish empirical validation, independent validation, pilot eligibility, production standing, or model-standing advancement."
+      },
+      {
+        "entry_id": "A-002",
+        "title": "Proof 001 — A Review Does Not Silently Travel",
+        "subject": "docs/proof-atlas/PROOF-001-review-does-not-silently-travel-v0.1",
+        "native_standing": "PROOF_001_PACKAGING_ADMITTED; UNDERLYING_REPLAY_ADMITTED_LINEAR_REPLAY_WITH_CORRECTION_REQUIRED_RETAINED",
+        "admission_binding": "docs/proof-atlas/admission/PR101-PROOF001-ADMISSION-ANCHOR-001/ADMISSION-ANCHOR.json",
+        "qualification": "UNDERLYING_EXTERIOR_DISPOSITION_REPRODUCED_WITH_CORRECTION_REQUIRED",
+        "claim_ceiling": "Bounded exact-replay proposition only; no truth, compliance, legal sufficiency, safety, production readiness, present reliance, institutional authority, or execution permission."
+      },
+      {
+        "entry_id": "A-003",
+        "title": "Proof Portfolio Governance Sequence v0.2",
+        "subject": "docs/proof-atlas/development/v0.2",
+        "native_standing": "ADMITTED_CURRENT_GOVERNANCE_CONTROL_SURFACE",
+        "admission_binding": "docs/preservation/admission/FORK_PROOF_PORTFOLIO_SEQUENCE_V0_2_ADMISSION_2026_08_08_v0_1.json",
+        "claim_ceiling": "Sequence admission does not admit unfinished proofs, advance candidate-model standing, or authorize execution, pilot, or production."
+      }
+    ],
+    "B_QUALIFIED_BOUNDED_PROOF_SURFACES": [
+      {
+        "entry_id": "B-001",
+        "title": "Proof 003 — admitted exterior evidence successor",
+        "subject": "docs/verification/exterior-reviews/SHAYNE_PR64_MACOS_2026_07_30",
+        "native_standing": "EVIDENCE_ONLY; REVIEWER_DECLARED_REPRODUCED_WITHIN_DECLARED_SCOPE",
+        "standing_basis": "docs/preservation/admission/SHAYNE_PR64_EXTERIOR_EVIDENCE_SUCCESSOR_ADMISSION_2026_08_08_v0_1.json",
+        "claim_ceiling": "Evidence-only admission; proof packaging and broader independent validation remain unestablished."
+      },
+      {
+        "entry_id": "B-002",
+        "title": "Proof 002 — Correction Does Not Erase Failure",
+        "subject": "PR65@479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+        "native_standing": "SOURCE_EVIDENCE_ADMISSION_RECORDED_WITH_BOUNDED_QUALIFICATION; PROOF_PACKAGING_NOT_ADMITTED",
+        "standing_basis": "docs/preservation/admission/FORK_PROOF_002_004_SOURCE_EVIDENCE_ADMISSION_2026_08_08_v0_1.json",
+        "qualification": "TRANSMISSION_DIGEST_COMPARISON_NOT_PERFORMED; SOURCE RECORD RETAINS EXACT_HEAD_CI QUALIFICATION",
+        "claim_ceiling": "Predecessor failure remains preserved; proof packaging and global independent validation are not established."
+      },
+      {
+        "entry_id": "B-003",
+        "title": "Proof 004 — Evidence Can Cross Systems Without Authority Transfer",
+        "subject": "PR100@cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+        "native_standing": "SOURCE_EVIDENCE_ADMISSION_RECORDED_WITH_SCOPE_CHARACTERIZATION; PROOF_PACKAGING_NOT_ADMITTED",
+        "standing_basis": "docs/preservation/admission/FORK_PROOF_002_004_SOURCE_EVIDENCE_ADMISSION_2026_08_08_v0_1.json",
+        "qualification": "CLOSED_SET_PROFILE_SELECTED_GOLDEN_VALUE_EQUALITY; UNICODE_CONFUSABLE_OR_NORMALIZATION_EVASION_UNTESTED",
+        "claim_ceiling": "Declared simulation scope only; no open-ended semantic understanding, live-adapter standing, or universal authority-transfer claim."
+      },
+      {
+        "entry_id": "B-004",
+        "title": "Proof 005 v0.2.2 — executable exterior recomputation evidence",
+        "subject": "PROOF005@9e3cdd2fb6d67f9abd6233ce673341bd817d6338",
+        "native_standing": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS; PROOF_005_NOT_ADMITTED",
+        "standing_basis": "docs/verification/exterior-reviews/PROOF005_CAD_V0_2_2_EXECUTABLE_2026_08_10/GOVERNANCE_DISPOSITION_v0_1.json",
+        "qualification": "F-1/F-2/F-3 PRESERVED; F-3 ALSO ROUTED TO BAND D",
+        "claim_ceiling": "No PROOF-005 admission, proof-packaging admission, completed source grounding, model validation, pilot readiness, production standing, or authority transfer."
+      }
+    ],
+    "C_ACTIVE_RESEARCH": [
+      {
+        "entry_id": "C-001",
+        "title": "Fork Candidate Model v0.1 — empirical validation phase",
+        "subject": "docs/research/fork-research-program-v0.1",
+        "native_standing": "PROVISIONAL_RESEARCH_BASELINE",
+        "standing_basis": "docs/preservation/current-standing/FORK_CURRENT_STANDING_PROJECTION_2026_08_08_v0_1.json",
+        "claim_ceiling": "Corpus cases admitted: 0; empirical validation, independent validation, pilot eligibility, and production standing not established."
+      },
+      {
+        "entry_id": "C-002",
+        "title": "Fork thesis manifestation v0.1",
+        "subject": "docs/research/fork-thesis-manifestation-v0.1",
+        "native_standing": "BINDING_CANDIDATE_BOUNDARY; EVIDENCE_SYNTHESIS_CANDIDATE_CREATED",
+        "standing_basis": "docs/research/fork-thesis-manifestation-v0.1/NO_ADMISSION_OR_EXECUTION_EFFECT_v0_1.json",
+        "claim_ceiling": "No canonical-theory admission, seventh modular surface, Pair-001 execution, provider execution, or standing transition."
+      },
+      {
+        "entry_id": "C-003",
+        "title": "Five-band projection candidate — completed adversarial execution evidence",
+        "subject": "sha256:5f8bc31f31ce64e7b546d154e7ae8fd04108b0567260bcf590b07a99c7d2d8a5",
+        "native_standing": "EXECUTED_CANDIDATE_INSTANTIATION_EVIDENCE; NATIVE_REPOSITORY_STANDING_EFFECT_NONE",
+        "standing_basis": "docs/adoption/evidence/ADVERSARIAL_EXECUTION_BINDING_v0_1.json",
+        "qualification": "ATTEMPT_001_NONCONFORMANCE_PRESERVED; ATTEMPT_002_16_OF_16_CONFORM; IMMEDIATE_RECOMPUTATION_BYTE_IDENTICAL",
+        "claim_ceiling": "Does not qualify or admit Fork and does not establish generalized semantic-regression capability."
+      }
+    ],
+    "D_REPAIR_EXCLUDED_FROM_ADOPTION": [
+      {
+        "entry_id": "D-001",
+        "title": "Technical-disclosure Windows verification command corruption",
+        "subject": "technical-disclosure/README_VERIFY_PUBLIC_DISCLOSURE_v0_1_1.md",
+        "native_standing": "MECHANICAL_DEFECT_CONFIRMED_AT_BOUND_GOVERNED_SNAPSHOT",
+        "candidate_action": "MECHANICAL_REPAIR_ON_THIS_CANDIDATE_BRANCH_ONLY",
+        "claim_ceiling": "Does not imply verifier-logic failure or invalidate the successful Linux/macOS cold recomputation."
+      },
+      {
+        "entry_id": "D-002",
+        "title": "technical-disclosure/requirements.txt pip incompatibility",
+        "subject": "technical-disclosure/requirements.txt",
+        "native_standing": "MECHANICAL_DEFECT_CONFIRMED_AT_BOUND_GOVERNED_SNAPSHOT",
+        "candidate_action": "COMMENTS_ONLY_VALID_PIP_FILE_ON_THIS_CANDIDATE_BRANCH; NO_DEPENDENCIES_ADDED",
+        "claim_ceiling": "Does not imply third-party packages are required."
+      },
+      {
+        "entry_id": "D-003",
+        "title": "Proof 005 v0.2.2 F-3 JSON type-strictness residual",
+        "subject": "docs/verification/exterior-reviews/PROOF005_CAD_V0_2_2_EXECUTABLE_2026_08_10/GOVERNANCE_DISPOSITION_v0_1.json",
+        "native_standing": "OBSERVED_NON_ESCALATING_JSON_TYPE_STRICTNESS_GAP; PROOF_005_NOT_ADMITTED",
+        "claim_ceiling": "No escalation path established; any v0.2.3 successor remains separately gated and cannot erase predecessor evidence."
+      },
+      {
+        "entry_id": "D-004",
+        "title": "Public repository disclosure/GTM scope — governance disposition required",
+        "subject": "main@fd93d051235ec43bee925878bc916d09179b3c90",
+        "native_standing": "EXTERIOR_REVIEW_QUESTION; NO_NATIVE_STANDING_CHANGE",
+        "standing_basis": "docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_BINDING_v0_1.json",
+        "claim_ceiling": "Does not establish a PII leak and does not authorize removal, privatization, or standing change."
+      }
+    ],
+    "E_HISTORICAL_PRESERVATION": [
+      {
+        "entry_id": "E-001",
+        "title": "Proof 001 historical PUBLIC_ROUTE_STALE observation",
+        "subject": "Proof001@a273ab0a95decb0d43f1c091743a72ac4261027e",
+        "native_standing": "PRESERVED_HISTORICAL_NEGATIVE_EVIDENCE_NOT_RETROACTIVELY_REPAIRED",
+        "standing_basis": "docs/state/FORK_STATE_ROUTING_v0_4.json",
+        "claim_ceiling": "Historical stale-route evidence is not a claim that the current exact-bound route is stale."
+      },
+      {
+        "entry_id": "E-002",
+        "title": "Claude exterior repository review of public main fd93d051…",
+        "subject": "docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_2026_08_21.txt",
+        "native_standing": "EXTERIOR_REVIEW_EVIDENCE_ONLY; NO_ADMISSION_AUTHORITY",
+        "standing_basis": "docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_BINDING_v0_1.json",
+        "claim_ceiling": "Review subject is historical public main and does not validate all checkers, later branches, compliance, production readiness, or admission."
+      },
+      {
+        "entry_id": "E-003",
+        "title": "Adversarial instantiation Attempt 001 — preserved nonconformance",
+        "subject": "sha256:8a0fde7c96cb3e888990645075df9f6b9628f313f1bf6b204041fade857f0110",
+        "native_standing": "PRESERVED_NONCONFORMING_CANDIDATE_EXECUTION",
+        "standing_basis": "docs/adoption/evidence/ADVERSARIAL_EXECUTION_BINDING_v0_1.json",
+        "claim_ceiling": "Does not invalidate Attempt 002 and is not erased by its successor repair."
+      },
+      {
+        "entry_id": "E-004",
+        "title": "Repository failure-mode archive",
+        "subject": "docs/preservation/failure-mode-archive-v0.1",
+        "native_standing": "PRESERVATION_SURFACE_PRESENT_AT_BOUND_SOURCE_SNAPSHOT",
+        "claim_ceiling": "Archive presence does not convert historical failures into current defects or current standing."
+      }
+    ]
+  },
+  "declared_plan_entries_not_projected": [
+    {"surface": "D5.0 vocabulary/specification", "reason": "EXACT_NATIVE_REPOSITORY_COORDINATE_NOT_RESOLVED_IN_BOUND_0C60_SNAPSHOT", "effect": "WITHHELD_FROM_BAND_A_NO_STANDING_INFERENCE"},
+    {"surface": "Capture-Coverage family", "reason": "EXACT_NATIVE_REPOSITORY_COORDINATE_NOT_RESOLVED_IN_BOUND_0C60_SNAPSHOT", "effect": "NOT_EXPOSED_FROM_TRANSCRIPT_ONLY"},
+    {"surface": "AP-Q03 v0.1.1", "reason": "EXACT_NATIVE_REPOSITORY_COORDINATE_NOT_RESOLVED_IN_BOUND_0C60_SNAPSHOT", "effect": "NOT_EXPOSED_FROM_TRANSCRIPT_ONLY"},
+    {"surface": "D5.1 / semantic-environment / SCTD / LPT frontier", "reason": "NOT_ALL_EXACT_NATIVE_COORDINATES_BOUND_IN_THIS_SNAPSHOT", "effect": "RESEARCH_REMAINS_RESEARCH_NO_ADOPTION_ROUTE_CREATED"}
+  ],
+  "projection_effect": {
+    "changes_native_standing": false,
+    "creates_admission": false,
+    "changes_main": false,
+    "changes_preservation_branch": false,
+    "authorizes_execution": false,
+    "authorizes_pilot": false,
+    "authorizes_production": false,
+    "expands_research_program": false
+  }
+}

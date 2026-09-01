@@ -1,0 +1,30 @@
+{
+  "_fork_artifact_class": "AI_OUTPUT",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "_fork_source_truth": "NOT_CLAIMED",
+  "_fork_production_data": "NONE",
+  "output_id": "AO-PUBLIC-001",
+  "produced_by": "AI_MODEL",
+  "model_identifier": "SYNTHETIC-MODEL-REF-V1",
+  "model_version": "SYNTHETIC",
+  "prompt_version": "NOT_PUBLICLY_DISCLOSED",
+  "output_role": "AI_WORKFLOW_RECOMMENDATION",
+  "effective_timestamp": "2025-11-14T09:01:42Z",
+  "content": {
+    "recommendation": "ESCALATE_FOR_HUMAN_REVIEW",
+    "basis_summary": "Asserted source risk score exceeds configured threshold. Escalation recommended per declared workflow policy.",
+    "referenced_source_field": "credit_risk_score",
+    "referenced_source_value": 0.94,
+    "configured_threshold": 0.85,
+    "uncertainty_flags": [
+      "SOURCE_CALCULATION_METHOD_NOT_DISCLOSED",
+      "POLICY_VERSION_AT_ASSERTION_TIME_NOT_CONFIRMED"
+    ],
+    "model_confidence": "NOT_EXPRESSED"
+  },
+  "_fork_authority_note": "This record preserves AI model output as observed by Fork. Fork does not adopt, endorse, or certify the recommendation. The authority to accept or reject this output as an institutional finding rests with an authorized human reviewer.",
+  "_fork_interpretation_authority": "HUMAN_REVIEWER_OR_INSTITUTION",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z"
+}

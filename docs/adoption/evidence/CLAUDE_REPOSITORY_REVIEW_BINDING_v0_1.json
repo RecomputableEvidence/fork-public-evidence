@@ -1,0 +1,40 @@
+{
+  "record_id": "CLAUDE-REPOSITORY-REVIEW-BINDING-2026-08-21-v0.1",
+  "record_kind": "EXTERIOR_REVIEW_SOURCE_BINDING",
+  "status": "EXTERIOR_REVIEW_EVIDENCE_ONLY",
+  "source_path": "docs/adoption/evidence/CLAUDE_REPOSITORY_REVIEW_2026_08_21.txt",
+  "source_git_blob_sha": "d88a0d43ddfa5557f998dc5a8dd604d22638d387",
+  "review_subject": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "ref": "main",
+    "commit": "fd93d051235ec43bee925878bc916d09179b3c90"
+  },
+  "reported_recomputation": {
+    "working_directory": "technical-disclosure",
+    "command": "python3 verify_public_disclosure.py",
+    "gates_pass": 9,
+    "gates_not_checked": 1,
+    "gates_fail": 0
+  },
+  "reviewer_reported_findings": [
+    "F-001_ROOT_README_WINDOWS_ONLY_FRONT_DOOR",
+    "F-002_TECHNICAL_DISCLOSURE_CONTROL_CHARACTERS",
+    "F-003_REQUIREMENTS_TXT_INVALID_PIP_SYNTAX",
+    "F-004_PUBLIC_SCOPE_GTM_DISCLOSURE_QUESTION",
+    "F-005_BRANCH_HYGIENE_VARIANTS"
+  ],
+  "review_limits": [
+    "Correctness of approximately 90 individual checker scripts was not verified beyond the one executed.",
+    "Two external link-resolution questions were not verified.",
+    "Review subject does not include later unmerged branches by implication.",
+    "This binding does not adjudicate the review findings against a different repository coordinate."
+  ],
+  "standing_effect": "NONE",
+  "admission_effect": "NONE",
+  "authority_effect": "NONE",
+  "non_claims": [
+    "This record binds what Claude reported about the exact historical main subject only.",
+    "A later Fork reconciliation against another coordinate is a separate provenance event.",
+    "Exterior review evidence does not create standing, admission, endorsement, validation, or authority."
+  ]
+}

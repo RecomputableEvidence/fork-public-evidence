@@ -1,0 +1,48 @@
+{
+  "_fork_artifact_class": "PACKET_MANIFEST",
+  "_fork_fixture_id": "PUBLIC_SYNTHETIC_WORKFLOW_PACKET_001",
+  "_fork_fixture_class": "DECLARED_SYNTHETIC_REFERENCE_CORPUS",
+  "packet_id": "PKT-PUBLIC-001",
+  "packet_version": "1.0",
+  "manifest_produced_timestamp": "2025-11-14T10:23:01Z",
+  "declared_members": [
+    {
+      "member_id": "SA-PUBLIC-001",
+      "artifact_class": "SOURCE_ASSERTION",
+      "filename": "source_assertion.json",
+      "sha256": "a509d4103ce5866f214a51c247634f42c65c03c51f12eb165981c14e0a5d1042"
+    },
+    {
+      "member_id": "AO-PUBLIC-001",
+      "artifact_class": "AI_OUTPUT",
+      "filename": "ai_output.json",
+      "sha256": "b8b001225d7cc9b730716fdd5106c8b4af98b0aa229c30a989011d73b4fa858c"
+    },
+    {
+      "member_id": "HR-PUBLIC-001",
+      "artifact_class": "HUMAN_REVIEW_RECORD",
+      "filename": "human_review.json",
+      "sha256": "a5c3d07b56f4b5c5be6d0b649e91cda8be4f3861f871d6c7a72da1da2d85ee25"
+    },
+    {
+      "member_id": "ID-PUBLIC-001",
+      "artifact_class": "INSTITUTIONAL_DISPOSITION",
+      "filename": "institutional_disposition.json",
+      "sha256": "0970cd867dc40db56fec066d826d951f228c195043b1c8ae6e8c38c7468913e9"
+    }
+  ],
+  "membership_count_declared": 4,
+  "manifest_digest_method": "SHA-256 of canonical JSON (sort_keys=True, no whitespace) of the declared_members array and packet identity fields",
+  "manifest_digest_canonical_fields": [
+    "declared_members",
+    "membership_count_declared",
+    "packet_id",
+    "packet_version"
+  ],
+  "manifest_digest": "f09e56bd940b60fb24547e6bb83dd770800edd8998fea69fc16af020430453c6",
+  "_fork_manifest_note": "The manifest digest is computed from the canonical JSON representation of the declared membership structure. A verifier may independently recompute this digest from the published member hashes and confirm that the manifest has not changed since sealing.",
+  "_fork_interpretation_authority": "VERIFIER_RECOMPUTES_FROM_PUBLISHED_BYTES",
+  "_fork_timestamp_semantics": "FIXED_SYNTHETIC_FIXTURE_TIME_NOT_ACTUAL_DISCLOSURE_TIME",
+  "_fork_public_disclosure_build_time": "2026-06-11T18:49:54Z",
+  "membership_eligibility_rule_reference": "packet_membership.json#/membership_eligibility_rule"
+}
