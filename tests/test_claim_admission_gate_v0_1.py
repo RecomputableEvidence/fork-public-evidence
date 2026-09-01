@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import shutil
@@ -34,6 +35,9 @@ POLICY_SCHEMA = ROOT / "schemas/consumer_owned_claim_admission_policy_v0_1.schem
 STAGE = ROOT / "docs/preservation/control-stages/CLAIM_ADMISSION_HARDENING_STAGE_v0_1.json"
 STAGE_SCHEMA = ROOT / "schemas/claim_admission_hardening_stage_v0_1.schema.json"
 RECEIPT = ROOT / "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1.json"
+SCOPED_SELF_CHECKER = ROOT / "tools/check_claim_admission_gate_self_check_v0_1_1.py"
+SCOPED_RECEIPT = ROOT / "receipts/claim-admission/FORK_CLAIM_ADMISSION_HARDENING_SELF_CHECK_RECEIPT_v0_1_1.json"
+ORIGINAL_RECEIPT_SHA256 = "7e4883110a77d1edc3f63a76166af1773fe4ff1009d1f51fcf193e4be39fab7b"
 PROOF_SURFACE_LOCK = ROOT / "requirements-proof-surface.lock.txt"
 INSTRUMENTATION_FREEZE = Path(
     "docs/experiments/cross-system-claim-handoff-v0.1/amendments/"
@@ -219,16 +223,36 @@ def test_windows_pytest_dependency_is_pinned_and_hash_locked() -> None:
     assert "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6" in lock
 
 
-def test_committed_self_check_receipt_matches_current_checker_output() -> None:
-    completed = subprocess.run(
-        [sys.executable, str(CHECKER), "--repo-root", str(ROOT), "--self-check"],
-        cwd=str(ROOT),
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    assert completed.returncode == 0, completed.stdout
-    assert json.loads(completed.stdout) == json.loads(RECEIPT.read_text(encoding="utf-8"))
+def test_committed_self_check_receipt_matches_current_checker_output(tmp_path: Path) -> None:
+    # Preserve the predecessor receipt as historical evidence rather than
+    # rewriting its repository-wide tree cardinality.
+    assert hashlib.sha256(RECEIPT.read_bytes()).hexdigest() == ORIGINAL_RECEIPT_SHA256
+
+    def scoped_output() -> dict:
+        completed = subprocess.run(
+            [sys.executable, str(SCOPED_SELF_CHECKER), "--repo-root", str(ROOT)],
+            cwd=str(ROOT),
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        assert completed.returncode == 0, completed.stdout or completed.stderr
+        return json.loads(completed.stdout)
+
+    expected = json.loads(SCOPED_RECEIPT.read_text(encoding="utf-8"))
+    baseline = scoped_output()
+    assert baseline == expected
+
+    # Negative case: an unrelated additive repository file must not invalidate
+    # the claim-admission control-surface receipt merely by increasing global
+    # tree cardinality.
+    unrelated = ROOT / "UNRELATED_ADDITION_NEGATIVE_CASE.tmp"
+    assert not unrelated.exists()
+    try:
+        unrelated.write_text("unrelated additive repository content\n", encoding="utf-8")
+        assert scoped_output() == baseline
+    finally:
+        unrelated.unlink(missing_ok=True)
 
 
 def test_candidate_is_read_from_git_objects_not_worktree(tmp_path: Path) -> None:

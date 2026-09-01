@@ -1,0 +1,60 @@
+{
+  "checker_id": "FORK_CLAIM_ADMISSION_GATE_SCOPED_SELF_CHECK_v0_1_1",
+  "errors": [],
+  "execution_boundary": {
+    "base_sha": "WORKTREE",
+    "candidate_checkout": "NONE",
+    "candidate_code_execution": "NONE",
+    "candidate_sha": "WORKTREE",
+    "control_activation_effect": "NONE",
+    "mode": "LOCAL_SCOPED_SELF_CHECK",
+    "repository_settings_effect": "NONE"
+  },
+  "non_claims": {
+    "does_not_apply_repository_settings": true,
+    "does_not_approve_merge": true,
+    "does_not_authorize_experiment_execution": true,
+    "does_not_certify_security": true,
+    "does_not_determine_semantic_correctness": true,
+    "does_not_evaluate_producer_intent": true
+  },
+  "predecessor_checker_id": "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_GATE_v0_1",
+  "result": {
+    "admission_effect": "REVIEW_ELIGIBLE_NOT_ADMITTED",
+    "ok": true,
+    "repository_standing_effect": "NONE",
+    "result_kind": "STRUCTURAL_PASS"
+  },
+  "verification": {
+    "action_pins": {
+      "actions/checkout": "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+      "actions/setup-python": "ece7cb06caefa5fff74198d8649806c4678c61a1"
+    },
+    "changed_control_paths": [],
+    "changed_file_count": 0,
+    "failure_class_id": "CCF-001_AI_CHANGE_READINESS_PROMOTION",
+    "global_tree_entry_count": {
+      "binding": "OBSERVED_NOT_RECEIPT_BOUND"
+    },
+    "policy_activation_state": "IMPLEMENTED_DORMANT_UNTIL_PRESENT_ON_DEFAULT_BRANCH",
+    "policy_id": "FORK_CONSUMER_OWNED_CLAIM_ADMISSION_POLICY_v0_1",
+    "provenance_bound_workflow_successors": [
+      {
+        "effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL",
+        "execution_separately_gated": true,
+        "path": ".github/workflows/cross-system-claim-handoff-v0-1.yml",
+        "sha256": "46ffa57dde40955bb7ed5b517b2de397b3d0056a0e8e9bfd4593f4dd2ef38c23"
+      },
+      {
+        "effect": "HARDENED_LIVE_SUCCESSOR_BOUND_TO_ARCHIVED_ORIGINAL",
+        "execution_separately_gated": true,
+        "path": ".github/workflows/fork-proof-surface-integration.yml",
+        "sha256": "5a09b805c0b59f3d211c01eb55ac61fbde3c7ae2ab3eb19d689bc863cd3fb29e"
+      }
+    ],
+    "scope_semantics": "CLAIM_ADMISSION_CONTROL_SURFACE_ONLY",
+    "self_check_scope_id": "FORK_CLAIM_ADMISSION_CONTROL_SURFACE_SCOPE_v0_1_1",
+    "unrelated_repository_additions_affect_receipt": false,
+    "workflow_count": 11
+  }
+}
