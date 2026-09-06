@@ -1,0 +1,341 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_self_standing_projection",
+  "record_id": "FORK_SELF_STANDING_PROJECTION_2026_09_06_V0_1_CANDIDATE",
+  "record_date": "2026-09-06",
+  "time_basis": "America/Los_Angeles",
+  "projection_nature": "NON_AUTHORITATIVE_DERIVED_TEMPORAL_PROJECTION",
+  "append_only": true,
+  "repository_coordinate": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "b56b18754530e0f0562312682c4880d6c92f4a24",
+    "tree_sha": "d92f9ced9c7dc7734290c47d512b4408ad701f20"
+  },
+  "predecessor_projection": {
+    "path": "docs/preservation/current-standing/FORK_CURRENT_STANDING_PROJECTION_2026_08_08_v0_1.json",
+    "git_blob_sha": "db4e61759f0cb33977513f3f75c3deb90f8b2849",
+    "temporal_status": "HISTORICAL_PREDECESSOR",
+    "non_rewrite": true
+  },
+  "claims": [
+    {
+      "claim_id": "SSP-001",
+      "subject": "governed_repository_coordinate",
+      "statement": "The governed preservation branch was observed at b56b18754530e0f0562312682c4880d6c92f4a24 with tree d92f9ced9c7dc7734290c47d512b4408ad701f20.",
+      "finding_kind": "OBSERVATION",
+      "temporal_status": "CURRENT_AT_NAMED_COORDINATE",
+      "historical_coordinate": null,
+      "assertion_origin": "MECHANICALLY_OBSERVED",
+      "standing_effect": "OBSERVATION_ONLY_NO_STANDING_PROMOTION",
+      "evidence_provenance": [
+        {
+          "evidence_id": "E-SSP-001-GH",
+          "kind": "GITHUB_API_OBSERVATION",
+          "relation": "DIRECT_SUPPORT",
+          "source": "GitHub branch API: RecomputableEvidence/fork-public-evidence / preservation/clean-continuance-v0.1",
+          "coordinate": "b56b18754530e0f0562312682c4880d6c92f4a24",
+          "digest": "d92f9ced9c7dc7734290c47d512b4408ad701f20"
+        }
+      ],
+      "interpretation_provenance": {
+        "present": false,
+        "kind": "NONE",
+        "producer_class": "NONE",
+        "method": null,
+        "source_evidence_ids": []
+      },
+      "verification": {
+        "status": "NOT_INDEPENDENTLY_VERIFIED",
+        "independent_verification_records": []
+      },
+      "independence": {
+        "computational": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "artifact_acquisition": {
+          "state": "ESTABLISHED",
+          "evidence_ids": [
+            "E-SSP-001-GH"
+          ]
+        },
+        "contextual_blinding": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "interpretive": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "institutional": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        }
+      },
+      "limitations": [
+        "The observation is source-direct through the connected GitHub API but was not independently repeated by an institutionally separate examiner."
+      ],
+      "non_claims": [
+        "The coordinate observation does not establish correctness, validation, admission, authority, or production standing."
+      ]
+    },
+    {
+      "claim_id": "SSP-002",
+      "subject": "governed_branch_repository_enforcement",
+      "statement": "GitHub reported the governed preservation branch as unprotected with required status-check enforcement off at the named coordinate.",
+      "finding_kind": "OBSERVATION",
+      "temporal_status": "CURRENT_AT_NAMED_COORDINATE",
+      "historical_coordinate": null,
+      "assertion_origin": "MECHANICALLY_OBSERVED",
+      "standing_effect": "OBSERVATION_ONLY_NO_STANDING_PROMOTION",
+      "evidence_provenance": [
+        {
+          "evidence_id": "E-SSP-002-GH",
+          "kind": "GITHUB_API_OBSERVATION",
+          "relation": "DIRECT_SUPPORT",
+          "source": "GitHub branch API protection fields for preservation/clean-continuance-v0.1",
+          "coordinate": "b56b18754530e0f0562312682c4880d6c92f4a24",
+          "digest": null
+        }
+      ],
+      "interpretation_provenance": {
+        "present": false,
+        "kind": "NONE",
+        "producer_class": "NONE",
+        "method": null,
+        "source_evidence_ids": []
+      },
+      "verification": {
+        "status": "NOT_INDEPENDENTLY_VERIFIED",
+        "independent_verification_records": []
+      },
+      "independence": {
+        "computational": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "artifact_acquisition": {
+          "state": "ESTABLISHED",
+          "evidence_ids": [
+            "E-SSP-002-GH"
+          ]
+        },
+        "contextual_blinding": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "interpretive": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "institutional": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        }
+      },
+      "limitations": [
+        "This records repository-enforcement configuration only; Fork may also rely on documented or procedural governance not measured by this observation."
+      ],
+      "non_claims": [
+        "Unprotected branch configuration does not by itself establish that Fork governance is absent or non-functioning."
+      ]
+    },
+    {
+      "claim_id": "SSP-003",
+      "subject": "adoption_repair_pr_134",
+      "statement": "PR #134 was observed merged into the governed preservation branch at 2026-09-01T02:44:20Z.",
+      "finding_kind": "OBSERVATION",
+      "temporal_status": "CURRENT_AT_NAMED_COORDINATE",
+      "historical_coordinate": null,
+      "assertion_origin": "MECHANICALLY_OBSERVED",
+      "standing_effect": "OBSERVATION_ONLY_NO_STANDING_PROMOTION",
+      "evidence_provenance": [
+        {
+          "evidence_id": "E-SSP-003-GH",
+          "kind": "GITHUB_API_OBSERVATION",
+          "relation": "DIRECT_SUPPORT",
+          "source": "GitHub PR API: RecomputableEvidence/fork-public-evidence#134",
+          "coordinate": "43f3115c84894e5221a3566cc3b10067ade498a9",
+          "digest": "d92f9ced9c7dc7734290c47d512b4408ad701f20"
+        }
+      ],
+      "interpretation_provenance": {
+        "present": false,
+        "kind": "NONE",
+        "producer_class": "NONE",
+        "method": null,
+        "source_evidence_ids": []
+      },
+      "verification": {
+        "status": "NOT_INDEPENDENTLY_VERIFIED",
+        "independent_verification_records": []
+      },
+      "independence": {
+        "computational": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "artifact_acquisition": {
+          "state": "ESTABLISHED",
+          "evidence_ids": [
+            "E-SSP-003-GH"
+          ]
+        },
+        "contextual_blinding": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "interpretive": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "institutional": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        }
+      },
+      "limitations": [
+        "Merge status does not establish that every historical adoption or research gate is closed."
+      ],
+      "non_claims": [
+        "PR #134 merge does not establish independent validation, production readiness, or general Fork admission beyond its declared repository-repair scope."
+      ]
+    },
+    {
+      "claim_id": "SSP-004",
+      "subject": "predecessor_current_standing_projection",
+      "statement": "The 2026-08-08 current-standing projection is preserved as a historical predecessor bound to its own earlier coordinate and is not treated as current merely because it remains present in the repository.",
+      "finding_kind": "DERIVED_STANDING",
+      "temporal_status": "HISTORICAL_ONLY",
+      "historical_coordinate": "b29b7d95a0f2bfcd3a93ff318359df904a384b05",
+      "assertion_origin": "AUTHORIAL_OR_PROGRAMMATIC",
+      "standing_effect": "HISTORICAL_ONLY",
+      "evidence_provenance": [
+        {
+          "evidence_id": "E-SSP-004-PRED",
+          "kind": "GOVERNED_REPOSITORY_RECORD",
+          "relation": "DIRECT_SUPPORT",
+          "source": "docs/preservation/current-standing/FORK_CURRENT_STANDING_PROJECTION_2026_08_08_v0_1.json",
+          "coordinate": "b29b7d95a0f2bfcd3a93ff318359df904a384b05",
+          "digest": "db4e61759f0cb33977513f3f75c3deb90f8b2849"
+        }
+      ],
+      "interpretation_provenance": {
+        "present": true,
+        "kind": "DERIVED_TEMPORAL_PROJECTION",
+        "producer_class": "AI_ASSISTED_AUTHORIAL_WORKFLOW",
+        "method": "Apply the predecessor record's own non-current-after-coordinate rule to the later governed coordinate.",
+        "source_evidence_ids": [
+          "E-SSP-004-PRED"
+        ]
+      },
+      "verification": {
+        "status": "NOT_INDEPENDENTLY_VERIFIED",
+        "independent_verification_records": []
+      },
+      "independence": {
+        "computational": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "artifact_acquisition": {
+          "state": "ESTABLISHED",
+          "evidence_ids": [
+            "E-SSP-004-PRED"
+          ]
+        },
+        "contextual_blinding": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        },
+        "interpretive": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        },
+        "institutional": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        }
+      },
+      "limitations": [
+        "This historical classification is a derived temporal interpretation; it does not independently adjudicate every statement inside the predecessor record."
+      ],
+      "non_claims": [
+        "Historical status does not mean the predecessor was false at its named coordinate."
+      ]
+    },
+    {
+      "claim_id": "SSP-005",
+      "subject": "repository_enforced_governance_standing",
+      "statement": "Repository-enforced governance is not established by branch-protection mechanisms at the named coordinate; this does not determine the standing of Fork's documented or procedural governance.",
+      "finding_kind": "INFERENCE",
+      "temporal_status": "CURRENT_AT_NAMED_COORDINATE",
+      "historical_coordinate": null,
+      "assertion_origin": "AUTHORIAL_OR_PROGRAMMATIC",
+      "standing_effect": "DERIVED_LIMITATION_ONLY",
+      "evidence_provenance": [
+        {
+          "evidence_id": "E-SSP-005-GH",
+          "kind": "GITHUB_API_OBSERVATION",
+          "relation": "DIRECT_SUPPORT",
+          "source": "GitHub branch API protection fields for preservation/clean-continuance-v0.1",
+          "coordinate": "b56b18754530e0f0562312682c4880d6c92f4a24",
+          "digest": null
+        }
+      ],
+      "interpretation_provenance": {
+        "present": true,
+        "kind": "BOUNDED_INFERENCE",
+        "producer_class": "AI_ASSISTED_AUTHORIAL_WORKFLOW",
+        "method": "Infer only the absence of repository-enforced branch-protection evidence; do not infer absence of governance generally.",
+        "source_evidence_ids": [
+          "E-SSP-005-GH"
+        ]
+      },
+      "verification": {
+        "status": "NOT_INDEPENDENTLY_VERIFIED",
+        "independent_verification_records": []
+      },
+      "independence": {
+        "computational": {
+          "state": "NOT_APPLICABLE",
+          "evidence_ids": []
+        },
+        "artifact_acquisition": {
+          "state": "ESTABLISHED",
+          "evidence_ids": [
+            "E-SSP-005-GH"
+          ]
+        },
+        "contextual_blinding": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        },
+        "interpretive": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        },
+        "institutional": {
+          "state": "NOT_ESTABLISHED",
+          "evidence_ids": []
+        }
+      },
+      "limitations": [
+        "The inference is intentionally narrower than 'Fork governance is not functioning'.",
+        "No independent governance-instantiation test has yet been performed."
+      ],
+      "non_claims": [
+        "This claim does not establish a governance failure.",
+        "This claim does not authorize enabling branch protection without a separate repository-governance disposition."
+      ]
+    }
+  ],
+  "record_level_non_claims": [
+    "This candidate projection is not an authority source and does not promote Fork's model, proof, adoption, pilot, production, legal, compliance, safety, or institutional standing.",
+    "Source-direct observation is not the same as independent verification.",
+    "Computational independence, artifact-acquisition independence, contextual blinding, interpretive independence, and institutional independence are separate dimensions and must not be collapsed into a single 'independent' label.",
+    "A historical record remains valid as historical evidence at its named coordinate without remaining current.",
+    "An observed repository condition does not automatically establish a generalized architectural or governance defect."
+  ]
+}
