@@ -67,8 +67,13 @@ def validate(disposition: Any, readiness: Any, payload: Any) -> list[dict[str, s
     if any(" / " in x for x in corrected or []):
         add("COMPOSITE_CONTEXT_REINTRODUCED", "workflow/job composite labels are not valid application identifiers here", "$disposition.corrected_interim_profile.required_status_checks")
 
-    if disposition.get("change_boundary", {}).get("changes_only_required_check_application_identifiers") is not True:
-        add("CHANGE_BOUNDARY", "repair must remain identifier-only", "$disposition.change_boundary")
+    boundary = disposition.get("change_boundary", {})
+    if boundary.get("changes_only_required_check_application_identifiers") is not False:
+        add("CHANGE_BOUNDARY_IDENTIFIER_ONLY", "successor must preserve that repair is no longer identifier-only", "$disposition.change_boundary")
+    if boundary.get("adds_merge_method_constraint_for_lineage_consistency") is not True:
+        add("CHANGE_BOUNDARY_MERGE_METHOD", "successor must bind merge-method consistency repair", "$disposition.change_boundary")
+    if disposition.get("corrected_interim_profile", {}).get("allowed_merge_methods") != ["merge"]:
+        add("DISPOSITION_MERGE_METHOD", "preservation lineage permits merge commits only", "$disposition.corrected_interim_profile.allowed_merge_methods")
 
     if readiness.get("record_kind") != "preservation_branch_enforcement_application_readiness":
         add("READINESS_KIND", "unexpected readiness kind", "$readiness.record_kind")
@@ -103,6 +108,7 @@ def validate(disposition: Any, readiness: Any, payload: Any) -> list[dict[str, s
         "force_push_prohibited": True,
         "branch_deletion_prohibited": True,
         "administrator_bypass": "NONE",
+        "allowed_merge_methods": ["merge"],
     }
     for key, expected in expected_controls.items():
         if profile.get(key) != expected:
@@ -146,7 +152,7 @@ def validate(disposition: Any, readiness: Any, payload: Any) -> list[dict[str, s
         "require_last_push_approval": False,
         "required_review_thread_resolution": True,
         "required_reviewers": [],
-        "allowed_merge_methods": ["merge", "squash", "rebase"],
+        "allowed_merge_methods": ["merge"],
         "require_extra_approval_for_unattributed_changes": False,
     }
     for key, expected in expected_pr.items():
