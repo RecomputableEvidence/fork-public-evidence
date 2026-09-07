@@ -1,0 +1,98 @@
+{
+  "schema_version": "0.1.2",
+  "record_kind": "repository_enforcement_disposition_successor",
+  "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_V0_1_2",
+  "record_date": "2026-09-06",
+  "time_basis": "America/Los_Angeles",
+  "observed_at": "2026-09-06T17:37:48-07:00",
+  "append_only": true,
+  "predecessor": {
+    "disposition_path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_v0_1_1.json",
+    "disposition_git_blob_sha": "1c90724c5af242d7bdd0b231afb160f77bf4a317",
+    "readiness_path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_v0_1_1.json",
+    "readiness_git_blob_sha": "9224d13933a217a700e3e588b45addc82f33694b",
+    "payload_path": "policies/repository-hardening/PRESERVATION_BRANCH_RULESET_APPLICATION_PAYLOAD_2026_09_06_v0_1_1.json",
+    "payload_git_blob_sha": "47f5d9460ca0e53d3e73177af7fb72bc8f5be396",
+    "standing": "HISTORICAL_PREDECESSOR_PRESERVED",
+    "rewritten": false
+  },
+  "trigger": {
+    "kind": "STATUS_CHECK_SOURCE_BINDING_GAP",
+    "source_pr": 139,
+    "source_head": "ee1d720e3791516486850d578672e50925fb0e18",
+    "source_merge": "3dcb0e718dcf25cb399ec6ea8361a75f2a0f01d0",
+    "finding": "The v0.1.1 ruleset payload bound required checks by context name but not by expected GitHub App source.",
+    "risk_boundary": "GitHub documents that a required status check can optionally bind an expected app; without source binding, the same context can be supplied by another person or integration with write capability."
+  },
+  "evidence": {
+    "github_actions_integration_id": 15368,
+    "observed_check_run_coordinate": "ee1d720e3791516486850d578672e50925fb0e18",
+    "observed_required_checks": [
+      {"context": "Claim Boundary and Preservation Checks", "integration_id": 15368},
+      {"context": "Root checksum manifest (ubuntu-latest)", "integration_id": 15368},
+      {"context": "Root checksum manifest (windows-latest)", "integration_id": 15368},
+      {"context": "Python proof surface (ubuntu-latest)", "integration_id": 15368},
+      {"context": "Python proof surface (windows-latest)", "integration_id": 15368},
+      {"context": "PowerShell 5.1 proof-surface entry point", "integration_id": 15368}
+    ],
+    "post_merge_lineage_witness": {
+      "coordinate": "3dcb0e718dcf25cb399ec6ea8361a75f2a0f01d0",
+      "check": "Preservation merge-lineage witness",
+      "conclusion": "success",
+      "integration_id": 15368
+    },
+    "documentation_basis": [
+      "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets",
+      "https://docs.github.com/en/rest/orgs/rules"
+    ]
+  },
+  "disposition": {
+    "type": "APPLICATION_SOURCE_BINDING_HARDENING",
+    "scope": "REQUIRED_STATUS_CHECK_EXPECTED_APP_ONLY",
+    "repository_settings_effect": "NONE",
+    "administrator_application_authorized_by_this_record": false,
+    "predecessor_application_profile_invalidated": false,
+    "successor_payload_required": true
+  },
+  "application_profile": {
+    "target_branch": "preservation/clean-continuance-v0.1",
+    "pull_request_required": true,
+    "required_approving_reviews": 0,
+    "code_owner_review_required": false,
+    "conversation_resolution_required": true,
+    "require_branches_up_to_date_before_merge": true,
+    "allowed_merge_methods": ["merge"],
+    "force_push_prohibited": true,
+    "branch_deletion_prohibited": true,
+    "administrator_bypass": "NONE",
+    "required_status_checks": [
+      {"context": "Claim Boundary and Preservation Checks", "integration_id": 15368},
+      {"context": "Root checksum manifest (ubuntu-latest)", "integration_id": 15368},
+      {"context": "Root checksum manifest (windows-latest)", "integration_id": 15368},
+      {"context": "Python proof surface (ubuntu-latest)", "integration_id": 15368},
+      {"context": "Python proof surface (windows-latest)", "integration_id": 15368},
+      {"context": "PowerShell 5.1 proof-surface entry point", "integration_id": 15368}
+    ]
+  },
+  "residuals": [
+    {
+      "id": "O2-R001",
+      "statement": "CHECK_NAME_PLUS_APP_ID_DOES_NOT_ESTABLISH_WORKFLOW_IDENTITY",
+      "standing": "PRESERVED_LIMITATION",
+      "detail": "GitHub required status checks do not distinguish workflow or event trigger identity. Another GitHub Actions workflow could in principle emit the same job name under the same app identity."
+    },
+    {
+      "id": "O2-R002",
+      "statement": "INTERIM_REQUIRED_CHECKS_ARE_NOT_CONSUMER_OWNED_TRUSTED_BASE_EXECUTION",
+      "standing": "KNOWN_DEFERRED_CONTROL",
+      "detail": "The stronger pull_request_target consumer-owned admission gate remains dormant until separately admitted to the default branch; this successor does not silently claim equivalent protection."
+    }
+  ],
+  "next_required_act": "VERIFY_V0_1_2_EXACT_HEAD_THEN_SEPARATE_ADMIN_RULESET_APPLICATION",
+  "non_claims": [
+    "This record does not apply GitHub repository settings.",
+    "Binding GitHub Actions app ID does not bind a unique workflow file or workflow identity.",
+    "The integration binding does not establish substantive correctness, reviewer independence, institutional governance, or model standing.",
+    "The default-branch trusted-base admission control is not activated by this successor."
+  ]
+}
