@@ -1,0 +1,143 @@
+{
+  "schema_version": "0.1",
+  "record_kind": "preservation_branch_enforcement_application_readiness",
+  "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_V0_1",
+  "record_date": "2026-09-06",
+  "time_basis": "America/Los_Angeles",
+  "observed_at": "2026-09-06T17:06:06-07:00",
+  "append_only": true,
+  "status": "READY_FOR_SEPARATE_ADMIN_APPLICATION_NOT_APPLIED",
+  "basis": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_tip": "059292b8c811a4f0baffc81c699ec2c8af9b6056",
+    "governed_tip_tree": "6e1a8c99d9ca06427c6ef0f17c7a25beac370e88",
+    "repository_visibility": "public",
+    "repository_default_branch": "main",
+    "connected_account_admin_permission_observed": true
+  },
+  "governing_disposition": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_08_08_v0_1.json",
+    "git_blob_sha": "b03728ad5c149e725add07fdea32b56bbe394fe6",
+    "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_08_08_V0_1",
+    "disposition": "INTERIM_PRESERVATION_BRANCH_PROTECTION_PROFILE_SELECTED",
+    "next_required_act": "SEPARATE_REPOSITORY_SETTINGS_APPLICATION_AUTHORIZATION_AND_VERIFIED_APPLICATION",
+    "superseded": false
+  },
+  "live_repository_settings_observation": {
+    "branch_protection_observed": false,
+    "branch_protection_enforcement_observed": "OFF",
+    "required_status_check_contexts_observed_as_enforced": [],
+    "standing": "PREVENTIVE_REPOSITORY_ENFORCEMENT_NOT_APPLIED"
+  },
+  "required_check_context_verification": {
+    "verification_coordinate": {
+      "pull_request": 137,
+      "reviewed_head": "53192418cf7205d38b5073b7c7839ed2f7277c07",
+      "governed_merge": "059292b8c811a4f0baffc81c699ec2c8af9b6056"
+    },
+    "declared_required_contexts": [
+      "Fork Evidence CI / Claim Boundary and Preservation Checks",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (ubuntu-latest)",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (windows-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (ubuntu-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (windows-latest)",
+      "Fork Proof-Surface Integration / PowerShell 5.1 proof-surface entry point"
+    ],
+    "observed_successful_contexts": [
+      "Fork Evidence CI / Claim Boundary and Preservation Checks",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (ubuntu-latest)",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (windows-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (ubuntu-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (windows-latest)",
+      "Fork Proof-Surface Integration / PowerShell 5.1 proof-surface entry point"
+    ],
+    "additional_successful_contexts_not_required_by_v0_1_profile": [
+      "Fork Proof-Surface Integration / CSH execution instrumentation v0.1.1 (ubuntu-latest)",
+      "Fork Proof-Surface Integration / CSH execution instrumentation v0.1.1 (windows-latest)"
+    ],
+    "declared_required_context_match": "6_OF_6_EXACT_NAME_MATCH",
+    "standing": "CHECK_CONTEXT_NAME_AND_SUCCESS_VERIFICATION_ONLY"
+  },
+  "governed_lineage_audit": {
+    "anchor_commit": "fd395540cf82c3e578510172d500c9e03ba1a86b",
+    "anchor_meaning": "FORK_RESEARCH_PROGRAM_V0_1_REPOSITORY_ADMISSION_MERGE",
+    "target_commit": "059292b8c811a4f0baffc81c699ec2c8af9b6056",
+    "first_parent_descendants_after_anchor": 18,
+    "two_parent_merge_commits": 18,
+    "non_merge_first_parent_commits": 0,
+    "octopus_first_parent_commits": 0,
+    "standing": "OBSERVED_MERGE_TOPOLOGY_ONLY",
+    "limitations": [
+      "Two-parent merge topology does not independently prove that every merge originated from a GitHub pull request.",
+      "The audit is historical/detective and does not prevent a future direct push or force-push."
+    ]
+  },
+  "application_profile": {
+    "pull_request_required": true,
+    "required_approving_reviews": 0,
+    "code_owner_review_required": false,
+    "dismiss_stale_approvals": false,
+    "conversation_resolution_required": true,
+    "require_branches_up_to_date_before_merge": true,
+    "force_push_prohibited": true,
+    "branch_deletion_prohibited": true,
+    "administrator_enforcement_recommended": true,
+    "required_status_checks": [
+      "Fork Evidence CI / Claim Boundary and Preservation Checks",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (ubuntu-latest)",
+      "Root Checksum Manifest v0.1 / Root checksum manifest (windows-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (ubuntu-latest)",
+      "Fork Proof-Surface Integration / Python proof surface (windows-latest)",
+      "Fork Proof-Surface Integration / PowerShell 5.1 proof-surface entry point"
+    ]
+  },
+  "activation_precondition_results": [
+    {
+      "precondition": "A repository administrator verifies the exact required-status-check contexts exposed by GitHub before applying settings.",
+      "result": "SATISFIED_WITHIN_AUTHOR_ADMIN_CONNECTED_ACCOUNT_SCOPE",
+      "evidence": "PR #137 exact-head workflow/job observations; connected repository metadata reports admin=true."
+    },
+    {
+      "precondition": "The target branch still equals the governed preservation lineage at application time.",
+      "result": "SATISFIED_AT_OBSERVATION_TIME",
+      "evidence": "preservation/clean-continuance-v0.1 observed at 059292b8c811a4f0baffc81c699ec2c8af9b6056."
+    },
+    {
+      "precondition": "No newer governed enforcement disposition supersedes this record.",
+      "result": "SATISFIED_AT_OBSERVATION_TIME",
+      "evidence": "repository-hardening policy inventory contains the 2026-08-08 preservation disposition and no later preservation enforcement disposition."
+    },
+    {
+      "precondition": "Application is preserved as a separate attributable repository-settings act.",
+      "result": "PENDING_ADMIN_APPLICATION",
+      "evidence": "No repository settings mutation is performed by this readiness record."
+    }
+  ],
+  "application_capability": {
+    "connected_github_repository_permission": "ADMIN",
+    "branch_protection_write_action_available_in_connected_tool_surface": false,
+    "application_state": "BLOCKED_ON_SEPARATE_ADMIN_REPOSITORY_SETTINGS_ACT",
+    "blocker_is_evidentiary": false,
+    "blocker_is_tooling_or_administrative": true
+  },
+  "post_application_verification_requirements": [
+    "Observe branch protection as enabled on preservation/clean-continuance-v0.1.",
+    "Observe pull-request requirement enabled.",
+    "Observe conversation-resolution requirement enabled.",
+    "Observe strict/up-to-date required-status-check behavior enabled.",
+    "Observe all six declared required status-check contexts enforced by exact name.",
+    "Observe force pushes disabled.",
+    "Observe branch deletion disabled.",
+    "Preserve whether administrator bypass/enforcement is enabled rather than inferring it.",
+    "Bind the settings observation to time because repository settings are not content-addressed by the branch commit."
+  ],
+  "non_claims": [
+    "This readiness record does not itself apply branch protection or any GitHub repository setting.",
+    "The existing interim profile remains the governing profile; this record does not broaden or rewrite it.",
+    "Observed merge-only history is not preventive enforcement.",
+    "Exact status-check name verification does not establish substantive correctness, reviewer independence, or institutional governance.",
+    "Connected-account administrator permission does not create independent governance standing.",
+    "Until the separate repository-settings act is performed and verified, Fork must describe preventive repository enforcement as NOT_APPLIED or NOT_ESTABLISHED."
+  ]
+}
