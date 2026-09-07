@@ -43,9 +43,7 @@
           "required_review_thread_resolution": true,
           "required_reviewers": [],
           "allowed_merge_methods": [
-            "merge",
-            "squash",
-            "rebase"
+            "merge"
           ],
           "require_extra_approval_for_unattributed_changes": false
         }
@@ -56,12 +54,24 @@
           "strict_required_status_checks_policy": true,
           "do_not_enforce_on_create": false,
           "required_status_checks": [
-            {"context": "Claim Boundary and Preservation Checks"},
-            {"context": "Root checksum manifest (ubuntu-latest)"},
-            {"context": "Root checksum manifest (windows-latest)"},
-            {"context": "Python proof surface (ubuntu-latest)"},
-            {"context": "Python proof surface (windows-latest)"},
-            {"context": "PowerShell 5.1 proof-surface entry point"}
+            {
+              "context": "Claim Boundary and Preservation Checks"
+            },
+            {
+              "context": "Root checksum manifest (ubuntu-latest)"
+            },
+            {
+              "context": "Root checksum manifest (windows-latest)"
+            },
+            {
+              "context": "Python proof surface (ubuntu-latest)"
+            },
+            {
+              "context": "Python proof surface (windows-latest)"
+            },
+            {
+              "context": "PowerShell 5.1 proof-surface entry point"
+            }
           ]
         }
       }
@@ -72,7 +82,8 @@
     "application_requires_separate_administrator_act": true,
     "application_must_use_exact_request_semantics": true,
     "payload_may_be_rejected_if_github_api_contract_changes": true,
-    "rejection_must_be_preserved_not_worked_around_silently": true
+    "rejection_must_be_preserved_not_worked_around_silently": true,
+    "merge_method_constraint_basis": "Admitted preservation merge-lineage witness requires governed first-parent successors to remain two-parent PR merges."
   },
   "post_application_required_observations": [
     "The ruleset exists and enforcement is active.",
@@ -80,6 +91,7 @@
     "No bypass actor is present.",
     "Deletion and non-fast-forward rules are present.",
     "The pull-request rule requires zero approvals, no CODEOWNER approval, no last-push approval, conversation resolution, and no extra unattributed-change approval.",
+    "The pull-request rule permits merge commits only; squash and rebase are not permitted on the governed preservation branch.",
     "The required-status-check rule is strict and contains exactly the six corrected job-name contexts.",
     "The governed branch is reported protected/effectively governed by the applied ruleset."
   ],
@@ -87,6 +99,7 @@
     "This payload does not apply repository settings.",
     "This payload is not an authorization record.",
     "A syntactically accepted GitHub request does not establish that the resulting ruleset has the intended effective behavior until the applied state is read back.",
-    "Required status checks remain mechanical gates rather than evidentiary or institutional authority."
+    "Required status checks remain mechanical gates rather than evidentiary or institutional authority.",
+    "Merge-only is a local preservation-lineage consistency constraint, not a general repository recommendation."
   ]
 }
