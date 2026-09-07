@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1.2",
+  "record_kind": "preservation_branch_enforcement_application_readiness",
+  "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_V0_1_2",
+  "record_date": "2026-09-06",
+  "time_basis": "America/Los_Angeles",
+  "observed_at": "2026-09-06T17:37:48-07:00",
+  "append_only": true,
+  "status": "READY_FOR_SEPARATE_ADMIN_APPLICATION_NOT_APPLIED",
+  "basis": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_tip": "3dcb0e718dcf25cb399ec6ea8361a75f2a0f01d0",
+    "governed_tip_tree": "e9851cff344d4af3f2059929d7ba6b2e1a6abf18",
+    "repository_default_branch": "main",
+    "connected_account_admin_permission_observed": true
+  },
+  "predecessor_readiness": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_v0_1_1.json",
+    "git_blob_sha": "9224d13933a217a700e3e588b45addc82f33694b",
+    "standing": "HISTORICAL_PREDECESSOR_WITHOUT_EXPECTED_APP_BINDING",
+    "rewritten": false
+  },
+  "governing_disposition": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_v0_1_2.json",
+    "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_V0_1_2",
+    "disposition": "APPLICATION_SOURCE_BINDING_HARDENING"
+  },
+  "live_repository_settings_observation": {
+    "branch_protection_observed": false,
+    "branch_protection_enforcement_observed": "OFF",
+    "required_status_check_contexts_observed_as_enforced": [],
+    "standing": "PREVENTIVE_REPOSITORY_ENFORCEMENT_NOT_APPLIED"
+  },
+  "required_check_source_verification": {
+    "verification_coordinate": {
+      "pull_request": 139,
+      "reviewed_head": "ee1d720e3791516486850d578672e50925fb0e18",
+      "governed_merge": "3dcb0e718dcf25cb399ec6ea8361a75f2a0f01d0"
+    },
+    "expected_integration": {
+      "name": "GitHub Actions",
+      "integration_id": 15368
+    },
+    "required_checks": [
+      {"context": "Claim Boundary and Preservation Checks", "integration_id": 15368, "observed_conclusion": "success"},
+      {"context": "Root checksum manifest (ubuntu-latest)", "integration_id": 15368, "observed_conclusion": "success"},
+      {"context": "Root checksum manifest (windows-latest)", "integration_id": 15368, "observed_conclusion": "success"},
+      {"context": "Python proof surface (ubuntu-latest)", "integration_id": 15368, "observed_conclusion": "success"},
+      {"context": "Python proof surface (windows-latest)", "integration_id": 15368, "observed_conclusion": "success"},
+      {"context": "PowerShell 5.1 proof-surface entry point", "integration_id": 15368, "observed_conclusion": "success"}
+    ],
+    "match": "6_OF_6_CONTEXT_AND_INTEGRATION_ID_MATCH",
+    "standing": "CHECK_NAME_SOURCE_AND_SUCCESS_VERIFICATION_ONLY"
+  },
+  "post_merge_governed_lineage_observation": {
+    "coordinate": "3dcb0e718dcf25cb399ec6ea8361a75f2a0f01d0",
+    "check": "Preservation merge-lineage witness",
+    "integration_id": 15368,
+    "conclusion": "success",
+    "standing": "DETECTIVE_LINEAGE_OBSERVATION_ONLY"
+  },
+  "application_profile": {
+    "pull_request_required": true,
+    "required_approving_reviews": 0,
+    "code_owner_review_required": false,
+    "dismiss_stale_approvals": false,
+    "require_last_push_approval": false,
+    "require_extra_approval_for_unattributed_changes": false,
+    "conversation_resolution_required": true,
+    "require_branches_up_to_date_before_merge": true,
+    "allowed_merge_methods": ["merge"],
+    "force_push_prohibited": true,
+    "branch_deletion_prohibited": true,
+    "administrator_bypass": "NONE",
+    "required_status_checks": [
+      {"context": "Claim Boundary and Preservation Checks", "integration_id": 15368},
+      {"context": "Root checksum manifest (ubuntu-latest)", "integration_id": 15368},
+      {"context": "Root checksum manifest (windows-latest)", "integration_id": 15368},
+      {"context": "Python proof surface (ubuntu-latest)", "integration_id": 15368},
+      {"context": "Python proof surface (windows-latest)", "integration_id": 15368},
+      {"context": "PowerShell 5.1 proof-surface entry point", "integration_id": 15368}
+    ]
+  },
+  "application_payload": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_RULESET_APPLICATION_PAYLOAD_2026_09_06_v0_1_2.json",
+    "standing": "PROPOSED_NOT_APPLIED"
+  },
+  "application_capability": {
+    "connected_github_repository_permission": "ADMIN",
+    "branch_ruleset_write_action_available_in_connected_tool_surface": false,
+    "application_state": "BLOCKED_ON_SEPARATE_ADMIN_REPOSITORY_SETTINGS_ACT",
+    "blocker_is_evidentiary": false,
+    "blocker_is_tooling_or_administrative": true
+  },
+  "residuals": [
+    "CHECK_NAME_PLUS_APP_ID_DOES_NOT_ESTABLISH_WORKFLOW_IDENTITY",
+    "CONSUMER_OWNED_TRUSTED_BASE_ADMISSION_REMAINS_DORMANT_ON_NON_DEFAULT_BRANCH"
+  ],
+  "post_application_verification_requirements": [
+    "Observe an active repository ruleset targeting refs/heads/preservation/clean-continuance-v0.1.",
+    "Observe no bypass actor.",
+    "Observe pull-request requirement enabled with zero required approvals and no CODEOWNER requirement.",
+    "Observe merge-only as the allowed merge method.",
+    "Observe conversation-resolution requirement enabled.",
+    "Observe strict required-status-check behavior enabled.",
+    "Observe all six required checks by exact context and integration_id=15368.",
+    "Observe non-fast-forward and deletion protections.",
+    "Bind the live settings read-back to observation time.",
+    "Preserve the residual that required check source binding does not establish workflow identity."
+  ],
+  "non_claims": [
+    "This readiness record does not itself apply any repository setting.",
+    "Expected-app binding is narrower than workflow-identity binding.",
+    "The successful post-merge lineage witness is detective evidence, not preventive enforcement.",
+    "O2 remains open until the separate administrator application and live read-back are complete."
+  ]
+}
