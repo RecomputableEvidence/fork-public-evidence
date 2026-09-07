@@ -120,3 +120,25 @@ def test_readiness_cannot_claim_live_protection() -> None:
     d, r, p = baseline()
     r["live_repository_settings_observation"]["branch_protection_observed"] = True
     assert "LIVE_SETTINGS_PROMOTION" in codes(checker.validate(d, r, p))
+
+
+def test_squash_or_rebase_cannot_be_permitted() -> None:
+    checker = load_checker()
+    d, r, p = baseline()
+    pr_rule = next(x for x in p["request_body"]["rules"] if x["type"] == "pull_request")
+    pr_rule["parameters"]["allowed_merge_methods"] = ["merge", "squash", "rebase"]
+    assert "PAYLOAD_PR_PARAMETER" in codes(checker.validate(d, r, p))
+
+
+def test_readiness_merge_method_must_match_lineage_witness() -> None:
+    checker = load_checker()
+    d, r, p = baseline()
+    r["application_profile"]["allowed_merge_methods"] = ["merge", "squash"]
+    assert "PROFILE_CONTROL" in codes(checker.validate(d, r, p))
+
+
+def test_disposition_must_bind_merge_method_repair() -> None:
+    checker = load_checker()
+    d, r, p = baseline()
+    d["change_boundary"]["adds_merge_method_constraint_for_lineage_consistency"] = False
+    assert "CHANGE_BOUNDARY_MERGE_METHOD" in codes(checker.validate(d, r, p))
