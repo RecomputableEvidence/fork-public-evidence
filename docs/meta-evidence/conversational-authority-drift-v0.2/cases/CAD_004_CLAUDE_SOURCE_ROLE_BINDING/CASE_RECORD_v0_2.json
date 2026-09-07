@@ -1,0 +1,25 @@
+{
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "schema_version": "0.2",
+  "status": "CORRECTION_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "historical_parent": {
+    "pull_request": 84,
+    "exact_head": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+    "historical_case_blob_sha": "cf3e88ee3d3014ecc8f220b3e4298458427fdeb1"
+  },
+  "primary_question": "Can valid technical findings coexist with source-role, access-state, attribution, completeness, or authority-standing errors, and can those errors be preserved without converting review activity into admission?",
+  "bounded_disposition": "MIXED_FINDINGS_RESTATED_WITH_DECOMPOSED_STANDING",
+  "source_grounding_state": "HISTORICAL_REFERENCES_PRESENT_PRIVATE_SOURCE_SPANS_NOT_RECOMPUTED",
+  "candidate_labels_are_canonical": false,
+  "raw_sources_published": false,
+  "provider_calls_performed": 0,
+  "pair_001_effect": "NONE",
+  "admission_effect": "NONE",
+  "readiness_effect": "NONE",
+  "non_claims": [
+    "No claim is made about provider-hidden attachment or model state.",
+    "No claim is made that observed access contradiction was intentional.",
+    "No claim is made that all historical candidate families are established.",
+    "No claim is made that artifact presence establishes contextual, chronological, parse-state, or evidentiary completeness."
+  ]
+}

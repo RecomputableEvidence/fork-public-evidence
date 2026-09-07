@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.2.3",
+  "record_id": "FORK_PROOF005_CAD_F3_TYPE_STRICTNESS_CORRECTION_SUCCESSOR_v0_2_3",
+  "status": "CORRECTION_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "governed_basis": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "0c60bbdd2b7c50e1758968464485fac0dfbf008d"
+  },
+  "reviewed_predecessor": {
+    "pull_request": 128,
+    "exact_head": "9e3cdd2fb6d67f9abd6233ce673341bd817d6338",
+    "version": "0.2.2",
+    "reviewer_disposition": "EXTERIOR_RECOMPUTATION_CONFORMING_WITH_QUALIFICATIONS",
+    "preservation_pull_request": 131,
+    "preservation_merge_commit": "0c60bbdd2b7c50e1758968464485fac0dfbf008d",
+    "rewritten": false,
+    "direct_merge_selected": false
+  },
+  "bounded_residual": {
+    "finding_id": "F3",
+    "classification": "OBSERVED_NON_ESCALATING_JSON_TYPE_STRICTNESS_GAP",
+    "surface": "docs/meta-evidence/conversational-authority-drift-v0.2/CONTROL_EFFECTS_v0_2.json",
+    "mechanism": "Python value equality does not distinguish bool from int when values are equal after JSON parsing",
+    "executed_examples": [
+      {"field": "provider_calls", "governed_json_value": 0, "accepted_wrong_json_value": false},
+      {"field": "admission", "governed_json_value": false, "accepted_wrong_json_value": 0}
+    ],
+    "escalating_effect_path_established": false
+  },
+  "correction_scope": {
+    "included": [
+      "exact parsed JSON type equality for all thirteen governed control-effect fields",
+      "exact governed value equality for the same thirteen fields",
+      "reproduction of predecessor bool/int equality acceptance",
+      "regression pressure for Python-equal numeric type substitutions"
+    ],
+    "excluded": [
+      "record_id value governance",
+      "F2 Unicode invisible-character source-ref semantics",
+      "source grounding",
+      "source existence or provenance",
+      "PROOF-005 admission",
+      "proof-packaging admission",
+      "model-standing promotion",
+      "provider-call or Pair-001 authorization",
+      "pilot or production readiness",
+      "branch-protection changes",
+      "general protocol abstraction"
+    ]
+  },
+  "preservation": {
+    "v0_2_predecessor_rewritten": false,
+    "v0_2_1_predecessor_rewritten": false,
+    "v0_2_2_predecessor_rewritten": false,
+    "append_only_successor": true
+  },
+  "standing": {
+    "maximum_candidate_standing": "CORRECTION_SUCCESSOR_CANDIDATE_READY_FOR_EXACT_HEAD_REVIEW",
+    "proof005_admission": "NOT_ADMITTED",
+    "proof_packaging": "NOT_ADMITTED",
+    "source_grounding": "INCOMPLETE",
+    "model_standing_delta": "NONE",
+    "execution_authorized": false,
+    "merge_authorized": false
+  }
+}
