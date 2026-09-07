@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.2",
+  "record_id": "FORK-CAD-PROOF005-CORRECTION-SUCCESSOR-LINEAGE-v0.2",
+  "status": "CORRECTION_SUCCESSOR_CANDIDATE_NOT_ADMITTED",
+  "construction_base": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "eb195950eb8c383e94c9ba75df81615d69dd0ad2"
+  },
+  "historical_surfaces": [
+    {
+      "pull_request": 84,
+      "exact_head": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "review_disposition": "REPRODUCED_WITH_CORRECTIONS_REQUIRED",
+      "rewritten": false,
+      "direct_merge_selected": false
+    },
+    {
+      "pull_request": 86,
+      "exact_head": "f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+      "review_disposition": "REVIEW_INCONCLUSIVE",
+      "secondary_standing": "PARTIALLY_SUPPORTED_AS_BOUNDED_REVIEW_SCAFFOLD",
+      "rewritten": false,
+      "direct_merge_selected": false
+    }
+  ],
+  "successor_purpose": "CORRECT_REPRODUCED_CLAIM_CHECKER_AND_SOURCE_GROUNDING_FAILURES_WITHOUT_ERASING_HISTORICAL_RESULTS",
+  "standing": {
+    "proof_id": "PROOF-005",
+    "source_evidence_state": "CORRECTION_SUCCESSOR_CANDIDATE_SOURCE_GROUNDING_INCOMPLETE",
+    "proof_packaging_state": "NOT_ADMITTED",
+    "exterior_review_state": "REQUIRED_AFTER_EXACT_HEAD_INTERNAL_REVIEW",
+    "model_standing_delta": "NONE",
+    "execution_authorized": false
+  }
+}
