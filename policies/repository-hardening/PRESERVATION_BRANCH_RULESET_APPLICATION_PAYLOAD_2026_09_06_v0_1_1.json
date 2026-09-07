@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1.1",
+  "record_kind": "preservation_branch_ruleset_application_payload",
+  "record_id": "FORK_PRESERVATION_BRANCH_RULESET_APPLICATION_PAYLOAD_2026_09_06_V0_1_1",
+  "record_date": "2026-09-06",
+  "status": "PROPOSED_NOT_APPLIED",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "target_branch": "preservation/clean-continuance-v0.1",
+  "source_disposition": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_v0_1_1.json",
+  "source_readiness": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_v0_1_1.json",
+  "github_rest_basis": {
+    "api_family": "repository_rulesets",
+    "api_version_reference": "2026-03-10",
+    "documentation": "https://docs.github.com/en/rest/repos/rules"
+  },
+  "request_body": {
+    "name": "Preservation — Governed Lineage",
+    "target": "branch",
+    "enforcement": "active",
+    "bypass_actors": [],
+    "conditions": {
+      "ref_name": {
+        "include": [
+          "refs/heads/preservation/clean-continuance-v0.1"
+        ],
+        "exclude": []
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": true,
+          "required_reviewers": [],
+          "allowed_merge_methods": [
+            "merge"
+          ],
+          "require_extra_approval_for_unattributed_changes": false
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": true,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "Claim Boundary and Preservation Checks"
+            },
+            {
+              "context": "Root checksum manifest (ubuntu-latest)"
+            },
+            {
+              "context": "Root checksum manifest (windows-latest)"
+            },
+            {
+              "context": "Python proof surface (ubuntu-latest)"
+            },
+            {
+              "context": "Python proof surface (windows-latest)"
+            },
+            {
+              "context": "PowerShell 5.1 proof-surface entry point"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "application_semantics": {
+    "repository_settings_effect_before_admin_application": "NONE",
+    "application_requires_separate_administrator_act": true,
+    "application_must_use_exact_request_semantics": true,
+    "payload_may_be_rejected_if_github_api_contract_changes": true,
+    "rejection_must_be_preserved_not_worked_around_silently": true,
+    "merge_method_constraint_basis": "Admitted preservation merge-lineage witness requires governed first-parent successors to remain two-parent PR merges."
+  },
+  "post_application_required_observations": [
+    "The ruleset exists and enforcement is active.",
+    "The ref-name include is exactly refs/heads/preservation/clean-continuance-v0.1.",
+    "No bypass actor is present.",
+    "Deletion and non-fast-forward rules are present.",
+    "The pull-request rule requires zero approvals, no CODEOWNER approval, no last-push approval, conversation resolution, and no extra unattributed-change approval.",
+    "The pull-request rule permits merge commits only; squash and rebase are not permitted on the governed preservation branch.",
+    "The required-status-check rule is strict and contains exactly the six corrected job-name contexts.",
+    "The governed branch is reported protected/effectively governed by the applied ruleset."
+  ],
+  "non_claims": [
+    "This payload does not apply repository settings.",
+    "This payload is not an authorization record.",
+    "A syntactically accepted GitHub request does not establish that the resulting ruleset has the intended effective behavior until the applied state is read back.",
+    "Required status checks remain mechanical gates rather than evidentiary or institutional authority.",
+    "Merge-only is a local preservation-lineage consistency constraint, not a general repository recommendation."
+  ]
+}

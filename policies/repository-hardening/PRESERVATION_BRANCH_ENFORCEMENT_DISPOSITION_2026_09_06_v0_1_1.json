@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.1",
+  "record_kind": "repository_enforcement_disposition_successor",
+  "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_V0_1_1",
+  "record_date": "2026-09-06",
+  "time_basis": "America/Los_Angeles",
+  "observed_at": "2026-09-06T17:17:47-07:00",
+  "append_only": true,
+  "predecessor": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_08_08_v0_1.json",
+    "git_blob_sha": "b03728ad5c149e725add07fdea32b56bbe394fe6",
+    "status": "HISTORICAL_PREDECESSOR_PRESERVED",
+    "rewritten": false
+  },
+  "trigger": {
+    "kind": "APPLICATION_IDENTIFIER_AND_MERGE_METHOD_INCONSISTENCY",
+    "source_pr": 138,
+    "source_head": "00e5014e7251f36c7fcd4ebb9556f685211ed360",
+    "source_readiness_path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_v0_1.json",
+    "source_readiness_git_blob_sha": "264d7a567cb970f8087fc749db5c9a3b5c5e44fc",
+    "invalidated_claim": "6_OF_6_EXACT_NAME_MATCH",
+    "failure_description": "The predecessor profile and PR #138 readiness record used workflow-name / job-name composite labels as GitHub required-status-check contexts. GitHub check-runs expose the applicable workflow check names as the job names themselves.",
+    "additional_failure_description": "The proposed ruleset application payload allowed squash and rebase while the admitted preservation merge-lineage witness requires governed first-parent successors to be two-parent PR merges. Preventive permission and detective acceptance therefore disagreed."
+  },
+  "evidence": {
+    "check_run_coordinate": "00e5014e7251f36c7fcd4ebb9556f685211ed360",
+    "github_actions_app_id": 15368,
+    "observed_required_job_names": [
+      "Claim Boundary and Preservation Checks",
+      "Root checksum manifest (ubuntu-latest)",
+      "Root checksum manifest (windows-latest)",
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)",
+      "PowerShell 5.1 proof-surface entry point"
+    ],
+    "observed_additional_job_names_not_required": [
+      "CSH execution instrumentation v0.1.1 (ubuntu-latest)",
+      "CSH execution instrumentation v0.1.1 (windows-latest)"
+    ],
+    "github_documentation_basis": [
+      "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules",
+      "https://docs.github.com/en/rest/repos/rules"
+    ]
+  },
+  "disposition": {
+    "type": "SPECIFICATION_CLARIFICATION",
+    "scope": "PRESERVATION_BRANCH_APPLICATION_IDENTIFIER_AND_MERGE_METHOD_CONSISTENCY",
+    "reason": "The required-check application identifiers were incorrect, and the first proposed ruleset payload permitted merge methods incompatible with the admitted two-parent preservation-lineage witness.",
+    "repository_settings_effect": "NONE",
+    "administrator_application_authorized_by_this_record": false,
+    "predecessor_readiness_standing": "NOT_READY_DUE_TO_CONTEXT_IDENTIFIER_MISMATCH",
+    "successor_readiness_required": true
+  },
+  "corrected_interim_profile": {
+    "target_branch": "preservation/clean-continuance-v0.1",
+    "pull_request_required": true,
+    "required_approving_reviews": 0,
+    "code_owner_review_required": false,
+    "dismiss_stale_approvals": false,
+    "require_last_push_approval": false,
+    "require_extra_approval_for_unattributed_changes": false,
+    "conversation_resolution_required": true,
+    "require_branches_up_to_date_before_merge": true,
+    "force_push_prohibited": true,
+    "branch_deletion_prohibited": true,
+    "administrator_bypass": "NONE",
+    "required_status_checks": [
+      "Claim Boundary and Preservation Checks",
+      "Root checksum manifest (ubuntu-latest)",
+      "Root checksum manifest (windows-latest)",
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)",
+      "PowerShell 5.1 proof-surface entry point"
+    ],
+    "allowed_merge_methods": [
+      "merge"
+    ]
+  },
+  "change_boundary": {
+    "changes_target_branch": false,
+    "changes_pull_request_requirement": false,
+    "changes_review_requirement": false,
+    "changes_conversation_resolution_requirement": false,
+    "changes_up_to_date_requirement": false,
+    "changes_force_push_rule": false,
+    "changes_branch_deletion_rule": false,
+    "changes_only_required_check_application_identifiers": false,
+    "adds_merge_method_constraint_for_lineage_consistency": true
+  },
+  "next_required_act": "VERIFY_SUCCESSOR_READINESS_THEN_SEPARATE_ADMIN_RULESET_APPLICATION",
+  "non_claims": [
+    "This successor does not apply any GitHub repository setting.",
+    "The PR #138 readiness record remains preserved and is not retroactively edited.",
+    "The identifier mismatch does not invalidate the successful CI executions themselves.",
+    "Correct check names do not establish substantive correctness, reviewer independence, institutional governance, or Fork standing.",
+    "This clarification does not authorize a default-branch transition.",
+    "Merge-only restriction is a consistency requirement with the admitted preservation-lineage witness; it does not imply that merge commits are universally superior."
+  ]
+}

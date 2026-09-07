@@ -1,0 +1,128 @@
+{
+  "schema_version": "0.1.1",
+  "record_kind": "preservation_branch_enforcement_application_readiness",
+  "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_V0_1_1",
+  "record_date": "2026-09-06",
+  "time_basis": "America/Los_Angeles",
+  "observed_at": "2026-09-06T17:17:47-07:00",
+  "append_only": true,
+  "status": "READY_FOR_SEPARATE_ADMIN_APPLICATION_NOT_APPLIED",
+  "basis": {
+    "repository": "RecomputableEvidence/fork-public-evidence",
+    "governed_branch": "preservation/clean-continuance-v0.1",
+    "governed_tip": "a89376a6399df4cf96babf61a377227a3550cf40",
+    "governed_tip_tree": "88ef489fb262597d06b1d1243c2e6e4e293c2537",
+    "repository_default_branch": "main",
+    "connected_account_admin_permission_observed": true
+  },
+  "predecessor_readiness": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_APPLICATION_READINESS_2026_09_06_v0_1.json",
+    "git_blob_sha": "264d7a567cb970f8087fc749db5c9a3b5c5e44fc",
+    "standing": "HISTORICAL_PREDECESSOR_WITH_CONTEXT_IDENTIFIER_MISMATCH",
+    "rewritten": false
+  },
+  "governing_disposition": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_v0_1_1.json",
+    "record_id": "FORK_PRESERVATION_BRANCH_ENFORCEMENT_DISPOSITION_2026_09_06_V0_1_1",
+    "disposition": "SPECIFICATION_CLARIFICATION",
+    "application_identifiers_corrected": true,
+    "merge_method_consistency_repaired": true
+  },
+  "live_repository_settings_observation": {
+    "branch_protection_observed": false,
+    "branch_protection_enforcement_observed": "OFF",
+    "required_status_check_contexts_observed_as_enforced": [],
+    "standing": "PREVENTIVE_REPOSITORY_ENFORCEMENT_NOT_APPLIED"
+  },
+  "required_check_context_verification": {
+    "verification_coordinate": {
+      "pull_request": 138,
+      "reviewed_head": "00e5014e7251f36c7fcd4ebb9556f685211ed360",
+      "governed_merge": "a89376a6399df4cf96babf61a377227a3550cf40"
+    },
+    "github_check_run_api_basis": true,
+    "github_actions_app_id": 15368,
+    "corrected_required_contexts": [
+      "Claim Boundary and Preservation Checks",
+      "Root checksum manifest (ubuntu-latest)",
+      "Root checksum manifest (windows-latest)",
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)",
+      "PowerShell 5.1 proof-surface entry point"
+    ],
+    "observed_successful_contexts": [
+      "Claim Boundary and Preservation Checks",
+      "Root checksum manifest (ubuntu-latest)",
+      "Root checksum manifest (windows-latest)",
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)",
+      "PowerShell 5.1 proof-surface entry point"
+    ],
+    "additional_successful_contexts_not_required": [
+      "CSH execution instrumentation v0.1.1 (ubuntu-latest)",
+      "CSH execution instrumentation v0.1.1 (windows-latest)"
+    ],
+    "corrected_required_context_match": "6_OF_6_EXACT_CHECK_RUN_NAME_MATCH",
+    "predecessor_composite_context_match": "INVALID_AS_APPLICATION_IDENTIFIER",
+    "standing": "CHECK_RUN_NAME_AND_SUCCESS_VERIFICATION_ONLY"
+  },
+  "application_profile": {
+    "pull_request_required": true,
+    "required_approving_reviews": 0,
+    "code_owner_review_required": false,
+    "dismiss_stale_approvals": false,
+    "require_last_push_approval": false,
+    "require_extra_approval_for_unattributed_changes": false,
+    "conversation_resolution_required": true,
+    "require_branches_up_to_date_before_merge": true,
+    "force_push_prohibited": true,
+    "branch_deletion_prohibited": true,
+    "administrator_bypass": "NONE",
+    "required_status_checks": [
+      "Claim Boundary and Preservation Checks",
+      "Root checksum manifest (ubuntu-latest)",
+      "Root checksum manifest (windows-latest)",
+      "Python proof surface (ubuntu-latest)",
+      "Python proof surface (windows-latest)",
+      "PowerShell 5.1 proof-surface entry point"
+    ],
+    "allowed_merge_methods": [
+      "merge"
+    ]
+  },
+  "application_payload": {
+    "path": "policies/repository-hardening/PRESERVATION_BRANCH_RULESET_APPLICATION_PAYLOAD_2026_09_06_v0_1_1.json",
+    "standing": "PROPOSED_NOT_APPLIED"
+  },
+  "application_capability": {
+    "connected_github_repository_permission": "ADMIN",
+    "branch_protection_write_action_available_in_connected_tool_surface": false,
+    "application_state": "BLOCKED_ON_SEPARATE_ADMIN_REPOSITORY_SETTINGS_ACT",
+    "blocker_is_evidentiary": false,
+    "blocker_is_tooling_or_administrative": true
+  },
+  "post_application_verification_requirements": [
+    "Observe an active repository ruleset targeting refs/heads/preservation/clean-continuance-v0.1.",
+    "Observe pull-request requirement enabled with zero required approvals and no CODEOWNER requirement.",
+    "Observe allowed merge methods restricted to merge commits only.",
+    "Observe conversation-resolution requirement enabled.",
+    "Observe strict required-status-check behavior enabled.",
+    "Observe all six corrected required check-run names enforced.",
+    "Observe non-fast-forward protection and deletion protection enabled.",
+    "Observe no bypass actor unless separately authorized and preserved.",
+    "Bind the settings observation to time because repository settings are not content-addressed."
+  ],
+  "non_claims": [
+    "This readiness record does not itself apply a ruleset or branch-protection setting.",
+    "PR #138 remains preserved as the predecessor readiness attempt.",
+    "Corrected context names do not establish substantive correctness or independent governance.",
+    "Administrator permission does not create authorization by itself.",
+    "O2 remains open until the separate repository-settings act is performed and verified.",
+    "The merge-only constraint is specific to the governed preservation lineage's admitted topology witness."
+  ],
+  "predecessor_candidate_head": {
+    "commit": "33f27ae12488ab0dc44f7cfd35ce27590862293b",
+    "standing": "STRUCTURALLY_GREEN_BUT_APPLICATION_PROFILE_INTERNALLY_INCONSISTENT",
+    "reason": "Allowed squash/rebase conflicted with admitted two-parent preservation-lineage witness."
+  }
+}
