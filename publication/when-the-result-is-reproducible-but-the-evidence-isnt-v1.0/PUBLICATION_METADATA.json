@@ -1,0 +1,23 @@
+{
+  "schema": "fork_publication_metadata_v0.1",
+  "title": "When the Result Is Reproducible but the Evidence Isn’t",
+  "subtitle": "Why AI-Assisted Work Needs Recomputable Evidence",
+  "author": "Ryan Feller",
+  "version": "1.0",
+  "status": "PUBLICATION",
+  "first_public_publication_date": "2026-09-08",
+  "canonical_repository": "https://github.com/RecomputableEvidence/fork-public-evidence",
+  "canonical_repository_path": "publication/when-the-result-is-reproducible-but-the-evidence-isnt-v1.0",
+  "article_file": "ARTICLE.md",
+  "article_sha256": "a95d63ca7c57cb3b26490be98d1780189973823d0f5647d331e0d75d9945ca1b",
+  "commit_binding": "The repository commit containing this package establishes the canonical public v1.0 publication state.",
+  "fork_artifact_snapshot": "fd93d051235ec43bee925878bc916d09179b3c90",
+  "supersession_rule": "Do not silently modify v1.0 after publication; publish a versioned successor for material changes.",
+  "non_claims": [
+    "Does not establish mathematical correctness of the discussed result.",
+    "Does not establish historical priority, derivation, or attribution.",
+    "Does not establish general validation, trustworthiness, safety, compliance, or authority of Fork.",
+    "Does not make external mutable web sources immutable.",
+    "Does not convert citation into entailment."
+  ]
+}
