@@ -1,0 +1,321 @@
+{
+  "schema_version": "v0.1",
+  "record_kind": "fork_open_candidate_coordinate_snapshot",
+  "record_id": "FORK_OPEN_CANDIDATE_COORDINATE_SNAPSHOT_2026_08_05_v0_1",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "observed_at_utc": "2026-08-05T21:59:59Z",
+  "observation_method": "GITHUB_PULL_REQUEST_METADATA_AND_EXACT_REF_COMPARISON",
+  "snapshot_scope": "EIGHT_NAMED_OPEN_DRAFT_PULL_REQUESTS_AND_THEIR_DECLARED_SEQUENCE_RELATIONSHIPS_ONLY",
+  "candidate_standing": "OPEN_CANDIDATE_COORDINATE_SNAPSHOT_CANDIDATE_NOT_ADMITTED",
+  "standing_on_reviewed_merge": "OPEN_CANDIDATE_COORDINATE_SNAPSHOT_ADMITTED_NO_SOURCE_PR_EFFECT",
+  "governed_coordinate": {
+    "branch": "preservation/clean-continuance-v0.1",
+    "commit_sha": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+    "binding": "EXACT_IMMUTABLE_GIT_COMMIT",
+    "comparison_to_observed_branch_tip": "IDENTICAL_ZERO_AHEAD_ZERO_BEHIND",
+    "proof_001_admission_merge_pull_request": 109,
+    "proof_001_admission_merge_commit": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+    "proof_001_standing": "ADMITTED_BOUNDED_PUBLIC_PROOF_SLICE_WITH_CORRECTION_REQUIRED_RETAINED",
+    "wider_proof_portfolio_admitted": false
+  },
+  "lane_count": 6,
+  "lanes": [
+    {
+      "lane_id": "FOUNDATIONAL_CORRECTION",
+      "pull_requests": [65]
+    },
+    {
+      "lane_id": "EXTERIOR_EVIDENCE",
+      "pull_requests": [105]
+    },
+    {
+      "lane_id": "INTEROPERABILITY_EXPERIMENT",
+      "pull_requests": [100]
+    },
+    {
+      "lane_id": "PROOF_GOVERNANCE",
+      "pull_requests": [106]
+    },
+    {
+      "lane_id": "META_EVIDENCE_RESEARCH",
+      "pull_requests": [84, 86]
+    },
+    {
+      "lane_id": "PRE_PILOT_IMPLEMENTATION",
+      "pull_requests": [110, 111]
+    }
+  ],
+  "preserved_source_analysis_correction": {
+    "source_phrase": "five separate governance lanes",
+    "enumerated_lane_count": 6,
+    "snapshot_lane_count": 6,
+    "disposition": "ARITHMETIC_COUNT_CORRECTED_WITHOUT_COLLAPSING_ANY_ENUMERATED_LANE"
+  },
+  "pull_requests": [
+    {
+      "pull_request": 65,
+      "title": "fix(day0): close ADV_003 inventory and packet-root gaps",
+      "lane_id": "FOUNDATIONAL_CORRECTION",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "599d3e193d86a9661fbbec3213ae1921b4959f10",
+      "head_branch": "fix/day0-adv-003-inventory-v0-1-1",
+      "head_sha": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+      "declared_standing": "DRAFT_CORRECTED_HEAD_RECOMPUTATION_PENDING_NOT_MERGE_AUTHORIZED",
+      "snapshot_classification": "FOUNDATIONAL_CORRECTION_EXACT_HEAD_RECOMPUTATION_REQUIRED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "FREEZE_EXACT_HEAD_RECOMPUTE_AND_INTEGRATE_THROUGH_CURRENT_TIP_SUCCESSOR"
+    },
+    {
+      "pull_request": 84,
+      "title": "docs(meta-evidence): add conversational authority drift candidate v0.1",
+      "lane_id": "META_EVIDENCE_RESEARCH",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "1241c0084900f2c60f362205525464582e57b4a7",
+      "head_branch": "research/conversational-authority-drift-v0-1",
+      "head_sha": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "declared_standing": null,
+      "snapshot_classification": "DRAFT_RESEARCH_PROTOCOL_AND_CANDIDATE_CASE_EXACT_HEAD_EXTERIOR_REVIEW_REQUIRED_NOT_ADMITTED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "PRESERVE_FROZEN_HEAD_REVIEW_THEN_CURRENT_TIP_IMPORT"
+    },
+    {
+      "pull_request": 86,
+      "title": "docs(meta-evidence): add CAD candidate meta-assessment supplement 001",
+      "lane_id": "META_EVIDENCE_RESEARCH",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "research/conversational-authority-drift-v0-1",
+      "base_sha": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "head_branch": "research/conversational-authority-drift-meta-assessment-supplement-001",
+      "head_sha": "f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+      "declared_standing": "DRAFT_COMPANION_REVIEW_PENDING_NOT_MERGE_AUTHORIZED",
+      "snapshot_classification": "STACKED_ASSESSOR_CORRECTION_SUPPLEMENT_PARENT_PR84_REQUIRED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "PROCESS_ONLY_AFTER_PR84_REVIEW_AND_CURRENT_TIP_IMPORT"
+    },
+    {
+      "pull_request": 100,
+      "title": "feat(interop): add governed handoff cadence harness v0.1",
+      "lane_id": "INTEROPERABILITY_EXPERIMENT",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "96e17cd5ae8a923b9074cfdfe6718cf0e15611b0",
+      "head_branch": "experiment/governed-handoff-cadence-v0-1",
+      "head_sha": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+      "declared_standing": "DETERMINISTIC_SIMULATION_CANDIDATE_NOT_ADMITTED",
+      "snapshot_classification": "DETERMINISTIC_SIMULATION_EXACT_HEAD_EXTERIOR_RECOMPUTATION_REQUIRED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "EXACT_HEAD_EXTERIOR_RECOMPUTATION_THEN_SEPARATE_SIMULATION_ADMISSION"
+    },
+    {
+      "pull_request": 105,
+      "title": "docs(verification): preserve Shayne PR #64 recomputation and release bundle",
+      "lane_id": "EXTERIOR_EVIDENCE",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": false,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+      "head_branch": "agent/shayne-pr64-macos-recomputation-v0-1",
+      "head_sha": "b5c9d12109055a258b5ef33dac48f4f504b0a212",
+      "declared_standing": null,
+      "snapshot_classification": "EXTERIOR_RECOMPUTATION_RECORD_AND_TEMPORAL_ATTACHMENT_SUCCESSOR_NOT_ADMITTED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "EVIDENCE_ONLY_CURRENT_TIP_SUCCESSOR_WITHOUT_REOPENING_PROOF001"
+    },
+    {
+      "pull_request": 106,
+      "title": "feat(proofs): govern sequenced proof portfolio v0.1",
+      "lane_id": "PROOF_GOVERNANCE",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "cda8c68fd6a930c327b04bcbe72088c4fabd72fd",
+      "head_branch": "agent/proof-portfolio-sequence-v0-1",
+      "head_sha": "1038be6cf56d2b6ed74d2bee888c38cdd6fd0f92",
+      "declared_standing": "PROOF_PORTFOLIO_DEVELOPMENT_SEQUENCE_CANDIDATE_NOT_ADMITTED",
+      "snapshot_classification": "HISTORICALLY_VALID_V0_1_TEMPORALLY_STALE_FOR_CURRENT_RELIANCE",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "PRESERVE_V0_1_AND_REPLACE_WITH_TEMPORALLY_CURRENT_V0_2_SUCCESSOR"
+    },
+    {
+      "pull_request": 110,
+      "title": "docs(pre-pilot): publish Stage 1 exterior recomputation delivery packet",
+      "lane_id": "PRE_PILOT_IMPLEMENTATION",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+      "head_branch": "agent/complementary-evidence-sidecar-stage-1-exterior-recompute-v0-1",
+      "head_sha": "c6cd61270bac4938878df06f0085089c8f61b9dc",
+      "declared_standing": "EXTERIOR_RECOMPUTATION_DELIVERY_PACKET_CANDIDATE_NOT_ADMITTED_NOT_MERGE_AUTHORIZED",
+      "snapshot_classification": "STAGE1_PREDECESSOR_DELIVERY_PACKET_EXTERIOR_RECOMPUTATION_REQUIRED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "EXTERIOR_RECOMPUTE_AS_STAGE1_PREDECESSOR_PACKET"
+    },
+    {
+      "pull_request": 111,
+      "title": "feat(pilot): add computable Fork pilot prerequisite candidate",
+      "lane_id": "PRE_PILOT_IMPLEMENTATION",
+      "state_observed": "OPEN",
+      "draft_observed": true,
+      "mergeable_observed": true,
+      "mechanics_carry_standing": false,
+      "base_branch": "preservation/clean-continuance-v0.1",
+      "base_sha": "1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+      "head_branch": "agent/fork-pilot-deployment-prerequisite-v0-1",
+      "head_sha": "042f3e1a46d60abe5b5a52d432aa0b47d2606939",
+      "declared_standing": "PILOT_DEPLOYMENT_PREREQUISITE_IMPLEMENTATION_CANDIDATE_NOT_ADMITTED_NOT_PILOT_AUTHORIZED",
+      "snapshot_classification": "PILOT_PREREQUISITE_IMPLEMENTATION_CANDIDATE_LINEAGE_AND_EXTERIOR_REVIEW_REQUIRED",
+      "direct_merge_unchanged": false,
+      "admission_effect": "NONE",
+      "execution_effect": "NONE",
+      "source_pr_effect": "NONE",
+      "recommended_disposition": "HOLD_PENDING_PR110_PR111_LINEAGE_RECONCILIATION_AND_EXTERIOR_REVIEW"
+    }
+  ],
+  "dependency_and_precedence": [
+    {
+      "relationship_id": "PR84_PARENT_OF_PR86",
+      "from": "PR84@46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "to": "PR86@f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+      "relationship": "EXACT_PARENT_HEAD_AND_STACKED_CORRECTION_SUPPLEMENT",
+      "standing_inheritance": "NONE"
+    },
+    {
+      "relationship_id": "PR65_PRECEDES_PROOF002_SUBSTRATE",
+      "from": "PR65@479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+      "to": "PROOF-002",
+      "relationship": "RECOMPUTATION_AND_CURRENT_TIP_CORRECTION_ADMISSION_REQUIRED_FIRST",
+      "standing_inheritance": "NONE"
+    },
+    {
+      "relationship_id": "PR105_PRECEDES_PROOF003_SUBSTRATE",
+      "from": "PR105@b5c9d12109055a258b5ef33dac48f4f504b0a212",
+      "to": "PROOF-003",
+      "relationship": "EVIDENCE_ONLY_TEMPORAL_SUCCESSOR_REQUIRED_FIRST",
+      "standing_inheritance": "NONE"
+    },
+    {
+      "relationship_id": "PR100_PRECEDES_PROOF004_SUBSTRATE",
+      "from": "PR100@cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+      "to": "PROOF-004",
+      "relationship": "EXTERIOR_RECOMPUTATION_AND_SEPARATE_SIMULATION_ADMISSION_REQUIRED_FIRST",
+      "standing_inheritance": "NONE"
+    },
+    {
+      "relationship_id": "PR84_PR86_PRECEDE_PROOF005_SUBSTRATE",
+      "from": "PR84_AND_PR86_ORDERED_STACK",
+      "to": "PROOF-005",
+      "relationship": "PARENT_REVIEW_IMPORT_AND_CORRECTION_SUPPLEMENT_REQUIRED_FIRST",
+      "standing_inheritance": "NONE"
+    },
+    {
+      "relationship_id": "PR110_PR111_LINEAGE_UNRESOLVED",
+      "from": "PR110@c6cd61270bac4938878df06f0085089c8f61b9dc",
+      "to": "PR111@042f3e1a46d60abe5b5a52d432aa0b47d2606939",
+      "relationship": "RELATIONSHIP_UNRESOLVED_COMPUTED_RECONCILIATION_REQUIRED",
+      "permitted_future_dispositions": [
+        "PR111_STRICT_SUCCESSOR_TO_PR110",
+        "PR111_PARTIAL_SUCCESSOR_WITH_RETAINED_PR110_COMPONENTS",
+        "PR110_AND_PR111_PARALLEL_CANDIDATES",
+        "RELATIONSHIP_UNRESOLVED"
+      ],
+      "standing_inheritance": "NONE"
+    },
+    {
+      "relationship_id": "PROOF001_ALREADY_ADMITTED_WITHOUT_PORTFOLIO_INHERITANCE",
+      "from": "PR109_MERGE@1ae03971c680e361d2d81cefc8319dfccb50d8d3",
+      "to": "PROOF-001",
+      "relationship": "BOUNDED_PUBLIC_PROOF_SLICE_ADMITTED_WIDER_PORTFOLIO_EXCLUDED",
+      "standing_inheritance": "NONE_TO_PR106_OR_PROOFS002_THROUGH006"
+    }
+  ],
+  "non_inheritance_invariants": [
+    "OPEN_STATUS_DOES_NOT_CONFER_ADMISSION",
+    "GREEN_CHECKS_DO_NOT_CONFER_MERGE_AUTHORIZATION",
+    "GITHUB_MERGEABILITY_DOES_NOT_CONFER_GOVERNED_STANDING",
+    "REVIEW_DOES_NOT_CONFER_AUTHORITY_ENDORSEMENT_OR_ADMISSION",
+    "LATER_CHRONOLOGY_DOES_NOT_CONFER_SUCCESSOR_STANDING",
+    "DEPENDENCY_DOES_NOT_CONFER_STANDING_INHERITANCE",
+    "SNAPSHOT_ADMISSION_DOES_NOT_CHANGE_ANY_SOURCE_PULL_REQUEST",
+    "PROOF001_ADMISSION_DOES_NOT_ADMIT_THE_WIDER_PORTFOLIO",
+    "EVIDENCE_ADMISSION_DOES_NOT_CONFER_IMPLEMENTATION_ADMISSION",
+    "IMPLEMENTATION_ADMISSION_DOES_NOT_CONFER_EXECUTION_AUTHORIZATION"
+  ],
+  "candidate_creation_effects": {
+    "main_ref": "NONE",
+    "preservation_ref": "NONE",
+    "existing_candidate_refs": "NONE",
+    "existing_pull_request_state": "NONE",
+    "source_pr_content": "NONE",
+    "source_pr_standing": "NONE",
+    "repository_settings": "NONE",
+    "branch_protection": "NOT_CHANGED_REQUIRES_SEPARATE_AUTHORIZATION",
+    "admission": "NONE_BEFORE_REVIEWED_MERGE",
+    "authority_delta": "NONE",
+    "execution_effect": "NONE",
+    "provider_calls": 0,
+    "pair_001_calls": 0
+  },
+  "standing_effect_on_reviewed_merge": {
+    "snapshot_record": "OPEN_CANDIDATE_COORDINATE_SNAPSHOT_ADMITTED_NO_SOURCE_PR_EFFECT",
+    "source_pull_requests": "NONE",
+    "proof_portfolio": "NONE",
+    "implementation": "NONE",
+    "execution": "NONE",
+    "authority_delta": "NONE"
+  },
+  "next_sequence_gate": {
+    "gate_id": "PR65_EXACT_HEAD_EXTERIOR_RECOMPUTATION",
+    "target": "PR65@479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+    "effect_of_this_snapshot": "SEQUENCE_RECOMMENDATION_ONLY_NOT_REVIEW_OR_MERGE_AUTHORIZATION"
+  },
+  "non_claims": [
+    "This record does not claim that observed GitHub metadata remains current after the observation time.",
+    "This record does not modify, admit, reject, supersede, close, merge, retarget, or authorize any source pull request.",
+    "This record does not convert CI, review, mergeability, chronology, dependency, or proximity into governed standing.",
+    "This record does not establish truth, correctness, completeness, causality, security, endorsement, compliance, legal sufficiency, safety, production readiness, present reliance, or institutional authority.",
+    "This record does not authorize execution, deployment, adapters, provider calls, Pair-001, or a pilot.",
+    "This record does not change repository settings or authorize a branch-protection settings mutation."
+  ]
+}
