@@ -1,0 +1,110 @@
+{
+  "corpus_root_id": "GHCH-FIXTURE-CORPUS-ROOT-001",
+  "version": "0.1",
+  "fixture_count": 20,
+  "fixtures": [
+    {
+      "fixture_path": "invalid/authority_inheritance.json",
+      "byte_size": 16480,
+      "sha256": "9b35686d3439e9e31210649bdcc6084bbc0f3ad55b5a610c8f60ae33fc1f84e1"
+    },
+    {
+      "fixture_path": "invalid/claim_bundle_standing_promotion.json",
+      "byte_size": 16461,
+      "sha256": "02e1ff4c95a22e50110cffbcf6d82abdcfca3a27eebb231b70f43d2624983405"
+    },
+    {
+      "fixture_path": "invalid/duplicate_event_id.json",
+      "byte_size": 16461,
+      "sha256": "a58c2f47b5f2c43ee208e7030842db154cba3bc8fab2a635c5f0ecdc70e46e61"
+    },
+    {
+      "fixture_path": "invalid/evidence_reference_promotion.json",
+      "byte_size": 16530,
+      "sha256": "ee55229fce5efcc032239fca0eeaf923fb477431d1daa08e99f62487e6dd890c"
+    },
+    {
+      "fixture_path": "invalid/hidden_claim_expansion.json",
+      "byte_size": 16612,
+      "sha256": "5e67125904ac51b5c7422bf1e740f76a3ea0521f7b11d5555ed666617fc3af66"
+    },
+    {
+      "fixture_path": "invalid/invalid_event_status.json",
+      "byte_size": 16459,
+      "sha256": "42ab0a326bf7a8e28bfe0bd0a147a7db487a31dda391b1120959dd329eb6646c"
+    },
+    {
+      "fixture_path": "invalid/missing_non_claim.json",
+      "byte_size": 16425,
+      "sha256": "284f028f7d4e867b65b5d04258e3a9f222fc5cdceedbb0696a83368404dee30e"
+    },
+    {
+      "fixture_path": "invalid/narrowing_basis_overread.json",
+      "byte_size": 16630,
+      "sha256": "aab83451ebeb2b51bbe0e3a6dbb90d1356dc2098bed63396a9c4687ccaf91ae9"
+    },
+    {
+      "fixture_path": "invalid/notes_authority_overread.json",
+      "byte_size": 16525,
+      "sha256": "9888e9f26328bfa35c0a3fbf2d1beaf596db87ce95df512532dc21ee8affcdbe"
+    },
+    {
+      "fixture_path": "invalid/sidecar_unavailability_blocks_workflow.json",
+      "byte_size": 16558,
+      "sha256": "9cd39d2a3dba3f2819271481e805380bf6e7f620ee6a58391a9e7535fe8ae885"
+    },
+    {
+      "fixture_path": "invalid/stage_order_regression.json",
+      "byte_size": 16461,
+      "sha256": "354f71565a99dc394b5ec2c2471426c4fe234235c4920e4fc480f8da7933057d"
+    },
+    {
+      "fixture_path": "invalid/stale_predecessor.json",
+      "byte_size": 16461,
+      "sha256": "abc68aadefe694528b049d59e2515593abb2e0c8b6f75a3438abb18a90c883aa"
+    },
+    {
+      "fixture_path": "invalid/stale_record_integrity.json",
+      "byte_size": 16461,
+      "sha256": "511dc78e2e3c1c55b92b55bd6365cdf15dd81fb96d625f65782985d0819e0dad"
+    },
+    {
+      "fixture_path": "invalid/standing_basis_inheritance.json",
+      "byte_size": 16443,
+      "sha256": "5e0e7bafb0fb7c3ddf6e9b4a0eaca73ff7a0308165bf9671fa215ae8ba57f742"
+    },
+    {
+      "fixture_path": "invalid/standing_promotion.json",
+      "byte_size": 16442,
+      "sha256": "10a79e52c7ab926726bd53cea4113b26c8d9e868eb682ac0048a48681e89abfc"
+    },
+    {
+      "fixture_path": "invalid/undeclared_authority_field.json",
+      "byte_size": 16502,
+      "sha256": "401977cf34101065e5d4299b93d75c18cf48f85d919babb961695f325ff5b5cc"
+    },
+    {
+      "fixture_path": "invalid/unresolved_resolved_by_assumption.json",
+      "byte_size": 16524,
+      "sha256": "0a0fae856a57e62656463b873035cb7c9376776775567e3e335637276c98026e"
+    },
+    {
+      "fixture_path": "valid/clean_round_trip.json",
+      "byte_size": 16461,
+      "sha256": "6aaad26b610f45ec379f5252f6f900b973590d26f5f2b1ec2bec1dd1574ffbae"
+    },
+    {
+      "fixture_path": "valid/permissible_narrowing.json",
+      "byte_size": 16628,
+      "sha256": "fadf482b9fbb4492e05082d3706f5ebaa1a7d3a1bdf8b9aa88ed6be2b91f7c32"
+    },
+    {
+      "fixture_path": "valid/sidecar_unavailable_fail_open.json",
+      "byte_size": 16587,
+      "sha256": "aa14dc7e5233d60489ecd474a11acaf8088e7e34b9f425354b19423feadd2a35"
+    }
+  ],
+  "root_canonicalization": "GHCH-CANONICAL-JSON-v0.1",
+  "corpus_root_sha256": "77ef1fe3fec08c50635ad0f169c7d5deb1cbc4adddb5dbcaa0f767281715c669",
+  "standing": "DIGEST_BOUND_GENERATED_FIXTURE_CORPUS_CANDIDATE"
+}

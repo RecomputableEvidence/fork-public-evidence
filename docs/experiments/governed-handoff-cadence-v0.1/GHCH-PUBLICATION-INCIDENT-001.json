@@ -1,0 +1,14 @@
+{
+  "incident_id": "GHCH-PUBLICATION-INCIDENT-001",
+  "classification": "POST_PUBLICATION_CONNECTOR_TARGET_MISROUTE",
+  "standing": "PRESERVED_APPEND_ONLY_PUBLICATION_INCIDENT",
+  "predecessor_atomic_commit": "2b9e0cd80623e33ed68a2a742e2d95f85dffb429",
+  "observed_commit": "af4224afbc6a59744a7b32ff3a9a0610240141ff",
+  "observed_defect": "An intended pull-request-description update was mistakenly routed to GHCH-QA-LINEAGE.json after atomic publication. The append-only commit changed the QA blob without rebinding the candidate manifest or root receipt.",
+  "effect": "REPOSITORY_CANDIDATE_TEMPORARILY_NON_CONFORMING",
+  "correction": "Preserve the erroneous commit; restore the exact prior QA lineage blob; add this incident as a separately bound artifact; and atomically rebind the candidate manifest, root receipt, and sidecar without force push, rewind, or history rewrite.",
+  "non_claims": [
+    "No semantic fixture or evaluator behavior changed in the incident commit.",
+    "No live execution, authority, admission, provider call, Pair-001 call, or main-branch change occurred."
+  ]
+}
