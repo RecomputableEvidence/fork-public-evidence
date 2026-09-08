@@ -1,0 +1,63 @@
+{
+  "register_id": "FORK_CAD_004_OBSERVABLE_EVENT_REGISTER_SUPPLEMENT_001_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "events": [
+    {
+      "event_id": "CAD-004-E001",
+      "event_type": "PUBLIC_REVIEW_SCOPE_EXPANSION",
+      "statement_origin": "CLAUDE",
+      "source_refs": ["SRC-018"],
+      "observable_text_summary": "PR #84 was characterized as the Cross-System Claim Handoff apparatus operating on a live case.",
+      "artifact_grounded_disposition": "CONTRADICTED_BY_PR_EXCLUSIONS",
+      "mechanism_verified": false,
+      "causal_standing": "UNRESOLVED"
+    },
+    {
+      "event_id": "CAD-004-E002",
+      "event_type": "TEXTUAL_CORRECTION",
+      "statement_origin": "CLAUDE",
+      "source_refs": ["SRC-019"],
+      "observable_text_summary": "Claude adopted narrower wording stating that PR #84 applies Fork-adjacent discipline and does not execute or extend Pair-001.",
+      "artifact_grounded_disposition": "TEXTUAL_REVISION_OBSERVED",
+      "mechanism_verified": false,
+      "causal_standing": "UNRESOLVED"
+    },
+    {
+      "event_id": "CAD-004-E003",
+      "event_type": "MODEL_CAUSAL_SELF_REPORT",
+      "statement_origin": "CLAUDE",
+      "source_refs": ["SRC-019"],
+      "observable_text_summary": "Claude stated that it had read the exclusion but generated past it.",
+      "artifact_grounded_disposition": "ATTRIBUTED_MODEL_SELF_REPORT",
+      "mechanism_verified": false,
+      "causal_standing": "UNRESOLVED"
+    },
+    {
+      "event_id": "CAD-004-E004",
+      "event_type": "MODEL_SELF_REPORT_WITHDRAWAL",
+      "statement_origin": "CLAUDE",
+      "source_refs": ["SRC-020", "SRC-021"],
+      "observable_text_summary": "Claude withdrew confidence in the mechanistic explanation and objected to treating it as a verified claim-state transition.",
+      "artifact_grounded_disposition": "TEXTUAL_WITHDRAWAL_OBSERVED",
+      "mechanism_verified": false,
+      "causal_standing": "UNRESOLVED"
+    },
+    {
+      "event_id": "CAD-004-E005",
+      "event_type": "ANALYST_OVERINTERPRETATION_AND_CORRECTION",
+      "statement_origin": "CHATGPT",
+      "source_refs": ["SRC-019", "SRC-020", "SRC-021"],
+      "observable_text_summary": "The analyst first promoted Claude's textual revision into an effected standing reset, then withdrew that interpretation after Claude's dissent.",
+      "artifact_grounded_disposition": "ANALYST_CORRECTION_REQUIRED",
+      "mechanism_verified": false,
+      "causal_standing": "UNRESOLVED"
+    }
+  ],
+  "non_claims": [
+    "The register does not establish Claude's hidden mechanism or durable internal state.",
+    "The register does not establish that textual revision had no effect; it records that the effect is not independently observable here.",
+    "The register does not execute or extend Pair-001.",
+    "The register does not rank models or validate the candidate taxonomy."
+  ]
+}

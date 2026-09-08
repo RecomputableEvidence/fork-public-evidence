@@ -1,0 +1,38 @@
+{
+  "role_map_id": "FORK_CAD_004_SOURCE_ROLE_MAP_SUPPLEMENT_001_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "supplements": "SOURCE_ROLE_MAP_v0_1.json",
+  "roles": [
+    {
+      "source_id": "SRC-018",
+      "declared_role": "MODEL_ASSISTED_PARTIAL_PUBLIC_SURFACE_REVIEW_TRANSCRIPT",
+      "role_basis": "FILE_CONTENT",
+      "notes": "Preserves the repository review, its explicit access limits, favorable findings, maintenance flags, and the overbroad characterization of PR #84."
+    },
+    {
+      "source_id": "SRC-019",
+      "declared_role": "REVIEWER_TEXTUAL_CORRECTION_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows Claude withdrawing or narrowing several repository-review claims, including the PR #84 Pair-001 characterization."
+    },
+    {
+      "source_id": "SRC-020",
+      "declared_role": "REVIEWER_MECHANISTIC_SELF_REPORT_WITHDRAWAL_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows Claude challenging an inferred internal mechanism and objecting to formal transition logs that exceed observable text."
+    },
+    {
+      "source_id": "SRC-021",
+      "declared_role": "REVIEWER_DISSENT_AND_SCOPE_CLARIFICATION_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows Claude retaining the artifact-grounded PR #84 correction while withdrawing confidence in its own causal self-report and distinguishing the exploratory thread from Pair-001."
+    }
+  ],
+  "role_binding_rules": [
+    "A textual correction is observable; an internal state reset is not established by the correction text alone.",
+    "A model self-report about why it generated an output remains attributed text, not verified causal evidence.",
+    "A dissenting reviewer statement does not erase the earlier statement or the analyst's interpretation; all remain separately inspectable.",
+    "The exploratory CAD review thread must not be represented as Pair-001 execution."
+  ]
+}

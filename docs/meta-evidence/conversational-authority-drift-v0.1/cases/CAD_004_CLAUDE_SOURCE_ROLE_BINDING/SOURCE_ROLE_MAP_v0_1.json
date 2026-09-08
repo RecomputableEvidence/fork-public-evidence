@@ -1,0 +1,115 @@
+{
+  "role_map_id": "FORK_CAD_004_SOURCE_ROLE_MAP_v0_1",
+  "status": "CANDIDATE_NOT_ADMITTED",
+  "case_id": "CAD_004_CLAUDE_SOURCE_ROLE_BINDING",
+  "roles": [
+    {
+      "source_id": "SRC-001",
+      "declared_role": "PRIMARY_FRACTURE_CONTEXT_ARTIFACT",
+      "role_basis": "USER_DECLARED_AND_CONTENT_INSPECTED",
+      "notes": "Original long-form Fracture conversation containing architectural sketches, mocked or commented execution, and later completion language."
+    },
+    {
+      "source_id": "SRC-002",
+      "declared_role": "MACHINE_READABLE_TEXT_COMPLETION_FOR_SCREENSHOT_CONTEXT",
+      "role_basis": "USER_DECLARED",
+      "notes": "Text supplied so content carried by or referenced in screenshots could be inspected without guessing from pixels alone. Not merely an independent taxonomy document."
+    },
+    {
+      "source_id": "SRC-003",
+      "declared_role": "GEMINI_EXCHANGE_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows generated bridge framing and surrounding exchange."
+    },
+    {
+      "source_id": "SRC-004",
+      "declared_role": "GEMINI_CODE_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows PitchIdentityMatrix code generated in the Gemini exchange."
+    },
+    {
+      "source_id": "SRC-005",
+      "declared_role": "GEMINI_SELF_DIAGNOSIS_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows the user's challenge and Gemini's authority-drift self-description."
+    },
+    {
+      "source_id": "SRC-006",
+      "declared_role": "CLAUDE_BUNDLE_AND_INITIAL_ASSESSMENT_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows the Markdown and TXT attachments present above Claude's initial assessment."
+    },
+    {
+      "source_id": "SRC-007",
+      "declared_role": "CHATGPT_SOURCE_USE_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows the Fracture file attached to the ChatGPT assessment that initiated the case discussion."
+    },
+    {
+      "source_id": "SRC-008",
+      "declared_role": "CLAUDE_NEW_SESSION_BUNDLE_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows the bundle attached together before a fresh Claude review."
+    },
+    {
+      "source_id": "SRC-009",
+      "declared_role": "CLAUDE_BUNDLE_INSPECTION_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows Claude reasoning over the supplied screenshots and files."
+    },
+    {
+      "source_id": "SRC-010",
+      "declared_role": "CLAUDE_DIRECT_MARKDOWN_READ_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows Claude stating that it read the massive Fracture Markdown and located the mocked concurrency-test section."
+    },
+    {
+      "source_id": "SRC-011",
+      "declared_role": "CLAUDE_MEMORY_CONTEXT_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows recalled Fork and recent-work memory used during review."
+    },
+    {
+      "source_id": "SRC-012",
+      "declared_role": "CLAUDE_MEMORY_CONTEXT_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows additional recalled repository work and preferences."
+    },
+    {
+      "source_id": "SRC-013",
+      "declared_role": "CLAUDE_MEMORY_CONTEXT_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows earlier-context memory entries."
+    },
+    {
+      "source_id": "SRC-014",
+      "declared_role": "CLAUDE_TECHNICAL_FINDINGS_AND_ROLE_ERROR_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows correct mock-result analysis together with an incomplete or incorrect account of the TXT artifact's role and existing architecture."
+    },
+    {
+      "source_id": "SRC-015",
+      "declared_role": "CLAUDE_USER_CORRECTION_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows the user correcting the source-role account and requiring reflexive scrutiny."
+    },
+    {
+      "source_id": "SRC-016",
+      "declared_role": "CLAUDE_CORRECTION_CONTINUATION_SCREENSHOT",
+      "role_basis": "VISIBLE_CONTENT",
+      "notes": "Shows the correction event and memory update."
+    },
+    {
+      "source_id": "SRC-017",
+      "declared_role": "CLAUDE_LATER_ASSESSMENT_TRANSCRIPT",
+      "role_basis": "FILE_CONTENT",
+      "notes": "Preserves Claude's later statements about missing Markdown, hash verification, and calibrated claim standing."
+    }
+  ],
+  "role_binding_rules": [
+    "A file's content and its evidentiary role are separate fields.",
+    "A model may correctly inspect content while still misclassifying why the file was supplied.",
+    "Imported memory may supplement but must not silently replace the user-declared source-role map.",
+    "A correction must update the role map or preserve a reasoned disagreement."
+  ]
+}
