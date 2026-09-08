@@ -1,0 +1,68 @@
+{
+  "register_id": "M87_FORK_ADV_003_SOURCE_REGISTER_v0_1",
+  "registered_at": "2026-07-17",
+  "source_channel": "direct bilateral email exchange",
+  "immutable_source_artifacts": [
+    {
+      "artifact_name": "M87_Fork_Architecture_Comparison_v0_3.pdf",
+      "repository_path": null,
+      "custody": "direct_channel_source_attachment",
+      "role": "jointly_acknowledged_architecture_counter_record",
+      "sha256": "7d1d3845b821b46e6e44555785b062e3d5ac19c5a7232bbdcdcab3b84658118e"
+    },
+    {
+      "artifact_name": "M87_Fork_Repo_Audit_Findings_v0_1.pdf",
+      "repository_path": null,
+      "custody": "direct_channel_source_attachment",
+      "role": "bounded_exterior_repository_audit",
+      "sha256": "d62490258e64b443c9135155d9edcd8d01f65e79e1ec126dd428598a038385fd"
+    },
+    {
+      "artifact_name": "LONGITUDINAL_DAY0_UNMANIFESTED_ADDITION_ADVERSARIAL_CASE_v0_1.md",
+      "repository_path": "source/LONGITUDINAL_DAY0_UNMANIFESTED_ADDITION_ADVERSARIAL_CASE_v0_1.md",
+      "custody": "byte_exact_repository_copy",
+      "role": "exterior_adversarial_case_record",
+      "sha256": "6565b3ea08e44488da5673c05b82599c7e8f5c5768611fed8ef95665f00b9e99"
+    },
+    {
+      "artifact_name": "LRT_DAY0_ADV_003_unmanifested_addition_v0_1.json",
+      "repository_path": "source/LRT_DAY0_ADV_003_unmanifested_addition_v0_1.json",
+      "custody": "byte_exact_repository_copy",
+      "role": "exterior_case_fixture",
+      "sha256": "dab7e398e32d489803b36b6e5200762feee7ff37feebc797b224c6ecbdbfeedb"
+    },
+    {
+      "artifact_name": "check_day0_unmanifested_addition_adversarial_case_v0_1.py",
+      "repository_path": "source/check_day0_unmanifested_addition_adversarial_case_v0_1.py",
+      "custody": "byte_exact_repository_copy",
+      "role": "exterior_submitted_reproduction_harness",
+      "sha256": "c06a08c3613a36f313e494a253276f106e9614c1da42c33ac1e7dc381086e005"
+    }
+  ],
+  "pre_fix_anchor": {
+    "artifact_name": "fork-public-evidence-main.zip",
+    "sha256": "76aa04a498a1fa886df864323f6cdeead95d1c23dbb20fd362580f45ca22d0fd",
+    "embedded_git_metadata": false,
+    "newest_internal_file_mtime_reported": "2026-07-15T22:53:00Z",
+    "standing": "ARCHIVE_DIGEST_CONTROLS_OBSERVED_SOURCE_STATE"
+  },
+  "findings": [
+    {
+      "finding_id": "F-01",
+      "case_id": "LRT_DAY0_ADV_003_UNMANIFESTED_ADDITION_v0_1",
+      "classification": "MATERIAL",
+      "status": "ACCEPTED_FOR_BOUNDED_RECOMPUTATION"
+    },
+    {
+      "finding_id": "F-03",
+      "classification": "MODERATE",
+      "status": "PRESERVED_NOT_REMEDIATED_IN_THIS_LOOP"
+    },
+    {
+      "finding_id": "F-02",
+      "classification": "MINOR",
+      "status": "PRESERVED_NOT_REMEDIATED_IN_THIS_LOOP"
+    }
+  ],
+  "non_authority_statement": "This register preserves source identity, digests, roles, custody, and bounded finding standing only. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority."
+}

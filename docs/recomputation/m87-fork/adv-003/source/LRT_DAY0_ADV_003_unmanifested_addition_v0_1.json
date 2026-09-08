@@ -1,0 +1,37 @@
+{
+    "case_id": "LRT_DAY0_ADV_003_UNMANIFESTED_ADDITION_v0_1",
+    "case_family": "longitudinal_day0_unmanifested_addition",
+    "filed_by": "Mac McFall / M87 (exterior observer)",
+    "filed_date": "2026-07-17",
+    "source": "M87-side exocortex repo audit during bilateral architecture review",
+    "sibling_cases": [
+        "LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1",
+        "LRT_DAY0_ADV_002_LEXICAL_NON_AUTHORITY_LIMIT_v0_1"
+    ],
+    "reviewed_packet": "docs/reconstruction/longitudinal/day0/LRT_DAY0_PACKET_v0_1/",
+    "day0_checker": "tools/check_longitudinal_reconstruction_day0_packet_v0_1.py",
+    "mutation_target": "evidence/day0_injected_extra_v0_1.json",
+    "mutation_summary": "Add one unmanifested JSON file to the packet evidence directory. Do not modify packet_manifest.json, packet_manifest.sha256, or packet_manifest_outer_receipt.json.",
+    "expected_observation": "The mutated packet remains accepted by the current Day-0 checker because the checker verifies presence, hash continuity, and manifest binding for manifest-listed artifacts only, and performs no directory-inventory completeness sweep.",
+    "expected_outcome_codes": [
+        "MANIFEST_LISTED_ARTIFACTS_ONLY_CONFIRMED",
+        "UNMANIFESTED_ADDITION_UNDETECTED",
+        "NO_DIRECTORY_INVENTORY_COMPLETENESS_SWEEP",
+        "PACKET_STILL_VERIFIES_WITH_INJECTED_EVIDENCE"
+    ],
+    "expected_suite_result": {
+        "suite_passes_when_limitation_reproduced": true,
+        "clean_packet_day0_checker_expected_failed": 0,
+        "mutated_packet_day0_checker_expected_failed": 0
+    },
+    "observed_result_2026_07_17": {
+        "control_passed": 27,
+        "control_failed": 0,
+        "mutation_passed": 27,
+        "mutation_failed": 0,
+        "limitation_reproduced": true
+    },
+    "distinction_from_adv_001": "ADV_001 mutates a manifested file and re-seals all internal bindings. ADV_003 adds an unmanifested file and changes no bindings; it requires no re-sealing capability and is not closed by remediating the ADV_001 root-of-trust limit.",
+    "candidate_remediation": "Add a directory-inventory check comparing packet files against the manifest's declared file set; fail on any packet file absent from the manifest, with an explicit ignore list for the manifest, sidecar, and outer receipt.",
+    "non_authority_statement": "This adversarial case records Day-0 checker coverage scope only. It does not establish truth, compliance, legal sufficiency, safety, authorization, approval, certification, endorsement, validation, production readiness, procurement approval, or institutional authority. Filed by an exterior observer, it carries no authority over Fork's claims."
+}
