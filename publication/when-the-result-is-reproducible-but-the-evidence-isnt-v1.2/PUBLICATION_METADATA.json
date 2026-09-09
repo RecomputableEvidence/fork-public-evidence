@@ -1,0 +1,41 @@
+{
+  "schema": "fork_publication_metadata_v0.1",
+  "title": "When the Result Is Reproducible but the Evidence Isn’t",
+  "subtitle": "Why AI-Assisted Work Needs Recomputable Evidence",
+  "author": "Ryan Feller",
+  "author_orcid": "0009-0000-7863-5792",
+  "version": "1.2",
+  "status": "PUBLICATION_SUCCESSOR_CANDIDATE_ATTRIBUTION_IDENTITY_LOCATOR_CORRECTION",
+  "successor_date": "2026-09-08",
+  "predecessor_version": "1.1",
+  "predecessor_commit": "4297e210bee06706f4f025b22a7224dc35671980",
+  "canonical_repository": "https://github.com/RecomputableEvidence/fork-public-evidence",
+  "canonical_repository_path": "publication/when-the-result-is-reproducible-but-the-evidence-isnt-v1.2",
+  "article_file": "ARTICLE.md",
+  "article_sha256": "6161a2e4f39355fc32e94a722d30b5421d164fc75a5911c137140867cf01a601",
+  "attribution_record": "publication/attribution-records/FORK-ATTRIBUTION-RECORD-PETER-KAHL-001-v0.2.md",
+  "contributors": [
+    {
+      "name": "Peter Kahl",
+      "orcid": "0009-0003-1616-4843",
+      "standing": "prior framework author; co-developer of bounded four-step pressure test"
+    },
+    {
+      "name": "Ryan Feller",
+      "orcid": "0009-0000-7863-5792",
+      "standing": "Fork author/test-surface implementer; co-developer; failed claim-consumption formulation"
+    }
+  ],
+  "correction_scope": "Exact contributor identity, ORCID carriage, source-version metadata, passage locators, and attribution-lineage precision.",
+  "substantive_claim_delta": "NONE",
+  "attribution_confirmation_state": "ARTICLE_LEVEL_WORDING_AND_REQUESTED_IDENTITY_FORMAT_SUPPORTED_BY_JULY_EXCHANGE",
+  "doi_bearing_consolidated_record_state": "PENDING_EXACT_WORDING_ACKNOWLEDGMENT",
+  "silence_or_delay_effect": "NONE",
+  "non_claims": [
+    "Does not make Peter Kahl a co-author of the article or Fork generally.",
+    "Does not imply Peter Kahl endorses Fork, NGAST, or any implementation.",
+    "Does not establish that Peter Kahl originated the exact phrase Preservation without Inheritance.",
+    "Does not claim that the separate consolidated DOI-bearing attribution record has received exact-wording acknowledgment.",
+    "Does not alter OpenAI/Navier–Stokes claims or general Fork validation, safety, compliance, correctness, or authority."
+  ]
+}
