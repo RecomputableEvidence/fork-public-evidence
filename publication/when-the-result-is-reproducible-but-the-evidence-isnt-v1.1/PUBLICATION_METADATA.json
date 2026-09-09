@@ -4,7 +4,7 @@
   "subtitle": "Why AI-Assisted Work Needs Recomputable Evidence",
   "author": "Ryan Feller",
   "version": "1.1",
-  "status": "PUBLICATION_SUCCESSOR_ATTRIBUTION_CORRECTION",
+  "status": "PUBLICATION_SUCCESSOR_CANDIDATE_ATTRIBUTION_CORRECTION",
   "successor_date": "2026-09-08",
   "predecessor_version": "1.0",
   "predecessor_commit": "6ace613d73acef4c73e8f8911c6aede016bf7521",
@@ -19,6 +19,10 @@
     "Does not make Peter Kahl a co-author of the article.",
     "Does not imply Peter Kahl endorses Fork, NGAST, or any implementation.",
     "Does not establish that Peter Kahl originated the exact phrase Preservation without Inheritance.",
-    "Does not establish general validation, safety, compliance, correctness, or authority of Fork."
-  ]
+    "Does not establish general validation, safety, compliance, correctness, or authority of Fork.",
+    "Does not claim that the separate consolidated DOI-bearing attribution record has received exact-wording acknowledgment."
+  ],
+  "attribution_confirmation_state": "ARTICLE_LEVEL_WORDING_CONFIRMED_IN_JULY_EXCHANGE",
+  "doi_bearing_consolidated_record_state": "PENDING_EXACT_WORDING_ACKNOWLEDGMENT",
+  "silence_or_delay_effect": "NONE"
 }
