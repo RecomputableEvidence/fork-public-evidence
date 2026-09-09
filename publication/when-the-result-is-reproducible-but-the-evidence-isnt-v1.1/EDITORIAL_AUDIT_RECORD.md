@@ -1,6 +1,6 @@
 # Editorial Audit Record — v1.1
 
-**Disposition:** ATTRIBUTION CORRECTION APPLIED  
+**Disposition:** ATTRIBUTION CORRECTION PREPARED — EXACT DOI RECORD PENDING ACKNOWLEDGMENT  
 **Predecessor:** v1.0 at `6ace613d73acef4c73e8f8911c6aede016bf7521`  
 **Article SHA-256:** `becb623324996f0cfc99aa1bb3fb2f4f5e30183e2bd18030924d3a82a191ae9e`
 
@@ -35,3 +35,31 @@ RETROACTIVE SOLE OWNERSHIP OF PRIOR TERRITORY
 ```
 
 **Substantive article-claim delta:** NONE.
+
+
+## Confirmation-state boundary
+
+The July 2026 exchange supports the following:
+
+- Kahl stated that the relevant distinction derives from and applies his prior framework.
+- Kahl accepted “co-developed” for the four-step pressure test.
+- Kahl credited the “failed claim-consumption event” formulation specifically to Ryan Feller.
+- Kahl confirmed the corrected article-level wording as preserving the intended distinction.
+- A later consolidated DOI-bearing review copy was sent for exact-wording acknowledgment.
+- The current record does **not** contain that exact consolidated acknowledgment; Kahl later asked for time, and Ryan explicitly kept the record in pending-review status.
+
+Therefore:
+
+```text
+APPROVED / CONFIRMED ARTICLE-LEVEL ATTRIBUTION LANGUAGE
+≠
+EXACT CONSOLIDATED DOI RECORD ACKNOWLEDGED
+```
+
+and:
+
+```text
+SILENCE OR DELAY
+≠
+ACKNOWLEDGMENT
+```
