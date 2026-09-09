@@ -1,0 +1,28 @@
+{
+  "schema": "fork_publication_metadata_v0.1",
+  "title": "When the Result Is Reproducible but the Evidence Isn’t",
+  "subtitle": "Why AI-Assisted Work Needs Recomputable Evidence",
+  "author": "Ryan Feller",
+  "version": "1.1",
+  "status": "PUBLICATION_SUCCESSOR_CANDIDATE_ATTRIBUTION_CORRECTION",
+  "successor_date": "2026-09-08",
+  "predecessor_version": "1.0",
+  "predecessor_commit": "6ace613d73acef4c73e8f8911c6aede016bf7521",
+  "canonical_repository": "https://github.com/RecomputableEvidence/fork-public-evidence",
+  "canonical_repository_path": "publication/when-the-result-is-reproducible-but-the-evidence-isnt-v1.1",
+  "article_file": "ARTICLE.md",
+  "article_sha256": "becb623324996f0cfc99aa1bb3fb2f4f5e30183e2bd18030924d3a82a191ae9e",
+  "attribution_record": "publication/attribution-records/FORK-ATTRIBUTION-RECORD-PETER-KAHL-001-v0.1.md",
+  "correction_scope": "Intellectual-lineage attribution for Preservation without Inheritance and related Kahl/Feller pressure-test history.",
+  "substantive_claim_delta": "NONE",
+  "non_claims": [
+    "Does not make Peter Kahl a co-author of the article.",
+    "Does not imply Peter Kahl endorses Fork, NGAST, or any implementation.",
+    "Does not establish that Peter Kahl originated the exact phrase Preservation without Inheritance.",
+    "Does not establish general validation, safety, compliance, correctness, or authority of Fork.",
+    "Does not claim that the separate consolidated DOI-bearing attribution record has received exact-wording acknowledgment."
+  ],
+  "attribution_confirmation_state": "ARTICLE_LEVEL_WORDING_CONFIRMED_IN_JULY_EXCHANGE",
+  "doi_bearing_consolidated_record_state": "PENDING_EXACT_WORDING_ACKNOWLEDGMENT",
+  "silence_or_delay_effect": "NONE"
+}
