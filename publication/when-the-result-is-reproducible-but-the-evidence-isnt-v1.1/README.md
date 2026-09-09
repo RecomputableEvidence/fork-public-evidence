@@ -6,12 +6,14 @@
 **Subtitle:** Why AI-Assisted Work Needs Recomputable Evidence  
 **Author:** Ryan Feller  
 **Version:** v1.1  
-**Status:** PUBLICATION SUCCESSOR — ATTRIBUTION CORRECTION  
+**Status:** PUBLICATION SUCCESSOR CANDIDATE — ATTRIBUTION CORRECTION  
 **Successor date:** 2026-09-08  
 **Predecessor:** `publication/when-the-result-is-reproducible-but-the-evidence-isnt-v1.0`  
 **Predecessor canonical commit:** `6ace613d73acef4c73e8f8911c6aede016bf7521`
 
-This package is a versioned successor to v1.0. It corrects intellectual-lineage attribution in the “Preservation without inheritance” section and adds Peter Kahl’s cited prior works to the source list.
+This package is a versioned successor candidate to v1.0. It prepares an intellectual-lineage correction in the “Preservation without inheritance” section and adds Peter Kahl’s cited prior works to the source list.
+
+The article-level wording reflects a July 2026 formulation that Kahl confirmed as preserving the intended distinction. A separate consolidated DOI-bearing attribution record remains pending Kahl’s exact-wording acknowledgment and is not treated as accepted by silence or delay.
 
 The v1.0 package remains unchanged as the historical publication state.
 
