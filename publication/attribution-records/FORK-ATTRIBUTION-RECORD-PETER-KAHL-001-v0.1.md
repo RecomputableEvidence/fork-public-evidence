@@ -1,6 +1,6 @@
 # FORK-ATTRIBUTION-RECORD-PETER-KAHL-001-v0.1
 
-**Status:** PUBLIC ATTRIBUTION / LINEAGE CORRECTION  
+**Status:** PUBLIC LINEAGE CORRECTION — DOI-BEARING CONSOLIDATED RECORD PENDING EXACT-WORDING ACKNOWLEDGMENT  
 **Date:** 2026-09-08  
 **Applies to:** Fork / Recomputable Evidence; the later Fork formulation “Preservation without Inheritance”; publication lineage for *When the Result Is Reproducible but the Evidence Isn’t*  
 **Purpose:** preserve a bounded intellectual-lineage correction without transferring endorsement, co-authorship, or broader architectural standing.
@@ -90,13 +90,23 @@ This attribution does **not** establish or imply:
 
 The canonical v1.0 article published on 2026-09-08 remains an immutable historical publication state. It is not silently edited.
 
-A successor **v1.1** adds an explicit intellectual-lineage note and Kahl’s two cited works. The v1.1 change is an attribution correction; it does not expand the article’s substantive claims about OpenAI, Navier–Stokes, Fork validation, safety, compliance, or authority.
+A successor **v1.1** prepares an explicit intellectual-lineage correction and adds Kahl’s two cited works. The article-level attribution language reflects wording that Kahl confirmed as preserving the intended distinction in the July 2026 exchange.
+
+A separate consolidated DOI-bearing attribution record was subsequently sent to Kahl for exact-wording acknowledgment. On the present record, that exact consolidated deposit version remains **PENDING REVIEW**. Kahl’s later “Please bear with me. Thanks.” is not treated as acknowledgment, acceptance, or approval. Silence or delay does not change that standing.
+
+The v1.1 change does not expand the article’s substantive claims about OpenAI, Navier–Stokes, Fork validation, safety, compliance, or authority.
 
 ## 7. Standing
 
 ```text
-ATTRIBUTION CORRECTION:
-APPLIED
+ARTICLE-LEVEL ATTRIBUTION CORRECTION:
+PREPARED FOR v1.1
+
+DOI-BEARING CONSOLIDATED ATTRIBUTION RECORD:
+PENDING EXACT-WORDING ACKNOWLEDGMENT
+
+SILENCE OR DELAY:
+NOT ACKNOWLEDGMENT
 
 KAHL PRIOR CONTRIBUTION:
 ACKNOWLEDGED
