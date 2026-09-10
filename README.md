@@ -4,6 +4,15 @@ Fork is a research implementation exploring whether explicit handoff-state artif
 
 Fork does **not** certify, validate, approve, authorize, guarantee, or establish legal, compliance, operational, or institutional sufficiency.
 
+## Current repository standing
+
+For the current cross-program standing of Fork research, executions, failures, frozen methods, independence gates, intentional stops, pending byte admissions, and next evidence-bearing gates, begin here:
+
+- [`CURRENT_STANDING.md`](CURRENT_STANDING.md)
+- [`docs/current-standing/README.md`](docs/current-standing/README.md)
+
+The current-standing layer is an interpretation and routing surface. Inclusion there does not validate, freeze, qualify, authorize, or strengthen an underlying artifact, and repository adjacency does not create derivation, equivalence, endorsement, or standing inheritance.
+
 Start here: [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md)
 
 ## Research Status
