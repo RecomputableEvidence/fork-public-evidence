@@ -2,7 +2,8 @@
 
 **Closure snapshot:** 2026-09-09  
 **Closure base:** `1663674949ec90ff7e8878c27bea9dbde97096d7`  
-**Standing:** `REPOSITORY_STANDING_INDEX_CANDIDATE`  
+**Closure merge:** `cf5c617987a7f1fcde534f46daada42976583b48` via PR `#143`  
+**Standing:** `REPOSITORY_STANDING_INDEX_ADMITTED`  
 **Scope:** interpretation and routing of repository evidence; no underlying artifact is promoted by inclusion here.
 
 This directory is the current reviewer entry point for reconstructing what Fork presently contains, what has been executed, what failed, what remains provisional, what is frozen, what awaits independent review, what was intentionally stopped, and what next evidence-bearing gate remains open.
@@ -43,7 +44,8 @@ A reviewer should therefore determine an artifact's standing from its own record
 2. [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](FORK_CURRENT_WORK_REGISTER_v0_1.md) — human-readable current program state.
 3. [`FORK_CURRENT_WORK_REGISTER_v0_1.json`](FORK_CURRENT_WORK_REGISTER_v0_1.json) — machine-readable counterpart.
 4. [`FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md`](FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md) — routes reviewers to the appropriate repository surface without collapsing purposes.
-5. [`FORK_CLOSURE_PASS_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_RECEIPT_2026_09_09.md) — what this closure pass changed and, equally important, what it did not change.
+5. [`FORK_CLOSURE_PASS_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_RECEIPT_2026_09_09.md) — candidate closure state before review and merge.
+6. [`FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md) — successor record establishing that the current-standing layer was admitted to `main`; it does not establish byte admission of underlying pending objects.
 
 ## Historical artifacts remain historical
 
@@ -62,7 +64,14 @@ PROGRAM_OBJECT_EXISTS
 
 Some current research objects were executed or frozen outside the present repository tree and are therefore registered as `PENDING_BYTE_ADMISSION`. Their existence and standing may be reported here without pretending that their canonical bytes are already available from this branch.
 
-That state is intentional and temporary. It permits a reviewer to reconstruct the program's current shape while preserving the difference between a status record and admission of the underlying evidence package.
+The current-standing index itself is now admitted to the repository. That does not change the material state of any underlying object:
+
+```text
+CURRENT_STANDING_INDEX_ADMITTED
+!= PENDING_OBJECT_BYTES_ADMITTED
+```
+
+This permits a reviewer to reconstruct the program's current shape while preserving the difference between a status record and admission of the underlying evidence package.
 
 ## Current top-level posture
 
