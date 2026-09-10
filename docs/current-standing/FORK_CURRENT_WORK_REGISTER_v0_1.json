@@ -1,0 +1,165 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_1",
+  "snapshot_date": "2026-09-09",
+  "snapshot_base_commit": "1663674949ec90ff7e8878c27bea9dbde97096d7",
+  "standing": "CURRENT_PROGRAM_STATE_RECORD_CANDIDATE",
+  "governing_non_inheritance": [
+    "ARTIFACT_PRESENT != EXECUTED",
+    "EXECUTED != PASSED",
+    "PASSED != FROZEN",
+    "FROZEN != INDEPENDENTLY_REVIEWED",
+    "REPOSITORY_ADMITTED != COMMERCIALLY_QUALIFIED",
+    "MULTIPLE_PURPOSE_ROUTES != MULTIPLE_INDEPENDENT_CONFIRMATIONS"
+  ],
+  "objects": [
+    {
+      "id": "FORK_PUBLIC_BASELINE",
+      "material_state": "PRESENT_IN_REPOSITORY",
+      "current_disposition": "ACTIVE_PUBLIC_BASELINE",
+      "next_gate": "admit newer research state without rewriting historical proof and review surfaces"
+    },
+    {
+      "id": "CATASTROPHE-0001",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXECUTED_BOUNDED",
+      "result_state": "MIXED_PASS_FAILURE_REPAIR_LINEAGE",
+      "independence_state": "EXTERNAL_GENERALIZATION_NOT_ESTABLISHED",
+      "next_gate": "balanced transition-fidelity epoch with ACT_ABSTAIN_ESCALATE_SEEK_EVIDENCE and promotion/suppression measurement"
+    },
+    {
+      "id": "CONTINUANCE_LANGGRAPH_EPOCH_1",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXECUTED_BOUNDED",
+      "result_state": "FAIL_LOCALIZED",
+      "bounded_results": ["ORACLE_7_OF_7", "FOREIGN_INGESTION_7_OF_7", "BCI_7_OF_7", "LENS_SOURCE_SEPARATION_7_OF_7", "LENS_RELATION_DERIVATION_0_OF_7", "CUSTODIAN_AUTHORITY_NONINHERITANCE_7_OF_7"],
+      "next_gate": "Lens-only semantic-continuance relation derivation repair"
+    },
+    {
+      "id": "BCI_EVALUATOR_STATE_REPLICATION_001",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXECUTED_NONSCORABLE",
+      "result_state": "NO_SCORABLE_CONDITION",
+      "bounded_results": ["18_OF_18_CONDITION_STATE_NOT_ESTABLISHED", "ZERO_SCORABLE_CELLS"],
+      "independence_state": "INDEPENDENCE_NOT_ESTABLISHED",
+      "next_gate": "isolated multi-session successor"
+    },
+    {
+      "id": "FORK_D5_1_LIFECYCLE_NONINHERITANCE_v0_1_2",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "subject_sha256": "44c0dc9749b0b256b5ad94a06703477e0a48978ffdb2e14dc57cf60d8116a7b1",
+      "execution_state": "LOCAL_PRESSURE_COMPLETE",
+      "freeze_state": "FREEZE_REVIEW_PENDING",
+      "independence_state": "INDEPENDENT_REVIEW_PENDING",
+      "next_gate": "independent integrity and recomputation review plus 18 rule audits residual-risk review and committed hidden cases"
+    },
+    {
+      "id": "LRC_001_v0_8_RECOMPUTATION_IDENTITY_SIDECAR",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXECUTED_BOUNDED",
+      "result_state": "ORACLE_FROZEN_BEFORE_ADAPTER_AND_11_SELF_TESTS_PASS",
+      "independence_state": "PROCEDURAL_ONLY",
+      "next_gate": "O9 full reduced flattened null-equivalence ablation"
+    },
+    {
+      "id": "CAPBOOT_TOOLKIT_DEMO_001",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXECUTED_BOUNDED",
+      "result_state": "BOUNDED_MECHANISM_REPRODUCTION",
+      "non_claims": ["EXACT_HISTORICAL_ORIGINAL_RUN_NOT_INDEPENDENTLY_REPRODUCED"],
+      "next_gate": "admit exact bounded reproduction and explicit original-run missingness"
+    },
+    {
+      "id": "REMORA_DDW",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXECUTED_BOUNDED",
+      "result_state": "BOUNDED_CLOSEOUT",
+      "current_disposition": "STOPPED_BY_DESIGN",
+      "next_gate": "NONE_UNLESS_UPSTREAM_REQUESTS_MORE_WORK"
+    },
+    {
+      "id": "REMORA_AUTOGEN_CACHE_SEAM",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "REPRODUCTION_INCONCLUSIVE",
+      "result_state": "STRUCTURAL_COLLISION_GEOMETRY_REPRODUCED_PACKAGE_RUNTIME_UNAVAILABLE",
+      "next_gate": "real pinned AutoGen package-runtime reproduction"
+    },
+    {
+      "id": "FORK_REPOSITORY_EXAMINATION_PROTOCOL_001",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "NOT_EXECUTED_AS_GENERAL_METHOD",
+      "result_state": "CANDIDATE_RESEARCH_METHOD",
+      "next_gate": "freeze method and bind AutoGen inconclusive case as first bounded record"
+    },
+    {
+      "id": "FORK_HISTORICAL_INHERITANCE_SURVEY_001_METHOD_v0_1_1",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "artifact_sha256": "00c9c1d9ea15f49c784fd8049e66dcfad1938992edf79c10cc5b1ff2a8b96c23",
+      "execution_state": "NOT_EXECUTED",
+      "freeze_state": "FROZEN_RESEARCH_METHOD_BASELINE_SUCCESSOR",
+      "next_gate": "Gate A Kafka outcome-neutral calibration"
+    },
+    {
+      "id": "GIM_INDUCTION_PROTOCOL_v0_1_CANDIDATE",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "NOT_EXECUTED",
+      "freeze_state": "FROZEN_FOR_INITIAL_PRESSURE_EPOCH",
+      "grammar_state": "UNINSTANTIATED_OPEN",
+      "gim_state": "NOT_YET_DERIVED",
+      "next_gate": "temporal-authorization to present-admissibility A/B test"
+    },
+    {
+      "id": "FORK_EXTERNAL_CONSEQUENTIAL_ROUTE_SEAMS_001",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "NOT_EXECUTED_AS_FIXTURE_SET",
+      "result_state": "EXTERNAL_ENVIRONMENTAL_OBSERVATION",
+      "next_gate": "freeze v0.1 and execute Revocation Reachability"
+    },
+    {
+      "id": "FORK_WORKING_SYSTEM_EXCURSION_001_REVOCATION_REACHABILITY",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "DOCUMENTATION_SCOPE_EXAMINATION_COMPLETE",
+      "result_state": "PARTIALLY_CONFIRMED",
+      "next_gate": "reproducible LangGraph intervention-reachability fixture"
+    },
+    {
+      "id": "MCP_STATELESS_EVIDENCE_BOUNDARIES",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "SOURCE_GROUNDED_ANALYSIS_ONLY",
+      "result_state": "SOURCE_GROUNDED_RESEARCH",
+      "next_gate": "bounded source-audit record plus one minimal executable fixture"
+    },
+    {
+      "id": "FORK_GOVERNANCE_EVIDENCE_NEAREST_NEIGHBOR_COHORT_001",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "NOT_EXECUTED",
+      "result_state": "CANDIDATE_COMPARATIVE_METHOD",
+      "next_gate": "freeze baseline and execute Mandato actual-context observed-context fixture"
+    },
+    {
+      "id": "RETRIEVAL_LONGITUDINAL_CORPUS",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "ACTIVE_LONGITUDINAL_OBSERVATION",
+      "result_state": "ACQUISITION_AND_SYNTHESIS_STANDING_VARIES_BY_RUN",
+      "next_gate": "formal event register with experimenter-in-corpus and query-expansion provenance fields"
+    },
+    {
+      "id": "NGAST_APPLIED_ASSESSMENT_TRIAGE_001_v0_1_CANDIDATE",
+      "material_state": "PENDING_BYTE_ADMISSION_TO_APPLIED_SURFACE",
+      "execution_state": "NOT_QUALIFIED_FOR_UNRESTRICTED_CLIENT_USE",
+      "result_state": "CANDIDATE_FOR_APPLIED_USE",
+      "next_gate": "operating Gate 1 and per-method commercial qualification"
+    },
+    {
+      "id": "H2E_SHARED_PUZZLE_FIELD_RECORDS",
+      "material_state": "PENDING_BYTE_ADMISSION",
+      "execution_state": "EXTERNAL_FIELD_OBSERVATION",
+      "result_state": "VARIES_BY_EXCHANGE",
+      "next_gate": "preserve exact puzzle context native response timing amendments and non-response before comparative interpretation"
+    }
+  ],
+  "snapshot_non_claims": [
+    "REGISTERED_CURRENT_STATE_ONLY does not establish canonical bytes for PENDING_BYTE_ADMISSION objects",
+    "this register does not certify correctness compliance legal sufficiency safety production readiness procurement approval or institutional authority",
+    "supersession of this snapshot does not erase this historical status record"
+  ]
+}
