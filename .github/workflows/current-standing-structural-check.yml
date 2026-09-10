@@ -1,0 +1,35 @@
+name: Current Standing Structural Check
+
+on:
+  pull_request:
+    paths:
+      - 'CURRENT_STANDING.md'
+      - 'README.md'
+      - 'docs/current-standing/**'
+      - 'scripts/check_current_standing_v0_1.py'
+      - '.github/workflows/current-standing-structural-check.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'CURRENT_STANDING.md'
+      - 'README.md'
+      - 'docs/current-standing/**'
+      - 'scripts/check_current_standing_v0_1.py'
+      - '.github/workflows/current-standing-structural-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check-current-standing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check current-standing register
+        run: python scripts/check_current_standing_v0_1.py
