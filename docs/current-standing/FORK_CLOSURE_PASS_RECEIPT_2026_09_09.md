@@ -20,7 +20,7 @@ Make the repository sufficient for a competent reviewer to determine:
 
 without allowing repository proximity, cross-linking, later success, or multi-purpose visibility to manufacture stronger standing.
 
-## Additions in this pass
+## Additions and bounded live-surface change in this pass
 
 1. `docs/current-standing/README.md`
    - new current reviewer entrypoint;
@@ -43,6 +43,18 @@ without allowing repository proximity, cross-linking, later success, or multi-pu
 6. `scripts/check_current_standing_v0_1.py`
    - structural checker for the machine-readable register;
    - verifies parseability, object identity uniqueness, required next gates, and a minimum non-inheritance kernel.
+
+7. `CURRENT_STANDING.md`
+   - root-level pointer to the current-standing layer.
+
+8. `README.md`
+   - live routing surface only;
+   - receives a nine-line current-standing entrypoint near the top;
+   - no existing README content is deleted or rewritten.
+
+9. `.github/workflows/current-standing-structural-check.yml`
+   - additive CI path for the current-standing structural checker;
+   - does not convert checker success into validation of the underlying status claims.
 
 ## Existing material deliberately not moved
 
@@ -69,6 +81,8 @@ No historical versioned artifact is repaired in place by this closure pass. Wher
 CURRENT_CLASSIFICATION
 != HISTORICAL_REWRITE
 ```
+
+The root `README.md` is treated as a live routing surface rather than a frozen research artifact. Its only change in this pass is the additive current-standing route described above.
 
 ## Pending byte-admission backlog
 
@@ -97,6 +111,8 @@ Run from repository root:
 ```bash
 python scripts/check_current_standing_v0_1.py
 ```
+
+The same checker is wired through `.github/workflows/current-standing-structural-check.yml` for relevant pull-request and `main` changes.
 
 A PASS means only that the current-standing register satisfies the structural checks implemented by that script. It does not establish the correctness of the status claims, canonical identity of pending packages, scientific validity, independence, truth, compliance, legal sufficiency, safety, production readiness, procurement approval, commercial qualification, or institutional authority.
 
