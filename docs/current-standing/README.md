@@ -1,14 +1,13 @@
 # Fork Current Standing — Reviewer Entry Point
 
-**Closure snapshot:** 2026-09-09  
-**Closure base:** `1663674949ec90ff7e8878c27bea9dbde97096d7`  
+**Historical closure snapshot:** 2026-09-09  
+**Historical closure base:** `1663674949ec90ff7e8878c27bea9dbde97096d7`  
 **Closure merge:** `cf5c617987a7f1fcde534f46daada42976583b48` via PR `#143`  
-**Standing:** `REPOSITORY_STANDING_INDEX_ADMITTED`  
+**Current successor overlay:** 2026-09-15, based on `73228007910f0e4781005133e9a4e9484fd2969a`  
+**Standing:** `REPOSITORY_STANDING_INDEX_ADMITTED_WITH_SUCCESSOR_OVERLAY`  
 **Scope:** interpretation and routing of repository evidence; no underlying artifact is promoted by inclusion here.
 
-This directory is the current reviewer entry point for reconstructing what Fork presently contains, what has been executed, what failed, what remains provisional, what is frozen, what awaits independent review, what was intentionally stopped, and what next evidence-bearing gate remains open.
-
-It exists because the repository serves several legitimate purposes at once: research record, proof surface, failure-mode corpus, Recomputable Evidence implementation surface, interoperability work, longitudinal evidence, pilot/procurement material, and adjacent NGAST consultation material. Those purposes may share artifacts without sharing standing.
+This directory is the reviewer entry point for reconstructing what Fork presently contains, what has been executed, what failed, what remains provisional, what is frozen, what awaits independent review, what was intentionally stopped, and what has subsequently been admitted under repository discipline.
 
 ## Governing rule
 
@@ -36,45 +35,38 @@ ADJACENT IN REPOSITORY
 != STRONGER IN STANDING
 ```
 
-A reviewer should therefore determine an artifact's standing from its own record and from the current work register, not from directory proximity, naming similarity, later references, or successful execution of another artifact.
-
 ## Read in this order
 
 1. [`FORK_STANDING_NONINHERITANCE_CONTRACT_v0_1.md`](FORK_STANDING_NONINHERITANCE_CONTRACT_v0_1.md) — status vocabulary and interpretation rules.
-2. [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](FORK_CURRENT_WORK_REGISTER_v0_1.md) — human-readable current program state.
-3. [`FORK_CURRENT_WORK_REGISTER_v0_1.json`](FORK_CURRENT_WORK_REGISTER_v0_1.json) — machine-readable counterpart.
-4. [`FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md`](FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md) — routes reviewers to the appropriate repository surface without collapsing purposes.
-5. [`FORK_CLOSURE_PASS_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_RECEIPT_2026_09_09.md) — candidate closure state before review and merge.
-6. [`FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md) — successor record establishing that the current-standing layer was admitted to `main`; it does not establish byte admission of underlying pending objects.
-
-## Historical artifacts remain historical
-
-This closure pass does not move, rewrite, delete, or retrospectively strengthen existing versioned research, simulation, review, reconstruction, commercial, interoperability, or proof-surface artifacts. Historical versions remain evidence of what existed at their own time and scope.
-
-A later status record may say that an older artifact is `SUPERSEDED`, `HISTORICAL`, `STOPPED`, `REPAIR_REQUIRED`, or `NO_LONGER_CURRENT`. That later classification does not alter the historical bytes or retroactively change what the older artifact established at the time.
+2. [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_2.json) — current successor overlay; additive to the predecessor.
+3. [`FORK_VOS_E002_ADMISSION_MERGE_RECEIPT_2026_09_15.md`](FORK_VOS_E002_ADMISSION_MERGE_RECEIPT_2026_09_15.md) — bounded E002 admission event.
+4. [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](FORK_CURRENT_WORK_REGISTER_v0_1.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_1.json) — preserved September 9 predecessor population.
+5. [`FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md`](FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md) — routes reviewers without collapsing purposes.
+6. [`FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md) — admission of the original current-standing layer; not underlying-object byte admission.
 
 ## Current repository versus current program
 
-The register explicitly distinguishes:
+The standing layer distinguishes:
 
 ```text
 PROGRAM_OBJECT_EXISTS
 != ARTIFACT_BYTES_PRESENT_ON_CURRENT_REPOSITORY_BRANCH
 ```
 
-Some current research objects were executed or frozen outside the present repository tree and are therefore registered as `PENDING_BYTE_ADMISSION`. Their existence and standing may be reported here without pretending that their canonical bytes are already available from this branch.
-
-The current-standing index itself is now admitted to the repository. That does not change the material state of any underlying object:
+The E002 successor makes the material distinction more explicit:
 
 ```text
-CURRENT_STANDING_INDEX_ADMITTED
-!= PENDING_OBJECT_BYTES_ADMITTED
+TERMINAL_NATIVE_RECORDS_ADMITTED
+!= DEVELOPMENT_PACKAGE_BYTES_ADMITTED
+!= BINARY_SUPPORT_BYTES_ADMITTED
+!= RAW_CAPTURE_ARCHIVES_ADMITTED
+!= INDEPENDENT_RAW_RECOMPUTATION
 ```
 
-This permits a reviewer to reconstruct the program's current shape while preserving the difference between a status record and admission of the underlying evidence package.
+Objects not changed by the v0.2 delta retain their predecessor-register standing. The v0.1 record remains historical evidence of what was reported at its own snapshot coordinate; the v0.2 overlay does not mutate it.
 
 ## Current top-level posture
 
-Fork remains a research-grade evidence-boundary and recomputation program. Passing structural checks, successful bounded experiments, external observations, commercial materials, or inclusion in this repository do not establish truth, compliance, legal sufficiency, production readiness, safety, authorization, institutional approval, procurement approval, or justified downstream reliance.
+Fork remains a research-grade evidence-boundary and recomputation program. Passing structural checks, successful bounded experiments, external observations, commercial materials, repository admission, or inclusion in a current-standing layer do not establish truth, compliance, legal sufficiency, production readiness, safety, authorization, institutional approval, procurement approval, or justified downstream reliance.
 
 The repository's purpose is preservation and examination. It is not an authority oracle.
