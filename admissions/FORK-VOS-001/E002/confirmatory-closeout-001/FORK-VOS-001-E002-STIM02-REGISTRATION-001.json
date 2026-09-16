@@ -1,0 +1,52 @@
+{
+  "record_id": "FORK-VOS-001-E002-STIM02-REGISTRATION-001",
+  "centered": {
+    "medoid_member": "IMG_20260915_204106140_BURST002.jpg",
+    "medoid_sha256": "ec95809f3cf978c86421d3ce8ee7c7b93d145e8a66490b579e9a5689e1df55da",
+    "method": "four-corner tile-quadrilateral homography; residual local tile quadrilateral refinement where available",
+    "source_to_capture_homography": [
+      [
+        1.35635247,
+        0.0861940581,
+        -28.0746925
+      ],
+      [
+        0.0180172975,
+        1.46704576,
+        -10.3915952
+      ],
+      [
+        1.47725277e-05,
+        9.74095273e-05,
+        1.0
+      ]
+    ],
+    "mean_control_point_residual_px": 11.814211,
+    "median_control_point_residual_px": 10.953501
+  },
+  "oblique": {
+    "medoid_member": "IMG_20260915_202851208_BURST001.jpg",
+    "medoid_sha256": "ba90950e97033423811d6cfecd1ce5a0b477f4b284aa5810994727f1cd9546be",
+    "method": "SIFT + ratio test + RANSAC global homography; residual local tile quadrilateral refinement where available",
+    "good_matches": 72,
+    "inliers": 22,
+    "source_to_capture_homography": [
+      [
+        0.840318963,
+        0.153263416,
+        -76.5941727
+      ],
+      [
+        -0.177989733,
+        1.41090819,
+        346.551129
+      ],
+      [
+        -0.000196760289,
+        0.000129172034,
+        1.0
+      ]
+    ]
+  },
+  "boundary": "Registration quality is an analysis-layer property. Registration failure or analyzer non-detection does not establish source absence."
+}

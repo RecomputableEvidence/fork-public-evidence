@@ -1,0 +1,27 @@
+name: VOS E002 Admission Check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'admissions/FORK-VOS-001/E002/**'
+      - 'scripts/check_vos_e002_admission_001.py'
+      - '.github/workflows/vos-e002-admission-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'admissions/FORK-VOS-001/E002/**'
+      - 'scripts/check_vos_e002_admission_001.py'
+      - '.github/workflows/vos-e002-admission-check.yml'
+permissions:
+  contents: read
+jobs:
+  check-e002-admission:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check E002 repository admission
+        run: python scripts/check_vos_e002_admission_001.py

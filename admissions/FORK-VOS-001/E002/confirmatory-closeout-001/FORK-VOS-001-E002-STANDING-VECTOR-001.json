@@ -1,0 +1,39 @@
+{
+  "record_id": "FORK-VOS-001-E002-STANDING-VECTOR-001",
+  "execution_state": "CONFIRMATORY_EXECUTION_COMPLETE",
+  "e002_disposition": "CLOSED_WITH_BOUNDED_STANDING_VECTOR",
+  "standing_vector": {
+    "GEOMETRY": {
+      "state": "ESTABLISHED_FOR_DECLARED_PAIR",
+      "basis": "centered and oblique capture geometries remain reconstructably separated"
+    },
+    "LUMINANCE": {
+      "state": "CONDITION_DEPENDENT_PARTIAL",
+      "basis": "near-black ordering survives strongly; near-white behavior is exposure/geometry dependent and centered highlights are substantially compressed"
+    },
+    "REFLECTION": {
+      "state": "SPATIALLY_NONUNIFORM_AND_VANTAGE_DEPENDENT",
+      "basis": "source-black tile-median span 5.50 centered vs 33.87 oblique"
+    },
+    "SPATIAL_FREQUENCY": {
+      "state": "FREQUENCY_DEPENDENT_NOT_EQUIVALENT_TO_COARSE_FIDELITY",
+      "basis": "1-2 px structures show much weaker modulation than 4-8 px structures; modulation magnitude itself is alias-prone"
+    },
+    "MISSINGNESS": {
+      "state": "NO_TILE_LOSS_OBSERVED_BUT_ABSENCE_SEPARATION_NOT_FULLY_CHALLENGED",
+      "basis": "9/9 source tiles observed and identity-ranked first in both conditions; no controlled source-absent tile was present"
+    },
+    "INDEPENDENCE": {
+      "state": "NOT_ESTABLISHED",
+      "basis": "same operator/device/session lineage and no independent external replication or recomputation of the physical capture"
+    }
+  },
+  "non_inheritance": [
+    "E002_CLOSED != GENERAL_CAMERA_RELIABILITY",
+    "E002_CLOSED != GENERAL_EVIDENTIARY_SUFFICIENCY",
+    "CAPTURE_TILE_OBSERVED != SOURCE_COMPLETENESS",
+    "ANALYZER_IDENTITY_DETECTED != SEMANTIC_CORRECTNESS",
+    "CONFIRMATORY_EXECUTION_COMPLETE != INDEPENDENT_REPLICATION",
+    "E002_FINDINGS != VOS_TC_FINDINGS"
+  ]
+}

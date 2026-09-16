@@ -1,0 +1,43 @@
+{
+  "record_id": "VOS-TC-E002-BOUNDED-HANDOFF-001",
+  "source_closeout": "FORK-VOS-001-E002-CONFIRMATORY-CLOSEOUT-001",
+  "source_execution_state": "CONFIRMATORY_EXECUTION_COMPLETE",
+  "source_disposition": "CLOSED_WITH_BOUNDED_STANDING_VECTOR",
+  "handoff_state": "AUTHORIZED_BOUNDED_INPUT_ONLY",
+  "target_sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718",
+  "standing_vector": {
+    "GEOMETRY": "ESTABLISHED_FOR_DECLARED_PAIR",
+    "LUMINANCE": "CONDITION_DEPENDENT_PARTIAL",
+    "REFLECTION": "SPATIALLY_NONUNIFORM_AND_VANTAGE_DEPENDENT",
+    "SPATIAL_FREQUENCY": "FREQUENCY_DEPENDENT_NOT_EQUIVALENT_TO_COARSE_FIDELITY",
+    "MISSINGNESS": "NO_TILE_LOSS_OBSERVED_BUT_ABSENCE_SEPARATION_NOT_FULLY_CHALLENGED",
+    "INDEPENDENCE": "NOT_ESTABLISHED"
+  },
+  "declared_constraints": [
+    "Geometry standing applies only to the declared confirmatory pair.",
+    "Luminance preservation is condition dependent; near-black preservation does not imply near-white preservation.",
+    "Reflection effects are spatially nonuniform and vantage dependent in this execution.",
+    "Spatial-frequency modulation is frequency dependent and is not equivalent to source fidelity.",
+    "No tile loss was observed, but no controlled source-absent tile was present.",
+    "Registration/analyzer non-detection must not be treated as proof of source absence.",
+    "Independence is not established."
+  ],
+  "non_inheritance": [
+    "GENERAL_CAMERA_RELIABILITY",
+    "SOURCE_COMPLETENESS",
+    "SEMANTIC_CORRECTNESS",
+    "LEGAL_OR_EVIDENTIARY_SUFFICIENCY",
+    "INDEPENDENT_REPLICATION",
+    "TEMPORAL_OR_CONTEXTUAL_CONTINUITY",
+    "VOS_TC_FINDINGS"
+  ],
+  "pair_selection": {
+    "oblique_archive": "attachments (24).zip",
+    "centered_archive": "attachments (28).zip",
+    "supplemental_oblique_excluded": "attachments (27).zip",
+    "prior_stim01_population_excluded": "attachments (25).zip",
+    "post_outcome_selection": false
+  },
+  "raw_capture_archives_in_closeout_package": false,
+  "independent_raw_recomputation_completed_by_this_assessment": false
+}

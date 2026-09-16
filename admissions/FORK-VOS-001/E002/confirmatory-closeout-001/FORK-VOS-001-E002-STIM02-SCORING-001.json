@@ -1,0 +1,98 @@
+{
+  "record_id": "FORK-VOS-001-E002-STIM02-SCORING-001",
+  "target_sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718",
+  "frozen_measurement_vector": [
+    "SOURCE_TILE_POPULATION",
+    "CAPTURE_TILE_OBSERVATION_STATE",
+    "ANALYZER_TILE_DETECTION_STATE",
+    "NEAR_BLACK_RANK",
+    "NEAR_WHITE_RANK",
+    "SPATIAL_FREQUENCY_MODULATION_1_2_4_8PX",
+    "CENTERED_VS_OBLIQUE_DELTA",
+    "LOCAL_REFLECTION_FIELD"
+  ],
+  "pair_selection_rule": {
+    "oblique": "FIRST_VALID_STIM02_OBLIQUE_BURST",
+    "centered": "FIRST_VALID_STIM02_CENTERED_BURST",
+    "post_outcome_selection": false
+  },
+  "source_tile_population": 9,
+  "capture_tile_observation_state": {
+    "centered": {
+      "observed_tiles": 9,
+      "expected_tiles": 9
+    },
+    "oblique": {
+      "observed_tiles": 9,
+      "expected_tiles": 9
+    }
+  },
+  "analyzer_tile_detection_state": {
+    "method": "registered tile-local identity-template ranking; correct source identity rank among nine candidate tile identities",
+    "centered_correct_identity_rank_1": 9,
+    "oblique_correct_identity_rank_1": 9,
+    "threshold_rule": "NO_ABSOLUTE_CORRELATION_THRESHOLD_USED"
+  },
+  "geometry": {
+    "centered_perspective_index": 0.12191808,
+    "oblique_perspective_index": 0.5873608,
+    "centered_screen_rotation_deg": 0.7673006211,
+    "oblique_screen_rotation_deg": -7.5788932403
+  },
+  "near_black_rank": {
+    "centered": {
+      "tile_spearman_median": 1.0,
+      "tile_spearman_min": 1.0,
+      "perfect_rank_tiles": 9
+    },
+    "oblique": {
+      "tile_spearman_median": 1.0,
+      "tile_spearman_min": 0.5476190476190477,
+      "perfect_rank_tiles": 6
+    }
+  },
+  "near_white_rank": {
+    "centered": {
+      "tile_spearman_median": -0.09622504486493764,
+      "median_ladder_dynamic_range_digital_units": 1.6469999999999914,
+      "interpretation": "HIGHLIGHT_LADDER_LARGELY_COMPRESSED_OR_CLIPPED"
+    },
+    "oblique": {
+      "tile_spearman_median": 1.0,
+      "tile_spearman_min": 0.9221722216732094,
+      "median_ladder_dynamic_range_digital_units": 28.486500000000007,
+      "interpretation": "ORDER_LARGELY_PRESERVED_WITH_LOCAL_HIGHLIGHT_COMPRESSION"
+    }
+  },
+  "spatial_frequency_modulation": {
+    "metric": "(P95-P5)/(P95+P5) within registered bar field",
+    "centered_median_by_source_stripe_width_px": {
+      "1": 0.02491519796817002,
+      "2": 0.0229053043410646,
+      "4": 0.2179051766417795,
+      "8": 0.3405735602450284
+    },
+    "oblique_median_by_source_stripe_width_px": {
+      "1": 0.0824529892466679,
+      "2": 0.0858546579434161,
+      "4": 0.3097034408044099,
+      "8": 0.4692195041623868
+    },
+    "boundary": "Higher measured modulation is not automatically higher source fidelity; projection scale and aliasing can generate modulation. The supported finding is strong frequency dependence, not an oblique-superiority claim."
+  },
+  "local_reflection_field": {
+    "metric": "span across nine tile medians measured only on source-black pixels after erosion from graphic edges",
+    "centered_tile_median_span_digital_units": 5.497399999999992,
+    "oblique_tile_median_span_digital_units": 33.87,
+    "interpretation": "SPATIALLY_NONUNIFORM_AND_VANTAGE_DEPENDENT"
+  },
+  "missingness": {
+    "source_tile_population": 9,
+    "centered_capture_observed": 9,
+    "oblique_capture_observed": 9,
+    "centered_analyzer_identity_detected": 9,
+    "oblique_analyzer_identity_detected": 9,
+    "source_absence_control_present": false,
+    "standing": "NO_TILE_LOSS_OBSERVED_IN_CONFIRMATORY_PAIR; SOURCE_ABSENCE_VS_CAPTURE_ABSENCE_NOT_FULLY_CHALLENGED"
+  }
+}

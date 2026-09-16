@@ -1,0 +1,47 @@
+{
+  "record_id": "FORK-VOS-001-E002-REPOSITORY-BYTE-BINDINGS-001",
+  "admission_scope": "TERMINAL_CLOSEOUT_AND_FULFILLMENT_NATIVE_TEXT_JSON_RECORDS_ONLY",
+  "development_package_material_state": "HASH_BOUND_NOT_BYTE_ADMITTED",
+  "binary_support_material_state": "HASH_BOUND_NOT_BYTE_ADMITTED",
+  "raw_capture_archives_material_state": "HASH_BOUND_NOT_BYTE_ADMITTED",
+  "bindings": [
+    {
+      "filename": "FORK-VOS-001-E002-CAPTURE-CORPUS-ANALYSIS-001.zip",
+      "bytes": 974954,
+      "sha256": "8416a3ab16dc3680cd324f5741902540b30574639648115030b12c7666dcfd09"
+    },
+    {
+      "filename": "FORK-VOS-001-E002-CONFIRMATORY-CLOSEOUT-001.zip",
+      "bytes": 899028,
+      "sha256": "2dfb9113cc36a1d693a5e7b54f7c9ee323f92f80e1aa60858dd77c10424ddf03"
+    },
+    {
+      "filename": "FORK-VOS-001-E002-ASSESSMENT-FULFILLMENT-001(1).zip",
+      "bytes": 4756,
+      "sha256": "a8b09a27fb966936ccd057ce4c2b83eea96273166edd54af140e8401698e53c3"
+    },
+    {
+      "filename": "E002_STIMULUS_02_SPATIAL_IDENTITY_MISSINGNESS.png",
+      "bytes": 16163,
+      "sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718"
+    },
+    {
+      "filename": "centered_stim02_rectified.jpg",
+      "bytes": 440794,
+      "sha256": "cd83120ec7b13f8d9dafe4a69b84bb8f74012e5bf4f62610e1a611bd9ca3a530"
+    },
+    {
+      "filename": "oblique_stim02_rectified.jpg",
+      "bytes": 438045,
+      "sha256": "1464ffc75e0488fa3cb17f74ccf691965f093c900c7b1ae4f7eb8a98e161893a"
+    }
+  ],
+  "raw_capture_note": "Raw confirmatory camera archives are bound by archive/member hashes in the admitted confirmatory-pair record but are not copied into this repository admission.",
+  "non_claims": [
+    "HASH_BOUND_NOT_BYTE_ADMITTED != REPOSITORY_BYTE_PRESENT",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != DEVELOPMENT_PACKAGE_BYTES_ADMITTED",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != RAW_CAPTURE_RECOMPUTED",
+    "REPOSITORY_ADMISSION != INDEPENDENT_REPLICATION",
+    "REPOSITORY_ADMISSION != GENERAL_CAMERA_RELIABILITY"
+  ]
+}
