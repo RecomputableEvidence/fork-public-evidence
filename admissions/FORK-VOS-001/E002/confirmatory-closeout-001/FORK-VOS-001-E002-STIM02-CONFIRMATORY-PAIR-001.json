@@ -1,0 +1,114 @@
+{
+  "record_id": "FORK-VOS-001-E002-STIM02-CONFIRMATORY-PAIR-001",
+  "target": {
+    "filename": "E002_STIMULUS_02_SPATIAL_IDENTITY_MISSINGNESS.png",
+    "sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718",
+    "identity_match": true
+  },
+  "oblique": {
+    "filename": "attachments (24).zip",
+    "bytes": 9093773,
+    "sha256": "902bd53d7958ad655080d374438f1d82a1a11d8861a3ebeee92cabcbc82726fb",
+    "members": [
+      {
+        "name": "IMG_20260915_202851208_BURST001.jpg",
+        "bytes": 2324620,
+        "sha256": "ba90950e97033423811d6cfecd1ce5a0b477f4b284aa5810994727f1cd9546be",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:28:51"
+      },
+      {
+        "name": "IMG_20260915_202851208_BURST005.jpg",
+        "bytes": 2281627,
+        "sha256": "8bf724c78bd581377dc403deb92c99db54417cc292016e02c2f8b342c9961046",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:28:52"
+      },
+      {
+        "name": "IMG_20260915_202851208_BURST006.jpg",
+        "bytes": 2333624,
+        "sha256": "568f1785781938d97fdc73562fb609113e25218d7acbb1f1ffa08f8567578b2c",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:28:52"
+      },
+      {
+        "name": "IMG_20260915_202851208_BURST007.jpg",
+        "bytes": 2295044,
+        "sha256": "36f14430b5aec226a5e70916a9cb710d477aedc7eae6446ace99691423fe1767",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:28:52"
+      }
+    ]
+  },
+  "centered": {
+    "filename": "attachments (28).zip",
+    "bytes": 8039863,
+    "sha256": "c3705dcf0bfcc7ea76225097897dbad20bf229c6c304a8427adad0e90cdc8c3c",
+    "members": [
+      {
+        "name": "IMG_20260915_204106140_BURST002.jpg",
+        "bytes": 2049632,
+        "sha256": "ec95809f3cf978c86421d3ce8ee7c7b93d145e8a66490b579e9a5689e1df55da",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:41:06"
+      },
+      {
+        "name": "IMG_20260915_204106140_BURST003.jpg",
+        "bytes": 2047521,
+        "sha256": "277133e5881e4135ce05c4c996d58d00bb5e2f15b557775260c60193856cfeb5",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:41:07"
+      },
+      {
+        "name": "IMG_20260915_204106140_BURST004.jpg",
+        "bytes": 2047058,
+        "sha256": "9ef76b45574aca82f1b7c150512701b8ef5480eb3fa51134239c35c5f47903ee",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:41:07"
+      },
+      {
+        "name": "IMG_20260915_204106140_BURST005.jpg",
+        "bytes": 2046261,
+        "sha256": "e5e55d359fa39368230fdc22734aabb3f83c05ccdcaa5aad372b5d5a5bd75edc",
+        "display_dimensions_px": [
+          2460,
+          3280
+        ],
+        "datetime_original": "2026:09:15 20:41:07"
+      }
+    ]
+  },
+  "excluded_from_confirmatory_pair": [
+    {
+      "filename": "attachments (25).zip",
+      "reason": "PRIOR_STIM01_PHOTO_POPULATION_RESUBMITTED; DOES_NOT_SATISFY_STIM02_CENTERED_CONDITION",
+      "sha256": "eeeb5c7a5d0e4ad347a69dcd33d0d90c207ceaca05b42a770adeb0b521339f4f"
+    },
+    {
+      "filename": "attachments (27).zip",
+      "reason": "SUPPLEMENTAL_VALID_STIM02_OBLIQUE_BURST_ACQUIRED_AFTER_FIRST_VALID_OBLIQUE; PRESERVED_BUT_EXCLUDED_TO_AVOID_POST_OUTCOME_SELECTION",
+      "sha256": "b0e49d12d68ad7b685fa4d0efe2bc3c13c56345af66f2ec363ccc5df5d05a7b8"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "record_id": "FORK-VOS-001-E002-CONFIRMATORY-LINEAGE-001",
+  "development_package": {
+    "filename": "FORK-VOS-001-E002-CAPTURE-CORPUS-ANALYSIS-001.zip",
+    "sha256": "8416a3ab16dc3680cd324f5741902540b30574639648115030b12c7666dcfd09"
+  },
+  "frozen_target": {
+    "filename": "E002_STIMULUS_02_SPATIAL_IDENTITY_MISSINGNESS.png",
+    "sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718"
+  },
+  "confirmatory_pair": {
+    "oblique_archive_sha256": "902bd53d7958ad655080d374438f1d82a1a11d8861a3ebeee92cabcbc82726fb",
+    "centered_archive_sha256": "c3705dcf0bfcc7ea76225097897dbad20bf229c6c304a8427adad0e90cdc8c3c"
+  },
+  "result": "CONFIRMATORY_EXECUTION_COMPLETE",
+  "standing_record": "FORK-VOS-001-E002-STANDING-VECTOR-001.json"
+}

@@ -1,0 +1,54 @@
+{
+  "artifact_id": "E002_STIMULUS_02_SPATIAL_IDENTITY_MISSINGNESS",
+  "dimensions_px": [
+    1920,
+    1080
+  ],
+  "color_mode": "RGB",
+  "tile_population": 9,
+  "tile_codes": [
+    "1001011001101001",
+    "1110000110000111",
+    "1010010110100101",
+    "1100101010100011",
+    "0110110010010110",
+    "1001111001111001",
+    "0011110011000011",
+    "0101101010100101",
+    "1111000000001111"
+  ],
+  "common_near_black_ladder": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "common_near_white_ladder": [
+    191,
+    207,
+    223,
+    231,
+    239,
+    247,
+    251,
+    255
+  ],
+  "common_spatial_frequency_stripe_widths_px": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "purpose": "Map position-specific survival, local missingness, reflection interference, and perspective effects without changing feature population between tiles.",
+  "non_claims": [
+    "This target does not establish camera calibration.",
+    "This target does not establish display calibration.",
+    "This target does not establish semantic interpretation.",
+    "Capture survival at one position does not imply survival at another position."
+  ],
+  "sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718"
+}

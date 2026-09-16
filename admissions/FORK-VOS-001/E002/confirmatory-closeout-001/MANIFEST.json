@@ -1,0 +1,63 @@
+{
+  "package_id": "FORK-VOS-001-E002-CONFIRMATORY-CLOSEOUT-001",
+  "standing": "CONFIRMATORY_EXECUTION_COMPLETE__E002_CLOSED_WITH_BOUNDED_STANDING_VECTOR",
+  "raw_capture_archives_included": false,
+  "raw_capture_archives_bound_by_sha256": true,
+  "files": [
+    {
+      "path": "E002_STIMULUS_02_SPATIAL_IDENTITY_MISSINGNESS.manifest.json",
+      "bytes": 1219,
+      "sha256": "e38915ea54225c3c2c0f75c786c07b76803520adf89ebbbe82c7760ecdaa9a80"
+    },
+    {
+      "path": "E002_STIMULUS_02_SPATIAL_IDENTITY_MISSINGNESS.png",
+      "bytes": 16163,
+      "sha256": "7b39c369875bf1fa23edac6a5919847410a06e60e78cb3d6e99cb07e8d7c1718"
+    },
+    {
+      "path": "FORK-VOS-001-E002-CONFIRMATORY-CLOSEOUT-001.md",
+      "bytes": 4097,
+      "sha256": "0d3cd037c028a1434d56cf848f6cbddb0bec0a83359372713937c820d6b319c0"
+    },
+    {
+      "path": "FORK-VOS-001-E002-CONFIRMATORY-LINEAGE-001.json",
+      "bytes": 761,
+      "sha256": "4722cef6d9537cc30b0ee37833631268e5afe4e08f883e1a524101bf46af2b37"
+    },
+    {
+      "path": "FORK-VOS-001-E002-STANDING-VECTOR-001.json",
+      "bytes": 1789,
+      "sha256": "fb46c0b677d820a2030887d126aa4a592263d8f9859e354f2eef84acc0b1a951"
+    },
+    {
+      "path": "FORK-VOS-001-E002-STIM02-CONFIRMATORY-PAIR-001.json",
+      "bytes": 3707,
+      "sha256": "f552de9e4206dd5f5095507c0270e75f8f8196ac7231de1a7b329551c9a689c6"
+    },
+    {
+      "path": "FORK-VOS-001-E002-STIM02-REGISTRATION-001.json",
+      "bytes": 1496,
+      "sha256": "47903a91e09e58858d164c44c78812133528e7f07ea7a103f7d46bea179aaf63"
+    },
+    {
+      "path": "FORK-VOS-001-E002-STIM02-SCORING-001.json",
+      "bytes": 3584,
+      "sha256": "a6e7b498711a1f269ab8ca75d28988d2cf2b4d0e1a345410e8ba61c4929e24f0"
+    },
+    {
+      "path": "RECOMPUTE.md",
+      "bytes": 967,
+      "sha256": "35215262513439233a22cd304a3ec8cb39d321476e7e708e53f4047a5525df9f"
+    },
+    {
+      "path": "centered_stim02_rectified.jpg",
+      "bytes": 440794,
+      "sha256": "cd83120ec7b13f8d9dafe4a69b84bb8f74012e5bf4f62610e1a611bd9ca3a530"
+    },
+    {
+      "path": "oblique_stim02_rectified.jpg",
+      "bytes": 438045,
+      "sha256": "1464ffc75e0488fa3cb17f74ccf691965f093c900c7b1ae4f7eb8a98e161893a"
+    }
+  ]
+}
