@@ -7,6 +7,7 @@ on:
       - 'README.md'
       - 'docs/current-standing/**'
       - 'scripts/check_current_standing_v0_1.py'
+      - 'scripts/check_current_standing_v0_2.py'
       - '.github/workflows/current-standing-structural-check.yml'
   push:
     branches:
@@ -16,6 +17,7 @@ on:
       - 'README.md'
       - 'docs/current-standing/**'
       - 'scripts/check_current_standing_v0_1.py'
+      - 'scripts/check_current_standing_v0_2.py'
       - '.github/workflows/current-standing-structural-check.yml'
 
 permissions:
@@ -31,5 +33,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Check current-standing register
+      - name: Check historical v0.1 current-standing register
         run: python scripts/check_current_standing_v0_1.py
+      - name: Check v0.2 successor overlay
+        run: python scripts/check_current_standing_v0_2.py

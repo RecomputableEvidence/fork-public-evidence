@@ -1,0 +1,50 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_2",
+  "snapshot_date": "2026-09-15",
+  "snapshot_base_commit": "73228007910f0e4781005133e9a4e9484fd2969a",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.json",
+  "predecessor_object_count": 19,
+  "delta_object_count": 1,
+  "governing_non_inheritance": [
+    "PREDECESSOR_REGISTER_PRESERVED != PREDECESSOR_STATE_STILL_CURRENT_FOR_DELTA_OBJECTS",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != DEVELOPMENT_PACKAGE_BYTES_ADMITTED",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != BINARY_SUPPORT_BYTES_ADMITTED",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != RAW_CAPTURE_ARCHIVES_ADMITTED",
+    "REPOSITORY_ADMITTED != INDEPENDENTLY_REVIEWED",
+    "CONFIRMATORY_EXECUTION_COMPLETE != INDEPENDENT_REPLICATION",
+    "E002_CLOSED != GENERAL_CAMERA_RELIABILITY",
+    "E002_FINDINGS != VOS_TC_FINDINGS"
+  ],
+  "delta_objects": [
+    {
+      "id": "FORK_VOS_001_E002",
+      "admission_path": "admissions/FORK-VOS-001/E002",
+      "material_state": "TERMINAL_NATIVE_RECORDS_ADMITTED__DEVELOPMENT_BINARY_AND_RAW_CAPTURE_BYTES_HASH_BOUND_NOT_ADMITTED",
+      "execution_state": "CONFIRMATORY_EXECUTION_COMPLETE",
+      "current_disposition": "CLOSED_WITH_BOUNDED_STANDING_VECTOR",
+      "assessment_state": "CLOSEOUT_ACCEPTED_AS_BOUNDED_EXECUTION_RECORD",
+      "handoff_state": "AUTHORIZED_BOUNDED_INPUT_ONLY",
+      "independence_state": "NOT_ESTABLISHED",
+      "admission_pr": 145,
+      "admission_merge_commit": "73228007910f0e4781005133e9a4e9484fd2969a",
+      "standing_vector": {
+        "GEOMETRY": "ESTABLISHED_FOR_DECLARED_PAIR",
+        "LUMINANCE": "CONDITION_DEPENDENT_PARTIAL",
+        "REFLECTION": "SPATIALLY_NONUNIFORM_AND_VANTAGE_DEPENDENT",
+        "SPATIAL_FREQUENCY": "FREQUENCY_DEPENDENT_NOT_EQUIVALENT_TO_COARSE_FIDELITY",
+        "MISSINGNESS": "NO_TILE_LOSS_OBSERVED_BUT_ABSENCE_SEPARATION_NOT_FULLY_CHALLENGED",
+        "INDEPENDENCE": "NOT_ESTABLISHED"
+      },
+      "next_gate": "NONE_WITHIN_E002; stronger claims require separately scoped evidence",
+      "successor_boundary": "VOS-TC may receive only the admitted bounded handoff; no stronger E002 standing inherits"
+    }
+  ],
+  "snapshot_non_claims": [
+    "this overlay does not rewrite or erase FORK_CURRENT_WORK_REGISTER_v0_1",
+    "objects not present in delta_objects retain the standing reported by the predecessor register unless separately superseded by an admitted record",
+    "E002 terminal-record admission does not establish repository byte closure for its development package binary support or raw capture population",
+    "this register does not certify correctness compliance legal sufficiency safety production readiness procurement approval or institutional authority"
+  ]
+}
