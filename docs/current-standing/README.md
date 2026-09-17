@@ -3,7 +3,7 @@
 **Historical closure snapshot:** 2026-09-09  
 **Historical closure base:** `1663674949ec90ff7e8878c27bea9dbde97096d7`  
 **Closure merge:** `cf5c617987a7f1fcde534f46daada42976583b48` via PR `#143`  
-**Current successor overlay:** 2026-09-17, based on `816431ec6479418680837a9a3b685d74b36d8fb3`  
+**Current successor overlay:** 2026-09-17, based on `61ce462e131c3c2687abd1d7744cd9ffaf238552`  
 **Standing:** `REPOSITORY_STANDING_INDEX_ADMITTED_WITH_SUCCESSOR_OVERLAY`  
 **Scope:** interpretation and routing of repository evidence; no underlying artifact is promoted by inclusion here.
 
@@ -38,13 +38,15 @@ ADJACENT IN REPOSITORY
 ## Read in this order
 
 1. [`FORK_STANDING_NONINHERITANCE_CONTRACT_v0_1.md`](FORK_STANDING_NONINHERITANCE_CONTRACT_v0_1.md) — status vocabulary and interpretation rules.
-2. [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_3.json) — current Lens Shift successor overlay; additive to v0.2.
-3. [`LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md`](LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md) — bounded Lens Shift v0.1 admission event.
-4. [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_2.json) — preserved September 15 overlay.
-5. [`FORK_VOS_E002_ADMISSION_MERGE_RECEIPT_2026_09_15.md`](FORK_VOS_E002_ADMISSION_MERGE_RECEIPT_2026_09_15.md) — bounded E002 admission event.
-6. [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](FORK_CURRENT_WORK_REGISTER_v0_1.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_1.json) — preserved September 9 predecessor population.
-7. [`FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md`](FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md) — routes reviewers without collapsing purposes.
-8. [`FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md) — admission of the original current-standing layer; not underlying-object byte admission.
+2. [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_4.json) — current UEM Epoch 010 successor overlay; additive to v0.3.
+3. [`UEM_v0_1_EPOCH_010_CRII_ADMISSION_MERGE_RECEIPT_2026_09_17.md`](UEM_v0_1_EPOCH_010_CRII_ADMISSION_MERGE_RECEIPT_2026_09_17.md) — bounded UEM Epoch 010 admission event.
+4. [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_3.json) — preserved Lens Shift overlay.
+5. [`LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md`](LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md) — bounded Lens Shift v0.1 admission event.
+6. [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_2.json) — preserved September 15 overlay.
+7. [`FORK_VOS_E002_ADMISSION_MERGE_RECEIPT_2026_09_15.md`](FORK_VOS_E002_ADMISSION_MERGE_RECEIPT_2026_09_15.md) — bounded E002 admission event.
+8. [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](FORK_CURRENT_WORK_REGISTER_v0_1.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_1.json) — preserved September 9 predecessor population.
+9. [`FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md`](FORK_REPOSITORY_PURPOSE_ROUTING_v0_1.md) — routes reviewers without collapsing purposes.
+10. [`FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md`](FORK_CLOSURE_PASS_MERGE_RECEIPT_2026_09_09.md) — admission of the original current-standing layer; not underlying-object byte admission.
 
 ## Current repository versus current program
 
@@ -65,6 +67,23 @@ TERMINAL_NATIVE_RECORDS_ADMITTED
 != INDEPENDENT_RAW_RECOMPUTATION
 ```
 
+For UEM Epoch 010 specifically:
+
+```text
+BOUNDED_CRII_EPOCH_010_PASS
+!= UNIVERSAL_UEM_CORRECTNESS
+
+VERIFIER_RECEIPT_REPLAY_PASS
+!= INDEPENDENT_EXECUTOR_FROM_FIXTURES_REPRODUCTION
+
+MANIFEST_BOUND_PRE_EXPOSURE_RECORD
+!= TRUSTED_TIMESTAMP_PROOF_OF_PRE_EXPOSURE_CHRONOLOGY
+
+EPOCH_010_PASS
+!= INDEPENDENT_SURFACE_GENERALIZATION
+!= EPOCH_011_GENERALIZATION
+```
+
 For Lens Shift specifically:
 
 ```text
@@ -78,7 +97,7 @@ OPERATIONALLY_ATTESTED_BLINDNESS
 != EXHAUSTIVE_PROTOCOL_PROOF
 ```
 
-Objects not changed by the v0.3 delta retain their predecessor-register standing. The v0.2 and v0.1 records remain historical evidence of what was reported at their own snapshot coordinates; the v0.3 overlay does not mutate them.
+Objects not changed by the v0.4 delta retain their predecessor-register standing. The v0.3, v0.2, and v0.1 records remain historical evidence of what was reported at their own snapshot coordinates; v0.4 does not mutate them.
 
 ## Current top-level posture
 
