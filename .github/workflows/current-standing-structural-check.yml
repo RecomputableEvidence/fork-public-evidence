@@ -8,6 +8,7 @@ on:
       - 'docs/current-standing/**'
       - 'scripts/check_current_standing_v0_1.py'
       - 'scripts/check_current_standing_v0_2.py'
+      - 'scripts/check_current_standing_v0_3.py'
       - '.github/workflows/current-standing-structural-check.yml'
   push:
     branches:
@@ -18,6 +19,7 @@ on:
       - 'docs/current-standing/**'
       - 'scripts/check_current_standing_v0_1.py'
       - 'scripts/check_current_standing_v0_2.py'
+      - 'scripts/check_current_standing_v0_3.py'
       - '.github/workflows/current-standing-structural-check.yml'
 
 permissions:
@@ -37,3 +39,5 @@ jobs:
         run: python scripts/check_current_standing_v0_1.py
       - name: Check v0.2 successor overlay
         run: python scripts/check_current_standing_v0_2.py
+      - name: Check v0.3 Lens Shift successor overlay
+        run: python scripts/check_current_standing_v0_3.py
