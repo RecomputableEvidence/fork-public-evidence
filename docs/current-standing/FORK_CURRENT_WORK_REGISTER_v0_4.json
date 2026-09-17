@@ -1,0 +1,58 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_4",
+  "snapshot_date": "2026-09-17",
+  "snapshot_base_commit": "61ce462e131c3c2687abd1d7744cd9ffaf238552",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json",
+  "delta_object_count": 1,
+  "governing_non_inheritance": [
+    "PREDECESSOR_REGISTER_PRESERVED != PREDECESSOR_STATE_REWRITTEN",
+    "BOUNDED_CRII_EPOCH_010_PASS != UNIVERSAL_UEM_CORRECTNESS",
+    "CANONICAL_RESULT_IDENTITY_INTERCHANGE_PASS != SEMANTIC_CORRECTNESS_OF_UNDERLYING_CLAIMS",
+    "VERIFIER_RECEIPT_REPLAY_PASS != INDEPENDENT_EXECUTOR_FROM_FIXTURES_REPRODUCTION",
+    "MANIFEST_BOUND_PRE_EXPOSURE_RECORD != TRUSTED_TIMESTAMP_PROOF_OF_PRE_EXPOSURE_CHRONOLOGY",
+    "EPOCH_010_PASS != INDEPENDENT_SURFACE_GENERALIZATION",
+    "EPOCH_010_PASS != EPOCH_011_GENERALIZATION",
+    "REPOSITORY_ADMITTED != GOVERNANCE_ADOPTED_OR_PRODUCTION_AUTHORIZED",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != LARGE_PREDECESSOR_OR_SUPPORT_ARCHIVES_BYTE_ADMITTED"
+  ],
+  "delta_objects": [
+    {
+      "id": "UEM_CRII_1_0_EPOCH_010",
+      "epoch": "UEM-v0.1-CANONICAL-RESULT-IDENTITY-INTERCHANGE-PRESSURE-EPOCH-010",
+      "admission_path": "admissions/UEM-v0.1/EPOCH-010-CRII",
+      "admission_receipt": "docs/current-standing/UEM_v0_1_EPOCH_010_CRII_ADMISSION_MERGE_RECEIPT_2026_09_17.md",
+      "material_state": "TERMINAL_NATIVE_RECORDS_ADMITTED__ORIGINAL_EXECUTOR_HANDOFF_CLOSEOUT_AND_FROZEN_VERIFIER_BUNDLES_HASH_BOUND_NOT_ADMITTED",
+      "research_state": "CLOSED_FOR_EPOCH_010_SCOPE",
+      "disposition": "BOUNDED_CANONICAL_RESULT_IDENTITY_INTERCHANGE_PASS",
+      "verifier_receipt_replay": "PASS_REPRODUCED_BYTE_FOR_BYTE",
+      "fixture_population": 16,
+      "validation_counts": {
+        "ACCEPT": 4,
+        "REJECT": 12
+      },
+      "receipt_status": "PASS",
+      "executor_results_sha256": "0203efb6644ad6d4026622ae41655bbfc0f18c47e8f2fad95d540ccdc8bfbf02",
+      "reproduced_receipt_sha256": "685d20363f58e477aef2963c3d76e432e753e6f1057f88005c9078ef11e3823c",
+      "independent_executor_from_fixture_reproduction": "NOT_ESTABLISHED_FROM_CLOSEOUT_ARCHIVE_ALONE",
+      "trusted_timestamp_pre_exposure_proof": "NOT_ESTABLISHED",
+      "universal_uem_correctness": "NOT_ESTABLISHED",
+      "independent_surface_generalization": "NOT_ESTABLISHED",
+      "epoch_011_generalization": "NOT_ESTABLISHED_BY_THIS_RESULT",
+      "observed_accept_rows_zero_violations": true,
+      "accept_zero_violations_as_universal_contract_invariant": "NOT_ESTABLISHED",
+      "admission_pr": 149,
+      "admission_merge_commit": "61ce462e131c3c2687abd1d7744cd9ffaf238552",
+      "next_gate": "NONE_WITHIN_EPOCH_010_BOUNDED_CRII_SCOPE; stronger executor reproduction chronology proof ACCEPT semantics or generalization require separately identified successor work"
+    }
+  ],
+  "snapshot_non_claims": [
+    "this overlay does not rewrite or erase FORK_CURRENT_WORK_REGISTER_v0_3 v0_2 or v0_1",
+    "UEM Epoch 010 admission does not establish universal UEM correctness or semantic correctness of underlying claims",
+    "verifier receipt replay does not establish independent executor reproduction from the original 16-fixture corpus",
+    "manifest-bound pre-exposure artifacts do not establish trusted-timestamp proof of chronology",
+    "UEM Epoch 010 admission does not establish independent-surface or Epoch 011 generalization",
+    "this register does not certify correctness compliance legal sufficiency safety production readiness procurement approval or institutional authority"
+  ]
+}
