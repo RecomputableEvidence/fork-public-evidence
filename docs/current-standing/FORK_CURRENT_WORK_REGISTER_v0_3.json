@@ -1,0 +1,55 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_3",
+  "snapshot_date": "2026-09-17",
+  "snapshot_base_commit": "816431ec6479418680837a9a3b685d74b36d8fb3",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.json",
+  "delta_object_count": 1,
+  "governing_non_inheritance": [
+    "PREDECESSOR_REGISTER_PRESERVED != PREDECESSOR_STATE_REWRITTEN",
+    "REPOSITORY_ADMITTED != UNIVERSALLY_VALIDATED",
+    "BLIND_EPOCH_003_SCOPE_QUALIFIED != EXHAUSTIVE_PROTOCOL_PROOF",
+    "OPERATIONALLY_ATTESTED_BLINDNESS != CRYPTOGRAPHIC_PROOF_OF_NO_PRIOR_EXPOSURE",
+    "HARNESS_v0.1.2_ACCEPTED != PROTOCOL_SEMANTICS_CHANGED",
+    "REPOSITORY_ADMITTED != GENERALIZED_ACROSS_NEW_SURFACES",
+    "REPOSITORY_ADMITTED != CROSS_DOMAIN_GENERALIZATION",
+    "REPOSITORY_ADMITTED != CROSS_EVALUATOR_GENERALIZATION",
+    "TERMINAL_NATIVE_RECORDS_ADMITTED != LARGE_PREDECESSOR_OR_FREEZE_ARCHIVES_BYTE_ADMITTED"
+  ],
+  "delta_objects": [
+    {
+      "id": "LENS_SHIFT_PROTOCOL_v0_1",
+      "admission_path": "admissions/LENS-SHIFT-v0.1/BLIND-EPOCH-003",
+      "admission_receipt": "docs/current-standing/LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md",
+      "material_state": "TERMINAL_NATIVE_RECORDS_ADMITTED__FROZEN_REVIEWER_PACKAGE_EPOCH002_AND_HARNESS_ARCHIVES_HASH_BOUND_NOT_ADMITTED",
+      "research_state": "CLOSED_FOR_PRESENT_SCOPE",
+      "protocol_state": "FROZEN",
+      "qualification_state": "QUALIFIED_WITHIN_BLIND_EPOCH_003_DECLARED_24_PROBE_SCOPE",
+      "blind_epoch_003_execution": "PASS_24_OF_24_WITHIN_FROZEN_SCOPE",
+      "fixture_population": 24,
+      "verdict_counts": {
+        "CONFORMS": 12,
+        "DOES_NOT_CONFORM": 12
+      },
+      "oracle_matches": 24,
+      "oracle_mismatches": 0,
+      "qualification_evidence_chain": "INDEPENDENTLY_AUDITABLE_FROM_SUPPLIED_PRIMARY_ARTIFACTS",
+      "blindness_state": "OPERATIONALLY_ATTESTED_AND_MANIFEST_BOUND__NOT_CRYPTOGRAPHIC_PROOF_OF_NO_PRIOR_EXPOSURE",
+      "historical_adverse_result": "EPOCH_002_8_OF_12_PRESERVED_UNCHANGED",
+      "harness_state": "v0.1.2_REVIEWER_REPRODUCED_REPAIR_ACCEPTED",
+      "semantic_repair_warranted": false,
+      "universal_or_exhaustive_protocol_proof": "NOT_ESTABLISHED",
+      "admission_pr": 147,
+      "admission_merge_commit": "816431ec6479418680837a9a3b685d74b36d8fb3",
+      "next_gate": "NONE_WITHIN_LENS_SHIFT_PROTOCOL_v0_1_PRESENT_SCOPE; replication and generalization require separately identified successor research"
+    }
+  ],
+  "snapshot_non_claims": [
+    "this overlay does not rewrite or erase FORK_CURRENT_WORK_REGISTER_v0_2 or FORK_CURRENT_WORK_REGISTER_v0_1",
+    "Lens Shift v0.1 repository admission does not establish universal validation or exhaustive proof",
+    "operational blindness provenance does not establish cryptographic or third-party proof of no prior exposure",
+    "Lens Shift v0.1 admission does not establish fresh-surface cross-domain or cross-evaluator generalization",
+    "this register does not certify correctness compliance legal sufficiency safety production readiness procurement approval or institutional authority"
+  ]
+}
