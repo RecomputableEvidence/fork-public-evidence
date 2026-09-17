@@ -52,3 +52,6 @@ jobs:
 
       - name: Verify Lens Shift v0.1 bounded admission
         run: python admissions/LENS-SHIFT-v0.1/BLIND-EPOCH-003/verify_admission.py
+
+      - name: Verify UEM v0.1 Epoch 010 bounded CRII admission
+        run: python admissions/UEM-v0.1/EPOCH-010-CRII/verify_admission.py
