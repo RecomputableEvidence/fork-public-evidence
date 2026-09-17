@@ -49,3 +49,6 @@ jobs:
           python tools/check_experiment_meta_evidence_v0_1.py
           registries/experiment_meta_evidence_registry_v0_1.json
           --json
+
+      - name: Verify Lens Shift v0.1 bounded admission
+        run: python admissions/LENS-SHIFT-v0.1/BLIND-EPOCH-003/verify_admission.py
