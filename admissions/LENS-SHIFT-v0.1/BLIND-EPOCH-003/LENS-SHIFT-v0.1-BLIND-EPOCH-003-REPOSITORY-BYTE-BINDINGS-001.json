@@ -1,0 +1,35 @@
+{
+  "record_id": "LENS-SHIFT-v0.1-BLIND-EPOCH-003-REPOSITORY-BYTE-BINDINGS-001",
+  "date": "2026-09-17",
+  "admission_path": "admissions/LENS-SHIFT-v0.1/BLIND-EPOCH-003",
+  "admitted_native_records_sha256": {
+    "BLIND-EPOCH-003-CLOSURE-VERIFICATION.json": "719439278885db38723a38ebd580bf27f0c01fd51e756d93d461f67a61b90631",
+    "BLIND-EPOCH-003-EVIDENCE-CLOSURE-CHECKLIST-FINAL.md": "45e39362262cf27cd9493308394db246a978c2b8a5b67ab6878bc69699d205e9",
+    "FIRST_EXECUTION_RESULT.jsonl": "a69df7d324beb53a082bb1842432c125b05e0cad4718b37c97a64d9bc3dd8b93",
+    "LENS-SHIFT-BLIND-EPOCH-003-EVIDENCE-CLOSURE-DISPOSITION.md": "0b7e615dd17621fc8095a2fc4c83a6e1fe4e4f5f233f8c857a405f18f4c74338",
+    "LENS-SHIFT-HARNESS-v0.1.2-INDEPENDENT-REVIEW-DISPOSITION.md": "ddf041a82f5d0f9e453c1853535d36cbbedc6f6936e45c0ec043508bbbe77ae2",
+    "ORACLE_COMPARISON.jsonl": "78dada254921f395045b6c3a3e54d8951924b800a05d3e5a2d6c78e02422617a",
+    "QUALIFICATION_REPORT.md": "57b472372faf027abca7adcef3eb814062c4603a7da92f351e2829d5320795a7"
+  },
+  "reported_external_bindings": {
+    "BLIND_EPOCH_003_FROZEN_REVIEWER_PACKAGE_ZIP": "c25f708943fb50aabb312afee1e1cbda583005de573aea81c4bdde1575a46347",
+    "BLIND_EPOCH_003_FREEZE_MANIFEST": "6ef956be2da1d48a21d9b14ea68fd5fc3c819e803360f8bfef2654fd3a476ba0",
+    "BLIND_EPOCH_003_FIXTURES": "1ce848f415bf1614508e6809d86d7866e01cc63378b13fbe72916507a55b85f7",
+    "EPOCH_002_REVIEWER_ZIP": "b64bbed62d51f8cb10db032e53152bd5b5baa7b10a167c9f9c566f7e70bbc6e6",
+    "HARNESS_v0_1_2_REVIEWER_CANDIDATE_ZIP": "20cca9aad3eb524eecc37a81c88086e3aa598c629cb963b15b4ab2151a0153a6"
+  },
+  "verification_invariants": {
+    "first_execution_rows": 24,
+    "first_execution_unique_ids": 24,
+    "first_execution_verdict_counts": {
+      "CONFORMS": 12,
+      "DOES_NOT_CONFORM": 12
+    },
+    "oracle_comparison_rows": 24,
+    "oracle_matches": 24,
+    "oracle_mismatches": 0,
+    "same_id_order": true,
+    "actual_verdicts_match_first_execution": true,
+    "semantic_repair_warranted": false
+  }
+}
