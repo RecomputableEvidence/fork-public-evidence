@@ -1,0 +1,107 @@
+{
+  "object_id": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "version": "v0.1.5",
+  "object_type": "typed_semantic_empirical_qualification_object",
+  "status": "CANDIDATE_QUALIFICATION_REPAIR_SUCCESSOR",
+  "predecessor": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-v0.1.4",
+  "predecessor_disposition": "INDEPENDENT_QUALIFICATION_FAIL__SURVIVING_SEMANTIC_MUTATION_OBSERVED",
+  "implementation_authority": "NONE_BEYOND_BOUNDED_LOCAL_HARNESS",
+  "executor": {
+    "executor_id": "RESEARCH-A",
+    "cardinality": "exactly_one",
+    "cloning": "prohibited",
+    "delegation": "prohibited_without_gate"
+  },
+  "authorization_envelope_version": "B-v1",
+  "authority_invariance": [
+    "persistence",
+    "queue_depth",
+    "elapsed_time",
+    "repeated_success",
+    "throughput"
+  ],
+  "gate_required_for": [
+    "enlarge_scope",
+    "alter_research_object_semantics",
+    "add_or_change_data_sources",
+    "access_new_systems",
+    "elevate_permissions",
+    "increase_resource_ceiling",
+    "create_or_delegate_to_another_agent",
+    "publish_or_promote_conclusions",
+    "change_external_consequence",
+    "promote_research_standing"
+  ],
+  "agent_may": [
+    "preserve",
+    "reproduce",
+    "compare",
+    "challenge",
+    "classify",
+    "enrich",
+    "prepare_successor_work",
+    "create_promotion_candidate"
+  ],
+  "agent_may_not": [
+    "promote",
+    "change_boundary",
+    "spawn_agent",
+    "delegate",
+    "change_queue_policy",
+    "change_cadence_registry",
+    "change_research_direction"
+  ],
+  "executor_output_vocabulary": [
+    "evidence",
+    "classification",
+    "candidate",
+    "recommendation"
+  ],
+  "gate_output_vocabulary": [
+    "authorization",
+    "promotion",
+    "expansion",
+    "material_redirection"
+  ],
+  "success_criteria": [
+    "authority_invariance",
+    "authority_sets_disjoint",
+    "causal_execution",
+    "single_executor_serialization",
+    "temporal_honesty",
+    "receipt_completeness",
+    "queue_determinism",
+    "nonstarvation_fairness_equal_aged_pressure",
+    "normative_queue_policy_closure",
+    "normative_arbitration_order_closure",
+    "single_work_unit_authority",
+    "executable_service_semantics_binding",
+    "checkpoint_content_identity",
+    "checkpoint_implementation_compatibility",
+    "checkpoint_authentication_claim_boundary",
+    "schema_and_semantic_validity",
+    "content_addressed_evidence_integrity",
+    "promotion_separation",
+    "overload_integrity",
+    "coalescing_execution_binding",
+    "coalescing_identity_idempotence_binding",
+    "clean_process_recovery",
+    "longitudinal_exercise",
+    "queue_event_vocabulary_closure",
+    "package_inventory_closure",
+    "independent_normative_contract_binding",
+    "promotion_candidate_derivation_binding",
+    "coalescing_target_selection_binding",
+    "queue_event_order_binding",
+    "replay_equivalence_field_closure",
+    "temporal_tolerance_binding",
+    "runtime_executable_closure",
+    "evidence_artifact_schema_closure"
+  ],
+  "checkpoint_security_claim": {
+    "content_identity": "SHA256_BOUND",
+    "corruption_detection": "ESTABLISHED_FOR_UNREHASHED_CHANGE",
+    "implementation_compatibility": "BOUND_TO_HARNESS_DIGEST",
+    "authenticated_tamper_resistance": "NOT_CLAIMED_WITHOUT_EXTERNAL_TRUST_ANCHOR"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "defended_attack": {
+    "class": "temporal_fidelity",
+    "finding": "denominator substitution rejected by all_trigger_metric_harsh structural relation",
+    "id": "M08-A1"
+  },
+  "mutations": [
+    {
+      "class": "service_semantics",
+      "finding": "declared work units changed service duration while self-consistent verification survived",
+      "id": "M01-A"
+    },
+    {
+      "class": "arbitration_fairness",
+      "finding": "post-burst selection ordering inverted while fairness coverage test survived",
+      "id": "M02-A"
+    },
+    {
+      "class": "authority_promotion",
+      "finding": "promotion-candidate derivation materially expanded while promotion separation checks survived",
+      "id": "M03-A"
+    },
+    {
+      "class": "coalescing_semantics",
+      "finding": "coalescing target preference changed while identity checks survived",
+      "id": "M04-A"
+    },
+    {
+      "class": "queue_event_semantics",
+      "finding": "DEFER / COALESCE_RESOLVE ordering changed while vocabulary checks survived",
+      "id": "M05-A"
+    },
+    {
+      "class": "checkpoint_compatibility",
+      "finding": "fairness_overrides removed from replay equivalence digest",
+      "id": "M06-A"
+    },
+    {
+      "class": "recovery_semantics",
+      "finding": "class_execution_counts removed from replay equivalence digest",
+      "id": "M07-A"
+    },
+    {
+      "class": "temporal_fidelity",
+      "finding": "on-time tolerance doubled while structural ratio relation still passed",
+      "id": "M08-A2"
+    },
+    {
+      "class": "package_closure",
+      "finding": "manifested helper changed expiry behavior outside semantic profile binding",
+      "id": "M09-A"
+    },
+    {
+      "class": "open_discovery",
+      "finding": "undeclared artifact enrichment changed evidence identity while content-addressed consistency survived",
+      "id": "M10-A"
+    }
+  ],
+  "schema_id": "FORK_STACKED_CADENCE_SURVIVING_MUTATION_LEDGER_v0_1"
+}

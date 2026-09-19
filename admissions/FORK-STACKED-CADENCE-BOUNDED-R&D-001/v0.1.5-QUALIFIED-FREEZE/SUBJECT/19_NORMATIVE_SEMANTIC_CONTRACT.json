@@ -1,0 +1,133 @@
+{
+  "contract_id": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-NORMATIVE-SEMANTIC-CONTRACT-v0.1.5",
+  "object_id": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "protocol_version": "v0.1.5",
+  "authorization_envelope_version": "B-v1",
+  "executor": {
+    "executor_id": "RESEARCH-A",
+    "cardinality": "exactly_one",
+    "cloning": "prohibited",
+    "delegation": "prohibited_without_gate"
+  },
+  "agent_may": [
+    "preserve",
+    "reproduce",
+    "compare",
+    "challenge",
+    "classify",
+    "enrich",
+    "prepare_successor_work",
+    "create_promotion_candidate"
+  ],
+  "agent_may_not": [
+    "promote",
+    "change_boundary",
+    "spawn_agent",
+    "delegate",
+    "change_queue_policy",
+    "change_cadence_registry",
+    "change_research_direction"
+  ],
+  "gate_required_for": [
+    "enlarge_scope",
+    "alter_research_object_semantics",
+    "add_or_change_data_sources",
+    "access_new_systems",
+    "elevate_permissions",
+    "increase_resource_ceiling",
+    "create_or_delegate_to_another_agent",
+    "publish_or_promote_conclusions",
+    "change_external_consequence",
+    "promote_research_standing"
+  ],
+  "arbitration_order": [
+    "safety_or_integrity_work",
+    "evidence_preservation",
+    "dependency_unblocking",
+    "replication_and_challenge",
+    "scheduled_comparison",
+    "enrichment",
+    "successor_preparation"
+  ],
+  "fairness": {
+    "mechanism": "priority_with_starvation_lrs_rotation_and_burst_limit",
+    "no_work_class_may_be_starved_indefinitely": true,
+    "max_consecutive_same_class": 4,
+    "starvation_aging_threshold_seconds": 3600,
+    "starved_class_selection": "least_recently_served_then_oldest_wait_then_priority",
+    "alternative_after_burst": "greatest_oldest_wait_then_priority",
+    "fairness_state": "class_last_service_sequence",
+    "hard_maximum_wait_guarantee": false
+  },
+  "work_units_by_id": {
+    "W-OBSERVE-DELTA": 1,
+    "W-DETERMINISTIC-CHECK": 1,
+    "W-COMPARE-RECENT-OBSERVATIONS": 2,
+    "W-RECONCILE-INCONSISTENCY": 2,
+    "W-REPRODUCE-ELIGIBLE-FINDINGS": 3,
+    "W-NEGATIVE-ADVERSARIAL-TEST": 3,
+    "W-CROSS-CYCLE-ANALYSIS": 4,
+    "W-CHALLENGE-PROVISIONAL-FINDINGS": 4,
+    "W-LONGITUDINAL-CONSOLIDATION": 5,
+    "W-SURVIVAL-AND-FAILURE-REVIEW": 5,
+    "W-RESEARCH-STATE-SNAPSHOT": 6,
+    "W-GATE-PACKET-PREPARATION": 6,
+    "W-CONFLICT-RECONCILIATION": 2
+  },
+  "promotion_candidate_derivation": {
+    "qualifying_operations": [
+      "reproduce",
+      "deterministic_check"
+    ],
+    "success_count_threshold": 3,
+    "threshold_semantics": "per_operation_completed_success_count_greater_or_equal_threshold",
+    "nonqualifying_operations_may_not_emit_candidate": true
+  },
+  "coalescing_target_selection_order": [
+    "active_same_work",
+    "oldest_ready_same_work"
+  ],
+  "coalescing_resolution_event_precedes_target_terminal_event": true,
+  "queue_history_event_vocabulary": [
+    "ENQUEUE",
+    "COALESCE_PENDING",
+    "START",
+    "COMPLETE",
+    "EXPIRE",
+    "DEFER",
+    "COALESCE_RESOLVE"
+  ],
+  "temporal_fidelity": {
+    "on_time_all_trigger_denominator": "ALL_TRIGGERED_REGISTERED_CADENCE_OBLIGATIONS",
+    "retain_on_time_among_executed": true,
+    "on_time_tolerance_multiplier": 1.0
+  },
+  "replay_equivalence": {
+    "excluded_fields": [
+      "replay_digest",
+      "checkpoint_resume_count"
+    ],
+    "required_included_fields": [
+      "fairness_overrides",
+      "class_execution_counts",
+      "class_last_service_sequence",
+      "queue_history",
+      "receipts",
+      "evidence_artifacts",
+      "execution"
+    ],
+    "accounting_fields_may_not_be_silently_excluded": true
+  },
+  "runtime_executable_files": [
+    "07_HARNESS.py"
+  ],
+  "evidence_artifact_types": [
+    "SCBRE_INPUT_V1",
+    "SCBRE_OUTPUT_V1"
+  ],
+  "artifact_schemas": {
+    "SCBRE_INPUT_V1": "06_SCHEMAS/INPUT_ARTIFACT.schema.json",
+    "SCBRE_OUTPUT_V1": "06_SCHEMAS/OUTPUT_ARTIFACT.schema.json"
+  },
+  "qualification_rule": "MUTABLE_PACKAGE_LOCAL_EXPECTATIONS_ARE_REGRESSION_AIDS_NOT_SEMANTIC_AUTHORITY"
+}

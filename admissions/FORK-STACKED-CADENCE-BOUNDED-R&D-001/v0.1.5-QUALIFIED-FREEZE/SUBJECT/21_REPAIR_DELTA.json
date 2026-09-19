@@ -1,0 +1,50 @@
+{
+  "added_files": [
+    "00_V014_INDEPENDENT_QUALIFICATION_FAILURE.md",
+    "06_SCHEMAS/INPUT_ARTIFACT.schema.json",
+    "06_SCHEMAS/OUTPUT_ARTIFACT.schema.json",
+    "19_NORMATIVE_SEMANTIC_CONTRACT.json",
+    "20_V014_FAILURE_REGRESSION_TEST.py"
+  ],
+  "changed_existing_files": [
+    "00_PREDECESSOR_BINDING.json",
+    "00_QUALIFICATION_REPAIR_SCOPE.md",
+    "01_OBJECT_SPEC.json",
+    "02_CADENCE_REGISTRY.json",
+    "03_WORK_DEFINITIONS.json",
+    "04_QUEUE_POLICY.json",
+    "05_PRESSURE_SCENARIOS.json",
+    "06_SCHEMAS/EVIDENCE_RECEIPT.schema.json",
+    "06_SCHEMAS/QUEUE_HISTORY_EVENT.schema.json",
+    "06_SCHEMAS/WORK_DEFINITION.schema.json",
+    "07_HARNESS.py",
+    "08_VERIFY.py",
+    "09_EXPECTED_SUMMARY.json",
+    "10_EXECUTION_INSTRUCTIONS.md",
+    "11_REPAIR_NOTES.md",
+    "12_INDEPENDENT_PRESSURE_CHECK.py",
+    "17_NORMATIVE_MUTATION_TEST.py",
+    "PACKAGE_INVENTORY.json",
+    "README.md"
+  ],
+  "negative_result_freeze_sha256": "f78c654cf2e30c2bfeba3962a80272cf9ddb804cc352a064fa7a23f5653eb289",
+  "new_capability_introduced": false,
+  "object": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "predecessor_version": "v0.1.4",
+  "predecessor_zip_sha256": "fc32b52d5d9d36c1bda47eb9f4c70ce766a25f2e1d1853767877e6297ff9fd58",
+  "preserved_byte_identical_files": [
+    "00_V011_INDEPENDENT_PRESSURE_REVIEW.md",
+    "00_V012_PRESSURE_REVIEW_A.md",
+    "00_V012_PRESSURE_REVIEW_B.md",
+    "00_V013_INDEPENDENT_PRESSURE_REVIEW.md",
+    "13_CLEAN_PROCESS_RECOVERY_TEST.py",
+    "14_CHECKPOINT_INTEGRITY_TEST.py",
+    "15_EQUAL_AGED_FAIRNESS_TEST.py",
+    "16_IMPLEMENTATION_BINDING_TEST.py",
+    "18_CHECKPOINT_CLAIM_BOUNDARY_TEST.py"
+  ],
+  "removed_files": [],
+  "repair_scope": "M01-M10 observed semantic-binding gaps only",
+  "schema_id": "FORK_STACKED_CADENCE_V015_REPAIR_DELTA_v0_1",
+  "successor_version": "v0.1.5"
+}

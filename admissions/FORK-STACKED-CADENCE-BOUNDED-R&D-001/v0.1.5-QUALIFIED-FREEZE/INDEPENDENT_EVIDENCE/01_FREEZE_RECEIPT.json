@@ -1,0 +1,34 @@
+{
+  "canonical_subject": {
+    "filename": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-v0.1.5.zip",
+    "sha256": "bde58e1f3389e179d91d26c17c05318e8815a8604e1c0e1d0494a127cd8a49c2"
+  },
+  "final_promotion_authority": "NONE",
+  "independent_recompute_script": {
+    "filename": "23_INDEPENDENT_PRESSURE_RECOMPUTE.py",
+    "sha256": "aa02d1fe7c9b5f9a44d9378b3108defe423ffc5403cdcf8355d8062b15be2684"
+  },
+  "local_recomputation": {
+    "canonical_verify": {
+      "check_count": 291,
+      "failure_count": 0,
+      "verified": true
+    },
+    "independent_recompute": {
+      "check_count": 182,
+      "failure_count": 0,
+      "harness_sha256": "ffb926f8b12c5ebf4f9d12d16a23b1177b71562e751fbd07efb6c0ba32eee5e6",
+      "passed": true
+    }
+  },
+  "object": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "observation": "INDEPENDENT_PRESSURE_RECOMPUTATION_PASS__182_CHECKS__NO_SURVIVING_REPAIR_TARGET_MUTATION_OBSERVED",
+  "schema_id": "FORK_STACKED_CADENCE_V015_INDEPENDENT_EVIDENCE_FREEZE_001",
+  "source_workspace": {
+    "filename": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-v0.1.5 (2).zip",
+    "sha256": "4873c76cb2c17d81d6b4fbd9251cda4ae21285ad6ce82b5d629bac9a6c6701e0",
+    "standing": "EVIDENCE_WORKSPACE_NOT_CANONICAL_SUBJECT"
+  },
+  "standing": "CANDIDATE_QUALIFICATION_REPAIR_SUCCESSOR__INTERNAL_REPAIR_SURFACE_PASS__INDEPENDENT_QUALIFICATION_PENDING",
+  "version": "v0.1.5"
+}

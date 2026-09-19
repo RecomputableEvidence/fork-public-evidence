@@ -55,3 +55,6 @@ jobs:
 
       - name: Verify UEM v0.1 Epoch 010 bounded CRII admission
         run: python admissions/UEM-v0.1/EPOCH-010-CRII/verify_admission.py
+
+      - name: Verify Stacked Cadence v0.1.5 qualified-freeze admission
+        run: python 'admissions/FORK-STACKED-CADENCE-BOUNDED-R&D-001/v0.1.5-QUALIFIED-FREEZE/verify_admission.py'

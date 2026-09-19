@@ -1,0 +1,43 @@
+{
+  "live_epoch_authority": "NONE",
+  "object": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "predecessor": "v0.1.4",
+  "predecessor_negative_result": "INDEPENDENT_QUALIFICATION_FAIL__SURVIVING_SEMANTIC_MUTATION_OBSERVED",
+  "predecessor_zip_sha256": "fc32b52d5d9d36c1bda47eb9f4c70ce766a25f2e1d1853767877e6297ff9fd58",
+  "repair_scope_expansion": false,
+  "repair_targets": [
+    "M01 service semantics",
+    "M02 arbitration fairness",
+    "M03 promotion derivation",
+    "M04 coalescing target selection",
+    "M05 queue event ordering",
+    "M06 replay fairness accounting",
+    "M07 replay class execution accounting",
+    "M08 temporal tolerance",
+    "M09 runtime executable closure",
+    "M10 evidence artifact schema closure"
+  ],
+  "schema_id": "FORK_STACKED_CADENCE_V015_INTERNAL_REPAIR_RECEIPT_v0_1",
+  "standing": "CANDIDATE_QUALIFICATION_REPAIR_SUCCESSOR__INTERNAL_REPAIR_SURFACE_PASS__INDEPENDENT_QUALIFICATION_PENDING",
+  "standing_if_final_seal_passes": "CANDIDATE_QUALIFICATION_REPAIR_SUCCESSOR__INTERNAL_REPAIR_SURFACE_PASS__INDEPENDENT_QUALIFICATION_PENDING",
+  "verified_internal_surface": {
+    "08_VERIFY.py": {
+      "check_count": 291,
+      "failure_count": 0,
+      "verified": true
+    },
+    "12_INDEPENDENT_PRESSURE_CHECK.py": "PASS",
+    "13_CLEAN_PROCESS_RECOVERY_TEST.py": "PASS",
+    "14_CHECKPOINT_INTEGRITY_TEST.py": "PASS",
+    "15_EQUAL_AGED_FAIRNESS_TEST.py": "PASS",
+    "16_IMPLEMENTATION_BINDING_TEST.py": "PASS",
+    "17_NORMATIVE_MUTATION_TEST.py": "PASS",
+    "18_CHECKPOINT_CLAIM_BOUNDARY_TEST.py": "PASS",
+    "20_V014_FAILURE_REGRESSION_TEST.py": {
+      "M01_through_M10": "BLOCKED",
+      "M11_contract_reseal": "BLOCKED",
+      "passed": true
+    }
+  },
+  "version": "v0.1.5"
+}
