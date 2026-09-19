@@ -1,0 +1,57 @@
+{
+  "schema_id": "FORK_HANDOFF_SEMANTIC_CORE_EXTERNAL_ASSESSMENT_RECEIPT_v0_1",
+  "research_object": "FORK-HANDOFF-SEMANTIC-CORE-001",
+  "package_version": "v0.1.0",
+  "assessed_at_utc": "2026-09-18T03:43:58Z",
+  "input_zip_sha256": "baa112e3260decf707f0ed95578257c0deaa475bc43f30c9c2fc91747b674cf2",
+  "execution_environment": {
+    "python": "3.13.5",
+    "jsonschema": "4.26.0",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "required_execution": {
+    "fixture_count": 13,
+    "fixture_expectations_matched": 13,
+    "valid_passed": 3,
+    "adversarial_failed_as_expected": 10,
+    "unit_tests_run": 5,
+    "unit_test_failures": 0,
+    "unit_test_errors": 0,
+    "sha256sums_all_listed_entries_ok": true,
+    "manifest_entries_verified": 26,
+    "manifest_hash_size_mismatches": 0
+  },
+  "supplemental_assessment": {
+    "declared_invariants": 15,
+    "invariants_directly_pressured_by_packaged_adversarial_fixtures": 10,
+    "unfixture_covered_invariants_probed": [
+      "INV-003",
+      "INV-004",
+      "INV-006",
+      "INV-008",
+      "INV-012"
+    ],
+    "supplemental_probe_result": "EXPECTED_FAILURE_CODES_OBSERVED",
+    "unmanifested_files": [
+      {
+        "path": "__pycache__/06_REFERENCE_VALIDATOR.cpython-313.pyc",
+        "sha256": "ca7ba74498e7a97fda5943fc99d2b443eed71341a9b249648eaf4c5a9e1daab2"
+      },
+      {
+        "path": "07_TESTS/__pycache__/test_semantic_core.cpython-313.pyc",
+        "sha256": "8141b34d830d5f8810584c11ef84eed44418c6fe00b76f5ee2f0f1bf77f2c267"
+      }
+    ],
+    "reexecution_without_pycache": "PASS",
+    "declared_truth_claim_without_evidence_probe": "PASS_BY_CURRENT_DESIGN"
+  },
+  "disposition": "BOUNDED_SEMANTIC_EXECUTION_REPRODUCED__REPOSITORY_ADMISSION_NOT_PERFORMED",
+  "repository_admission_blocker": "No writable predecessor checkout at the exact baseline coordinate; external Git network unavailable in the execution sandbox. Package also contains two unmanifested pyc files requiring explicit admission handling.",
+  "non_claims": [
+    "This receipt does not establish truth or completeness.",
+    "This receipt does not establish cryptographic integrity or independent witnessing.",
+    "This receipt does not establish provenance authenticity or trusted chronology.",
+    "This receipt does not establish authority, authorization, compliance, legal sufficiency, safety, or production readiness.",
+    "This receipt does not establish generalization beyond the executed package and probes."
+  ]
+}

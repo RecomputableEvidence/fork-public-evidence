@@ -1,0 +1,365 @@
+{
+  "schema_id": "FORK_HANDOFF_SEMANTIC_CORE_EXECUTION_RECEIPT_v0_2",
+  "research_object": "FORK-HANDOFF-SEMANTIC-CORE-001",
+  "package_version": "v0.1.1",
+  "execution_time_utc": "2026-09-18T03:52:18Z",
+  "predecessor_package": {
+    "package_id": "FORK-HANDOFF-SEMANTIC-CORE-001-v0.1.0",
+    "sha256": "baa112e3260decf707f0ed95578257c0deaa475bc43f30c9c2fc91747b674cf2",
+    "external_reexecution_disposition": "BOUNDED_SEMANTIC_EXECUTION_REPRODUCED__REPOSITORY_ADMISSION_NOT_PERFORMED"
+  },
+  "repository_predecessor": {
+    "commit": "c51e28ac44104808e957c0dae73f98f262728fec",
+    "tree": "415f27fdf73e56a0cfa7c01098c715af118c02bb"
+  },
+  "execution_environment": {
+    "python": "3.13.5",
+    "jsonschema": "4.26.0",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "bytecode_generation_disabled": true
+  },
+  "fixture_execution": {
+    "fixture_count": 19,
+    "matched_count": 19,
+    "all_matched": true,
+    "valid_fixture_count": 4,
+    "valid_passed": 4,
+    "adversarial_fixture_count": 15,
+    "adversarial_failed_as_expected": 15,
+    "truth_boundary_fixture": "04_VALID_FIXTURES/VALID_004_DECLARED_TRUTH_BOUNDARY.json",
+    "truth_boundary_observed": "PASS",
+    "truth_promotion_prohibited": "VALIDATOR_PASS != TRUTH_ESTABLISHED"
+  },
+  "invariant_fixture_coverage": {
+    "declared_invariants": 15,
+    "directly_fixture_covered": 15,
+    "expected_failure_codes_observed_for_all": true,
+    "checks": [
+      {
+        "invariant_id": "INV-001",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_001_SELF_PREDECESSOR.json",
+        "expected_failure_code": "SELF_PREDECESSOR_FORBIDDEN",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-002",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_002_DUPLICATE_CLAIM_ID.json",
+        "expected_failure_code": "DUPLICATE_CLAIM_ID",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-003",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_011_DUPLICATE_EVIDENCE_ID.json",
+        "expected_failure_code": "DUPLICATE_EVIDENCE_ID",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-004",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_012_DUPLICATE_UNRESOLVED_ID.json",
+        "expected_failure_code": "DUPLICATE_UNRESOLVED_ID",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-005",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_003_DANGLING_EVIDENCE.json",
+        "expected_failure_code": "DANGLING_CLAIM_EVIDENCE_REF",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-006",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_013_DANGLING_AUTHORITY_EVIDENCE_REF.json",
+        "expected_failure_code": "DANGLING_AUTHORITY_EVIDENCE_REF",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-007",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_005_TRANSFER_WITHOUT_BASIS.json",
+        "expected_failure_code": "AUTHORITY_TRANSFER_WITHOUT_BASIS",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-008",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_014_NONTRANSFER_WITH_TRANSFER_BASIS.json",
+        "expected_failure_code": "NONTRANSFER_WITH_TRANSFER_BASIS",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-009",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_004_NONCLAIM_CONTRADICTION.json",
+        "expected_failure_code": "CLAIM_NONCLAIM_CONTRADICTION",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-010",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_006_UNRESOLVED_WITHOUT_REVALIDATION.json",
+        "expected_failure_code": "UNRESOLVED_WITHOUT_REVALIDATION",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-011",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_007_UNAVAILABLE_CONTRADICTION.json",
+        "expected_failure_code": "UNAVAILABLE_EVIDENCE_CONTRADICTION",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-012",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_015_FULL_EVIDENCE_NOT_AVAILABLE.json",
+        "expected_failure_code": "FULL_EVIDENCE_NOT_AVAILABLE",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-013",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_008_RECOMPUTED_WITHOUT_EVIDENCE.json",
+        "expected_failure_code": "RECOMPUTED_WITHOUT_EVIDENCE",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-014",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_009_PREMATURE_WITNESS_CLAIM.json",
+        "expected_failure_code": "CRYPTOGRAPHIC_LAYER_PREMATURE",
+        "observed": true
+      },
+      {
+        "invariant_id": "INV-015",
+        "fixture": "05_ADVERSARIAL_FIXTURES/ADV_010_AUTHORITY_NONCLAIM_CONTRADICTION.json",
+        "expected_failure_code": "AUTHORITY_NONCLAIM_CONTRADICTION",
+        "observed": true
+      }
+    ]
+  },
+  "unit_tests": {
+    "tests_run": 8,
+    "failures": 0,
+    "errors": 0,
+    "result": "PASS"
+  },
+  "package_closure": {
+    "required_verifier": "15_CLOSURE_VERIFICATION.py",
+    "expected_final_result": "PASS",
+    "runtime_bytecode_allowed": false,
+    "manifest_path_set_must_equal_package_path_set": true,
+    "sha256sums_must_cover_every_file_except_itself": true
+  },
+  "disposition": "BOUNDED_SEMANTIC_CORE_REPAIR_QUALIFICATION_PASS__NOT_YET_REPOSITORY_ADMITTED",
+  "bounded_interpretation": "This exact v0.1.1 package satisfied the declared typed semantic schema, 15 semantic invariants, direct invariant fixture coverage, truth-promotion boundary, unit tests, and final closure contract in the recorded local qualification environment. It does not establish substantive truth, completeness, cryptographic integrity, independent witnessing, provenance authenticity, chronology, authority, authorization, compliance, legal sufficiency, safety, production readiness, repository admission, external reproduction of v0.1.1, or generalization.",
+  "successor_target": "FORK-EXTERNAL-WITNESS-BINDING-001",
+  "successor_qualification_target": "LRT_DAY0_ADV_001_COORDINATED_RESEAL_v0_1",
+  "fixture_results": [
+    {
+      "fixture": "04_VALID_FIXTURES/VALID_001.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matched": true,
+      "errors": []
+    },
+    {
+      "fixture": "04_VALID_FIXTURES/VALID_002.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matched": true,
+      "errors": []
+    },
+    {
+      "fixture": "04_VALID_FIXTURES/VALID_003.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matched": true,
+      "errors": []
+    },
+    {
+      "fixture": "04_VALID_FIXTURES/VALID_004_DECLARED_TRUTH_BOUNDARY.json",
+      "expected": "PASS",
+      "observed": "PASS",
+      "matched": true,
+      "errors": []
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_001_SELF_PREDECESSOR.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "SELF_PREDECESSOR_FORBIDDEN",
+          "detail": "record_id equals predecessor_record_id"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_002_DUPLICATE_CLAIM_ID.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "DUPLICATE_CLAIM_ID",
+          "detail": "duplicate claim identifier"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_003_DANGLING_EVIDENCE.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "DANGLING_CLAIM_EVIDENCE_REF",
+          "detail": "C-001 -> E-MISSING"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_004_NONCLAIM_CONTRADICTION.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "CLAIM_NONCLAIM_CONTRADICTION",
+          "detail": "TRUTH"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_005_TRANSFER_WITHOUT_BASIS.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "AUTHORITY_TRANSFER_WITHOUT_BASIS",
+          "detail": "TRANSFER_ASSERTED requires target and evidence basis"
+        },
+        {
+          "code": "AUTHORITY_NONCLAIM_CONTRADICTION",
+          "detail": "TRANSFER_ASSERTED with AUTHORIZATION non-claim"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_006_UNRESOLVED_WITHOUT_REVALIDATION.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "UNRESOLVED_WITHOUT_REVALIDATION",
+          "detail": "AUTHORITY"
+        },
+        {
+          "code": "UNRESOLVED_WITHOUT_REVALIDATION",
+          "detail": "SOURCE_CURRENCY"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_007_UNAVAILABLE_CONTRADICTION.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "UNAVAILABLE_EVIDENCE_CONTRADICTION",
+          "detail": "E-001"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_008_RECOMPUTED_WITHOUT_EVIDENCE.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "RECOMPUTED_WITHOUT_EVIDENCE",
+          "detail": "C-001"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_009_PREMATURE_WITNESS_CLAIM.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "CRYPTOGRAPHIC_LAYER_PREMATURE",
+          "detail": "C-001"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_010_AUTHORITY_NONCLAIM_CONTRADICTION.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "AUTHORITY_NONCLAIM_CONTRADICTION",
+          "detail": "TRANSFER_ASSERTED with AUTHORIZATION non-claim"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_011_DUPLICATE_EVIDENCE_ID.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "DUPLICATE_EVIDENCE_ID",
+          "detail": "duplicate evidence identifier"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_012_DUPLICATE_UNRESOLVED_ID.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "DUPLICATE_UNRESOLVED_ID",
+          "detail": "duplicate unresolved identifier"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_013_DANGLING_AUTHORITY_EVIDENCE_REF.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "DANGLING_AUTHORITY_EVIDENCE_REF",
+          "detail": "E-MISSING"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_014_NONTRANSFER_WITH_TRANSFER_BASIS.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "NONTRANSFER_WITH_TRANSFER_BASIS",
+          "detail": "NOT_TRANSFERRED carries transfer basis or target"
+        }
+      ]
+    },
+    {
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_015_FULL_EVIDENCE_NOT_AVAILABLE.json",
+      "expected": "FAIL",
+      "observed": "FAIL",
+      "matched": true,
+      "errors": [
+        {
+          "code": "FULL_EVIDENCE_NOT_AVAILABLE",
+          "detail": "E-001"
+        }
+      ]
+    }
+  ]
+}

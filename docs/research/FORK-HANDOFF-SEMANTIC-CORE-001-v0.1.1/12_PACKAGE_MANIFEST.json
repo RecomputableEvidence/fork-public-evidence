@@ -1,0 +1,254 @@
+{
+  "schema_id": "FORK_HANDOFF_SEMANTIC_CORE_PACKAGE_MANIFEST_v0_2",
+  "package_id": "FORK-HANDOFF-SEMANTIC-CORE-001-v0.1.1",
+  "predecessor_package_id": "FORK-HANDOFF-SEMANTIC-CORE-001-v0.1.0",
+  "predecessor_package_sha256": "baa112e3260decf707f0ed95578257c0deaa475bc43f30c9c2fc91747b674cf2",
+  "predecessor_commit": "c51e28ac44104808e957c0dae73f98f262728fec",
+  "predecessor_tree": "415f27fdf73e56a0cfa7c01098c715af118c02bb",
+  "standing": "BOUNDED_SEMANTIC_CORE_REPAIR_QUALIFICATION_PASS__NOT_YET_REPOSITORY_ADMITTED",
+  "closure_model": "EXHAUSTIVE_PATH_INVENTORY_WITH_HASH_BOUND_CONTENT_AND_SELF_REFERENTIAL_CONTROL_FILE_EXCEPTIONS",
+  "control_file_rule": "12_PACKAGE_MANIFEST.json and SHA256SUMS are both inventoried. The manifest does not self-hash either control file. SHA256SUMS hashes every package file except itself, including the manifest. 15_CLOSURE_VERIFICATION.py checks exact package-path equality and checksum coverage.",
+  "file_count": 40,
+  "files": [
+    {
+      "path": "00_SCOPE_AND_NONCLAIMS.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "360666fc6e2c5847767c887986e0ffb819ac98ecdbb570f47ec97d00dfaa07b9",
+      "bytes": 1939
+    },
+    {
+      "path": "01_PREDECESSOR_BASELINE_RECEIPT.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "25bce92470e2d0677bc9735d9e8f64fa066da7b125fc1777afcd6d505fef6448",
+      "bytes": 1449
+    },
+    {
+      "path": "02_FORK_HANDOFF_CORE_v0_2.schema.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "33bb5a1873b552182111149de1ed403cf08c5cc50e3245c9a660641599fbfcda",
+      "bytes": 7546
+    },
+    {
+      "path": "03_SEMANTIC_INVARIANTS.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "d74595c67069012d79586f6916978ca671ed8567f7e3f6e7fae34f2b179402f8",
+      "bytes": 2772
+    },
+    {
+      "path": "04_PROHIBITED_PROMOTIONS.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "e9367d8aab26b9aca22dd8370d8ca4b3f7aa5b4da61960c9e3fc59e0aa4832df",
+      "bytes": 1621
+    },
+    {
+      "path": "04_VALID_FIXTURES/VALID_001.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "de094e8f56acb0b14937b7d7f8f81c8146ab47f44bed3ef26b2baaf73f89768f",
+      "bytes": 1698
+    },
+    {
+      "path": "04_VALID_FIXTURES/VALID_002.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "d62f362712f6fe687ea8fc3780a2ad5acfadbe354d05176edd7ed2e755e76f35",
+      "bytes": 1966
+    },
+    {
+      "path": "04_VALID_FIXTURES/VALID_003.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "91f69b9fe704c84d3b50b677ef39c2d231fd4d4b7061d611bc0d315864e7c019",
+      "bytes": 1404
+    },
+    {
+      "path": "04_VALID_FIXTURES/VALID_004_DECLARED_TRUTH_BOUNDARY.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "d4d796a7fc0cf8791837ecacd548632bfd2fca6f5a356561ac522aa60fe61294",
+      "bytes": 1496
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_001_SELF_PREDECESSOR.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "8d5115d821f94315080f3a22a467f55327e346b721b621e7db9542fd3b761907",
+      "bytes": 1709
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_002_DUPLICATE_CLAIM_ID.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "91239b05156814bca62d76cecf07433c6a729b4f5736d6a349f401146dd10411",
+      "bytes": 1998
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_003_DANGLING_EVIDENCE.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "7ae0d4918297e0f322c0e9ccaf9174f04e1e98eef2db97d1acefd2050ba31149",
+      "bytes": 1702
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_004_NONCLAIM_CONTRADICTION.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "9998e2c3f54c1e5698773774cce9a806418a26d2f14758d61305d66048a174ee",
+      "bytes": 1683
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_005_TRANSFER_WITHOUT_BASIS.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "6d4afb3bd647e3dc0b4046c5d6307446a4d23f8b2c9b7aba2e711b211cdf6b4a",
+      "bytes": 1951
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_006_UNRESOLVED_WITHOUT_REVALIDATION.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "9b950e89f8e81db298c94a9f4d2f2f957af1b486fcd1b6b12fb95c51b3a839c0",
+      "bytes": 1924
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_007_UNAVAILABLE_CONTRADICTION.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "c67bd80067903a95e5e832078c563cdd779144e27f7ff80d47d13e00c73b0fa0",
+      "bytes": 1677
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_008_RECOMPUTED_WITHOUT_EVIDENCE.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "89a99a9d123edd86d7cabcdc21943f9cb87769aaf216aefeb6a5af65aa75802a",
+      "bytes": 1675
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_009_PREMATURE_WITNESS_CLAIM.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "a4c66eecb3daacf4f9219dbbce40c1802aa6da597bef78ffe335edc0bc501485",
+      "bytes": 1670
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_010_AUTHORITY_NONCLAIM_CONTRADICTION.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "4155dd33381709c1f144b71286e8b720e5c8a511901708792f1855320b35f7dc",
+      "bytes": 1970
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_011_DUPLICATE_EVIDENCE_ID.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "d3f8b63a3e7b4d2c30d4ddd9051875f347da954fd41f3997cffb67bd22f46fbd",
+      "bytes": 1930
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_012_DUPLICATE_UNRESOLVED_ID.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "67c5b68a15bfed411e2635c1246857caade344c7553657348552914a62a5dd2a",
+      "bytes": 1922
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_013_DANGLING_AUTHORITY_EVIDENCE_REF.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "a1dbe9013e231165396fc0b05a7aa33a9dd966cb612f22ee1d45f5f122a6335b",
+      "bytes": 1731
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_014_NONTRANSFER_WITH_TRANSFER_BASIS.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "5d7e594678889d90ecc215cdd40f8fe9605711810d9b357f7f0e077e7501f716",
+      "bytes": 1741
+    },
+    {
+      "path": "05_ADVERSARIAL_FIXTURES/ADV_015_FULL_EVIDENCE_NOT_AVAILABLE.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "b82f409cadd5f8bc332c4b41a74110964ee8191d418f0276eb26fc2d46ba7e36",
+      "bytes": 1698
+    },
+    {
+      "path": "06_REFERENCE_VALIDATOR.py",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "876ba40d7363660cf21ab22d6dded3801e010b2f4114abb68c453fa3fded616d",
+      "bytes": 4963
+    },
+    {
+      "path": "07_TESTS/test_semantic_core.py",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "28ed6685360da7ef85ac44eed269e47d36ce60a562aaa445fbe08d5fc5b320ff",
+      "bytes": 3298
+    },
+    {
+      "path": "08_EXECUTION_PROTOCOL.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "5d7d89f7fda9597b925498d98bfc135ead82aea2758caedeff54703ec90c26cb",
+      "bytes": 1605
+    },
+    {
+      "path": "09_EXECUTION_RECEIPT.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "881209f6fd8dac10f3896d76191a59ea093a5ab9d4917b0e3ca7bb5002b45486",
+      "bytes": 11642
+    },
+    {
+      "path": "10_SUCCESSOR_QUALIFICATION_TARGET.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "00ac813ac6e473ecf23d9cb119e4c40ef74607a047932ae536825b08465c9a9c",
+      "bytes": 2342
+    },
+    {
+      "path": "11_DISPOSITION.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "fb62bb11564881edf81f53962c8f5063e610a193e836e470d52ea0cf75c65952",
+      "bytes": 2926
+    },
+    {
+      "path": "12_PACKAGE_MANIFEST.json",
+      "closure_role": "SELF_REFERENTIAL_CONTROL_FILE",
+      "sha256": null,
+      "bytes": null
+    },
+    {
+      "path": "13_REPOSITORY_ADMISSION_INSTRUCTIONS.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "91945e4e0f37ea047cda400cf998dcf133460427b1ef50e1a8f48313c7bf6f7a",
+      "bytes": 2164
+    },
+    {
+      "path": "14_REPAIR_LINEAGE/README.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "470833acd1375353fe8959b38758ae176168f53dac7a25ce23809dfd894e1f16",
+      "bytes": 1053
+    },
+    {
+      "path": "14_REPAIR_LINEAGE/V0_1_0_EXTERNAL_ASSESSMENT.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "6b0f0b48feabcf6bc491eedc27f751e05f80a77b839ba3c5e8e8df4fed55b8aa",
+      "bytes": 6675
+    },
+    {
+      "path": "14_REPAIR_LINEAGE/V0_1_0_FRESH_EXECUTION_RECEIPT.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "14bf3efe81e501d732d137ca92ff253b956fc7960e6af6875bf24fa3b9ccc9c8",
+      "bytes": 2481
+    },
+    {
+      "path": "15_CLOSURE_VERIFICATION.py",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "88c2b6d7083e516ba2a2ac8b52c9372de01e23113d0536361e63c2555e268e52",
+      "bytes": 2433
+    },
+    {
+      "path": "16_INVARIANT_FIXTURE_COVERAGE.json",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "6aab61ebe13fb2fa4d4e2abc1d84c079d38938e6d6a5723e032f03499e2211b7",
+      "bytes": 3378
+    },
+    {
+      "path": "17_DELTA_FROM_V0_1_0.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "b686f467c60c24cbfef09dc27a2d73e175e2101230998b8ba1f0834c844b2dad",
+      "bytes": 1228
+    },
+    {
+      "path": "README.md",
+      "closure_role": "HASH_BOUND_CONTENT",
+      "sha256": "92230a7ccf70fc2e8d9b864ebbee480a38114f3e61e728d81533a42426410688",
+      "bytes": 3050
+    },
+    {
+      "path": "SHA256SUMS",
+      "closure_role": "SELF_REFERENTIAL_CONTROL_FILE",
+      "sha256": null,
+      "bytes": null
+    }
+  ]
+}

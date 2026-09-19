@@ -1,0 +1,58 @@
+{
+  "schema_id": "FORK_HANDOFF_CORE_v0_2",
+  "record_identity": {
+    "record_id": "HSC-VALID-004-TRUTH-BOUNDARY",
+    "created_at": "2026-09-17T19:00:00Z",
+    "predecessor_record_id": null
+  },
+  "subject": {
+    "subject_id": "SUBJECT-001",
+    "subject_type": "ARTIFACT",
+    "description": "Interpretation-boundary fixture for a declared truth claim."
+  },
+  "claims": [
+    {
+      "claim_id": "C-TRUTH-001",
+      "claim_dimension": "TRUTH",
+      "statement": "The source proposition is true.",
+      "scope": "Declared proposition only; substantive truth is not adjudicated by this validator.",
+      "claim_basis": "DECLARED",
+      "evidence_refs": []
+    }
+  ],
+  "non_claims": [
+    "COMPLETENESS",
+    "CORRECTNESS",
+    "COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "AUTHORIZATION",
+    "APPROVAL",
+    "SAFETY",
+    "PRODUCTION_READINESS",
+    "ENDORSEMENT",
+    "CERTIFICATION",
+    "INDEPENDENT_WITNESSING",
+    "CHRONOLOGY",
+    "PROVENANCE_AUTHENTICITY"
+  ],
+  "authority_state": {
+    "transfer_status": "NOT_TRANSFERRED",
+    "source_authority_ref": null,
+    "target_authority_ref": null,
+    "basis_evidence_refs": []
+  },
+  "unresolved": [
+    {
+      "unresolved_id": "U-001",
+      "dimension": "INDEPENDENT_WITNESSING",
+      "statement": "No independent external witness is established by this semantic object.",
+      "blocks": [
+        "external-witness conclusion"
+      ]
+    }
+  ],
+  "revalidation_required": [
+    "INDEPENDENT_WITNESSING"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,80 @@
+{
+  "schema_id": "FORK_PROHIBITED_PROMOTIONS_v0_1",
+  "promotions": [
+    {
+      "id": "PP-001",
+      "from": "TYPED",
+      "to": "TRUE"
+    },
+    {
+      "id": "PP-002",
+      "from": "SCHEMA_VALID",
+      "to": "CORRECT"
+    },
+    {
+      "id": "PP-003",
+      "from": "EVIDENCE_REFERENCE_PRESENT",
+      "to": "EVIDENCE_AVAILABLE"
+    },
+    {
+      "id": "PP-004",
+      "from": "EVIDENCE_AVAILABLE",
+      "to": "EVIDENCE_SUFFICIENT"
+    },
+    {
+      "id": "PP-005",
+      "from": "CLAIM_BASIS_DECLARED",
+      "to": "BASIS_VERIFIED"
+    },
+    {
+      "id": "PP-006",
+      "from": "AUTHORITY_TRANSFER_ASSERTED",
+      "to": "AUTHORITY_VALID"
+    },
+    {
+      "id": "PP-007",
+      "from": "PREDECESSOR_LINKED",
+      "to": "PREDECESSOR_STANDING_INHERITED"
+    },
+    {
+      "id": "PP-008",
+      "from": "NO_UNRESOLVED_ITEMS_LISTED",
+      "to": "COMPLETE"
+    },
+    {
+      "id": "PP-009",
+      "from": "REVALIDATION_REQUIRED_LISTED",
+      "to": "REVALIDATION_PERFORMED"
+    },
+    {
+      "id": "PP-010",
+      "from": "SEMANTIC_CORE_PASS",
+      "to": "CRYPTOGRAPHIC_INTEGRITY"
+    },
+    {
+      "id": "PP-011",
+      "from": "SEMANTIC_CORE_PASS",
+      "to": "INDEPENDENT_WITNESSING"
+    },
+    {
+      "id": "PP-012",
+      "from": "SEMANTIC_CORE_PASS",
+      "to": "AUTHORIZATION"
+    },
+    {
+      "id": "PP-013",
+      "from": "SEMANTIC_CORE_PASS",
+      "to": "COMPLIANCE"
+    },
+    {
+      "id": "PP-014",
+      "from": "SEMANTIC_CORE_PASS",
+      "to": "PRODUCTION_READINESS"
+    },
+    {
+      "id": "PP-015",
+      "from": "VALIDATOR_PASS",
+      "to": "TRUTH_ESTABLISHED"
+    }
+  ]
+}

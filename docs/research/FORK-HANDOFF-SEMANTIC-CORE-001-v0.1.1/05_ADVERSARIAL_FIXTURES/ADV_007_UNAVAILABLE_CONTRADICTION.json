@@ -1,0 +1,69 @@
+{
+  "schema_id": "FORK_HANDOFF_CORE_v0_2",
+  "record_identity": {
+    "record_id": "HSC-VALID-001",
+    "created_at": "2026-09-17T19:00:00Z",
+    "predecessor_record_id": null
+  },
+  "subject": {
+    "subject_id": "SUBJECT-001",
+    "subject_type": "ARTIFACT",
+    "description": "Bounded structural recomputation result."
+  },
+  "claims": [
+    {
+      "claim_id": "C-001",
+      "claim_dimension": "RECOMPUTATION_RESULT",
+      "statement": "The declared structural check reproduced under the named procedure.",
+      "scope": "This fixture only.",
+      "claim_basis": "RECOMPUTED",
+      "evidence_refs": [
+        "E-001"
+      ]
+    }
+  ],
+  "non_claims": [
+    "TRUTH",
+    "COMPLETENESS",
+    "CORRECTNESS",
+    "COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "AUTHORIZATION",
+    "APPROVAL",
+    "SAFETY",
+    "PRODUCTION_READINESS",
+    "ENDORSEMENT",
+    "CERTIFICATION",
+    "INDEPENDENT_WITNESSING",
+    "CHRONOLOGY",
+    "PROVENANCE_AUTHENTICITY"
+  ],
+  "authority_state": {
+    "transfer_status": "NOT_TRANSFERRED",
+    "source_authority_ref": null,
+    "target_authority_ref": null,
+    "basis_evidence_refs": []
+  },
+  "unresolved": [
+    {
+      "unresolved_id": "U-001",
+      "dimension": "INDEPENDENT_WITNESSING",
+      "statement": "No independent external witness is established by this semantic object.",
+      "blocks": [
+        "external-witness conclusion"
+      ]
+    }
+  ],
+  "revalidation_required": [
+    "INDEPENDENT_WITNESSING"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-001",
+      "description": "Local recomputation receipt.",
+      "disclosure_state": "UNAVAILABLE",
+      "access_status": "AVAILABLE",
+      "locator": "x"
+    }
+  ]
+}

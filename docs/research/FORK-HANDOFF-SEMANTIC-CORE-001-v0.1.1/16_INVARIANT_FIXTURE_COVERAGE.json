@@ -1,0 +1,85 @@
+{
+  "schema_id": "FORK_HANDOFF_SEMANTIC_CORE_INVARIANT_FIXTURE_COVERAGE_v0_1",
+  "package_version": "v0.1.1",
+  "coverage_rule": "Each declared semantic invariant has at least one explicit packaged adversarial fixture that is expected to exercise its failure code.",
+  "invariant_count": 15,
+  "covered_invariant_count": 15,
+  "coverage": [
+    {
+      "invariant_id": "INV-001",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_001_SELF_PREDECESSOR.json",
+      "expected_failure_code": "SELF_PREDECESSOR_FORBIDDEN"
+    },
+    {
+      "invariant_id": "INV-002",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_002_DUPLICATE_CLAIM_ID.json",
+      "expected_failure_code": "DUPLICATE_CLAIM_ID"
+    },
+    {
+      "invariant_id": "INV-003",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_011_DUPLICATE_EVIDENCE_ID.json",
+      "expected_failure_code": "DUPLICATE_EVIDENCE_ID"
+    },
+    {
+      "invariant_id": "INV-004",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_012_DUPLICATE_UNRESOLVED_ID.json",
+      "expected_failure_code": "DUPLICATE_UNRESOLVED_ID"
+    },
+    {
+      "invariant_id": "INV-005",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_003_DANGLING_EVIDENCE.json",
+      "expected_failure_code": "DANGLING_CLAIM_EVIDENCE_REF"
+    },
+    {
+      "invariant_id": "INV-006",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_013_DANGLING_AUTHORITY_EVIDENCE_REF.json",
+      "expected_failure_code": "DANGLING_AUTHORITY_EVIDENCE_REF"
+    },
+    {
+      "invariant_id": "INV-007",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_005_TRANSFER_WITHOUT_BASIS.json",
+      "expected_failure_code": "AUTHORITY_TRANSFER_WITHOUT_BASIS"
+    },
+    {
+      "invariant_id": "INV-008",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_014_NONTRANSFER_WITH_TRANSFER_BASIS.json",
+      "expected_failure_code": "NONTRANSFER_WITH_TRANSFER_BASIS"
+    },
+    {
+      "invariant_id": "INV-009",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_004_NONCLAIM_CONTRADICTION.json",
+      "expected_failure_code": "CLAIM_NONCLAIM_CONTRADICTION"
+    },
+    {
+      "invariant_id": "INV-010",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_006_UNRESOLVED_WITHOUT_REVALIDATION.json",
+      "expected_failure_code": "UNRESOLVED_WITHOUT_REVALIDATION"
+    },
+    {
+      "invariant_id": "INV-011",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_007_UNAVAILABLE_CONTRADICTION.json",
+      "expected_failure_code": "UNAVAILABLE_EVIDENCE_CONTRADICTION"
+    },
+    {
+      "invariant_id": "INV-012",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_015_FULL_EVIDENCE_NOT_AVAILABLE.json",
+      "expected_failure_code": "FULL_EVIDENCE_NOT_AVAILABLE"
+    },
+    {
+      "invariant_id": "INV-013",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_008_RECOMPUTED_WITHOUT_EVIDENCE.json",
+      "expected_failure_code": "RECOMPUTED_WITHOUT_EVIDENCE"
+    },
+    {
+      "invariant_id": "INV-014",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_009_PREMATURE_WITNESS_CLAIM.json",
+      "expected_failure_code": "CRYPTOGRAPHIC_LAYER_PREMATURE"
+    },
+    {
+      "invariant_id": "INV-015",
+      "fixture": "05_ADVERSARIAL_FIXTURES/ADV_010_AUTHORITY_NONCLAIM_CONTRADICTION.json",
+      "expected_failure_code": "AUTHORITY_NONCLAIM_CONTRADICTION"
+    }
+  ],
+  "non_claim": "Coverage of declared failure paths does not establish completeness of the semantic model, correctness of claims, or generalization beyond the packaged fixtures."
+}

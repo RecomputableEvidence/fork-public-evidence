@@ -1,0 +1,28 @@
+{
+  "schema_id": "FORK_PREDECESSOR_BASELINE_RECEIPT_v0_1",
+  "research_object": "FORK-HANDOFF-SEMANTIC-CORE-001",
+  "snapshot_date": "2026-09-17",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "default_branch_observed": "main",
+  "baseline_commit": "c51e28ac44104808e957c0dae73f98f262728fec",
+  "baseline_tree": "415f27fdf73e56a0cfa7c01098c715af118c02bb",
+  "git_object_format": "sha1",
+  "commit_parents": [
+    "61ce462e131c3c2687abd1d7744cd9ffaf238552",
+    "d3fcf49428467bcefd7f1849f26212ab08fa0957"
+  ],
+  "commit_message": "Current standing: freeze UEM v0.1 Epoch 010 CRII admission",
+  "commit_timestamp_utc": "2026-09-17T18:32:26Z",
+  "github_commit_verification_observed": {
+    "verified": true,
+    "reason": "valid"
+  },
+  "preservation_method": "IMMUTABLE_GIT_COMMIT_AND_TREE_COORDINATE",
+  "preservation_statement": "The predecessor is the exact Git tree addressed by baseline_tree and commit; no moving branch name is authoritative for this object.",
+  "retrieval_coordinate": "https://github.com/RecomputableEvidence/fork-public-evidence/tree/c51e28ac44104808e957c0dae73f98f262728fec",
+  "non_claims": [
+    "Git object identity does not establish truth or semantic correctness of repository contents.",
+    "GitHub commit verification does not establish institutional authority for repository claims.",
+    "This receipt does not independently timestamp every underlying event represented in the repository."
+  ]
+}

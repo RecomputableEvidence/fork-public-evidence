@@ -1,0 +1,81 @@
+{
+  "schema_id": "FORK_HANDOFF_SEMANTIC_INVARIANTS_v0_1",
+  "governing_rule": "Typing may increase legibility and mechanical checkability. It may not increase semantic standing.",
+  "invariants": [
+    {
+      "id": "INV-001",
+      "rule": "record_id MUST NOT equal predecessor_record_id",
+      "failure_code": "SELF_PREDECESSOR_FORBIDDEN"
+    },
+    {
+      "id": "INV-002",
+      "rule": "claim_id values MUST be unique",
+      "failure_code": "DUPLICATE_CLAIM_ID"
+    },
+    {
+      "id": "INV-003",
+      "rule": "evidence_id values MUST be unique",
+      "failure_code": "DUPLICATE_EVIDENCE_ID"
+    },
+    {
+      "id": "INV-004",
+      "rule": "unresolved_id values MUST be unique",
+      "failure_code": "DUPLICATE_UNRESOLVED_ID"
+    },
+    {
+      "id": "INV-005",
+      "rule": "every claim evidence_ref MUST resolve to evidence[]",
+      "failure_code": "DANGLING_CLAIM_EVIDENCE_REF"
+    },
+    {
+      "id": "INV-006",
+      "rule": "every authority basis_evidence_ref MUST resolve to evidence[]",
+      "failure_code": "DANGLING_AUTHORITY_EVIDENCE_REF"
+    },
+    {
+      "id": "INV-007",
+      "rule": "TRANSFER_ASSERTED requires at least one basis_evidence_ref and non-null target_authority_ref",
+      "failure_code": "AUTHORITY_TRANSFER_WITHOUT_BASIS"
+    },
+    {
+      "id": "INV-008",
+      "rule": "NOT_TRANSFERRED requires empty basis_evidence_refs and null target_authority_ref",
+      "failure_code": "NONTRANSFER_WITH_TRANSFER_BASIS"
+    },
+    {
+      "id": "INV-009",
+      "rule": "a claim dimension MUST NOT also appear in non_claims",
+      "failure_code": "CLAIM_NONCLAIM_CONTRADICTION"
+    },
+    {
+      "id": "INV-010",
+      "rule": "each unresolved dimension other than OTHER MUST appear in revalidation_required, mapping AUTHORITY->AUTHORITY",
+      "failure_code": "UNRESOLVED_WITHOUT_REVALIDATION"
+    },
+    {
+      "id": "INV-011",
+      "rule": "disclosure_state UNAVAILABLE requires access_status UNAVAILABLE and locator null",
+      "failure_code": "UNAVAILABLE_EVIDENCE_CONTRADICTION"
+    },
+    {
+      "id": "INV-012",
+      "rule": "disclosure_state FULL requires access_status AVAILABLE and non-null locator",
+      "failure_code": "FULL_EVIDENCE_NOT_AVAILABLE"
+    },
+    {
+      "id": "INV-013",
+      "rule": "claim_basis RECOMPUTED requires at least one evidence_ref",
+      "failure_code": "RECOMPUTED_WITHOUT_EVIDENCE"
+    },
+    {
+      "id": "INV-014",
+      "rule": "claim dimension INDEPENDENT_WITNESSING is forbidden in this semantic-core object",
+      "failure_code": "CRYPTOGRAPHIC_LAYER_PREMATURE"
+    },
+    {
+      "id": "INV-015",
+      "rule": "authority TRANSFER_ASSERTED cannot coexist with AUTHORIZATION as an explicit non-claim",
+      "failure_code": "AUTHORITY_NONCLAIM_CONTRADICTION"
+    }
+  ]
+}

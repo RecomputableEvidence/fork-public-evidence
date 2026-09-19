@@ -1,0 +1,58 @@
+{
+  "schema_id": "FORK_HANDOFF_CORE_v0_2",
+  "record_identity": {
+    "record_id": "HSC-VALID-003",
+    "created_at": "2026-09-17T19:02:00Z",
+    "predecessor_record_id": null
+  },
+  "subject": {
+    "subject_id": "SUBJECT-003",
+    "subject_type": "WORKFLOW_EVENT",
+    "description": "A handoff that preserves unresolved state without a positive substantive claim."
+  },
+  "claims": [],
+  "non_claims": [
+    "TRUTH",
+    "COMPLETENESS",
+    "CORRECTNESS",
+    "COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "AUTHORIZATION",
+    "APPROVAL",
+    "SAFETY",
+    "PRODUCTION_READINESS",
+    "ENDORSEMENT",
+    "CERTIFICATION",
+    "INDEPENDENT_WITNESSING",
+    "CHRONOLOGY",
+    "PROVENANCE_AUTHENTICITY"
+  ],
+  "authority_state": {
+    "transfer_status": "NOT_DETERMINED",
+    "source_authority_ref": null,
+    "target_authority_ref": null,
+    "basis_evidence_refs": []
+  },
+  "unresolved": [
+    {
+      "unresolved_id": "U-004",
+      "dimension": "COMPLETENESS",
+      "statement": "Capture completeness is not established.",
+      "blocks": [
+        "complete-event-population conclusion"
+      ]
+    }
+  ],
+  "revalidation_required": [
+    "COMPLETENESS"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-003",
+      "description": "Underlying evidence is unavailable to this reviewer.",
+      "disclosure_state": "UNAVAILABLE",
+      "access_status": "UNAVAILABLE",
+      "locator": null
+    }
+  ]
+}

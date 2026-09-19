@@ -1,0 +1,78 @@
+{
+  "schema_id": "FORK_HANDOFF_CORE_v0_2",
+  "record_identity": {
+    "record_id": "HSC-VALID-002",
+    "created_at": "2026-09-17T19:01:00Z",
+    "predecessor_record_id": "HSC-VALID-001"
+  },
+  "subject": {
+    "subject_id": "SUBJECT-002",
+    "subject_type": "CLAIM_SET",
+    "description": "Review finding represented as a typed handoff."
+  },
+  "claims": [
+    {
+      "claim_id": "C-002",
+      "claim_dimension": "REVIEW_FINDING",
+      "statement": "A reviewer observed a boundary ambiguity.",
+      "scope": "The reviewed surface only.",
+      "claim_basis": "REVIEWED",
+      "evidence_refs": [
+        "E-002"
+      ]
+    }
+  ],
+  "non_claims": [
+    "TRUTH",
+    "COMPLETENESS",
+    "CORRECTNESS",
+    "COMPLIANCE",
+    "LEGAL_SUFFICIENCY",
+    "AUTHORIZATION",
+    "APPROVAL",
+    "SAFETY",
+    "PRODUCTION_READINESS",
+    "ENDORSEMENT",
+    "CERTIFICATION",
+    "INDEPENDENT_WITNESSING",
+    "CHRONOLOGY",
+    "PROVENANCE_AUTHENTICITY"
+  ],
+  "authority_state": {
+    "transfer_status": "NOT_DETERMINED",
+    "source_authority_ref": "reviewer-declared-context",
+    "target_authority_ref": null,
+    "basis_evidence_refs": []
+  },
+  "unresolved": [
+    {
+      "unresolved_id": "U-002",
+      "dimension": "AUTHORITY",
+      "statement": "Institutional authority for downstream reliance was not determined.",
+      "blocks": [
+        "downstream authority conclusion"
+      ]
+    },
+    {
+      "unresolved_id": "U-003",
+      "dimension": "SOURCE_CURRENCY",
+      "statement": "Source currency must be checked at reliance time.",
+      "blocks": [
+        "current applicability conclusion"
+      ]
+    }
+  ],
+  "revalidation_required": [
+    "AUTHORITY",
+    "SOURCE_CURRENCY"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "E-002",
+      "description": "Reviewer note preserved with restricted access.",
+      "disclosure_state": "EXTERNAL_CONTROLLED",
+      "access_status": "RESTRICTED",
+      "locator": "custodian://review-note-002"
+    }
+  ]
+}
