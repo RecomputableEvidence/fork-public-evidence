@@ -1,0 +1,44 @@
+{
+  "bounded_findings": [
+    "v0.1.4 internal qualification surface is insufficient to distinguish several self-consistent semantic mutations from valid execution.",
+    "Hash/self-consistency closure survives when mutable normative inputs or implementation behavior are changed and package-local expectations/hashes are regenerated.",
+    "At least one structural temporal relationship check successfully rejected a denominator-substitution mutation.",
+    "The result does not establish that every semantic seam is vulnerable or that repair is impossible."
+  ],
+  "executed_mutation_summary": {
+    "attempts_reported": 11,
+    "mutation_classes_pressured": 10,
+    "rejected_mutations": [
+      "M08-A1"
+    ],
+    "surviving_mutations": [
+      "M01-A",
+      "M02-A",
+      "M03-A",
+      "M04-A",
+      "M05-A",
+      "M06-A",
+      "M07-A",
+      "M08-A2",
+      "M09-A",
+      "M10-A"
+    ]
+  },
+  "independent_verification_performed": {
+    "M01_08_VERIFY": "PASS_227_OF_227",
+    "M01_12_INDEPENDENT_PRESSURE_CHECK": "PASS",
+    "M01_13_TO_18": "ALL_EXIT_0",
+    "frozen_verifier_test_sources_byte_identical_across_M01_to_M10": true,
+    "result_template_final_disposition_consistent": true
+  },
+  "live_stacked_cadence_authority": "NONE",
+  "predecessor_version": "v0.1.4",
+  "reported_disposition": "INDEPENDENT_QUALIFICATION_FAIL__SURVIVING_SEMANTIC_MUTATION_OBSERVED",
+  "research_object": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "schema_id": "FORK_STACKED_CADENCE_INDEPENDENT_QUALIFICATION_FAILURE_FREEZE_v0_1",
+  "source_archive_integrity": "PASS",
+  "source_result_zip": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-INDEPENDENT-QUALIFICATION-OPENING-001 (2).zip",
+  "source_result_zip_sha256": "d839d2381c064860dd4032b27f9816689efb30ced7e5ef38610f19086989e332",
+  "standing": "NEGATIVE_EMPIRICAL_RESULT_FROZEN",
+  "successor_repair_authority": "NOT_OPENED"
+}

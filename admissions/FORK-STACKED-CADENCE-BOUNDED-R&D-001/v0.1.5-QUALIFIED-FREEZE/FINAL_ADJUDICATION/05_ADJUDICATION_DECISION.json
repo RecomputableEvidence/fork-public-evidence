@@ -1,0 +1,93 @@
+{
+  "schema_id": "FORK_STACKED_CADENCE_FINAL_QUALIFICATION_DECISION_v0_1",
+  "object": "FORK-STACKED-CADENCE-BOUNDED-R&D-001",
+  "version": "v0.1.5",
+  "adjudicator_identity": "IBM Bob (independent recomputation adjudicator)",
+  "adjudication_environment": {
+    "platform": "win32",
+    "shell": "powershell.exe",
+    "workspace": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-v0.1.5-FINAL-QUALIFICATION-GATE-001"
+  },
+  "bound_hashes_verified": {
+    "subject": true,
+    "evidence_freeze": true,
+    "predecessor_negative_result": true
+  },
+  "subject_sha256_verified": "bde58e1f3389e179d91d26c17c05318e8815a8604e1c0e1d0494a127cd8a49c2",
+  "evidence_freeze_sha256_verified": "bdec62146a9aea1b601d1d43dac6f511bcebcde6beb24e76dc9e9bc55570a4a3",
+  "predecessor_negative_result_sha256_verified": "f78c654cf2e30c2bfeba3962a80272cf9ddb804cc352a064fa7a23f5653eb289",
+  "criteria": [
+    {
+      "id": "G01",
+      "result": "PASS",
+      "evidence_note": "Subject ZIP SHA-256 independently recomputed as bde58e1f3389e179d91d26c17c05318e8815a8604e1c0e1d0494a127cd8a49c2, matching gate scope declaration exactly. All 35 subject-internal files independently verified against SHA256SUMS: 35/35 MATCH. Subject copy inside evidence freeze is byte-identical to gate package subject."
+    },
+    {
+      "id": "G02",
+      "result": "PASS",
+      "evidence_note": "Predecessor negative-result freeze (f78c654cf2...) is preserved unmodified and consistently cross-referenced by 00_PREDECESSOR_BINDING.json and 21_REPAIR_DELTA.json inside v0.1.5. The freeze document explicitly records the result as a negative empirical result against v0.1.4, not as a general architectural verdict. Internal v0.1.4 surface (227/227) is preserved alongside the failure disposition. No reinterpretation as architecture failure found."
+    },
+    {
+      "id": "G03",
+      "result": "PASS",
+      "evidence_note": "08_CANONICAL_VERIFY_RESULT.json in evidence freeze records verified=true, check_count=291, failure_count=0. This is consistent with the internal repair receipt which records 08_VERIFY.py: 291/291, 0 failures. Hash of 08_VERIFY.py independently verified against declared value (143c8a78...)."
+    },
+    {
+      "id": "G04",
+      "result": "PASS",
+      "evidence_note": "22_INTERNAL_REPAIR_RECEIPT.json records 20_V014_FAILURE_REGRESSION_TEST.py M01_through_M10=BLOCKED, M11_contract_reseal=BLOCKED, passed=true. Repair targets in the receipt correspond 1:1 to all 10 surviving mutations (M01-A through M10-A) from the predecessor ledger. repair_scope_expansion=false; new_capability_introduced=false."
+    },
+    {
+      "id": "G05",
+      "result": "PASS",
+      "evidence_note": "23_RECOMPUTE_RESULT.json records passed=true, check_count=182, failure_count=0, failures=[]. Replay digests for all 10 scenarios are internally cross-consistent (rederived top-level digest matches per-scenario summary digest, 10/10). Harness SHA-256 in recompute result matches actual 07_HARNESS.py (ffb926f8b12c5ebf...)."
+    },
+    {
+      "id": "G06",
+      "result": "PASS",
+      "evidence_note": "Script header explicitly states: 'Does NOT read 09_EXPECTED_SUMMARY.json or 22_INTERNAL_REPAIR_RECEIPT.json'. Method field in result is 'independent_recomputation_no_expected_summary_oracle'. All scenario metrics are rederived from harness execution. Normative contract values (tolerance=1.0, promotion threshold=3, max_consecutive=4, starvation_threshold=3600, coalescing order, replay excluded fields) independently verified against 19_NORMATIVE_SEMANTIC_CONTRACT.json: 8/8 PASS."
+    },
+    {
+      "id": "G07",
+      "result": "PASS",
+      "evidence_note": "Evidence workspace ZIP (4873c76cb2c17d81...) is distinct from canonical subject (bde58e1f33...). Freeze receipt records source_workspace.standing='EVIDENCE_WORKSPACE_NOT_CANONICAL_SUBJECT'. The independently authored 23_INDEPENDENT_PRESSURE_RECOMPUTE.py is outside the canonical package inventory. Subject ZIP hash is unchanged throughout."
+    },
+    {
+      "id": "G08",
+      "result": "PASS",
+      "evidence_note": "Independent recompute produced 182/182 checks with 0 failures. The recompute script independently exercises all 10 predecessor mutation surfaces (M01 service formula, M02 arbitration, M03 promotion derivation exact, M04 coalescing active precedence, M05 queue vocab, M06/M07 replay digest inclusion, M08 temporal tolerance at exactly 1.0x, M09 harness byte identity, M10 content-addressed evidence). No surviving mutation is observed."
+    },
+    {
+      "id": "G09",
+      "result": "PASS",
+      "evidence_note": "00_PREDECESSOR_BINDING.json: live_epoch_authority=NONE, new_r_and_d_capability_authorized=false. 22_INTERNAL_REPAIR_RECEIPT.json: live_epoch_authority=NONE. Evidence freeze: final_promotion_authority=NONE. Standing boundary (04_STANDING_BOUNDARY.md) and prohibited promotions list (01_ADJUDICATION_CRITERIA.json) are consistently observed. No production, runtime, distributed-executor, external-trust, or universal standing is claimed anywhere in the package."
+    }
+  ],
+  "all_criteria_pass": true,
+  "subject_modified": false,
+  "repair_performed": false,
+  "non_claims_confirmed": true,
+  "final_disposition": "INDEPENDENT_QUALIFICATION_PASS__BOUNDED_STACKED_CADENCE_SEMANTICS_ADMITTED_WITHIN_TESTED_SURFACE",
+  "standing_boundary": "This pass is bounded to the tested v0.1.5 surface only. It does not imply production readiness, live-agent authorization, distributed-executor qualification, external trust anchoring, correctness outside the frozen scenarios, completeness of the research-event population, or promotion of any research finding.",
+  "independent_recomputation_receipt": {
+    "recompute_script": "23_INDEPENDENT_PRESSURE_RECOMPUTE.py",
+    "recompute_script_sha256": "aa02d1fe7c9b5f9a44d9378b3108defe423ffc5403cdcf8355d8062b15be2684",
+    "harness_sha256": "ffb926f8b12c5ebf4f9d12d16a23b1177b71562e751fbd07efb6c0ba32eee5e6",
+    "method": "independent_recomputation_no_expected_summary_oracle",
+    "check_count": 182,
+    "failure_count": 0,
+    "canonical_verify_check_count": 291,
+    "canonical_verify_failure_count": 0,
+    "scenarios_covered": 10,
+    "subject_file_hash_checks": 35,
+    "subject_file_hash_failures": 0,
+    "evidence_freeze_file_hash_checks": 8,
+    "evidence_freeze_file_hash_failures": 0,
+    "gate_package_sha256sums_checks": 9,
+    "gate_package_sha256sums_failures": 0,
+    "normative_contract_cross_checks": 8,
+    "normative_contract_cross_failures": 0,
+    "replay_digest_cross_consistency_checks": 10,
+    "replay_digest_cross_consistency_failures": 0
+  }
+}
