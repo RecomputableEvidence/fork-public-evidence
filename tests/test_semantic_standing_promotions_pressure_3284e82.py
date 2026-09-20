@@ -9,7 +9,7 @@ Pressure vectors covered:
   P-27  exact_text with lone \\r, LF source - no match expected
   P-28  CRLF source and CRLF exact_text   - both collapse → PASS
   P-29  SHA bound to CRLF bytes, source served as LF bytes - sha mismatch → code 4
-  P-30  exact_text appears twice in source - occurrence-binding ambiguity open
+  P-30  source contains fragment twice; exact_text is fragment only - occurrence-binding ambiguity open
   P-31  evidence_binding sha256 in uppercase - must normalise and match
   P-32  evidence path traversal ../ attempt - must reject (code 4)
   P-33  assertion scope superset of transition scope - G09 fails → WITHHOLD
@@ -149,24 +149,45 @@ def test_p29_sha_mismatch_crlf_sidecar_lf_source_is_rejected(tmp_path):
 
 
 # ---------------------------------------------------------------------------
-# P-30  exact_text appears twice in the source – occurrence-binding ambiguity open
+# P-30  Source contains fragment twice; exact_text is only the fragment –
+#       duplicate-occurrence ambiguity condition is exercised
+#
+# Establishes only:
+#   SAME_EXACT_TEXT_PRESENT_MULTIPLE_TIMES ->
+#     CHECKER_DOES_NOT_FABRICATE_MULTIPLE_ASSERTION_BINDINGS
+#
+# Does NOT establish:
+#   OCCURRENCE_IDENTITY_ESTABLISHED
+#   DUPLICATE_OCCURRENCE_AMBIGUITY_RESOLVED
+#
+# The inherited occurrence-binding limitation remains explicitly open
+# (WORK_ORDER item 7 / BOUNDARIES.md: TEXT_OCCURRENCE_FOUND != OCCURRENCE_IDENTITY_BOUND).
 # ---------------------------------------------------------------------------
 
-def test_p30_duplicate_occurrence_in_source_does_not_promote(tmp_path):
-    """The checker must not treat text that appears multiple times in the source
-    as automatically evidence-backed.  The outcome should still reflect the
-    transition/envelope evaluation, not fabricate a second binding.
-    We expect the checker to continue evaluating normally (PASS if transition
-    is verified) but the occurrence ambiguity remains open per WORK_ORDER item 7."""
+def test_p30_duplicate_exact_text_occurrence_remains_explicitly_unbound(tmp_path):
+    """The source contains the assertion fragment twice; exact_text is only the
+    fragment itself.  The fragment is found at two offsets in the source.
+    The checker must not fabricate a second assertion binding and must emit
+    exactly one finding whose evaluation reflects the transition/envelope gates."""
     repeated = "G01-G09 passed; v0.1.5 is now qualified."
-    source_text = repeated + "\n" + repeated  # text appears twice
+    source_text = repeated + "\n" + repeated
+
     surface = make_surface(tmp_path, source_text, asserted_state=QUALIFIED)
-    # exact_text = source_text (both occurrences present) — still a valid PASS
-    # because transition verification is independent of occurrence count.
+    assertions = surface[4]
+
+    # Override exact_text to be only the repeated fragment (not the full source_text).
+    # This is the condition the original test failed to exercise: exact_text now
+    # genuinely occurs at two positions in the source.
+    mutate_json(
+        assertions,
+        lambda v: v["assertions"][0].__setitem__("exact_text", repeated),
+    )
+
     proc, result = run_checker(surface)
+
     assert proc.returncode == 0, f"unexpected stderr: {proc.stderr}"
     assert result["overall_action"] == "PASS"
-    # Confirm no fabricated second finding was emitted.
+    # One assertion → one finding; no fabricated second binding.
     assert len(result["findings"]) == 1
 
 
