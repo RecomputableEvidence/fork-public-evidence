@@ -62,7 +62,11 @@
       "required": ["assertion_id", "exact_text", "subject_identity", "transition_dimension", "asserted_state", "temporal_anchor", "scope"],
       "properties": {
         "assertion_id": {"type": "string", "minLength": 1},
-        "exact_text": {"type": "string", "minLength": 1},
+        "exact_text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Assertion text used for source containment after CRLF/LF canonicalization only. CRLF and LF are treated as equivalent for this comparison; lone CR is not normalized. This field does not establish byte-exact or code-point-exact containment. source_sha256 remains bound to the original unmodified source bytes."
+        },
         "subject_identity": {"$ref": "#/$defs/subject_identity"},
         "transition_dimension": {"type": "string", "minLength": 1},
         "asserted_state": {"type": "string", "minLength": 1},
