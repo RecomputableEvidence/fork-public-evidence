@@ -1,34 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://recomputableevidence.com/schemas/semantic-standing-promotion-checker/promotion_findings.schema.json",
-  "title": "FORK Semantic Standing Promotion Checker - Findings",
+  "title": "FORK Semantic Standing Promotion Checker - Findings v0.1.1 Repair",
   "type": "object",
   "additionalProperties": false,
-  "required": ["checker", "candidate_status", "source_sha256", "overall_disposition", "findings"],
+  "required": ["checker", "candidate_status", "source_sha256", "overall_action", "source_assurance", "findings"],
   "properties": {
     "checker": {"const": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001"},
     "candidate_status": {"const": "NOT_EMPIRICALLY_QUALIFIED"},
     "source_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
-    "overall_disposition": {"enum": ["PASS", "WITHHOLD", "INDETERMINATE"]},
+    "overall_action": {"enum": ["PASS", "WITHHOLD", "INDETERMINATE"]},
+    "source_assurance": {"const": "SUPPLIED_ASSERTIONS_ONLY"},
     "reason": {"type": "string"},
     "boundaries": {"type": "array", "items": {"type": "string"}},
-    "findings": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/finding"}
-    }
+    "findings": {"type": "array", "items": {"$ref": "#/$defs/finding"}}
   },
   "$defs": {
     "promotion_class": {
+      "enum": ["ESTABLISHMENT_PROMOTION", "CANONICALITY_PROMOTION", "VALIDATION_PROMOTION", "GENERALIZATION_PROMOTION", "AUTHORITY_PROMOTION", "CROSS_OBJECT_PROMOTION", "TEMPORAL_PROMOTION", "MATURITY_PROMOTION", "CONSEQUENCE_PROMOTION"]
+    },
+    "typed_disposition": {
       "enum": [
-        "ESTABLISHMENT_PROMOTION",
-        "CANONICALITY_PROMOTION",
-        "VALIDATION_PROMOTION",
-        "GENERALIZATION_PROMOTION",
-        "AUTHORITY_PROMOTION",
-        "CROSS_OBJECT_PROMOTION",
-        "TEMPORAL_PROMOTION",
-        "MATURITY_PROMOTION",
-        "CONSEQUENCE_PROMOTION"
+        "SUPPORTED_WITHIN_DECLARED_TRANSITION",
+        "SUPPORTED_WITHIN_VERIFIED_ENVELOPE",
+        "WITHHOLD_UNSUPPORTED_PROMOTION",
+        "WITHHOLD_OUTSIDE_SCOPE",
+        "WITHHOLD_DIMENSION_MISMATCH",
+        "WITHHOLD_SUBJECT_MISMATCH",
+        "INDETERMINATE_UNRESOLVED_EVIDENCE",
+        "INDETERMINATE_TEMPORAL_ANCHOR",
+        "INDETERMINATE_CONFLICTING_TRANSITIONS",
+        "INDETERMINATE_SCHEMA_OR_CONTRACT",
+        "INDETERMINATE_NORMALIZATION_COVERAGE"
       ]
     },
     "gate": {
@@ -43,11 +46,11 @@
     },
     "finding": {
       "type": "object",
-      "required": ["assertion_id", "disposition"],
+      "required": ["assertion_id", "action", "disposition"],
       "properties": {
         "assertion_id": {"type": "string"},
-        "disposition": {"enum": ["PASS", "WITHHOLD", "INDETERMINATE"]},
-        "support": {"enum": ["SUPPORTED_WITHIN_DECLARED_TRANSITION", "SUPPORTED_WITHIN_DECLARED_ENVELOPE"]},
+        "action": {"enum": ["PASS", "WITHHOLD", "INDETERMINATE"]},
+        "disposition": {"$ref": "#/$defs/typed_disposition"},
         "promotion_class": {"$ref": "#/$defs/promotion_class"},
         "reason": {"type": "string"},
         "matched_transition_id": {"type": "string"},
