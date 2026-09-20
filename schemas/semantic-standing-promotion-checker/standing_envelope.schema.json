@@ -1,17 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://recomputableevidence.com/schemas/semantic-standing-promotion-checker/standing_envelope.schema.json",
-  "title": "FORK Semantic Standing Promotion Checker - Standing Envelope",
+  "title": "FORK Semantic Standing Promotion Checker - Standing Envelope v0.1.1 Repair",
   "type": "object",
   "additionalProperties": false,
   "required": ["envelope_id", "subjects"],
   "properties": {
     "envelope_id": {"type": "string", "minLength": 1},
-    "subjects": {
-      "type": "array",
-      "minItems": 1,
-      "items": {"$ref": "#/$defs/subject"}
-    }
+    "subjects": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/subject"}}
   },
   "$defs": {
     "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
@@ -25,45 +21,50 @@
         "sha256": {"$ref": "#/$defs/sha256"}
       }
     },
+    "scope_coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_object_id", "dimension", "surface", "claim"],
+      "properties": {
+        "subject_object_id": {"type": "string", "minLength": 1},
+        "dimension": {"type": "string", "minLength": 1},
+        "surface": {"type": "string", "minLength": 1},
+        "claim": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "role", "artifact", "sha256", "subject_identity"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1},
+        "artifact": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "subject_identity": {"$ref": "#/$defs/subject_identity"}
+      }
+    },
     "non_effect": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["value", "promotion_class"],
+      "required": ["coordinate", "promotion_class"],
       "properties": {
-        "value": {"type": "string", "minLength": 1},
-        "promotion_class": {
-          "enum": [
-            "ESTABLISHMENT_PROMOTION",
-            "CANONICALITY_PROMOTION",
-            "VALIDATION_PROMOTION",
-            "GENERALIZATION_PROMOTION",
-            "AUTHORITY_PROMOTION",
-            "CROSS_OBJECT_PROMOTION",
-            "TEMPORAL_PROMOTION",
-            "MATURITY_PROMOTION",
-            "CONSEQUENCE_PROMOTION"
-          ]
-        }
+        "coordinate": {"$ref": "#/$defs/scope_coordinate"},
+        "promotion_class": {"enum": ["ESTABLISHMENT_PROMOTION", "CANONICALITY_PROMOTION", "VALIDATION_PROMOTION", "GENERALIZATION_PROMOTION", "AUTHORITY_PROMOTION", "CROSS_OBJECT_PROMOTION", "TEMPORAL_PROMOTION", "MATURITY_PROMOTION", "CONSEQUENCE_PROMOTION"]}
       }
     },
     "dimension": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["current_state", "effective_from", "effective_until", "applies_to", "explicit_non_effects"],
+      "required": ["current_state", "verification_status", "effective_from", "effective_until", "evidence_bindings", "applies_to", "explicit_non_effects"],
       "properties": {
         "current_state": {"type": "string", "minLength": 1},
+        "verification_status": {"enum": ["VERIFIED", "UNVERIFIED", "UNKNOWN"]},
         "effective_from": {"type": "string", "format": "date-time"},
         "effective_until": {"type": ["string", "null"], "format": "date-time"},
-        "applies_to": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        },
-        "explicit_non_effects": {
-          "type": "array",
-          "items": {"$ref": "#/$defs/non_effect"}
-        }
+        "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence_binding"}},
+        "applies_to": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scope_coordinate"}},
+        "explicit_non_effects": {"type": "array", "items": {"$ref": "#/$defs/non_effect"}}
       }
     },
     "subject": {
@@ -72,11 +73,7 @@
       "required": ["subject_identity", "dimensions"],
       "properties": {
         "subject_identity": {"$ref": "#/$defs/subject_identity"},
-        "dimensions": {
-          "type": "object",
-          "minProperties": 1,
-          "additionalProperties": {"$ref": "#/$defs/dimension"}
-        }
+        "dimensions": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/dimension"}}
       }
     }
   }
