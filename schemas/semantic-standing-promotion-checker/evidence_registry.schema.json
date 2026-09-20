@@ -1,16 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://recomputableevidence.com/schemas/semantic-standing-promotion-checker/evidence_registry.schema.json",
-  "title": "FORK Semantic Standing Promotion Checker - Evidence Registry",
+  "title": "FORK Semantic Standing Promotion Checker - Evidence Registry v0.1.1 Repair",
   "type": "object",
   "additionalProperties": false,
   "required": ["registry_id", "evidence"],
   "properties": {
     "registry_id": {"type": "string", "minLength": 1},
-    "evidence": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/evidence_record"}
-    }
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence_record"}}
   },
   "$defs": {
     "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
