@@ -1,12 +1,35 @@
 # FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001
 
-Status: `CANDIDATE_RESEARCH_OBJECT__NOT_EMPIRICALLY_QUALIFIED__NOT_GOVERNANCE_ADOPTED`
+Status: `CANDIDATE_REPAIR_SUCCESSOR__PRESSURE_FINDINGS_ADDRESSED_IN_CODE__INTERNAL_EXECUTION_PENDING`
+
+Version: `v0.1.1-repair`
+
+Predecessor head: `db8b02280ef88e002db6c8ffc3e9e139e4c5925b`
+
+Predecessor pressure disposition: `MATERIAL_REPAIR_REQUIRED_BEFORE_FROZEN_SPEC_OR_EMPIRICAL_QUALIFICATION`
 
 ## Purpose
 
-Explore a bounded, non-destructive checker for unsupported semantic-standing promotions in AI-generated text.
+Explore a bounded, non-destructive checker for unsupported semantic-standing promotions in AI-generated text while preserving the source text byte-for-byte and keeping detection separate from adjudication.
 
-The source text remains byte-preserved. Findings are emitted as sidecar evidence. The checker is not a policy oracle, semantic adjudicator, governance authority, or general claim about LLM behavior.
+The checker is not a policy oracle, semantic adjudicator, governance authority, production control, or general claim about LLM behavior.
+
+## v0.1.1 repair boundary
+
+The predecessor negative result remains preserved. This successor addresses only the frozen PR-001 through PR-011 pressure findings.
+
+Load-bearing repairs:
+
+- `STANDING_ENVELOPE_ENTRY != STANDING_PROOF`: envelope support now requires verified evidence bindings.
+- `REGISTRY_FIELD_ASSERTED != FIELD_VERIFIED`: authorization, occurrence, and effectivity separate asserted status from verified status and evidence.
+- `EVIDENCE_HASH_MATCH != EVIDENCE_ROLE_SUBJECT_STATUS_MATCH`: evidence identity now includes evidence ID, role, artifact, exact subject, PRESENT status, digest, and bytes.
+- `BASIS_REFERENCE_PRESENT != BASIS_VERIFIED`: transition bases require evidence-backed basis roles.
+- `SUPERSEDING_TRANSITION_DECLARED != SUPERSEDING_TRANSITION_VERIFIED`: temporal supersession requires the full verified transition gate.
+- Runtime strict-contract validation rejects undeclared/missing input fields before semantic evaluation.
+- Normalization is explicitly `DESCRIPTIVE_MAPPING_ONLY`; source assurance is limited to `SUPPLIED_ASSERTIONS_ONLY`.
+- Temporal anchors carry provenance class and verification state.
+- Scope is represented as typed coordinates over subject, dimension, surface, and claim.
+- Per-assertion semantic outcomes use typed dispositions; PASS/WITHHOLD/INDETERMINATE remain execution actions only.
 
 ## Candidate execution surface
 
@@ -20,38 +43,35 @@ python tools/check_semantic_standing_promotions.py \
   --json
 ```
 
-`--assertions` is intentionally separate from the mechanical verifier. v0.1 does not pretend that deterministic Python can infer standing semantics from arbitrary prose. A normalized assertion sidecar supplies the claim vector; the checker verifies that vector against evidence-backed state and transition records. If the sidecar is omitted, the checker returns `INDETERMINATE` rather than guessing.
+The checker does not infer semantic standing from arbitrary prose. The source-bound normalized assertion sidecar supplies the claim vector. Omission of that sidecar remains `INDETERMINATE`.
 
-## Governing boundaries
+## Candidate evidence gate
 
-- `PROMOTION_DETECTED != SOURCE_REWRITTEN`
-- `CHECKER_FINDING != FINAL_SEMANTIC_ADJUDICATION`
-- `AUTHORIZED_TO_TRANSITION != TRANSITION_OCCURRED != TRANSITION_IS_EFFECTIVE`
-- `REGISTRY_ENTRY != PROOF_OF_TRANSITION`
-- `SUPPORTED_WITHIN_DECLARED_TRANSITION != UNIVERSALLY_CORRECT`
-- `OBSERVED_LOCAL_BEHAVIOR != UNIVERSAL_SYSTEM_PROPERTY`
+A transition can support an assertion only when the checker verifies:
 
-## Mechanical transition gate
-
-A normalized assertion is supported by a declared transition only when the checker can bind:
-
-1. exact subject identity (`object_id`, `version`, SHA-256),
+1. exact subject identity,
 2. exact standing dimension,
-3. asserted state to `to_state`,
-4. authorization status,
-5. occurrence status,
-6. effectivity status,
-7. temporal alignment,
-8. evidence bytes to declared hashes,
-9. asserted scope to declared scope,
-10. absence of conflict with explicit non-effects,
-11. declared transition basis.
+3. state alignment,
+4. evidence-backed authorization,
+5. evidence-backed occurrence,
+6. evidence-backed effectivity,
+7. verified temporal alignment,
+8. transition evidence identity and bytes,
+9. typed scope coverage,
+10. no explicit non-effect collision,
+11. evidence-backed transition basis.
 
-The positive internal label is `SUPPORTED_WITHIN_DECLARED_TRANSITION`, not a generic semantic-validity verdict.
+Standing-envelope support is permitted only as an evidence-backed current-state index; the envelope cannot create standing merely by declaring a state.
 
-## Candidate outputs
+## Regression surface
 
-When `--output-dir` is supplied, the checker creates:
+The predecessor contained six tests. The repair successor expands the population to 22 tests, including the frozen oracle-reintroduction paths for unverified statuses, wrong-role/wrong-subject/superseded evidence, basis verification, supersession poisoning, temporal provenance, conflicting transitions, version/dimension leakage, source preservation, and strict input-contract rejection.
+
+`22 tests present != 22 tests passed` until an execution surface reports that result.
+
+## Preservation structure
+
+With `--output-dir`, the checker creates:
 
 ```text
 source/original_ai_output.<ext>
@@ -60,14 +80,13 @@ analysis/promotion_receipt.json
 disposition/reviewer_decision.json
 ```
 
-The reviewer-decision record remains `PENDING_AUTHORIZED_DISPOSITION`; the checker does not adjudicate its own findings.
+The reviewer record remains `PENDING_AUTHORIZED_DISPOSITION`.
 
-## Initial corpus target
+## Nonclaims
 
-The candidate manifest preserves six intended specimen classes: bounded candidate language, canonicality promotion, cross-object promotion, temporal-state error, legitimate authorized transition, and accurate negative control. The manifest is not itself an executed or qualified corpus.
-
-## Candidate success criterion
-
-Within a frozen test population, identify declared prohibited standing promotions without falsely rejecting explicitly authorized state transitions, while preserving each source specimen unchanged.
-
-Construction of this object establishes no repository admission, empirical qualification, governance adoption, production readiness, or generalized property of language models.
+- `REPAIR_IMPLEMENTED != REPAIR_QUALIFIED`
+- `REGRESSION_PASS != INDEPENDENT_PRESSURE_PASS`
+- `SUCCESSOR_BRANCH != REPOSITORY_ADMISSION`
+- `CHECKER_FINDING != FINAL_SEMANTIC_ADJUDICATION`
+- `SOURCE_BOUND_NORMALIZATION != COMPLETE_SOURCE_SEMANTIC_COVERAGE`
+- `PREDECESSOR_NEGATIVE_RESULT_REMAINS_PRESERVED`
