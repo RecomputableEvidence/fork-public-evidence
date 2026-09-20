@@ -1,0 +1,55 @@
+{
+  "record_id": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001-PRESSURE-EPOCH-3284e82-FREEZE-002-REPOSITORY-ADMISSION-001",
+  "date": "2026-09-20",
+  "object_id": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001",
+  "freeze_id": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001-PRESSURE-EPOCH-3284e82-FREEZE-002",
+  "classification": "CLOSED_HISTORICAL_EVIDENCE",
+  "admission_state": "CLOSED_HISTORICAL_EVIDENCE",
+  "admission_effective_on": "MERGE_TO_MAIN",
+  "admission_scope": "EXTERNAL_REPOSITORY_ADMISSION_RECORD; DOES_NOT_MUTATE_THE_FROZEN_PACKAGE_OR_RETROACTIVELY_CHANGE_FREEZE_TIME_AUTHORITY_FIELDS",
+  "canonical_artifact": {
+    "filename": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001-PRESSURE-EPOCH-3284e82-FREEZE-002-FROZEN.zip",
+    "size_bytes": 18448,
+    "sha256": "ef1828f5edc2332b8b4f02f38d4001aa63b7d80b5a1ccece62e83ec5a759a5e6",
+    "identity_status": "CONFIRMED"
+  },
+  "independent_verification": {
+    "receipt_filename": "FREEZE-002-INDEPENDENT-VERIFICATION-RECEIPT.md",
+    "receipt_sha256": "3e813bb1313d66578f302f8470fdec71d6d0c25b0800f5e6fb4c9f71cc98fd28",
+    "disposition": "PASS_WITH_RECORDED_QUALIFICATIONS",
+    "recorded_qualifications": [
+      "PREDECESSOR_ZIP_AMBIGUITY__THREE_FREEZE_001_VARIANTS_PRESENT; RESEAL_PREDECESSOR_HASH_RESOLVES_TO_EXACTLY_ONE",
+      "WORKSPACE_ZIP_DIVERGENCE__SUPERSEDED_WORKSPACE_DRAFT_CONTAINS_OVERREACHING_HISTORICAL_NON_ALTERATION_WORDING_OUTSIDE_THE_SEALED_PERIMETER; SEALED_ZIP_CORRECTS_IT"
+    ]
+  },
+  "empirical_result": {
+    "preserved": "44_OF_44_PASS",
+    "treatment": "PRESERVED_REPORTED_RESULT",
+    "independent_verifier_reexecuted_test_suite": false
+  },
+  "p30_correction": "PRESERVED",
+  "semantic_standing_effect": "NONE",
+  "open_boundary_preserved": "TEXT_OCCURRENCE_FOUND != OCCURRENCE_IDENTITY_BOUND",
+  "closure": {
+    "further_modification_under_this_object_identity": "PROHIBITED",
+    "further_reseal_under_this_object_identity": "PROHIBITED",
+    "further_pressure_under_this_object_identity": "PROHIBITED",
+    "successor_work_requirement": "NEW_SEPARATELY_NAMED_RESEARCH_OBJECT"
+  },
+  "payload_population": [
+    "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001-PRESSURE-EPOCH-3284e82-FREEZE-002-FROZEN.zip",
+    "FREEZE-002-INDEPENDENT-VERIFICATION-RECEIPT.md",
+    "CANONICAL_OUTER_SHA256.txt"
+  ],
+  "superseded_workspace_drafts_admitted": false,
+  "historical_internal_authority_boundary": "04_PRESSURE_EPOCH_RECEIPT.json records repository_admission_authority NONE at freeze time. This later repository admission is external to the frozen population and does not alter that historical field.",
+  "non_inheritance": [
+    "REPOSITORY_ADMISSION != EMPIRICAL_GENERALIZATION",
+    "REPOSITORY_ADMISSION != UNIVERSAL_DEFECT_ABSENCE",
+    "44_OF_44_PASS != CHECKER_CANONICALITY_OR_GLOBAL_CORRECTNESS",
+    "CLOSED_HISTORICAL_EVIDENCE != RUNTIME_AUTHORITY",
+    "CLOSED_HISTORICAL_EVIDENCE != GOVERNANCE_AUTHORITY",
+    "CLOSED_HISTORICAL_EVIDENCE != QUALIFICATION_BEYOND_THE_RECORDED_VERIFICATION_SURFACE",
+    "TEXT_OCCURRENCE_FOUND != OCCURRENCE_IDENTITY_BOUND"
+  ]
+}
