@@ -1,1 +1,0 @@
-This branch contains candidate implementation only. Construction does not establish empirical success, canonicality, admission, governance adoption, or generalization.
