@@ -5,5 +5,7 @@
 - `AUTHORIZED_TO_TRANSITION != TRANSITION_OCCURRED != TRANSITION_IS_EFFECTIVE`
 - `REGISTRY_ENTRY != PROOF_OF_TRANSITION`
 - `SUPPORTED_WITHIN_DECLARED_TRANSITION != UNIVERSALLY_CORRECT`
+- `CRLF_LF_EQUIVALENT_FOR_CONTAINMENT != SOURCE_BYTES_NORMALIZED`
+- `TEXT_OCCURRENCE_FOUND != OCCURRENCE_IDENTITY_BOUND`
 
-This object is a candidate research surface. It is not empirically qualified, canonical, governance-adopted, production-ready, or a general claim about LLM behavior.
+This object is a candidate repair research surface. It is not empirically qualified, canonical, governance-adopted, production-ready, or a general claim about LLM behavior.
