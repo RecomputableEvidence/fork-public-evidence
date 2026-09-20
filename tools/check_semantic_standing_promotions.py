@@ -1030,10 +1030,10 @@ def main(argv: list[str] | None = None) -> int:
             if assertion_doc["source_sha256"].lower() != source_sha:
                 raise CheckerError("normalized assertion sidecar does not bind to source SHA-256")
 
-            source_text = source_bytes.decode("utf-8")
+            source_text = source_bytes.decode("utf-8").replace("\r\n", "\n")
             findings: list[dict[str, Any]] = []
             for assertion in assertion_doc["assertions"]:
-                exact_text = assertion["exact_text"]
+                exact_text = assertion["exact_text"].replace("\r\n", "\n")
                 if exact_text not in source_text:
                     findings.append(
                         finding(
