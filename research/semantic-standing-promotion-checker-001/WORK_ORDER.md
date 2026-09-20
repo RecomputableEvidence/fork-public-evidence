@@ -5,3 +5,5 @@
 3. Keep semantic assertion extraction separable from mechanical transition verification.
 4. Freeze six initial specimens only after exact source bytes and expected dispositions are recorded.
 5. Execute locally and preserve negative results; no admission or standing promotion is authorized by construction alone.
+6. Preserve CRLF/LF containment equivalence as an explicit comparison rule while retaining byte-exact source SHA-256 binding; lone CR remains outside that normalization rule.
+7. Keep duplicate-occurrence binding ambiguity open unless separately scoped and tested.
