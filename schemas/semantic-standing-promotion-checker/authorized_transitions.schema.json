@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://recomputableevidence.com/schemas/semantic-standing-promotion-checker/authorized_transitions.schema.json",
-  "title": "FORK Semantic Standing Promotion Checker - Authorized Transition Registry",
+  "title": "FORK Semantic Standing Promotion Checker - Authorized Transition Registry v0.1.1 Repair",
   "type": "object",
   "required": ["registry_id", "transitions"],
   "additionalProperties": false,
@@ -13,10 +13,7 @@
     }
   },
   "$defs": {
-    "sha256": {
-      "type": "string",
-      "pattern": "^[0-9a-fA-F]{64}$"
-    },
+    "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
     "subject_identity": {
       "type": "object",
       "additionalProperties": false,
@@ -27,71 +24,86 @@
         "sha256": {"$ref": "#/$defs/sha256"}
       }
     },
-    "transition_basis": {
-      "type": "object",
-      "required": ["type"],
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "enum": [
-            "MECHANICALLY_DERIVED",
-            "AUTHORIZED_CONSTITUTIVE_ACT",
-            "ADJUDICATED",
-            "EXTERNALLY_OBSERVED",
-            "CONTRACTUALLY_MATURED"
-          ]
-        },
-        "authority_ref": {"type": "string", "minLength": 1},
-        "rule_id": {"type": "string", "minLength": 1},
-        "premise_set_ref": {"type": "string", "minLength": 1}
-      },
-      "allOf": [
-        {
-          "if": {"properties": {"type": {"const": "MECHANICALLY_DERIVED"}}},
-          "then": {"required": ["authority_ref", "rule_id", "premise_set_ref"]}
-        },
-        {
-          "if": {"properties": {"type": {"enum": ["AUTHORIZED_CONSTITUTIVE_ACT", "ADJUDICATED"]}}},
-          "then": {"required": ["authority_ref"]}
-        }
-      ]
-    },
-    "authorization": {
+    "scope_coordinate": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "authorized_at"],
+      "required": ["subject_object_id", "dimension", "surface", "claim"],
       "properties": {
-        "status": {"enum": ["AUTHORIZED", "NOT_AUTHORIZED", "UNKNOWN"]},
-        "authorized_at": {"type": "string", "format": "date-time"}
-      }
-    },
-    "occurrence": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["status"],
-      "properties": {
-        "status": {"enum": ["OCCURRED", "NOT_OCCURRED", "UNKNOWN"]},
-        "occurred_at": {"type": ["string", "null"], "format": "date-time"}
-      }
-    },
-    "effectivity": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["status", "effective_from", "effective_until"],
-      "properties": {
-        "status": {"enum": ["EFFECTIVE", "NOT_EFFECTIVE", "TERMINATED", "UNKNOWN"]},
-        "effective_from": {"type": "string", "format": "date-time"},
-        "effective_until": {"type": ["string", "null"], "format": "date-time"}
+        "subject_object_id": {"type": "string", "minLength": 1},
+        "dimension": {"type": "string", "minLength": 1},
+        "surface": {"type": "string", "minLength": 1},
+        "claim": {"type": "string", "minLength": 1}
       }
     },
     "evidence_binding": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["role", "artifact", "sha256"],
+      "required": ["evidence_id", "role", "artifact", "sha256", "subject_identity"],
       "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
         "role": {"type": "string", "minLength": 1},
         "artifact": {"type": "string", "minLength": 1},
-        "sha256": {"$ref": "#/$defs/sha256"}
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "subject_identity": {"$ref": "#/$defs/subject_identity"}
+      }
+    },
+    "verified_fact_authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asserted_status", "verification_status", "authorized_at", "evidence_bindings"],
+      "properties": {
+        "asserted_status": {"enum": ["AUTHORIZED", "NOT_AUTHORIZED", "UNKNOWN"]},
+        "verification_status": {"enum": ["VERIFIED", "UNVERIFIED", "UNKNOWN"]},
+        "authorized_at": {"type": ["string", "null"], "format": "date-time"},
+        "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence_binding"}}
+      }
+    },
+    "verified_fact_occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asserted_status", "verification_status", "occurred_at", "evidence_bindings"],
+      "properties": {
+        "asserted_status": {"enum": ["OCCURRED", "NOT_OCCURRED", "UNKNOWN"]},
+        "verification_status": {"enum": ["VERIFIED", "UNVERIFIED", "UNKNOWN"]},
+        "occurred_at": {"type": ["string", "null"], "format": "date-time"},
+        "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence_binding"}}
+      }
+    },
+    "verified_fact_effectivity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asserted_status", "verification_status", "effective_from", "effective_until", "evidence_bindings"],
+      "properties": {
+        "asserted_status": {"enum": ["EFFECTIVE", "NOT_EFFECTIVE", "TERMINATED", "UNKNOWN"]},
+        "verification_status": {"enum": ["VERIFIED", "UNVERIFIED", "UNKNOWN"]},
+        "effective_from": {"type": ["string", "null"], "format": "date-time"},
+        "effective_until": {"type": ["string", "null"], "format": "date-time"},
+        "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence_binding"}}
+      }
+    },
+    "transition_basis": {
+      "type": "object",
+      "required": ["type", "evidence_bindings"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {"enum": ["MECHANICALLY_DERIVED", "AUTHORIZED_CONSTITUTIVE_ACT", "ADJUDICATED", "EXTERNALLY_OBSERVED", "CONTRACTUALLY_MATURED"]},
+        "authority_ref": {"type": "string", "minLength": 1},
+        "rule_id": {"type": "string", "minLength": 1},
+        "premise_set_ref": {"type": "string", "minLength": 1},
+        "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence_binding"}}
+      },
+      "allOf": [
+        {"if": {"properties": {"type": {"const": "MECHANICALLY_DERIVED"}}}, "then": {"required": ["authority_ref", "rule_id", "premise_set_ref"]}},
+        {"if": {"properties": {"type": {"enum": ["AUTHORIZED_CONSTITUTIVE_ACT", "ADJUDICATED"]}}}, "then": {"required": ["authority_ref"]}}
+      ]
+    },
+    "non_effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["coordinate", "promotion_class"],
+      "properties": {
+        "coordinate": {"$ref": "#/$defs/scope_coordinate"},
+        "promotion_class": {"enum": ["ESTABLISHMENT_PROMOTION", "CANONICALITY_PROMOTION", "VALIDATION_PROMOTION", "GENERALIZATION_PROMOTION", "AUTHORITY_PROMOTION", "CROSS_OBJECT_PROMOTION", "TEMPORAL_PROMOTION", "MATURITY_PROMOTION", "CONSEQUENCE_PROMOTION"]}
       }
     },
     "scope": {
@@ -99,35 +111,14 @@
       "additionalProperties": false,
       "required": ["applies_to", "explicit_non_effects"],
       "properties": {
-        "applies_to": {
-          "type": "array",
-          "minItems": 1,
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        },
-        "explicit_non_effects": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {"type": "string", "minLength": 1}
-        }
+        "applies_to": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scope_coordinate"}},
+        "explicit_non_effects": {"type": "array", "items": {"$ref": "#/$defs/non_effect"}}
       }
     },
     "transition": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "transition_id",
-        "subject_identity",
-        "transition_dimension",
-        "transition_basis",
-        "from_state",
-        "to_state",
-        "authorization",
-        "occurrence",
-        "effectivity",
-        "evidence_bindings",
-        "scope"
-      ],
+      "required": ["transition_id", "subject_identity", "transition_dimension", "transition_basis", "from_state", "to_state", "authorization", "occurrence", "effectivity", "evidence_bindings", "scope"],
       "properties": {
         "transition_id": {"type": "string", "minLength": 1},
         "subject_identity": {"$ref": "#/$defs/subject_identity"},
@@ -135,14 +126,10 @@
         "transition_basis": {"$ref": "#/$defs/transition_basis"},
         "from_state": {"type": "string", "minLength": 1},
         "to_state": {"type": "string", "minLength": 1},
-        "authorization": {"$ref": "#/$defs/authorization"},
-        "occurrence": {"$ref": "#/$defs/occurrence"},
-        "effectivity": {"$ref": "#/$defs/effectivity"},
-        "evidence_bindings": {
-          "type": "array",
-          "minItems": 1,
-          "items": {"$ref": "#/$defs/evidence_binding"}
-        },
+        "authorization": {"$ref": "#/$defs/verified_fact_authorization"},
+        "occurrence": {"$ref": "#/$defs/verified_fact_occurrence"},
+        "effectivity": {"$ref": "#/$defs/verified_fact_effectivity"},
+        "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence_binding"}},
         "scope": {"$ref": "#/$defs/scope"}
       }
     }
