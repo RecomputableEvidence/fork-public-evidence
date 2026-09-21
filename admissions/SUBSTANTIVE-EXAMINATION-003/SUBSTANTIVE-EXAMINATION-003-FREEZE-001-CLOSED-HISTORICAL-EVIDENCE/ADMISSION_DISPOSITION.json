@@ -1,0 +1,69 @@
+{
+    "record_id":  "SUBSTANTIVE-EXAMINATION-003-FREEZE-001-REPOSITORY-ADMISSION-001",
+    "date":  "2026-09-20",
+    "object_id":  "SUBSTANTIVE-EXAMINATION-003",
+    "freeze_id":  "SUBSTANTIVE-EXAMINATION-003-FREEZE-001",
+    "classification":  "CLOSED_HISTORICAL_EVIDENCE",
+    "admission_state":  "CLOSED_HISTORICAL_EVIDENCE",
+    "admission_effective_on":  "MERGE_TO_MAIN",
+    "admission_scope":  "EXTERNAL_REPOSITORY_ADMISSION_RECORD; DOES_NOT_MUTATE_THE_FROZEN_PACKAGE; DOES_NOT_CHANGE_FREEZE_TIME_STANDING; DOES_NOT_CREATE_NEW_EXPERIMENTAL_EVIDENCE",
+    "canonical_artifact":  {
+                               "filename":  "SUBSTANTIVE-EXAMINATION-003-FREEZE-001.zip",
+                               "size_bytes":  25772,
+                               "sha256":  "8b23b6b94b164978f124b6be56178b62533b0f6298f844bc2116fb80b337691e",
+                               "identity_status":  "CONFIRMED",
+                               "treatment":  "BYTE_FOR_BYTE_PRESERVATION"
+                           },
+    "freeze_terminal_receipt":  {
+                                    "filename":  "SUBSTANTIVE-EXAMINATION-003-FREEZE-001-TERMINAL-RECEIPT.txt",
+                                    "size_bytes":  1038,
+                                    "sha256":  "96537ebd14d7c6a9d9cc8cddcb11fd27b2b2ffc84aa1ce942d00f0777fab8b95",
+                                    "disposition":  "PRESERVED"
+                                },
+    "receipt_repair":  {
+                           "original_mutation_case_count":  18,
+                           "repaired_mutation_case_count":  19,
+                           "treatment":  "DOCUMENTARY_ARITHMETIC_REPAIR",
+                           "new_experiments":  0,
+                           "new_mutation_cases":  0,
+                           "new_verifier_executions":  0
+                       },
+    "evidence_absence":  {
+                             "raw_execution_log":  "NOT_PRESERVED_AS_SEPARATE_DISCOVERED_FILE",
+                             "treatment":  "BOUNDED_ABSENCE_PRESERVED; NARRATIVE_REPORT_NOT_SUBSTITUTED_AS_RAW_LOG"
+                         },
+    "harness_provenance":  {
+                               "executed_harness_preserved_as":  "CONVERSATION_PRESERVED_COPY",
+                               "original_local_path_at_freeze":  "18_BYTE_PLACEHOLDER",
+                               "semantic_effect":  "NONE"
+                           },
+    "empirical_treatment":  "PRESERVED_HISTORICAL_SE003_EVIDENCE; NO_FRESH_EXECUTION_PERFORMED_FOR_ADMISSION",
+    "semantic_standing_effect":  "NONE",
+    "pressure_test_executed_for_admission":  false,
+    "verifier_executed_for_admission":  false,
+    "experiment_executed_for_admission":  false,
+    "closure":  {
+                    "further_modification_under_this_object_identity":  "PROHIBITED",
+                    "further_reseal_under_this_object_identity":  "PROHIBITED",
+                    "further_pressure_under_this_object_identity":  "PROHIBITED",
+                    "further_examination_under_this_object_identity":  "PROHIBITED",
+                    "successor_work_requirement":  "NEW_SEPARATELY_NAMED_SUCCESSOR_OBJECT"
+                },
+    "payload_population":  [
+                               "SUBSTANTIVE-EXAMINATION-003-FREEZE-001.zip",
+                               "SUBSTANTIVE-EXAMINATION-003-FREEZE-001-TERMINAL-RECEIPT.txt",
+                               "CANONICAL_OUTER_SHA256.txt"
+                           ],
+    "non_inheritance":  [
+                            "REPOSITORY_ADMISSION != NEW_EXPERIMENT",
+                            "REPOSITORY_ADMISSION != FRESH_REPRODUCTION",
+                            "REPOSITORY_ADMISSION != EMPIRICAL_GENERALIZATION",
+                            "REPOSITORY_ADMISSION != PRODUCTION_READINESS",
+                            "REPOSITORY_ADMISSION != RUNTIME_AUTHORITY",
+                            "REPOSITORY_ADMISSION != GOVERNANCE_AUTHORITY",
+                            "CLOSED_HISTORICAL_EVIDENCE != CURRENT_EXECUTION_AUTHORITY",
+                            "PRESERVED_REPORTED_FINDINGS != UNIVERSAL_DEFECT_ABSENCE",
+                            "RAW_EXECUTION_LOG_NOT_DISCOVERED != PROOF_NO_RAW_LOG_EXISTS_ANYWHERE",
+                            "CONVERSATION_PRESERVED_HARNESS != ORIGINAL_FILESYSTEM_INSTANCE"
+                        ]
+}
