@@ -1,0 +1,131 @@
+{
+  "record_id": "CSH-CANONICAL-STATE-RECONCILIATION-20260921-001",
+  "created_at_utc": "2026-09-21T15:26:12.796090+00:00",
+  "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0",
+  "artifact_status": "LOCAL_RECONCILIATION_CANDIDATE_NOT_PUBLISHED",
+  "prior_mutable_source_bindings": [
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/PAIR-001_EXECUTION_STATE_v0_1_1.json",
+      "sha256": "67204ba29b1e224ed187fa591c2115f0403087db9b435c99005edf702703020e",
+      "size_bytes": 9184,
+      "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/AMENDMENT_REGISTER_v0_1.json",
+      "sha256": "834e15d2877cc7938d639485bcc0f94c405752c84a9cfc5d21e7cf1cd712a6ab",
+      "size_bytes": 2505,
+      "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/README.md",
+      "sha256": "5416217fe8c0878bb05e1adb934b0cabffa27b6d3c66500a1e39b8ffc18c746d",
+      "size_bytes": 2050,
+      "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0"
+    },
+    {
+      "path": "CURRENT_STANDING.md",
+      "sha256": "b1bae3dad3516a343e046e61fbaba6fc96c7279fb4d9de1697fadfd203f40fb9",
+      "size_bytes": 2052,
+      "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0"
+    },
+    {
+      "path": "docs/current-standing/README.md",
+      "sha256": "bf7a8240cc3cff0ac81643299b7e0b2d4c14a5a607c2e3a06b61d23bbdf17abf",
+      "size_bytes": 4688,
+      "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0"
+    }
+  ],
+  "original_instrumentation_commit": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71",
+  "workflow_lineage_commit": "adb7300f96cfc65d2764ca3a3ce45f344ab56404",
+  "patch_ci": [
+    {
+      "databaseId": 29223745814,
+      "status": "completed",
+      "conclusion": "success",
+      "workflowName": "Cross-System Claim Handoff v0.1",
+      "name": "Cross-System Claim Handoff v0.1",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29223745814",
+      "headSha": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71"
+    },
+    {
+      "databaseId": 29223745828,
+      "status": "completed",
+      "conclusion": "success",
+      "workflowName": "Fork Proof-Surface Integration",
+      "name": "Fork Proof-Surface Integration",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29223745828",
+      "headSha": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71"
+    }
+  ],
+  "workflow_lineage_ci": [
+    {
+      "databaseId": 29463399737,
+      "status": "completed",
+      "conclusion": "success",
+      "workflowName": "Cross-System Claim Handoff v0.1",
+      "name": "Cross-System Claim Handoff v0.1",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29463399737",
+      "headSha": "adb7300f96cfc65d2764ca3a3ce45f344ab56404"
+    },
+    {
+      "databaseId": 29463399732,
+      "status": "completed",
+      "conclusion": "success",
+      "workflowName": "Fork Proof-Surface Integration",
+      "name": "Fork Proof-Surface Integration",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29463399732",
+      "headSha": "adb7300f96cfc65d2764ca3a3ce45f344ab56404"
+    }
+  ],
+  "ci_sources": [
+    {
+      "source_url": "https://api.github.com/repos/RecomputableEvidence/fork-public-evidence/actions/runs?head_sha=54b04dc8d685c79abeceb9d79ddbcf6493ee1a71&per_page=100",
+      "captured_at_utc": "2026-09-21T15:26:12.796090+00:00",
+      "raw_response": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/github-actions-54b04dc8d685c79abeceb9d79ddbcf6493ee1a71.json",
+        "sha256": "612c0b1133b264eabef75a15a53235a682fa0cc86f66aad0529deeafdcfd9245",
+        "size_bytes": 59283
+      }
+    },
+    {
+      "source_url": "https://api.github.com/repos/RecomputableEvidence/fork-public-evidence/actions/runs?head_sha=adb7300f96cfc65d2764ca3a3ce45f344ab56404&per_page=100",
+      "captured_at_utc": "2026-09-21T15:26:12.796090+00:00",
+      "raw_response": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/github-actions-adb7300f96cfc65d2764ca3a3ce45f344ab56404.json",
+        "sha256": "fac9bb9dee83da84e10ac08aa5d2ed4913403413e6702fad1e5d3187dfb855dd",
+        "size_bytes": 74464
+      }
+    },
+    {
+      "source_url": "https://api.github.com/repos/RecomputableEvidence/fork-public-evidence/actions/runs?head_sha=38a19bfedd37c630833893b372584fa56111bbb0&per_page=100",
+      "captured_at_utc": "2026-09-21T15:26:12.796090+00:00",
+      "raw_response": {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/github-actions-38a19bfedd37c630833893b372584fa56111bbb0.json",
+        "sha256": "556636fc93c8f7ed7c0da8957df2db9c464d14bf10c27c05b0827fc8181df7a6",
+        "size_bytes": 60306
+      }
+    }
+  ],
+  "publication_findings": {
+    "patch_published": true,
+    "patch_required_ci_green": true,
+    "amend003_required_ci_green": true,
+    "anchor_absent_at_source_commit": true,
+    "anchor_prepared_locally": true,
+    "anchor_published": false
+  },
+  "orchestrator_source": {
+    "library_file_id": "libfile_ae03b59c4a088191a747dd3d1298f179",
+    "filename": "repair_csh_execution_instrumentation_v0_1_1_resume_safe.ps1",
+    "sha256": "7261094679f113c8888799068eae6cd9b20bee1294b0b3b7b098492a29b83c5e",
+    "functions_examined": [
+      "Resolve-AnchorCiForRepetition",
+      "Repeat-Pair001",
+      "Wait-RequiredCiGreen"
+    ],
+    "repository_admitted": false
+  },
+  "source_status_treatment": "Keep historical AMEND-003 LOCAL_CANDIDATE_PENDING_REMOTE_CI unchanged; current register records separately observed publication and required CI. The unrelated failing evidence workflow at the lineage commit remains in the raw API response; no all-CI-green claim.",
+  "gate_record": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json",
+  "semantic_change": false
+}

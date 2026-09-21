@@ -1,0 +1,42 @@
+{
+  "schema_version": "v0.1.1",
+  "anchor_id": "CSH_INSTRUMENTATION_RELEASE_ANCHOR_v0_1_1",
+  "experiment_id": "cross_system_claim_handoff_v0_1",
+  "amendment_id": "CSH-AMEND-002",
+  "created_at_utc": "2026-09-21T15:26:12.796090+00:00",
+  "repair_commit": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71",
+  "instrumentation_freeze": {
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/INSTRUMENTATION_FREEZE_v0_1_1.json",
+    "sha256": "998fda0201a00159a82a110fb3462aafc222887cfb65c4ebd2db8b7c597ab115"
+  },
+  "required_ci": [
+    {
+      "databaseId": 29223745814,
+      "status": "completed",
+      "conclusion": "success",
+      "workflowName": "Cross-System Claim Handoff v0.1",
+      "name": "Cross-System Claim Handoff v0.1",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29223745814",
+      "headSha": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71"
+    },
+    {
+      "databaseId": 29223745828,
+      "status": "completed",
+      "conclusion": "success",
+      "workflowName": "Fork Proof-Surface Integration",
+      "name": "Fork Proof-Surface Integration",
+      "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/29223745828",
+      "headSha": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71"
+    }
+  ],
+  "mutable_execution_state": {
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/PAIR-001_EXECUTION_STATE_v0_1_1.json",
+    "mutable": true,
+    "excluded_from_immutable_freeze": true
+  },
+  "non_claims": [
+    "Identifies the already-published repair and observed required CI; this newly prepared anchor is not yet published.",
+    "Anchor publication and its own required CI remain pending.",
+    "Does not establish the CSH hypothesis or semantic, institutional, operational, or governance authority."
+  ]
+}

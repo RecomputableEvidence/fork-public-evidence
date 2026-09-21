@@ -1,6 +1,6 @@
 # Cross-System Claim Handoff v0.1
 
-Status: preregistered scaffold; baseline not started  
+Status: frozen baseline incomplete; two original provider attempts preserved; required repetitions blocked before invocation
 Experiment class: comparative handoff experiment  
 Treatment: explicit Fork handoff-state artifact  
 Control: same source and workflow instruction without the explicit Fork handoff-state artifact
@@ -38,7 +38,10 @@ Where:
 - shared instruction, twelve prompt packets, six handoff artifacts, and fixed run order: configured and frozen;
 - corpus digest freeze: complete;
 - release anchor: signed tag published and GitHub-verified;
-- baseline execution: structurally admitted but not started;
+- baseline execution: original CSH-RUN-001 (HTTP 200) and CSH-RUN-002 (HTTP 429) preserved; neither is silently replaced;
+- current mutable execution state: [Pair-001](execution-state/PAIR-001_EXECUTION_STATE_v0_1_1.json);
+- current gate: [2026-09-21 preflight](execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json), blocked before new provider invocation;
+- historical “not started” fields inside the semantic freeze remain freeze-time statements;
 - optimization: prohibited until baseline completion and independent recomputation.
 
 ## Verification
