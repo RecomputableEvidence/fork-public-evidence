@@ -1,0 +1,75 @@
+{
+  "record_id": "CSH-RETIREMENT-EVIDENCE-20260921-001",
+  "record_type": "platform_retirement_evidence",
+  "created_at_utc": "2026-09-21T17:45:00Z",
+  "source_commit": "38f7a278211fca62b02fb3ee2cec26814e9ed9b6",
+
+  "external_source": {
+    "url": "https://github.blog/changelog/2026-07-30-github-models-is-now-retired/",
+    "retrieved_at_utc": "2026-09-21T17:45:00Z",
+    "retrieval_method": "human-cited; URL not fetched by automated tooling in this session",
+    "stated_retirement_date": "2026-07-30",
+    "summary": "GitHub officially announced that GitHub Models, including its inference API at models.github.ai, retired on 2026-07-30. The announcement states the service is 'now retired'.",
+    "title": "GitHub Models is now retired",
+    "important_limitation": "This record cites the URL as supplied by the experiment operator. The URL was not fetched live in this session; its content is represented as provided. The existence and content of the linked page are not independently verified by automated means within this record."
+  },
+
+  "observed_http_responses": [
+    {
+      "run_id": "CSH-RUN-001-RPT-20260921171515-R01",
+      "linked_original_run_id": "CSH-RUN-001",
+      "endpoint": "https://models.github.ai/inference/chat/completions",
+      "http_status": 410,
+      "started_at_utc": "2026-09-21T17:15:30.835331+00:00",
+      "completed_at_utc": "2026-09-21T17:15:31.460978+00:00",
+      "raw_response_path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01/raw-provider-response.json",
+      "raw_response_sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+      "raw_response_size_bytes": 152,
+      "raw_response_body_verbatim": "{\"error\":{\"code\":\"github_models_retirement_brownout\",\"message\":\"GitHub Models is temporarily unavailable as part of a scheduled retirement brownout.\"}}",
+      "error_code_as_received": "github_models_retirement_brownout",
+      "error_message_as_received": "GitHub Models is temporarily unavailable as part of a scheduled retirement brownout."
+    },
+    {
+      "run_id": "CSH-RUN-002-RPT-20260921171515-R01",
+      "linked_original_run_id": "CSH-RUN-002",
+      "endpoint": "https://models.github.ai/inference/chat/completions",
+      "http_status": 410,
+      "started_at_utc": "2026-09-21T17:15:40.979355+00:00",
+      "completed_at_utc": "2026-09-21T17:15:41.325663+00:00",
+      "raw_response_path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01/raw-provider-response.json",
+      "raw_response_sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+      "raw_response_size_bytes": 152,
+      "raw_response_body_verbatim": "{\"error\":{\"code\":\"github_models_retirement_brownout\",\"message\":\"GitHub Models is temporarily unavailable as part of a scheduled retirement brownout.\"}}",
+      "error_code_as_received": "github_models_retirement_brownout",
+      "error_message_as_received": "GitHub Models is temporarily unavailable as part of a scheduled retirement brownout."
+    }
+  ],
+
+  "wording_interpretation": {
+    "received_phrasing": "temporarily unavailable as part of a scheduled retirement brownout",
+    "conflict_with_external_source": "The error body uses the phrase 'temporarily unavailable', which could suggest future restoration. This conflicts with the externally documented status: GitHub's official retirement announcement (2026-07-30) states the service 'is now retired', not that it is temporarily suspended pending resumption.",
+    "authoritative_source_for_service_status": "The GitHub blog changelog entry, as supplied, is the authoritative external record. The error body's wording reflects a pre-retirement brownout period message; it does not establish that the service will be restored.",
+    "inference_from_wording_alone_impermissible": "The 'temporarily unavailable' phrasing in the error body must not be relied upon to conclude that the service will return to operation. The externally documented retirement supersedes that wording.",
+    "status_as_of_repetition_date": "The repetition attempts were made on 2026-09-21, approximately 53 days after the stated retirement date of 2026-07-30."
+  },
+
+  "implications_for_frozen_execution_configuration": {
+    "receiver_b_endpoint": "https://models.github.ai/inference/chat/completions",
+    "receiver_b_model": "deepseek/DeepSeek-V3-0324",
+    "receiver_a_endpoint": "https://models.github.ai/inference/chat/completions",
+    "receiver_a_model": "meta/Llama-4-Scout-17B-16E-Instruct",
+    "both_receivers_share_retired_platform": true,
+    "frozen_endpoint_status": "retired per external documentation; confirmed unresponsive (HTTP 410) at repetition time",
+    "scope_of_impact": "All 72 units in the 108-unit run order assigned to llm_receiver_a or llm_receiver_b are dependent on the retired GitHub Models endpoint. The 36 deterministic_receiver units are not affected by this endpoint retirement.",
+    "scope_limitation": "This record covers only the retirement of the GitHub Models serving platform. It does not make claims about the availability or equivalence of other inference endpoints. Model availability through alternative serving platforms is not established here."
+  },
+
+  "boundaries": [
+    "This record does not convert the retirement notice into a claim that every unexecuted unit was attempted.",
+    "HTTP 410 from two repetition requests does not substitute for execution of all 108 units.",
+    "Platform retirement documents a blocker for all GitHub-Models-dependent units; it does not constitute a terminal experimental result for any unit.",
+    "The 36 deterministic receiver units are not dependent on GitHub Models and their status is not affected by this record.",
+    "This record does not reopen any closed research object.",
+    "The existence of a retirement announcement does not establish whether DeepSeek-V3-0324 or Llama-4-Scout-17B-16E-Instruct are available through any alternative endpoint with equivalent configuration."
+  ]
+}

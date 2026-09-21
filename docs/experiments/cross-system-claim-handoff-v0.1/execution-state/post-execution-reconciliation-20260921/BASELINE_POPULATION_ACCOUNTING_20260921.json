@@ -1,0 +1,149 @@
+{
+  "record_id": "CSH-BASELINE-POPULATION-ACCOUNTING-20260921-001",
+  "record_type": "baseline_population_accounting",
+  "created_at_utc": "2026-09-21T17:45:00Z",
+  "source_commit": "38f7a278211fca62b02fb3ee2cec26814e9ed9b6",
+  "run_order_source": {
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json",
+    "order_id": "CSH_RUN_ORDER_v0_1",
+    "total_units": 108,
+    "pair_block_count": 54
+  },
+
+  "receiver_class_populations": [
+    {
+      "receiver_class_id": "llm_receiver_b",
+      "provider": "DeepSeek",
+      "model": "DeepSeek-V3-0324",
+      "serving_platform": "GitHub Models",
+      "endpoint": "https://models.github.ai/inference/chat/completions",
+      "config_source": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json",
+      "unit_count": 36,
+      "platform_retired": true,
+      "retirement_evidence": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/GITHUB_MODELS_RETIREMENT_EVIDENCE_v0_1.json"
+    },
+    {
+      "receiver_class_id": "llm_receiver_a",
+      "provider": "Meta",
+      "model": "Llama-4-Scout-17B-16E-Instruct",
+      "serving_platform": "GitHub Models",
+      "endpoint": "https://models.github.ai/inference/chat/completions",
+      "config_source": "docs/experiments/cross-system-claim-handoff-v0.1/receivers/RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json",
+      "unit_count": 36,
+      "platform_retired": true,
+      "retirement_evidence": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/GITHUB_MODELS_RETIREMENT_EVIDENCE_v0_1.json"
+    },
+    {
+      "receiver_class_id": "deterministic_receiver",
+      "provider": "local_deterministic",
+      "model": "csh_deterministic_boundary_preserver_v0_1",
+      "serving_platform": "local",
+      "endpoint": "tools/csh_receiver_deterministic_v0_1.py",
+      "config_source": "tools/csh_receiver_deterministic_v0_1.py",
+      "unit_count": 36,
+      "platform_retired": false,
+      "note": "Deterministic receiver does not use GitHub Models; not affected by platform retirement."
+    }
+  ],
+
+  "original_attempts": {
+    "count": 2,
+    "note": "Only the first two run-order units (ordinals 1-2) were attempted before execution was blocked. No subsequent units were executed.",
+    "records": [
+      {
+        "run_id": "CSH-RUN-001",
+        "ordinal": 1,
+        "receiver_class_id": "llm_receiver_b",
+        "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+        "condition": "control_h0",
+        "replicate_id": 2,
+        "http_status": 200,
+        "terminal_disposition": "completed_response_preserved",
+        "execution_state": "provider_response_preserved",
+        "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001",
+        "classifiable": "unresolved_pending_amend002_repetition",
+        "note": "Original response preserved. Classification is blocked pending valid AMEND-002 repetition establishing the repaired execution path."
+      },
+      {
+        "run_id": "CSH-RUN-002",
+        "ordinal": 2,
+        "receiver_class_id": "llm_receiver_b",
+        "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+        "condition": "instrumented_h1",
+        "replicate_id": 2,
+        "http_status": 429,
+        "terminal_disposition": "provider_error_response_preserved",
+        "execution_state": "rate_limited_response_preserved",
+        "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002",
+        "classifiable": "unresolved_pending_amend002_repetition",
+        "note": "Original rate-limit response preserved. Repetition required under AMEND-002."
+      }
+    ]
+  },
+
+  "repetition_attempts": {
+    "count": 2,
+    "all_linked_to_original_attempts": true,
+    "records": [
+      {
+        "run_id": "CSH-RUN-001-RPT-20260921171515-R01",
+        "linked_original_run_id": "CSH-RUN-001",
+        "http_status": 410,
+        "terminal_disposition": "provider_http_error_preserved",
+        "classifiable": false,
+        "run_id_exhausted": true,
+        "note": "HTTP 410 retirement brownout. No model output. Run ID may not be reused."
+      },
+      {
+        "run_id": "CSH-RUN-002-RPT-20260921171515-R01",
+        "linked_original_run_id": "CSH-RUN-002",
+        "http_status": 410,
+        "terminal_disposition": "provider_http_error_preserved",
+        "classifiable": false,
+        "run_id_exhausted": true,
+        "note": "HTTP 410 retirement brownout. No model output. Run ID may not be reused."
+      }
+    ]
+  },
+
+  "units_with_recorded_terminal_dispositions": {
+    "count": 4,
+    "list": [
+      "CSH-RUN-001 (original, completed_response_preserved, HTTP 200)",
+      "CSH-RUN-002 (original, provider_error_response_preserved, HTTP 429)",
+      "CSH-RUN-001-RPT-20260921171515-R01 (repetition, provider_http_error_preserved, HTTP 410)",
+      "CSH-RUN-002-RPT-20260921171515-R01 (repetition, provider_http_error_preserved, HTTP 410)"
+    ],
+    "note": "Terminal dispositions record the preservation state of each attempt, not a comparative experimental result."
+  },
+
+  "units_not_executed": {
+    "count": 106,
+    "scope": "Run-order ordinals 3 through 108 have no corresponding baseline execution records.",
+    "note": "No receipts, requests, responses, or metadata exist for ordinals 3-108. The baseline was blocked before any of these units were reached."
+  },
+
+  "units_dependent_on_retired_endpoint": {
+    "llm_receiver_b_count": 36,
+    "llm_receiver_a_count": 36,
+    "total_github_models_dependent": 72,
+    "deterministic_not_affected": 36,
+    "note": "72 of 108 units are assigned to receiver classes that exclusively use the retired GitHub Models endpoint. 36 units use the local deterministic receiver and are not affected by platform retirement."
+  },
+
+  "unresolved_adjudication_question": {
+    "question": "Does the protocol permit a terminal disposition for unattempted units (ordinals 3-108) based solely on platform retirement, without individual execution?",
+    "current_status": "UNRESOLVED",
+    "basis": "The frozen experimental protocol (RUN_ORDER_v0_1.json) and existing amendment records do not contain an explicit provision for declaring unattempted units as terminally blocked by platform retirement without individual execution attempt. A receiver-migration amendment (CSH-AMEND-004 proposal, see separate record) is required to address this question. Until that proposal is reviewed, authorized, and executed, the 106 unattempted units retain their 'not_executed' status and do not receive a terminal experimental disposition from this record.",
+    "affects_units": "ordinals 3 through 108",
+    "deterministic_units_unaffected": "Ordinals with receiver_class_id=deterministic_receiver are not subject to this question."
+  },
+
+  "non_claims": [
+    "This accounting does not declare any unattempted unit as having been attempted.",
+    "HTTP 410 on two units does not substitute for execution of all 108 units.",
+    "Repetitions are not additional design cells; they are linked to original units.",
+    "Platform retirement is not a terminal experimental result for any individual unit.",
+    "This record does not establish the CSH hypothesis, any scoring result, or any comparative observation."
+  ]
+}

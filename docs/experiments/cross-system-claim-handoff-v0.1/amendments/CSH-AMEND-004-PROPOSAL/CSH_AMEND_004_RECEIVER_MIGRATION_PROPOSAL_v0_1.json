@@ -1,0 +1,146 @@
+{
+  "record_id": "CSH-AMEND-004-PROPOSAL-20260921-001",
+  "record_type": "receiver_migration_proposal",
+  "proposal_status": "PREPARED_NOT_AUTHORIZED_NOT_ACTIVATED",
+  "created_at_utc": "2026-09-21T17:45:00Z",
+  "source_commit": "38f7a278211fca62b02fb3ee2cec26814e9ed9b6",
+
+  "motivation": {
+    "summary": "The GitHub Models serving platform, which hosts both frozen receiver classes (llm_receiver_a and llm_receiver_b), retired on 2026-07-30. HTTP 410 responses were received on both AMEND-002 repetition attempts (2026-09-21). The frozen execution configuration is no longer executable against the original endpoint. This proposal describes a minimal receiver migration to enable continuation of the CSH v0.1 baseline.",
+    "retirement_evidence": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/GITHUB_MODELS_RETIREMENT_EVIDENCE_v0_1.json",
+    "blocker_record": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json"
+  },
+
+  "frozen_experimental_elements_preserved": {
+    "hypothesis": "E[U | H=1] < E[U | H=0] — instrumentation reduces unsupported inheritance relative to control",
+    "corpus": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/ (frozen under CORPUS_FREEZE_v0_1.json)",
+    "scenarios": "Six preregistered scenario descriptors unchanged",
+    "conditions": "control_h0 and instrumented_h1 unchanged",
+    "prompts_and_handoff_artifacts": "System instructions, prompt packets, handoff artifacts unchanged",
+    "run_order": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json unchanged (108 units, 54 pair blocks, fixed salt)",
+    "classification_rules": "Unchanged per frozen semantic specification",
+    "scoring_rules": "Unchanged per EXPERIMENT_MANIFEST_v0_1.json",
+    "stopping_rules": "Unchanged",
+    "original_attempts": "CSH-RUN-001 and CSH-RUN-002 preserved immutably; not replaced",
+    "note": "No element of experimental design, corpus, conditions, or analysis is changed by this proposal."
+  },
+
+  "proposed_receiver_changes": {
+    "scope": "Receiver configuration only. Both llm_receiver_a and llm_receiver_b must be migrated because they share the retired platform.",
+    "change_class": "serving_platform_migration — provider model names may be identical; serving infrastructure differs",
+    "receivers": [
+      {
+        "receiver_class_id": "llm_receiver_b",
+        "frozen_config": {
+          "provider": "DeepSeek",
+          "serving_platform": "GitHub Models",
+          "endpoint": "https://models.github.ai/inference/chat/completions",
+          "requested_model_id": "deepseek/DeepSeek-V3-0324",
+          "expected_returned_model": "DeepSeek-V3-0324",
+          "authentication_env": "GITHUB_TOKEN"
+        },
+        "proposed_change": {
+          "serving_platform": "TO BE DETERMINED BY REVIEWER — e.g., direct DeepSeek API, Azure AI, or another authorized inference endpoint serving DeepSeek-V3-0324",
+          "endpoint": "TO BE SPECIFIED",
+          "requested_model_id": "TO BE SPECIFIED — must target DeepSeek-V3-0324 or documented equivalent",
+          "expected_returned_model": "TO BE SPECIFIED",
+          "authentication_env": "TO BE SPECIFIED — must be a secret not printed or committed",
+          "parameters": "UNCHANGED — temperature=0, top_p=1, max_tokens=2048, presence_penalty=0, frequency_penalty=0, stream=false",
+          "capabilities": "UNCHANGED — tools omitted, retrieval disabled, memory disabled, conversation_history none"
+        }
+      },
+      {
+        "receiver_class_id": "llm_receiver_a",
+        "frozen_config": {
+          "provider": "Meta",
+          "serving_platform": "GitHub Models",
+          "endpoint": "https://models.github.ai/inference/chat/completions",
+          "requested_model_id": "meta/Llama-4-Scout-17B-16E-Instruct",
+          "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
+          "authentication_env": "GITHUB_TOKEN"
+        },
+        "proposed_change": {
+          "serving_platform": "TO BE DETERMINED BY REVIEWER — e.g., Fireworks AI, Together AI, Groq, or another authorized inference endpoint serving Llama-4-Scout-17B-16E-Instruct",
+          "endpoint": "TO BE SPECIFIED",
+          "requested_model_id": "TO BE SPECIFIED — must target Llama-4-Scout-17B-16E-Instruct or documented equivalent",
+          "expected_returned_model": "TO BE SPECIFIED",
+          "authentication_env": "TO BE SPECIFIED",
+          "parameters": "UNCHANGED — temperature=0, top_p=1, max_tokens=2048, presence_penalty=0, frequency_penalty=0, stream=false",
+          "capabilities": "UNCHANGED — tools omitted, retrieval disabled, memory disabled, conversation_history none"
+        }
+      }
+    ],
+    "deterministic_receiver": {
+      "receiver_class_id": "deterministic_receiver",
+      "change": "NONE — not affected by GitHub Models retirement"
+    }
+  },
+
+  "comparability_limits": {
+    "matching_model_names_insufficient": "Matching displayed model names (e.g., 'DeepSeek-V3-0324') across different serving platforms does not establish receiver equivalence. Backend deployment, quantization, serving software, batching policy, and other infrastructure factors may vary.",
+    "bit_identical_output_not_guaranteed": "The frozen receiver configurations already state 'bit-identical hosted-model output is not guaranteed'. A serving platform migration increases this uncertainty.",
+    "original_platform_vs_new_platform": "Responses obtained on the new platform are not directly comparable to responses that would have been obtained on GitHub Models. This is a limitation intrinsic to the platform migration.",
+    "alternative_path_not_equivalent_not_proven": "The migration produces a working alternative, not a demonstration that original results would have been identical on the new platform.",
+    "hypothesis_test_validity": "The comparability limits are limitations on the probative strength of any results obtained under the migrated configuration, not a reason to abandon the experiment. The protocol's non-inheritance rules apply: a later result does not retroactively validate or invalidate the original attempts."
+  },
+
+  "required_gates_before_activation": [
+    {
+      "gate_id": "REVIEWER_AUTHORIZATION",
+      "description": "This proposal must be reviewed and explicitly authorized by the experiment operator before any action is taken. Authorization must be recorded.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "ENDPOINT_SELECTION",
+      "description": "Specific alternative endpoints, model identifiers, and serving platforms must be identified and documented in the receiver configuration files before a freeze can be performed.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "AVAILABILITY_CHECK",
+      "description": "A bounded availability check (smoke test) must be performed for each proposed endpoint before it is frozen. The smoke test must use a non-experimental request; its result is not a baseline observation.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "NEW_RECEIVER_FREEZE",
+      "description": "New receiver configuration files must be prepared and frozen, replacing the GitHub Models configurations. The freeze must be committed and verified.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "ADAPTER_VERIFICATION",
+      "description": "The execution adapter must be updated or verified to work with the new endpoint. Its source hash must be recorded before execution.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "CREDENTIAL_PROVISION",
+      "description": "Valid credentials for the new endpoint must be available through the approved secret mechanism; not printed or committed.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "FRESH_REPETITION_EXECUTION",
+      "description": "New AMEND-002 repetitions must be executed under fresh run IDs, using the new receiver configuration, with the same exact original request bytes.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "EXECUTION_GATE_EVALUATION",
+      "description": "After execution, the gate must be re-evaluated per the existing protocol. HTTP 200 alone does not establish a valid comparative result; structural checks and repaired execution path verification are required.",
+      "status": "PENDING"
+    }
+  ],
+
+  "what_this_proposal_does_not_authorize": [
+    "No provider calls are made by this proposal document.",
+    "No model output is fabricated or assumed.",
+    "No baseline unit is declared as executed or classified.",
+    "No result is asserted for or against the CSH hypothesis.",
+    "No closed research object is reopened.",
+    "The 106 unattempted units (ordinals 3-108) do not receive a disposition from this proposal.",
+    "This proposal does not select specific alternative endpoints; that selection requires reviewer authorization."
+  ],
+
+  "non_claims": [
+    "This proposal is not an amendment to the frozen experiment. It becomes an amendment only upon reviewer authorization and recording.",
+    "Matching model names across platforms do not establish receiver equivalence.",
+    "A functioning alternative endpoint does not retroactively validate responses that would have been received on the original platform.",
+    "This proposal does not establish the CSH hypothesis, scoring results, compliance, legal sufficiency, safety, authorization, certification, or institutional authority."
+  ]
+}

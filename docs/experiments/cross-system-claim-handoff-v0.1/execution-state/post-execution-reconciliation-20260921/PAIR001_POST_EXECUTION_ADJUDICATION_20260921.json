@@ -1,0 +1,134 @@
+{
+  "record_id": "CSH-PAIR001-POST-EXECUTION-ADJUDICATION-20260921-001",
+  "record_type": "post_execution_adjudication_receipt",
+  "created_at_utc": "2026-09-21T17:45:00Z",
+  "source_commit": "38f7a278211fca62b02fb3ee2cec26814e9ed9b6",
+
+  "adjudication_basis": {
+    "preflight_receipt": {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json",
+      "record_id": "CSH-PAIR001-PREFLIGHT-20260921-001",
+      "preserved_unchanged": true,
+      "note": "This adjudication receipt is an additive correction; the original preflight receipt is not overwritten."
+    },
+    "repeat_runs_examined": [
+      {
+        "run_id": "CSH-RUN-001-RPT-20260921171515-R01",
+        "linked_original_run_id": "CSH-RUN-001",
+        "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01",
+        "request_sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+        "request_bytes_identical_to_original": true,
+        "response_sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+        "http_status": 410,
+        "execution_metadata_sha256": "d8ae0ac091ff4852d1c36fc25caf931701fc7abc4b8826be136d002415863a71",
+        "started_at_utc": "2026-09-21T17:15:30.835331+00:00",
+        "completed_at_utc": "2026-09-21T17:15:31.460978+00:00"
+      },
+      {
+        "run_id": "CSH-RUN-002-RPT-20260921171515-R01",
+        "linked_original_run_id": "CSH-RUN-002",
+        "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01",
+        "request_sha256": "de81b4c41e4a9085ac085beb52a5218106f7d504bc5ae58c899ff6f02b052272",
+        "request_bytes_identical_to_original": true,
+        "response_sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+        "http_status": 410,
+        "execution_metadata_sha256": "b0b2c50c7b2a7bc65f533cfbe615685b2150478f2d6cbd850ba4bd620e8f6ddc",
+        "started_at_utc": "2026-09-21T17:15:40.979355+00:00",
+        "completed_at_utc": "2026-09-21T17:15:41.325663+00:00"
+      }
+    ],
+    "retirement_evidence": {
+      "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/GITHUB_MODELS_RETIREMENT_EVIDENCE_v0_1.json",
+      "record_id": "CSH-RETIREMENT-EVIDENCE-20260921-001"
+    }
+  },
+
+  "adapter_verification": {
+    "recorded_hash": "dff4646413a43923544dcfc04354d8f1949df97a14500eac225e767dd675d3cc",
+    "filename": "csh_repeat_adapter_external_v0_1_1.py",
+    "bytes_available_in_workspace": true,
+    "verified_hash_matches_recorded": true,
+    "verification_note": "The adapter source file was present in the execution workspace at the time of this adjudication. Its SHA-256 was recomputed and matches the hash recorded in the execution-state document.",
+    "repository_status": "not committed to repository; external to repository boundary; hash preserved in execution state record"
+  },
+
+  "chronology_review": {
+    "pr158_merged_utc": "2026-09-21T17:09:25Z",
+    "anchor_ci_completed_utc": "2026-09-21T17:09:25Z",
+    "run001_rpt_started_utc": "2026-09-21T17:15:30.835331+00:00",
+    "run002_rpt_started_utc": "2026-09-21T17:15:40.979355+00:00",
+    "pr159_merged_utc": "2026-09-21T17:27:31Z",
+    "transition_brownout_occurred_at": "2026-09-21T17:15:15Z",
+    "chronology_consistent": true,
+    "minor_inconsistency": {
+      "present": true,
+      "description": "The CSH-TRANSITION-20260921-REPEAT-ATTEMPTED-BROWNOUT transition record has occurred_at=2026-09-21T17:15:15Z, which is approximately 15 seconds before RUN-001-RPT's actual start time of 17:15:30.835331+00:00. The transition timestamp was set to a round number at the time of authoring.",
+      "resolution": "The transition timestamp is preserved unchanged. The execution-metadata.json files contain the authoritative start and completion timestamps for the actual HTTP calls. The minor discrepancy (~15 seconds) does not affect interpretation; the execution clearly occurred after PR #158 merged (17:09:25Z) and before PR #159 merged (17:27:31Z).",
+      "original_fields_unchanged": true
+    }
+  },
+
+  "factual_determinations": [
+    {
+      "determination": "HTTP response bodies were received and preserved for both repetitions",
+      "basis": "raw-provider-response.json artifacts exist with SHA-256 eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd (both identical), size 152 bytes, containing the error body verbatim.",
+      "supported": true
+    },
+    {
+      "determination": "No model-generated output was obtained from either repetition",
+      "basis": "Both responses are HTTP 410 error bodies with no 'choices' field, no 'message.content', and no inference result. The adapter correctly classified both as execution_status=http_error.",
+      "supported": true
+    },
+    {
+      "determination": "HTTP 410 is a service-error response, not a transport failure",
+      "basis": "HTTP 410 Gone is a server-originated response code. The server received the request and returned an error body. This distinguishes it from a transport failure (network error, connection refused, timeout), which would not yield an HTTP status code or response body.",
+      "supported": true
+    },
+    {
+      "determination": "The records support request submission and error capture",
+      "basis": "Each run has a preserved exact-request.json (byte-identical to original), execution-metadata.json (with timing, adapter hash, request/response hashes), and raw-provider-response.json. The adapter's request transmission was completed; a response was received.",
+      "supported": true
+    },
+    {
+      "determination": "Successful inference and downstream classification/comparison remain unestablished",
+      "basis": "No model output was received. The classification and comparison steps of the AMEND-002 repetition protocol require a parseable provider response with a valid 'choices[0].message.content'. This was not obtained.",
+      "supported": true
+    },
+    {
+      "determination": "There is no classifiable pair, comparative result, or evidence for or against the treatment hypothesis",
+      "basis": "Classification requires model output; comparison requires two classified outputs in a pair; hypothesis evaluation requires a valid comparative result. None of these conditions are met.",
+      "supported": true
+    },
+    {
+      "determination": "Baseline continuation remains blocked",
+      "basis": "The execution gate requires two successful AMEND-002 repetitions that demonstrate the repaired execution path. HTTP 410 responses do not establish this. The serving platform is documented as retired.",
+      "supported": true
+    },
+    {
+      "determination": "The original CSH-RUN-001 and CSH-RUN-002 attempts are preserved unchanged",
+      "basis": "The original_attempt_seal verifies their immutability. The execution state confirms immutable=true, replaced=false, superseded=false for both.",
+      "supported": true
+    }
+  ],
+
+  "gate_decision": {
+    "decision": "BLOCKED_RECEIVER_RETIRED",
+    "continue_frozen_baseline": false,
+    "provider_invocations_this_session": 2,
+    "http_200_responses_received": 0,
+    "model_outputs_received": 0,
+    "classifiable_pair_obtained": false,
+    "comparative_result": null,
+    "blocker": "GitHub Models serving platform retired 2026-07-30. Both frozen receiver classes (llm_receiver_a, llm_receiver_b) use this endpoint. Repetition under the frozen configuration is not possible while the platform remains retired. Continuation requires a migration proposal, a new receiver freeze, and fresh repetition execution."
+  },
+
+  "non_claims": [
+    "This adjudication receipt is not a completed AMEND-002 repetition.",
+    "HTTP 410 is not proof that the repaired execution path works.",
+    "HTTP 410 is not a null semantic result, a failed model response, or a comparative observation.",
+    "Platform retirement is not a terminal experimental result for any unit.",
+    "This record does not convert retirement into a disposition for all 108 units.",
+    "The two repetition run IDs are exhausted; they cannot be reused for future attempts.",
+    "This receipt does not establish the CSH hypothesis, receiver correctness, semantic truth, compliance, legal sufficiency, safety, authorization, certification, or institutional authority."
+  ]
+}
