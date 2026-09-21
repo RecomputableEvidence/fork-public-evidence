@@ -3,8 +3,8 @@
 **Historical closure snapshot:** 2026-09-09  
 **Historical closure base:** `1663674949ec90ff7e8878c27bea9dbde97096d7`  
 **Closure merge:** `cf5c617987a7f1fcde534f46daada42976583b48` via PR `#143`  
-**Current successor overlay:** 2026-09-17, based on `61ce462e131c3c2687abd1d7744cd9ffaf238552`  
-**Standing:** `REPOSITORY_STANDING_INDEX_ADMITTED_WITH_SUCCESSOR_OVERLAY`  
+**Current successor overlay:** local v0.5 candidate, 2026-09-21, based on `38a19bfedd37c630833893b372584fa56111bbb0`
+**Standing:** historical index admitted; v0.5 successor locally prepared, not yet pushed or merged
 **Scope:** interpretation and routing of repository evidence; no underlying artifact is promoted by inclusion here.
 
 This directory is the reviewer entry point for reconstructing what Fork presently contains, what has been executed, what failed, what remains provisional, what is frozen, what awaits independent review, what was intentionally stopped, and what has subsequently been admitted under repository discipline.
@@ -35,10 +35,12 @@ ADJACENT IN REPOSITORY
 != STRONGER IN STANDING
 ```
 
-## Read in this order
+Current candidate: [v0.5](FORK_CURRENT_WORK_REGISTER_v0_5.md) / [JSON](FORK_CURRENT_WORK_REGISTER_v0_5.json). Read it before the preserved predecessor chain below.
+
+## Read preserved sources in this order
 
 1. [`FORK_STANDING_NONINHERITANCE_CONTRACT_v0_1.md`](FORK_STANDING_NONINHERITANCE_CONTRACT_v0_1.md) — status vocabulary and interpretation rules.
-2. [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_4.json) — current UEM Epoch 010 successor overlay; additive to v0.3.
+2. [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_4.json) — preserved UEM Epoch 010 successor overlay; additive to v0.3.
 3. [`UEM_v0_1_EPOCH_010_CRII_ADMISSION_MERGE_RECEIPT_2026_09_17.md`](UEM_v0_1_EPOCH_010_CRII_ADMISSION_MERGE_RECEIPT_2026_09_17.md) — bounded UEM Epoch 010 admission event.
 4. [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](FORK_CURRENT_WORK_REGISTER_v0_3.json) — preserved Lens Shift overlay.
 5. [`LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md`](LENS_SHIFT_v0_1_BLIND_EPOCH_003_ADMISSION_MERGE_RECEIPT_2026_09_17.md) — bounded Lens Shift v0.1 admission event.
@@ -97,7 +99,7 @@ OPERATIONALLY_ATTESTED_BLINDNESS
 != EXHAUSTIVE_PROTOCOL_PROOF
 ```
 
-Objects not changed by the v0.4 delta retain their predecessor-register standing. The v0.3, v0.2, and v0.1 records remain historical evidence of what was reported at their own snapshot coordinates; v0.4 does not mutate them.
+Objects not changed by the v0.5 delta retain their last recorded predecessor-register standing; this is not a fresh check of off-repository state. The v0.3, v0.2, and v0.1 records remain historical evidence of what was reported at their own snapshot coordinates; v0.4 does not mutate them.
 
 ## Current top-level posture
 

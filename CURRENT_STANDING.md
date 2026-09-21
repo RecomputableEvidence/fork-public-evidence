@@ -2,13 +2,15 @@
 
 For the repository-wide current program state, begin here:
 
+Current local successor candidate: [v0.5](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.md) / [JSON](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json). Base `38a19bfedd37c630833893b372584fa56111bbb0`; not yet pushed or merged.
+
 - [`docs/current-standing/README.md`](docs/current-standing/README.md)
-- Current successor overlay: [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json)
+- Preserved September 17 UEM overlay: [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json)
 - Preserved September 17 Lens Shift overlay: [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json)
 - Preserved September 15 overlay: [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.json)
 - Historical September 9 snapshot: [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.json)
 
-The v0.4 register is an additive predecessor-plus-delta overlay. It does not rewrite v0.3, v0.2, v0.1, or any underlying research artifact.
+The v0.5 candidate adds a delta to preserved v0.4. Historical v0.1–v0.4 and underlying research artifacts remain unchanged.
 
 That current-standing layer reports what exists, what was executed, what failed or produced no scorable result, what remains provisional, what is frozen, what awaits independence, what was intentionally stopped, what has since been repository-admitted, and the next evidence-bearing gate.
 

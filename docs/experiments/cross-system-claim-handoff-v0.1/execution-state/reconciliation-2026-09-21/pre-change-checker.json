@@ -1,0 +1,84 @@
+{
+  "checker": "check_cross_system_claim_handoff_execution_v0_1_1.py",
+  "checks": [
+    {
+      "detail": "present",
+      "name": "required_surface",
+      "passed": true
+    },
+    {
+      "detail": "schemas/cross_system_claim_handoff_execution_state_v0_1_1.schema.json",
+      "name": "execution_state_schema_valid",
+      "passed": true
+    },
+    {
+      "detail": "valid",
+      "name": "execution_state_schema_conformance",
+      "passed": true
+    },
+    {
+      "detail": "instrumentation-only final amendment",
+      "name": "amendment_scope",
+      "passed": true
+    },
+    {
+      "detail": "bounded",
+      "name": "execution_state_semantics",
+      "passed": true
+    },
+    {
+      "detail": "verified",
+      "name": "original_attempt_digests",
+      "passed": true
+    },
+    {
+      "detail": "byte-identical",
+      "name": "v0_1_freeze_byte_identity",
+      "passed": true
+    },
+    {
+      "detail": "verified",
+      "name": "instrumentation_freeze_digests",
+      "passed": true
+    },
+    {
+      "detail": "bound",
+      "name": "state_to_seal_binding",
+      "passed": true
+    },
+    {
+      "detail": "verified",
+      "name": "repeat_lineage",
+      "passed": true
+    },
+    {
+      "detail": "not yet filed",
+      "name": "bounded_result",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "interpretation": {
+    "does_not_prove": [
+      "semantic truth",
+      "the CSH hypothesis",
+      "receiver correctness",
+      "compliance",
+      "legal sufficiency",
+      "safety",
+      "authorization",
+      "approval",
+      "certification",
+      "production readiness",
+      "institutional authority"
+    ],
+    "proves": [
+      "the listed original attempt bytes still match their preserved seal",
+      "the listed v0.1 freeze artifacts remain byte-identical to the captured repair boundary",
+      "mutable execution state is separated from the immutable semantic freeze",
+      "new repeat identifiers do not replace original identifiers when repeat records are present"
+    ]
+  },
+  "passed": 11,
+  "total": 11
+}

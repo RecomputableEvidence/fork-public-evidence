@@ -1,0 +1,132 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_5",
+  "snapshot_date": "2026-09-21",
+  "snapshot_base_commit": "38a19bfedd37c630833893b372584fa56111bbb0",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY_LOCAL_CANDIDATE",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json",
+  "predecessor_binding": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json",
+    "sha256": "68d9f62a8b7d42c47bb388c536e967f06452049bc90c4f0abd258a8658adee5c",
+    "size_bytes": 3623
+  },
+  "delta_object_count": 5,
+  "delta_objects": [
+    {
+      "id": "FORK-STACKED-CADENCE-BOUNDED-R&D-001-v0.1.5",
+      "material_state": "TERMINAL_NATIVE_RECORDS_ADMITTED_LARGER_PACKAGES_HASH_BOUND",
+      "research_state": "QUALIFIED_FREEZE_WITHIN_TESTED_SURFACE",
+      "admission_commit": "e77a515fd05197ff8aa5716d96db577510d07661",
+      "preserved_predecessor": "v0.1.4 NEGATIVE_EMPIRICAL_RESULT_FROZEN",
+      "next_gate": "No expansion under this frozen scope; runtime or generalization requires separately scoped successor.",
+      "sources": [
+        {
+          "path": "admissions/FORK-STACKED-CADENCE-BOUNDED-R&D-001/v0.1.5-QUALIFIED-FREEZE/README.md",
+          "sha256": "ab12effd572b36a83449794bda3bc7bb777d5ef8e414254c5c26971ae637ef77",
+          "size_bytes": 4019
+        },
+        {
+          "path": "admissions/FORK-STACKED-CADENCE-BOUNDED-R&D-001/v0.1.5-QUALIFIED-FREEZE/FINAL_ADJUDICATION/05_ADJUDICATION_DECISION.json",
+          "sha256": "d47f96b1d4a2207a45d6c54d4c0535bce93d55e705e84d86176bb65facb1c98d",
+          "size_bytes": 6574
+        }
+      ],
+      "non_claims": [
+        "Reported 291 internal checks, 182 independent checks and 9 final gates are not newly reexecuted here.",
+        "No production, runtime, trust, commercial or governance authority."
+      ]
+    },
+    {
+      "id": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001-PRESSURE-EPOCH-3284e82-FREEZE-002",
+      "material_state": "CLOSED_HISTORICAL_EVIDENCE_ADMITTED",
+      "research_state": "CLOSED_HISTORICAL_EVIDENCE",
+      "admission_commit": "a8323bd89976c78c5ed14b69f90aa33c5230c9c7",
+      "reported_result": "44_OF_44_PASS_PRESERVED_NOT_REEXECUTED",
+      "next_gate": "None within this identity; further research requires separately named successor.",
+      "sources": [
+        {
+          "path": "admissions/FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001/PRESSURE-EPOCH-3284e82-FREEZE-002-CLOSED-HISTORICAL-EVIDENCE/ADMISSION_DISPOSITION.json",
+          "sha256": "23ef84c32502845870bf1b2ad1e815ea95f2e46cc81ce8223bee932a96f262c6",
+          "size_bytes": 3063
+        }
+      ],
+      "non_claims": [
+        "TEXT_OCCURRENCE_FOUND != OCCURRENCE_IDENTITY_BOUND",
+        "Recorded predecessor ZIP ambiguity and workspace divergence qualifications remain."
+      ]
+    },
+    {
+      "id": "SUBSTANTIVE-EXAMINATION-003-FREEZE-001",
+      "material_state": "CLOSED_HISTORICAL_EVIDENCE_ADMITTED",
+      "research_state": "CLOSED_HISTORICAL_EVIDENCE",
+      "admission_commit": "98c851f30ef27606914376c72beeb6ecda0a6441",
+      "receipt_repair": "18_TO_19_DOCUMENTARY_ONLY_ZERO_NEW_EXPERIMENTS",
+      "next_gate": "None within this identity; further examination requires separately named successor.",
+      "sources": [
+        {
+          "path": "admissions/SUBSTANTIVE-EXAMINATION-003/SUBSTANTIVE-EXAMINATION-003-FREEZE-001-CLOSED-HISTORICAL-EVIDENCE/ADMISSION_DISPOSITION.json",
+          "sha256": "7e40c66963b9755abc189be635a1f61b8ef8fa1b2b95018c0b2b88c4b08cb823",
+          "size_bytes": 4330
+        }
+      ],
+      "non_claims": [
+        "Raw execution log not discovered as a separate preserved file is not proof of universal absence.",
+        "Conversation-preserved harness is not the original filesystem instance."
+      ]
+    },
+    {
+      "id": "INDEPENDENT-READER-RECONSTRUCTION-001-v0.1",
+      "material_state": "TERMINAL_CONTAMINATION_RECEIPT_ADMITTED_RAW_RESPONSE_HASH_BOUND_PRIVATE",
+      "research_state": "BASELINE_CONTAMINATED",
+      "admission_commit": "38a19bfedd37c630833893b372584fa56111bbb0",
+      "result_state": "NO_VALID_BASELINE_RESULT_UNSCORED",
+      "next_gate": "Separately identified successor with eligible unaided human and controlled participant-only delivery; do not rescue v0.1 by adding reviewers.",
+      "sources": [
+        {
+          "path": "docs/experiments/institutional-adaptation-001/IRR-001-v0.1-TERMINAL-CONTAMINATION/IRR-001-v0.1-RUN-001-CONTAMINATION-RECEIPT.md",
+          "sha256": "13b8f67a6dd54cee8660a8309fb1a9daf31f0a8fad8ddf0e8d3593d29f01f5ee",
+          "size_bytes": 1834
+        }
+      ],
+      "non_claims": [
+        "No B1-B6 score or supported/not-supported legibility result."
+      ]
+    },
+    {
+      "id": "cross_system_claim_handoff_v0_1",
+      "material_state": "FROZEN_BASELINE_WITH_ORIGINAL_ATTEMPTS_AND_LOCAL_RECONCILIATION",
+      "research_state": "BASELINE_INCOMPLETE_REPETITIONS_BLOCKED_PREFLIGHT",
+      "original_provider_attempts": 2,
+      "new_provider_invocations": 0,
+      "gate": "BLOCKED_BEFORE_PROVIDER_INVOCATION",
+      "next_gate": "Publish prepared anchor; observe its two required CI workflows; supply configured credential and operative exact-request adapter; repeat affected pair under new IDs; adjudicate before continuing fixed order.",
+      "sources": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json",
+          "sha256": "4402694105047171eed764e0f6065c70faf572111b1cd9910df9943f3b3baa11",
+          "size_bytes": 3266
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/CSH_CANONICAL_STATE_RECONCILIATION_2026_09_21.json",
+          "sha256": "b4a054f46ff1512d5f5e8b2fccffeff185a92b3fff2b60624b98b2f820a343c6",
+          "size_bytes": 6163
+        }
+      ],
+      "non_claims": [
+        "Preflight block is not a comparative CSH result.",
+        "Original 200/429 attempts and semantic freeze unchanged."
+      ]
+    }
+  ],
+  "coverage": "Repository-observed state through source commit plus this local CSH preflight. Off-repository objects are not newly admitted or assumed current. Unchanged predecessor objects retain their last recorded standing, not a fresh verification.",
+  "governing_non_inheritance": [
+    "INDEXED != VALIDATED",
+    "REPOSITORY_ADMITTED != PRODUCTION_AUTHORIZED",
+    "PREFLIGHT_BLOCK != EMPIRICAL_COMPARATIVE_RESULT",
+    "LATER_QUALIFICATION != ERASURE_OF_ADVERSE_PREDECESSOR"
+  ],
+  "snapshot_non_claims": [
+    "No historical overlay, original attempt, closed object, semantic freeze, scoring rule, model configuration or hypothesis is rewritten.",
+    "This overlay is locally issued for review; it is not yet pushed or merged."
+  ]
+}

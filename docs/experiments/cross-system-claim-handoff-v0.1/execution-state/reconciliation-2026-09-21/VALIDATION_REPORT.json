@@ -1,0 +1,169 @@
+{
+  "created_at_utc": "2026-09-21T15:27:41.438374+00:00",
+  "source_commit": "38a19bfedd37c630833893b372584fa56111bbb0",
+  "checks": [
+    {
+      "name": "command",
+      "passed": true,
+      "detail": {
+        "argv": [
+          "python",
+          "tools/check_cross_system_claim_handoff_execution_v0_1_1.py",
+          "--json"
+        ],
+        "expected_exit": 0,
+        "exit": 0,
+        "stdout": "{\n  \"checker\": \"check_cross_system_claim_handoff_execution_v0_1_1.py\",\n  \"checks\": [\n    {\n      \"detail\": \"present\",\n      \"name\": \"required_surface\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"schemas/cross_system_claim_handoff_execution_state_v0_1_1.schema.json\",\n      \"name\": \"execution_state_schema_valid\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"valid\",\n      \"name\": \"execution_state_schema_conformance\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"instrumentation-only final amendment\",\n      \"name\": \"amendment_scope\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"bounded\",\n      \"name\": \"execution_state_semantics\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"verified\",\n      \"name\": \"original_attempt_digests\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"byte-identical\",\n      \"name\": \"v0_1_freeze_byte_identity\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"verified\",\n      \"name\": \"instrumentation_freeze_digests\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"bound\",\n      \"name\": \"state_to_seal_binding\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"verified\",\n      \"name\": \"repeat_lineage\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"not yet filed\",\n      \"name\": \"bounded_result\",\n      \"passed\": true\n    }\n  ],\n  \"failed\": 0,\n  \"interpretation\": {\n    \"does_not_prove\": [\n      \"semantic truth\",\n      \"the CSH hypothesis\",\n      \"receiver correctness\",\n      \"compliance\",\n      \"legal sufficiency\",\n      \"safety\",\n      \"authorization\",\n      \"approval\",\n      \"certification\",\n      \"production readiness\",\n      \"institutional authority\"\n    ],\n    \"proves\": [\n      \"the listed original attempt bytes still match their preserved seal\",\n      \"the listed v0.1 freeze artifacts remain byte-identical to the captured repair boundary\",\n      \"mutable execution state is separated from the immutable semantic freeze\",\n      \"new repeat identifiers do not replace original identifiers when repeat records are present\"\n    ]\n  },\n  \"passed\": 11,\n  \"total\": 11\n}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "command",
+      "passed": true,
+      "detail": {
+        "argv": [
+          "python",
+          "tools/check_cross_system_claim_handoff_execution_v0_1_1.py",
+          "--require-repeat",
+          "--json"
+        ],
+        "expected_exit": 1,
+        "exit": 1,
+        "stdout": "{\n  \"checker\": \"check_cross_system_claim_handoff_execution_v0_1_1.py\",\n  \"checks\": [\n    {\n      \"detail\": \"present\",\n      \"name\": \"required_surface\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"schemas/cross_system_claim_handoff_execution_state_v0_1_1.schema.json\",\n      \"name\": \"execution_state_schema_valid\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"valid\",\n      \"name\": \"execution_state_schema_conformance\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"instrumentation-only final amendment\",\n      \"name\": \"amendment_scope\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"bounded\",\n      \"name\": \"execution_state_semantics\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"verified\",\n      \"name\": \"original_attempt_digests\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"byte-identical\",\n      \"name\": \"v0_1_freeze_byte_identity\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"verified\",\n      \"name\": \"instrumentation_freeze_digests\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"bound\",\n      \"name\": \"state_to_seal_binding\",\n      \"passed\": true\n    },\n    {\n      \"detail\": \"expected two repeat runs; observed=0\",\n      \"name\": \"repeat_lineage\",\n      \"passed\": false\n    },\n    {\n      \"detail\": \"not yet filed\",\n      \"name\": \"bounded_result\",\n      \"passed\": true\n    }\n  ],\n  \"failed\": 1,\n  \"interpretation\": {\n    \"does_not_prove\": [\n      \"semantic truth\",\n      \"the CSH hypothesis\",\n      \"receiver correctness\",\n      \"compliance\",\n      \"legal sufficiency\",\n      \"safety\",\n      \"authorization\",\n      \"approval\",\n      \"certification\",\n      \"production readiness\",\n      \"institutional authority\"\n    ],\n    \"proves\": [\n      \"the listed original attempt bytes still match their preserved seal\",\n      \"the listed v0.1 freeze artifacts remain byte-identical to the captured repair boundary\",\n      \"mutable execution state is separated from the immutable semantic freeze\",\n      \"new repeat identifiers do not replace original identifiers when repeat records are present\"\n    ]\n  },\n  \"passed\": 10,\n  \"total\": 11\n}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "strict_repeat_gate_remains_closed",
+      "passed": true,
+      "detail": [
+        "repeat_lineage"
+      ]
+    },
+    {
+      "name": "command",
+      "passed": true,
+      "detail": {
+        "argv": [
+          "python",
+          "-m",
+          "pytest",
+          "tests/test_cross_system_claim_handoff_execution_v0_1_1.py",
+          "-q"
+        ],
+        "expected_exit": 0,
+        "exit": 0,
+        "stdout": "......                                                                   [100%]\n6 passed in 0.12s\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "command",
+      "passed": true,
+      "detail": {
+        "argv": [
+          "python",
+          "scripts/check_current_standing_v0_4.py"
+        ],
+        "expected_exit": 0,
+        "exit": 0,
+        "stdout": "PASS: v0.4 current-standing successor overlay preserves v0.3 and records bounded UEM Epoch 010 CRII admission\nboundary: verifier receipt replay != independent executor reproduction; bounded CRII pass != universal UEM correctness or generalization\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "original_state_entries_unchanged",
+      "passed": true,
+      "detail": "Deep comparison of original attempt state entries."
+    },
+    {
+      "name": "historical_transitions_unchanged",
+      "passed": true,
+      "detail": "Append-only transition preservation."
+    },
+    {
+      "name": "amendment001_unchanged",
+      "passed": true,
+      "detail": "No retroactive update to historical baseline-not-started reassessment."
+    },
+    {
+      "name": "register_parity",
+      "passed": true,
+      "detail": "Three amendments represented."
+    },
+    {
+      "name": "existing_file_change_allowlist",
+      "passed": true,
+      "detail": [
+        "CURRENT_STANDING.md",
+        "docs/current-standing/README.md",
+        "docs/experiments/cross-system-claim-handoff-v0.1/AMENDMENT_REGISTER_v0_1.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/README.md",
+        "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/PAIR-001_EXECUTION_STATE_v0_1_1.json"
+      ]
+    },
+    {
+      "name": "protected_tracked_populations_unchanged",
+      "passed": true,
+      "detail": "All original attempts, frozen semantic/instrumentation files, closed admissions, and v0.1-v0.4 overlays are outside the changed set."
+    },
+    {
+      "name": "overlay_delta_population",
+      "passed": true,
+      "detail": "Five unique bounded delta objects."
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "admissions/FORK-STACKED-CADENCE-BOUNDED-R&D-001/v0.1.5-QUALIFIED-FREEZE/README.md"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "admissions/FORK-STACKED-CADENCE-BOUNDED-R&D-001/v0.1.5-QUALIFIED-FREEZE/FINAL_ADJUDICATION/05_ADJUDICATION_DECISION.json"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "admissions/FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001/PRESSURE-EPOCH-3284e82-FREEZE-002-CLOSED-HISTORICAL-EVIDENCE/ADMISSION_DISPOSITION.json"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "admissions/SUBSTANTIVE-EXAMINATION-003/SUBSTANTIVE-EXAMINATION-003-FREEZE-001-CLOSED-HISTORICAL-EVIDENCE/ADMISSION_DISPOSITION.json"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "docs/experiments/institutional-adaptation-001/IRR-001-v0.1-TERMINAL-CONTAMINATION/IRR-001-v0.1-RUN-001-CONTAMINATION-RECEIPT.md"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json"
+    },
+    {
+      "name": "overlay_source_binding",
+      "passed": true,
+      "detail": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/CSH_CANONICAL_STATE_RECONCILIATION_2026_09_21.json"
+    },
+    {
+      "name": "observed_publication_ancestry",
+      "passed": true,
+      "detail": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71"
+    },
+    {
+      "name": "observed_publication_ancestry",
+      "passed": true,
+      "detail": "adb7300f96cfc65d2764ca3a3ce45f344ab56404"
+    }
+  ],
+  "passed": 22,
+  "failed": 0,
+  "non_claim": "Structural validation and historical CI inspection are not receiver repetitions or empirical hypothesis evidence."
+}
