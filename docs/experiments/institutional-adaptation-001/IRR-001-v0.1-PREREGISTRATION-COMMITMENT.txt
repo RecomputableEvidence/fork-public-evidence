@@ -1,0 +1,15 @@
+FORK-INSTITUTIONAL-ADAPTATION-001
+INDEPENDENT-READER-RECONSTRUCTION-001 v0.1
+PREREGISTRATION COMMITMENT
+
+commitment_mode: SHA256_COMMIT_REVEAL
+preregistration_zip_sha256: 5b330df3e57467fa3549f28256a19723696ba63c8a0d94d8ffce5bc7e80723d8
+preregistration_zip_size_bytes: 11982
+participant_packet_sha256: c3f66303a9c126c3e803432303af506c49a5165b07ef4d859f2c352faa3f1670
+repository_snapshot: 98c851f30ef27606914376c72beeb6ecda0a6441
+subject_object_id: FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001-PRESSURE-EPOCH-3284e82-FREEZE-002
+execution_state_at_commitment: NOT_STARTED
+participant_exposure_at_commitment: NONE
+reveal_rule: REVEAL_AFTER_FIRST_RAW_RESPONSE_FREEZE_OR_TERMINAL_ACCESS_FAILURE
+semantic_standing_effect: NONE
+subject_mutation_effect: NONE
