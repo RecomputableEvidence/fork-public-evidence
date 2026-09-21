@@ -1,0 +1,76 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_6",
+  "snapshot_date": "2026-09-21",
+  "snapshot_base_commit": "38f7a278211fca62b02fb3ee2cec26814e9ed9b6",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json",
+  "predecessor_binding": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json",
+    "sha256": "534189c81e7755f7fb11bf4ade813e12f6e3d7282fcf77d59293ff6f76f2b428"
+  },
+  "delta_description": "Post-execution reconciliation following PRs #158 and #159. Binds anchor publication, repetition outcomes, platform retirement, adjudication, baseline population accounting, and migration proposal. All predecessor delta objects retain their last recorded standing without fresh verification.",
+  "delta_object_count": 1,
+  "delta_objects": [
+    {
+      "id": "cross_system_claim_handoff_v0_1",
+      "material_state": "FROZEN_BASELINE_WITH_ORIGINAL_ATTEMPTS_REPETITIONS_ATTEMPTED_RECEIVER_RETIRED",
+      "research_state": "BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED",
+      "anchor_published_commit": "56c73f0b0533cb0348076efd02c9a654d7243c20",
+      "anchor_pr": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/158",
+      "execution_state_commit": "38f7a278211fca62b02fb3ee2cec26814e9ed9b6",
+      "execution_state_pr": "https://github.com/RecomputableEvidence/fork-public-evidence/pull/159",
+      "original_provider_attempts": 2,
+      "repetition_attempts": 2,
+      "model_outputs_received": 0,
+      "classifiable_pairs": 0,
+      "comparative_result": null,
+      "gate": "BLOCKED_RECEIVER_RETIRED",
+      "continue_frozen_baseline": false,
+      "retirement_status": "GitHub Models serving platform retired 2026-07-30 per GitHub changelog. Both frozen receiver classes (llm_receiver_a, llm_receiver_b) use this endpoint. HTTP 410 received on both repetition attempts on 2026-09-21.",
+      "next_gate": "Reviewer authorization of CSH-AMEND-004 receiver-migration proposal; new receiver freeze; fresh repetition execution under new receiver identities.",
+      "sources": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/GITHUB_MODELS_RETIREMENT_EVIDENCE_v0_1.json",
+          "sha256": "c72147f32c3d091cd03831ba613d97bc80fd1f6b53bec42848fdb7713ceb6b3b",
+          "record_id": "CSH-RETIREMENT-EVIDENCE-20260921-001"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json",
+          "sha256": "8d2ad41fd5f0a4c77751faeec294fc09835f38b0acd4beb9b1a676df4e9cdaea",
+          "record_id": "CSH-PAIR001-POST-EXECUTION-ADJUDICATION-20260921-001"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+          "sha256": "87d3ac4e4221e625074c775da75b6a15a963b4ab8e44fd956a362422913ff556",
+          "record_id": "CSH-BASELINE-POPULATION-ACCOUNTING-20260921-001"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json",
+          "sha256": "4402694105047171eed764e0f6065c70faf572111b1cd9910df9943f3b3baa11",
+          "note": "Historical preflight receipt preserved unchanged."
+        }
+      ],
+      "non_claims": [
+        "HTTP 410 brownout responses are not comparative results, null results, or adverse hypothesis observations.",
+        "Platform retirement is not a terminal experimental result for any unit.",
+        "The 106 unattempted units (ordinals 3-108) have no terminal dispositions and remain not_executed.",
+        "Original CSH-RUN-001 (HTTP 200) and CSH-RUN-002 (HTTP 429) original attempts are preserved unchanged.",
+        "The deterministic receiver (36 units) is not dependent on GitHub Models; its status is not addressed by this delta.",
+        "This overlay does not reopen any closed research object from predecessor records."
+      ]
+    }
+  ],
+  "coverage": "Repository-observed state through source commit, including anchor publication (PR #158), repetition outcomes (PR #159), platform retirement evidence, post-execution adjudication, and migration proposal. Predecessor delta objects are not freshly reverified.",
+  "governing_non_inheritance": [
+    "INDEXED != VALIDATED",
+    "REPOSITORY_ADMITTED != PRODUCTION_AUTHORIZED",
+    "HTTP_410_RECEIVED != COMPARATIVE_RESULT",
+    "PLATFORM_RETIRED != ALL_UNITS_TERMINATED",
+    "LATER_QUALIFICATION != ERASURE_OF_ADVERSE_PREDECESSOR"
+  ],
+  "snapshot_non_claims": [
+    "No historical overlay, original attempt, closed object, semantic freeze, scoring rule, model configuration, or hypothesis is rewritten.",
+    "The receiver-migration proposal (CSH-AMEND-004 candidate) is not yet authorized or activated."
+  ]
+}
