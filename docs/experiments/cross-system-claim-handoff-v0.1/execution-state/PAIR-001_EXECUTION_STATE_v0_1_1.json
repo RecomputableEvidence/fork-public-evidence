@@ -31,9 +31,9 @@
     "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-002/ORIGINAL_ATTEMPT_SEAL_v0_1_1.json",
     "sha256": "5f0e2ba294d1fa3cf9dff6ee84b9a5b444c4739cec74d8ad4180028746fc8de6"
   },
-  "current_phase": "repetition_blocked_before_provider_invocation",
+  "current_phase": "repetition_attempted_receiver_unavailable_blocked",
   "publication": {
-    "status": "patch_ci_green",
+    "status": "anchor_ci_green",
     "patch_commit": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71",
     "patch_ci": [
       {
@@ -55,8 +55,25 @@
         "headSha": "54b04dc8d685c79abeceb9d79ddbcf6493ee1a71"
       }
     ],
-    "anchor_commit": null,
-    "anchor_ci": []
+    "anchor_commit": "56c73f0b0533cb0348076efd02c9a654d7243c20",
+    "anchor_ci": [
+      {
+        "databaseId": 35630191369,
+        "status": "completed",
+        "conclusion": "success",
+        "workflowName": "Cross-System Claim Handoff v0.1",
+        "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/35630191369",
+        "headSha": "56c73f0b0533cb0348076efd02c9a654d7243c20"
+      },
+      {
+        "databaseId": 35630191332,
+        "status": "completed",
+        "conclusion": "success",
+        "workflowName": "Fork Proof-Surface Integration",
+        "url": "https://github.com/RecomputableEvidence/fork-public-evidence/actions/runs/35630191332",
+        "headSha": "56c73f0b0533cb0348076efd02c9a654d7243c20"
+      }
+    ]
   },
   "original_attempts": [
     {
@@ -120,7 +137,98 @@
       ]
     }
   ],
-  "repeat_runs": [],
+  "repeat_runs": [
+    {
+      "run_id": "CSH-RUN-001-RPT-20260921171515-R01",
+      "role": "post_repair_repetition",
+      "linked_original_run_id": "CSH-RUN-001",
+      "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01",
+      "exact_request_source_run_id": "CSH-RUN-001",
+      "declared_http_status": 410,
+      "execution_state": "provider_http_error_preserved",
+      "terminal_disposition": "provider_http_error_preserved",
+      "immutable": true,
+      "replaced": false,
+      "superseded": false,
+      "request_bytes_policy": "byte-identical-copy-of-original",
+      "request_reconstructed": false,
+      "run_id_injected_into_request": false,
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "condition": "control_h0",
+      "receiver_class_id": "llm_receiver_b",
+      "replicate_id": 2,
+      "http_status": 410,
+      "execution_status": "http_error",
+      "provider_error_code": "github_models_retirement_brownout",
+      "classifiable": false,
+      "retry_count": 0,
+      "adapter_version": "0.1.1-external-repeat",
+      "adapter_source_sha256": "dff4646413a43923544dcfc04354d8f1949df97a14500eac225e767dd675d3cc",
+      "artifacts": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/exact-request.json",
+          "sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+          "size_bytes": 2192
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/execution-metadata.json",
+          "sha256": "d8ae0ac091ff4852d1c36fc25caf931701fc7abc4b8826be136d002415863a71",
+          "size_bytes": 2639
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/raw-provider-response.json",
+          "sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+          "size_bytes": 152
+        }
+      ],
+      "non_claim": "HTTP 410 retirement brownout is a transport-layer terminal outcome; it does not establish a provider response, model output, semantic content, or comparative result."
+    },
+    {
+      "run_id": "CSH-RUN-002-RPT-20260921171515-R01",
+      "role": "post_repair_repetition",
+      "linked_original_run_id": "CSH-RUN-002",
+      "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01",
+      "exact_request_source_run_id": "CSH-RUN-002",
+      "declared_http_status": 410,
+      "execution_state": "provider_http_error_preserved",
+      "terminal_disposition": "provider_http_error_preserved",
+      "immutable": true,
+      "replaced": false,
+      "superseded": false,
+      "request_bytes_policy": "byte-identical-copy-of-original",
+      "request_reconstructed": false,
+      "run_id_injected_into_request": false,
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "condition": "instrumented_h1",
+      "receiver_class_id": "llm_receiver_b",
+      "replicate_id": 2,
+      "http_status": 410,
+      "execution_status": "http_error",
+      "provider_error_code": "github_models_retirement_brownout",
+      "classifiable": false,
+      "retry_count": 0,
+      "adapter_version": "0.1.1-external-repeat",
+      "adapter_source_sha256": "dff4646413a43923544dcfc04354d8f1949df97a14500eac225e767dd675d3cc",
+      "artifacts": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/exact-request.json",
+          "sha256": "de81b4c41e4a9085ac085beb52a5218106f7d504bc5ae58c899ff6f02b052272",
+          "size_bytes": 3733
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/execution-metadata.json",
+          "sha256": "b0b2c50c7b2a7bc65f533cfbe615685b2150478f2d6cbd850ba4bd620e8f6ddc",
+          "size_bytes": 2638
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/raw-provider-response.json",
+          "sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
+          "size_bytes": 152
+        }
+      ],
+      "non_claim": "HTTP 410 retirement brownout is a transport-layer terminal outcome; it does not establish a provider response, model output, semantic content, or comparative result."
+    }
+  ],
   "transitions": [
     {
       "transition_id": "CSH-TRANSITION-AMEND-002-INSTALL",
@@ -158,6 +266,31 @@
         "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/reconciliation-2026-09-21/PAIR001_GATE_DECISION_2026_09_21.json"
       ],
       "non_claim": "Zero provider calls; no new repeat results or comparative effect are established."
+    },
+    {
+      "transition_id": "CSH-TRANSITION-20260921-ANCHOR-PUBLISHED",
+      "occurred_at_utc": "2026-09-21T17:09:25Z",
+      "cause": "anchor_published_and_required_ci_observed",
+      "from_phase": "repetition_blocked_before_provider_invocation",
+      "to_phase": "anchor_published_ci_green_repeat_attempted",
+      "evidence": [
+        "56c73f0b0533cb0348076efd02c9a654d7243c20",
+        "run/35630191369",
+        "run/35630191332"
+      ],
+      "non_claim": "Anchor publication and CI do not establish receiver execution or experimental results."
+    },
+    {
+      "transition_id": "CSH-TRANSITION-20260921-REPEAT-ATTEMPTED-BROWNOUT",
+      "occurred_at_utc": "2026-09-21T17:15:15Z",
+      "cause": "repeat_attempted_receiver_unavailable",
+      "from_phase": "anchor_published_ci_green_repeat_attempted",
+      "to_phase": "repetition_attempted_receiver_unavailable_blocked",
+      "evidence": [
+        "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/execution-metadata.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/execution-metadata.json"
+      ],
+      "non_claim": "HTTP 410 brownout is not a completed repetition, null result, adverse comparative result, or evidence about Fork treatment effect. The repaired execution path remains untested by valid receiver runs."
     }
   ],
   "non_claims": [
