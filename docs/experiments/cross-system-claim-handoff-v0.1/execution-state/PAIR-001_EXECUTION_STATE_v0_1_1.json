@@ -142,7 +142,7 @@
       "run_id": "CSH-RUN-001-RPT-20260921171515-R01",
       "role": "post_repair_repetition",
       "linked_original_run_id": "CSH-RUN-001",
-      "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01",
+      "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01",
       "exact_request_source_run_id": "CSH-RUN-001",
       "declared_http_status": 410,
       "execution_state": "provider_http_error_preserved",
@@ -166,17 +166,17 @@
       "adapter_source_sha256": "dff4646413a43923544dcfc04354d8f1949df97a14500eac225e767dd675d3cc",
       "artifacts": [
         {
-          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/exact-request.json",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01/exact-request.json",
           "sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
           "size_bytes": 2192
         },
         {
-          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/execution-metadata.json",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01/execution-metadata.json",
           "sha256": "d8ae0ac091ff4852d1c36fc25caf931701fc7abc4b8826be136d002415863a71",
           "size_bytes": 2639
         },
         {
-          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/raw-provider-response.json",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01/raw-provider-response.json",
           "sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
           "size_bytes": 152
         }
@@ -187,7 +187,7 @@
       "run_id": "CSH-RUN-002-RPT-20260921171515-R01",
       "role": "post_repair_repetition",
       "linked_original_run_id": "CSH-RUN-002",
-      "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01",
+      "artifact_directory": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01",
       "exact_request_source_run_id": "CSH-RUN-002",
       "declared_http_status": 410,
       "execution_state": "provider_http_error_preserved",
@@ -211,17 +211,17 @@
       "adapter_source_sha256": "dff4646413a43923544dcfc04354d8f1949df97a14500eac225e767dd675d3cc",
       "artifacts": [
         {
-          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/exact-request.json",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01/exact-request.json",
           "sha256": "de81b4c41e4a9085ac085beb52a5218106f7d504bc5ae58c899ff6f02b052272",
           "size_bytes": 3733
         },
         {
-          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/execution-metadata.json",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01/execution-metadata.json",
           "sha256": "b0b2c50c7b2a7bc65f533cfbe615685b2150478f2d6cbd850ba4bd620e8f6ddc",
           "size_bytes": 2638
         },
         {
-          "path": "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/raw-provider-response.json",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01/raw-provider-response.json",
           "sha256": "eb684b77670c904f8a8ac2304cacadd359f792928a5ff14d502912342ee84afd",
           "size_bytes": 152
         }
@@ -287,8 +287,8 @@
       "from_phase": "anchor_published_ci_green_repeat_attempted",
       "to_phase": "repetition_attempted_receiver_unavailable_blocked",
       "evidence": [
-        "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-001-RPT-20260921171515-R01/execution-metadata.json",
-        "docs/experiments/cross-system-claim-handoff-v0.1/runs/CSH-RUN-002-RPT-20260921171515-R01/execution-metadata.json"
+        "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01/execution-metadata.json",
+        "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-002-RPT-20260921171515-R01/execution-metadata.json"
       ],
       "non_claim": "HTTP 410 brownout is not a completed repetition, null result, adverse comparative result, or evidence about Fork treatment effect. The repaired execution path remains untested by valid receiver runs."
     }
