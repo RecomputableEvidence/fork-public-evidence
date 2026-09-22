@@ -1,0 +1,43 @@
+{
+  "manifest_id": "LS-MDRC-002-HOLDOUT-MANIFEST-v0.1",
+  "title": "LS-MDRC-002 Sealed Holdout Fixture Manifest",
+  "description": "Sealed holdout fixtures for LS-MDRC-002. These fixtures must not be opened, scored, or used for rubric calibration until explicitly authorized. Lifecycle: SEALED → OPENED → CONSUMED. CONSUMED → SEALED is prohibited.",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "created_at": "2026-09-21T18:00:00Z",
+  "holdout_fixtures": [
+    {
+      "holdout_id": "HO-001",
+      "title": "Contradiction plus novelty distractor",
+      "description_sealed": "Contains an explicit contradiction embedded in a corpus with high-novelty distractors that may draw the instrument toward a false positive.",
+      "lifecycle_status": "SEALED",
+      "file": "holdout/HO-001-contradiction-novelty-distractor.json",
+      "sealed_note": "File is committed but must not be scored before OPENED authorization.",
+      "opening_condition": "Explicit written authorization from a designated adjudicator separate from the construction role.",
+      "non_claim": "HO-001 does not represent the expected correct Lens Shift conclusion."
+    },
+    {
+      "holdout_id": "HO-002",
+      "title": "Competing hypotheses with discriminating falsifier",
+      "description_sealed": "Two competing hypotheses about a claim; one has a specified falsifier. Tests whether the instrument identifies the discriminating evidence and applies it.",
+      "lifecycle_status": "SEALED",
+      "file": "holdout/HO-002-competing-hypotheses-falsifier.json",
+      "sealed_note": "File is committed but must not be scored before OPENED authorization.",
+      "opening_condition": "Explicit written authorization from a designated adjudicator separate from the construction role.",
+      "non_claim": "HO-002 does not establish that either hypothesis is correct."
+    },
+    {
+      "holdout_id": "HO-003",
+      "title": "Required legitimate retraction",
+      "description_sealed": "A trajectory that requires a REVISE step; tests whether the instrument accepts legitimate retraction without penalizing V score.",
+      "lifecycle_status": "SEALED",
+      "file": "holdout/HO-003-required-retraction.json",
+      "sealed_note": "File is committed but must not be scored before OPENED authorization.",
+      "opening_condition": "Explicit written authorization from a designated adjudicator separate from the construction role.",
+      "non_claim": "HO-003 does not assert that retraction is a protocol failure."
+    }
+  ],
+  "lifecycle_invariant": "CONSUMED → SEALED is prohibited. A failed holdout must be recorded in the evidence record of this instrument version. The instrument must not be modified to pass a holdout retroactively.",
+  "authorization_record": null,
+  "opened_at": null,
+  "consumed_at": null
+}

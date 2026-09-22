@@ -1,0 +1,186 @@
+{
+  "fixture_id": "CAL-002",
+  "fixture_type": "calibration",
+  "title": "Naturalistic Fork/CSH — Tension C: heterogeneous receiver exposure (72 retired vs. 36 deterministic)",
+  "description": "Calibration fixture on Tension C: 72 GitHub-Models-dependent units versus 36 deterministic-receiver units unaffected by retirement. Tests instrument sensitivity to partial-class exposure.",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "lifecycle": "open",
+  "source_tensions": ["Tension C"],
+  "trajectory_id": "CAL-002-TRJ-001",
+  "fixture_type_canonical": "calibration",
+  "fixture_id_canonical": "CAL-002",
+  "bound_repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "rubric_version": "v0.1",
+  "states": [
+    {
+      "state_n": 0,
+      "description": "108 total run-order units. 72 use retired GitHub Models endpoint; 36 use local deterministic receiver. The block applies differently across these classes.",
+      "core": { "P": 4, "G": 4, "C": 3, "F": 3, "R": 0 },
+      "diagnostic": { "B": 1, "A": 1, "U": 1, "K": 4, "X": 2, "V": 0 }
+    },
+    {
+      "state_n": 1,
+      "description": "Successor: the block is NOT homogeneous. The 36 deterministic units are not subject to the retirement blockage. The instrument should distinguish whole-baseline block from partial-class block.",
+      "core": { "P": 4, "G": 4, "C": 3, "F": 4, "R": 0 },
+      "diagnostic": { "B": 0, "A": 1, "U": 0, "K": 4, "X": 1, "V": 0 }
+    }
+  ],
+  "transitions": [
+    {
+      "from_state_n": 0,
+      "to_state_n": 1,
+      "transition_labels": ["NARROW", "GROUND"],
+      "tau_n_description": "Tension: treating the block as applying to all 108 units homogeneously is inaccurate. 36 deterministic units are not retired-platform-dependent. Narrowing reveals heterogeneous exposure.",
+      "tau_in_consequences_S_n": true
+    }
+  ],
+  "branch_records": [
+    {
+      "state_n": 0,
+      "raw_candidates": [
+        {
+          "candidate_id": "CAL-002-BC-01",
+          "summary": "Distinguish the two receiver classes and their different exposure to retirement; narrow claims to apply only to the 72 dependent units.",
+          "transition_labels": ["NARROW", "GROUND"]
+        },
+        {
+          "candidate_id": "CAL-002-BC-02",
+          "summary": "Treat all 108 units as blocked due to whole-baseline blockage.",
+          "transition_labels": ["COMPRESS"]
+        }
+      ],
+      "eligible_candidates": ["CAL-002-BC-01"],
+      "selected_candidate": "CAL-002-BC-01",
+      "BSR": 0.5,
+      "rejections": [
+        {
+          "candidate_id": "CAL-002-BC-02",
+          "rejection_codes": ["B-8", "B-9"],
+          "rationale": "Treating all 108 as blocked ignores the corpus evidence that 36 deterministic units are not retired-platform-dependent. This is both an unlicensed promotion and a corpus-boundary violation."
+        }
+      ]
+    }
+  ],
+  "claim_ledger": [
+    {
+      "entry_id": "CAL-002-CL-01",
+      "state_n": 0,
+      "claim_text": "72 of 108 run-order units depend on the retired GitHub Models endpoint.",
+      "claim_status": "OBSERVED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "Direct reading of BASELINE_POPULATION_ACCOUNTING_20260921.json receiver_class_populations.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "units_dependent_on_retired_endpoint.total_github_models_dependent = 72",
+        "observed_or_inferred": "observed",
+        "counterevidence": null
+      },
+      "limitations": "Count depends on frozen run order; not re-verified here.",
+      "uncertainty": "None material."
+    },
+    {
+      "entry_id": "CAL-002-CL-02",
+      "state_n": 0,
+      "claim_text": "36 of 108 run-order units use the local deterministic receiver and are not affected by platform retirement.",
+      "claim_status": "OBSERVED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "Direct reading of receiver_class_populations for deterministic_receiver.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "units_dependent_on_retired_endpoint.deterministic_not_affected = 36",
+        "observed_or_inferred": "observed",
+        "counterevidence": null
+      },
+      "limitations": "Deterministic receiver executability not independently verified here.",
+      "uncertainty": "None material."
+    },
+    {
+      "entry_id": "CAL-002-CL-03",
+      "state_n": 1,
+      "claim_text": "The retirement blockage applies heterogeneously: 72 units are blocked; 36 units are not blocked by the retirement.",
+      "claim_status": "DERIVED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "From CAL-002-CL-01 (72 dependent) AND CAL-002-CL-02 (36 not dependent), applying set-theoretic combination.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "receiver_class_populations (combined)",
+        "observed_or_inferred": "inferred",
+        "counterevidence": null
+      },
+      "limitations": "Derivation is straightforward; depends on accuracy of the accounting record.",
+      "uncertainty": "None material beyond the accounting record itself."
+    }
+  ],
+  "entropy_records": [
+    {
+      "entropy_record_id": "CAL-002-ENT-0",
+      "state_n": 0,
+      "H_s": 0.25, "H_g": 0.00, "H_r": 0.00, "H_c": 0.50,
+      "delta_H_s": null, "delta_H_g": null, "delta_H_r": null, "delta_H_c": null,
+      "local_recovery_notes": null, "recovery_requires": null
+    },
+    {
+      "entropy_record_id": "CAL-002-ENT-1",
+      "state_n": 1,
+      "H_s": 0.00, "H_g": 0.00, "H_r": 0.00, "H_c": 0.25,
+      "delta_H_s": -0.25, "delta_H_g": 0.00, "delta_H_r": 0.00, "delta_H_c": -0.25,
+      "local_recovery_notes": null, "recovery_requires": null
+    }
+  ],
+  "uncertainty_records": [
+    {
+      "uncertainty_record_id": "CAL-002-UNC-0",
+      "state_n": 0,
+      "sources": [
+        {
+          "source_id": "CAL-002-UNC-0-SRC-1",
+          "type": "boundary_ambiguity",
+          "description": "Whole-baseline vs. partial-class exposure boundary is ambiguous if the block is described globally.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "Affects whether blockage applies to all 108 or only 72 units.",
+          "mitigation": "Resolved in state_n=1 by NARROW."
+        }
+      ],
+      "aggregate_U_score": 1
+    },
+    {
+      "uncertainty_record_id": "CAL-002-UNC-1",
+      "state_n": 1,
+      "sources": [
+        {
+          "source_id": "CAL-002-UNC-1-SRC-1",
+          "type": "evidence_gap",
+          "description": "Deterministic receiver executability in current environment not verified by this fixture.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "The 36 deterministic units are 'not blocked by retirement' but may face other barriers.",
+          "mitigation": null
+        }
+      ],
+      "aggregate_U_score": 0
+    }
+  ],
+  "EPR": {
+    "N_unlicensed_promotions": 0,
+    "N_status_transitions_assessed": 0,
+    "EPR_value": 0.0
+  },
+  "BSR_by_state": [
+    { "state_n": 0, "BSR": 0.5 }
+  ],
+  "expected_result": {
+    "instrument_classification": "qualifying_recursive_transition",
+    "disposition": "CONSTRUCTED_AND_STRUCTURALLY_CLOSED"
+  }
+}

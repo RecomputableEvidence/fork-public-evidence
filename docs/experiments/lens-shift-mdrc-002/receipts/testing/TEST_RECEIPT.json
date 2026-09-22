@@ -1,0 +1,1370 @@
+{
+  "receipt_id": "LS-MDRC-002-TEST-RECEIPT-v0.1",
+  "record_type": "test_receipt",
+  "role": "TEST",
+  "generated_at_utc": "2026-09-22T02:42:41.494030+00:00",
+  "start_time_utc": "2026-09-22T02:42:41.441319+00:00",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "package_root": "C:\\Users\\Rwcal\\.bob\\playground\\fork-public-evidence\\docs\\experiments\\lens-shift-mdrc-002",
+  "test_summary": {
+    "total": 222,
+    "passed": 222,
+    "failed": 0,
+    "pass_rate": 1.0
+  },
+  "overall_disposition": "TEST_PASS_BOUNDED",
+  "test_results": [
+    {
+      "test_id": "T01-schemas/LS_MDRM_STATE_DICTIONARY.json",
+      "description": "Required schema present: schemas/LS_MDRM_STATE_DICTIONARY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_TRANSITION_MANUAL.json",
+      "description": "Required schema present: schemas/LS_MDRM_TRANSITION_MANUAL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_BRANCH_PROTOCOL.json",
+      "description": "Required schema present: schemas/LS_MDRM_BRANCH_PROTOCOL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "description": "Required schema present: schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "description": "Required schema present: schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "description": "Required schema present: schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_ENTROPY_SCHEMA.json",
+      "description": "Required schema present: schemas/LS_MDRM_ENTROPY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_CONTROL_VECTOR.json",
+      "description": "Required schema present: schemas/LS_MDRM_CONTROL_VECTOR.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_EVALUATION_MANUAL.json",
+      "description": "Required schema present: schemas/LS_MDRM_EVALUATION_MANUAL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "description": "Required schema present: schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T01-schemas/LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "description": "Required schema present: schemas/LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/development/DEV-001-minimal-valid-trajectory.json",
+      "description": "Required fixture present: fixtures/development/DEV-001-minimal-valid-trajectory.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/development/DEV-002-branch-lifecycle-bsr.json",
+      "description": "Required fixture present: fixtures/development/DEV-002-branch-lifecycle-bsr.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json",
+      "description": "Required fixture present: fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "description": "Required fixture present: fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/holdout/HOLDOUT_MANIFEST.json",
+      "description": "Required fixture present: fixtures/holdout/HOLDOUT_MANIFEST.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/negative-controls/NC-1-brainstorming.json",
+      "description": "Required fixture present: fixtures/negative-controls/NC-1-brainstorming.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/negative-controls/NC-2-through-NC-7-definitions.json",
+      "description": "Required fixture present: fixtures/negative-controls/NC-2-through-NC-7-definitions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/sentinels/SEN-001-disguised-restatement.json",
+      "description": "Required fixture present: fixtures/sentinels/SEN-001-disguised-restatement.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json",
+      "description": "Required fixture present: fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T02-fixtures/sentinels/SEN-003-unlicensed-epr-violation.json",
+      "description": "Required fixture present: fixtures/sentinels/SEN-003-unlicensed-epr-violation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_BRANCH_PROTOCOL.json",
+      "description": "JSON parseable: LS_MDRM_BRANCH_PROTOCOL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "description": "JSON parseable: LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_CONTROL_VECTOR.json",
+      "description": "JSON parseable: LS_MDRM_CONTROL_VECTOR.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_ENTROPY_SCHEMA.json",
+      "description": "JSON parseable: LS_MDRM_ENTROPY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_EVALUATION_MANUAL.json",
+      "description": "JSON parseable: LS_MDRM_EVALUATION_MANUAL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "description": "JSON parseable: LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "description": "JSON parseable: LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_STATE_DICTIONARY.json",
+      "description": "JSON parseable: LS_MDRM_STATE_DICTIONARY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "description": "JSON parseable: LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_TRANSITION_MANUAL.json",
+      "description": "JSON parseable: LS_MDRM_TRANSITION_MANUAL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T03-LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "description": "JSON parseable: LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-CAL-001-tension-a-preservation-vs-executability.json",
+      "description": "JSON parseable: CAL-001-tension-a-preservation-vs-executability.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "description": "JSON parseable: CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-DEV-001-minimal-valid-trajectory.json",
+      "description": "JSON parseable: DEV-001-minimal-valid-trajectory.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-DEV-002-branch-lifecycle-bsr.json",
+      "description": "JSON parseable: DEV-002-branch-lifecycle-bsr.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-HOLDOUT_MANIFEST.json",
+      "description": "JSON parseable: HOLDOUT_MANIFEST.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-NC-1-brainstorming.json",
+      "description": "JSON parseable: NC-1-brainstorming.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-NC-2-through-NC-7-definitions.json",
+      "description": "JSON parseable: NC-2-through-NC-7-definitions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-SEN-001-disguised-restatement.json",
+      "description": "JSON parseable: SEN-001-disguised-restatement.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-SEN-002-elegant-abstraction-no-evidence.json",
+      "description": "JSON parseable: SEN-002-elegant-abstraction-no-evidence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T04-SEN-003-unlicensed-epr-violation.json",
+      "description": "JSON parseable: SEN-003-unlicensed-epr-violation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_BRANCH_PROTOCOL.json",
+      "description": "Bound commit correct in LS_MDRM_BRANCH_PROTOCOL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "description": "Bound commit correct in LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_CONTROL_VECTOR.json",
+      "description": "Bound commit correct in LS_MDRM_CONTROL_VECTOR.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_ENTROPY_SCHEMA.json",
+      "description": "Bound commit correct in LS_MDRM_ENTROPY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_EVALUATION_MANUAL.json",
+      "description": "Bound commit correct in LS_MDRM_EVALUATION_MANUAL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "description": "Bound commit correct in LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "description": "Bound commit correct in LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_STATE_DICTIONARY.json",
+      "description": "Bound commit correct in LS_MDRM_STATE_DICTIONARY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "description": "Bound commit correct in LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_TRANSITION_MANUAL.json",
+      "description": "Bound commit correct in LS_MDRM_TRANSITION_MANUAL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T05-LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "description": "Bound commit correct in LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-CAL-001-tension-a-preservation-vs-executability.json-S0",
+      "description": "PCC-01 CAL-001-tension-a-preservation-vs-executability.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0",
+      "description": "PCC-01 CAL-002-tension-c-heterogeneous-receiver-exposure.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-DEV-001-minimal-valid-trajectory.json-S0",
+      "description": "PCC-01 DEV-001-minimal-valid-trajectory.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-DEV-002-branch-lifecycle-bsr.json-S0",
+      "description": "PCC-01 DEV-002-branch-lifecycle-bsr.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-NC-1-brainstorming.json-S0-empty",
+      "description": "PCC-01 empty eligible, selected documented in NC-1-brainstorming.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-NC-1-brainstorming.json-S1-empty",
+      "description": "PCC-01 empty eligible, selected documented in NC-1-brainstorming.json state 1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-SEN-001-disguised-restatement.json-S0-empty",
+      "description": "PCC-01 empty eligible, selected documented in SEN-001-disguised-restatement.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-SEN-002-elegant-abstraction-no-evidence.json-S0-empty",
+      "description": "PCC-01 empty eligible, selected documented in SEN-002-elegant-abstraction-no-evidence.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T06-SEN-003-unlicensed-epr-violation.json-S0-empty",
+      "description": "PCC-01 empty eligible, selected documented in SEN-003-unlicensed-epr-violation.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-CAL-001-tension-a-preservation-vs-executability.json-S0",
+      "description": "PCC-02 CAL-001-tension-a-preservation-vs-executability.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0",
+      "description": "PCC-02 CAL-002-tension-c-heterogeneous-receiver-exposure.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-DEV-001-minimal-valid-trajectory.json-S0",
+      "description": "PCC-02 DEV-001-minimal-valid-trajectory.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-DEV-002-branch-lifecycle-bsr.json-S0",
+      "description": "PCC-02 DEV-002-branch-lifecycle-bsr.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-NC-1-brainstorming.json-S0",
+      "description": "PCC-02 NC-1-brainstorming.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-NC-1-brainstorming.json-S1",
+      "description": "PCC-02 NC-1-brainstorming.json state 1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-SEN-001-disguised-restatement.json-S0",
+      "description": "PCC-02 SEN-001-disguised-restatement.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-SEN-002-elegant-abstraction-no-evidence.json-S0",
+      "description": "PCC-02 SEN-002-elegant-abstraction-no-evidence.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T07-SEN-003-unlicensed-epr-violation.json-S0",
+      "description": "PCC-02 SEN-003-unlicensed-epr-violation.json state 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-CAL-001-tension-a-preservation-vs-executability.json-S0-CAL-001-BC-02",
+      "description": "PCC-03 rejection codes for CAL-001-BC-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-CAL-001-tension-a-preservation-vs-executability.json-S0-CAL-001-BC-03",
+      "description": "PCC-03 rejection codes for CAL-001-BC-03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0-CAL-002-BC-02",
+      "description": "PCC-03 rejection codes for CAL-002-BC-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-DEV-001-minimal-valid-trajectory.json-S0-DEV-001-BC-02",
+      "description": "PCC-03 rejection codes for DEV-001-BC-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-DEV-002-branch-lifecycle-bsr.json-S0-DEV-002-BC-01",
+      "description": "PCC-03 rejection codes for DEV-002-BC-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-DEV-002-branch-lifecycle-bsr.json-S0-DEV-002-BC-03",
+      "description": "PCC-03 rejection codes for DEV-002-BC-03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-NC-1-brainstorming.json-S0-NC-1-BC-01",
+      "description": "PCC-03 rejection codes for NC-1-BC-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-NC-1-brainstorming.json-S1-NC-1-BC-02",
+      "description": "PCC-03 rejection codes for NC-1-BC-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-SEN-001-disguised-restatement.json-S0-SEN-001-BC-01",
+      "description": "PCC-03 rejection codes for SEN-001-BC-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-SEN-002-elegant-abstraction-no-evidence.json-S0-SEN-002-BC-01",
+      "description": "PCC-03 rejection codes for SEN-002-BC-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T08-SEN-003-unlicensed-epr-violation.json-S0-SEN-003-BC-01",
+      "description": "PCC-03 rejection codes for SEN-003-BC-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-CAL-001-tension-a-preservation-vs-executability.json-S0",
+      "description": "PCC-04 BSR CAL-001-tension-a-preservation-vs-executability.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0",
+      "description": "PCC-04 BSR CAL-002-tension-c-heterogeneous-receiver-exposure.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-DEV-001-minimal-valid-trajectory.json-S0",
+      "description": "PCC-04 BSR DEV-001-minimal-valid-trajectory.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-DEV-002-branch-lifecycle-bsr.json-S0",
+      "description": "PCC-04 BSR DEV-002-branch-lifecycle-bsr.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-NC-1-brainstorming.json-S0",
+      "description": "PCC-04 BSR NC-1-brainstorming.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-NC-1-brainstorming.json-S1",
+      "description": "PCC-04 BSR NC-1-brainstorming.json S1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-SEN-001-disguised-restatement.json-S0",
+      "description": "PCC-04 BSR SEN-001-disguised-restatement.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-SEN-002-elegant-abstraction-no-evidence.json-S0",
+      "description": "PCC-04 BSR SEN-002-elegant-abstraction-no-evidence.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T09-SEN-003-unlicensed-epr-violation.json-S0",
+      "description": "PCC-04 BSR SEN-003-unlicensed-epr-violation.json S0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-01",
+      "description": "PCC-05 claim status valid: CAL-001-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-02",
+      "description": "PCC-05 claim status valid: CAL-001-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-03",
+      "description": "PCC-05 claim status valid: CAL-001-CL-03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-01",
+      "description": "PCC-05 claim status valid: CAL-002-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-02",
+      "description": "PCC-05 claim status valid: CAL-002-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-03",
+      "description": "PCC-05 claim status valid: CAL-002-CL-03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-01",
+      "description": "PCC-05 claim status valid: DEV-001-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-02",
+      "description": "PCC-05 claim status valid: DEV-001-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-01",
+      "description": "PCC-05 claim status valid: DEV-002-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-02",
+      "description": "PCC-05 claim status valid: DEV-002-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-NC-1-brainstorming.json-NC-1-CL-01",
+      "description": "PCC-05 claim status valid: NC-1-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-SEN-001-disguised-restatement.json-SEN-001-CL-01",
+      "description": "PCC-05 claim status valid: SEN-001-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-CL-01",
+      "description": "PCC-05 claim status valid: SEN-002-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-01",
+      "description": "PCC-05 claim status valid: SEN-003-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T10-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-02",
+      "description": "PCC-05 claim status valid: SEN-003-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-CAL-001-tension-a-preservation-vs-executability.json",
+      "description": "PCC-06 EPR consistency CAL-001-tension-a-preservation-vs-executability.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "description": "PCC-06 EPR consistency CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-DEV-001-minimal-valid-trajectory.json",
+      "description": "PCC-06 EPR consistency DEV-001-minimal-valid-trajectory.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-DEV-002-branch-lifecycle-bsr.json",
+      "description": "PCC-06 EPR consistency DEV-002-branch-lifecycle-bsr.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-NC-1-brainstorming.json",
+      "description": "PCC-06 EPR consistency NC-1-brainstorming.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-SEN-001-disguised-restatement.json",
+      "description": "PCC-06 EPR consistency SEN-001-disguised-restatement.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-SEN-002-elegant-abstraction-no-evidence.json",
+      "description": "PCC-06 EPR consistency SEN-002-elegant-abstraction-no-evidence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T11-SEN-003-unlicensed-epr-violation.json",
+      "description": "PCC-06 EPR consistency SEN-003-unlicensed-epr-violation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-01",
+      "description": "PCC-07 evidence binding CAL-001-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-02",
+      "description": "PCC-07 evidence binding CAL-001-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-03",
+      "description": "PCC-07 evidence binding CAL-001-CL-03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-01",
+      "description": "PCC-07 evidence binding CAL-002-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-02",
+      "description": "PCC-07 evidence binding CAL-002-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-03",
+      "description": "PCC-07 evidence binding CAL-002-CL-03",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-01",
+      "description": "PCC-07 evidence binding DEV-001-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-02",
+      "description": "PCC-07 evidence binding DEV-001-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-01",
+      "description": "PCC-07 evidence binding DEV-002-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-02",
+      "description": "PCC-07 evidence binding DEV-002-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-NC-1-brainstorming.json-NC-1-CL-01",
+      "description": "PCC-07 evidence binding NC-1-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-SEN-001-disguised-restatement.json-SEN-001-CL-01",
+      "description": "PCC-07 evidence binding SEN-001-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-CL-01",
+      "description": "PCC-07 evidence binding SEN-002-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-01",
+      "description": "PCC-07 evidence binding SEN-003-CL-01",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T12-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-02",
+      "description": "PCC-07 evidence binding SEN-003-CL-02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_s",
+      "description": "PCC-09 H_s present in CAL-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_g",
+      "description": "PCC-09 H_g present in CAL-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_r",
+      "description": "PCC-09 H_r present in CAL-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_c",
+      "description": "PCC-09 H_c present in CAL-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_s",
+      "description": "PCC-09 H_s present in CAL-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_g",
+      "description": "PCC-09 H_g present in CAL-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_r",
+      "description": "PCC-09 H_r present in CAL-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_c",
+      "description": "PCC-09 H_c present in CAL-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_s",
+      "description": "PCC-09 H_s present in CAL-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_g",
+      "description": "PCC-09 H_g present in CAL-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_r",
+      "description": "PCC-09 H_r present in CAL-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_c",
+      "description": "PCC-09 H_c present in CAL-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_s",
+      "description": "PCC-09 H_s present in CAL-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_g",
+      "description": "PCC-09 H_g present in CAL-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_r",
+      "description": "PCC-09 H_r present in CAL-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_c",
+      "description": "PCC-09 H_c present in CAL-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_s",
+      "description": "PCC-09 H_s present in DEV-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_g",
+      "description": "PCC-09 H_g present in DEV-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_r",
+      "description": "PCC-09 H_r present in DEV-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_c",
+      "description": "PCC-09 H_c present in DEV-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_s",
+      "description": "PCC-09 H_s present in DEV-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_g",
+      "description": "PCC-09 H_g present in DEV-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_r",
+      "description": "PCC-09 H_r present in DEV-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_c",
+      "description": "PCC-09 H_c present in DEV-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_s",
+      "description": "PCC-09 H_s present in DEV-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_g",
+      "description": "PCC-09 H_g present in DEV-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_r",
+      "description": "PCC-09 H_r present in DEV-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_c",
+      "description": "PCC-09 H_c present in DEV-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_s",
+      "description": "PCC-09 H_s present in DEV-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_g",
+      "description": "PCC-09 H_g present in DEV-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_r",
+      "description": "PCC-09 H_r present in DEV-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_c",
+      "description": "PCC-09 H_c present in DEV-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-0-H_s",
+      "description": "PCC-09 H_s present in NC-1-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-0-H_g",
+      "description": "PCC-09 H_g present in NC-1-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-0-H_r",
+      "description": "PCC-09 H_r present in NC-1-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-0-H_c",
+      "description": "PCC-09 H_c present in NC-1-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-1-H_s",
+      "description": "PCC-09 H_s present in NC-1-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-1-H_g",
+      "description": "PCC-09 H_g present in NC-1-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-1-H_r",
+      "description": "PCC-09 H_r present in NC-1-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-1-H_c",
+      "description": "PCC-09 H_c present in NC-1-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-2-H_s",
+      "description": "PCC-09 H_s present in NC-1-ENT-2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-2-H_g",
+      "description": "PCC-09 H_g present in NC-1-ENT-2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-2-H_r",
+      "description": "PCC-09 H_r present in NC-1-ENT-2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-NC-1-brainstorming.json-NC-1-ENT-2-H_c",
+      "description": "PCC-09 H_c present in NC-1-ENT-2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_s",
+      "description": "PCC-09 H_s present in SEN-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_g",
+      "description": "PCC-09 H_g present in SEN-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_r",
+      "description": "PCC-09 H_r present in SEN-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_c",
+      "description": "PCC-09 H_c present in SEN-001-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_s",
+      "description": "PCC-09 H_s present in SEN-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_g",
+      "description": "PCC-09 H_g present in SEN-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_r",
+      "description": "PCC-09 H_r present in SEN-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_c",
+      "description": "PCC-09 H_c present in SEN-001-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_s",
+      "description": "PCC-09 H_s present in SEN-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_g",
+      "description": "PCC-09 H_g present in SEN-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_r",
+      "description": "PCC-09 H_r present in SEN-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_c",
+      "description": "PCC-09 H_c present in SEN-002-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_s",
+      "description": "PCC-09 H_s present in SEN-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_g",
+      "description": "PCC-09 H_g present in SEN-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_r",
+      "description": "PCC-09 H_r present in SEN-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_c",
+      "description": "PCC-09 H_c present in SEN-002-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_s",
+      "description": "PCC-09 H_s present in SEN-003-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_g",
+      "description": "PCC-09 H_g present in SEN-003-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_r",
+      "description": "PCC-09 H_r present in SEN-003-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_c",
+      "description": "PCC-09 H_c present in SEN-003-ENT-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_s",
+      "description": "PCC-09 H_s present in SEN-003-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_g",
+      "description": "PCC-09 H_g present in SEN-003-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_r",
+      "description": "PCC-09 H_r present in SEN-003-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_c",
+      "description": "PCC-09 H_c present in SEN-003-ENT-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-UNC-0",
+      "description": "PCC-11 uncertainty sources present in CAL-001-UNC-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-UNC-1",
+      "description": "PCC-11 uncertainty sources present in CAL-001-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-UNC-0",
+      "description": "PCC-11 uncertainty sources present in CAL-002-UNC-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-UNC-1",
+      "description": "PCC-11 uncertainty sources present in CAL-002-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-DEV-001-minimal-valid-trajectory.json-DEV-001-UNC-0",
+      "description": "PCC-11 uncertainty sources present in DEV-001-UNC-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-DEV-001-minimal-valid-trajectory.json-DEV-001-UNC-1",
+      "description": "PCC-11 uncertainty sources present in DEV-001-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-DEV-002-branch-lifecycle-bsr.json-DEV-002-UNC-0",
+      "description": "PCC-11 uncertainty sources present in DEV-002-UNC-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-DEV-002-branch-lifecycle-bsr.json-DEV-002-UNC-1",
+      "description": "PCC-11 uncertainty sources present in DEV-002-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-NC-1-brainstorming.json-NC-1-UNC-0",
+      "description": "PCC-11 uncertainty sources present in NC-1-UNC-0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-SEN-001-disguised-restatement.json-SEN-001-UNC-1",
+      "description": "PCC-11 uncertainty sources present in SEN-001-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-UNC-1",
+      "description": "PCC-11 uncertainty sources present in SEN-002-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T14-SEN-003-unlicensed-epr-violation.json-SEN-003-UNC-1",
+      "description": "PCC-11 uncertainty sources present in SEN-003-UNC-1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T15-HO-001",
+      "description": "PCC-12 holdout HO-001 is SEALED",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T15-HO-002",
+      "description": "PCC-12 holdout HO-002 is SEALED",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T15-HO-003",
+      "description": "PCC-12 holdout HO-003 is SEALED",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T16-NC-1-brainstorming.json",
+      "description": "Negative control has non-qualifying expected result: NC-1-brainstorming.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T16-NC-2-through-NC-7-definitions.json",
+      "description": "Negative control has non-qualifying expected result: NC-2-through-NC-7-definitions.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T17-SEN-001-disguised-restatement.json",
+      "description": "Sentinel has non-qualifying/nonconformant expected result: SEN-001-disguised-restatement.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T17-SEN-002-elegant-abstraction-no-evidence.json",
+      "description": "Sentinel has non-qualifying/nonconformant expected result: SEN-002-elegant-abstraction-no-evidence.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T17-SEN-003-unlicensed-epr-violation.json",
+      "description": "Sentinel has non-qualifying/nonconformant expected result: SEN-003-unlicensed-epr-violation.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T18-mutation-branch-eligibility",
+      "description": "Mutation: selected not in eligible \u2014 PCC-01 violation detected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T19-mutation-epr",
+      "description": "Mutation: HYPOTHESIZED->OBSERVED without license \u2014 PCC-06 violation detected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T20-mutation-commit",
+      "description": "Mutation: wrong repository commit in evidence binding \u2014 PCC-08 violation detected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T21-mutation-raw-branch",
+      "description": "Mutation: raw branch removal causes hash change \u2014 PCC-13 violation detectable",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": "T22-mutation-holdout-reopen",
+      "description": "Mutation: CONSUMED->SEALED lifecycle violation detected",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "violations_detected": [],
+  "mutations_tested": [
+    "T18: branch selected not in eligible (PCC-01)",
+    "T19: unlicensed epistemic promotion HYPOTHESIZED->OBSERVED (PCC-06)",
+    "T20: wrong repository commit in evidence binding (PCC-08)",
+    "T21: raw branch candidate removed (PCC-13)",
+    "T22: CONSUMED->SEALED holdout lifecycle violation (PCC-12)"
+  ],
+  "limitations": [
+    "Structural tests only. Do not test substantive Lens Shift correctness.",
+    "JSON Schema $ref resolution not implemented; cross-schema validation not performed.",
+    "Adversarial mutations are simulated in-memory; do not modify frozen package files.",
+    "Test coverage does not include PCC-14 (scoring rule mutation), PCC-15 (evaluator contamination) \u2014 these require manual process verification.",
+    "Holdout fixtures HO-001, HO-002, HO-003 are not opened in this test pass; lifecycle integrity only."
+  ],
+  "non_claims": [
+    "TEST_PASS_BOUNDED does not establish that Lens Shift is valid or scientifically proven.",
+    "Passing structural tests does not authorize any downstream institutional reliance.",
+    "This test receipt is not independent scientific validation."
+  ]
+}

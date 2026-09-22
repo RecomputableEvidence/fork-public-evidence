@@ -1,0 +1,123 @@
+{
+  "freeze_id": "LS-MDRC-002-CONSTRUCTION-FREEZE-001",
+  "record_type": "construction_freeze_admission_receipt",
+  "created_at_utc": "2026-09-22T03:00:00Z",
+
+  "identity_statements": {
+    "FREEZE_IDENTITY_IS_NOT_SCIENTIFIC_VALIDATION": true,
+    "REPOSITORY_ADMISSION_IS_NOT_MEASUREMENT_VALIDITY": true,
+    "SOURCE_EVIDENCE_COMMIT_IS_NOT_ADMISSION_COMMIT": true,
+    "STRUCTURAL_PASS_IS_NOT_CONSTRUCT_VALIDITY": true,
+    "SAME_SESSION_RECOMPUTATION_IS_NOT_INDEPENDENT_RECOMPUTATION": true
+  },
+
+  "package_population_count_including_sha256sums": 30,
+  "package_population_count_excluding_sha256sums": 29,
+  "source_evidence_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "source_evidence_commit_description": "Merge PR #160 — Post-execution reconciliation: retirement evidence, adjudication, v0.6 standing, migration proposal",
+  "admission_base_commit": "d9e17deefec2b844e5f5b82c84986e085e077d58",
+  "admission_base_description": "origin/main HEAD at time of admission branch creation (PR #161 merged)",
+  "admission_branch": "lens-shift/mdrc-002-construction-freeze-001",
+
+  "package_root": "docs/experiments/lens-shift-mdrc-002/",
+  "package_population_count": 29,
+  "package_population": [
+    "README.md",
+    "RECOMPUTATION_INSTRUCTIONS.md",
+    "SHA256SUMS",
+    "ls_mdrc_002_structural_tests.py",
+    "fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json",
+    "fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+    "fixtures/development/DEV-001-minimal-valid-trajectory.json",
+    "fixtures/development/DEV-002-branch-lifecycle-bsr.json",
+    "fixtures/holdout/HOLDOUT_MANIFEST.json",
+    "fixtures/negative-controls/NC-1-brainstorming.json",
+    "fixtures/negative-controls/NC-2-through-NC-7-definitions.json",
+    "fixtures/sentinels/SEN-001-disguised-restatement.json",
+    "fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json",
+    "fixtures/sentinels/SEN-003-unlicensed-epr-violation.json",
+    "receipts/construction/CONSTRUCTION_RECEIPT.json",
+    "receipts/recomputation/RECOMPUTATION_RECEIPT.json",
+    "receipts/testing/TEST_RECEIPT.json",
+    "receipts/testing/TEST_RECEIPT_FORMAL.json",
+    "receipts/LS_MDRC_002_CONSTRUCTION_FREEZE_001.json",
+    "schemas/LS_MDRM_BRANCH_PROTOCOL.json",
+    "schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+    "schemas/LS_MDRM_CONTROL_VECTOR.json",
+    "schemas/LS_MDRM_ENTROPY_SCHEMA.json",
+    "schemas/LS_MDRM_EVALUATION_MANUAL.json",
+    "schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+    "schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+    "schemas/LS_MDRM_STATE_DICTIONARY.json",
+    "schemas/LS_MDRM_TRAJECTORY_SCHEMA.json",
+    "schemas/LS_MDRM_TRANSITION_MANUAL.json",
+    "schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json"
+  ],
+
+  "key_digest_bindings": {
+    "SHA256SUMS": "18471330226efaf12ef7b49dfd76a6026d1ebbd2fa81b132e2785522438237b7",
+    "ls_mdrc_002_structural_tests.py": "e691775e8d4fbc0fc45aa1940300077c8997cd3def856c9f1b36593d3909fa1e",
+    "receipts/construction/CONSTRUCTION_RECEIPT.json": "74d68d5f8e80f357701fa41ec50c7c5f39588252c4d7c25357e710c55d1567de",
+    "receipts/testing/TEST_RECEIPT.json": "c246327a96573c2c702293cb5b2efc56db8efd734077a5f13cf8f7edb76f9077",
+    "receipts/testing/TEST_RECEIPT_FORMAL.json": "d36251dd49904fecbcc02fbe80ef62faf66d01fc1dbdff567937fb57740fa7d2",
+    "receipts/recomputation/RECOMPUTATION_RECEIPT.json": "05296a0c28dac1eba153243d764693d3410811756e6c579834c173040df157f3",
+    "receipts/LS_MDRC_002_CONSTRUCTION_FREEZE_001.json": "self-referential: hash captured after SHA256SUMS update; see SHA256SUMS for authoritative value"
+  },
+
+  "pre_admission_test_result": {
+    "command": "python ls_mdrc_002_structural_tests.py --package-root .",
+    "total": 222,
+    "passed": 222,
+    "failed": 0,
+    "disposition": "TEST_PASS_BOUNDED",
+    "note": "This run refreshed TEST_RECEIPT.json timestamp only; all substantive results identical to prior runs."
+  },
+
+  "sha256sums_verification": {
+    "entries_checked": 28,
+    "all_verified": true,
+    "note": "SHA256SUMS was refreshed after pre-admission test run updated TEST_RECEIPT.json timestamp. No substantive content changed."
+  },
+
+  "holdout_state": {
+    "all_sealed": true,
+    "fixture_ids": ["HO-001", "HO-002", "HO-003"],
+    "opened_at": null,
+    "consumed_at": null
+  },
+
+  "runs_directory": {
+    "empty": true,
+    "note": "MEASURE phase has not begun."
+  },
+
+  "csh_objects_unmodified": true,
+  "csh_check": "git status and git diff confirm no modifications to docs/experiments/cross-system-claim-handoff-v0.1/ or any other existing repository path.",
+
+  "unresolved_ambiguities": {
+    "in_construction_receipt_json": ["AMB-001", "AMB-002", "AMB-003", "AMB-004", "AMB-005"],
+    "in_final_report_narrative_only": ["AMB-006", "AMB-007", "AMB-008"],
+    "discrepancy_note": "AMB-006 through AMB-008 were identified in the final report narrative (§E) but were not added to CONSTRUCTION_RECEIPT.json at construction time. Per governing constraint, the receipt is not modified. This freeze receipt records the discrepancy. AMB-006 through AMB-008 are preserved here and in the final report text and remain unresolved.",
+    "AMB-006": "Holdout lifecycle authorization event not mechanically present within single construction pass",
+    "AMB-007": "Predecessor tension operationalization: tau_n in Consequences(S_n) requires operator judgment; no decision procedure specified",
+    "AMB-008": "Bob's freedom to find tensions non-productive is correct but creates unenforceable discretion at every transition"
+  },
+
+  "same_session_recomputation_limitation": "The RECOMPUTE pass was performed within the same Bob session as CONSTRUCT and TEST. Specification §22 prefers a fresh context. This is documented in RECOMPUTATION_RECEIPT.json and is an unresolved limitation of this admission package. An independent-context recomputation may be performed against the admission commit using RECOMPUTATION_INSTRUCTIONS.md.",
+
+  "measure_not_begun": true,
+  "holdouts_not_opened": true,
+  "no_new_fixtures_instantiated": true,
+  "AMB_007_not_resolved": true,
+  "no_semantic_or_rubric_changes": true,
+
+  "non_claims": [
+    "This freeze receipt does not establish that Lens Shift is valid, optimal, or scientifically proven.",
+    "Repository admission does not constitute measurement validity.",
+    "The admission commit is not the source-evidence commit.",
+    "Structural test pass does not establish construct validity.",
+    "Same-session recomputation is not independent recomputation.",
+    "This record does not authorize any institutional reliance on LS-MDRC-002 results.",
+    "Admission does not begin the MEASURE phase."
+  ]
+}

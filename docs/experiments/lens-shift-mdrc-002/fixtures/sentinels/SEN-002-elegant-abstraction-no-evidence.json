@@ -1,0 +1,140 @@
+{
+  "fixture_id": "SEN-002",
+  "fixture_type": "sentinel",
+  "title": "Elegant abstraction without evidence support",
+  "description": "A trajectory where a high-C, high-P, zero-G abstraction is produced. Tests whether the instrument rejects evidence-free abstractions even when they appear insightful.",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "lifecycle": "open",
+  "sentinel_class": "evidence_free_elegant_abstraction",
+  "expected_instrument_behavior": "G=0 at successor; should be rejected with B-2; instrument should NOT qualify as recursive Lens Shift.",
+  "trajectory_id": "SEN-002-TRJ-001",
+  "fixture_type_canonical": "sentinel",
+  "fixture_id_canonical": "SEN-002",
+  "bound_repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "rubric_version": "v0.1",
+  "states": [
+    {
+      "state_n": 0,
+      "description": "The CSH baseline is blocked due to platform retirement.",
+      "core": { "P": 4, "G": 4, "C": 3, "F": 3, "R": 0 },
+      "diagnostic": { "B": 0, "A": 1, "U": 1, "K": 4, "X": 1, "V": 0 }
+    },
+    {
+      "state_n": 1,
+      "description": "Abstract claim: 'All AI experimental baselines are fragile with respect to infrastructure dependencies; the CSH case is a universal illustration of irreducible epistemic brittleness in computational science.'",
+      "evaluation_note": "This is a compelling abstraction, but has zero evidence binding for the universal claim. G=0 for the new universal proposition.",
+      "core": { "P": 3, "G": 0, "C": 4, "F": 0, "R": 0 },
+      "diagnostic": { "B": 4, "A": 4, "U": 4, "K": 3, "X": 3, "V": 0 }
+    }
+  ],
+  "transitions": [
+    {
+      "from_state_n": 0,
+      "to_state_n": 1,
+      "transition_labels": ["ABSTRACT"],
+      "tau_n_description": "Predecessor has a specific blocked baseline; abstraction ascends to a universal claim without evidence.",
+      "tau_in_consequences_S_n": true
+    }
+  ],
+  "branch_records": [
+    {
+      "state_n": 0,
+      "raw_candidates": [
+        {
+          "candidate_id": "SEN-002-BC-01",
+          "summary": "Universal abstraction: AI baselines are universally fragile with respect to infrastructure. CSH is a universal illustration.",
+          "transition_labels": ["ABSTRACT"]
+        }
+      ],
+      "eligible_candidates": [],
+      "selected_candidate": "SEN-002-BC-01",
+      "BSR": 0.0,
+      "rejections": [
+        {
+          "candidate_id": "SEN-002-BC-01",
+          "rejection_codes": ["B-2", "B-5"],
+          "rationale": "Universal claim has no evidence binding (G=0). Abstraction distance A=4 (evidence-free). B-2: evidence absent. B-5: abstraction limit exceeded."
+        }
+      ]
+    }
+  ],
+  "claim_ledger": [
+    {
+      "entry_id": "SEN-002-CL-01",
+      "state_n": 1,
+      "claim_text": "All AI experimental baselines are fragile with respect to infrastructure dependencies.",
+      "claim_status": "HYPOTHESIZED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "Inductive generalization from one case. Generalization is not licensed by a single instance.",
+      "evidence_binding": {
+        "artifact_id_or_path": "none",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "none — no evidence bound for the universal claim",
+        "observed_or_inferred": "inferred",
+        "counterevidence": "Only one case observed; the universal claim is not grounded."
+      },
+      "limitations": "G=0; cannot be scored above HYPOTHESIZED without evidence covering the universal scope.",
+      "uncertainty": "Complete for the universal claim; none for the specific CSH instance."
+    }
+  ],
+  "entropy_records": [
+    {
+      "entropy_record_id": "SEN-002-ENT-0",
+      "state_n": 0,
+      "H_s": 0.25, "H_g": 0.00, "H_r": 0.00, "H_c": 0.25,
+      "delta_H_s": null, "delta_H_g": null, "delta_H_r": null, "delta_H_c": null,
+      "local_recovery_notes": null, "recovery_requires": null
+    },
+    {
+      "entropy_record_id": "SEN-002-ENT-1",
+      "state_n": 1,
+      "H_s": 1.00, "H_g": 1.00, "H_r": 0.25, "H_c": 0.75,
+      "delta_H_s": 0.75, "delta_H_g": 1.00, "delta_H_r": 0.25, "delta_H_c": 0.50,
+      "local_recovery_notes": "All entropy components increase dramatically. Elegance of abstraction does not reduce entropy.",
+      "recovery_requires": null
+    }
+  ],
+  "uncertainty_records": [
+    {
+      "uncertainty_record_id": "SEN-002-UNC-1",
+      "state_n": 1,
+      "sources": [
+        {
+          "source_id": "SEN-002-UNC-1-SRC-1",
+          "type": "evidence_gap",
+          "description": "Universal claim has zero evidence binding; based on a single instance.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "All of SEN-002-CL-01 is ungrounded.",
+          "mitigation": null
+        },
+        {
+          "source_id": "SEN-002-UNC-1-SRC-2",
+          "type": "scoring_discretion",
+          "description": "High C=4 score may tempt evaluator to classify this as productive. Elegance is not a substitute for grounding.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "C and G are independent dimensions; high C does not compensate for G=0.",
+          "mitigation": "Rubric rule: instrument must require G >= 2 for eligibility."
+        }
+      ],
+      "aggregate_U_score": 4
+    }
+  ],
+  "EPR": {
+    "N_unlicensed_promotions": 0,
+    "N_status_transitions_assessed": 0,
+    "EPR_value": 0.0
+  },
+  "BSR_by_state": [
+    { "state_n": 0, "BSR": 0.0 }
+  ],
+  "expected_result": {
+    "instrument_classification": "NOT_qualifying_as_recursive_Lens_Shift",
+    "expected_G_at_S1": 0,
+    "expected_labels": ["ABSTRACT"],
+    "disposition": "TEST_PASS_BOUNDED",
+    "note": "Elegant abstraction with no evidence support must be rejected. If instrument passes this, it promotes elegance over grounding."
+  }
+}

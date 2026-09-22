@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA",
+  "title": "LS-MDRM Evidence–Claim Ledger Schema",
+  "description": "Schema for recording the full Claim → Inference → Evidence → Corpus Version chain for every material proposition.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "type": "object",
+  "required": ["ledger_id", "trajectory_id", "entries"],
+  "properties": {
+    "ledger_id": { "type": "string" },
+    "trajectory_id": { "type": "string" },
+    "bound_repository_commit": {
+      "type": "string",
+      "description": "All repository-backed evidence bindings default to this commit unless a more specific historical binding overrides."
+    },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ledger_entry" },
+      "minItems": 0
+    }
+  },
+  "definitions": {
+    "ledger_entry": {
+      "type": "object",
+      "required": [
+        "entry_id",
+        "state_n",
+        "claim_text",
+        "claim_status",
+        "inference_path",
+        "evidence_binding",
+        "limitations",
+        "uncertainty"
+      ],
+      "properties": {
+        "entry_id": { "type": "string" },
+        "state_n": { "type": "integer" },
+        "claim_text": { "type": "string", "description": "Verbatim or minimal-paraphrase claim proposition." },
+        "claim_status": {
+          "type": "string",
+          "enum": ["OBSERVED", "DERIVED", "HYPOTHESIZED", "COUNTERFACTUAL", "PROPOSED", "UNRESOLVED"],
+          "description": "Epistemic status at the time this ledger entry is created. Must not be retroactively upgraded."
+        },
+        "prior_claim_status": {
+          "type": ["string", "null"],
+          "description": "If this entry records a status transition, the prior status. Null if first assignment."
+        },
+        "promotion_licensed": {
+          "type": ["boolean", "null"],
+          "description": "If claim_status is stronger than prior_claim_status, whether the promotion is explicitly licensed by a rule. Null if no transition."
+        },
+        "promotion_license_rule": {
+          "type": ["string", "null"],
+          "description": "Citation to the rule or evidence that licenses the promotion. Required if promotion_licensed=true."
+        },
+        "EPR_contribution": {
+          "type": "boolean",
+          "description": "True if this entry contributes an unlicensed promotion to the EPR numerator."
+        },
+        "inference_path": {
+          "type": "string",
+          "description": "Transformation rule or logical path from evidence to claim."
+        },
+        "evidence_binding": {
+          "type": "object",
+          "required": ["artifact_id_or_path", "repository_commit", "exact_location", "observed_or_inferred"],
+          "properties": {
+            "artifact_id_or_path": { "type": "string" },
+            "repository_commit": { "type": "string" },
+            "exact_location": {
+              "type": "string",
+              "description": "Section, line range, field path, or other precise locator within the artifact."
+            },
+            "observed_or_inferred": {
+              "type": "string",
+              "enum": ["observed", "inferred", "mixed"]
+            },
+            "counterevidence": {
+              "type": ["string", "null"],
+              "description": "Summary of known counterevidence or null if none documented."
+            }
+          }
+        },
+        "limitations": {
+          "type": "string",
+          "description": "Known limitations on the claim's scope or inferential strength."
+        },
+        "uncertainty": {
+          "type": "string",
+          "description": "Sources and nature of uncertainty affecting this claim."
+        }
+      }
+    }
+  }
+}

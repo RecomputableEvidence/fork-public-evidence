@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER",
+  "title": "LS-MDRM Protocol Compliance Checker",
+  "description": "Machine-executable compliance rules for trajectory records. Each rule has an id, description, check function signature, and expected behavior on violations.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "checker_rules": [
+    {
+      "rule_id": "PCC-01",
+      "category": "branch_lifecycle",
+      "description": "For every transition node, B_n^selected must be a member of B_n^eligible.",
+      "check": "assert selected_candidate in eligible_candidates for each branch_record",
+      "violation_code": "BRANCH_SELECTED_NOT_IN_ELIGIBLE",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-02",
+      "category": "branch_lifecycle",
+      "description": "For every transition node, B_n^eligible must be a subset of B_n^raw.",
+      "check": "assert all(c in raw_candidates for c in eligible_candidates) for each branch_record",
+      "violation_code": "ELIGIBLE_NOT_SUBSET_OF_RAW",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-03",
+      "category": "branch_lifecycle",
+      "description": "Every raw candidate not in eligible must have at least one rejection code from the defined set.",
+      "check": "assert len(rejections_for_candidate) >= 1 and all codes in valid_rejection_codes for each excluded raw candidate",
+      "violation_code": "MISSING_REJECTION_CODE",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-04",
+      "category": "branch_lifecycle",
+      "description": "BSR must equal |eligible| / |raw|. Computed value must match recorded value within float precision.",
+      "check": "assert abs(BSR - len(eligible)/len(raw)) < 0.001",
+      "violation_code": "BSR_MISMATCH",
+      "disposition_on_violation": "MEASUREMENT_AMBIGUITY"
+    },
+    {
+      "rule_id": "PCC-05",
+      "category": "claim_status",
+      "description": "Every material claim must have an assigned status from the valid set.",
+      "check": "assert claim_status in ['OBSERVED','DERIVED','HYPOTHESIZED','COUNTERFACTUAL','PROPOSED','UNRESOLVED'] for each ledger entry",
+      "violation_code": "MISSING_CLAIM_STATUS",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-06",
+      "category": "EPR",
+      "description": "Unlicensed promotions must be detected. A promotion from weaker to stronger status without promotion_licensed=true is unlicensed.",
+      "check": "for each ledger entry where prior_claim_status != null and claim_status is stronger: assert promotion_licensed == true",
+      "violation_code": "UNLICENSED_EPISTEMIC_PROMOTION",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT",
+      "EPR_increment": "Each violation increments N_unlicensed_promotions"
+    },
+    {
+      "rule_id": "PCC-07",
+      "category": "evidence_binding",
+      "description": "Every evidence binding must contain artifact_id_or_path, repository_commit, and exact_location.",
+      "check": "assert all required fields present and non-empty for each evidence_binding",
+      "violation_code": "INCOMPLETE_EVIDENCE_BINDING",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-08",
+      "category": "evidence_binding",
+      "description": "Repository commit in evidence binding must equal the bound commit unless a specific historical override is documented.",
+      "check": "assert repository_commit == BOUND_COMMIT or historical_override_documented == true",
+      "violation_code": "REPOSITORY_COORDINATE_MISMATCH",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT",
+      "mutation_test": "Substitute current main HEAD for bound commit; rule must trigger."
+    },
+    {
+      "rule_id": "PCC-09",
+      "category": "entropy",
+      "description": "All four H components (H_s, H_g, H_r, H_c) must be present and independently recorded for every state.",
+      "check": "assert H_s != null and H_g != null and H_r != null and H_c != null for each entropy_record",
+      "violation_code": "ENTROPY_COMPONENT_MISSING",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-10",
+      "category": "entropy",
+      "description": "Entropy may not be collapsed into a single scalar. No single-value entropy summary replaces the four-component record.",
+      "check": "assert no field named 'H_total' or 'H_combined' or 'entropy_scalar' exists without the four components also present",
+      "violation_code": "ENTROPY_COLLAPSED",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-11",
+      "category": "uncertainty",
+      "description": "At least one uncertainty source must be documented per material state.",
+      "check": "assert len(uncertainty_record.sources) >= 1 for each material state",
+      "violation_code": "MISSING_UNCERTAINTY",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-12",
+      "category": "holdout_lifecycle",
+      "description": "A holdout fixture must follow SEALED → OPENED → CONSUMED. CONSUMED → SEALED is prohibited.",
+      "check": "assert no holdout fixture has lifecycle_status=='SEALED' after having previously been 'CONSUMED'",
+      "violation_code": "HOLDOUT_LIFECYCLE_VIOLATION",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-13",
+      "category": "raw_branch_preservation",
+      "description": "Raw branch set must not be retrospectively modified. Hash of raw_candidates array at time of recording must match hash at time of evaluation.",
+      "check": "assert sha256(raw_candidates) == recorded_raw_hash",
+      "violation_code": "RAW_BRANCH_MODIFIED",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT",
+      "mutation_test": "Remove one raw candidate from the array; rule must trigger."
+    },
+    {
+      "rule_id": "PCC-14",
+      "category": "scoring_rule_immutability",
+      "description": "Scoring rubric rules must not be modified after fixture output is observed.",
+      "check": "assert rubric version at evaluation matches rubric version at construction (compare schema hashes)",
+      "violation_code": "SCORING_RULE_MUTATION",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT",
+      "mutation_test": "Change a scoring level after running a fixture; rule must trigger."
+    },
+    {
+      "rule_id": "PCC-15",
+      "category": "evaluator_contamination",
+      "description": "Blind evaluator packet must not contain desired_result, expected_direction, or generator_self_evaluation.",
+      "check": "assert none of the prohibited fields are present in the evaluator_packet",
+      "violation_code": "EVALUATOR_CONTAMINATION",
+      "disposition_on_violation": "PROTOCOL_NONCONFORMANT"
+    },
+    {
+      "rule_id": "PCC-16",
+      "category": "schema_validity",
+      "description": "Trajectory record must validate against LS_MDRM_STATE_DICTIONARY, LS_MDRM_BRANCH_PROTOCOL, and LS_MDRM_TRAJECTORY_SCHEMA.",
+      "check": "jsonschema.validate(trajectory_record, schema) must pass",
+      "violation_code": "SCHEMA_VALIDATION_FAILURE",
+      "disposition_on_violation": "TEST_FAIL"
+    }
+  ]
+}
