@@ -1,0 +1,83 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_7",
+  "snapshot_date": "2026-09-21",
+  "snapshot_base_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.json",
+  "predecessor_binding": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.json",
+    "sha256": "6c584361be3f3d2581f07705980be2be5dc7b89ded2db375336ea3740778fd70"
+  },
+  "delta_description": "Additive corrections to PR #160 records: (1) units-vs-attempts accounting correction to BASELINE_POPULATION_ACCOUNTING_20260921, (2) anchor-CI chronology correction to PAIR001_POST_EXECUTION_ADJUDICATION_20260921, (3) concrete migration research replacing AMEND-004 skeleton, (4) protocol version-boundary analysis, (5) request-byte contradiction resolution, (6) population disposition analysis for unattempted units. All predecessor delta objects retain their last recorded standing without fresh verification.",
+  "delta_object_count": 1,
+  "delta_objects": [
+    {
+      "id": "cross_system_claim_handoff_v0_1",
+      "material_state": "FROZEN_BASELINE_WITH_ORIGINAL_ATTEMPTS_REPETITIONS_ATTEMPTED_RECEIVER_RETIRED",
+      "research_state": "BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED",
+      "gate": "BLOCKED_RECEIVER_RETIRED",
+      "continue_frozen_baseline": false,
+      "corrections_in_this_delta": [
+        {
+          "correction_id": "CSH-BASELINE-POPULATION-ACCOUNTING-CORRECTION-20260921-001",
+          "correction_subject": "units_vs_attempts_accounting",
+          "corrected_values": {
+            "units_attempted": 2,
+            "total_recorded_attempts": 4,
+            "unattempted_hosted_units": 70,
+            "unattempted_deterministic_units": 36
+          },
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921_CORRECTION_001.json",
+          "sha256": "38f8ff4d6f632ae5a2ebb9a66b16faaa7c046d9c1192a5f45a4cbdbe160808f8",
+          "original_preserved": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json"
+        },
+        {
+          "correction_id": "CSH-PAIR001-ADJUDICATION-CHRONOLOGY-CORRECTION-20260921-001",
+          "correction_subject": "anchor_ci_completed_utc_timestamp",
+          "corrected_values": {
+            "anchor_ci_completed_utc": "2026-09-21T17:10:55Z",
+            "basis": "Latest of two required CI workflow last-job completions on anchor commit 56c73f0b: run 35630191369 (Cross-System Claim Handoff v0.1) completed 17:09:56Z; run 35630191332 (Fork Proof-Surface Integration) completed 17:10:55Z.",
+            "chronology_consistent": true,
+            "gap_anchor_ci_to_first_repetition_seconds": 275
+          },
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_ADJUDICATION_CHRONOLOGY_CORRECTION_001.json",
+          "sha256": "95546e9da3c9ff7547b80828acac7f60251921857c32d9b23c49983c59516dca",
+          "original_preserved": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json"
+        },
+        {
+          "correction_id": "CSH-AMEND-004-PROPOSAL-20260921-002",
+          "correction_subject": "amend004_skeleton_replaced_with_concrete_migration_research",
+          "summary": "Skeleton (v0.1) replaced with concrete proposal (v0.2) containing: provider documentation findings for DeepSeek and Llama Scout; V3-0324 unavailability finding on direct DeepSeek API; Groq Scout access-tier blocker; protocol version-boundary analysis (receiver change requires new experiment version); request-byte contradiction resolution (original requests preserved, new requests composed separately); corrected population accounting (2 units attempted, 70 unattempted hosted, 36 unattempted deterministic); protocol question for disposition of unattempted units.",
+          "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-004-PROPOSAL/CSH_AMEND_004_RECEIVER_MIGRATION_PROPOSAL_v0_2.json",
+          "sha256": "1e482e62835f8f1f91208b71ccfc5b84b5a7c2905a6f31dcb8cb0c33632198d7",
+          "skeleton_preserved": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-004-PROPOSAL/CSH_AMEND_004_RECEIVER_MIGRATION_PROPOSAL_v0_1.json"
+        }
+      ],
+      "blocker_summary": "GitHub Models platform retired 2026-07-30. Both frozen receiver classes (llm_receiver_a, llm_receiver_b) use this endpoint. HTTP 410 received on both repetition attempts. Receiver migration required before continuation. AMEND-004 proposal is PREPARED_NOT_AUTHORIZED_NOT_ACTIVATED. Two additional blockers identified: (1) DeepSeek-V3-0324 not documented in current DeepSeek API; (2) Llama 4 Scout reportedly retired for free/developer access on Groq, enterprise exception needs documentation.",
+      "next_gate": "Reviewer authorization of CSH-AMEND-004 v0.2 proposal; version-boundary decision (CSH v0.2 designation); receiver_b availability resolution; receiver_a Groq access-tier confirmation; new receiver freeze under new version identity; fresh request composition; fresh repetition execution.",
+      "non_claims": [
+        "Additive corrections do not alter any terminal disposition, gate decision, or baseline execution record.",
+        "The gate decision (BLOCKED_RECEIVER_RETIRED) and continue_frozen_baseline=false are unchanged by these corrections.",
+        "Correcting the population accounting does not assign a disposition to any unattempted unit.",
+        "Correcting the chronology timestamp does not alter any finding about repetition outcomes.",
+        "The concrete AMEND-004 v0.2 proposal is not an authorization; it requires explicit reviewer authorization before any action is taken.",
+        "This overlay does not reopen any closed research object from predecessor records."
+      ]
+    }
+  ],
+  "coverage": "Additive correction layer over v0.6 (PR #160 base). Original PR #158 (anchor) and PR #159 (repetitions) records unchanged. Predecessor delta objects not freshly reverified.",
+  "governing_non_inheritance": [
+    "INDEXED != VALIDATED",
+    "REPOSITORY_ADMITTED != PRODUCTION_AUTHORIZED",
+    "HTTP_410_RECEIVED != COMPARATIVE_RESULT",
+    "PLATFORM_RETIRED != ALL_UNITS_TERMINATED",
+    "CORRECTION_RECORD_PRESENT != ORIGINAL_RECORD_MODIFIED",
+    "LATER_QUALIFICATION != ERASURE_OF_ADVERSE_PREDECESSOR"
+  ],
+  "snapshot_non_claims": [
+    "No historical overlay, original attempt, closed object, semantic freeze, scoring rule, model configuration, or hypothesis is rewritten.",
+    "The receiver-migration proposal (CSH-AMEND-004 v0.2 candidate) is not yet authorized or activated.",
+    "Corrections in this delta are additive records; the corrected originals are preserved byte-for-byte."
+  ]
+}

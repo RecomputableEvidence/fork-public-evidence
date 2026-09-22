@@ -1,0 +1,69 @@
+{
+  "record_id": "CSH-PAIR001-ADJUDICATION-CHRONOLOGY-CORRECTION-20260921-001",
+  "record_type": "additive_correction",
+  "created_at_utc": "2026-09-21T19:00:00Z",
+  "binds_to": {
+    "record_id": "CSH-PAIR001-POST-EXECUTION-ADJUDICATION-20260921-001",
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json",
+    "sha256": "8d2ad41fd5f0a4c77751faeec294fc09835f38b0acd4beb9b1a676df4e9cdaea",
+    "original_preserved_unchanged": true
+  },
+  "correction_subject": "anchor_ci_completed_utc_timestamp",
+
+  "incorrect_field_in_original": {
+    "field_path": "chronology_review.anchor_ci_completed_utc",
+    "original_value": "2026-09-21T17:09:25Z",
+    "original_note": "The original adjudication record sets anchor_ci_completed_utc equal to the PR #158 merge timestamp (2026-09-21T17:09:25Z). This conflates merge time with CI completion time.",
+    "error": "The anchor CI workflows completed after the PR merge time. Two required workflows ran on anchor commit 56c73f0b0533cb0348076efd02c9a654d7243c20 (PR #158 merge commit). Their last job completion timestamps, obtained from the GitHub Actions API, are later than the merge timestamp. Setting anchor_ci_completed_utc to the merge timestamp understates the time between anchor CI completion and first repetition start."
+  },
+
+  "corrected_chronology": {
+    "pr158_merged_utc": "2026-09-21T17:09:25Z",
+    "anchor_commit": "56c73f0b0533cb0348076efd02c9a654d7243c20",
+    "anchor_ci_workflows": [
+      {
+        "workflow_name": "Cross-System Claim Handoff v0.1",
+        "run_id": "35630191369",
+        "last_job_completed_utc": "2026-09-21T17:09:56Z",
+        "source": "GitHub Actions API, retrieved 2026-09-21"
+      },
+      {
+        "workflow_name": "Fork Proof-Surface Integration",
+        "run_id": "35630191332",
+        "last_job_completed_utc": "2026-09-21T17:10:55Z",
+        "source": "GitHub Actions API, retrieved 2026-09-21"
+      }
+    ],
+    "anchor_ci_completed_utc_corrected": "2026-09-21T17:10:55Z",
+    "anchor_ci_completed_utc_basis": "Latest of the two required workflow last-job completion timestamps. Both workflows were required to be green before repetition.",
+    "run001_rpt_started_utc": "2026-09-21T17:15:30.835331+00:00",
+    "run002_rpt_started_utc": "2026-09-21T17:15:40.979355+00:00",
+    "pr159_merged_utc": "2026-09-21T17:27:31Z"
+  },
+
+  "chronology_consistency_with_correction": {
+    "consistent": true,
+    "gap_anchor_ci_to_first_repetition_seconds": 275,
+    "gap_computation": "From 2026-09-21T17:10:55Z (anchor CI completed) to 2026-09-21T17:15:30.835331Z (first repetition started) = 4 minutes 35.8 seconds ≈ 275 seconds.",
+    "interpretation": "The corrected chronology confirms that both required CI workflows completed successfully on the anchor commit before the first repetition attempt began. The prior record's statement 'chronology_consistent=true' remains correct; only the anchor_ci_completed_utc value used in that determination was imprecise.",
+    "prior_minor_inconsistency_note": "The original adjudication record also noted a minor discrepancy in the transition timestamp (CSH-TRANSITION-20260921-REPEAT-ATTEMPTED-BROWNOUT at 17:15:15Z vs. actual start 17:15:30Z). That observation is preserved unchanged; the ~15 second discrepancy is unaffected by this chronology correction."
+  },
+
+  "what_does_not_change": [
+    "The gate decision BLOCKED_RECEIVER_RETIRED is unchanged.",
+    "continue_frozen_baseline=false is unchanged.",
+    "HTTP 200 responses received=0 is unchanged.",
+    "Model outputs received=0 is unchanged.",
+    "Classifiable pair obtained=false is unchanged.",
+    "All factual determinations in the original adjudication record are unchanged.",
+    "The anchor CI requirement (both Cross-System Claim Handoff v0.1 and Fork Proof-Surface Integration green) was satisfied; this correction updates only the recorded timestamp for when it was satisfied.",
+    "The original adjudication record fields are preserved byte-for-byte; this is an additive correction only."
+  ],
+
+  "non_claims": [
+    "This correction does not assert that any repetition was successful.",
+    "This correction does not alter any terminal disposition.",
+    "This correction does not establish the CSH hypothesis, any scoring result, or any comparative observation.",
+    "Correcting the anchor_ci_completed_utc timestamp does not authorize baseline continuation."
+  ]
+}
