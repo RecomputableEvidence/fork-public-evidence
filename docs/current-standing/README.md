@@ -3,8 +3,8 @@
 **Historical closure snapshot:** 2026-09-09
 **Historical closure base:** `1663674949ec90ff7e8878c27bea9dbde97096d7`
 **Closure merge:** `cf5c617987a7f1fcde534f46daada42976583b48` via PR `#143`
-**Current successor overlay:** v0.6, 2026-09-21, base `38f7a278211fca62b02fb3ee2cec26814e9ed9b6` (PR #158 + #159 merged)
-**Standing:** CSH reconciliation and anchor published (PR #158); two repetition attempts recorded, HTTP 410, receiver platform retired (PR #159); baseline blocked
+**Current successor overlay:** v0.7, 2026-09-21, base `2dab684fc904f43ca0d35d1c1bbc500e92156ec4` (PR #160 + corrections)
+**Standing:** CSH baseline blocked; additive corrections to population accounting, adjudication chronology, and migration proposal; AMEND-004 v0.2 concrete research prepared, not authorized
 **Scope:** interpretation and routing of repository evidence; no underlying artifact is promoted by inclusion here.
 
 This directory is the reviewer entry point for reconstructing what Fork presently contains, what has been executed, what failed, what remains provisional, what is frozen, what awaits independent review, what was intentionally stopped, and what has subsequently been admitted under repository discipline.
@@ -35,7 +35,7 @@ ADJACENT IN REPOSITORY
 != STRONGER IN STANDING
 ```
 
-Current overlay: [v0.6](FORK_CURRENT_WORK_REGISTER_v0_6.md) / [JSON](FORK_CURRENT_WORK_REGISTER_v0_6.json). Read it before the preserved predecessor chain below. Preserved v0.5 (preflight): [v0.5](FORK_CURRENT_WORK_REGISTER_v0_5.md) / [JSON](FORK_CURRENT_WORK_REGISTER_v0_5.json).
+Current overlay: [v0.7](FORK_CURRENT_WORK_REGISTER_v0_7.md) / [JSON](FORK_CURRENT_WORK_REGISTER_v0_7.json). Read it before the preserved predecessor chain below. Preserved v0.6 (post-execution reconciliation): [v0.6](FORK_CURRENT_WORK_REGISTER_v0_6.md) / [JSON](FORK_CURRENT_WORK_REGISTER_v0_6.json). Preserved v0.5 (preflight): [v0.5](FORK_CURRENT_WORK_REGISTER_v0_5.md) / [JSON](FORK_CURRENT_WORK_REGISTER_v0_5.json).
 
 ## Read preserved sources in this order
 

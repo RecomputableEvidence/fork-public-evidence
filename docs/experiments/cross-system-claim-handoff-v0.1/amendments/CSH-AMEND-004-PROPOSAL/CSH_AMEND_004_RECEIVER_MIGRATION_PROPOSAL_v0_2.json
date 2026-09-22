@@ -1,0 +1,268 @@
+{
+  "record_id": "CSH-AMEND-004-PROPOSAL-20260921-002",
+  "record_type": "receiver_migration_proposal_concrete",
+  "proposal_version": "0.2",
+  "proposal_status": "PREPARED_NOT_AUTHORIZED_NOT_ACTIVATED",
+  "created_at_utc": "2026-09-21T19:00:00Z",
+  "source_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "supersedes": {
+    "record_id": "CSH-AMEND-004-PROPOSAL-20260921-001",
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-004-PROPOSAL/CSH_AMEND_004_RECEIVER_MIGRATION_PROPOSAL_v0_1.json",
+    "sha256": "1fd9693d147ab7d97b399c0b868b657723c001e37c8e39fa2bdaace2fac42de0",
+    "superseded_record_preserved_unchanged": true,
+    "reason": "Skeleton replaced with concrete migration research. Original skeleton contained TO-BE-DETERMINED placeholders throughout; this record supplies specific provider findings, platform availability research, version-boundary analysis, and corrected request-byte accounting."
+  },
+
+  "motivation": {
+    "summary": "The GitHub Models serving platform (endpoint https://models.github.ai/inference/chat/completions) retired 2026-07-30. Both frozen receiver classes (llm_receiver_a and llm_receiver_b) use this endpoint. HTTP 410 was received on both AMEND-002 repetition attempts (2026-09-21). The frozen execution configuration is not executable against the original endpoint. This proposal provides concrete migration research to inform reviewer authorization.",
+    "retirement_evidence": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/GITHUB_MODELS_RETIREMENT_EVIDENCE_v0_1.json",
+    "blocker_record": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json"
+  },
+
+  "protocol_version_boundary_analysis": {
+    "governing_protocol": "docs/experiments/FORK_EXPERIMENTAL_EXTENSION_PROTOCOL_v0_1.md",
+    "preregistration": "docs/experiments/cross-system-claim-handoff-v0.1/PREREGISTRATION_v0_1.md",
+    "relevant_rule": "Protocol §7 and Preregistration §12: A substantive receiver change constitutes a new experiment version. Receiver configuration is explicitly listed as an experimental change class requiring a new version.",
+    "implication_for_this_proposal": "A migration that changes either receiver's endpoint, model identifier, or serving platform is a substantive receiver change. This proposal therefore cannot produce a continuation of CSH v0.1 under the frozen receiver configs. It must establish a new experiment version (proposed: CSH v0.2 or CSH-MIGRATION-v0.1) with new frozen receiver configs while preserving the original v0.1 frozen configs unchanged.",
+    "required_handling": {
+      "frozen_v0_1_configs": "Preserved unchanged. RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json and RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json are not modified.",
+      "new_version_configs": "New receiver configuration files must carry distinct identifiers (e.g., RECEIVER_A_GROQ_LLAMA_SCOUT_v0_2.json, RECEIVER_B_DEEPSEEK_API_v0_2.json) and be frozen separately under a new experiment version.",
+      "experiment_identity": "CSH v0.1 baseline is preserved as a blocked, retirement-affected baseline with incomplete execution. The new experiment version would be a separate object with its own frozen design, corpus references, run-order, and receiver configs.",
+      "non_inheritance": "Results obtained under CSH v0.2 (migrated receivers) are not retroactive replacements for, or continuations of, unexecuted CSH v0.1 units. The two experiments are distinct."
+    }
+  },
+
+  "request_bytes_analysis": {
+    "frozen_request_files": [
+      {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-001/exact-request.json",
+        "sha256": "ec296f52b390159431ff757e6c40107a4ded9fe0fa976437f7334bed7becfa69",
+        "model_field_in_request": "deepseek/DeepSeek-V3-0324",
+        "serving_platform": "GitHub Models"
+      },
+      {
+        "path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/baseline/pair-001/CSH-RUN-002/exact-request.json",
+        "sha256": "de81b4c41e4a9085ac085beb52a5218106f7d504bc5ae58c899ff6f02b052272",
+        "model_field_in_request": "deepseek/DeepSeek-V3-0324",
+        "serving_platform": "GitHub Models"
+      }
+    ],
+    "contradiction_identified": "The AMEND-002 requirement to 'preserve exact original request bytes' conflicts with the requirement to transmit to a different endpoint using a different API-envelope model identifier. The model field is inside the JSON request body. A request targeting a different serving platform or model identifier cannot be byte-identical to the frozen requests.",
+    "resolution": {
+      "preserved_elements": "The experimental content is preserved: system instructions, user messages, prompt packets, handoff artifacts, scenario identifiers, condition labels. These are the semantically significant elements for the experimental hypothesis.",
+      "changed_elements": "The API-envelope fields required for a different serving platform differ: endpoint URL, Authorization header, and the model field inside the request body. These are infrastructure fields, not experimental-content fields.",
+      "accounting_approach": "Original frozen requests (sha256 above) are preserved unchanged and remain the reference records for CSH-RUN-001 and CSH-RUN-002. New requests for any migrated-receiver execution are composed separately, hash-bound at composition time, and recorded as new artifacts under the new experiment version (not as modifications of the frozen originals).",
+      "what_is_not_acceptable": "Transmitting modified request bytes to the new endpoint and recording the result as if the original frozen requests were submitted. The new requests are new requests; they must be recorded as such."
+    }
+  },
+
+  "receiver_b_research": {
+    "frozen_config": {
+      "receiver_class_id": "llm_receiver_b",
+      "provider": "DeepSeek",
+      "serving_platform": "GitHub Models",
+      "endpoint": "https://models.github.ai/inference/chat/completions",
+      "requested_model_id": "deepseek/DeepSeek-V3-0324",
+      "expected_returned_model": "DeepSeek-V3-0324",
+      "authentication_env": "GITHUB_TOKEN"
+    },
+    "research_findings": {
+      "research_date": "2026-09-21",
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "source_type": "provider_official_documentation",
+      "documented_available_models": [
+        {
+          "model_id": "deepseek-flash",
+          "display_name": "DeepSeek-V4.1-Flash",
+          "pricing_input_per_1m_tokens_cache_miss_offpeak": "$0.15",
+          "pricing_output_per_1m_tokens": "$0.6"
+        },
+        {
+          "model_id": "deepseek-v4-pro",
+          "display_name": "DeepSeek-V4-Pro-0813",
+          "pricing_input_per_1m_tokens_cache_miss_offpeak": "$0.66",
+          "pricing_output_per_1m_tokens": "$1.98"
+        }
+      ],
+      "v3_0324_availability": "NOT DOCUMENTED. The model identifier DeepSeek-V3-0324 and the legacy API name deepseek-chat do not appear in current DeepSeek API documentation as of 2026-09-21. No evidence that a V3-0324 snapshot is accessible via the direct DeepSeek API.",
+      "endpoint_for_direct_access": "https://api.deepseek.com/chat/completions",
+      "authentication_env_for_direct_access": "DEEPSEEK_API_KEY",
+      "legacy_names": "Provider documentation indicates legacy model names may redirect to newer models; this redirection behavior is not documented to preserve V3-0324 snapshot semantics.",
+      "recommendation": "If the experimental requirement is to use the DeepSeek-V3-0324 snapshot specifically, the direct DeepSeek API does not currently document a path to that snapshot. Reviewer must decide: (a) accept the closest current model (deepseek-flash or deepseek-v4-pro, with documented comparability limits), or (b) investigate alternative platforms (e.g., Azure AI, Together AI, Fireworks AI) that may offer a V3-0324 snapshot, or (c) declare receiver_b definitively unavailable and record a bounded block.",
+      "groq_status": "DeepSeek-V3-0324 availability on Groq was not confirmed in research conducted on 2026-09-21; Groq research below covers Llama Scout only."
+    },
+    "proposed_migration_if_authorized": {
+      "option_a": {
+        "label": "Direct DeepSeek API — current model",
+        "serving_platform": "DeepSeek direct API",
+        "endpoint": "https://api.deepseek.com/chat/completions",
+        "requested_model_id": "deepseek-v4-pro",
+        "expected_returned_model": "DeepSeek-V4-Pro-0813",
+        "authentication_env": "DEEPSEEK_API_KEY",
+        "comparability_note": "Different model version from frozen config (V3-0324 vs V4-Pro-0813). Results are not comparable to what V3-0324 would have returned. This is a distinct receiver under protocol versioning rules.",
+        "status": "REQUIRES_REVIEWER_AUTHORIZATION_AND_V0_2_VERSION_BUMP"
+      },
+      "option_b": {
+        "label": "Alternative platform serving V3-0324 snapshot — requires further research",
+        "serving_platform": "TO BE IDENTIFIED",
+        "requested_model_id": "TO BE IDENTIFIED — must be a documented V3-0324 or equivalent snapshot",
+        "status": "REQUIRES_AVAILABILITY_RESEARCH_AND_REVIEWER_AUTHORIZATION"
+      },
+      "parameters": "UNCHANGED from frozen config — temperature=0, top_p=1, max_tokens=2048, presence_penalty=0, frequency_penalty=0, stream=false",
+      "capabilities": "UNCHANGED — tools omitted, retrieval disabled, memory disabled, conversation_history none"
+    }
+  },
+
+  "receiver_a_research": {
+    "frozen_config": {
+      "receiver_class_id": "llm_receiver_a",
+      "provider": "Meta",
+      "serving_platform": "GitHub Models",
+      "endpoint": "https://models.github.ai/inference/chat/completions",
+      "requested_model_id": "meta/Llama-4-Scout-17B-16E-Instruct",
+      "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
+      "authentication_env": "GITHUB_TOKEN"
+    },
+    "research_findings": {
+      "research_date": "2026-09-21",
+      "source_url": "https://console.groq.com/docs/models",
+      "source_type": "provider_official_documentation",
+      "groq_model_id": "meta-llama/llama-4-scout-17b-16e-instruct",
+      "groq_model_listed_as_available": true,
+      "groq_endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "groq_authentication_env": "GROQ_API_KEY",
+      "access_tier_note": "Model ID matches the frozen config's expected model. However, the user has noted that Llama 4 Scout is retired for free and developer access on Groq; an enterprise exception may exist. This access-tier status requires documentation before this option can be used.",
+      "access_tier_status": "REQUIRES_DOCUMENTATION — free/developer access reported retired; enterprise exception needs confirmation",
+      "recommendation": "If enterprise Groq access is available with Llama-4-Scout-17B-16E-Instruct, Groq is the closest documented path for receiver_a because the model identifier matches the frozen config. Reviewer must confirm access tier and document the Groq enterprise exception or identify an alternative platform."
+    },
+    "proposed_migration_if_authorized": {
+      "option_a": {
+        "label": "Groq — model ID matches frozen config",
+        "serving_platform": "Groq",
+        "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+        "requested_model_id": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "expected_returned_model": "Llama-4-Scout-17B-16E-Instruct",
+        "authentication_env": "GROQ_API_KEY",
+        "access_precondition": "Enterprise or otherwise authorized Groq access with this model enabled. Free/developer access reportedly retired.",
+        "comparability_note": "Different serving infrastructure from GitHub Models. Model weights may match by name but backend deployment, serving software, and quantization are not guaranteed identical.",
+        "status": "REQUIRES_ACCESS_TIER_CONFIRMATION_AND_REVIEWER_AUTHORIZATION_AND_V0_2_VERSION_BUMP"
+      },
+      "option_b": {
+        "label": "Alternative platform — requires further research",
+        "serving_platform": "TO BE IDENTIFIED",
+        "requested_model_id": "TO BE IDENTIFIED",
+        "status": "REQUIRES_AVAILABILITY_RESEARCH_AND_REVIEWER_AUTHORIZATION"
+      },
+      "parameters": "UNCHANGED from frozen config — temperature=0, top_p=1, max_tokens=2048, presence_penalty=0, frequency_penalty=0, stream=false",
+      "capabilities": "UNCHANGED — tools omitted, retrieval disabled, memory disabled, conversation_history none"
+    }
+  },
+
+  "deterministic_receiver": {
+    "receiver_class_id": "deterministic_receiver",
+    "change": "NONE — not affected by GitHub Models retirement",
+    "note": "All 36 deterministic units are unattempted and are held behind unattempted hosted units in the fixed run order. They cannot be executed in isolation without completing or formally skipping preceding run-order positions."
+  },
+
+  "population_accounting_for_migration": {
+    "total_units": 108,
+    "units_attempted": 2,
+    "unattempted_hosted_units": 70,
+    "unattempted_deterministic_units": 36,
+    "note": "See BASELINE_POPULATION_ACCOUNTING_20260921_CORRECTION_001.json for the corrected units-vs-attempts accounting. 70 unattempted hosted units cannot receive terminal dispositions from platform retirement alone without individual execution. Platform retirement is an execution-blocking condition, not a terminal experimental result for individual units.",
+    "protocol_question_for_unattempted_units": "The frozen protocol does not contain a provision for declaring unattempted units as terminated by platform retirement without individual execution attempt. Any protocol-grounded disposition for these units requires either (a) individual execution under a migrated receiver (new experiment version), or (b) an explicit protocol amendment that creates a 'blocked_without_execution' disposition class, authorized by the experiment operator.",
+    "deterministic_units_sequencing": "The 36 deterministic units (beginning at ordinal 5) are interspersed throughout the run order and are held behind unattempted hosted units by sequencing. They cannot be independently executed without addressing the preceding hosted-unit positions first."
+  },
+
+  "frozen_experimental_elements_preserved": {
+    "hypothesis": "E[U | H=1] < E[U | H=0] — instrumentation reduces unsupported inheritance relative to control",
+    "corpus": "docs/experiments/cross-system-claim-handoff-v0.1/corpus/ (frozen under CORPUS_FREEZE_v0_1.json) — unchanged",
+    "scenarios": "Six preregistered scenario descriptors — unchanged",
+    "conditions": "control_h0 and instrumented_h1 — unchanged",
+    "prompts_and_handoff_artifacts": "System instructions, prompt packets, handoff artifacts — unchanged",
+    "run_order": "docs/experiments/cross-system-claim-handoff-v0.1/prompts/RUN_ORDER_v0_1.json — unchanged (108 units, 54 pair blocks, fixed salt)",
+    "classification_rules": "Unchanged per frozen semantic specification",
+    "scoring_rules": "Unchanged per EXPERIMENT_MANIFEST_v0_1.json",
+    "stopping_rules": "Unchanged",
+    "original_attempts": "CSH-RUN-001 and CSH-RUN-002 preserved immutably; not replaced",
+    "frozen_receiver_configs_v0_1": "RECEIVER_A_GITHUB_MODELS_LLAMA_SCOUT_v0_1.json and RECEIVER_B_GITHUB_MODELS_DEEPSEEK_V3_0324_v0_1.json preserved unchanged"
+  },
+
+  "required_gates_before_activation": [
+    {
+      "gate_id": "REVIEWER_AUTHORIZATION",
+      "description": "This proposal must be reviewed and explicitly authorized by the experiment operator before any action is taken. Authorization must be recorded.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "VERSION_BOUNDARY_DECISION",
+      "description": "Reviewer must authorize a new experiment version (e.g., CSH v0.2) rather than a silent continuation of v0.1. The new version identity must be declared before new receiver configs are frozen.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "RECEIVER_B_AVAILABILITY_RESOLUTION",
+      "description": "DeepSeek-V3-0324 is not documented as accessible via the direct DeepSeek API (current models: deepseek-flash, deepseek-v4-pro). Reviewer must decide whether to use the closest available model or locate an alternative platform serving the V3-0324 snapshot. Selection must be documented.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "RECEIVER_A_ACCESS_TIER_CONFIRMATION",
+      "description": "Groq lists meta-llama/llama-4-scout-17b-16e-instruct as available, but Llama 4 Scout access is reported retired for free/developer tiers on Groq. Enterprise access exception must be confirmed and documented before using Groq as receiver_a platform.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "ENDPOINT_SELECTION_AND_FREEZE",
+      "description": "Specific alternative endpoints, model identifiers, and serving platforms must be selected and documented. New receiver configuration files must be prepared with distinct v0.2 identifiers and frozen as separate objects.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "AVAILABILITY_CHECK",
+      "description": "A bounded availability check (smoke test) must be performed for each proposed endpoint before it is frozen. The smoke test must use a non-experimental request; its result is not a baseline observation.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "ADAPTER_UPDATE_AND_HASH",
+      "description": "The execution adapter must be updated to target the new endpoint(s) and model identifiers. Its updated source hash must be recorded before execution. Adapter update must not change the experimental request content, only the API-envelope fields.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "CREDENTIAL_PROVISION",
+      "description": "Valid credentials for the new endpoint(s) must be available through the approved secret mechanism; not printed or committed. Required credentials: DEEPSEEK_API_KEY (for direct DeepSeek API option) and/or GROQ_API_KEY (for Groq option).",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "FRESH_REQUEST_COMPOSITION",
+      "description": "New requests for the migrated receiver must be composed from the original experimental content (system instructions, user messages, prompt packets) with updated API-envelope fields (new model identifier, new endpoint). New requests must be hash-bound at composition time and recorded as new artifacts distinct from the frozen original requests.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "FRESH_REPETITION_EXECUTION",
+      "description": "New repetition attempts must be executed under fresh run IDs, using the new receiver configuration, with the new composed requests. Every attempted terminal outcome must be preserved.",
+      "status": "PENDING"
+    },
+    {
+      "gate_id": "EXECUTION_GATE_EVALUATION",
+      "description": "After execution, the gate must be re-evaluated per the existing protocol. HTTP 200 alone does not establish a valid comparative result; structural checks and repaired execution path verification are required.",
+      "status": "PENDING"
+    }
+  ],
+
+  "what_this_proposal_does_not_authorize": [
+    "No provider calls are made by this proposal document.",
+    "No model output is fabricated or assumed.",
+    "No baseline unit is declared as executed or classified.",
+    "No result is asserted for or against the CSH hypothesis.",
+    "No closed research object is reopened.",
+    "The 70 unattempted hosted units and 36 unattempted deterministic units do not receive a disposition from this proposal.",
+    "This proposal does not constitute authorization of AMEND-004 — that requires explicit reviewer authorization.",
+    "Adoption of this proposal does not constitute a continuation of CSH v0.1 under the frozen receiver configs; it requires a new experiment version."
+  ],
+
+  "non_claims": [
+    "This proposal is not an amendment to the frozen experiment. It becomes an amendment only upon reviewer authorization and recording.",
+    "Matching model names across platforms do not establish receiver equivalence.",
+    "A functioning alternative endpoint does not retroactively validate responses that would have been received on GitHub Models.",
+    "Platform retirement is not a terminal experimental result for any individual unit.",
+    "This proposal does not establish the CSH hypothesis, scoring results, compliance, legal sufficiency, safety, authorization, certification, or institutional authority.",
+    "Research findings reported here are point-in-time observations from provider documentation as of 2026-09-21; platform availability may change."
+  ]
+}

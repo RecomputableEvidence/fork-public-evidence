@@ -1,0 +1,72 @@
+{
+  "record_id": "CSH-BASELINE-POPULATION-ACCOUNTING-CORRECTION-20260921-001",
+  "record_type": "additive_correction",
+  "created_at_utc": "2026-09-21T19:00:00Z",
+  "binds_to": {
+    "record_id": "CSH-BASELINE-POPULATION-ACCOUNTING-20260921-001",
+    "path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+    "sha256": "87d3ac4e4221e625074c775da75b6a15a963b4ab8e44fd956a362422913ff556",
+    "original_preserved_unchanged": true
+  },
+  "correction_subject": "units_vs_attempts_accounting",
+
+  "incorrect_field_in_original": {
+    "field_path": "units_with_recorded_terminal_dispositions.count",
+    "original_value": 4,
+    "original_note": "The original record sets this count to 4 and lists the four run IDs (two original + two repetitions) as 'units with recorded terminal dispositions'.",
+    "error": "The four run IDs are attempts, not units. CSH-RUN-001 and CSH-RUN-001-RPT-20260921171515-R01 both correspond to run-order ordinal 1 (one unit). CSH-RUN-002 and CSH-RUN-002-RPT-20260921171515-R01 both correspond to run-order ordinal 2 (one unit). Conflating attempts with units overstates the count of distinct experimental units that have been attempted."
+  },
+
+  "corrected_accounting": {
+    "units_attempted": {
+      "count": 2,
+      "description": "Two distinct run-order units have been attempted: ordinal 1 (scenario SIM_C_NON_CLAIM_DROPPED, condition control_h0, replicate 2) and ordinal 2 (scenario SIM_C_NON_CLAIM_DROPPED, condition instrumented_h1, replicate 2). Both are receiver_class_id=llm_receiver_b.",
+      "unit_ordinals": [1, 2]
+    },
+    "total_recorded_attempts": {
+      "count": 4,
+      "breakdown": {
+        "original_attempts": 2,
+        "repetition_attempts": 2
+      },
+      "description": "Four attempt records exist across two units: ordinal 1 has two attempts (CSH-RUN-001 original + CSH-RUN-001-RPT-20260921171515-R01 repetition); ordinal 2 has two attempts (CSH-RUN-002 original + CSH-RUN-002-RPT-20260921171515-R01 repetition). Repetitions are linked to their originals; they are not additional experimental units."
+    },
+    "unattempted_hosted_units": {
+      "count": 70,
+      "computation": "72 total hosted units (36 llm_receiver_b + 36 llm_receiver_a) minus 2 attempted units (ordinals 1 and 2, both llm_receiver_b) = 70 unattempted hosted units.",
+      "note": "The original record's 'units_dependent_on_retired_endpoint.total_github_models_dependent=72' counts the full population assigned to the retired platform, not the unattempted count. Ordinals 1 and 2 (both llm_receiver_b) have been attempted; the remaining 34 llm_receiver_b units and all 36 llm_receiver_a units = 70 are unattempted hosted units."
+    },
+    "unattempted_deterministic_units": {
+      "count": 36,
+      "description": "All 36 deterministic_receiver units are unattempted. Deterministic units begin at ordinal 5 and are interspersed throughout the run order (ordinals 5, 6, 9, 10, 13, 14, 27, 28, 43, 44, 45, 46, 51, 52, 53, 54, 55, 56, 59, 60, 65, 66, 69, 70, 71, 72, 79, 80, 81, 82, 89, 90, 91, 92, 107, 108). All are held behind unattempted hosted units in run-order sequencing.",
+      "sequencing_note": "The frozen run order is sequential. Ordinals 3 and 4 are hosted-receiver units that precede the first deterministic unit (ordinal 5). No deterministic unit can be reached without first completing the preceding hosted units per the fixed run order."
+    },
+    "total_unattempted_units": {
+      "count": 106,
+      "breakdown": {
+        "unattempted_hosted": 70,
+        "unattempted_deterministic": 36
+      },
+      "consistency_check": "2 attempted + 106 unattempted = 108 total units. Consistent with run_order_source.total_units=108."
+    }
+  },
+
+  "what_the_original_record_got_right": [
+    "total_units=108 is correct",
+    "original_attempts.count=2 is correct (two original attempt records)",
+    "repetition_attempts.count=2 is correct (two repetition attempt records)",
+    "units_not_executed.count=106 is correct (ordinals 3-108 have no execution records)",
+    "units_dependent_on_retired_endpoint.total_github_models_dependent=72 is correct as a population count (all 72 hosted units depend on the retired platform)",
+    "The four run IDs listed under units_with_recorded_terminal_dispositions are all legitimate attempt records"
+  ],
+
+  "correction_scope": "This correction adds explicit unit-vs-attempt accounting. The original record is preserved unchanged. No execution records, terminal dispositions, or adjudication findings are altered by this correction.",
+
+  "non_claims": [
+    "This correction does not assign any terminal disposition to any unattempted unit.",
+    "The 2 attempted units do not have classifiable pair results; their terminal dispositions are preserved-response records, not comparative experimental results.",
+    "Repetition attempts are not additional experimental units; they are attempts linked to the same run-order ordinals as the originals.",
+    "This correction does not affect the gate decision (BLOCKED_RECEIVER_RETIRED) or the continue_frozen_baseline=false finding.",
+    "This correction does not establish the CSH hypothesis, any scoring result, or any comparative observation."
+  ]
+}
