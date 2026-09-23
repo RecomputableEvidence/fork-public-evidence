@@ -1,0 +1,188 @@
+{
+  "schema_id": "FIVE_LAYER_DETECTOR_SPECIFICATIONS_v0_1",
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+  "applies_prospectively": true,
+  "retroactive_effect_on_run001": "NONE",
+  "result_states": [
+    "TRIGGERED",
+    "EVALUATION_ABSTAINED",
+    "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE"
+  ],
+  "global_rules": {
+    "trigger": "TRIGGERED requires preserved evidence satisfying every required condition for the detector.",
+    "abstain": "EVALUATION_ABSTAINED when a required condition or evidentiary bridge cannot be established from the evaluated package.",
+    "scoped_non_trigger": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE means only that trigger criteria were not established in the evaluated selection; it is not global absence.",
+    "mapping_separation": "Detector evaluation consumes explicit mapping records; missing/failed mapping cannot be converted into a valid non-trigger.",
+    "historical_nonretroactivity": "Later detector criteria do not become historical requirements of earlier artifacts."
+  },
+  "detectors": [
+    {
+      "fixture_id": "M11",
+      "name": "SPEC_TO_EXECUTION_EQUIVALENCE",
+      "required_conditions": [
+        "A source-native declared/specification state D and execution/runtime state X are distinguishable for the evaluated proposition.",
+        "The evaluated representation asserts or operationally treats D as sufficient to establish X without direct execution evidence."
+      ],
+      "trigger_rule": "Trigger only when both distinguishability and D->X promotion are preserved.",
+      "abstain_rule": "Abstain when D/X basis is under-specified or execution evidence provenance cannot be resolved.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when the evaluated representation explicitly preserves D and X as separate or no D->X promotion is observed in inspected scope."
+    },
+    {
+      "fixture_id": "M12",
+      "name": "SURFACE_BOOLEAN_COLLAPSE",
+      "required_conditions": [
+        "The ontology in scope contains at least one non-binary surface state relevant to the same boundary.",
+        "A downstream surface-evaluation field for that boundary is restricted to boolean satisfaction without a separately bound state field carrying the lost distinction."
+      ],
+      "trigger_rule": "Trigger on representational compression from the relevant non-binary surface state space to boolean at the evaluated seam.",
+      "abstain_rule": "Abstain if the supposedly lost state is demonstrably preserved in another bound field but its relation to the boolean cannot be established.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when the evaluated schema retains the relevant non-binary state explicitly at the same decision seam."
+    },
+    {
+      "fixture_id": "M13",
+      "name": "UNCERTAINTY_PROMOTED_TO_VIOLATED",
+      "required_conditions": [
+        "A concrete uncertain state such as UNDETERMINED or UNMEASURABLE is preserved.",
+        "A mapping or control-flow step converts that state to a value consumed as dissatisfaction/false.",
+        "The downstream rule resolves that value to VIOLATED."
+      ],
+      "trigger_rule": "Trigger only on an evidenced uncertainty->intermediate->VIOLATED path.",
+      "abstain_rule": "Abstain when the architecture permits the path but the uncertainty-to-intermediate mapping is not preserved.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when uncertainty is preserved as uncertainty and cannot reach VIOLATED without additional positive violation evidence."
+    },
+    {
+      "fixture_id": "M14",
+      "name": "TUPLE_SET_OPERATOR_WITHOUT_DECLARED_SEMANTICS",
+      "required_conditions": [
+        "A structured proposition/role vector is the operand.",
+        "Set operators such as subset, intersection, or empty-set comparison are applied.",
+        "No set denotation or boundary-scoped partial-order/operator semantics are declared before use."
+      ],
+      "trigger_rule": "Trigger when all three conditions are present.",
+      "abstain_rule": "Abstain if operator semantics may exist outside the inspected package and the package does not establish their absence.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when the operator semantics are explicitly declared for the structured operands before evaluation."
+    },
+    {
+      "fixture_id": "M15",
+      "name": "RETROACTIVE_NATIVE_IDENTITY",
+      "required_conditions": [
+        "A retrospective reconstruction/measurement of historical semantics is identified.",
+        "The reconstruction is labeled, substituted, or operationally consumed as the contemporaneous native historical state without a non-retroactivity boundary."
+      ],
+      "trigger_rule": "Trigger on retrospective->native substitution.",
+      "abstain_rule": "Abstain if the provenance/time basis of the asserted native state is unresolved.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when historical native state and later retrospective analysis remain separately identified."
+    },
+    {
+      "fixture_id": "M16",
+      "name": "IMPLEMENTATION_PROMOTED_TO_EXECUTION",
+      "required_conditions": [
+        "Implementation/presence state and execution state are distinguishable.",
+        "Implementation/presence is used as sufficient evidence for execution."
+      ],
+      "trigger_rule": "Trigger on implementation/presence->executed promotion without execution evidence.",
+      "abstain_rule": "Abstain if implementation or execution evidence cannot be independently resolved.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when implementation/presence and execution remain distinct."
+    },
+    {
+      "fixture_id": "M17",
+      "name": "NON_VIOLATION_PROMOTED_TO_CONSERVATION",
+      "required_conditions": [
+        "The evaluated state establishes only absence of a detected/verified violation or an unresolved/non-violating state.",
+        "That state is promoted to affirmative conservation/preservation without the positive evidence required by the conservation rule."
+      ],
+      "trigger_rule": "Trigger on non-violation->affirmative conservation promotion.",
+      "abstain_rule": "Abstain when the positive conservation evidence basis is unavailable.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when preservation requires its own positive evidence and weaker states remain weaker."
+    },
+    {
+      "fixture_id": "M18",
+      "name": "CONCEPT_SCHEMA_STATE_MISMATCH",
+      "required_conditions": [
+        "The governing concept/ontology defines one or more states relevant to the evaluated boundary.",
+        "The concrete schema used at that boundary cannot represent one or more of those states or maps them to a different standing without an explicit compatibility rule."
+      ],
+      "trigger_rule": "Trigger on evidenced concept/schema representational mismatch.",
+      "abstain_rule": "Abstain when the allegedly missing state may be represented elsewhere but the binding cannot be resolved.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when the schema can represent the governing state space or an explicit compatibility mapping is preserved."
+    },
+    {
+      "fixture_id": "M19",
+      "name": "ANALYTICAL_IDENTIFIER_COLLISION",
+      "required_conditions": [
+        "One identifier/token is used for two distinct objects or state roles such as historical artifact and retrospective reconstruction.",
+        "The collision permits identity/standing to pass between those objects without a separately preserved relation."
+      ],
+      "trigger_rule": "Trigger when both collision and standing ambiguity/promotion are preserved.",
+      "abstain_rule": "Abstain if reuse is visible but the identity/standing consequence is unresolved.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when identifiers are role-distinct or explicit relation typing prevents identity collapse."
+    },
+    {
+      "fixture_id": "M20",
+      "name": "EXECUTION_ONLY_EQUIVALENCE",
+      "required_conditions": [
+        "Boundary equivalence/conservation has multiple required dimensions.",
+        "Equivalence is concluded from execution-transition compatibility alone while another required dimension is absent, conflicting, or unmeasured."
+      ],
+      "trigger_rule": "Trigger on execution-only evidence being promoted to full boundary equivalence.",
+      "abstain_rule": "Abstain when required equivalence dimensions are not defined for the evaluated boundary.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when full equivalence requires all declared dimensions or the claim is explicitly narrowed to execution-only equivalence."
+    },
+    {
+      "fixture_id": "M21",
+      "name": "EXAMPLE_RECEIPT_PROMOTION",
+      "required_conditions": [
+        "A hash, offset, receipt, or binding value is presented in an empirical evidence field.",
+        "The value was illustrative, placeholder, prefilled, or not computed from the bound artifact bytes.",
+        "The record does not explicitly mark the value as illustrative/not executed."
+      ],
+      "trigger_rule": "Trigger when illustrative/placeholder evidence is presented with empirical binding standing.",
+      "abstain_rule": "Abstain when computation provenance cannot be determined.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when empirical values are recomputed from exact bytes or synthetic values are explicitly marked illustrative/not executed."
+    },
+    {
+      "fixture_id": "M22",
+      "name": "TARGET_CONDITIONED_EXTRACTION",
+      "required_conditions": [
+        "Stage 1 selection/extraction uses downstream semantic target criteria, detector identity, expected finding class, or equivalent information to filter candidates.",
+        "That conditioning is not separately represented as candidate selection provenance, or the resulting extraction is presented as unconditioned discovery."
+      ],
+      "trigger_rule": "Trigger on hidden target conditioning or promotion of conditioned extraction to unconditioned discovery.",
+      "abstain_rule": "Abstain when selection provenance or analyst exposure is unavailable.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when conditioning is explicitly recorded and no claim of unconditioned/blind extraction is made. Declared conditioning does not create epistemic independence."
+    },
+    {
+      "fixture_id": "M23",
+      "name": "NOT_ESTABLISHED_COLLAPSED_TO_FALSE",
+      "required_conditions": [
+        "The source/mapping/adjudication state is NOT_ESTABLISHED, UNRESOLVED, or not performed.",
+        "A downstream boolean false or equivalent negative factual state replaces that unresolved state."
+      ],
+      "trigger_rule": "Trigger on unresolved/not-established->false collapse.",
+      "abstain_rule": "Abstain when downstream encoding cannot be inspected.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when unresolved states remain unresolved/abstained and are not converted into false."
+    },
+    {
+      "fixture_id": "M24",
+      "name": "NON_TRIGGER_PROMOTED_TO_ABSENCE",
+      "required_conditions": [
+        "A detector returns non-trigger/criteria-not-satisfied for a bounded evaluated selection.",
+        "A downstream statement promotes that result to global absence of the pattern beyond the evaluated scope."
+      ],
+      "trigger_rule": "Trigger on scoped non-trigger->global absence promotion.",
+      "abstain_rule": "Abstain when scope propagation cannot be inspected.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when the result remains explicitly bound to evaluated selection/scope."
+    },
+    {
+      "fixture_id": "M25",
+      "name": "MAPPING_DETECTION_COLLAPSE",
+      "required_conditions": [
+        "Ontology mapping and detector evaluation are distinct logical operations.",
+        "A mapping failure/unresolved mapping is consumed as a valid detector non-trigger, or mapping and detection are represented as one indivisible operation such that their standing cannot be independently inspected."
+      ],
+      "trigger_rule": "Trigger on unresolved/failed mapping->valid non-trigger or on an indivisible representation that prevents standing separation at the detector decision seam.",
+      "abstain_rule": "Abstain when mapping provenance is missing or cannot be linked to detector inputs.",
+      "scoped_non_trigger_rule": "Use scoped non-trigger when mapping and detection are separately represented, detector inputs bind to mapping records, and mapping failure routes to abstention/not-evaluated rather than non-trigger. Procedural separation alone does not establish epistemic independence."
+    }
+  ]
+}
