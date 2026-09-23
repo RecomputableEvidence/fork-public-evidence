@@ -1,0 +1,45 @@
+{
+  "record_id": "RUN-002-PARENT-COMPILATION-BINDING-001",
+  "source_filename": "thread_commentary_compiled_2026-09-23.txt",
+  "source_byte_count": 334735,
+  "source_line_count": 5317,
+  "source_sha256": "c9ba196efa8709279d8967716ec690bbc5f3112ab5d38e67683768ebe1f62bbf",
+  "transport": {
+    "encoding": "gzip(mtime=0,compresslevel=9) then RFC4648 Base64 ASCII split into ordered chunks",
+    "gzip_byte_count": 75370,
+    "gzip_sha256": "8c9a6d3d1c0886cce5f0a8639be860ebde44d79c77326ff888024b9ab4be9939",
+    "base64_char_count": 100496,
+    "chunk_count": 9,
+    "chunk_order": [
+      "part-001.b64",
+      "part-002.b64",
+      "part-003.b64",
+      "part-004.b64",
+      "part-005.b64",
+      "part-006.b64",
+      "part-007.b64",
+      "part-008.b64",
+      "part-009.b64"
+    ],
+    "chunk_sha256": {
+      "part-001.b64": "0bf73f1c1e29ba1af1364bf7cd5b1fe08c0ac5e1fd60712604b23d0610b2af4b",
+      "part-002.b64": "c4a82651b17f0adae5fa70de8ac71fc1f00b5ffc49d11f2c245e762a79bbf9b9",
+      "part-003.b64": "c59668f016a15a45db38d5edee36cc1fd6c6820114e66dd05bc4e9ab1e63ac43",
+      "part-004.b64": "5d42f632b83aea5150a67f0de91eef6188fa9ad3c61fae650080098f9aa9ef61",
+      "part-005.b64": "5a7d52135fcb2f9ac7899b375d934adf7a52c98eca3ae8317b489c9ae49aeeb6",
+      "part-006.b64": "626077dd5d331c7886fe3ef4c0af8d712f66cd74d52e859e4559a3121f2a7be3",
+      "part-007.b64": "66dd32da0de3f9ee07b47a75c658d3360526ccd5f2b8ed7e7c80d521579a2cba",
+      "part-008.b64": "d6f8c8968877f877e53a34f5d3f4c89384b3086cba055e6884a62932af309b8e",
+      "part-009.b64": "5d70b9eac1627277d4b689373024e8d3012a602577e9762f433ff31c23da4b25"
+    }
+  },
+  "run_001_cutoff": {
+    "target_line_range": [1, 4026],
+    "separator_line": 4027,
+    "source_10_marker_line": 4028,
+    "source_10_marker": "SOURCE 10: Pasted markdown(20260923-131442).md",
+    "verified_from_full_parent": true
+  },
+  "reconstruction_rule": "Concatenate part files in chunk_order with no inserted separators, Base64-decode, then gzip-decompress. Reconstructed bytes must match source_sha256 and source_byte_count.",
+  "historical_effect": "NONE"
+}
