@@ -1,0 +1,45 @@
+{
+  "record_id": "RUN-001-M21-M25-SELF-AUDIT-STANDING-RECONCILIATION-001",
+  "successor_object": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+  "historical_run": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001",
+  "historical_effect": "NONE",
+  "reason": "Run 001 did not package formal M11-M25 decision rules. The separate recomputation found M22 and M25 not independently certifiable from Run 001 alone and distinguished procedural disclosure/separation from unconditioned or epistemically independent analysis.",
+  "standing": [
+    {
+      "fixture_id": "M21",
+      "run_001_recorded": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_RUN_SCOPE",
+      "successor_reconciliation": "NARROW_FILE_LEVEL_SUPPORT_PRESERVED",
+      "note": "Computed hashes are supported; no general harness-correctness inference."
+    },
+    {
+      "fixture_id": "M22",
+      "run_001_recorded": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_RUN_SCOPE",
+      "successor_reconciliation": "CONDITIONING_ESTABLISHED__NEUTRALITY_NOT_ESTABLISHED",
+      "note": "Stage 1B declares selection_conditioned=true and selects analyst-authored FINDING blocks. Disclosure of conditioning is good provenance but is not unconditioned extraction."
+    },
+    {
+      "fixture_id": "M23",
+      "run_001_recorded": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_RUN_SCOPE",
+      "successor_reconciliation": "NARROW_FILE_LEVEL_SUPPORT_PRESERVED",
+      "note": "NOT_ESTABLISHED and abstention are preserved rather than collapsed to false in Run 001 records."
+    },
+    {
+      "fixture_id": "M24",
+      "run_001_recorded": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_RUN_SCOPE",
+      "successor_reconciliation": "NARROW_FILE_LEVEL_SUPPORT_PRESERVED",
+      "note": "Run 001 keeps non-trigger language scoped; this does not establish global absence."
+    },
+    {
+      "fixture_id": "M25",
+      "run_001_recorded": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_RUN_SCOPE",
+      "successor_reconciliation": "PROCEDURAL_SEPARATION_ESTABLISHED__EPISTEMIC_INDEPENDENCE_NOT_ESTABLISHED",
+      "note": "Separate Stage 2A/2B files establish procedural separation only; the same exposed analyst authored synthesis, mapping, and detector evaluation."
+    }
+  ],
+  "prospective_rule": "Future self-audit certification must cite the packaged detector specification and preserve analyst-exposure/provenance sufficient to evaluate the predicate.",
+  "non_claims": [
+    "This reconciliation does not retroactively execute the new detector specifications against Run 001.",
+    "It does not create formal Stage 3 adjudication.",
+    "It does not establish harness correctness."
+  ]
+}
