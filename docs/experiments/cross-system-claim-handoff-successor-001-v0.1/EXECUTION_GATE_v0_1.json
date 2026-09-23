@@ -4,27 +4,29 @@
   "status": "BLOCKED_HOSTED_ACCESS_NOT_ESTABLISHED",
   "last_local_readiness_ci": {
     "workflow": "CSH-S001 Readiness",
-    "run_id": 35811614598,
-    "head_commit": "674d1ed04fcbbd2f34cafe4319e96ccb2ed856eb",
+    "run_id": 35812816209,
+    "head_commit": "6a887d946bc275ea40a812003b9c05f74789f4c7",
+    "job_id": 107027879472,
     "local_readiness": "PASS",
-    "hosted_preflight_observation": "CREDENTIAL_UNAVAILABLE_BOTH_CANDIDATE_PROVIDERS"
+    "hosted_preflight_observation": "CREDENTIAL_UNAVAILABLE_BOTH_CANDIDATE_PROVIDERS_IN_PR_CONTEXT"
   },
   "blocking_requirements": [
-    {"id":"G01","description":"current-state routing checker passes","evidence":"scripts/check_current_state_routing_v0_1.py; workflow run 35811614598","status":"SATISFIED"},
-    {"id":"G02","description":"successor preregistration and measurement specification exist","evidence":"PREREGISTRATION_v0_1.md; MEASUREMENT_AND_CODING_SPEC_v0_1.md; workflow run 35811614598","status":"SATISFIED"},
-    {"id":"G03","description":"primary U and complementary P/A/T metrics are frozen","status":"DEFINED_NOT_YET_FROZEN"},
-    {"id":"G04","description":"successor classifier enforces boundary-contract substantiation","evidence":"tools/classify_unsupported_inheritance_s001_v0_1.py; workflow run 35811614598","status":"SATISFIED"},
-    {"id":"G05","description":"successor classifier tests pass including phantom/substantiated boundary cases","evidence":"tests/test_cross_system_claim_handoff_s001_v0_1.py; workflow run 35811614598","status":"SATISFIED"},
-    {"id":"G06","description":"hosted receiver A neutral access preflight passes","evidence":"PREFLIGHT_OBSERVATION_PR163_20260923.json","status":"BLOCKED_CREDENTIAL_UNAVAILABLE_IN_PR_ACTIONS_CONTEXT"},
-    {"id":"G07","description":"hosted receiver B neutral access preflight passes","evidence":"PREFLIGHT_OBSERVATION_PR163_20260923.json","status":"BLOCKED_CREDENTIAL_UNAVAILABLE_IN_PR_ACTIONS_CONTEXT"},
+    {"id":"G01","description":"current-state routing checker passes","evidence":"scripts/check_current_state_routing_v0_1.py; workflow run 35812816209","status":"SATISFIED"},
+    {"id":"G02","description":"successor preregistration and measurement specification exist","evidence":"PREREGISTRATION_v0_1.md; MEASUREMENT_AND_CODING_SPEC_v0_1.md; workflow run 35812816209","status":"SATISFIED"},
+    {"id":"G03","description":"primary U and complementary P/A/T metrics are frozen","evidence":"SEMANTIC_MEASUREMENT_FREEZE_v0_1.json","status":"SATISFIED"},
+    {"id":"G04","description":"successor classifier enforces boundary-contract substantiation","evidence":"tools/classify_unsupported_inheritance_s001_v0_1.py; workflow run 35812816209","status":"SATISFIED"},
+    {"id":"G05","description":"successor classifier tests pass including phantom/substantiated boundary cases","evidence":"tests/test_cross_system_claim_handoff_s001_v0_1.py; workflow run 35812816209","status":"SATISFIED"},
+    {"id":"G06","description":"hosted receiver A neutral access preflight passes","evidence":"PREFLIGHT_OBSERVATION_PR163_20260923.json plus PR #164 observation","status":"BLOCKED_CREDENTIAL_UNAVAILABLE_IN_PR_ACTIONS_CONTEXT"},
+    {"id":"G07","description":"hosted receiver B neutral access preflight passes","evidence":"PREFLIGHT_OBSERVATION_PR163_20260923.json plus PR #164 observation","status":"BLOCKED_CREDENTIAL_UNAVAILABLE_IN_PR_ACTIONS_CONTEXT"},
     {"id":"G08","description":"successor receiver registry frozen after preflight","status":"PENDING_SUCCESSFUL_HOSTED_PREFLIGHT"},
-    {"id":"G09","description":"successor source packets and exact H1 projection bytes materialized/hash-bound","status":"PENDING_MATERIALIZATION_NOT_HOSTED_ACCESS_DEPENDENT"},
-    {"id":"G10","description":"paired content-difference checker passes for all frozen pairs","status":"PENDING_AFTER_PACKET_MATERIALIZATION"},
+    {"id":"G09","description":"successor source packets and exact H1 projection bytes materialized/hash-bound","evidence":"PACKET_BINDING_v0_1.json; workflow run 35812816209 steps 9 and 11","status":"SATISFIED"},
+    {"id":"G10","description":"paired content-difference checker passes for all hash-bound pairs","evidence":"tools/check_csh_s001_pair_difference_v0_1.py; workflow run 35812816209 step 10","status":"SATISFIED"},
     {"id":"G11","description":"exact run order generated and frozen","status":"PENDING_AFTER_RECEIVER_FREEZE"},
-    {"id":"G12","description":"terminal-state schema and raw-output preservation records frozen","status":"PENDING_IMPLEMENTATION_NOT_HOSTED_ACCESS_DEPENDENT"},
-    {"id":"G13","description":"coding independence plan frozen","status":"DEFINED_NOT_YET_FROZEN"},
-    {"id":"G14","description":"analysis program computes U/P/A/T and paired differences on synthetic fixtures","evidence":"tools/analyze_csh_s001_v0_1.py; tests/test_analyze_csh_s001_v0_1.py; workflow run 35811614598","status":"SATISFIED"}
+    {"id":"G12","description":"terminal-state schema and raw-output preservation records frozen","evidence":"EXECUTION_RECORD_FREEZE_v0_1.json; schemas/csh_s001_execution_attempt_v0_1.schema.json; workflow run 35812816209 step 8","status":"SATISFIED"},
+    {"id":"G13","description":"coding independence plan frozen","evidence":"SEMANTIC_MEASUREMENT_FREEZE_v0_1.json","status":"SATISFIED"},
+    {"id":"G14","description":"analysis program computes U/P/A/T and paired differences on synthetic fixtures","evidence":"tools/analyze_csh_s001_v0_1.py; tests/test_analyze_csh_s001_v0_1.py; workflow run 35812816209","status":"SATISFIED"}
   ],
+  "remaining_blockers": ["G06", "G07", "G08", "G11"],
   "nonblocking_limitations": [
     "hosted_model_nondeterminism",
     "residual_condition_unblinding",
@@ -39,11 +41,12 @@
     "task_completion_not_equivalent_to_usefulness_or_correctness",
     "provider_infrastructure_may_change"
   ],
-  "execution_rule": "Do not execute corpus-bearing receiver requests until all blocking requirements are evidenced as satisfied in a successor freeze record.",
+  "execution_rule": "Do not execute corpus-bearing receiver requests until G06, G07, G08, and G11 are evidenced as satisfied in a successor freeze record. No other listed nonblocking limitation is a prerequisite for the first bounded successor execution.",
+  "next_action": "Configure/confirm hosted provider credentials outside chat, run the existing workflow_dispatch neutral hosted preflight, preserve the returned receiver identities/configuration, freeze the receiver registry and exact run order, then execute the frozen corpus.",
   "non_claims": [
     "This gate does not prove the hypothesis.",
     "This gate does not authorize production use.",
-    "Credential unavailability in the observed GitHub Actions context does not establish that credentials are unavailable elsewhere.",
-    "No CSH corpus-bearing request was sent during the neutral preflight observation."
+    "Credential unavailability in the observed GitHub Actions PR context does not establish that credentials are unavailable elsewhere.",
+    "No CSH corpus-bearing request was sent during neutral preflight observations."
   ]
 }
