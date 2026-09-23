@@ -51,6 +51,33 @@ jobs:
       - name: Neutral preflight script parses without credentials
         run: python tools/preflight_csh_s001_receivers_v0_1.py --json --allow-missing-credentials
 
+  hosted-preflight-observation:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Observe neutral hosted receiver access
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python tools/preflight_csh_s001_receivers_v0_1.py \
+            --provider groq \
+            --provider deepseek \
+            --output-dir preflight-output \
+            --allow-missing-credentials \
+            --json
+      - name: Upload neutral preflight observation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: csh-s001-neutral-preflight-observation
+          path: preflight-output/
+          if-no-files-found: warn
+
   hosted-preflight:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_hosted_preflight }}
     runs-on: ubuntu-latest
