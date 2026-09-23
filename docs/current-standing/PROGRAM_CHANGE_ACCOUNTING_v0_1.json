@@ -322,6 +322,70 @@
       "disposition": "INCORPORATED",
       "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
       "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/ADMISSION_DISPOSITION.json",
+      "before_git_blob": null,
+      "after_git_blob": "b5ccd20f15c74d3bd77b3e3aae284f0949ef0e0e",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/README.md",
+      "before_git_blob": null,
+      "after_git_blob": "040db4ee3c542ac369a20e6a7aea1eb0382e7ec9",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/SHA256SUMS.txt",
+      "before_git_blob": null,
+      "after_git_blob": "9775189595cf9a4a0eb2a1418960a382456194eb",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/SOURCE_BINDINGS.json",
+      "before_git_blob": null,
+      "after_git_blob": "403295c81219726aa30bacb5c0e227fb7c2a2ca7",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/sources/FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-RECEIPT.json",
+      "before_git_blob": null,
+      "after_git_blob": "c75529cb72928ecda7b6b494485b10642acdeeb4",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/sources/FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-RECEIPT.md",
+      "before_git_blob": null,
+      "after_git_blob": "1f20fc5084ae8a708296329634c30fddac4091c5",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/sources/attempt-001-negative-evidence.zip",
+      "before_git_blob": null,
+      "after_git_blob": "6b0be6badad72eb8b82ef17fe3d7f96bf6333bcd",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/sources/recomputed_raw-preserved.zip",
+      "before_git_blob": null,
+      "after_git_blob": "90ef96aea8547c9b9fcf429bdce31f2da3a8501d",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II bounded release admission after separate same-implementation recomputation; package identity remains gate-4 hash/length-bound; exact recomputed raw and Attempt 001 negative evidence preserved; no stronger independence or production claim.",
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md"
     }
   ],
   "non_claim": "Accounting records bounded repository changes; it does not establish semantic completeness or transfer standing."
