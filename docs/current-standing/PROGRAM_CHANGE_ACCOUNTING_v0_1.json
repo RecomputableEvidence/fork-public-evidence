@@ -1,0 +1,7 @@
+{
+  "schema_id": "FORK_PROGRAM_CHANGE_ACCOUNTING_v0_1",
+  "standing_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json",
+  "coverage_base_commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+  "transitions": [],
+  "non_claim": "Empty transitions means no recognized path changes after the declared base in this repair, not no program events before it."
+}
