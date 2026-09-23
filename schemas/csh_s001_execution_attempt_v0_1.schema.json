@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/csh_s001_execution_attempt_v0_1.schema.json",
+  "title": "CSH-S001 Execution Attempt v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "experiment_id",
+    "planned_run_id",
+    "attempt_id",
+    "pairing_key",
+    "scenario_id",
+    "receiver_class_id",
+    "condition",
+    "replicate_id",
+    "terminal_state",
+    "classifiable",
+    "request_binding",
+    "raw_response_binding",
+    "error_body_binding",
+    "requested_model",
+    "returned_model",
+    "provider_response_id",
+    "backend_fingerprint",
+    "finish_reason",
+    "http_status",
+    "started_at_utc",
+    "ended_at_utc",
+    "non_claims"
+  ],
+  "properties": {
+    "experiment_id": {"const": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1"},
+    "planned_run_id": {"type": "string", "minLength": 1},
+    "attempt_id": {"type": "string", "minLength": 1},
+    "pairing_key": {"type": "string", "minLength": 1},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "receiver_class_id": {"type": "string", "minLength": 1},
+    "condition": {"enum": ["control_h0", "instrumented_h1"]},
+    "replicate_id": {"type": "integer", "minimum": 1},
+    "terminal_state": {
+      "enum": [
+        "COMPLETED_CLASSIFIABLE",
+        "COMPLETED_BUT_UNCLASSIFIABLE",
+        "EXECUTION_UNAVAILABLE",
+        "RETRIEVAL_OR_PROVIDER_ERROR",
+        "RECEIVER_IDENTITY_MISMATCH",
+        "CORRUPTED_OR_INCOMPLETE_CAPTURE",
+        "DEVIATION_FROM_FROZEN_INPUT"
+      ]
+    },
+    "classifiable": {"type": "boolean"},
+    "request_binding": {"$ref": "#/$defs/binding"},
+    "raw_response_binding": {"oneOf": [{"$ref": "#/$defs/binding"}, {"type": "null"}]},
+    "error_body_binding": {"oneOf": [{"$ref": "#/$defs/binding"}, {"type": "null"}]},
+    "requested_model": {"type": "string", "minLength": 1},
+    "returned_model": {"type": ["string", "null"]},
+    "provider_response_id": {"type": ["string", "null"]},
+    "backend_fingerprint": {"type": ["string", "null"]},
+    "finish_reason": {"type": ["string", "null"]},
+    "http_status": {"type": ["integer", "null"], "minimum": 100, "maximum": 599},
+    "started_at_utc": {"type": "string", "minLength": 1},
+    "ended_at_utc": {"type": "string", "minLength": 1},
+    "non_claims": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"terminal_state": {"const": "COMPLETED_CLASSIFIABLE"}}, "required": ["terminal_state"]},
+      "then": {
+        "properties": {
+          "classifiable": {"const": true},
+          "raw_response_binding": {"$ref": "#/$defs/binding"}
+        }
+      },
+      "else": {
+        "properties": {"classifiable": {"const": false}}
+      }
+    }
+  ]
+}

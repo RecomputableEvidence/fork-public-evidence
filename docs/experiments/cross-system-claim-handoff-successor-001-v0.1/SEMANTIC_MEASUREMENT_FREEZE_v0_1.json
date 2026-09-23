@@ -1,0 +1,57 @@
+{
+  "record_id": "CSH-S001-SEMANTIC-MEASUREMENT-FREEZE-20260923-001",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "status": "FROZEN_PRE_EXECUTION",
+  "subject_commit": "fd839efbaa11bb5c7ae0b063bbe5ec46181c836d",
+  "bindings": [
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PREREGISTRATION_v0_1.md",
+      "git_blob_sha": "5422c5d7a9239bf30827bb6a958392f7e8b1f5f6"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/MEASUREMENT_AND_CODING_SPEC_v0_1.md",
+      "git_blob_sha": "a7908b0f2d8cb3e66aa9b1eb648c6357b40aeae9"
+    },
+    {
+      "path": "tools/classify_unsupported_inheritance_s001_v0_1.py",
+      "git_blob_sha": "90460eb49ce6d9fcd57500cde0cede4804b3386f"
+    },
+    {
+      "path": "tools/analyze_csh_s001_v0_1.py",
+      "git_blob_sha": "2030e68cb8f5d7fb517dfb5fa442151c8d8406da"
+    }
+  ],
+  "primary_outcome": {
+    "symbol": "U",
+    "unit": "unsupported_inheritance_rule_findings_per_classifiable_hosted_receiver_run",
+    "paired_difference": "D_pair = U_H1 - U_H0",
+    "directional_hypothesis": "E[U | H=1] < E[U | H=0]"
+  },
+  "complementary_outcomes": {
+    "P": "distinct normalized downstream claim IDs with at least one claim-attributable unsupported-promotion finding",
+    "A": "1 if U > 0 else 0",
+    "T": [
+      "COMPLETE_TRANSFER_RECORD",
+      "BOUNDED_ABSTENTION",
+      "NONRESPONSIVE",
+      "MALFORMED_OUTPUT",
+      "TRUNCATED_OUTPUT"
+    ]
+  },
+  "coding_plan": {
+    "normalization_is_interpretive_event": true,
+    "raw_output_span_binding_required": true,
+    "condition_labels_withheld_where_feasible": true,
+    "disagreements_preserved": true,
+    "adjudication_overwrites_initial_coding": false,
+    "preferred_mode": "TWO_INDEPENDENT_CODINGS_ALL_HOSTED_RUNS",
+    "minimum_fallback": "ONE_PRIMARY_CODER_ALL_RUNS_PLUS_PRESELECTED_INDEPENDENT_AUDIT_SUBSET",
+    "condition_specific_selective_recoding": "PROHIBITED"
+  },
+  "change_rule": "Any substantive post-freeze change to U/P/A/T definitions, coding rubric, classifier event semantics, claim segmentation, or coding-independence procedure requires a separately identified successor or a protocol-permitted pre-execution thaw/re-freeze record before corpus-bearing execution.",
+  "non_claims": [
+    "This freeze does not establish semantic correctness of human coding.",
+    "This freeze does not prove the hypothesis.",
+    "This freeze does not authorize corpus-bearing execution while other execution-gate requirements remain unsatisfied."
+  ]
+}
