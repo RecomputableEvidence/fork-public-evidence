@@ -234,6 +234,46 @@
       "disposition": "INCORPORATED",
       "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
       "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/README.md",
+      "before_git_blob": "80d8fc7c9375449adb3ee3c04147002b6a1236cb",
+      "after_git_blob": "67663defdc5ee9df7f860fddda1de86c778443c4",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 3 control population frozen before repair; no control execution or implementation repair claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/controls/v0.1-FROZEN/CONTROL_FREEZE_RECORD.json",
+      "before_git_blob": null,
+      "after_git_blob": "5ef381e3f9eed78669fa52ec94bd2468cefc6c28",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 3 control population frozen before repair; no control execution or implementation repair claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/controls/v0.1-FROZEN/CONTROL_POPULATION.json",
+      "before_git_blob": null,
+      "after_git_blob": "4db1bda6762cc39c1e2fe3de21f510ffc982fb0f",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 3 control population frozen before repair; no control execution or implementation repair claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/controls/v0.1-FROZEN/CONTROL_PROTOCOL.md",
+      "before_git_blob": null,
+      "after_git_blob": "60aaabc33494941ba6aa9b2e8a10da9eed630578",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 3 control population frozen before repair; no control execution or implementation repair claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/controls/v0.1-FROZEN/SHA256SUMS.txt",
+      "before_git_blob": null,
+      "after_git_blob": "b2a78d5a628ae2131ef930fb7e44940d81b42e9c",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 3 control population frozen before repair; no control execution or implementation repair claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md"
     }
   ],
   "non_claim": "Accounting records bounded repository changes; it does not establish semantic completeness or transfer standing."
