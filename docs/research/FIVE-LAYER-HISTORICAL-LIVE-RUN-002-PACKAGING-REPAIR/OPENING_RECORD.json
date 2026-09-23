@@ -1,0 +1,17 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-OPENING",
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+  "predecessor": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001",
+  "state": "SUCCESSOR_PACKAGING_REPAIR_OPENED",
+  "scope_exactly": [
+    "formal M11-M25 detector specifications",
+    "parent compilation/binding",
+    "explicit Stage1A offset convention",
+    "revised M21-M25 self-audit standing"
+  ],
+  "predecessor_mutation": false,
+  "run_001_reexecution_claimed": false,
+  "formal_stage3_adjudication_claimed": false,
+  "program_standing_effect": "NONE",
+  "non_claim": "This successor repairs packaging/reproducibility surfaces only. It does not correct or replace Run 001 and does not inherit Run 001 standing by adjacency."
+}
