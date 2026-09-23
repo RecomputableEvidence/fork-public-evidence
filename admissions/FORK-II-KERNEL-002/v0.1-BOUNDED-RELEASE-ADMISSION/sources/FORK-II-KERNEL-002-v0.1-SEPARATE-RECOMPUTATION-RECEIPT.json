@@ -41,18 +41,202 @@
     "Byte-identical reproduction of the bundled raw output confirms reproducibility in this environment but does not by itself establish source-independent semantic correctness."
   ],
   "predecessor_mutant_detection": [
-    {"designated_detected":{"FII-01":true},"designated_records":["FII-01"],"detected":true,"failed_count":1,"failed_record_ids":["FII-01"],"family":"PREDECESSOR_MUTANT","fault":"eligibility_authorization"},
-    {"designated_detected":{"FII-03":true},"designated_records":["FII-03"],"detected":true,"failed_count":1,"failed_record_ids":["FII-03"],"family":"PREDECESSOR_MUTANT","fault":"scope_globality"},
-    {"designated_detected":{"FII-04":true},"designated_records":["FII-04"],"detected":true,"failed_count":1,"failed_record_ids":["FII-04"],"family":"PREDECESSOR_MUTANT","fault":"false_negation"},
-    {"designated_detected":{"FII-05":true,"FII-13":true},"designated_records":["FII-05","FII-13"],"detected":true,"failed_count":2,"failed_record_ids":["FII-05","FII-13"],"family":"PREDECESSOR_MUTANT","fault":"automatic_license"},
-    {"designated_detected":{"FII-14":true,"FII-16":true},"designated_records":["FII-14","FII-16"],"detected":true,"failed_count":2,"failed_record_ids":["FII-14","FII-16"],"family":"PREDECESSOR_MUTANT","fault":"historical_rewrite"},
-    {"designated_detected":{"FII-17":true},"designated_records":["FII-17"],"detected":true,"failed_count":1,"failed_record_ids":["FII-17"],"family":"PREDECESSOR_MUTANT","fault":"authority_infects_evidence"},
-    {"designated_detected":{"FII-18":true},"designated_records":["FII-18"],"detected":true,"failed_count":1,"failed_record_ids":["FII-18"],"family":"PREDECESSOR_MUTANT","fault":"force_total_order"},
-    {"designated_detected":{"FII-14":true,"FII-15":true},"designated_records":["FII-14","FII-15"],"detected":true,"failed_count":2,"failed_record_ids":["FII-14","FII-15"],"family":"PREDECESSOR_MUTANT","fault":"stale_reuse"},
-    {"designated_detected":{"FII-19":true},"designated_records":["FII-19"],"detected":true,"failed_count":2,"failed_record_ids":["FII-19","FII-23"],"family":"PREDECESSOR_MUTANT","fault":"mutable_profile_reference"},
-    {"designated_detected":{"FII-20":true},"designated_records":["FII-20"],"detected":true,"failed_count":1,"failed_record_ids":["FII-20"],"family":"PREDECESSOR_MUTANT","fault":"historical_disposition_promoted_to_correctness"},
-    {"designated_detected":{"FII-21":true},"designated_records":["FII-21"],"detected":true,"failed_count":5,"failed_record_ids":["FII-21","FII-24","CTRL-BIND-002","CTRL-BIND-003","CTRL-BIND-004"],"family":"PREDECESSOR_MUTANT","fault":"unbound_dependency_snapshot"},
-    {"designated_detected":{"FII-22":true},"designated_records":["FII-22"],"detected":true,"failed_count":3,"failed_record_ids":["FII-22","FII-26","CTRL-TIME-008"],"family":"PREDECESSOR_MUTANT","fault":"null_effective_until_promoted_to_indefinite_validity"}
+    {
+      "designated_detected": {
+        "FII-01": true
+      },
+      "designated_records": [
+        "FII-01"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-01"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "eligibility_authorization"
+    },
+    {
+      "designated_detected": {
+        "FII-03": true
+      },
+      "designated_records": [
+        "FII-03"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-03"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "scope_globality"
+    },
+    {
+      "designated_detected": {
+        "FII-04": true
+      },
+      "designated_records": [
+        "FII-04"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-04"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "false_negation"
+    },
+    {
+      "designated_detected": {
+        "FII-05": true,
+        "FII-13": true
+      },
+      "designated_records": [
+        "FII-05",
+        "FII-13"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "FII-05",
+        "FII-13"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "automatic_license"
+    },
+    {
+      "designated_detected": {
+        "FII-14": true,
+        "FII-16": true
+      },
+      "designated_records": [
+        "FII-14",
+        "FII-16"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "FII-14",
+        "FII-16"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "historical_rewrite"
+    },
+    {
+      "designated_detected": {
+        "FII-17": true
+      },
+      "designated_records": [
+        "FII-17"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-17"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "authority_infects_evidence"
+    },
+    {
+      "designated_detected": {
+        "FII-18": true
+      },
+      "designated_records": [
+        "FII-18"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-18"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "force_total_order"
+    },
+    {
+      "designated_detected": {
+        "FII-14": true,
+        "FII-15": true
+      },
+      "designated_records": [
+        "FII-14",
+        "FII-15"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "FII-14",
+        "FII-15"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "stale_reuse"
+    },
+    {
+      "designated_detected": {
+        "FII-19": true
+      },
+      "designated_records": [
+        "FII-19"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "FII-19",
+        "FII-23"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "mutable_profile_reference"
+    },
+    {
+      "designated_detected": {
+        "FII-20": true
+      },
+      "designated_records": [
+        "FII-20"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-20"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "historical_disposition_promoted_to_correctness"
+    },
+    {
+      "designated_detected": {
+        "FII-21": true
+      },
+      "designated_records": [
+        "FII-21"
+      ],
+      "detected": true,
+      "failed_count": 5,
+      "failed_record_ids": [
+        "FII-21",
+        "FII-24",
+        "CTRL-BIND-002",
+        "CTRL-BIND-003",
+        "CTRL-BIND-004"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "unbound_dependency_snapshot"
+    },
+    {
+      "designated_detected": {
+        "FII-22": true
+      },
+      "designated_records": [
+        "FII-22"
+      ],
+      "detected": true,
+      "failed_count": 3,
+      "failed_record_ids": [
+        "FII-22",
+        "FII-26",
+        "CTRL-TIME-008"
+      ],
+      "family": "PREDECESSOR_MUTANT",
+      "fault": "null_effective_until_promoted_to_indefinite_validity"
+    }
   ],
   "record_id": "FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-20260923-001",
   "reproduction": {
@@ -64,13 +248,143 @@
   "scope_note": "This is a separate execution/recomputation of the supplied artifact and frozen inputs, not an independently implemented oracle.",
   "subject": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1",
   "targeted_fault_reintroductions": [
-    {"designated_detected":{"FII-23":true},"designated_records":["FII-23"],"detected":true,"failed_count":1,"failed_record_ids":["FII-23"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_ignore_immutable"},
-    {"designated_detected":{"CTRL-BIND-002":true},"designated_records":["CTRL-BIND-002"],"detected":true,"failed_count":1,"failed_record_ids":["CTRL-BIND-002"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_accept_missing_dependency_bytes"},
-    {"designated_detected":{"CTRL-BIND-003":true,"FII-24":true},"designated_records":["FII-24","CTRL-BIND-003"],"detected":true,"failed_count":2,"failed_record_ids":["FII-24","CTRL-BIND-003"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_accept_malformed_digest"},
-    {"designated_detected":{"CTRL-BIND-004":true},"designated_records":["CTRL-BIND-004"],"detected":true,"failed_count":1,"failed_record_ids":["CTRL-BIND-004"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_skip_dependency_digest_match"},
-    {"designated_detected":{"CTRL-TIME-002":true,"CTRL-TIME-003":true,"FII-25":true},"designated_records":["FII-25","CTRL-TIME-002","CTRL-TIME-003"],"detected":true,"failed_count":3,"failed_record_ids":["FII-25","CTRL-TIME-002","CTRL-TIME-003"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_ignore_fixed_time_position"},
-    {"designated_detected":{"CTRL-TIME-004":true,"CTRL-TIME-005":true},"designated_records":["CTRL-TIME-004","CTRL-TIME-005"],"detected":true,"failed_count":2,"failed_record_ids":["CTRL-TIME-004","CTRL-TIME-005"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_accept_invalid_fixed_interval"},
-    {"designated_detected":{"CTRL-TIME-006":true,"CTRL-TIME-007":true},"designated_records":["CTRL-TIME-006","CTRL-TIME-007"],"detected":true,"failed_count":2,"failed_record_ids":["CTRL-TIME-006","CTRL-TIME-007"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_default_invalid_evaluation_current"},
-    {"designated_detected":{"CTRL-TIME-008":true,"FII-26":true},"designated_records":["FII-26","CTRL-TIME-008"],"detected":true,"failed_count":2,"failed_record_ids":["FII-26","CTRL-TIME-008"],"family":"SUCCESSOR_TARGETED_FAULT","fault":"successor_unknown_end_current"}
+    {
+      "designated_detected": {
+        "FII-23": true
+      },
+      "designated_records": [
+        "FII-23"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "FII-23"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_ignore_immutable"
+    },
+    {
+      "designated_detected": {
+        "CTRL-BIND-002": true
+      },
+      "designated_records": [
+        "CTRL-BIND-002"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "CTRL-BIND-002"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_accept_missing_dependency_bytes"
+    },
+    {
+      "designated_detected": {
+        "CTRL-BIND-003": true,
+        "FII-24": true
+      },
+      "designated_records": [
+        "FII-24",
+        "CTRL-BIND-003"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "FII-24",
+        "CTRL-BIND-003"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_accept_malformed_digest"
+    },
+    {
+      "designated_detected": {
+        "CTRL-BIND-004": true
+      },
+      "designated_records": [
+        "CTRL-BIND-004"
+      ],
+      "detected": true,
+      "failed_count": 1,
+      "failed_record_ids": [
+        "CTRL-BIND-004"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_skip_dependency_digest_match"
+    },
+    {
+      "designated_detected": {
+        "CTRL-TIME-002": true,
+        "CTRL-TIME-003": true,
+        "FII-25": true
+      },
+      "designated_records": [
+        "FII-25",
+        "CTRL-TIME-002",
+        "CTRL-TIME-003"
+      ],
+      "detected": true,
+      "failed_count": 3,
+      "failed_record_ids": [
+        "FII-25",
+        "CTRL-TIME-002",
+        "CTRL-TIME-003"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_ignore_fixed_time_position"
+    },
+    {
+      "designated_detected": {
+        "CTRL-TIME-004": true,
+        "CTRL-TIME-005": true
+      },
+      "designated_records": [
+        "CTRL-TIME-004",
+        "CTRL-TIME-005"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "CTRL-TIME-004",
+        "CTRL-TIME-005"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_accept_invalid_fixed_interval"
+    },
+    {
+      "designated_detected": {
+        "CTRL-TIME-006": true,
+        "CTRL-TIME-007": true
+      },
+      "designated_records": [
+        "CTRL-TIME-006",
+        "CTRL-TIME-007"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "CTRL-TIME-006",
+        "CTRL-TIME-007"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_default_invalid_evaluation_current"
+    },
+    {
+      "designated_detected": {
+        "CTRL-TIME-008": true,
+        "FII-26": true
+      },
+      "designated_records": [
+        "FII-26",
+        "CTRL-TIME-008"
+      ],
+      "detected": true,
+      "failed_count": 2,
+      "failed_record_ids": [
+        "FII-26",
+        "CTRL-TIME-008"
+      ],
+      "family": "SUCCESSOR_TARGETED_FAULT",
+      "fault": "successor_unknown_end_current"
+    }
   ]
 }
