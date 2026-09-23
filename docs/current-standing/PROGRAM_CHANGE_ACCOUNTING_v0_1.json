@@ -274,6 +274,54 @@
       "disposition": "INCORPORATED",
       "reason": "Fork II ordered gate 3 control population frozen before repair; no control execution or implementation repair claimed.",
       "standing_reference": "docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/README.md",
+      "before_git_blob": "67663defdc5ee9df7f860fddda1de86c778443c4",
+      "after_git_blob": "d8a2ca1361a2d5e562f1e65c6c337410a0736a7f",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
+      "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/README.md",
+      "before_git_blob": null,
+      "after_git_blob": "d804cc4db1d7170adc72d52711973b7d6b522a74",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
+      "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/execution/POST_REPAIR_EXECUTION_RECEIPT.json",
+      "before_git_blob": null,
+      "after_git_blob": "f58d22305da72f83b9831bae54632ac51c76b540",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
+      "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/execution/POST_REPAIR_EXECUTION_RECEIPT.md",
+      "before_git_blob": null,
+      "after_git_blob": "985f72d58f6ae06aed4378db8448c241b6e22e99",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
+      "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/PACKAGE_BINDING.json",
+      "before_git_blob": null,
+      "after_git_blob": "af2b6666ead6c3834f1cd833773514c506dcf5e4",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
+      "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/SHA256SUMS.txt",
+      "before_git_blob": null,
+      "after_git_blob": "2afa1c612121c59894a650816714f7af7bfa95da",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II ordered gate 4 successor-only repair and bounded combined execution; post-repair evidence only, release admission awaits separate recomputation.",
+      "standing_reference": "docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md"
     }
   ],
   "non_claim": "Accounting records bounded repository changes; it does not establish semantic completeness or transfer standing."

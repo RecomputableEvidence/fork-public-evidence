@@ -14,7 +14,11 @@ See the [2026-09-23 Fork II pre-repair recomputation standing note](docs/current
 
 ## Fork II pre-repair control freeze
 
-See the [2026-09-23 Fork II control-freeze standing note](docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md): ordered gate 3 defines and byte-freezes a 13-control population before repair. No controls are executed by the freeze and no implementation byte is changed. The next Fork II gate is successor-only repair against frozen FII-01–FII-26 evidence plus the frozen controls, followed by combined execution and targeted fault reintroductions.
+See the [2026-09-23 Fork II control-freeze standing note](docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md): ordered gate 3 defines and byte-freezes a 13-control population before repair. No controls are executed by the freeze and no implementation byte is changed.
+
+## Fork II successor repair and post-repair execution
+
+See the [2026-09-23 Fork II post-repair execution standing note](docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md): ordered gate 4 repaired only the successor and produced `22/22` predecessor baseline, `26/26` FII fixtures, `13/13` frozen controls, and `39/39` combined, with `12/12` predecessor mutants and `8/8` targeted successor faults detected. This is post-repair execution evidence, not successor release admission. The next Fork II gate is a separate recomputation of the repaired package before any release admission.
 
 ## Current-state routing clarification
 

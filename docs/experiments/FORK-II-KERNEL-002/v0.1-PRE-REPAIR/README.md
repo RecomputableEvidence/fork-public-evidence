@@ -43,4 +43,12 @@ Ordered gate 3 is now defined and byte-frozen under [`controls/v0.1-FROZEN/`](co
 
 The control freeze does not execute the controls, alter any FII-23–FII-26 oracle, or modify predecessor/successor implementation bytes. `CONTROL_FREEZE_RECORD.json` records `controls_executed=false`, `repair_performed=false`, and `oracle_mutation_permitted=false`.
 
-**Current next gate:** ordered gate 4 — repair only the successor against the already frozen FII-01–FII-26 evidence and the 13-control population, then execute the combined population with targeted fault reintroductions. No repair is claimed at this coordinate.
+## Successor-only repair execution — 2026-09-23
+
+Ordered gate 4 has now been executed in the separately named successor implementation `FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1`, after FII-23–FII-26 and the control population were frozen. The predecessor was not modified.
+
+Preserved result: FII-01–FII-22 `22/22 PASS`; FII-01–FII-26 `26/26 PASS`; frozen controls `13/13 PASS`; combined population `39/39 PASS`; predecessor mutants `12/12` detected; targeted successor fault reintroductions `8/8` detected. Attempt 001 is preserved as a harness-construction failure; Attempt 002 corrected only test/receipt harness logic.
+
+CANON-v1 remains unchanged. No frozen fixture or control oracle was changed.
+
+**Current next gate:** ordered gate 5 — preserve and separately recompute the repaired package before any successor release admission. The repaired package is post-repair execution evidence, not a release admission.
