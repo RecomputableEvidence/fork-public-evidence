@@ -1,0 +1,56 @@
+# Current Standing
+
+For the repository-wide current program state, begin here:
+
+Current standing: [v0.7](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.md) / [JSON](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.json). Base `2dab684fc904f43ca0d35d1c1bbc500e92156ec4` (PR #160 merge). CSH baseline blocked; additive corrections to population accounting, adjudication chronology, and AMEND-004 migration proposal (concrete research v0.2 prepared, not authorized).
+
+## Current-state routing clarification
+
+`CURRENT_STANDING.md` and the v0.7 register above are the current program-standing route for this coordinate.
+
+Earlier proof-surface state files, generated summaries, and embedded README status blocks retain their own historical coordinates. They do **not** become current merely because they remain present in the repository.
+
+For machine-readable routing, see:
+
+- [`docs/state/CURRENT_STATE_ROUTING_v0_1.json`](docs/state/CURRENT_STATE_ROUTING_v0_1.json)
+
+The July proof-state snapshot remains preserved unchanged. Its historical `not_started` CSH state must not be read as superseding the later September execution/reconciliation record.
+
+A separately named successor, `CSH-S001-v0.1`, is being prepared to resolve receiver identity and measurement interpretation before a new bounded comparison. It is not a continuation or retroactive completion of CSH v0.1 and is not frozen or executed merely by being listed here.
+
+- [`docs/current-standing/README.md`](docs/current-standing/README.md)
+- Preserved v0.6 (2026-09-21 post-execution reconciliation): [`FORK_CURRENT_WORK_REGISTER_v0_6.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.json)
+- Preserved v0.5 (2026-09-21 preflight): [`FORK_CURRENT_WORK_REGISTER_v0_5.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json)
+- Preserved September 17 UEM overlay: [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json)
+- Preserved September 17 Lens Shift overlay: [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json)
+- Preserved September 15 overlay: [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.json)
+- Historical September 9 snapshot: [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.json)
+
+The v0.7 overlay adds additive corrections to v0.6 records. Historical v0.1–v0.6 and underlying research artifacts remain unchanged.
+
+That current-standing layer reports what exists, what was executed, what failed or produced no scorable result, what remains provisional, what is frozen, what awaits independence, what was intentionally stopped, what has since been repository-admitted, and the next evidence-bearing gate.
+
+It is an interpretation and routing layer only.
+
+```text
+INDEXED HERE
+!= VALIDATED
+!= FROZEN
+!= INDEPENDENTLY REVIEWED
+!= COMMERCIALLY QUALIFIED
+!= GOVERNANCE ADOPTED
+```
+
+Likewise, byte admission and replay have their own boundaries:
+
+```text
+TERMINAL_NATIVE_RECORDS_ADMITTED
+!= LARGE_PREDECESSOR_OR_SUPPORT_ARCHIVES_ADMITTED
+!= INDEPENDENT_EXECUTOR_FROM_FIXTURES_REPRODUCTION
+
+VERIFIER_RECEIPT_REPLAY_PASS
+!= UNIVERSAL_UEM_CORRECTNESS
+!= INDEPENDENT_SURFACE_GENERALIZATION
+```
+
+Existing historical, proof, research, review, reconstruction, interoperability, simulation, commercial, and admitted empirical artifacts retain their own scope and standing.

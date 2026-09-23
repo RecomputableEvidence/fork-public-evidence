@@ -1,0 +1,171 @@
+{
+  "record_id": "FORK-REPRESENTATIONAL-LATENCY-OBSERVATION-001",
+  "version": "0.1",
+  "standing": "DESCRIPTIVE_COORDINATE_BOUND_NON_SCORED_OBSERVATION",
+  "captured_at_utc": "2026-09-23T04:55:49.403092+00:00",
+  "timestamp_basis": "Executor wall clock at capture; not a trusted timestamp or original detection time.",
+  "observed_main_commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+  "advertised_standing": "v0.7",
+  "standing_introducing_commit": "bf75ea0056a6df562b4b4995143176e7ae664106",
+  "standing_admission_commit": "d9e17deefec2b844e5f5b82c84986e085e077d58",
+  "standing_declared_base": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "detection_provenance": "User supplied a prior assessment identifying this divergence. This record independently checks the pinned repository state; it does not establish the earliest detection timestamp.",
+  "events": [
+    {
+      "pr": 161,
+      "commit": "d9e17deefec2b844e5f5b82c84986e085e077d58",
+      "admission_status": "ADMITTED",
+      "standing_incorporation": "INCORPORATED_IN_V0_7",
+      "effect": "Additive CSH corrections. The v0.7 base names PR160 but the delta already incorporates PR161; PR161 is not an omitted overtaking event."
+    },
+    {
+      "pr": 163,
+      "commit": "fd839efbaa11bb5c7ae0b063bbe5ec46181c836d",
+      "admission_status": "ADMITTED",
+      "standing_incorporation": "PARTIAL_ROUTE_MENTION_WITHOUT_REGISTER_DELTA",
+      "effect": "Separately identified CSH-S001 preregistration, interpretation and local implementation; routing mentions candidate but v0.7 has no successor delta."
+    },
+    {
+      "pr": 164,
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "admission_status": "ADMITTED",
+      "standing_incorporation": "ABSENT_FROM_V0_7",
+      "effect": "Measurement/coding and execution-record freezes, packet binding and non-hosted readiness gates; G06 G07 G08 G11 remain blocked/pending."
+    },
+    {
+      "pr": 165,
+      "commit": "e3eabe49a7aa4eb9ec3fa451e16bae671fada19b",
+      "admission_status": "OPEN_NOT_MERGED_AT_VERIFICATION",
+      "standing_incorporation": "ABSENT_IN_FLIGHT_CONTEXT",
+      "effect": "Checked-in neutral access observation reports Mistral 429 rate_limited and OpenAI 429 credit_balance_exhausted; neither freeze eligible. Not an admitted program transition or hypothesis outcome."
+    }
+  ],
+  "finding": "At the pinned main coordinate, the designated standing representation lagged admitted CSH-S001 evidence while predecessor and overtaking bytes remained reconstructable.",
+  "inference_risk": "A reviewer following the canonical README route could reasonably treat v0.7 and the preparation wording as the latest admitted CSH-S001 state.",
+  "observed_reviewer_reliance": "NOT_ESTABLISHED",
+  "reconstructability": {
+    "predecessor_bytes": true,
+    "overtaking_event_bytes": true,
+    "routing_bytes": true,
+    "historical_mutation_required": false,
+    "missing_history_invented": false
+  },
+  "pre_repair_checker": {
+    "exit_code": 0,
+    "passed": 11,
+    "total": 11,
+    "path": "ROUTING_CHECK_BEFORE_REPAIR.json"
+  },
+  "source_bindings": [
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "CURRENT_STANDING.md",
+      "git_blob_sha": "36d50a517df99dd6b60fbaf62883b3fec23b1ccd",
+      "sha256": "92ab873567a4643fe056d33b2f475c08bbb7349ef324b14b2aaf027677c60043",
+      "preserved_copy": "sources/main/CURRENT_STANDING.md"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "README.md",
+      "git_blob_sha": "1f5797acd6850f2f7de6fdd6b4274eb34d148db0",
+      "sha256": "d5a21046aad6f42d51ca08eea68a5770301f577b4e81ac81f9d4bcb36c9ca433",
+      "preserved_copy": "sources/main/README.md"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/current-standing/README.md",
+      "git_blob_sha": "5fe8d8b2fdc3924b3516f5cbd93e183046e1afa2",
+      "sha256": "63b4411b1d65e3eabaa997253ba22b932ec62b00134b4d2dc030e8abfadd0df5",
+      "preserved_copy": "sources/main/docs/current-standing/README.md"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.json",
+      "git_blob_sha": "d3d3a723eaf13cc55255d217c371dda63ee35df8",
+      "sha256": "dc41c22ae6edb2604093a16e8a277e241940c4eefa4acc6f63a4f8d4fb92b691",
+      "preserved_copy": "sources/main/docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.json"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.md",
+      "git_blob_sha": "def323649b55dbe506a67fb930beb1809795921a",
+      "sha256": "0fd5176abf76cc17d6b7a2a084c17e031d1b0d74e9d38a70a884f956ee455072",
+      "preserved_copy": "sources/main/docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.md"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/state/CURRENT_STATE_ROUTING_v0_1.json",
+      "git_blob_sha": "f35dd937ddd62adaca405ff1869e44626486fa83",
+      "sha256": "bf5780680275a74a10ebfd33ef8461047b8cd50a3522d8334c997a667846d23e",
+      "preserved_copy": "sources/main/docs/state/CURRENT_STATE_ROUTING_v0_1.json"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "scripts/check_current_state_routing_v0_1.py",
+      "git_blob_sha": "886a22048b554437bf12aa12131a77788942d1f0",
+      "sha256": "66de6eb511ec9c0334038d5baa599fad4b24c6b5e16e6cf89d763fa94adb295f",
+      "preserved_copy": "sources/main/scripts/check_current_state_routing_v0_1.py"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": ".github/workflows/current-standing-structural-check.yml",
+      "git_blob_sha": "04f5271a43e06fb96ca6b10c94f4fd56cf54e744",
+      "sha256": "16e3fafa69c0ade77e1ec1d99a27cbc0aff9f06f22fc860bdbd69fba05d487ba",
+      "preserved_copy": "sources/main/.github/workflows/current-standing-structural-check.yml"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/README.md",
+      "git_blob_sha": "50f7c5a9a21a751821e6faf5fe5e08a760b4804a",
+      "sha256": "2089b6042cd2fc6c4a47b1551586c63637df12291f935713b0d2a0fcd19b70a3",
+      "preserved_copy": "sources/main/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/README.md"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_GATE_v0_1.json",
+      "git_blob_sha": "e5611eab7fd5d942b0f50c8e307706a5ca620154",
+      "sha256": "4138f527765b526a2845ac68b0217917c8a7db70c420dc35fa1ee3753c83c885",
+      "preserved_copy": "sources/main/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_GATE_v0_1.json"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/SEMANTIC_MEASUREMENT_FREEZE_v0_1.json",
+      "git_blob_sha": "4a318e985108af76f064af8eb914c0db065549f1",
+      "sha256": "30cf7ffb494f97d177b1399f9b0300af5f07d35bc05e1b9e0398c939c278c6b3",
+      "preserved_copy": "sources/main/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/SEMANTIC_MEASUREMENT_FREEZE_v0_1.json"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_RECORD_FREEZE_v0_1.json",
+      "git_blob_sha": "555204730b7839d68a56243c6dc12a851a7b47a2",
+      "sha256": "456b6c5c011807951bfdc9abce0a3dbc52532cb5c53f9b2882fe51b2b9cb5019",
+      "preserved_copy": "sources/main/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_RECORD_FREEZE_v0_1.json"
+    },
+    {
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PACKET_BINDING_v0_1.json",
+      "git_blob_sha": "e327874693faee6d02774c73e56c90ea6b2005fc",
+      "sha256": "f4ec48838689a471cfaff6cb7746f4b766810a6e1ece8a7e42e49f722b4c06a7",
+      "preserved_copy": "sources/main/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PACKET_BINDING_v0_1.json"
+    },
+    {
+      "commit": "e3eabe49a7aa4eb9ec3fa451e16bae671fada19b",
+      "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PREFLIGHT_OBSERVATION_PR165_20260923.json",
+      "git_blob_sha": "68a23987cc5cb3436ab8bbe236c63900c55b5e27",
+      "sha256": "4b1d1ff6757b79be0aeb136b123cf679423bdcdbe5255c08a4c19bd10c65804f",
+      "preserved_copy": "sources/pr165/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PREFLIGHT_OBSERVATION_PR165_20260923.json"
+    }
+  ],
+  "invariants": [
+    "PRESERVATION != SYNCHRONIZATION",
+    "PRESERVED != CURRENTLY INTERPRETED",
+    "CURRENTLY INTERPRETED != CURRENTLY REPRESENTATIVE"
+  ],
+  "non_claims": [
+    "No severity score, universal lag threshold, semantic weights, or latency metric.",
+    "No proof of the broad thesis that AI evolution exceeds human processing capacity; causes of this local discrepancy are not established.",
+    "No proof of reviewer exposure, downstream harm, trusted chronology, or semantic completeness.",
+    "PR165 access errors are recorded provider responses, not independent endpoint reruns or CSH content results.",
+    "This observation does not reopen or modify any closed historical object."
+  ]
+}
