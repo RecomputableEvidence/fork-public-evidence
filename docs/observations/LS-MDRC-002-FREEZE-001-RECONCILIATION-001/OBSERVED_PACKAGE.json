@@ -1,0 +1,459 @@
+{
+  "source_commit": "ca28599b7ca411060e1fc3667ef97596244ed9bb",
+  "package_root": "docs/experiments/lens-shift-mdrc-002/",
+  "package_tree": "16bd6f37b4530e5b897fc5c83e9293923a1a24fe",
+  "inventory": [
+    {
+      "path": "README.md",
+      "git_blob": "6ea5404531f973a22aa4c8681ada50d441db6500",
+      "size_bytes": 3251,
+      "sha256": "3e2e3876475f807a6575ce2923b8f9b61e9ff511262af74981457be5d25f9f8c"
+    },
+    {
+      "path": "RECOMPUTATION_INSTRUCTIONS.md",
+      "git_blob": "6f9d54e6dc7ddd02a7c31a9988e7afefa80b9c58",
+      "size_bytes": 5535,
+      "sha256": "8f3fe25949286521518027338062661fd73e3483a2351e1b2f46b66ae565fe19"
+    },
+    {
+      "path": "SHA256SUMS",
+      "git_blob": "cf49dcac6f00ddc98ccb79cc17cd2c2db41e0c20",
+      "size_bytes": 3251,
+      "sha256": "0b4776cda0c476230cde0d93b62f37a4eaa0e0439712f0e13eb3a911aef6f8dd"
+    },
+    {
+      "path": "fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json",
+      "git_blob": "36e3dc6a67f0b693fd96802e4d3cf32b71421993",
+      "size_bytes": 9889,
+      "sha256": "c8d7bbd4758b8f4b9e349a9d55e942a64a793e03ed88799e25f8d956ac3c07d5"
+    },
+    {
+      "path": "fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "git_blob": "e21ff5aa9bb7d23b92451e6b9aa390d0b65b3d11",
+      "size_bytes": 8218,
+      "sha256": "735076e190a2fe4488ec1aa355738d0b0165d002074d21f9d19c0c3bc942c9e6"
+    },
+    {
+      "path": "fixtures/development/DEV-001-minimal-valid-trajectory.json",
+      "git_blob": "7a46b3d547e7e041891a7978ec84e125215d1035",
+      "size_bytes": 7470,
+      "sha256": "53396eefe0c2c2720b489b2cb0b24e8672355d93b2073590ddd7c6e8ad28fdff"
+    },
+    {
+      "path": "fixtures/development/DEV-002-branch-lifecycle-bsr.json",
+      "git_blob": "d0d650f67728b958e7c96eca05da0de04bb677c0",
+      "size_bytes": 7674,
+      "sha256": "3709025062b93b52b68c0d4c85fee60b27ff9201e7f42854195a439279c29b99"
+    },
+    {
+      "path": "fixtures/holdout/HOLDOUT_MANIFEST.json",
+      "git_blob": "0fa93d12874cbbdda478bc7033337b1534345634",
+      "size_bytes": 2825,
+      "sha256": "52b4284c7f8fae511e1d0f868e93f8a4931976fe2f4347e851780f3391bd6d3b"
+    },
+    {
+      "path": "fixtures/negative-controls/NC-1-brainstorming.json",
+      "git_blob": "b98b45347440b0f8fd532483a84787e79d00c42f",
+      "size_bytes": 6259,
+      "sha256": "7bb62ec40a242df0585d65f33980dcf29ca524951139c1eb6ea9f0481ad98d3a"
+    },
+    {
+      "path": "fixtures/negative-controls/NC-2-through-NC-7-definitions.json",
+      "git_blob": "0a59b2c9cd35cd2558b9344b4d5e3e82ff6aecb7",
+      "size_bytes": 5244,
+      "sha256": "9a0004d5b3ba4aaee586e9ae3e4c9d0a9f70bbd2e8ea3f4f1cdf1546e7096a4f"
+    },
+    {
+      "path": "fixtures/sentinels/SEN-001-disguised-restatement.json",
+      "git_blob": "5d389c66cdb561e58e7d11db8122213cc9d74863",
+      "size_bytes": 5620,
+      "sha256": "a51133b7776c9397a691a2e68ef0e6f69715eeb113838f8f34ee4e60d7bda510"
+    },
+    {
+      "path": "fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json",
+      "git_blob": "a2d03edd413624f08df78c56f8e9fac6b9935846",
+      "size_bytes": 5939,
+      "sha256": "5436466a76b6e804522c000b4dff747d8844aee0465d9afcb51f4166ac2f2fa1"
+    },
+    {
+      "path": "fixtures/sentinels/SEN-003-unlicensed-epr-violation.json",
+      "git_blob": "e6778bc42c5ab7e9b3014b1f5bd6caac380ce496",
+      "size_bytes": 6546,
+      "sha256": "7d8fcf4a1a91036d4a385b5d5391c2576a4060045b07e7eeb3a407858a42bfcd"
+    },
+    {
+      "path": "ls_mdrc_002_structural_tests.py",
+      "git_blob": "06d54ea82ba9c04d1fdc2151c42448917b56a356",
+      "size_bytes": 27340,
+      "sha256": "e691775e8d4fbc0fc45aa1940300077c8997cd3def856c9f1b36593d3909fa1e"
+    },
+    {
+      "path": "receipts/LS_MDRC_002_CONSTRUCTION_FREEZE_001.json",
+      "git_blob": "3fd7f8ed31c00d4fe949313c337e8722745ef248",
+      "size_bytes": 6681,
+      "sha256": "65469f356277def9ed73573d596f3540c2de590112623c08bac50f10988df099"
+    },
+    {
+      "path": "receipts/construction/CONSTRUCTION_RECEIPT.json",
+      "git_blob": "3b1c7ce0e404f83a77a36d01c8ca83d84e1c8ec4",
+      "size_bytes": 10363,
+      "sha256": "74d68d5f8e80f357701fa41ec50c7c5f39588252c4d7c25357e710c55d1567de"
+    },
+    {
+      "path": "receipts/recomputation/RECOMPUTATION_RECEIPT.json",
+      "git_blob": "cccfca002fe67cd79fc1264e249d093a3f03d4c8",
+      "size_bytes": 8391,
+      "sha256": "05296a0c28dac1eba153243d764693d3410811756e6c579834c173040df157f3"
+    },
+    {
+      "path": "receipts/testing/TEST_RECEIPT.json",
+      "git_blob": "bdaedbd7b37703d164915308555ab8cca95abc5e",
+      "size_bytes": 46136,
+      "sha256": "4d4d89c77693b75442ef1d782e59bbf4827cf8468fb3b7582fa19d10019f03a4"
+    },
+    {
+      "path": "receipts/testing/TEST_RECEIPT_FORMAL.json",
+      "git_blob": "359ac013b3a760a6e439ee384adfd2a750623d80",
+      "size_bytes": 5945,
+      "sha256": "d36251dd49904fecbcc02fbe80ef62faf66d01fc1dbdff567937fb57740fa7d2"
+    },
+    {
+      "path": "schemas/LS_MDRM_BRANCH_PROTOCOL.json",
+      "git_blob": "7956c572abf64209cb03ae1bb2213491e664daaa",
+      "size_bytes": 5716,
+      "sha256": "0f5abe5be06858062889bf2eb0f88cd7123086b6bdb84df21b395e553180e3c0"
+    },
+    {
+      "path": "schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "git_blob": "74f10f6e306acc54d90790bc5221c9ff01eeab9b",
+      "size_bytes": 4524,
+      "sha256": "0adbcdf1eb4b30ab915fd0c3b8a2e0474e8734591918d0a8c9c89cf7bd2b43b0"
+    },
+    {
+      "path": "schemas/LS_MDRM_CONTROL_VECTOR.json",
+      "git_blob": "01e627e114101697c474273e6840d9e5f90424b2",
+      "size_bytes": 4577,
+      "sha256": "f0018bf16268121f3b833882ae3d2f01800b7fd07dcf9461e5a9ba99b746d0e4"
+    },
+    {
+      "path": "schemas/LS_MDRM_ENTROPY_SCHEMA.json",
+      "git_blob": "23e07c540c540e1b58ce083a53d92ac191c6b257",
+      "size_bytes": 2562,
+      "sha256": "c858098fde4a1dbeb3944795189f061fc6bf41c206bd89be52bffb7e0c4cb574"
+    },
+    {
+      "path": "schemas/LS_MDRM_EVALUATION_MANUAL.json",
+      "git_blob": "d6ca5eddfbcad5024a23819069e95cf9fffe5d39",
+      "size_bytes": 4836,
+      "sha256": "18c7688d41801ae27e9a25c7c539e857e8b4ed6814ceab40136bf85c88931fb6"
+    },
+    {
+      "path": "schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "git_blob": "e26e6d7eb69224d0e674feb70befc196a062b04d",
+      "size_bytes": 3813,
+      "sha256": "8956299d22908e57446c1f21aac0712fde7c3657e574e867a43412fbfedacf8b"
+    },
+    {
+      "path": "schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "git_blob": "e248d92fd8bfb941276dc6961cd61322a495506e",
+      "size_bytes": 7405,
+      "sha256": "01d31480dbe4b90d3db6ce21dc96c82ade863a6ffe6ffb81031be89160633e5b"
+    },
+    {
+      "path": "schemas/LS_MDRM_STATE_DICTIONARY.json",
+      "git_blob": "3ecd63a25fd3ada6c5cd4927605ad8237da32f7c",
+      "size_bytes": 8782,
+      "sha256": "c32dbb721e9869b354d522d921e126e44279db78e5628b9663fd35684b96933b"
+    },
+    {
+      "path": "schemas/LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "git_blob": "79f384c46f1d247f34f24f317977f4d321ecd129",
+      "size_bytes": 4806,
+      "sha256": "27b2d4a36ba71495b0195532f010c3c5d630bacb4aef83be5f8240de30382fc4"
+    },
+    {
+      "path": "schemas/LS_MDRM_TRANSITION_MANUAL.json",
+      "git_blob": "304a46de47c3b20be44a7af4e07b61e7ce4662da",
+      "size_bytes": 4261,
+      "sha256": "0afbf31266970fbcfa9d74ecf7f525fc78f3600bd039add62becabd60173d292"
+    },
+    {
+      "path": "schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "git_blob": "cad5925c09b53e4ed92d4f5b57387cf400c5cd2b",
+      "size_bytes": 2296,
+      "sha256": "6fc1fb1ea8e8f5a57f125562253f272d3179ec2399b91aad27b10411991411a0"
+    }
+  ],
+  "manifest_has_utf8_bom": true,
+  "manifest_entries": [
+    {
+      "path": "schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+      "expected_sha256": "01d31480dbe4b90d3db6ce21dc96c82ade863a6ffe6ffb81031be89160633e5b",
+      "actual_sha256": "01d31480dbe4b90d3db6ce21dc96c82ade863a6ffe6ffb81031be89160633e5b",
+      "matches": true
+    },
+    {
+      "path": "receipts/recomputation/RECOMPUTATION_RECEIPT.json",
+      "expected_sha256": "05296a0c28dac1eba153243d764693d3410811756e6c579834c173040df157f3",
+      "actual_sha256": "05296a0c28dac1eba153243d764693d3410811756e6c579834c173040df157f3",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+      "expected_sha256": "0adbcdf1eb4b30ab915fd0c3b8a2e0474e8734591918d0a8c9c89cf7bd2b43b0",
+      "actual_sha256": "0adbcdf1eb4b30ab915fd0c3b8a2e0474e8734591918d0a8c9c89cf7bd2b43b0",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_TRANSITION_MANUAL.json",
+      "expected_sha256": "0afbf31266970fbcfa9d74ecf7f525fc78f3600bd039add62becabd60173d292",
+      "actual_sha256": "0afbf31266970fbcfa9d74ecf7f525fc78f3600bd039add62becabd60173d292",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_BRANCH_PROTOCOL.json",
+      "expected_sha256": "0f5abe5be06858062889bf2eb0f88cd7123086b6bdb84df21b395e553180e3c0",
+      "actual_sha256": "0f5abe5be06858062889bf2eb0f88cd7123086b6bdb84df21b395e553180e3c0",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_EVALUATION_MANUAL.json",
+      "expected_sha256": "18c7688d41801ae27e9a25c7c539e857e8b4ed6814ceab40136bf85c88931fb6",
+      "actual_sha256": "18c7688d41801ae27e9a25c7c539e857e8b4ed6814ceab40136bf85c88931fb6",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_TRAJECTORY_SCHEMA.json",
+      "expected_sha256": "27b2d4a36ba71495b0195532f010c3c5d630bacb4aef83be5f8240de30382fc4",
+      "actual_sha256": "27b2d4a36ba71495b0195532f010c3c5d630bacb4aef83be5f8240de30382fc4",
+      "matches": true
+    },
+    {
+      "path": "fixtures/development/DEV-002-branch-lifecycle-bsr.json",
+      "expected_sha256": "3709025062b93b52b68c0d4c85fee60b27ff9201e7f42854195a439279c29b99",
+      "actual_sha256": "3709025062b93b52b68c0d4c85fee60b27ff9201e7f42854195a439279c29b99",
+      "matches": true
+    },
+    {
+      "path": "README.md",
+      "expected_sha256": "3e2e3876475f807a6575ce2923b8f9b61e9ff511262af74981457be5d25f9f8c",
+      "actual_sha256": "3e2e3876475f807a6575ce2923b8f9b61e9ff511262af74981457be5d25f9f8c",
+      "matches": true
+    },
+    {
+      "path": "fixtures/holdout/HOLDOUT_MANIFEST.json",
+      "expected_sha256": "52b4284c7f8fae511e1d0f868e93f8a4931976fe2f4347e851780f3391bd6d3b",
+      "actual_sha256": "52b4284c7f8fae511e1d0f868e93f8a4931976fe2f4347e851780f3391bd6d3b",
+      "matches": true
+    },
+    {
+      "path": "fixtures/development/DEV-001-minimal-valid-trajectory.json",
+      "expected_sha256": "53396eefe0c2c2720b489b2cb0b24e8672355d93b2073590ddd7c6e8ad28fdff",
+      "actual_sha256": "53396eefe0c2c2720b489b2cb0b24e8672355d93b2073590ddd7c6e8ad28fdff",
+      "matches": true
+    },
+    {
+      "path": "fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json",
+      "expected_sha256": "5436466a76b6e804522c000b4dff747d8844aee0465d9afcb51f4166ac2f2fa1",
+      "actual_sha256": "5436466a76b6e804522c000b4dff747d8844aee0465d9afcb51f4166ac2f2fa1",
+      "matches": true
+    },
+    {
+      "path": "receipts/LS_MDRC_002_CONSTRUCTION_FREEZE_001.json",
+      "expected_sha256": "65469f356277def9ed73573d596f3540c2de590112623c08bac50f10988df099",
+      "actual_sha256": "65469f356277def9ed73573d596f3540c2de590112623c08bac50f10988df099",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json",
+      "expected_sha256": "6fc1fb1ea8e8f5a57f125562253f272d3179ec2399b91aad27b10411991411a0",
+      "actual_sha256": "6fc1fb1ea8e8f5a57f125562253f272d3179ec2399b91aad27b10411991411a0",
+      "matches": true
+    },
+    {
+      "path": "fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+      "expected_sha256": "735076e190a2fe4488ec1aa355738d0b0165d002074d21f9d19c0c3bc942c9e6",
+      "actual_sha256": "735076e190a2fe4488ec1aa355738d0b0165d002074d21f9d19c0c3bc942c9e6",
+      "matches": true
+    },
+    {
+      "path": "receipts/construction/CONSTRUCTION_RECEIPT.json",
+      "expected_sha256": "74d68d5f8e80f357701fa41ec50c7c5f39588252c4d7c25357e710c55d1567de",
+      "actual_sha256": "74d68d5f8e80f357701fa41ec50c7c5f39588252c4d7c25357e710c55d1567de",
+      "matches": true
+    },
+    {
+      "path": "fixtures/negative-controls/NC-1-brainstorming.json",
+      "expected_sha256": "7bb62ec40a242df0585d65f33980dcf29ca524951139c1eb6ea9f0481ad98d3a",
+      "actual_sha256": "7bb62ec40a242df0585d65f33980dcf29ca524951139c1eb6ea9f0481ad98d3a",
+      "matches": true
+    },
+    {
+      "path": "fixtures/sentinels/SEN-003-unlicensed-epr-violation.json",
+      "expected_sha256": "7d8fcf4a1a91036d4a385b5d5391c2576a4060045b07e7eeb3a407858a42bfcd",
+      "actual_sha256": "7d8fcf4a1a91036d4a385b5d5391c2576a4060045b07e7eeb3a407858a42bfcd",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+      "expected_sha256": "8956299d22908e57446c1f21aac0712fde7c3657e574e867a43412fbfedacf8b",
+      "actual_sha256": "8956299d22908e57446c1f21aac0712fde7c3657e574e867a43412fbfedacf8b",
+      "matches": true
+    },
+    {
+      "path": "RECOMPUTATION_INSTRUCTIONS.md",
+      "expected_sha256": "8f3fe25949286521518027338062661fd73e3483a2351e1b2f46b66ae565fe19",
+      "actual_sha256": "8f3fe25949286521518027338062661fd73e3483a2351e1b2f46b66ae565fe19",
+      "matches": true
+    },
+    {
+      "path": "fixtures/negative-controls/NC-2-through-NC-7-definitions.json",
+      "expected_sha256": "9a0004d5b3ba4aaee586e9ae3e4c9d0a9f70bbd2e8ea3f4f1cdf1546e7096a4f",
+      "actual_sha256": "9a0004d5b3ba4aaee586e9ae3e4c9d0a9f70bbd2e8ea3f4f1cdf1546e7096a4f",
+      "matches": true
+    },
+    {
+      "path": "fixtures/sentinels/SEN-001-disguised-restatement.json",
+      "expected_sha256": "a51133b7776c9397a691a2e68ef0e6f69715eeb113838f8f34ee4e60d7bda510",
+      "actual_sha256": "a51133b7776c9397a691a2e68ef0e6f69715eeb113838f8f34ee4e60d7bda510",
+      "matches": true
+    },
+    {
+      "path": "receipts/testing/TEST_RECEIPT.json",
+      "expected_sha256": "c246327a96573c2c702293cb5b2efc56db8efd734077a5f13cf8f7edb76f9077",
+      "actual_sha256": "4d4d89c77693b75442ef1d782e59bbf4827cf8468fb3b7582fa19d10019f03a4",
+      "matches": false
+    },
+    {
+      "path": "schemas/LS_MDRM_STATE_DICTIONARY.json",
+      "expected_sha256": "c32dbb721e9869b354d522d921e126e44279db78e5628b9663fd35684b96933b",
+      "actual_sha256": "c32dbb721e9869b354d522d921e126e44279db78e5628b9663fd35684b96933b",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_ENTROPY_SCHEMA.json",
+      "expected_sha256": "c858098fde4a1dbeb3944795189f061fc6bf41c206bd89be52bffb7e0c4cb574",
+      "actual_sha256": "c858098fde4a1dbeb3944795189f061fc6bf41c206bd89be52bffb7e0c4cb574",
+      "matches": true
+    },
+    {
+      "path": "fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json",
+      "expected_sha256": "c8d7bbd4758b8f4b9e349a9d55e942a64a793e03ed88799e25f8d956ac3c07d5",
+      "actual_sha256": "c8d7bbd4758b8f4b9e349a9d55e942a64a793e03ed88799e25f8d956ac3c07d5",
+      "matches": true
+    },
+    {
+      "path": "receipts/testing/TEST_RECEIPT_FORMAL.json",
+      "expected_sha256": "d36251dd49904fecbcc02fbe80ef62faf66d01fc1dbdff567937fb57740fa7d2",
+      "actual_sha256": "d36251dd49904fecbcc02fbe80ef62faf66d01fc1dbdff567937fb57740fa7d2",
+      "matches": true
+    },
+    {
+      "path": "ls_mdrc_002_structural_tests.py",
+      "expected_sha256": "e691775e8d4fbc0fc45aa1940300077c8997cd3def856c9f1b36593d3909fa1e",
+      "actual_sha256": "e691775e8d4fbc0fc45aa1940300077c8997cd3def856c9f1b36593d3909fa1e",
+      "matches": true
+    },
+    {
+      "path": "schemas/LS_MDRM_CONTROL_VECTOR.json",
+      "expected_sha256": "f0018bf16268121f3b833882ae3d2f01800b7fd07dcf9461e5a9ba99b746d0e4",
+      "actual_sha256": "f0018bf16268121f3b833882ae3d2f01800b7fd07dcf9461e5a9ba99b746d0e4",
+      "matches": true
+    }
+  ],
+  "manifest_duplicate_paths": [],
+  "unlisted_package_files": [
+    "SHA256SUMS"
+  ],
+  "freeze_digest_bindings": [
+    {
+      "path": "SHA256SUMS",
+      "expected_sha256": "18471330226efaf12ef7b49dfd76a6026d1ebbd2fa81b132e2785522438237b7",
+      "actual_sha256": "0b4776cda0c476230cde0d93b62f37a4eaa0e0439712f0e13eb3a911aef6f8dd",
+      "matches": false
+    },
+    {
+      "path": "ls_mdrc_002_structural_tests.py",
+      "expected_sha256": "e691775e8d4fbc0fc45aa1940300077c8997cd3def856c9f1b36593d3909fa1e",
+      "actual_sha256": "e691775e8d4fbc0fc45aa1940300077c8997cd3def856c9f1b36593d3909fa1e",
+      "matches": true
+    },
+    {
+      "path": "receipts/construction/CONSTRUCTION_RECEIPT.json",
+      "expected_sha256": "74d68d5f8e80f357701fa41ec50c7c5f39588252c4d7c25357e710c55d1567de",
+      "actual_sha256": "74d68d5f8e80f357701fa41ec50c7c5f39588252c4d7c25357e710c55d1567de",
+      "matches": true
+    },
+    {
+      "path": "receipts/testing/TEST_RECEIPT.json",
+      "expected_sha256": "c246327a96573c2c702293cb5b2efc56db8efd734077a5f13cf8f7edb76f9077",
+      "actual_sha256": "4d4d89c77693b75442ef1d782e59bbf4827cf8468fb3b7582fa19d10019f03a4",
+      "matches": false
+    },
+    {
+      "path": "receipts/testing/TEST_RECEIPT_FORMAL.json",
+      "expected_sha256": "d36251dd49904fecbcc02fbe80ef62faf66d01fc1dbdff567937fb57740fa7d2",
+      "actual_sha256": "d36251dd49904fecbcc02fbe80ef62faf66d01fc1dbdff567937fb57740fa7d2",
+      "matches": true
+    },
+    {
+      "path": "receipts/recomputation/RECOMPUTATION_RECEIPT.json",
+      "expected_sha256": "05296a0c28dac1eba153243d764693d3410811756e6c579834c173040df157f3",
+      "actual_sha256": "05296a0c28dac1eba153243d764693d3410811756e6c579834c173040df157f3",
+      "matches": true
+    }
+  ],
+  "freeze_non_digest_bindings": [
+    {
+      "path": "receipts/LS_MDRC_002_CONSTRUCTION_FREEZE_001.json",
+      "value": "self-referential: hash captured after SHA256SUMS update; see SHA256SUMS for authoritative value"
+    }
+  ],
+  "population": {
+    "observed_files_including_manifest": 30,
+    "observed_files_excluding_manifest": 29,
+    "manifest_entries": 29,
+    "freeze_list_entries": 30,
+    "freeze_list_matches_observed_paths": true,
+    "declared_including_manifest": 30,
+    "declared_excluding_manifest": 29,
+    "declared_unsuffixed_count": 29,
+    "declared_entries_checked": 28
+  },
+  "holdout_manifest_declarations": [
+    {
+      "holdout_id": "HO-001",
+      "title": "Contradiction plus novelty distractor",
+      "description_sealed": "Contains an explicit contradiction embedded in a corpus with high-novelty distractors that may draw the instrument toward a false positive.",
+      "lifecycle_status": "SEALED",
+      "file": "holdout/HO-001-contradiction-novelty-distractor.json",
+      "sealed_note": "File is committed but must not be scored before OPENED authorization.",
+      "opening_condition": "Explicit written authorization from a designated adjudicator separate from the construction role.",
+      "non_claim": "HO-001 does not represent the expected correct Lens Shift conclusion."
+    },
+    {
+      "holdout_id": "HO-002",
+      "title": "Competing hypotheses with discriminating falsifier",
+      "description_sealed": "Two competing hypotheses about a claim; one has a specified falsifier. Tests whether the instrument identifies the discriminating evidence and applies it.",
+      "lifecycle_status": "SEALED",
+      "file": "holdout/HO-002-competing-hypotheses-falsifier.json",
+      "sealed_note": "File is committed but must not be scored before OPENED authorization.",
+      "opening_condition": "Explicit written authorization from a designated adjudicator separate from the construction role.",
+      "non_claim": "HO-002 does not establish that either hypothesis is correct."
+    },
+    {
+      "holdout_id": "HO-003",
+      "title": "Required legitimate retraction",
+      "description_sealed": "A trajectory that requires a REVISE step; tests whether the instrument accepts legitimate retraction without penalizing V score.",
+      "lifecycle_status": "SEALED",
+      "file": "holdout/HO-003-required-retraction.json",
+      "sealed_note": "File is committed but must not be scored before OPENED authorization.",
+      "opening_condition": "Explicit written authorization from a designated adjudicator separate from the construction role.",
+      "non_claim": "HO-003 does not assert that retraction is a protocol failure."
+    }
+  ],
+  "tracked_run_files": [],
+  "tracked_specification_files": [],
+  "package_at_source_evidence_commit": "",
+  "package_at_admission_base_commit": ""
+}
