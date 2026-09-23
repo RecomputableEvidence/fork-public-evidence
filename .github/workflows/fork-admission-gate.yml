@@ -38,6 +38,11 @@ jobs:
       - name: Verify frozen CSH execution instrumentation
         run: python tools/check_cross_system_claim_handoff_execution_v0_1_1.py --json
 
+      - name: Verify standing routing and recognized program change accounting
+        run: |
+          python scripts/check_current_state_routing_v0_1.py --json
+          python scripts/check_standing_freshness_v0_1.py --json
+
       - name: Run complete Python regression suite
         run: python -m pytest -q
 

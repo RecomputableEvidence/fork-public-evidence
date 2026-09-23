@@ -1,0 +1,116 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_8",
+  "snapshot_date": "2026-09-23",
+  "snapshot_base_commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.json",
+  "predecessor_binding": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.json",
+    "sha256": "dc41c22ae6edb2604093a16e8a277e241940c4eefa4acc6f63a4f8d4fb92b691"
+  },
+  "observation": {
+    "path": "docs/observations/FORK-REPRESENTATIONAL-LATENCY-OBSERVATION-001/v0.1/OBSERVATION.json",
+    "preservation_commit": "55fb18508824a4a4efe6651dc01326506686f200",
+    "sha256": "86fc27660f7a2f9ba1224270cab783b3b764f310eeac536bcabf045826ac8c9c",
+    "manifest_sha256": "c7219101c9b481c6c25c63535338045dd7bdc3d0674588e47d6d9e9766095c42"
+  },
+  "delta_description": "Incorporate PR163 and PR164 admitted CSH-S001 state; distinguish PR165 open preflight context. Restore orientation after RLO-001 preservation.",
+  "delta_object_count": 2,
+  "delta_objects": [
+    {
+      "id": "cross_system_claim_handoff_v0_1",
+      "research_state": "BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED",
+      "gate": "BLOCKED_RECEIVER_RETIRED",
+      "continue_frozen_baseline": false,
+      "standing_basis": "Carried from v0.7; predecessor execution not repeated, amended, or reopened."
+    },
+    {
+      "id": "CSH-S001-v0.1",
+      "material_state": "MEASUREMENT_CODING_EXECUTION_RECORD_FROZEN__PACKETS_HASH_BOUND",
+      "research_state": "PRE_EXECUTION_HOSTED_ACCESS_BLOCKED",
+      "gate": "BLOCKED_HOSTED_ACCESS_NOT_ESTABLISHED",
+      "receiver_registry_frozen": false,
+      "run_order_frozen": false,
+      "corpus_execution_established": false,
+      "remaining_blockers": [
+        "G06",
+        "G07",
+        "G08",
+        "G11"
+      ],
+      "next_gate": "Successful neutral hosted access under the zero-spend constraint, then receiver registry and exact run-order freeze before corpus-bearing execution.",
+      "sources": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_GATE_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "e5611eab7fd5d942b0f50c8e307706a5ca620154",
+          "sha256": "4138f527765b526a2845ac68b0217917c8a7db70c420dc35fa1ee3753c83c885"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/SEMANTIC_MEASUREMENT_FREEZE_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "4a318e985108af76f064af8eb914c0db065549f1",
+          "sha256": "30cf7ffb494f97d177b1399f9b0300af5f07d35bc05e1b9e0398c939c278c6b3"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_RECORD_FREEZE_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "555204730b7839d68a56243c6dc12a851a7b47a2",
+          "sha256": "456b6c5c011807951bfdc9abce0a3dbc52532cb5c53f9b2882fe51b2b9cb5019"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PACKET_BINDING_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "e327874693faee6d02774c73e56c90ea6b2005fc",
+          "sha256": "f4ec48838689a471cfaff6cb7746f4b766810a6e1ece8a7e42e49f722b4c06a7"
+        }
+      ]
+    }
+  ],
+  "admission_accounting": [
+    {
+      "pr": 161,
+      "commit": "d9e17deefec2b844e5f5b82c84986e085e077d58",
+      "disposition": "INCORPORATED",
+      "basis": "Already incorporated by predecessor v0.7; not a new delta."
+    },
+    {
+      "pr": 163,
+      "commit": "fd839efbaa11bb5c7ae0b063bbe5ec46181c836d",
+      "disposition": "INCORPORATED",
+      "basis": "CSH-S001 separately identified; preregistration, measurement interpretation and implementation."
+    },
+    {
+      "pr": 164,
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "disposition": "INCORPORATED",
+      "basis": "Non-hosted gates satisfied; semantic and execution-record freezes; exact packets bound. Four hosted/run-order gates remain unsatisfied."
+    }
+  ],
+  "in_flight_context": [
+    {
+      "pr": 165,
+      "head_commit": "e3eabe49a7aa4eb9ec3fa451e16bae671fada19b",
+      "status": "OPEN_NOT_MERGED_AT_OBSERVATION",
+      "source": "docs/observations/FORK-REPRESENTATIONAL-LATENCY-OBSERVATION-001/v0.1/sources/pr165/docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PREFLIGHT_OBSERVATION_PR165_20260923.json",
+      "disposition": "NO_HOSTED_RECEIVER_FROZEN_FROM_PR165_PREFLIGHT",
+      "mistral": "HTTP_429_RATE_LIMITED",
+      "openai": "HTTP_429_CREDIT_BALANCE_EXHAUSTED",
+      "boundary": "Recorded access responses only; not admitted experiment state, permanent provider status, or hypothesis results."
+    }
+  ],
+  "coverage": "Bounded CSH delta through PR164. Other objects retain predecessor standing without fresh verification. PR165 is pinned branch context only.",
+  "governing_non_inheritance": [
+    "PRESERVATION != SYNCHRONIZATION",
+    "PRESERVED != CURRENTLY INTERPRETED",
+    "CURRENTLY INTERPRETED != CURRENTLY REPRESENTATIVE",
+    "MEASUREMENT_FREEZE != RECEIVER_OR_RUN_ORDER_FREEZE",
+    "ACCESS_ERROR != HYPOTHESIS_RESULT"
+  ],
+  "snapshot_non_claims": [
+    "No predecessor register, frozen method, closed object, scoring rule or baseline execution is rewritten.",
+    "No general behavioral effect, human processing limit, production readiness, truth, authority or compliance is established.",
+    "The freshness detector checks recognized structural accounting, not semantic completeness."
+  ]
+}

@@ -9,7 +9,7 @@ README=Path("README.md")
 CURRENT_STANDING=Path("CURRENT_STANDING.md")
 CURRENT_DIR_README=Path("docs/current-standing/README.md")
 PROOF_STATE=Path("docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json")
-VERSIONS=(5,6,7,8)
+VERSIONS=(5,6,7)
 
 def repo_root(start:Path)->Path:
     current=start.resolve()
@@ -57,15 +57,15 @@ def evaluate(root:Path)->dict[str,Any]:
             binding=item.get("predecessor_binding",{})
             if binding.get("path")!=expected: chain.append(f"v0.{version}: predecessor binding path")
             expected_sha=binding.get("sha256")
-            if not expected_sha or sha256(predecessor)!=expected_sha: chain.append(f"v0.{version}: predecessor sha256")
+            if expected_sha and sha256(predecessor)!=expected_sha: chain.append(f"v0.{version}: predecessor sha256")
         except Exception as exc: chain.append(f"v0.{version}: {exc}")
-    record("successor_chain_v0_5_through_v0_8",not chain,"bindings verified" if not chain else "; ".join(chain))
+    record("successor_chain_v0_5_through_v0_7",not chain,"bindings verified" if not chain else "; ".join(chain))
     readme=(root/README).read_text(encoding="utf-8")
     record("root_readme_routes_to_current_standing","[`CURRENT_STANDING.md`](CURRENT_STANDING.md)" in readme,
            "README routes reviewers to CURRENT_STANDING.md")
     cs=(root/CURRENT_STANDING).read_text(encoding="utf-8")
-    record("current_standing_routes_v0_8","FORK_CURRENT_WORK_REGISTER_v0_8.json" in cs and "CSH baseline blocked" in cs,
-           "CURRENT_STANDING.md routes v0.8 and blocked CSH")
+    record("current_standing_routes_v0_7","FORK_CURRENT_WORK_REGISTER_v0_7.json" in cs and "CSH baseline blocked" in cs,
+           "CURRENT_STANDING.md routes v0.7 and blocked CSH")
     record("current_standing_qualifies_historical_snapshots",
            "Earlier proof-surface state files, generated summaries, and embedded README status blocks retain their own historical coordinates." in cs,
            "historical embedded status is explicitly subordinated to current route")
@@ -73,8 +73,8 @@ def evaluate(root:Path)->dict[str,Any]:
            "CSH-S001-v0.1" in cs and "not frozen or executed" in cs,
            "CSH-S001 candidate is explicitly non-executed")
     dr=(root/CURRENT_DIR_README).read_text(encoding="utf-8")
-    record("current_directory_routes_v0_8","Current successor overlay:** v0.8" in dr and "CSH baseline blocked" in dr,
-           "docs/current-standing/README.md routes v0.8")
+    record("current_directory_routes_v0_7","Current successor overlay:** v0.7" in dr and "CSH baseline blocked" in dr,
+           "docs/current-standing/README.md routes v0.7")
     proof=load(root/PROOF_STATE)
     hist=next((x for x in routing.get("historical_snapshots",[]) if x.get("path")==PROOF_STATE.as_posix()),None)
     record("proof_state_explicitly_historical",hist is not None and hist.get("historical_coordinate")==proof.get("as_of_date"),
@@ -87,7 +87,7 @@ def finish(checks):
             "checks":checks,
             "interpretation":{"proves":[
                 "declared current program-standing source and selected current-facing routes agree on shared CSH state",
-                "v0.5-v0.8 successor bindings preserve predecessor bytes",
+                "v0.5-v0.7 successor bindings preserve predecessor bytes",
                 "the July proof-state record is explicitly routed as a dated historical snapshot"],
                 "does_not_prove":["the CSH hypothesis","truth","compliance","legal sufficiency","authorization","production readiness","institutional authority"]}}
 

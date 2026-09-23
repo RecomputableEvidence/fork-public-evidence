@@ -1,0 +1,79 @@
+{
+  "checker": "check_current_state_routing_v0_1.py",
+  "checks": [
+    {
+      "detail": "docs/state/CURRENT_STATE_ROUTING_v0_1.json",
+      "name": "routing_record_present",
+      "passed": true
+    },
+    {
+      "detail": "FORK_CURRENT_WORK_REGISTER_v0_7 @ 2026-09-21",
+      "name": "current_source_identity",
+      "passed": true
+    },
+    {
+      "detail": "cross_system_claim_handoff_v0_1",
+      "name": "current_csh_object_present",
+      "passed": true
+    },
+    {
+      "detail": "research_state=BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED gate=BLOCKED_RECEIVER_RETIRED continue_frozen_baseline=False",
+      "name": "current_csh_shared_fields",
+      "passed": true
+    },
+    {
+      "detail": "bindings verified",
+      "name": "successor_chain_v0_5_through_v0_7",
+      "passed": true
+    },
+    {
+      "detail": "README routes reviewers to CURRENT_STANDING.md",
+      "name": "root_readme_routes_to_current_standing",
+      "passed": true
+    },
+    {
+      "detail": "CURRENT_STANDING.md routes v0.7 and blocked CSH",
+      "name": "current_standing_routes_v0_7",
+      "passed": true
+    },
+    {
+      "detail": "historical embedded status is explicitly subordinated to current route",
+      "name": "current_standing_qualifies_historical_snapshots",
+      "passed": true
+    },
+    {
+      "detail": "CSH-S001 candidate is explicitly non-executed",
+      "name": "current_standing_declares_s001_candidate",
+      "passed": true
+    },
+    {
+      "detail": "docs/current-standing/README.md routes v0.7",
+      "name": "current_directory_routes_v0_7",
+      "passed": true
+    },
+    {
+      "detail": "proof-state as_of=2026-07-11",
+      "name": "proof_state_explicitly_historical",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "interpretation": {
+    "does_not_prove": [
+      "the CSH hypothesis",
+      "truth",
+      "compliance",
+      "legal sufficiency",
+      "authorization",
+      "production readiness",
+      "institutional authority"
+    ],
+    "proves": [
+      "declared current program-standing source and selected current-facing routes agree on shared CSH state",
+      "v0.5-v0.7 successor bindings preserve predecessor bytes",
+      "the July proof-state record is explicitly routed as a dated historical snapshot"
+    ]
+  },
+  "passed": 11,
+  "total": 11
+}
