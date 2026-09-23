@@ -1,0 +1,54 @@
+{
+  "record_id": "FORK-II-KERNEL-002-v0.1-RECOMPUTATION-RECONCILIATION-001",
+  "date": "2026-09-23",
+  "treatment": "ADDITIVE_RECONCILIATION_SOURCE_UNCHANGED",
+  "repair_performed": false,
+  "source_receipt": {
+    "path": "sources/FORK-II-KERNEL-002-v0.1-INDEPENDENT-RECOMPUTATION-RECEIPT-20260923.json",
+    "sha256": "46f4ef68ce05744435fd27eaa5964ef1ff8be47ed75b34c606c0c54983363b2b",
+    "preserved_unchanged": true
+  },
+  "reconciliations": [
+    {
+      "id": "FII24_CANONICAL_PAYLOAD_RECOMPUTATION_FIELD_DISCREPANCY",
+      "source_recorded_canonical_payload_hash": "02f32c7a9f22635ff6fadfe105f9724751c2bf9f8aa832a4a6edde5adff24cf9",
+      "source_recomputed_canonical_payload_hash": "77a942a92b8b586891386edbe492812f8916063426ff87f193f287a5a6e1aca9",
+      "source_canonical_payload_hash_matches": false,
+      "direct_frozen_canon_v1_recomputation": {
+        "canonical_payload_hash": "02f32c7a9f22635ff6fadfe105f9724751c2bf9f8aa832a4a6edde5adff24cf9",
+        "snapshot_hash": "a77be9918525dcddd8348138bef8a1a0d67c50003a68ef4f5d92826bf12b4a5f",
+        "snapshot_binding_issues": []
+      },
+      "reconciled_canonical_payload_hash_matches": true,
+      "effect_on_fixture_disposition": "NONE",
+      "reason": "All 11 dependency digest values remain malformed while the predecessor accepts the internally consistent enclosing hashes and reports REPRODUCIBLY_BOUND."
+    },
+    {
+      "id": "RECOMPUTATION_INDEPENDENCE_CLASS_NOT_ESTABLISHED",
+      "source_label_preserved": "INDEPENDENT_RECOMPUTATION_RECEIPT",
+      "supported_relationship": "SEPARATE_RECOMPUTATION_RECORD_SAME_PREDECESSOR_IMPLEMENTATION",
+      "not_established": [
+        "INDEPENDENT_IMPLEMENTATION_RECOMPUTATION",
+        "INDEPENDENT_HUMAN_RECOMPUTATION",
+        "INSTITUTIONAL_INDEPENDENCE",
+        "CROSS_ENVIRONMENT_RECOMPUTATION"
+      ],
+      "effect_on_fixture_disposition": "NONE"
+    }
+  ],
+  "preserved_result": {
+    "fixture_count": 4,
+    "passed": 0,
+    "failed": 4,
+    "failed_fixture_ids": ["FII-23", "FII-24", "FII-25", "FII-26"],
+    "overall": "FAIL",
+    "disposition": "EXPECTED_PRE_REPAIR_FAILURE_PRESERVED"
+  },
+  "next_gate": "DEFINE_AND_PRESERVE_CONTROL_POPULATION_BEFORE_REPAIR",
+  "semantic_standing_effect": "NONE",
+  "non_claims": [
+    "No repair is performed or authorized by this record.",
+    "No general correctness, completeness, production readiness, truth, authority, or compliance is established.",
+    "No stronger independence property is inferred from the preserved source label."
+  ]
+}
