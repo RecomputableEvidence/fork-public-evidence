@@ -42,7 +42,7 @@ A separately named successor, `CSH-S001-v0.1`, has admitted measurement/coding a
 - Preserved v0.6 (2026-09-21 post-execution reconciliation): [`FORK_CURRENT_WORK_REGISTER_v0_6.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.json)
 - Preserved v0.5 (2026-09-21 preflight): [`FORK_CURRENT_WORK_REGISTER_v0_5.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json)
 - Preserved September 17 UEM overlay: [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json)
-- Preserved September 17 Lens Shift overlay: [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json)
+- Preserved September 17 Lens Shift overlay: [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json)
 - Preserved September 15 overlay: [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.json)
 - Historical September 9 snapshot: [`FORK_CURRENT_WORK_REGISTER_v0_1.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_1.json)
 
