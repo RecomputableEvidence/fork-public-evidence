@@ -1,0 +1,14 @@
+{
+  "record_id": "FORK-II-KERNEL-002-v0.1-POST-REPAIR-PACKAGE-BINDING-001",
+  "date": "2026-09-23",
+  "package_basename": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1-POST-REPAIR-20260923.zip",
+  "bytes": 56826,
+  "sha256": "77b7e7691c6f683b43482019e3f90cb6366a21524714255b67a6da3cf33c3108",
+  "repository_binary_bytes_present": false,
+  "binding_effect": "IDENTIFIES_EXACT_GENERATED_PACKAGE",
+  "next_gate": "SEPARATE_RECOMPUTATION_BEFORE_SUCCESSOR_RELEASE_ADMISSION",
+  "non_claims": [
+    "Hash binding does not establish independent recomputation.",
+    "Hash binding does not establish release admission, general correctness, completeness, production readiness, truth, authority, or compliance."
+  ]
+}
