@@ -18,7 +18,11 @@ See the [2026-09-23 Fork II control-freeze standing note](docs/current-standing/
 
 ## Fork II successor repair and post-repair execution
 
-See the [2026-09-23 Fork II post-repair execution standing note](docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md): ordered gate 4 repaired only the successor and produced `22/22` predecessor baseline, `26/26` FII fixtures, `13/13` frozen controls, and `39/39` combined, with `12/12` predecessor mutants and `8/8` targeted successor faults detected. This is post-repair execution evidence, not successor release admission. The next Fork II gate is a separate recomputation of the repaired package before any release admission.
+See the [2026-09-23 Fork II post-repair execution standing note](docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md): ordered gate 4 repaired only the successor and produced `22/22` predecessor baseline, `26/26` FII fixtures, `13/13` frozen controls, and `39/39` combined, with `12/12` predecessor mutants and `8/8` targeted successor faults detected. That record remains post-repair execution evidence and does not itself confer release admission.
+
+## Fork II bounded release admission
+
+See the [2026-09-23 Fork II bounded release-admission standing note](docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md): after the admitted gate-4 successor-only repair, a separate recomputation of the same supplied implementation reproduced the bounded result and generated raw output byte-identical to the bundled raw record. On merge of the release-admission PR, the hash/length-bound repaired package is admitted as `FORK-II-KERNEL-002 v0.1` bounded research release. Exact recomputed raw bytes and Attempt 001 negative evidence are preserved at the admission coordinate; no second repository copy of the full repaired ZIP is claimed there. This is not general correctness, production readiness, deployment authority, or a stronger independence claim.
 
 ## Current-state routing clarification
 

@@ -1,0 +1,65 @@
+{
+  "record_id": "FORK-II-KERNEL-002-v0.1-RELEASE-SOURCE-BINDINGS-001",
+  "date": "2026-09-23",
+  "bindings": {
+    "repaired_package_identity": {
+      "basename": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1-POST-REPAIR-20260923.zip",
+      "bytes": 56826,
+      "sha256": "77b7e7691c6f683b43482019e3f90cb6366a21524714255b67a6da3cf33c3108",
+      "gate4_binding_path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/PACKAGE_BINDING.json"
+    },
+    "gate4_execution_receipt": {
+      "repository_path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/execution/POST_REPAIR_EXECUTION_RECEIPT.json",
+      "git_blob": "f58d22305da72f83b9831bae54632ac51c76b540",
+      "sha256": "9e9b2f74e718486e3b74f9165be61e35508bff3d7832f84236e46f2755470783",
+      "result": "39/39 combined PASS; 12/12 predecessor mutants; 8/8 targeted successor faults"
+    },
+    "separate_recomputation_receipt_json": {
+      "path": "sources/FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-RECEIPT.json",
+      "bytes": 9739,
+      "sha256": "a8e494037845873556e9674029b07f0d6f0e4e58d073d8d5dbaf5cc9a0d20ee1"
+    },
+    "separate_recomputation_receipt_md": {
+      "path": "sources/FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-RECEIPT.md",
+      "bytes": 1425,
+      "sha256": "077797af441d563fe43b88353a2784cc80f5ae94a897f381bf2638305ad3815d"
+    },
+    "recomputed_raw_preservation": {
+      "path": "sources/recomputed_raw-preserved.zip",
+      "zip_bytes": 5394,
+      "zip_sha256": "c49f4e3c0269fabc1dd2e825b27142741219381bede61374d0d063b503f71f85",
+      "member": "recomputed_raw.json",
+      "member_bytes": 144185,
+      "member_sha256": "5a2f828a3a715d1a8d1d9ff35f71fcb5afbc695536c72b435b9a314688eb4b22"
+    },
+    "bundled_raw": {
+      "zip_member": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1/receipts/raw/combined_execution_raw.json",
+      "sha256": "5a2f828a3a715d1a8d1d9ff35f71fcb5afbc695536c72b435b9a314688eb4b22"
+    },
+    "attempt_001_preservation": {
+      "path": "sources/attempt-001-negative-evidence.zip",
+      "zip_bytes": 5827,
+      "zip_sha256": "ffccefd583ba3124dc7b912a4920c97f2d53282c16be058f0480df9016ead130",
+      "members": {
+        "ATTEMPT_DISPOSITION.md": {
+          "bytes": 1016,
+          "sha256": "873bce361868f0420f4a353a08f07710cbd2d050f9f4755453ad30876281d30a"
+        },
+        "unittest_stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "unittest_stderr.txt": {
+          "bytes": 87149,
+          "sha256": "6eae601c28b789b96fc65fc9317924f32711469a2a3ff4b128e6bede12366281"
+        }
+      }
+    }
+  },
+  "relationship_checks": {
+    "package_sha_matches_gate4_package_binding": true,
+    "separate_receipt_input_archive_sha_matches_package": true,
+    "recomputed_raw_matches_bundled_raw_sha256": true,
+    "attempt_001_members_hash_bound": true
+  }
+}
