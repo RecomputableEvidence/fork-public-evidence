@@ -10,7 +10,11 @@ See the [2026-09-23 Fork II standing note](docs/current-standing/FORK_II_CLOSURE
 
 ## Fork II pre-repair execution and recomputation
 
-See the [2026-09-23 Fork II pre-repair recomputation standing note](docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md): FII-23–FII-26 executed against the byte-identical predecessor and produced `0/4 PASS`, `4/4 FAIL`; a separate recomputation record reproduced the four-fixture result and is admitted with a field-level/terminology reconciliation. No repair has been performed. The next Fork II gate is to define and preserve the control population before repair.
+See the [2026-09-23 Fork II pre-repair recomputation standing note](docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md): FII-23–FII-26 executed against the byte-identical predecessor and produced `0/4 PASS`, `4/4 FAIL`; a separate recomputation record reproduced the four-fixture result and is admitted with a field-level/terminology reconciliation. No repair has been performed.
+
+## Fork II pre-repair control freeze
+
+See the [2026-09-23 Fork II control-freeze standing note](docs/current-standing/FORK_II_CONTROL_FREEZE_20260923.md): ordered gate 3 defines and byte-freezes a 13-control population before repair. No controls are executed by the freeze and no implementation byte is changed. The next Fork II gate is successor-only repair against frozen FII-01–FII-26 evidence plus the frozen controls, followed by combined execution and targeted fault reintroductions.
 
 ## Current-state routing clarification
 

@@ -1,0 +1,39 @@
+{
+  "record_id": "FORK-II-KERNEL-002-CONTROL-FREEZE-001",
+  "version": "v0.1",
+  "date": "2026-09-23",
+  "classification": "FROZEN_PRE_REPAIR_CONTROL_POPULATION",
+  "population_count": 13,
+  "control_ids": [
+    "CTRL-ID-001",
+    "CTRL-BIND-001",
+    "CTRL-BIND-002",
+    "CTRL-BIND-003",
+    "CTRL-BIND-004",
+    "CTRL-TIME-001",
+    "CTRL-TIME-002",
+    "CTRL-TIME-003",
+    "CTRL-TIME-004",
+    "CTRL-TIME-005",
+    "CTRL-TIME-006",
+    "CTRL-TIME-007",
+    "CTRL-TIME-008"
+  ],
+  "control_protocol_sha256": "4c550bd12fdce6ea9e65f64a3158ea67988ed534729d123587eb6e56b12aba23",
+  "control_population_sha256": "64bfdae05599402fd24fdbbd05b7d3312dc02c0e28f26c3e2685ec36134e4287",
+  "predecessor_archive_sha256": "a9c18311043c505137eaece9db6b72b9b186be33a8970df48d3fe5800d1de760",
+  "pre_repair_execution_archive_sha256": "fff3f3f935808e253bce2be7ffde406eb08f5067f5d3f5519a333d8b83d5dcd7",
+  "opening_merge_commit": "944cc7dfbafdd5247d32c3a78179de0b4ac8056c",
+  "recomputation_admission_merge_commit": "691c0303ed8029491667788287ceed03b296071c",
+  "implementation_modified": false,
+  "controls_executed": false,
+  "repair_performed": false,
+  "oracle_mutation_permitted": false,
+  "next_gate": "REPAIR_SUCCESSOR_ONLY_AGAINST_FROZEN_FIXTURES_AND_CONTROLS",
+  "non_claims": [
+    "No control execution result is claimed by this freeze.",
+    "No predecessor or successor implementation change is made by this freeze.",
+    "The 13-control population is bounded and is not a completeness claim.",
+    "No general correctness, production readiness, truth, authority, or compliance is established."
+  ]
+}
