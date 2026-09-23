@@ -18,7 +18,11 @@ See the [2026-09-23 Fork II control-freeze standing note](docs/current-standing/
 
 ## Fork II successor repair and post-repair execution
 
-See the [2026-09-23 Fork II post-repair execution standing note](docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md): ordered gate 4 repaired only the successor and produced `22/22` predecessor baseline, `26/26` FII fixtures, `13/13` frozen controls, and `39/39` combined, with `12/12` predecessor mutants and `8/8` targeted successor faults detected. This is post-repair execution evidence, not successor release admission. The next Fork II gate is a separate recomputation of the repaired package before any release admission.
+See the [2026-09-23 Fork II post-repair execution standing note](docs/current-standing/FORK_II_POST_REPAIR_EXECUTION_20260923.md): ordered gate 4 repaired only the successor and produced `22/22` predecessor baseline, `26/26` FII fixtures, `13/13` frozen controls, and `39/39` combined, with `12/12` predecessor mutants and `8/8` targeted successor faults detected. That record remains post-repair execution evidence and does not itself confer release admission.
+
+## Fork II bounded release admission
+
+See the [2026-09-23 Fork II release-admission standing note](docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md): the release-admission coordinate binds the exact repaired package bytes, the admitted gate-4 execution receipt, the supplied separate recomputation receipt, byte-identical recomputed raw output, and the preserved Attempt 001 negative evidence. The separate recomputation is a separate execution of the same supplied implementation and frozen inputs; no stronger independence property is inferred. This bounded release admission becomes effective only on merge of its release-admission PR.
 
 ## Current-state routing clarification
 
@@ -40,7 +44,7 @@ A separately named successor, `CSH-S001-v0.1`, has admitted measurement/coding a
 
 - [`docs/current-standing/README.md`](docs/current-standing/README.md)
 - Preserved v0.6 (2026-09-21 post-execution reconciliation): [`FORK_CURRENT_WORK_REGISTER_v0_6.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.json)
-- Preserved v0.5 (2026-09-21 preflight): [`FORK_CURRENT_WORK_REGISTER_v0_5.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json)
+- Preserved v0.5 (2026-09-21 preflight): [`FORK_CURRENT_WORK_REGISTER_v0_5.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_5.json)
 - Preserved September 17 UEM overlay: [`FORK_CURRENT_WORK_REGISTER_v0_4.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_4.json)
 - Preserved September 17 Lens Shift overlay: [`FORK_CURRENT_WORK_REGISTER_v0_3.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_3.json)
 - Preserved September 15 overlay: [`FORK_CURRENT_WORK_REGISTER_v0_2.md`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.md) / [`json`](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_2.json)
