@@ -1,0 +1,59 @@
+{
+  "record_id": "FORK-II-KERNEL-002-v0.1-RELEASE-SOURCE-BINDINGS-001",
+  "date": "2026-09-23",
+  "bindings": {
+    "repaired_package": {
+      "path": "sources/FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1-POST-REPAIR-20260923.zip",
+      "bytes": 56826,
+      "sha256": "77b7e7691c6f683b43482019e3f90cb6366a21524714255b67a6da3cf33c3108"
+    },
+    "gate4_execution_receipt": {
+      "repository_path": "docs/experiments/FORK-II-KERNEL-002/v0.1-REPAIR/execution/POST_REPAIR_EXECUTION_RECEIPT.json",
+      "git_blob": "f58d22305da72f83b9831bae54632ac51c76b540",
+      "sha256": "9e9b2f74e718486e3b74f9165be61e35508bff3d7832f84236e46f2755470783",
+      "result": "39/39 combined PASS; 12/12 predecessor mutants; 8/8 targeted successor faults"
+    },
+    "separate_recomputation_receipt_json": {
+      "path": "sources/FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-RECEIPT.json",
+      "bytes": 9739,
+      "sha256": "a8e494037845873556e9674029b07f0d6f0e4e58d073d8d5dbaf5cc9a0d20ee1"
+    },
+    "separate_recomputation_receipt_md": {
+      "path": "sources/FORK-II-KERNEL-002-v0.1-SEPARATE-RECOMPUTATION-RECEIPT.md",
+      "bytes": 1425,
+      "sha256": "077797af441d563fe43b88353a2784cc80f5ae94a897f381bf2638305ad3815d"
+    },
+    "recomputed_raw": {
+      "path": "sources/recomputed_raw.json",
+      "bytes": 144185,
+      "sha256": "5a2f828a3a715d1a8d1d9ff35f71fcb5afbc695536c72b435b9a314688eb4b22"
+    },
+    "bundled_raw": {
+      "zip_member": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1/receipts/raw/combined_execution_raw.json",
+      "sha256": "5a2f828a3a715d1a8d1d9ff35f71fcb5afbc695536c72b435b9a314688eb4b22"
+    },
+    "attempt_001_members": {
+      "ATTEMPT_DISPOSITION.md": {
+        "zip_member": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1/receipts/raw/attempt-001-harness-construction/ATTEMPT_DISPOSITION.md",
+        "bytes": 1016,
+        "sha256": "873bce361868f0420f4a353a08f07710cbd2d050f9f4755453ad30876281d30a"
+      },
+      "unittest_stdout.txt": {
+        "zip_member": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1/receipts/raw/attempt-001-harness-construction/unittest_stdout.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "unittest_stderr.txt": {
+        "zip_member": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1/receipts/raw/attempt-001-harness-construction/unittest_stderr.txt",
+        "bytes": 87149,
+        "sha256": "6eae601c28b789b96fc65fc9317924f32711469a2a3ff4b128e6bede12366281"
+      }
+    }
+  },
+  "relationship_checks": {
+    "package_sha_matches_gate4_package_binding": true,
+    "separate_receipt_input_archive_sha_matches_package": true,
+    "recomputed_raw_matches_bundled_raw_sha256": true,
+    "attempt_001_members_hash_bound_inside_package": true
+  }
+}
