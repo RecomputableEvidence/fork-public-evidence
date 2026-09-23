@@ -186,6 +186,54 @@
       "disposition": "INCORPORATED",
       "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
       "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/README.md",
+      "before_git_blob": "43d5d26ffef1ff1fa929cbb42b0f611b19bed842",
+      "after_git_blob": "80d8fc7c9375449adb3ee3c04147002b6a1236cb",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/recomputation/ADMISSION_DISPOSITION.json",
+      "before_git_blob": null,
+      "after_git_blob": "e1fcad7faee82f1cbd0d2518ca51533b4cf9443d",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/recomputation/RECOMPUTATION_RECONCILIATION_001.json",
+      "before_git_blob": null,
+      "after_git_blob": "fe99c75dbca665f3db0266659963971a96942713",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/recomputation/RECOMPUTATION_RECONCILIATION_001.md",
+      "before_git_blob": null,
+      "after_git_blob": "5aef96847ef4385224f1e820d7b8dfc10b047a3d",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/recomputation/SHA256SUMS.txt",
+      "before_git_blob": null,
+      "after_git_blob": "cf3ace07a7559126d5c461677bd28df6ab5b06a4",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/recomputation/sources/FORK-II-KERNEL-002-v0.1-INDEPENDENT-RECOMPUTATION-RECEIPT-20260923.json",
+      "before_git_blob": null,
+      "after_git_blob": "644db9123df52a06c065aedecbd55f32e5c8f703",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II pre-repair execution and separate recomputation admitted with reconciliation; controls-before-repair is next and no repair is claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md"
     }
   ],
   "non_claim": "Accounting records bounded repository changes; it does not establish semantic completeness or transfer standing."
