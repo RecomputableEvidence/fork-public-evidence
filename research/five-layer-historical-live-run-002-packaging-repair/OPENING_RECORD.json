@@ -1,0 +1,20 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-OPENING-001",
+  "state": "PACKAGING_REPAIR_DEFINED_NOT_SEMANTIC_RERUN",
+  "predecessor_run001_package_sha256": "3ec4e66730fd8b6c3ef99803e298285aa959ad3d1b4f2a51813438f1f563cba0",
+  "triggering_recomputation_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001-INDEPENDENT-RECOMPUTATION-001",
+  "bounded_changes": [
+    "formal M11-M25 detector specifications",
+    "parent compilation/binding",
+    "explicit Stage1A offset convention",
+    "revised M21-M25 self-audit standing"
+  ],
+  "prohibited_changes": [
+    "Run 001 byte mutation",
+    "Run 001 detector result mutation",
+    "new semantic detector execution claimed by this repair",
+    "formal Stage 3 adjudication",
+    "framework-validity promotion"
+  ],
+  "next_gate": "SEPARATE_RECOMPUTATION_OF_SUCCESSOR_PACKAGING_COMPLETENESS_BEFORE_ANY_SEMANTIC_RERUN"
+}
