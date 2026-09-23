@@ -30,3 +30,11 @@ FII-26 treats UNKNOWN as uncertainty, not as a claim of actual expiry or indefin
 5. Preserve post-repair raw output, environment, hashes, canonicalization/version changes, negative results, and independent recomputation before any successor release admission.
 
 The opening confers no repaired status, general correctness, truth, compliance, production readiness, or inherited authority. The four cases are a bounded population, not a completeness claim.
+
+## Subsequent pre-repair status — 2026-09-23
+
+Ordered gate 2 has now been executed against the byte-identical predecessor: FII-23 through FII-26 produced `0/4 PASS`, `4/4 FAIL`, and the expected pre-repair failure was preserved. A separately supplied recomputation record reproduced the same four-fixture result and is admitted under [`recomputation/`](recomputation/) with an additive reconciliation; its source bytes are preserved unchanged.
+
+The reconciliation does not change the fixture result. It records one erroneous FII-24 recomputed canonical-payload field in the supplied receipt and narrows the repository's supported relationship to a separate recomputation record using the same predecessor implementation rather than inferring a stronger independence class from the source label.
+
+**Current next gate:** ordered gate 3 — define and preserve the control population before any repair.
