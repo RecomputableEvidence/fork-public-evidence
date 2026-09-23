@@ -9,11 +9,14 @@ on:
       - 'docs/state/CURRENT_STATE_ROUTING_v0_1.json'
       - 'docs/experiments/cross-system-claim-handoff-successor-001-v0.1/**'
       - 'schemas/unsupported_inheritance_*_s001_v0_1.schema.json'
+      - 'schemas/csh_s001_execution_attempt_v0_1.schema.json'
       - 'tools/classify_unsupported_inheritance_s001_v0_1.py'
       - 'tools/analyze_csh_s001_v0_1.py'
       - 'tools/preflight_csh_s001_receivers_v0_1.py'
       - 'tools/build_csh_s001_packets_v0_1.py'
       - 'tools/check_csh_s001_pair_difference_v0_1.py'
+      - 'tools/check_csh_s001_packet_binding_v0_1.py'
+      - 'tools/check_csh_s001_execution_schema_v0_1.py'
       - 'scripts/check_current_state_routing_v0_1.py'
       - 'tests/fixtures/csh_s001/**'
       - 'tests/test_cross_system_claim_handoff_s001_v0_1.py'
@@ -50,10 +53,14 @@ jobs:
         run: python -m pytest tests/test_cross_system_claim_handoff_s001_v0_1.py -q
       - name: Successor analysis tests
         run: python -m pytest tests/test_analyze_csh_s001_v0_1.py -q
+      - name: Execution-attempt schema boundary
+        run: python tools/check_csh_s001_execution_schema_v0_1.py --json
       - name: Materialize exact candidate packets and projections
         run: python tools/build_csh_s001_packets_v0_1.py --output-dir csh-s001-candidate --json
       - name: Verify pair difference is treatment-only
         run: python tools/check_csh_s001_pair_difference_v0_1.py csh-s001-candidate --json
+      - name: Verify candidate bytes against preserved packet binding
+        run: python tools/check_csh_s001_packet_binding_v0_1.py csh-s001-candidate --json
       - name: Upload candidate packet materialization
         uses: actions/upload-artifact@v4
         with:
