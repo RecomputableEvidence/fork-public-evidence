@@ -6,10 +6,12 @@ on:
       - 'CURRENT_STANDING.md'
       - 'README.md'
       - 'docs/current-standing/**'
+      - 'docs/state/CURRENT_STATE_ROUTING_v0_1.json'
       - 'scripts/check_current_standing_v0_1.py'
       - 'scripts/check_current_standing_v0_2.py'
       - 'scripts/check_current_standing_v0_3.py'
       - 'scripts/check_current_standing_v0_4.py'
+      - 'scripts/check_current_state_routing_v0_1.py'
       - '.github/workflows/current-standing-structural-check.yml'
   push:
     branches:
@@ -18,10 +20,12 @@ on:
       - 'CURRENT_STANDING.md'
       - 'README.md'
       - 'docs/current-standing/**'
+      - 'docs/state/CURRENT_STATE_ROUTING_v0_1.json'
       - 'scripts/check_current_standing_v0_1.py'
       - 'scripts/check_current_standing_v0_2.py'
       - 'scripts/check_current_standing_v0_3.py'
       - 'scripts/check_current_standing_v0_4.py'
+      - 'scripts/check_current_state_routing_v0_1.py'
       - '.github/workflows/current-standing-structural-check.yml'
 
 permissions:
@@ -45,3 +49,5 @@ jobs:
         run: python scripts/check_current_standing_v0_3.py
       - name: Check v0.4 UEM Epoch 010 successor overlay
         run: python scripts/check_current_standing_v0_4.py
+      - name: Check current routing and v0.5-v0.7 successor bindings
+        run: python scripts/check_current_state_routing_v0_1.py --json
