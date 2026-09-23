@@ -1,7 +1,7 @@
 {
   "record_id": "CSH-S001-EXECUTION-RECORD-FREEZE-20260923-001",
   "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
-  "status": "FROZEN_CANDIDATE_PENDING_CI",
+  "status": "FROZEN_PRE_EXECUTION",
   "bindings": [
     {
       "path": "schemas/csh_s001_execution_attempt_v0_1.schema.json",
@@ -12,6 +12,14 @@
       "git_blob_sha": "31552648537350fa7345c7ac2ef0cf1aea56c1e7"
     }
   ],
+  "ci_evidence": {
+    "workflow": "CSH-S001 Readiness",
+    "run_id": 35812816209,
+    "head_commit": "6a887d946bc275ea40a812003b9c05f74789f4c7",
+    "job_id": 107027879472,
+    "step": "Execution-attempt schema boundary",
+    "conclusion": "success"
+  },
   "terminal_states": [
     "COMPLETED_CLASSIFIABLE",
     "COMPLETED_BUT_UNCLASSIFIABLE",
@@ -24,7 +32,7 @@
   "classification_rule": "Only COMPLETED_CLASSIFIABLE may carry classifiable=true and must bind preserved raw response bytes. Every other terminal state must carry classifiable=false and receives no numeric primary outcome.",
   "attempt_rule": "Replacement or retry attempts receive new attempt IDs and do not become new experimental units unless separately preregistered.",
   "raw_output_rule": "Successful/classifiable execution preserves exact request bytes and exact raw response bytes by SHA-256 binding. Provider errors preserve error-body bytes when present. Secrets and authorization headers are excluded.",
-  "ci_requirement": "tools/check_csh_s001_execution_schema_v0_1.py must pass on the candidate branch before this record can be promoted from FROZEN_CANDIDATE_PENDING_CI to FROZEN_PRE_EXECUTION.",
+  "change_rule": "Any change to the bound schema or terminal-state semantics after this freeze requires an explicit thaw/re-freeze or separately identified successor before corpus-bearing execution.",
   "non_claims": [
     "Schema conformance is not semantic correctness.",
     "A terminal execution state is not a content finding unless a classifiable response exists and the frozen coding/classification procedure is completed.",
