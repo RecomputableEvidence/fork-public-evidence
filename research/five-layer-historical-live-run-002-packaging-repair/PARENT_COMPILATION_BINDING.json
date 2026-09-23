@@ -1,0 +1,25 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PARENT-COMPILATION-BINDING-001",
+  "original_name": "thread_commentary_compiled_2026-09-23.txt",
+  "original_byte_count": 334735,
+  "original_sha256": "c9ba196efa8709279d8967716ec690bbc5f3112ab5d38e67683768ebe1f62bbf",
+  "encoding": "utf-8",
+  "transport": {
+    "compression": "gzip level 9, mtime=0",
+    "compressed_byte_count": 75370,
+    "compressed_sha256": "8c9a6d3d1c0886cce5f0a8639be860ebde44d79c77326ff888024b9ab4be9939",
+    "encoding": "base64 ASCII in one repository-resident text file; strip only final LF, base64-decode, then gunzip",
+    "base64_file": "parent_compilation.txt.gz.b64",
+    "base64_file_sha256": "346bf29aa98dcedeb9b3dc6ecd2d910d477684433cc895bd19506dba66a205a1",
+    "base64_chars_excluding_terminal_lf": 100496
+  },
+  "run001_target_prefix": {
+    "line_range": [1, 4026],
+    "byte_count": 262318,
+    "sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+    "next_excluded_source_marker": "SOURCE 10: Pasted markdown(20260923-131442).md",
+    "next_excluded_source_marker_line": 4028
+  },
+  "verification_rule": "Reconstruct original parent exactly, verify original SHA-256/byte count, then verify lines 1-4026 equal Run 001 target bytes and line 4028 contains the declared Source 10 marker.",
+  "historical_effect": "NONE"
+}
