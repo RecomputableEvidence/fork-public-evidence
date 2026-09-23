@@ -1,0 +1,25 @@
+{
+  "receiver_run_id": "S001-RUN-TEST",
+  "classification_run_id": "S001-CLASS-TEST",
+  "classification_method_id": "fork_deterministic_unsupported_inheritance_s001_v0_1",
+  "scenario": {
+    "scenario_id": "SIM_TEST",
+    "source_claims": [{"claim_id": "C1", "text": "Source claim."}],
+    "source_non_claims": ["No authority is transferred."],
+    "expected_relationship": "PRESERVED",
+    "unresolved_references": []
+  },
+  "condition": "instrumented_h1",
+  "raw_output_binding": {"path": "raw.json", "sha256": "0000000000000000000000000000000000000000000000000000000000000000"},
+  "boundary_contracts": [],
+  "normalized_output": {
+    "downstream_claims": [{"claim_id": "D1", "text": "Source claim.", "relationship_to_source": "PRESERVED", "source_claim_id": "C1", "new_boundary_contract_id": null, "authority_references": [], "evidence_references": []}],
+    "preserved_non_claims": ["No authority is transferred."],
+    "reference_resolutions": [],
+    "authority_inherited": false,
+    "evidence_promotions": [],
+    "verification_upgrades": [],
+    "aggregate_state": "bounded"
+  },
+  "task_state": "COMPLETE_TRANSFER_RECORD"
+}
