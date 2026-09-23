@@ -22,7 +22,7 @@ See the [2026-09-23 Fork II post-repair execution standing note](docs/current-st
 
 ## Fork II bounded release admission
 
-See the [2026-09-23 Fork II release-admission standing note](docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md): the release-admission coordinate binds the exact repaired package bytes, the admitted gate-4 execution receipt, the supplied separate recomputation receipt, byte-identical recomputed raw output, and the preserved Attempt 001 negative evidence. The separate recomputation is a separate execution of the same supplied implementation and frozen inputs; no stronger independence property is inferred. This bounded release admission becomes effective only on merge of its release-admission PR.
+See the [2026-09-23 Fork II bounded release-admission standing note](docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md): after the admitted gate-4 successor-only repair, a separate recomputation of the same supplied implementation reproduced the bounded result and generated raw output byte-identical to the bundled raw record. On merge of the release-admission PR, the hash/length-bound repaired package is admitted as `FORK-II-KERNEL-002 v0.1` bounded research release. Exact recomputed raw bytes and Attempt 001 negative evidence are preserved at the admission coordinate; no second repository copy of the full repaired ZIP is claimed there. This is not general correctness, production readiness, deployment authority, or a stronger independence claim.
 
 ## Current-state routing clarification
 
