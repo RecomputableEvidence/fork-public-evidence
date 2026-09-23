@@ -33,11 +33,15 @@ The eight targeted faults were defined to reintroduce the repaired decision boun
 
 The executable package preserves an initial harness-construction failure. Attempt 001 retained predecessor-package assumptions in the successor test wrapper and misidentified two historical mutant witness fixtures. It did not change implementation or frozen inputs. Attempt 002 corrected only the test/receipt harness and produced the bounded result above.
 
-## Primary package
+## Primary package binding
 
-`artifacts/FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1-POST-REPAIR-20260923.zip`
+The exact generated package is bound in `PACKAGE_BINDING.json`:
 
-The package contains the successor implementation, FII-01–FII-26, the exact frozen 13-control population, tests, raw combined output, the preserved failed harness attempt, and post-repair receipts.
+`FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1-POST-REPAIR-20260923.zip`  
+SHA-256 `77b7e7691c6f683b43482019e3f90cb6366a21524714255b67a6da3cf33c3108`  
+Bytes: `56826`
+
+The repository record binds the package identity; it does not claim that the binary package bytes are stored in this repository coordinate. The preserved package contains the successor implementation, FII-01–FII-26, the exact frozen 13-control population, tests, raw combined output, the preserved failed harness attempt, and post-repair receipts.
 
 ## Standing boundary
 
