@@ -1,0 +1,54 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGE-BINDING-001",
+  "package": {
+    "filename": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR.zip",
+    "byte_count": 82571,
+    "sha256": "ae0d3a2514b92b4fe7c0cead316861882458dbf9e99791f754806542e023fed2",
+    "repository_residency": "NOT_COPIED_AT_THIS_COORDINATE"
+  },
+  "members": [
+    {
+      "path": "DETECTOR_SPECIFICATIONS_M11_M25_v0_1.json",
+      "byte_count": 8410,
+      "sha256": "8f13c834c8e17d3ea2f28e91f149c1503e2f7bc0697cdc369edaacc448273880"
+    },
+    {
+      "path": "OFFSET_CONVENTION.md",
+      "byte_count": 828,
+      "sha256": "0449b2a51653513f1014e1660383e255bede4d3db41d4d61f19ef54f121e82bd"
+    },
+    {
+      "path": "OPENING_RECORD.json",
+      "byte_count": 774,
+      "sha256": "adf8594c77856eb51fd6c73ccfa89cd32ffcbe0e515e44cc0e628b52ff1d393b"
+    },
+    {
+      "path": "PARENT_COMPILATION_BINDING.json",
+      "byte_count": 775,
+      "sha256": "9d07c60e4a61d3c171680d90b4e868d34deef1ae11dbdfcb67af1980da736c6e"
+    },
+    {
+      "path": "README.md",
+      "byte_count": 670,
+      "sha256": "0d3461717e71c8bceacfc9b4a4025abede9c0285f8534d0c903849f4ae50aa06"
+    },
+    {
+      "path": "REVISED_M21_M25_SELF_AUDIT_STANDING.json",
+      "byte_count": 2595,
+      "sha256": "f7e71368578555f8ad5917bea35fd2e186d4b763771ef40c611b6b6274de2870"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "byte_count": 670,
+      "sha256": "1201f516aba329ade79438465c0d94dec8f79a53c2ac5e6fc425b0f49e6a9556"
+    },
+    {
+      "path": "thread_commentary_compiled_2026-09-23.txt",
+      "byte_count": 334735,
+      "sha256": "c9ba196efa8709279d8967716ec690bbc5f3112ab5d38e67683768ebe1f62bbf"
+    }
+  ],
+  "predecessor_mutated": false,
+  "historical_effect": "NONE",
+  "program_standing_effect": "NONE"
+}
