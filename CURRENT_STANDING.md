@@ -4,6 +4,10 @@ For the repository-wide current program state, begin here:
 
 Current standing: [v0.8](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.md) / [JSON](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json). Admitted evidence through `4e80ee7f33ac890c4101d741cf3da93522d2fd33` (PR #164). CSH baseline blocked; CSH-S001 measurement/coding and execution-record semantics frozen, exact packets bound, hosted access blocked; receiver registry and run order unfrozen. PR #165 is open preflight context at the observation coordinate.
 
+## Fork II admission and successor opening
+
+See the [2026-09-23 Fork II standing note](docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md): v0.1.1 closed historical evidence; KERNEL-002 pre-repair definitions FII-23–FII-26. Effective on merge; no successor repair or execution claimed.
+
 ## Current-state routing clarification
 
 `CURRENT_STANDING.md` and the v0.8 register above are the current program-standing route for this coordinate.

@@ -1,0 +1,142 @@
+{
+  "additional_adversarial_probes": {
+    "AP-01_immutable_flag_not_hash_bound": {
+      "mutation": "FII-19 observed_profile.immutable true -> false, all CANON-v1 included fields unchanged",
+      "note": "CANON-v1 excludes /immutable; bundled harness does not enforce STANDING_PROFILE JSON Schema.",
+      "observed_current_use_status": "CURRENT",
+      "observed_historical_reuse_permitted": true,
+      "observed_referent_integrity": "ESTABLISHED",
+      "recomputed_hash_unchanged": true
+    },
+    "AP-02_dependency_hash_values_not_validated_or_recomputed": {
+      "mutation": "Populate every dependency_record_hashes key with literal not-a-hash and recompute the snapshot self-hashes",
+      "note": "The checker verifies key coverage and self-consistency, not that values are valid digests of supplied dependency records.",
+      "snapshot_binding_issues": [],
+      "would_be_classified_reproducibly_bound": true
+    },
+    "AP-03_fixed_time_expiry_not_evaluated": {
+      "mutation": "FII-22 effective_until_state=FIXED_TIME, effective_until=2000-01-01T00:00:00Z",
+      "note": "The evaluator checks presence/shape of the end marker but does not compare effective times against an evaluation time.",
+      "observed_current_use_status": "CURRENT",
+      "observed_effective_period_status": "FIXED_TIME"
+    },
+    "AP-04_unknown_period_still_current": {
+      "mutation": "FII-22 effective_until_state=UNKNOWN, effective_until=null",
+      "note": "UNKNOWN is an allowed state and leaves the base current-use status unchanged.",
+      "observed_current_use_status": "CURRENT",
+      "observed_effective_period_status": "UNKNOWN"
+    }
+  },
+  "artifact_id": "FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1",
+  "baseline": {
+    "failed": 0,
+    "fixtures": 22,
+    "fresh_result_equals_shipped_baseline_receipt": true,
+    "passed": 22,
+    "result": "PASS"
+  },
+  "bundled_unit_tests": {
+    "failed": 0,
+    "passed": 7,
+    "result": "PASS"
+  },
+  "claim_boundary": "This receipt establishes deterministic recomputation of the supplied synthetic fixture package and its declared mutant-detection behavior. It does not establish authorship, external provenance, truth of underlying institutional facts, general correctness, authority, compliance, or production safety.",
+  "independent_spot_recomputation": {
+    "FII-19": {
+      "recomputed_observed_profile_hash": "c7916d2f55e9ee22ccc7061605ef4df7bb02df4357a54fd25647bef085578812",
+      "recomputed_referenced_profile_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+      "recorded_content_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+      "referent_changed": true
+    },
+    "FII-21": {
+      "declared_canonical_payload_hash": null,
+      "declared_snapshot_hash": null,
+      "dependency_record_hashes_present": false,
+      "recomputed_canonical_payload_hash": "362ef883e24b0fa9c6d66a4467e3ac91d36ae81d018cb678b4adac1177b0cf92",
+      "recomputed_snapshot_hash_under_declared_algorithm": "c669efa3c450cba94232047f218c821b37462afc1cddf46ca67b31bb54c5fe44",
+      "unhashed_dependency_ids": [
+        "AM-004",
+        "AR-006",
+        "CC-011",
+        "EA-001",
+        "EP-008",
+        "ER-044",
+        "LR-018-v1.2",
+        "M-v5",
+        "OM-v3",
+        "SD-003",
+        "SP-001"
+      ]
+    },
+    "FII-22": {
+      "effective_until": null,
+      "effective_until_state": null,
+      "recomputed_current_use_status": "NOT_ESTABLISHED",
+      "recomputed_effective_period_status": "EFFECTIVE_PERIOD_NOT_ESTABLISHED"
+    }
+  },
+  "input_zip_sha256": "a9c18311043c505137eaece9db6b72b9b186be33a8970df48d3fe5800d1de760",
+  "manifest_verification": {
+    "archive_files_excluding_manifest": 63,
+    "declared_files_excluding_manifest": 63,
+    "hash_and_size_matches": 63,
+    "listed_missing_files": 0,
+    "result": "PASS",
+    "unlisted_archive_files": 0,
+    "unsafe_archive_paths": 0
+  },
+  "mutant_result": {
+    "detected": 12,
+    "fresh_mutant_results_equal_shipped_mutant_receipts": "12/12",
+    "result": "PASS",
+    "total": 12
+  },
+  "mutants": {
+    "authority_infects_evidence": [
+      "FII-17"
+    ],
+    "automatic_license": [
+      "FII-05",
+      "FII-13"
+    ],
+    "eligibility_authorization": [
+      "FII-01"
+    ],
+    "false_negation": [
+      "FII-04"
+    ],
+    "force_total_order": [
+      "FII-18"
+    ],
+    "historical_disposition_promoted_to_correctness": [
+      "FII-20"
+    ],
+    "historical_rewrite": [
+      "FII-14",
+      "FII-16"
+    ],
+    "mutable_profile_reference": [
+      "FII-19"
+    ],
+    "null_effective_until_promoted_to_indefinite_validity": [
+      "FII-22"
+    ],
+    "scope_globality": [
+      "FII-03"
+    ],
+    "stale_reuse": [
+      "FII-14",
+      "FII-15"
+    ],
+    "unbound_dependency_snapshot": [
+      "FII-21"
+    ]
+  },
+  "overall": "PASS",
+  "overall_interpretation": "PASS under the package declared frozen admission criteria; additional adversarial probes identify behavior outside the frozen fixture coverage.",
+  "receipt_type": "independent_recomputation_receipt",
+  "regression_identity": {
+    "fii_01_through_fii_18_match_prior_v0_1_sha256": "18/18",
+    "result": "PASS"
+  }
+}

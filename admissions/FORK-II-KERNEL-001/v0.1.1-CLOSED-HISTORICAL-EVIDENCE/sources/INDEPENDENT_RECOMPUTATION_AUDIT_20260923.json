@@ -1,0 +1,177 @@
+{
+  "audit_id": "INDEPENDENT-RECOMPUTATION-AUDIT-20260923",
+  "input_archive": "FORK-II-KERNEL-001-CROSS-ENVIRONMENT-RECOMPUTATION-COMPARISON-001-20260923.zip",
+  "input_archive_sha256": "0b7b86c1e709234ed1c1b9f304bccdcc6db62960dae45b33c94772bacb9ab764",
+  "outer_record_integrity": {
+    "manifest_entries": 11,
+    "verified": 11,
+    "all_match": true
+  },
+  "source_bindings": {
+    "chatgpt_zip_sha256_actual": "632bdee1752bfa9b983c534a2bfafef2aedc140d25149e7c2ef5fbfe3777b8fc",
+    "claude_raw_sha256_actual": "fba1043f9f261c27e997a7ad6665f7baee49d35ac719356bcef02f9925abfec5",
+    "detached_subject_hash_receipt_sha256_actual": "52b725287f2a0f0214cdba75ec224276c133975ed41d048c11b3a8c7853a1d48"
+  },
+  "chatgpt_preserved_record": {
+    "sha256sum_entries": 91,
+    "sha256sum_verified": 91,
+    "all_match": true,
+    "baseline_22_of_22_pass": true,
+    "unit_7_of_7_ok": true,
+    "mutants_detected": 12,
+    "mutant_failed_fixture_pattern": {
+      "authority_infects_evidence": [
+        "FII-17"
+      ],
+      "automatic_license": [
+        "FII-05",
+        "FII-13"
+      ],
+      "eligibility_authorization": [
+        "FII-01"
+      ],
+      "false_negation": [
+        "FII-04"
+      ],
+      "force_total_order": [
+        "FII-18"
+      ],
+      "historical_disposition_promoted_to_correctness": [
+        "FII-20"
+      ],
+      "historical_rewrite": [
+        "FII-14",
+        "FII-16"
+      ],
+      "mutable_profile_reference": [
+        "FII-19"
+      ],
+      "null_effective_until_promoted_to_indefinite_validity": [
+        "FII-22"
+      ],
+      "scope_globality": [
+        "FII-03"
+      ],
+      "stale_reuse": [
+        "FII-14",
+        "FII-15"
+      ],
+      "unbound_dependency_snapshot": [
+        "FII-21"
+      ]
+    },
+    "receipt_consistency": [
+      {
+        "name": "BASELINE_RECOMPUTED.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": true,
+        "plus_lf_matches_logged_packaged_hash": false
+      },
+      {
+        "name": "eligibility_authorization.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "scope_globality.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "false_negation.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "automatic_license.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "historical_rewrite.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "authority_infects_evidence.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "force_total_order.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "stale_reuse.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "mutable_profile_reference.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "historical_disposition_promoted_to_correctness.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "unbound_dependency_snapshot.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      },
+      {
+        "name": "null_effective_until_promoted_to_indefinite_validity.json",
+        "local_hash_matches_log": true,
+        "logged_structured_equal": true,
+        "logged_byte_equal": false,
+        "plus_lf_matches_logged_packaged_hash": true
+      }
+    ]
+  },
+  "claude_raw_transcript_evidence": {
+    "subject_hash_reported": true,
+    "manifest_63_63": true,
+    "baseline_22_22": true,
+    "unit_7_ok": true,
+    "ubuntu_24_04_4": true,
+    "python_3_12_3": true,
+    "glibc_2_39": true,
+    "receipt_all_semantic": true,
+    "warnings_error_pass": true
+  },
+  "independently_rederived_disposition": "CROSS_ENVIRONMENT_REPRODUCTION_OBSERVED",
+  "qualification": "Disposition is re-derived from preserved execution evidence. The frozen subject executable archive itself is not bundled here, so this audit cannot freshly hash its bytes, re-verify its 63-file manifest from subject files, or execute a third run.",
+  "not_fully_byte_recomputable_from_this_archive": [
+    "subject archive SHA-256 from subject bytes",
+    "subject 63/63 manifest verification from subject files",
+    "fresh third execution of baseline/tests/mutants",
+    "direct byte comparison to packaged subject receipts"
+  ],
+  "contradictions_found": []
+}

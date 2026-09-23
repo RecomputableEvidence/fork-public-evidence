@@ -1,0 +1,91 @@
+{
+  "fixture_id": "FII-23",
+  "title": "Immutability cannot be established by an insensitive hash",
+  "kind": "profile_identity",
+  "profile_before": {},
+  "request": {},
+  "dependencies": {
+    "referenced_profile": {
+      "standing_profile_id": "SP-001",
+      "profile_version": "SP-v1",
+      "dimensions": {
+        "evidence": "ESTABLISHED_WITHIN_EP-008",
+        "scope": "DECLARED_SCOPE_ONLY",
+        "measurement": "RECOMPUTABLE_UNDER_M-v5",
+        "execution": "UNRECORDED",
+        "claim": "GLOBAL_ADEQUACY_NOT_ESTABLISHED",
+        "eligibility": "HUMAN_REVIEW_ONLY",
+        "routing": "NON_AUTOMATED"
+      },
+      "scope_definition_id": "SD-003",
+      "evidence_population_id": "EP-008",
+      "measurement_versions": [
+        "M-v5"
+      ],
+      "obligation_map_id": "OM-v3",
+      "rule_versions": [
+        "LR-018-v1.2"
+      ],
+      "applicability_records": [
+        "AR-006"
+      ],
+      "execution_records": [],
+      "authority_reference_ids": [],
+      "effective_period": {
+        "effective_from": "2026-09-23T00:00:00Z",
+        "effective_until_state": "OPEN_UNTIL_DEPENDENCY_CHANGE",
+        "effective_until": null,
+        "reevaluation_triggers": [
+          "DEPENDENCY_CHANGE"
+        ]
+      },
+      "immutable": true
+    },
+    "recorded_content_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+    "observed_profile": {
+      "standing_profile_id": "SP-001",
+      "profile_version": "SP-v1",
+      "dimensions": {
+        "evidence": "ESTABLISHED_WITHIN_EP-008",
+        "scope": "DECLARED_SCOPE_ONLY",
+        "measurement": "RECOMPUTABLE_UNDER_M-v5",
+        "execution": "UNRECORDED",
+        "claim": "GLOBAL_ADEQUACY_NOT_ESTABLISHED",
+        "eligibility": "HUMAN_REVIEW_ONLY",
+        "routing": "NON_AUTOMATED"
+      },
+      "scope_definition_id": "SD-003",
+      "evidence_population_id": "EP-008",
+      "measurement_versions": [
+        "M-v5"
+      ],
+      "obligation_map_id": "OM-v3",
+      "rule_versions": [
+        "LR-018-v1.2"
+      ],
+      "applicability_records": [
+        "AR-006"
+      ],
+      "execution_records": [],
+      "authority_reference_ids": [],
+      "effective_period": {
+        "effective_from": "2026-09-23T00:00:00Z",
+        "effective_until_state": "OPEN_UNTIL_DEPENDENCY_CHANGE",
+        "effective_until": null,
+        "reevaluation_triggers": [
+          "DEPENDENCY_CHANGE"
+        ]
+      },
+      "immutable": false
+    }
+  },
+  "expect": {
+    "equals": {
+      "referent_integrity": "CORRUPTED_OR_CHANGED",
+      "historical_reuse_permitted": false,
+      "current_use_status": "REEVALUATION_REQUIRED"
+    },
+    "not_equals": {},
+    "unchanged_dimensions": []
+  }
+}

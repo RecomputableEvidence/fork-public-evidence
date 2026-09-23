@@ -1,0 +1,88 @@
+{
+  "status": "PRESERVED_REPRODUCED_UNCOVERED_SURFACES",
+  "basis": [
+    "sources/FORK-II-independent-recomputation-receipt.json",
+    "sources/FORK-II-independent-recomputation-receipt-ChatGPT-20260923.json"
+  ],
+  "independence_limit": "Separate supplied recomputation records; same reference implementation. No independently written implementation or verified independent human authorship is asserted.",
+  "findings": [
+    {
+      "successor_fixture_id": "FII-23",
+      "source_probe_id": "AP-01_immutable_flag_not_hash_bound",
+      "preserved_observation": {
+        "mutation": "FII-19 observed_profile.immutable true -> false, all CANON-v1 included fields unchanged",
+        "note": "CANON-v1 excludes /immutable; bundled harness does not enforce STANDING_PROFILE JSON Schema.",
+        "observed_current_use_status": "CURRENT",
+        "observed_historical_reuse_permitted": true,
+        "observed_referent_integrity": "ESTABLISHED",
+        "recomputed_hash_unchanged": true
+      },
+      "second_receipt_observation": {
+        "current_use_status": "CURRENT",
+        "hash_unchanged": true,
+        "historical_reuse_permitted": true,
+        "observed_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+        "referenced_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+        "referent_integrity": "ESTABLISHED"
+      }
+    },
+    {
+      "successor_fixture_id": "FII-24",
+      "source_probe_id": "AP-02_dependency_hash_values_not_validated_or_recomputed",
+      "preserved_observation": {
+        "mutation": "Populate every dependency_record_hashes key with literal not-a-hash and recompute the snapshot self-hashes",
+        "note": "The checker verifies key coverage and self-consistency, not that values are valid digests of supplied dependency records.",
+        "snapshot_binding_issues": [],
+        "would_be_classified_reproducibly_bound": true
+      },
+      "second_receipt_observation": {
+        "canonical_payload_hash": "02f32c7a9f22635ff6fadfe105f9724751c2bf9f8aa832a4a6edde5adff24cf9",
+        "dependency_binding_status": "REPRODUCIBLY_BOUND",
+        "dependency_ids": [
+          "AM-004",
+          "AR-006",
+          "CC-011",
+          "EA-001",
+          "EP-008",
+          "ER-044",
+          "LR-018-v1.2",
+          "M-v5",
+          "OM-v3",
+          "SD-003",
+          "SP-001"
+        ],
+        "issues": [],
+        "recomputation_permitted": true,
+        "snapshot_hash": "a77be9918525dcddd8348138bef8a1a0d67c50003a68ef4f5d92826bf12b4a5f"
+      }
+    },
+    {
+      "successor_fixture_id": "FII-25",
+      "source_probe_id": "AP-03_fixed_time_expiry_not_evaluated",
+      "preserved_observation": {
+        "mutation": "FII-22 effective_until_state=FIXED_TIME, effective_until=2000-01-01T00:00:00Z",
+        "note": "The evaluator checks presence/shape of the end marker but does not compare effective times against an evaluation time.",
+        "observed_current_use_status": "CURRENT",
+        "observed_effective_period_status": "FIXED_TIME"
+      },
+      "second_receipt_observation": {
+        "current_use_status": "CURRENT",
+        "effective_period_status": "FIXED_TIME"
+      }
+    },
+    {
+      "successor_fixture_id": "FII-26",
+      "source_probe_id": "AP-04_unknown_period_still_current",
+      "preserved_observation": {
+        "mutation": "FII-22 effective_until_state=UNKNOWN, effective_until=null",
+        "note": "UNKNOWN is an allowed state and leaves the base current-use status unchanged.",
+        "observed_current_use_status": "CURRENT",
+        "observed_effective_period_status": "UNKNOWN"
+      },
+      "second_receipt_observation": {
+        "current_use_status": "CURRENT",
+        "effective_period_status": "UNKNOWN"
+      }
+    }
+  ]
+}

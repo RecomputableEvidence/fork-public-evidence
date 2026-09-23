@@ -1,0 +1,18 @@
+{
+  "object_id": "FORK-II-KERNEL-002",
+  "version": "0.1",
+  "phase": "PRE_REPAIR_FIXTURE_DEFINITION",
+  "predecessor_id": "FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1",
+  "predecessor_sha256": "a9c18311043c505137eaece9db6b72b9b186be33a8970df48d3fe5800d1de760",
+  "fixture_ids": [
+    "FII-23",
+    "FII-24",
+    "FII-25",
+    "FII-26"
+  ],
+  "fixture_execution_status": "NOT_EXECUTED_IN_THIS_OPENING",
+  "implementation_status": "NOT_CREATED_OR_REPAIRED",
+  "definitions_effective_on": "MERGE_TO_MAIN",
+  "next_gate": "Preserve a successor pre-repair execution receipt against the bound predecessor implementation before any repair; then implement only under successor identity.",
+  "inherited_authority": "NONE"
+}
