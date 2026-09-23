@@ -1,0 +1,41 @@
+{
+  "record_id": "CSH-S001-PREFLIGHT-OBSERVATION-PR163-20260923-001",
+  "record_type": "neutral_hosted_receiver_access_observation",
+  "observed_at_utc": "2026-09-23T02:45:25Z",
+  "github_actions": {
+    "workflow": "CSH-S001 Readiness",
+    "run_id": 35811614598,
+    "job_id": 107024230593,
+    "pull_request": 163,
+    "head_commit": "674d1ed04fcbbd2f34cafe4319e96ccb2ed856eb"
+  },
+  "prompt_boundary": {
+    "neutral_prompt": true,
+    "contains_csh_corpus": false,
+    "contains_treatment": false,
+    "contains_classifier_material": false
+  },
+  "observations": [
+    {
+      "provider": "groq",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "requested_model": "openai/gpt-oss-120b",
+      "credential_environment_variable": "GROQ_API_KEY",
+      "status": "CREDENTIAL_UNAVAILABLE"
+    },
+    {
+      "provider": "deepseek",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "requested_model": "deepseek-flash",
+      "credential_environment_variable": "DEEPSEEK_API_KEY",
+      "status": "CREDENTIAL_UNAVAILABLE"
+    }
+  ],
+  "disposition": "HOSTED_ACCESS_NOT_ESTABLISHED_IN_PR_ACTIONS_CONTEXT",
+  "execution_consequence": "Do not freeze the hosted receiver registry and do not execute corpus-bearing hosted runs until a credentialled neutral preflight succeeds.",
+  "non_claims": [
+    "This observation does not establish that the user lacks provider credentials outside this GitHub Actions context.",
+    "Credential unavailability is not a model, provider, or CSH content result.",
+    "No CSH corpus-bearing request was sent by this observation."
+  ]
+}

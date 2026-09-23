@@ -1,0 +1,35 @@
+{
+  "record_id": "FORK-CURRENT-STATE-ROUTING-20260922-001",
+  "schema_version": "v0.1",
+  "as_of_date": "2026-09-22",
+  "current_program_standing": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_7.json",
+    "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_7",
+    "snapshot_date": "2026-09-21",
+    "csh_object_id": "cross_system_claim_handoff_v0_1",
+    "expected_research_state": "BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED",
+    "expected_gate": "BLOCKED_RECEIVER_RETIRED",
+    "expected_continue_frozen_baseline": false
+  },
+  "historical_snapshots": [
+    {
+      "path": "docs/state/FORK_PROOF_SURFACE_STATE_v0_1.json",
+      "historical_coordinate": "2026-07-11",
+      "classification": "DATED_PROOF_SURFACE_SNAPSHOT_NOT_CURRENT_PROGRAM_STANDING"
+    }
+  ],
+  "successor_candidate": {
+    "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+    "short_id": "CSH-S001-v0.1",
+    "status": "INTERPRETABILITY_RESOLVED__IMPLEMENTATION_AND_ACCESS_PREFLIGHT_PENDING",
+    "predecessor": "cross_system_claim_handoff_v0_1",
+    "retroactive_completion": false,
+    "replacement": false
+  },
+  "routing_rule": "A historical snapshot may differ from later state. A surface claiming current standing must agree with its declared current source on shared fields and must not present historical state as current.",
+  "non_claims": [
+    "Routing agreement does not validate the underlying research result.",
+    "The successor candidate is not frozen or executed by this routing record.",
+    "Historical snapshots remain unchanged."
+  ]
+}

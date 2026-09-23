@@ -1,0 +1,63 @@
+{
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "schema_version": "v0.1",
+  "registry_status": "CANDIDATE_REQUIRES_NEUTRAL_ACCESS_PREFLIGHT",
+  "receiver_classes": [
+    {
+      "receiver_class_id": "hosted_receiver_a",
+      "receiver_type": "llm",
+      "provider": "Groq",
+      "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+      "model": "openai/gpt-oss-120b",
+      "parameters": {
+        "temperature": 0,
+        "top_p": 1,
+        "max_completion_tokens": 2048,
+        "stream": false,
+        "response_format": {"type": "json_object"},
+        "reasoning_effort": "low",
+        "include_reasoning": false,
+        "tools": "omitted",
+        "retrieval": "disabled",
+        "conversation_history": "none"
+      },
+      "credential_environment_variable": "GROQ_API_KEY",
+      "preflight_status": "PENDING"
+    },
+    {
+      "receiver_class_id": "hosted_receiver_b",
+      "receiver_type": "llm",
+      "provider": "DeepSeek",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "model": "deepseek-flash",
+      "parameters": {
+        "temperature": 0,
+        "top_p": 1,
+        "max_tokens": 2048,
+        "stream": false,
+        "response_format": {"type": "json_object"},
+        "reasoning_effort": "low",
+        "tools": "omitted",
+        "retrieval": "disabled",
+        "conversation_history": "none"
+      },
+      "credential_environment_variable": "DEEPSEEK_API_KEY",
+      "preflight_status": "PENDING"
+    },
+    {
+      "receiver_class_id": "deterministic_reference",
+      "receiver_type": "deterministic",
+      "provider": "local",
+      "model": "successor-versioned deterministic boundary-preservation receiver",
+      "replicate_policy": "ONE_EXECUTION_PER_SCENARIO_CONDITION",
+      "behavioral_diversity_claim": false,
+      "preflight_status": "LOCAL_IMPLEMENTATION_PENDING_VERSION_BINDING"
+    }
+  ],
+  "preflight_rule": "Hosted identities, endpoint compatibility, requested parameters, response format, and returned model identity must be confirmed using a neutral non-corpus prompt before registry freeze. Failure requires candidate revision before freeze; no silent receiver substitution.",
+  "non_claims": [
+    "Documented provider availability is not evidence that this repository account currently has usable credentials.",
+    "A successful neutral preflight is not a CSH result.",
+    "Receiver feasibility does not establish cross-organizational generality."
+  ]
+}
