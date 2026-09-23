@@ -1,0 +1,279 @@
+======================================================================
+LS-MDRC-002 Structural Test Suite
+Package root: /tmp/pr162-diagnostic-65aydida/package
+Bound commit: 2dab684fc904f43ca0d35d1c1bbc500e92156ec4
+Start time:   2026-09-23T06:39:49.674689+00:00
+======================================================================
+
+[T01] Required schema file presence
+  [PASS] T01-schemas/LS_MDRM_STATE_DICTIONARY.json: Required schema present: schemas/LS_MDRM_STATE_DICTIONARY.json
+  [PASS] T01-schemas/LS_MDRM_TRANSITION_MANUAL.json: Required schema present: schemas/LS_MDRM_TRANSITION_MANUAL.json
+  [PASS] T01-schemas/LS_MDRM_BRANCH_PROTOCOL.json: Required schema present: schemas/LS_MDRM_BRANCH_PROTOCOL.json
+  [PASS] T01-schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json: Required schema present: schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json
+  [PASS] T01-schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json: Required schema present: schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json
+  [PASS] T01-schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json: Required schema present: schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json
+  [PASS] T01-schemas/LS_MDRM_ENTROPY_SCHEMA.json: Required schema present: schemas/LS_MDRM_ENTROPY_SCHEMA.json
+  [PASS] T01-schemas/LS_MDRM_CONTROL_VECTOR.json: Required schema present: schemas/LS_MDRM_CONTROL_VECTOR.json
+  [PASS] T01-schemas/LS_MDRM_EVALUATION_MANUAL.json: Required schema present: schemas/LS_MDRM_EVALUATION_MANUAL.json
+  [PASS] T01-schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json: Required schema present: schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json
+  [PASS] T01-schemas/LS_MDRM_TRAJECTORY_SCHEMA.json: Required schema present: schemas/LS_MDRM_TRAJECTORY_SCHEMA.json
+
+[T02] Required fixture presence
+  [PASS] T02-fixtures/development/DEV-001-minimal-valid-trajectory.json: Required fixture present: fixtures/development/DEV-001-minimal-valid-trajectory.json
+  [PASS] T02-fixtures/development/DEV-002-branch-lifecycle-bsr.json: Required fixture present: fixtures/development/DEV-002-branch-lifecycle-bsr.json
+  [PASS] T02-fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json: Required fixture present: fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json
+  [PASS] T02-fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json: Required fixture present: fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json
+  [PASS] T02-fixtures/holdout/HOLDOUT_MANIFEST.json: Required fixture present: fixtures/holdout/HOLDOUT_MANIFEST.json
+  [PASS] T02-fixtures/negative-controls/NC-1-brainstorming.json: Required fixture present: fixtures/negative-controls/NC-1-brainstorming.json
+  [PASS] T02-fixtures/negative-controls/NC-2-through-NC-7-definitions.json: Required fixture present: fixtures/negative-controls/NC-2-through-NC-7-definitions.json
+  [PASS] T02-fixtures/sentinels/SEN-001-disguised-restatement.json: Required fixture present: fixtures/sentinels/SEN-001-disguised-restatement.json
+  [PASS] T02-fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json: Required fixture present: fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json
+  [PASS] T02-fixtures/sentinels/SEN-003-unlicensed-epr-violation.json: Required fixture present: fixtures/sentinels/SEN-003-unlicensed-epr-violation.json
+
+[T03] Schema JSON parseability
+  [PASS] T03-LS_MDRM_TRANSITION_MANUAL.json: JSON parseable: LS_MDRM_TRANSITION_MANUAL.json
+  [PASS] T03-LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json: JSON parseable: LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json
+  [PASS] T03-LS_MDRM_ENTROPY_SCHEMA.json: JSON parseable: LS_MDRM_ENTROPY_SCHEMA.json
+  [PASS] T03-LS_MDRM_TRAJECTORY_SCHEMA.json: JSON parseable: LS_MDRM_TRAJECTORY_SCHEMA.json
+  [PASS] T03-LS_MDRM_UNCERTAINTY_SCHEMA.json: JSON parseable: LS_MDRM_UNCERTAINTY_SCHEMA.json
+  [PASS] T03-LS_MDRM_STATE_DICTIONARY.json: JSON parseable: LS_MDRM_STATE_DICTIONARY.json
+  [PASS] T03-LS_MDRM_CLAIM_STATUS_ONTOLOGY.json: JSON parseable: LS_MDRM_CLAIM_STATUS_ONTOLOGY.json
+  [PASS] T03-LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json: JSON parseable: LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json
+  [PASS] T03-LS_MDRM_CONTROL_VECTOR.json: JSON parseable: LS_MDRM_CONTROL_VECTOR.json
+  [PASS] T03-LS_MDRM_BRANCH_PROTOCOL.json: JSON parseable: LS_MDRM_BRANCH_PROTOCOL.json
+  [PASS] T03-LS_MDRM_EVALUATION_MANUAL.json: JSON parseable: LS_MDRM_EVALUATION_MANUAL.json
+
+[T04] Fixture JSON parseability
+  [PASS] T04-NC-1-brainstorming.json: JSON parseable: NC-1-brainstorming.json
+  [PASS] T04-NC-2-through-NC-7-definitions.json: JSON parseable: NC-2-through-NC-7-definitions.json
+  [PASS] T04-HOLDOUT_MANIFEST.json: JSON parseable: HOLDOUT_MANIFEST.json
+  [PASS] T04-SEN-002-elegant-abstraction-no-evidence.json: JSON parseable: SEN-002-elegant-abstraction-no-evidence.json
+  [PASS] T04-SEN-001-disguised-restatement.json: JSON parseable: SEN-001-disguised-restatement.json
+  [PASS] T04-SEN-003-unlicensed-epr-violation.json: JSON parseable: SEN-003-unlicensed-epr-violation.json
+  [PASS] T04-DEV-001-minimal-valid-trajectory.json: JSON parseable: DEV-001-minimal-valid-trajectory.json
+  [PASS] T04-DEV-002-branch-lifecycle-bsr.json: JSON parseable: DEV-002-branch-lifecycle-bsr.json
+  [PASS] T04-CAL-001-tension-a-preservation-vs-executability.json: JSON parseable: CAL-001-tension-a-preservation-vs-executability.json
+  [PASS] T04-CAL-002-tension-c-heterogeneous-receiver-exposure.json: JSON parseable: CAL-002-tension-c-heterogeneous-receiver-exposure.json
+
+[T05] Bound commit present in all schema files
+  [PASS] T05-LS_MDRM_TRANSITION_MANUAL.json: Bound commit correct in LS_MDRM_TRANSITION_MANUAL.json
+  [PASS] T05-LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json: Bound commit correct in LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json
+  [PASS] T05-LS_MDRM_ENTROPY_SCHEMA.json: Bound commit correct in LS_MDRM_ENTROPY_SCHEMA.json
+  [PASS] T05-LS_MDRM_TRAJECTORY_SCHEMA.json: Bound commit correct in LS_MDRM_TRAJECTORY_SCHEMA.json
+  [PASS] T05-LS_MDRM_UNCERTAINTY_SCHEMA.json: Bound commit correct in LS_MDRM_UNCERTAINTY_SCHEMA.json
+  [PASS] T05-LS_MDRM_STATE_DICTIONARY.json: Bound commit correct in LS_MDRM_STATE_DICTIONARY.json
+  [PASS] T05-LS_MDRM_CLAIM_STATUS_ONTOLOGY.json: Bound commit correct in LS_MDRM_CLAIM_STATUS_ONTOLOGY.json
+  [PASS] T05-LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json: Bound commit correct in LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json
+  [PASS] T05-LS_MDRM_CONTROL_VECTOR.json: Bound commit correct in LS_MDRM_CONTROL_VECTOR.json
+  [PASS] T05-LS_MDRM_BRANCH_PROTOCOL.json: Bound commit correct in LS_MDRM_BRANCH_PROTOCOL.json
+  [PASS] T05-LS_MDRM_EVALUATION_MANUAL.json: Bound commit correct in LS_MDRM_EVALUATION_MANUAL.json
+
+[T06] PCC-01: selected_candidate in eligible_candidates for all branch records
+  [PASS] T06-NC-1-brainstorming.json-S0-empty: PCC-01 empty eligible, selected documented in NC-1-brainstorming.json state 0
+  [PASS] T06-NC-1-brainstorming.json-S1-empty: PCC-01 empty eligible, selected documented in NC-1-brainstorming.json state 1
+  [PASS] T06-SEN-002-elegant-abstraction-no-evidence.json-S0-empty: PCC-01 empty eligible, selected documented in SEN-002-elegant-abstraction-no-evidence.json state 0
+  [PASS] T06-SEN-001-disguised-restatement.json-S0-empty: PCC-01 empty eligible, selected documented in SEN-001-disguised-restatement.json state 0
+  [PASS] T06-SEN-003-unlicensed-epr-violation.json-S0-empty: PCC-01 empty eligible, selected documented in SEN-003-unlicensed-epr-violation.json state 0
+  [PASS] T06-DEV-001-minimal-valid-trajectory.json-S0: PCC-01 DEV-001-minimal-valid-trajectory.json state 0
+  [PASS] T06-DEV-002-branch-lifecycle-bsr.json-S0: PCC-01 DEV-002-branch-lifecycle-bsr.json state 0
+  [PASS] T06-CAL-001-tension-a-preservation-vs-executability.json-S0: PCC-01 CAL-001-tension-a-preservation-vs-executability.json state 0
+  [PASS] T06-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0: PCC-01 CAL-002-tension-c-heterogeneous-receiver-exposure.json state 0
+
+[T07] PCC-02: eligible_candidates subset of raw_candidates for all branch records
+  [PASS] T07-NC-1-brainstorming.json-S0: PCC-02 NC-1-brainstorming.json state 0
+  [PASS] T07-NC-1-brainstorming.json-S1: PCC-02 NC-1-brainstorming.json state 1
+  [PASS] T07-SEN-002-elegant-abstraction-no-evidence.json-S0: PCC-02 SEN-002-elegant-abstraction-no-evidence.json state 0
+  [PASS] T07-SEN-001-disguised-restatement.json-S0: PCC-02 SEN-001-disguised-restatement.json state 0
+  [PASS] T07-SEN-003-unlicensed-epr-violation.json-S0: PCC-02 SEN-003-unlicensed-epr-violation.json state 0
+  [PASS] T07-DEV-001-minimal-valid-trajectory.json-S0: PCC-02 DEV-001-minimal-valid-trajectory.json state 0
+  [PASS] T07-DEV-002-branch-lifecycle-bsr.json-S0: PCC-02 DEV-002-branch-lifecycle-bsr.json state 0
+  [PASS] T07-CAL-001-tension-a-preservation-vs-executability.json-S0: PCC-02 CAL-001-tension-a-preservation-vs-executability.json state 0
+  [PASS] T07-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0: PCC-02 CAL-002-tension-c-heterogeneous-receiver-exposure.json state 0
+
+[T08] PCC-03: all excluded raw candidates have at least one valid rejection code
+  [PASS] T08-NC-1-brainstorming.json-S0-NC-1-BC-01: PCC-03 rejection codes for NC-1-BC-01
+  [PASS] T08-NC-1-brainstorming.json-S1-NC-1-BC-02: PCC-03 rejection codes for NC-1-BC-02
+  [PASS] T08-SEN-002-elegant-abstraction-no-evidence.json-S0-SEN-002-BC-01: PCC-03 rejection codes for SEN-002-BC-01
+  [PASS] T08-SEN-001-disguised-restatement.json-S0-SEN-001-BC-01: PCC-03 rejection codes for SEN-001-BC-01
+  [PASS] T08-SEN-003-unlicensed-epr-violation.json-S0-SEN-003-BC-01: PCC-03 rejection codes for SEN-003-BC-01
+  [PASS] T08-DEV-001-minimal-valid-trajectory.json-S0-DEV-001-BC-02: PCC-03 rejection codes for DEV-001-BC-02
+  [PASS] T08-DEV-002-branch-lifecycle-bsr.json-S0-DEV-002-BC-03: PCC-03 rejection codes for DEV-002-BC-03
+  [PASS] T08-DEV-002-branch-lifecycle-bsr.json-S0-DEV-002-BC-01: PCC-03 rejection codes for DEV-002-BC-01
+  [PASS] T08-CAL-001-tension-a-preservation-vs-executability.json-S0-CAL-001-BC-02: PCC-03 rejection codes for CAL-001-BC-02
+  [PASS] T08-CAL-001-tension-a-preservation-vs-executability.json-S0-CAL-001-BC-03: PCC-03 rejection codes for CAL-001-BC-03
+  [PASS] T08-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0-CAL-002-BC-02: PCC-03 rejection codes for CAL-002-BC-02
+
+[T09] PCC-04: BSR = |eligible| / |raw| within tolerance
+  [PASS] T09-NC-1-brainstorming.json-S0: PCC-04 BSR NC-1-brainstorming.json S0
+  [PASS] T09-NC-1-brainstorming.json-S1: PCC-04 BSR NC-1-brainstorming.json S1
+  [PASS] T09-SEN-002-elegant-abstraction-no-evidence.json-S0: PCC-04 BSR SEN-002-elegant-abstraction-no-evidence.json S0
+  [PASS] T09-SEN-001-disguised-restatement.json-S0: PCC-04 BSR SEN-001-disguised-restatement.json S0
+  [PASS] T09-SEN-003-unlicensed-epr-violation.json-S0: PCC-04 BSR SEN-003-unlicensed-epr-violation.json S0
+  [PASS] T09-DEV-001-minimal-valid-trajectory.json-S0: PCC-04 BSR DEV-001-minimal-valid-trajectory.json S0
+  [PASS] T09-DEV-002-branch-lifecycle-bsr.json-S0: PCC-04 BSR DEV-002-branch-lifecycle-bsr.json S0
+  [PASS] T09-CAL-001-tension-a-preservation-vs-executability.json-S0: PCC-04 BSR CAL-001-tension-a-preservation-vs-executability.json S0
+  [PASS] T09-CAL-002-tension-c-heterogeneous-receiver-exposure.json-S0: PCC-04 BSR CAL-002-tension-c-heterogeneous-receiver-exposure.json S0
+
+[T10] PCC-05: all claim statuses valid
+  [PASS] T10-NC-1-brainstorming.json-NC-1-CL-01: PCC-05 claim status valid: NC-1-CL-01
+  [PASS] T10-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-CL-01: PCC-05 claim status valid: SEN-002-CL-01
+  [PASS] T10-SEN-001-disguised-restatement.json-SEN-001-CL-01: PCC-05 claim status valid: SEN-001-CL-01
+  [PASS] T10-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-01: PCC-05 claim status valid: SEN-003-CL-01
+  [PASS] T10-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-02: PCC-05 claim status valid: SEN-003-CL-02
+  [PASS] T10-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-01: PCC-05 claim status valid: DEV-001-CL-01
+  [PASS] T10-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-02: PCC-05 claim status valid: DEV-001-CL-02
+  [PASS] T10-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-01: PCC-05 claim status valid: DEV-002-CL-01
+  [PASS] T10-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-02: PCC-05 claim status valid: DEV-002-CL-02
+  [PASS] T10-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-01: PCC-05 claim status valid: CAL-001-CL-01
+  [PASS] T10-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-02: PCC-05 claim status valid: CAL-001-CL-02
+  [PASS] T10-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-03: PCC-05 claim status valid: CAL-001-CL-03
+  [PASS] T10-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-01: PCC-05 claim status valid: CAL-002-CL-01
+  [PASS] T10-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-02: PCC-05 claim status valid: CAL-002-CL-02
+  [PASS] T10-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-03: PCC-05 claim status valid: CAL-002-CL-03
+
+[T11] PCC-06: EPR detection — unlicensed promotions flagged
+  [PASS] T11-NC-1-brainstorming.json: PCC-06 EPR consistency NC-1-brainstorming.json
+  [PASS] T11-SEN-002-elegant-abstraction-no-evidence.json: PCC-06 EPR consistency SEN-002-elegant-abstraction-no-evidence.json
+  [PASS] T11-SEN-001-disguised-restatement.json: PCC-06 EPR consistency SEN-001-disguised-restatement.json
+  [PASS] T11-SEN-003-unlicensed-epr-violation.json: PCC-06 EPR consistency SEN-003-unlicensed-epr-violation.json
+  [PASS] T11-DEV-001-minimal-valid-trajectory.json: PCC-06 EPR consistency DEV-001-minimal-valid-trajectory.json
+  [PASS] T11-DEV-002-branch-lifecycle-bsr.json: PCC-06 EPR consistency DEV-002-branch-lifecycle-bsr.json
+  [PASS] T11-CAL-001-tension-a-preservation-vs-executability.json: PCC-06 EPR consistency CAL-001-tension-a-preservation-vs-executability.json
+  [PASS] T11-CAL-002-tension-c-heterogeneous-receiver-exposure.json: PCC-06 EPR consistency CAL-002-tension-c-heterogeneous-receiver-exposure.json
+
+[T12] PCC-07: evidence binding completeness
+  [PASS] T12-NC-1-brainstorming.json-NC-1-CL-01: PCC-07 evidence binding NC-1-CL-01
+  [PASS] T12-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-CL-01: PCC-07 evidence binding SEN-002-CL-01
+  [PASS] T12-SEN-001-disguised-restatement.json-SEN-001-CL-01: PCC-07 evidence binding SEN-001-CL-01
+  [PASS] T12-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-01: PCC-07 evidence binding SEN-003-CL-01
+  [PASS] T12-SEN-003-unlicensed-epr-violation.json-SEN-003-CL-02: PCC-07 evidence binding SEN-003-CL-02
+  [PASS] T12-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-01: PCC-07 evidence binding DEV-001-CL-01
+  [PASS] T12-DEV-001-minimal-valid-trajectory.json-DEV-001-CL-02: PCC-07 evidence binding DEV-001-CL-02
+  [PASS] T12-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-01: PCC-07 evidence binding DEV-002-CL-01
+  [PASS] T12-DEV-002-branch-lifecycle-bsr.json-DEV-002-CL-02: PCC-07 evidence binding DEV-002-CL-02
+  [PASS] T12-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-01: PCC-07 evidence binding CAL-001-CL-01
+  [PASS] T12-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-02: PCC-07 evidence binding CAL-001-CL-02
+  [PASS] T12-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-CL-03: PCC-07 evidence binding CAL-001-CL-03
+  [PASS] T12-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-01: PCC-07 evidence binding CAL-002-CL-01
+  [PASS] T12-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-02: PCC-07 evidence binding CAL-002-CL-02
+  [PASS] T12-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-CL-03: PCC-07 evidence binding CAL-002-CL-03
+
+[T13] PCC-09: all four entropy components present in every entropy record
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-0-H_s: PCC-09 H_s present in NC-1-ENT-0
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-0-H_g: PCC-09 H_g present in NC-1-ENT-0
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-0-H_r: PCC-09 H_r present in NC-1-ENT-0
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-0-H_c: PCC-09 H_c present in NC-1-ENT-0
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-1-H_s: PCC-09 H_s present in NC-1-ENT-1
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-1-H_g: PCC-09 H_g present in NC-1-ENT-1
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-1-H_r: PCC-09 H_r present in NC-1-ENT-1
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-1-H_c: PCC-09 H_c present in NC-1-ENT-1
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-2-H_s: PCC-09 H_s present in NC-1-ENT-2
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-2-H_g: PCC-09 H_g present in NC-1-ENT-2
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-2-H_r: PCC-09 H_r present in NC-1-ENT-2
+  [PASS] T13-NC-1-brainstorming.json-NC-1-ENT-2-H_c: PCC-09 H_c present in NC-1-ENT-2
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_s: PCC-09 H_s present in SEN-002-ENT-0
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_g: PCC-09 H_g present in SEN-002-ENT-0
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_r: PCC-09 H_r present in SEN-002-ENT-0
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-0-H_c: PCC-09 H_c present in SEN-002-ENT-0
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_s: PCC-09 H_s present in SEN-002-ENT-1
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_g: PCC-09 H_g present in SEN-002-ENT-1
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_r: PCC-09 H_r present in SEN-002-ENT-1
+  [PASS] T13-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-ENT-1-H_c: PCC-09 H_c present in SEN-002-ENT-1
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_s: PCC-09 H_s present in SEN-001-ENT-0
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_g: PCC-09 H_g present in SEN-001-ENT-0
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_r: PCC-09 H_r present in SEN-001-ENT-0
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-0-H_c: PCC-09 H_c present in SEN-001-ENT-0
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_s: PCC-09 H_s present in SEN-001-ENT-1
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_g: PCC-09 H_g present in SEN-001-ENT-1
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_r: PCC-09 H_r present in SEN-001-ENT-1
+  [PASS] T13-SEN-001-disguised-restatement.json-SEN-001-ENT-1-H_c: PCC-09 H_c present in SEN-001-ENT-1
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_s: PCC-09 H_s present in SEN-003-ENT-0
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_g: PCC-09 H_g present in SEN-003-ENT-0
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_r: PCC-09 H_r present in SEN-003-ENT-0
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-0-H_c: PCC-09 H_c present in SEN-003-ENT-0
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_s: PCC-09 H_s present in SEN-003-ENT-1
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_g: PCC-09 H_g present in SEN-003-ENT-1
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_r: PCC-09 H_r present in SEN-003-ENT-1
+  [PASS] T13-SEN-003-unlicensed-epr-violation.json-SEN-003-ENT-1-H_c: PCC-09 H_c present in SEN-003-ENT-1
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_s: PCC-09 H_s present in DEV-001-ENT-0
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_g: PCC-09 H_g present in DEV-001-ENT-0
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_r: PCC-09 H_r present in DEV-001-ENT-0
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-0-H_c: PCC-09 H_c present in DEV-001-ENT-0
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_s: PCC-09 H_s present in DEV-001-ENT-1
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_g: PCC-09 H_g present in DEV-001-ENT-1
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_r: PCC-09 H_r present in DEV-001-ENT-1
+  [PASS] T13-DEV-001-minimal-valid-trajectory.json-DEV-001-ENT-1-H_c: PCC-09 H_c present in DEV-001-ENT-1
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_s: PCC-09 H_s present in DEV-002-ENT-0
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_g: PCC-09 H_g present in DEV-002-ENT-0
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_r: PCC-09 H_r present in DEV-002-ENT-0
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-0-H_c: PCC-09 H_c present in DEV-002-ENT-0
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_s: PCC-09 H_s present in DEV-002-ENT-1
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_g: PCC-09 H_g present in DEV-002-ENT-1
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_r: PCC-09 H_r present in DEV-002-ENT-1
+  [PASS] T13-DEV-002-branch-lifecycle-bsr.json-DEV-002-ENT-1-H_c: PCC-09 H_c present in DEV-002-ENT-1
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_s: PCC-09 H_s present in CAL-001-ENT-0
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_g: PCC-09 H_g present in CAL-001-ENT-0
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_r: PCC-09 H_r present in CAL-001-ENT-0
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-0-H_c: PCC-09 H_c present in CAL-001-ENT-0
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_s: PCC-09 H_s present in CAL-001-ENT-1
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_g: PCC-09 H_g present in CAL-001-ENT-1
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_r: PCC-09 H_r present in CAL-001-ENT-1
+  [PASS] T13-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-ENT-1-H_c: PCC-09 H_c present in CAL-001-ENT-1
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_s: PCC-09 H_s present in CAL-002-ENT-0
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_g: PCC-09 H_g present in CAL-002-ENT-0
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_r: PCC-09 H_r present in CAL-002-ENT-0
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-0-H_c: PCC-09 H_c present in CAL-002-ENT-0
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_s: PCC-09 H_s present in CAL-002-ENT-1
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_g: PCC-09 H_g present in CAL-002-ENT-1
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_r: PCC-09 H_r present in CAL-002-ENT-1
+  [PASS] T13-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-ENT-1-H_c: PCC-09 H_c present in CAL-002-ENT-1
+
+[T14] PCC-11: at least one uncertainty source per material state
+  [PASS] T14-NC-1-brainstorming.json-NC-1-UNC-0: PCC-11 uncertainty sources present in NC-1-UNC-0
+  [PASS] T14-SEN-002-elegant-abstraction-no-evidence.json-SEN-002-UNC-1: PCC-11 uncertainty sources present in SEN-002-UNC-1
+  [PASS] T14-SEN-001-disguised-restatement.json-SEN-001-UNC-1: PCC-11 uncertainty sources present in SEN-001-UNC-1
+  [PASS] T14-SEN-003-unlicensed-epr-violation.json-SEN-003-UNC-1: PCC-11 uncertainty sources present in SEN-003-UNC-1
+  [PASS] T14-DEV-001-minimal-valid-trajectory.json-DEV-001-UNC-0: PCC-11 uncertainty sources present in DEV-001-UNC-0
+  [PASS] T14-DEV-001-minimal-valid-trajectory.json-DEV-001-UNC-1: PCC-11 uncertainty sources present in DEV-001-UNC-1
+  [PASS] T14-DEV-002-branch-lifecycle-bsr.json-DEV-002-UNC-0: PCC-11 uncertainty sources present in DEV-002-UNC-0
+  [PASS] T14-DEV-002-branch-lifecycle-bsr.json-DEV-002-UNC-1: PCC-11 uncertainty sources present in DEV-002-UNC-1
+  [PASS] T14-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-UNC-0: PCC-11 uncertainty sources present in CAL-001-UNC-0
+  [PASS] T14-CAL-001-tension-a-preservation-vs-executability.json-CAL-001-UNC-1: PCC-11 uncertainty sources present in CAL-001-UNC-1
+  [PASS] T14-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-UNC-0: PCC-11 uncertainty sources present in CAL-002-UNC-0
+  [PASS] T14-CAL-002-tension-c-heterogeneous-receiver-exposure.json-CAL-002-UNC-1: PCC-11 uncertainty sources present in CAL-002-UNC-1
+
+[T15] PCC-12: holdout lifecycle — no CONSUMED -> SEALED violation
+  [PASS] T15-HO-001: PCC-12 holdout HO-001 is SEALED
+  [PASS] T15-HO-002: PCC-12 holdout HO-002 is SEALED
+  [PASS] T15-HO-003: PCC-12 holdout HO-003 is SEALED
+
+[T16] Negative control expected classification
+  [PASS] T16-NC-1-brainstorming.json: Negative control has non-qualifying expected result: NC-1-brainstorming.json
+  [PASS] T16-NC-2-through-NC-7-definitions.json: Negative control has non-qualifying expected result: NC-2-through-NC-7-definitions.json
+
+[T17] Sentinel fixture expected classifications
+  [PASS] T17-SEN-002-elegant-abstraction-no-evidence.json: Sentinel has non-qualifying/nonconformant expected result: SEN-002-elegant-abstraction-no-evidence.json
+  [PASS] T17-SEN-001-disguised-restatement.json: Sentinel has non-qualifying/nonconformant expected result: SEN-001-disguised-restatement.json
+  [PASS] T17-SEN-003-unlicensed-epr-violation.json: Sentinel has non-qualifying/nonconformant expected result: SEN-003-unlicensed-epr-violation.json
+
+[T18] Adversarial mutation: branch selected not in eligible (PCC-01 must trigger)
+  [PASS] T18-mutation-branch-eligibility: Mutation: selected not in eligible — PCC-01 violation detected
+
+[T19] Adversarial mutation: unlicensed HYPOTHESIZED->OBSERVED promotion (PCC-06 must trigger)
+  [PASS] T19-mutation-epr: Mutation: HYPOTHESIZED->OBSERVED without license — PCC-06 violation detected
+
+[T20] Adversarial mutation: substitute wrong repository commit (PCC-08 must trigger)
+  [PASS] T20-mutation-commit: Mutation: wrong repository commit in evidence binding — PCC-08 violation detected
+
+[T21] Adversarial mutation: raw branch candidate removed (PCC-13 must detect hash change)
+  [PASS] T21-mutation-raw-branch: Mutation: raw branch removal causes hash change — PCC-13 violation detectable
+
+[T22] Adversarial mutation: CONSUMED -> SEALED (PCC-12 must trigger)
+  [PASS] T22-mutation-holdout-reopen: Mutation: CONSUMED->SEALED lifecycle violation detected
+
+Test receipt written to: /tmp/pr162-diagnostic-65aydida/package/receipts/testing/TEST_RECEIPT.json
+
+======================================================================
+RESULTS: 222/222 passed, 0 failed
+DISPOSITION: TEST_PASS_BOUNDED
+======================================================================

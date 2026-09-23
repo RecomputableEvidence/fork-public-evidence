@@ -1,0 +1,13 @@
+{
+  "scope": "Locally fetched reachable Git history restricted to docs/experiments/lens-shift-mdrc-002/. Not a search of constructor filesystem, conversations, unreachable Git objects, or external archives.",
+  "package_commits": [
+    "ca28599b7ca411060e1fc3667ef97596244ed9bb"
+  ],
+  "distinct_blobs_hashed": 30,
+  "sought_sha256": [
+    "18471330226efaf12ef7b49dfd76a6026d1ebbd2fa81b132e2785522438237b7",
+    "c246327a96573c2c702293cb5b2efc56db8efd734077a5f13cf8f7edb76f9077"
+  ],
+  "matches": [],
+  "conclusion": "Missing historical byte identities were not recovered within this search scope."
+}
