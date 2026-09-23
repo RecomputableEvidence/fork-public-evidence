@@ -50,3 +50,6 @@ SHA256SUMS text eol=lf
 # END FORK LINE ENDING CANONICALIZATION v0.1
 release_packages/** text eol=lf
 tools/check_release_package.py text eol=lf
+
+# Exact supplied Fork II historical evidence bytes
+admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/** -text

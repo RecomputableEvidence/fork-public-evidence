@@ -1,0 +1,24 @@
+{
+  "fixture_id": "FII-25",
+  "title": "Expired fixed interval cannot remain current",
+  "kind": "effective_period",
+  "profile_before": {},
+  "request": {
+    "evaluation_time": "2026-09-23T00:00:00Z"
+  },
+  "dependencies": {
+    "effective_period": {
+      "effective_from": "1999-01-01T00:00:00Z",
+      "effective_until_state": "FIXED_TIME",
+      "effective_until": "2000-01-01T00:00:00Z"
+    }
+  },
+  "expect": {
+    "equals": {
+      "effective_period_status": "FIXED_TIME",
+      "current_use_status": "EXPIRED"
+    },
+    "not_equals": {},
+    "unchanged_dimensions": []
+  }
+}

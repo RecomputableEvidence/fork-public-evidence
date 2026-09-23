@@ -1,0 +1,65 @@
+{
+  "population": [
+    {
+      "uploaded_name": "FORK-II-KERNEL-001-CROSS-ENVIRONMENT-RECOMPUTATION-COMPARISON-001-20260923(1).zip",
+      "path": "sources/FORK-II-KERNEL-001-CROSS-ENVIRONMENT-RECOMPUTATION-COMPARISON-001-20260923.zip",
+      "bytes": 62743,
+      "sha256": "0b7b86c1e709234ed1c1b9f304bccdcc6db62960dae45b33c94772bacb9ab764"
+    },
+    {
+      "uploaded_name": "FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1(2).zip",
+      "path": "sources/FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1.zip",
+      "bytes": 70171,
+      "sha256": "a9c18311043c505137eaece9db6b72b9b186be33a8970df48d3fe5800d1de760"
+    },
+    {
+      "uploaded_name": "FORK-II-KERNEL-001-v0.1.1-recomputation-record-20260923(2).zip",
+      "path": "sources/FORK-II-KERNEL-001-v0.1.1-recomputation-record-20260923.zip",
+      "bytes": 58021,
+      "sha256": "632bdee1752bfa9b983c534a2bfafef2aedc140d25149e7c2ef5fbfe3777b8fc"
+    },
+    {
+      "uploaded_name": "FORK-II-independent-recomputation-receipt(1).json",
+      "path": "sources/FORK-II-independent-recomputation-receipt.json",
+      "bytes": 5187,
+      "sha256": "9435a8d94a5ce0e2d22648f92d6835e0c9eea8fd66d658173a9a86b102fb82cc"
+    },
+    {
+      "uploaded_name": "FORK-II-independent-recomputation-receipt-ChatGPT-20260923(1).json",
+      "path": "sources/FORK-II-independent-recomputation-receipt-ChatGPT-20260923.json",
+      "bytes": 5243,
+      "sha256": "ba954a528dd9bd93ed81fde82ec2af3a9c8ac152101bf5a2410966b415898c6a"
+    },
+    {
+      "uploaded_name": "FORK-II-independent-recomputation-report-ChatGPT-20260923(1).md",
+      "path": "sources/FORK-II-independent-recomputation-report-ChatGPT-20260923.md",
+      "bytes": 1870,
+      "sha256": "573774bf0183e1a5d91a56c355b5a6c712a5a3da9ba9954cd93d3fc874631a66"
+    },
+    {
+      "uploaded_name": "INDEPENDENT_RECOMPUTATION_AUDIT_20260923(1).json",
+      "path": "sources/INDEPENDENT_RECOMPUTATION_AUDIT_20260923.json",
+      "bytes": 5837,
+      "sha256": "00afd1c273f114301765b8d8ef5b34fe4761f98ceda9af707035ad5654f43ee1"
+    },
+    {
+      "uploaded_name": "INDEPENDENT_RECOMPUTATION_AUDIT_20260923(1).md",
+      "path": "sources/INDEPENDENT_RECOMPUTATION_AUDIT_20260923.md",
+      "bytes": 2766,
+      "sha256": "4ac4a1661dbb8aec96692319fc392e5b1765859350ec4012780d92eea353de19"
+    },
+    {
+      "uploaded_name": "INDEPENDENT_RECOMPUTATION_AUDIT_COMPLETE_20260923(1).json",
+      "path": "sources/INDEPENDENT_RECOMPUTATION_AUDIT_COMPLETE_20260923.json",
+      "bytes": 11135,
+      "sha256": "588e9e94f3347086e10c11af7a40e2aa8113e0081d9a306269010cb493938450"
+    },
+    {
+      "uploaded_name": "INDEPENDENT_RECOMPUTATION_AUDIT_COMPLETE_20260923(1).md",
+      "path": "sources/INDEPENDENT_RECOMPUTATION_AUDIT_COMPLETE_20260923.md",
+      "bytes": 3660,
+      "sha256": "3a45d22dbe85c2b8af18d4be2550c711036b1750e47fbe8a8206d05f044f99e9"
+    }
+  ],
+  "treatment": "Exact supplied bytes; filename copy suffixes removed only. Separate receipts are not counted as independent people or implementations."
+}

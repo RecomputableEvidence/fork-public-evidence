@@ -1,0 +1,197 @@
+{
+  "additional_adversarial_recomputation": {
+    "AP-01": {
+      "current_use_status": "CURRENT",
+      "hash_unchanged": true,
+      "historical_reuse_permitted": true,
+      "observed_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+      "referenced_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+      "referent_integrity": "ESTABLISHED"
+    },
+    "AP-02": {
+      "canonical_payload_hash": "02f32c7a9f22635ff6fadfe105f9724751c2bf9f8aa832a4a6edde5adff24cf9",
+      "dependency_binding_status": "REPRODUCIBLY_BOUND",
+      "dependency_ids": [
+        "AM-004",
+        "AR-006",
+        "CC-011",
+        "EA-001",
+        "EP-008",
+        "ER-044",
+        "LR-018-v1.2",
+        "M-v5",
+        "OM-v3",
+        "SD-003",
+        "SP-001"
+      ],
+      "issues": [],
+      "recomputation_permitted": true,
+      "snapshot_hash": "a77be9918525dcddd8348138bef8a1a0d67c50003a68ef4f5d92826bf12b4a5f"
+    },
+    "AP-03": {
+      "current_use_status": "CURRENT",
+      "effective_period_status": "FIXED_TIME"
+    },
+    "AP-04": {
+      "current_use_status": "CURRENT",
+      "effective_period_status": "UNKNOWN"
+    }
+  },
+  "artifact_id": "FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1",
+  "baseline": {
+    "failed": 0,
+    "fixtures": 22,
+    "fresh_result_equals_shipped_baseline_receipt": true,
+    "passed": 22,
+    "result": "PASS"
+  },
+  "bundled_unit_tests": {
+    "failed": 0,
+    "passed": 7,
+    "result": "PASS"
+  },
+  "claim_boundary": "This recomputation establishes deterministic behavior of the supplied synthetic artifact under the documented execution path in this environment. It does not establish general correctness, truth, authority, compliance, production safety, real-workflow representativeness, completeness of the failure surface, or external provenance beyond the supplied archive identity.",
+  "environment": {
+    "implementation": "CPython",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]"
+  },
+  "input_zip": {
+    "bytes": 70171,
+    "sha256": "a9c18311043c505137eaece9db6b72b9b186be33a8970df48d3fe5800d1de760"
+  },
+  "manifest_verification": {
+    "archive_files_excluding_manifest": 68,
+    "declared_files_excluding_manifest": 63,
+    "hash_and_size_matches": 63,
+    "mismatches": [],
+    "result": "FAIL"
+  },
+  "mutant_summary": {
+    "detected": 12,
+    "fresh_mutant_results_equal_shipped_mutant_receipts": "12/12",
+    "result": "PASS",
+    "total": 12
+  },
+  "mutants": [
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-01"
+      ],
+      "mutant": "eligibility_authorization",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-03"
+      ],
+      "mutant": "scope_globality",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-04"
+      ],
+      "mutant": "false_negation",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 2,
+      "failed_fixtures": [
+        "FII-05",
+        "FII-13"
+      ],
+      "mutant": "automatic_license",
+      "overall": "FAIL",
+      "passed": 20
+    },
+    {
+      "failed": 2,
+      "failed_fixtures": [
+        "FII-14",
+        "FII-16"
+      ],
+      "mutant": "historical_rewrite",
+      "overall": "FAIL",
+      "passed": 20
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-17"
+      ],
+      "mutant": "authority_infects_evidence",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-18"
+      ],
+      "mutant": "force_total_order",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 2,
+      "failed_fixtures": [
+        "FII-14",
+        "FII-15"
+      ],
+      "mutant": "stale_reuse",
+      "overall": "FAIL",
+      "passed": 20
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-19"
+      ],
+      "mutant": "mutable_profile_reference",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-20"
+      ],
+      "mutant": "historical_disposition_promoted_to_correctness",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-21"
+      ],
+      "mutant": "unbound_dependency_snapshot",
+      "overall": "FAIL",
+      "passed": 21
+    },
+    {
+      "failed": 1,
+      "failed_fixtures": [
+        "FII-22"
+      ],
+      "mutant": "null_effective_until_promoted_to_indefinite_validity",
+      "overall": "FAIL",
+      "passed": 21
+    }
+  ],
+  "overall": "PASS",
+  "overall_interpretation": "PASS under the frozen v0.1.1 admission boundary. Four additional adversarial behaviors outside the frozen fixture population are independently reproducible and should be preserved as successor candidates, not retroactively treated as failures of the admitted v0.1.1 claim.",
+  "receipt_type": "independent_recomputation_receipt",
+  "recomputation_date_utc": "2026-09-23T16:51:31.042852+00:00",
+  "regression_identity": {
+    "FII-01_through_FII-18_byte_match_prior_v0_1": "18/18",
+    "result": "PASS"
+  }
+}

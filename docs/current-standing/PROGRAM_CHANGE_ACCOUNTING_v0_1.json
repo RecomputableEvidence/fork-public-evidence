@@ -2,6 +2,191 @@
   "schema_id": "FORK_PROGRAM_CHANGE_ACCOUNTING_v0_1",
   "standing_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json",
   "coverage_base_commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
-  "transitions": [],
-  "non_claim": "Empty transitions means no recognized path changes after the declared base in this repair, not no program events before it."
+  "transitions": [
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/ADMISSION_DISPOSITION.json",
+      "before_git_blob": null,
+      "after_git_blob": "234c568f17425837ff9ed2e4ba583a02d84f102c",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/README.md",
+      "before_git_blob": null,
+      "after_git_blob": "1e48aff93d12557304b82ea14fc4fc8e0d686717",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/RECEIPT_DISCREPANCY.md",
+      "before_git_blob": null,
+      "after_git_blob": "e453c28b0819bfa1f70ef96e59813aa35eeac844",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/SHA256SUMS.txt",
+      "before_git_blob": null,
+      "after_git_blob": "b6a9bec8b764a6dce3920b4e7f3cfe9b94017028",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/SOURCE_BINDINGS.json",
+      "before_git_blob": null,
+      "after_git_blob": "53204f312ecaa4e7ca254883b368d1631e1f4474",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/UNCOVERED_SURFACES.json",
+      "before_git_blob": null,
+      "after_git_blob": "cdab097f4b9027f00f2ebe7cc768ca913e7d000c",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/FORK-II-KERNEL-001-CROSS-ENVIRONMENT-RECOMPUTATION-COMPARISON-001-20260923.zip",
+      "before_git_blob": null,
+      "after_git_blob": "ee38c1a4223d6cfa47be3bf98b5deb7761362e1f",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1.zip",
+      "before_git_blob": null,
+      "after_git_blob": "ad1a62bc95781c1e183ce97c5d5917111c106811",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/FORK-II-KERNEL-001-v0.1.1-recomputation-record-20260923.zip",
+      "before_git_blob": null,
+      "after_git_blob": "a7ecb0997de71a5a602c7994d39284c8ac68a663",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/FORK-II-independent-recomputation-receipt-ChatGPT-20260923.json",
+      "before_git_blob": null,
+      "after_git_blob": "351272d554ec9b3bd8ea6b525f443ba0e9c3bc76",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/FORK-II-independent-recomputation-receipt.json",
+      "before_git_blob": null,
+      "after_git_blob": "2fddc43a1123034c71b1b9cb4548448fef2cb7b4",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/FORK-II-independent-recomputation-report-ChatGPT-20260923.md",
+      "before_git_blob": null,
+      "after_git_blob": "8d6e3f14a21f162fc19429e911c5c1aa7a2f5ec6",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/INDEPENDENT_RECOMPUTATION_AUDIT_20260923.json",
+      "before_git_blob": null,
+      "after_git_blob": "3a1578b1c0c595d56b0692fd8bf0ab2dbbb0ae1b",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/INDEPENDENT_RECOMPUTATION_AUDIT_20260923.md",
+      "before_git_blob": null,
+      "after_git_blob": "9724e3458d4f12f48e7f7aba0a686a1dab30dfeb",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/INDEPENDENT_RECOMPUTATION_AUDIT_COMPLETE_20260923.json",
+      "before_git_blob": null,
+      "after_git_blob": "bc6c7931c7f69cc2aeecfc44f161f7e3d852830e",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/INDEPENDENT_RECOMPUTATION_AUDIT_COMPLETE_20260923.md",
+      "before_git_blob": null,
+      "after_git_blob": "50e67f20ce20f72f161e8050e97d852431f8275c",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/OPENING_RECORD.json",
+      "before_git_blob": null,
+      "after_git_blob": "e4c670673f24b5c57105ce4f68a71cf5547714ca",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/README.md",
+      "before_git_blob": null,
+      "after_git_blob": "43d5d26ffef1ff1fa929cbb42b0f611b19bed842",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/SHA256SUMS.txt",
+      "before_git_blob": null,
+      "after_git_blob": "382abb88af89065b5ad2d6d57c49d1dea22b68c9",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/fixtures/FII-23.json",
+      "before_git_blob": null,
+      "after_git_blob": "c5561101501e2524f1cbe1e7b598e62c80666825",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/fixtures/FII-24.json",
+      "before_git_blob": null,
+      "after_git_blob": "be66afb15d1c9d28844770fbc500716bb7b195dd",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/fixtures/FII-25.json",
+      "before_git_blob": null,
+      "after_git_blob": "f5bddd6da1961b86c8dd802ccc2ccdeb11f6adca",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    },
+    {
+      "path": "docs/experiments/FORK-II-KERNEL-002/v0.1-PRE-REPAIR/fixtures/FII-26.json",
+      "before_git_blob": null,
+      "after_git_blob": "e93a7ea9d7be6ec5df420ceac069646f2c71b908",
+      "disposition": "INCORPORATED",
+      "reason": "Fork II historical byte admission and separate pre-repair successor definitions; no repaired kernel or new execution claimed.",
+      "standing_reference": "docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md"
+    }
+  ],
+  "non_claim": "Accounting records bounded repository changes; it does not establish semantic completeness or transfer standing."
 }

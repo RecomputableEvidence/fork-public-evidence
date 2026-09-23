@@ -1,0 +1,67 @@
+{
+  "fixture_id": "FII-24",
+  "title": "Malformed dependency digests cannot establish binding",
+  "kind": "dependency_snapshot",
+  "profile_before": {},
+  "request": {},
+  "dependencies": {
+    "dependency_snapshot": {
+      "dependency_snapshot_id": "DS-001",
+      "snapshot_version": "DS-v1",
+      "dependencies": {
+        "standing_profile_id": "SP-001",
+        "scope_definition_id": "SD-003",
+        "evidence_population_id": "EP-008",
+        "coverage_certificate_id": "CC-011",
+        "measurement_versions": [
+          "M-v5"
+        ],
+        "obligation_map_id": "OM-v3",
+        "rule_versions": [
+          "LR-018-v1.2"
+        ],
+        "applicability_records": [
+          "AR-006"
+        ],
+        "execution_records": [
+          "ER-044"
+        ],
+        "authority_reference_ids": [
+          "EA-001"
+        ],
+        "source_manifest_id": "AM-004"
+      },
+      "binding": {
+        "canonicalization_version": "CANON-v1",
+        "dependency_record_hashes": {
+          "AM-004": "not-a-hash",
+          "AR-006": "not-a-hash",
+          "CC-011": "not-a-hash",
+          "EA-001": "not-a-hash",
+          "EP-008": "not-a-hash",
+          "ER-044": "not-a-hash",
+          "LR-018-v1.2": "not-a-hash",
+          "M-v5": "not-a-hash",
+          "OM-v3": "not-a-hash",
+          "SD-003": "not-a-hash",
+          "SP-001": "not-a-hash"
+        },
+        "canonical_payload_hash": "02f32c7a9f22635ff6fadfe105f9724751c2bf9f8aa832a4a6edde5adff24cf9",
+        "snapshot_hash": "a77be9918525dcddd8348138bef8a1a0d67c50003a68ef4f5d92826bf12b4a5f"
+      },
+      "provenance": {
+        "created_at": "2026-09-23T00:00:00Z",
+        "created_by": "FORK-II-v0.1.1-fixture",
+        "immutable": true
+      }
+    }
+  },
+  "expect": {
+    "equals": {
+      "dependency_binding_status": "DEPENDENCY_BINDING_NOT_ESTABLISHED",
+      "recomputation_permitted": false
+    },
+    "not_equals": {},
+    "unchanged_dimensions": []
+  }
+}
