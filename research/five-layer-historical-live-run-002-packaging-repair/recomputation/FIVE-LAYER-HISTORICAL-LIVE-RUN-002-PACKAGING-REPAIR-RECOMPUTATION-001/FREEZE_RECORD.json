@@ -1,0 +1,35 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-RECOMPUTATION-001-FREEZE-001",
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-RECOMPUTATION-001",
+  "subject_object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+  "subject_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+  "subject_tree": "996a3bb87152818305bb0966fb48a0845e84df94",
+  "date": "2026-09-23",
+  "freeze_state": "FROZEN_PRE_SEMANTIC_RERUN",
+  "disposition": "PACKAGING_COMPLETENESS_RECOMPUTED_PASS__SEMANTIC_RERUN_NOT_PERFORMED",
+  "packaging_recomputation_complete": true,
+  "semantic_rerun_performed": false,
+  "historical_run001_modified": false,
+  "successor_subject_modified_during_recomputation": false,
+  "formal_stage3_adjudication_created": false,
+  "framework_validity_effect": "NONE",
+  "current_program_standing_effect": "NONE",
+  "preserved_negative_results": [
+    "ATTEMPT-001 local path/stream/$input wrapper failure before substantive byte evaluation",
+    "Initial detector display query used nonexistent property names; corrected inspection only"
+  ],
+  "repair_scope_verified": [
+    "FORMAL_M11_M25_DETECTOR_SPECIFICATIONS",
+    "PARENT_COMPILATION_BINDING_AND_RECONSTRUCTION",
+    "EXPLICIT_STAGE1A_OFFSET_CONVENTION",
+    "REVISED_M21_M25_SELF_AUDIT_STANDING"
+  ],
+  "next_gate": "PR_174_MERGE_DECISION_AFTER_RECOMPUTATION_FREEZE",
+  "semantic_rerun_boundary": "ANY_SEMANTIC_RERUN_MUST_BE_A_SEPARATELY_IDENTIFIED_SUCCESSOR_OR_EXECUTION_RECORD",
+  "non_claims": [
+    "This freeze does not establish semantic detector correctness on arbitrary inputs.",
+    "This freeze does not establish blind discovery or independent implementation/human standing.",
+    "This freeze does not create formal Stage 3 adjudication or current program standing.",
+    "This freeze does not establish framework validity, prevalence, production readiness, truth, authority, compliance, or deployment readiness."
+  ]
+}

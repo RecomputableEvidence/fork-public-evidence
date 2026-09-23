@@ -1,0 +1,128 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-RECOMPUTATION-001",
+  "date": "2026-09-23",
+  "subject": {
+    "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+    "pull_request": 174,
+    "base_commit": "81816bc4daaf0db665ed32b467e1516ae13bc0a6",
+    "subject_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+    "subject_tree": "996a3bb87152818305bb0966fb48a0845e84df94",
+    "branch": "research/five-layer-live-run-001-packaging-repair"
+  },
+  "execution_class": "SEPARATE_LOCAL_PACKAGING_RECOMPUTATION",
+  "environment": {
+    "shell": "Windows PowerShell",
+    "working_directory": "C:\\Users\\Rwcal\\fork-public-evidence",
+    "os_version": "NOT_RECORDED",
+    "powershell_version": "NOT_RECORDED",
+    "blind_recomputation_claim": false,
+    "independent_implementation_claim": false,
+    "independent_human_claim": false
+  },
+  "attempts": [
+    {
+      "attempt_id": "ATTEMPT-001",
+      "result": "LOCAL_EXECUTION_WRAPPER_FAILURE_BEFORE_SUBSTANTIVE_BYTE_EVALUATION",
+      "subject_artifact_failure_established": false,
+      "subject_modified": false,
+      "notes": [
+        "Relative output path resolved outside the repository worktree.",
+        "Gzip input/output streams were not created.",
+        "PowerShell automatic variable $input collided with the intended stream variable.",
+        "No substantive parent-byte evaluation completed."
+      ]
+    },
+    {
+      "attempt_id": "ATTEMPT-002",
+      "result": "PACKAGING_COMPLETENESS_RECOMPUTED_PASS",
+      "wrapper_only_correction": true,
+      "subject_modified": false
+    }
+  ],
+  "checks": {
+    "pr_population_and_boundary": {
+      "result": "PASS",
+      "base_commit": "81816bc4daaf0db665ed32b467e1516ae13bc0a6",
+      "head_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+      "predecessor_modified": false,
+      "bounded_successor_changes": [
+        "FORMAL_M11_M25_DETECTOR_SPECIFICATIONS",
+        "PARENT_COMPILATION_BINDING_AND_RECONSTRUCTION",
+        "EXPLICIT_STAGE1A_OFFSET_CONVENTION",
+        "REVISED_M21_M25_SELF_AUDIT_STANDING"
+      ],
+      "semantic_finding_population_changed": false,
+      "stage3_adjudication_changed": false,
+      "current_program_standing_effect": "NONE"
+    },
+    "parent_transport_reconstruction": {
+      "result": "PASS",
+      "part_count": 9,
+      "part_lengths": [12560, 12560, 12560, 12560, 12560, 12560, 12560, 12560, 16],
+      "base64_characters": 100496,
+      "gzip_bytes": 75370,
+      "gzip_sha256": "8c9a6d3d1c0886cce5f0a8639be860ebde44d79c77326ff888024b9ab4be9939",
+      "parent_bytes": 334735,
+      "parent_sha256": "c9ba196efa8709279d8967716ec690bbc5f3112ab5d38e67683768ebe1f62bbf",
+      "lf_count": 5317,
+      "logical_line_count": 5317,
+      "source_10_line": 4028,
+      "source_10_marker": "SOURCE 10: Pasted markdown(20260923-131442).md",
+      "run001_target_prefix_lines": [1, 4026],
+      "run001_target_bytes": 262318,
+      "run001_target_sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583"
+    },
+    "detector_specifications": {
+      "result": "PASS",
+      "schema_id": "FIVE_LAYER_DETECTOR_SPECIFICATIONS_v0_1",
+      "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+      "detector_count": 15,
+      "unique_detector_count": 15,
+      "first_detector": "M11",
+      "last_detector": "M25",
+      "expected_population": ["M11", "M12", "M13", "M14", "M15", "M16", "M17", "M18", "M19", "M20", "M21", "M22", "M23", "M24", "M25"],
+      "population_difference": [],
+      "applies_prospectively": true,
+      "retroactive_effect_on_run001": "NONE"
+    },
+    "stage1a_offset_convention": {
+      "result": "PASS",
+      "half_open_interval": "[start,end)",
+      "terminal_lf_in_source_interval_when_present": true,
+      "verbatim_text_terminal_lf_removed": true,
+      "reconstruction_basis": "BOUND_SOURCE_INTERVAL",
+      "historical_run_rewritten": false
+    },
+    "revised_m21_m25_standing": {
+      "result": "PASS",
+      "historical_record_mutated": false,
+      "statuses": {
+        "M21": "SUPPORTED_WITHIN_RUN001_PACKAGE",
+        "M22": "NOT_INDEPENDENTLY_CERTIFIABLE_FROM_RUN001_PACKAGE",
+        "M23": "SUPPORTED_WITHIN_RUN001_PACKAGE",
+        "M24": "SUPPORTED_WITHIN_RUN001_PACKAGE",
+        "M25": "NOT_INDEPENDENTLY_CERTIFIABLE_FROM_RUN001_PACKAGE"
+      },
+      "framework_validity_effect": "NONE"
+    },
+    "inspection_correction": {
+      "result": "NON_SUBSTANTIVE",
+      "observation": "Initial display command requested nonexistent detector_id/failure_class properties and therefore printed blank columns.",
+      "correction": "Used fixture_id/name properties from the parsed JSON.",
+      "artifact_change_required": false
+    }
+  },
+  "overall_disposition": "PACKAGING_COMPLETENESS_RECOMPUTED_PASS__SEMANTIC_RERUN_NOT_PERFORMED",
+  "semantic_rerun_performed": false,
+  "formal_stage3_adjudication_created": false,
+  "framework_validity_effect": "NONE",
+  "current_program_standing_effect": "NONE",
+  "next_boundary": "FREEZE_RECOMPUTATION_BEFORE_ANY_SEMANTIC_RERUN",
+  "non_claims": [
+    "This recomputation does not establish semantic detector correctness on arbitrary inputs.",
+    "This recomputation does not constitute a semantic rerun of Run 001.",
+    "This recomputation does not establish blind discovery, independent implementation, or independent human standing.",
+    "This recomputation does not create formal Stage 3 adjudication.",
+    "This recomputation does not establish framework validity, prevalence, truth, authority, compliance, production readiness, or deployment readiness."
+  ]
+}
