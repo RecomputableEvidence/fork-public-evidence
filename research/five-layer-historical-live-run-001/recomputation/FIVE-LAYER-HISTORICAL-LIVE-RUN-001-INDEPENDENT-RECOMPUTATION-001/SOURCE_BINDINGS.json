@@ -1,0 +1,20 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001-INDEPENDENT-RECOMPUTATION-001-SOURCE-BINDINGS",
+  "sources": [
+    {
+      "path": "INDEPENDENT_RECOMPUTATION.json",
+      "sha256": "ad1dd9c3863587a873ca27af2b44feac3a478c1bab786d9666df990076f07bc2",
+      "git_blob_sha": "a701881b47bbdb544a1ec863d31a4ae51881ad02",
+      "preservation": "EXACT_SUPPLIED_BYTES"
+    },
+    {
+      "path": "INDEPENDENT_RECOMPUTATION_REPORT.md",
+      "sha256": "0b1b8a90cd2d4d5c4e7785590798e6e1ea04ec6505318a1d7c04c27fb5f502e3",
+      "git_blob_sha": "4a5c44619a760bce35645ed26bf24f40d152c6e6",
+      "preservation": "EXACT_SUPPLIED_BYTES"
+    }
+  ],
+  "normalization_performed": false,
+  "historical_run_mutated": false,
+  "non_claim": "Exact source preservation does not establish independent implementation, independent human authorship, blind analysis, formal adjudication, or framework validity."
+}
