@@ -1,22 +1,29 @@
 {
   "record_id": "CSH-S001-EXECUTION-GATE-20260922-001",
   "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
-  "status": "BLOCKED_UNTIL_ALL_BLOCKING_REQUIREMENTS_SATISFIED",
+  "status": "BLOCKED_HOSTED_ACCESS_NOT_ESTABLISHED",
+  "last_local_readiness_ci": {
+    "workflow": "CSH-S001 Readiness",
+    "run_id": 35811614598,
+    "head_commit": "674d1ed04fcbbd2f34cafe4319e96ccb2ed856eb",
+    "local_readiness": "PASS",
+    "hosted_preflight_observation": "CREDENTIAL_UNAVAILABLE_BOTH_CANDIDATE_PROVIDERS"
+  },
   "blocking_requirements": [
-    {"id":"G01","description":"current-state routing checker passes","evidence":"scripts/check_current_state_routing_v0_1.py","status":"IMPLEMENTED_PENDING_CI"},
-    {"id":"G02","description":"successor preregistration and measurement specification exist","status":"IMPLEMENTED_PENDING_CI"},
-    {"id":"G03","description":"primary U and complementary P/A/T metrics are frozen","status":"IMPLEMENTED_PENDING_FREEZE"},
-    {"id":"G04","description":"successor classifier enforces boundary-contract substantiation","status":"IMPLEMENTED_PENDING_CI"},
-    {"id":"G05","description":"successor classifier tests pass including phantom/substantiated boundary cases","status":"IMPLEMENTED_PENDING_CI"},
-    {"id":"G06","description":"hosted receiver A neutral access preflight passes","status":"PENDING_CREDENTIALLED_PREFLIGHT"},
-    {"id":"G07","description":"hosted receiver B neutral access preflight passes","status":"PENDING_CREDENTIALLED_PREFLIGHT"},
-    {"id":"G08","description":"successor receiver registry frozen after preflight","status":"PENDING"},
-    {"id":"G09","description":"successor source packets and exact H1 projection bytes materialized/hash-bound","status":"PENDING_AFTER_PREFLIGHT"},
+    {"id":"G01","description":"current-state routing checker passes","evidence":"scripts/check_current_state_routing_v0_1.py; workflow run 35811614598","status":"SATISFIED"},
+    {"id":"G02","description":"successor preregistration and measurement specification exist","evidence":"PREREGISTRATION_v0_1.md; MEASUREMENT_AND_CODING_SPEC_v0_1.md; workflow run 35811614598","status":"SATISFIED"},
+    {"id":"G03","description":"primary U and complementary P/A/T metrics are frozen","status":"DEFINED_NOT_YET_FROZEN"},
+    {"id":"G04","description":"successor classifier enforces boundary-contract substantiation","evidence":"tools/classify_unsupported_inheritance_s001_v0_1.py; workflow run 35811614598","status":"SATISFIED"},
+    {"id":"G05","description":"successor classifier tests pass including phantom/substantiated boundary cases","evidence":"tests/test_cross_system_claim_handoff_s001_v0_1.py; workflow run 35811614598","status":"SATISFIED"},
+    {"id":"G06","description":"hosted receiver A neutral access preflight passes","evidence":"PREFLIGHT_OBSERVATION_PR163_20260923.json","status":"BLOCKED_CREDENTIAL_UNAVAILABLE_IN_PR_ACTIONS_CONTEXT"},
+    {"id":"G07","description":"hosted receiver B neutral access preflight passes","evidence":"PREFLIGHT_OBSERVATION_PR163_20260923.json","status":"BLOCKED_CREDENTIAL_UNAVAILABLE_IN_PR_ACTIONS_CONTEXT"},
+    {"id":"G08","description":"successor receiver registry frozen after preflight","status":"PENDING_SUCCESSFUL_HOSTED_PREFLIGHT"},
+    {"id":"G09","description":"successor source packets and exact H1 projection bytes materialized/hash-bound","status":"PENDING_MATERIALIZATION_NOT_HOSTED_ACCESS_DEPENDENT"},
     {"id":"G10","description":"paired content-difference checker passes for all frozen pairs","status":"PENDING_AFTER_PACKET_MATERIALIZATION"},
     {"id":"G11","description":"exact run order generated and frozen","status":"PENDING_AFTER_RECEIVER_FREEZE"},
-    {"id":"G12","description":"terminal-state schema and raw-output preservation records frozen","status":"PENDING_AFTER_RECEIVER_FREEZE"},
-    {"id":"G13","description":"coding independence plan frozen","status":"IMPLEMENTED_PENDING_FREEZE"},
-    {"id":"G14","description":"analysis program computes U/P/A/T and paired differences on synthetic fixtures","status":"IMPLEMENTED_PENDING_CI"}
+    {"id":"G12","description":"terminal-state schema and raw-output preservation records frozen","status":"PENDING_IMPLEMENTATION_NOT_HOSTED_ACCESS_DEPENDENT"},
+    {"id":"G13","description":"coding independence plan frozen","status":"DEFINED_NOT_YET_FROZEN"},
+    {"id":"G14","description":"analysis program computes U/P/A/T and paired differences on synthetic fixtures","evidence":"tools/analyze_csh_s001_v0_1.py; tests/test_analyze_csh_s001_v0_1.py; workflow run 35811614598","status":"SATISFIED"}
   ],
   "nonblocking_limitations": [
     "hosted_model_nondeterminism",
@@ -36,6 +43,7 @@
   "non_claims": [
     "This gate does not prove the hypothesis.",
     "This gate does not authorize production use.",
-    "Passing local CI is not equivalent to hosted receiver access."
+    "Credential unavailability in the observed GitHub Actions context does not establish that credentials are unavailable elsewhere.",
+    "No CSH corpus-bearing request was sent during the neutral preflight observation."
   ]
 }
