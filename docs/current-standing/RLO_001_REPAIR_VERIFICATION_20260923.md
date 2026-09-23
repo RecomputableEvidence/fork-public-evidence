@@ -37,3 +37,9 @@ The public-site redesign, citation/licensing choices, provider replacement, and 
 - No diff to original `admissions/`, `docs/experiments/`, or predecessor v0.1–v0.7 registers.
 
 GitHub CI is a separate execution record; this note reports local results only. Merge should preserve the observation commit's ancestry; squash would discard a required preservation coordinate. Passing freshness accounting does not establish semantic completeness or authorize execution.
+
+## Hosted Windows finding and additive repair
+
+On initial PR #166 head `88834443c74f1f38f5012bf59aa9f21d4df0ac19`, the Windows proof-surface job `107052416949` completed with **679 passed, 2 failed**. Both failures arose when the new verifier attempted `git show` on a deeply nested preserved source; the second failure could not reach its intended assertion because that lookup failed first. Ubuntu and the required admission gate passed at that head.
+
+A subsequent code-only lookup repair resolves paths from the committed tree and reads the resulting blob ID with `git cat-file blob`, avoiding Git's path/revision disambiguation. RLO-001, its manifest, all source copies, and v0.8 remain unchanged. Later CI results do not erase this initial cross-platform failure.

@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import subprocess
+from functools import lru_cache
 from pathlib import Path
 
 ACCOUNTING = "docs/current-standing/PROGRAM_CHANGE_ACCOUNTING_v0_1.json"
@@ -16,6 +17,23 @@ DISPOSITIONS = {"INCORPORATED", "EXPLICITLY_DEFERRED", "IN_FLIGHT"}
 
 def git(root: Path, *args: str) -> bytes:
     return subprocess.check_output(["git", "-C", str(root), *args], stderr=subprocess.PIPE)
+
+
+@lru_cache(maxsize=32)
+def committed_blobs(root: Path, ref: str) -> dict[str, str]:
+    result = {}
+    for entry in git(root, "ls-tree", "-r", "-z", ref).split(b"\0"):
+        if entry:
+            meta, name = entry.split(b"\t", 1)
+            _, kind, sha = meta.decode().split()
+            if kind == "blob":
+                result[name.decode("utf-8")] = sha
+    return result
+
+
+def blob_at(root: Path, ref: str, path: str) -> bytes:
+    # Avoid git-show's revision/path disambiguation for long paths on Windows.
+    return git(root, "cat-file", "blob", committed_blobs(root, ref)[path])
 
 
 def load(path: Path):
@@ -130,7 +148,7 @@ def evaluate(root: Path) -> dict:
         # The observation commit must contain the exact package before v0.8 exists.
         for name in expected | {"SHA256SUMS"}:
             relative = (package / name).relative_to(root).as_posix()
-            if git(root, "show", f"{frozen}:{relative}") != (package / name).read_bytes():
+            if blob_at(root, frozen, relative) != (package / name).read_bytes():
                 errors.append(f"RLO differs from preservation commit: {name}")
         frozen_paths = git(root, "ls-tree", "-r", "--name-only", frozen).decode().splitlines()
         if route in frozen_paths:
@@ -142,7 +160,7 @@ def evaluate(root: Path) -> dict:
             blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
             if blob != source["git_blob_sha"]:
                 errors.append(f"RLO source Git blob differs: {source['path']}")
-            if source["commit"] == base and git(root, "show", f"{base}:{source['path']}") != data:
+            if source["commit"] == base and blob_at(root, base, source["path"]) != data:
                 errors.append(f"RLO source differs from pinned main: {source['path']}")
         for event in standing["admission_accounting"]:
             git(root, "merge-base", "--is-ancestor", event["commit"], base)
@@ -154,7 +172,7 @@ def evaluate(root: Path) -> dict:
                 routing_successor["status"] != "MEASUREMENT_AND_EXECUTION_RECORD_FROZEN__HOSTED_ACCESS_BLOCKED__RECEIVER_AND_RUN_ORDER_UNFROZEN"):
             errors.append("Routing and v0.8 successor state differ")
         for source in successor["sources"]:
-            data = git(root, "show", f"{source['commit']}:{source['path']}")
+            data = blob_at(root, source["commit"], source["path"])
             if digest(data) != source["sha256"]:
                 errors.append(f"Standing source differs: {source['path']}")
         if successor["receiver_registry_frozen"] or successor["run_order_frozen"] or successor["corpus_execution_established"]:
