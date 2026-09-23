@@ -1,0 +1,173 @@
+{
+  "record_id": "FORK-II-KERNEL-002-v0.1-INDEPENDENT-RECOMPUTATION-RECEIPT-20260923",
+  "record_type": "INDEPENDENT_RECOMPUTATION_RECEIPT",
+  "created_at_utc": "2026-09-23T17:48:06.711041+00:00",
+  "source_record_id": "FORK-II-KERNEL-002-v0.1-PRE-REPAIR-EXECUTION-001",
+  "execution_phase": "PRE_REPAIR_INDEPENDENT_RECOMPUTATION",
+  "repair_performed": false,
+  "claim_boundary": "This receipt records an independent inspection and recomputation of the preserved archive bytes, predecessor manifest, successor fixtures, canonical hashes, temporal conditions, and recorded execution outputs. It establishes the reproduced findings described here for these exact bytes; it does not establish broader correctness, completeness, production readiness, or correctness of any future repaired implementation.",
+  "source_archive": {
+    "path_basename": "FORK-II-KERNEL-002-v0.1-PRE-REPAIR-EXECUTION-001.zip",
+    "bytes": 109802,
+    "sha256": "fff3f3f935808e253bce2be7ffde406eb08f5067f5d3f5519a333d8b83d5dcd7",
+    "sha256sums_entry_count": 24,
+    "sha256sums_verified_count": 24,
+    "sha256sums_all_verified": true
+  },
+  "predecessor": {
+    "artifact_id": "FORK-II-KERNEL-001-EXECUTABLE-PROBE-v0.1.1",
+    "archive_bytes": 70171,
+    "archive_sha256": "a9c18311043c505137eaece9db6b72b9b186be33a8970df48d3fe5800d1de760",
+    "manifest_declared_file_count": 63,
+    "manifest_entry_count": 63,
+    "manifest_verified_count": 63,
+    "manifest_all_verified": true,
+    "extra_unlisted_files_excluding_manifest": [],
+    "implementation_modified": false
+  },
+  "successor_fixtures": {
+    "FII-23": {
+      "sha256": "cf77ae50b5e28d77afd2fc2fcad662c89e464493feaf73d2f640ef56cf852d41",
+      "title": "Immutability cannot be established by an insensitive hash",
+      "kind": "profile_identity"
+    },
+    "FII-24": {
+      "sha256": "3691cfb21c3657fd079af831a708ec171d3a7993741f96e61136623cea528602",
+      "title": "Malformed dependency digests cannot establish binding",
+      "kind": "dependency_snapshot"
+    },
+    "FII-25": {
+      "sha256": "7713f48df75f1cfbc3cdf2422fac2b45d73ea52487766abf52a0f83379e4bf05",
+      "title": "Expired fixed interval cannot remain current",
+      "kind": "effective_period"
+    },
+    "FII-26": {
+      "sha256": "177b8570960fa9d48224bd233580639b44a579ba638337af837558234fb4a26a",
+      "title": "Unknown end does not establish current validity",
+      "kind": "effective_period"
+    }
+  },
+  "independent_recomputation": {
+    "FII-23": {
+      "result": "FAIL",
+      "expected": {
+        "referent_integrity": "CORRUPTED_OR_CHANGED",
+        "historical_reuse_permitted": false,
+        "current_use_status": "REEVALUATION_REQUIRED"
+      },
+      "predecessor_observed": {
+        "referent_integrity": "ESTABLISHED",
+        "historical_reuse_permitted": true,
+        "current_use_status": "CURRENT"
+      },
+      "evidence": {
+        "referenced_profile_equals_observed_profile": false,
+        "differing_field": "immutable",
+        "referenced_immutable": true,
+        "observed_immutable": false,
+        "immutable_in_profile_included_fields": false,
+        "recorded_content_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+        "recomputed_referenced_semantic_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+        "recomputed_observed_semantic_hash": "111c4a3267b2f5c9183525986d436e4036b098477ea707a0c271fa91cbaaff05",
+        "all_three_hashes_equal": true
+      },
+      "finding": "The referenced and observed profiles differ at top-level field 'immutable', but CANON-v1 PROFILE_INCLUDED_FIELDS excludes that field, so both semantic hashes equal the recorded hash and the predecessor reports ESTABLISHED instead of the fixture-required changed/corrupted disposition."
+    },
+    "FII-24": {
+      "result": "FAIL",
+      "expected": {
+        "dependency_binding_status": "DEPENDENCY_BINDING_NOT_ESTABLISHED",
+        "recomputation_permitted": false
+      },
+      "predecessor_observed": {
+        "dependency_binding_status": "REPRODUCIBLY_BOUND",
+        "recomputation_permitted": true
+      },
+      "evidence": {
+        "dependency_record_hash_count": 11,
+        "valid_sha256_digest_count": 0,
+        "invalid_sha256_digest_count": 11,
+        "distinct_digest_values": [
+          "not-a-hash"
+        ],
+        "recorded_canonical_payload_hash": "02f32c7a9f22635ff6fadfe105f9724751c2bf9f8aa832a4a6edde5adff24cf9",
+        "recomputed_canonical_payload_hash": "77a942a92b8b586891386edbe492812f8916063426ff87f193f287a5a6e1aca9",
+        "canonical_payload_hash_matches": false,
+        "recorded_snapshot_hash": "a77be9918525dcddd8348138bef8a1a0d67c50003a68ef4f5d92826bf12b4a5f",
+        "recomputed_snapshot_hash": "a77be9918525dcddd8348138bef8a1a0d67c50003a68ef4f5d92826bf12b4a5f",
+        "snapshot_hash_matches": true,
+        "predecessor_snapshot_binding_validation_checks_digest_format": false
+      },
+      "finding": "All 11 dependency-record digest values are malformed ('not-a-hash'). The enclosing canonical payload and snapshot hashes nevertheless recompute exactly. The preserved binding validator checks presence/coverage and enclosing hashes but does not validate the individual digest format, allowing REPRODUCIBLY_BOUND."
+    },
+    "FII-25": {
+      "result": "FAIL",
+      "expected": {
+        "effective_period_status": "FIXED_TIME",
+        "current_use_status": "EXPIRED"
+      },
+      "predecessor_observed": {
+        "effective_period_status": "FIXED_TIME",
+        "current_use_status": "CURRENT"
+      },
+      "evidence": {
+        "evaluation_time": "2026-09-23T00:00:00Z",
+        "effective_from": "1999-01-01T00:00:00Z",
+        "effective_until_state": "FIXED_TIME",
+        "effective_until": "2000-01-01T00:00:00Z",
+        "evaluation_time_is_after_effective_until": true,
+        "base_payload_default_current_use_status": "CURRENT",
+        "effective_period_branch_overrides_current_use_status_for_expired_fixed_time": false
+      },
+      "finding": "At evaluation time 2026-09-23T00:00:00Z, the fixed effective interval ended 2000-01-01T00:00:00Z. The predecessor records FIXED_TIME but does not perform expiry comparison, leaving the base CURRENT status unchanged instead of EXPIRED."
+    },
+    "FII-26": {
+      "result": "FAIL",
+      "expected": {
+        "effective_period_status": "UNKNOWN",
+        "current_use_status": "NOT_ESTABLISHED"
+      },
+      "predecessor_observed": {
+        "effective_period_status": "UNKNOWN",
+        "current_use_status": "CURRENT"
+      },
+      "evidence": {
+        "evaluation_time": "2026-09-23T00:00:00Z",
+        "effective_from": "2026-09-23T00:00:00Z",
+        "effective_until_state": "UNKNOWN",
+        "effective_until": null,
+        "base_payload_default_current_use_status": "CURRENT",
+        "unknown_end_branch_overrides_current_use_status": false
+      },
+      "finding": "The end-state is UNKNOWN, so the fixture requires current validity to remain NOT_ESTABLISHED. The predecessor records effective_period_status UNKNOWN but leaves the base CURRENT status unchanged."
+    }
+  },
+  "transport_discrepancy": {
+    "attempt_001": {
+      "process_exit_code": 0,
+      "raw_execution_stdout_sha256": "3af3aed8fdeb5020c59b05af682c30ec5095557d7d852dee97012ef551ddcfb0",
+      "result_overall": "FAIL"
+    },
+    "attempt_002": {
+      "process_exit_code": 1,
+      "raw_execution_stdout_sha256": "3af3aed8fdeb5020c59b05af682c30ec5095557d7d852dee97012ef551ddcfb0",
+      "result_overall": "FAIL"
+    },
+    "substantive_json_results_byte_identical": true,
+    "finding": "Attempt 001 returned process exit 0 despite substantive FAIL. Attempt 002 changed only transport exit semantics and returned exit 1; substantive JSON output is byte-identical."
+  },
+  "recomputed_summary": {
+    "fixture_count": 4,
+    "passed": 0,
+    "failed": 4,
+    "failed_fixture_ids": [
+      "FII-23",
+      "FII-24",
+      "FII-25",
+      "FII-26"
+    ],
+    "overall": "FAIL"
+  },
+  "disposition": "EXPECTED_PRE_REPAIR_FAILURE_PRESERVED",
+  "conclusion": "Independent recomputation supports the preserved pre-repair disposition: all four successor fixtures fail against the byte-verified predecessor for reproducible substantive reasons."
+}
