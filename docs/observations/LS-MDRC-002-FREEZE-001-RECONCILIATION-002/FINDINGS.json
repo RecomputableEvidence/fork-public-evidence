@@ -1,0 +1,91 @@
+{
+  "observation_id": "LS-MDRC-002-FREEZE-001-RECONCILIATION-002",
+  "date_utc": "2026-09-23",
+  "predecessor_pr": 167,
+  "predecessor_merge": "3b45ac293efaa0d1765c653dc934b10fe657759b",
+  "original_package_commit": "ca28599b7ca411060e1fc3667ef97596244ed9bb",
+  "disposition": "PARTIAL_EXPLANATION_WITH_UNRESOLVED_FREEZE_ACCOUNTING",
+  "sources": [
+    {
+      "filename": "fork-public-evidence.zip",
+      "size_bytes": 9867770,
+      "sha256": "c89392b38f47dcbf278aa55ffdbe23dc417854369525f9e938925260d53d59cc"
+    },
+    {
+      "filename": "CSH-Reconciliation-2026-09-21 (2).zip",
+      "size_bytes": 10113904,
+      "sha256": "9b6d92910399e1c75113449d2262629b95345d7e0b7921e33e8de34e4443cd92"
+    },
+    {
+      "filename": "FORK_PUBLIC_TECHNICAL_DISCLOSURE_BUNDLE_v0_1_1(1).zip",
+      "size_bytes": 29169,
+      "sha256": "1361dd12b1f249372f240cb5226cac289319bc6da4ce219ea47538a0716c1410"
+    },
+    {
+      "filename": "independent-recomputation-receipt-pressure-epoch-3284e82.html",
+      "size_bytes": 16454,
+      "sha256": "80c1aa8ad2c0e90fcf4776d4fd23b99b5c88981fa779c5e4e0444410e87ff28a"
+    },
+    {
+      "filename": "SUBSTANTIVE-EXAMINATION-003-FREEZE-001.zip",
+      "size_bytes": 25772,
+      "sha256": "8b23b6b94b164978f124b6be56178b62533b0f6298f844bc2116fb80b337691e"
+    },
+    {
+      "filename": "Pasted markdown(20260923-071328).md",
+      "size_bytes": 12810,
+      "sha256": "420f549eebbdc42d02ce68e14d6d2ea400393bbc6eaa20da47c0177bb2bc79ac"
+    }
+  ],
+  "receipt_representation": {
+    "committed_sha256": "4d4d89c77693b75442ef1d782e59bbf4827cf8468fb3b7582fa19d10019f03a4",
+    "operation": "Replace each LF byte with CRLF in memory; source contains no CR bytes. Do not replace original files.",
+    "derived_crlf_sha256": "c246327a96573c2c702293cb5b2efc56db8efd734077a5f13cf8f7edb76f9077",
+    "declared_sha256": "c246327a96573c2c702293cb5b2efc56db8efd734077a5f13cf8f7edb76f9077",
+    "matches_declared_digest": true,
+    "historical_filesystem_instance_recovered": false,
+    "historical_conversion_event_proven": false
+  },
+  "uploaded_workspace_receipt": {
+    "sha256": "8cadb8719a31b9afaac496d3d448ed76f87ae9ecdf16343e594222635ac4b481",
+    "recorded_generated_at_utc": "2026-09-22T02:48:22.337845+00:00",
+    "committed_generated_at_utc": "2026-09-22T02:42:41.494030+00:00",
+    "result_records_equal_by_unique_test_id": true,
+    "result_count": 222,
+    "differing_top_level_fields": [
+      "generated_at_utc",
+      "start_time_utc",
+      "test_results"
+    ]
+  },
+  "manifest_binding": {
+    "declared_sha256": "18471330226efaf12ef7b49dfd76a6026d1ebbd2fa81b132e2785522438237b7",
+    "committed_sha256": "0b4776cda0c476230cde0d93b62f37a4eaa0e0439712f0e13eb3a911aef6f8dd",
+    "uploaded_workspace_sha256": "486e9c6c5df793068dc0488dab64964a46d86d47a22dab8f81cb898375b859e6",
+    "uploaded_after_crlf_to_lf_sha256": "0b4776cda0c476230cde0d93b62f37a4eaa0e0439712f0e13eb3a911aef6f8dd",
+    "uploaded_differs_from_committed_only_by_crlf": true,
+    "declared_identity_recovered": false
+  },
+  "prior_archive_object_searches": [
+    {
+      "filename": "fork-public-evidence.zip",
+      "objects_examined": 9458,
+      "blobs_hashed": 3777,
+      "exact_expected_digest_matches": 0
+    },
+    {
+      "filename": "CSH-Reconciliation-2026-09-21 (2).zip",
+      "objects_examined": 9424,
+      "blobs_hashed": 3749,
+      "exact_expected_digest_matches": 0
+    }
+  ],
+  "search_boundary": "These counts report the preceding read-only archive examinations in this session. Scoped non-discovery is not proof that no other copy exists. Original specification not identified in reviewed sources; no new specification reconstructed. No sealed holdout content opened or executed.",
+  "population_discrepancies": "Unchanged from reconciliation 001; absence of named holdout files does not establish they were required at construction without the normative source.",
+  "user_search_report": "User reported looking and accepted reconciliation as warranted; no exhaustive filesystem-search claim.",
+  "original_package_modified": false,
+  "original_reconciliation_modified": false,
+  "measure_authorized": false,
+  "successor_created": false,
+  "original_pr_disposition": "Keep PR162 unmerged pending a separately reviewed disposition."
+}
