@@ -1,0 +1,109 @@
+{
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "short_id": "CSH-S001-v0.1",
+  "status": "CANDIDATE_NOT_FROZEN",
+  "predecessor": {
+    "experiment_id": "cross_system_claim_handoff_v0_1",
+    "relationship": "SUCCESSOR_AFTER_RECEIVER_RETIREMENT_AND_MEASUREMENT_CLARIFICATION",
+    "retroactive_completion": false,
+    "replacement": false,
+    "continuation_of_unexecuted_units": false
+  },
+  "hypothesis": "E[U | H=1] < E[U | H=0]",
+  "conditions": {
+    "control": "H0",
+    "instrumented": "H1"
+  },
+  "primary_outcome": {
+    "symbol": "U",
+    "unit": "unsupported_inheritance_rule_findings_per_classifiable_receiver_run",
+    "definition": "Number of event records emitted by the frozen successor unsupported-inheritance classifier for one COMPLETED_CLASSIFIABLE receiver run.",
+    "pair_difference": "D_pair = U_H1 - U_H0",
+    "non_equivalences": [
+      "U != distinct harmful acts",
+      "U != distinct downstream claims",
+      "U != severity",
+      "U != legal violations",
+      "U != affected persons",
+      "U != institutional risk"
+    ]
+  },
+  "complementary_outcomes": {
+    "P": "unique normalized downstream claim IDs with at least one claim-attributable unsupported-promotion finding",
+    "A": "1 if U > 0 else 0",
+    "T": [
+      "COMPLETE_TRANSFER_RECORD",
+      "BOUNDED_ABSTENTION",
+      "NONRESPONSIVE",
+      "MALFORMED_OUTPUT",
+      "TRUNCATED_OUTPUT"
+    ]
+  },
+  "terminal_states": [
+    "COMPLETED_CLASSIFIABLE",
+    "COMPLETED_BUT_UNCLASSIFIABLE",
+    "EXECUTION_UNAVAILABLE",
+    "RETRIEVAL_OR_PROVIDER_ERROR",
+    "RECEIVER_IDENTITY_MISMATCH",
+    "CORRUPTED_OR_INCOMPLETE_CAPTURE",
+    "DEVIATION_FROM_FROZEN_INPUT"
+  ],
+  "missing_data_rule": "Only COMPLETED_CLASSIFIABLE receives numeric U; no other terminal state is imputed as zero.",
+  "hosted_receivers": [
+    {
+      "receiver_id": "hosted_receiver_a",
+      "provider": "Groq",
+      "candidate_model": "openai/gpt-oss-120b",
+      "credential_env": "GROQ_API_KEY",
+      "status": "REQUIRES_NEUTRAL_ACCESS_PREFLIGHT"
+    },
+    {
+      "receiver_id": "hosted_receiver_b",
+      "provider": "DeepSeek",
+      "candidate_model": "deepseek-flash",
+      "credential_env": "DEEPSEEK_API_KEY",
+      "status": "REQUIRES_NEUTRAL_ACCESS_PREFLIGHT"
+    }
+  ],
+  "deterministic_receiver": {
+    "status": "REFERENCE_RECEIVER_REQUIRES_SUCCESSOR_VERSION_BINDING",
+    "behavioral_diversity_claim": false
+  },
+  "blocking_gate": [
+    "CURRENT_STATE_ROUTING_RECONCILED",
+    "PREREGISTRATION_FROZEN",
+    "PRIMARY_OUTCOME_FROZEN",
+    "COMPLEMENTARY_METRICS_FROZEN",
+    "NORMALIZATION_RUBRIC_FROZEN",
+    "BOUNDARY_CONTRACT_SUBSTANTIATION_IMPLEMENTED",
+    "PAIR_CONTENT_DIFF_CHECK_PASS",
+    "SOURCE_AND_PROJECTION_BYTES_HASH_BOUND",
+    "HOSTED_RECEIVER_A_PREFLIGHT_PASS",
+    "HOSTED_RECEIVER_B_PREFLIGHT_PASS",
+    "RECEIVER_REGISTRY_FROZEN",
+    "RUN_ORDER_FROZEN",
+    "TERMINAL_STATE_SCHEMA_FROZEN",
+    "CODING_INDEPENDENCE_PLAN_FROZEN",
+    "ANALYSIS_SYNTHETIC_FIXTURES_PASS"
+  ],
+  "nonblocking_limitations": [
+    "hosted_model_nondeterminism",
+    "residual_condition_unblinding",
+    "limited_receiver_population",
+    "limited_scenario_population",
+    "two_arm_design_does_not_isolate_structure_from_information_or_salience",
+    "deterministic_receiver_not_behavioral_diversity",
+    "equal_information_prose_comparator_deferred",
+    "foreign_native_mapping_trial_independent",
+    "external_anchor_deferred_absent_specific_chronology_claim",
+    "classifier_is_bounded_operationalization",
+    "task_completion_not_equivalent_to_usefulness_or_correctness",
+    "provider_infrastructure_may_change"
+  ],
+  "freeze_rule": "Execution prohibited until every blocking_gate item has an evidence-bearing satisfied state.",
+  "non_claims": [
+    "This manifest does not prove the CSH hypothesis.",
+    "This manifest does not authorize production use.",
+    "This manifest does not establish compliance, truth, legal sufficiency, safety, approval, or institutional authority."
+  ]
+}
