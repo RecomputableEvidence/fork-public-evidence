@@ -1,0 +1,16 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+  "predecessor": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001",
+  "predecessor_modified": false,
+  "historical_recomputation_sibling": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001-INDEPENDENT-RECOMPUTATION-001",
+  "bounded_changes": [
+    "FORMAL_M11_M25_DETECTOR_SPECIFICATIONS",
+    "PARENT_COMPILATION_BINDING_AND_RECONSTRUCTION",
+    "EXPLICIT_STAGE1A_OFFSET_CONVENTION",
+    "REVISED_M21_M25_SELF_AUDIT_STANDING"
+  ],
+  "semantic_finding_population_changed": false,
+  "stage3_adjudication_changed": false,
+  "current_program_standing_effect": "NONE",
+  "next_gate": "SEPARATE_RECOMPUTATION_OF_SUCCESSOR_PACKAGING_REPAIR"
+}
