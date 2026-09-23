@@ -1,0 +1,64 @@
+{
+  "record_id": "CSH-S001-PACKET-BINDING-20260923-001",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "status": "HASH_BOUND_CANDIDATE_NOT_EXECUTION_FREEZE",
+  "source_commit": "c5a5f65cce59c569a3c871a05034fb24de35225d",
+  "builder": {
+    "path": "tools/build_csh_s001_packets_v0_1.py",
+    "git_blob_sha": "185fa1c77f2e502c4f8d50c85acfbba06ce23432",
+    "projection_method_id": "csh_s001_projection_from_predecessor_v0_1"
+  },
+  "ci_materialization": {
+    "workflow": "CSH-S001 Readiness",
+    "run_id": 35811857164,
+    "artifact_id": 10729894118,
+    "artifact_name": "csh-s001-candidate-packets",
+    "artifact_sha256": "14214cc07575d3e76404c2f76b1d75f6f0ee007d73735679eda23fd4a329c191",
+    "artifact_expiry_utc": "2026-12-22T02:48:55Z"
+  },
+  "records": [
+    {
+      "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+      "projection_sha256": "3339bdd7431bfb109c68b2ff02d87318043a44dbfdc6bd0c152ebb84948993fe",
+      "control_packet_sha256": "b9dd039ce7cb43f59ef8dc3cfba27f7787891b4df61957c66e8c676736b244c4",
+      "instrumented_packet_sha256": "e42a188911071ba70e62b242b856854935b122bf91d97205136a674334d3bde2"
+    },
+    {
+      "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+      "projection_sha256": "3532586f526359c6039d100ba3a8e02dc0caa8390dc7a63effaad9b41991d2f4",
+      "control_packet_sha256": "2290836f0a5ce41126cfa2ccc5655acea731a49b6c923187ea76d726ee15c479",
+      "instrumented_packet_sha256": "e7c3b4ce12a8e54a20e01aebdbf46c9b38e2b9bd06f95d83218bbe394c0e0f4c"
+    },
+    {
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "projection_sha256": "ade3b4364fff243933a9bc48320cccc5eadc1cf0cc7bff86b69249abeb26ac1b",
+      "control_packet_sha256": "0422e3c8bfc8b132818288804ee2dacb1f51e2f2210c1197e07e0cb97de04eb3",
+      "instrumented_packet_sha256": "70fa91ce421dbf62ad29b4d2a40df9966fbe52726fb5841dd6a30fd325ca665b"
+    },
+    {
+      "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+      "projection_sha256": "de070b3ccb11873c117525e7c7537dd1c2d79a9490f234de250b195e428b55a1",
+      "control_packet_sha256": "a7696fded624aba33154d30795d6b61e869531ab71efb6954f6464085f9dc5ad",
+      "instrumented_packet_sha256": "288707698b5c90a20836d8a0fa09747ba39ac55cb29c3ebf79a4cf64caf25ae8"
+    },
+    {
+      "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+      "projection_sha256": "a7a7c60d205f4a83f398fcbe99d56cd780f096fb88f36f5673154b75f606630f",
+      "control_packet_sha256": "74167a3cca7c8a865b9e79d0317b2a56593a2e1facf90416ffafe531660615df",
+      "instrumented_packet_sha256": "fd9c1c793ddb397f06d732dec594f5daedc4354a3d6ff79cc3282d2e31495fbb"
+    },
+    {
+      "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+      "projection_sha256": "8ca150abe805ff550358d17687f9367ddfafd4355636cfb68a1d0bb3b4d3c55e",
+      "control_packet_sha256": "5128c5c52fbad9cf8978a1c8d97fbb7eb3a5c6957921285bb0336c4ba79a20e9",
+      "instrumented_packet_sha256": "c3034df8269b9fd3d4f73a5414a058d207411ee76179763bd980ab7dbace9dc5"
+    }
+  ],
+  "execution_requirement": "Every executed request must preserve the exact delivered packet/request bytes and bind them to these candidate hashes or record an explicit pre-freeze successor change.",
+  "non_claims": [
+    "This binding does not authorize execution.",
+    "A CI artifact is not proof that these bytes were delivered to a receiver.",
+    "Executed request bytes must be preserved separately.",
+    "Regeneration after execution is not a substitute for preserving delivered bytes."
+  ]
+}
