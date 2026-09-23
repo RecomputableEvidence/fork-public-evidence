@@ -1,0 +1,29 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-REVISED-M21-M25-SELF-AUDIT-STANDING-001",
+  "predecessor_record": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001/HARNESS_SELF_AUDIT_M21_M25.json",
+  "historical_record_mutated": false,
+  "standing": {
+    "M21": {
+      "status": "SUPPORTED_WITHIN_RUN001_PACKAGE",
+      "reason": "Exact package hashes were computed from local bytes and no illustrative hash was promoted."
+    },
+    "M22": {
+      "status": "NOT_INDEPENDENTLY_CERTIFIABLE_FROM_RUN001_PACKAGE",
+      "reason": "Run 001 declares selection conditioning and provenance, but the package omitted formal M22 criteria; declared conditioning does not make extraction unconditioned or epistemically independent."
+    },
+    "M23": {
+      "status": "SUPPORTED_WITHIN_RUN001_PACKAGE",
+      "reason": "NOT_ESTABLISHED/partial states were preserved as abstention rather than boolean false."
+    },
+    "M24": {
+      "status": "SUPPORTED_WITHIN_RUN001_PACKAGE",
+      "reason": "Non-trigger states remained explicitly scoped and were not promoted to global absence."
+    },
+    "M25": {
+      "status": "NOT_INDEPENDENTLY_CERTIFIABLE_FROM_RUN001_PACKAGE",
+      "reason": "Separate mapping/detection records demonstrate procedural separation, but Run 001 omitted formal M25 criteria and the same exposed analyst authored synthesis/mapping; epistemic independence is not established."
+    }
+  },
+  "successor_rule": "Apply DETECTOR_SPECIFICATIONS_M11_M25.json prospectively; do not retroactively edit Run 001 self-audit.",
+  "framework_validity_effect": "NONE"
+}
