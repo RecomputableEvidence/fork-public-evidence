@@ -1,0 +1,9 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001-PACKAGE-BINDING-001",
+  "package_name": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001.zip",
+  "byte_count": 78883,
+  "sha256": "3ec4e66730fd8b6c3ef99803e298285aa959ad3d1b4f2a51813438f1f563cba0",
+  "repository_binary_bytes_present": false,
+  "standing": "HISTORICAL_RUN_PACKAGE_IDENTITY_BOUND",
+  "non_claim": "This binding does not claim the ZIP bytes are repository-resident at this coordinate."
+}
