@@ -8,6 +8,10 @@ Current standing: [v0.8](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.m
 
 See the [2026-09-23 Fork II standing note](docs/current-standing/FORK_II_CLOSURE_AND_SUCCESSOR_OPENING_20260923.md): v0.1.1 closed historical evidence; KERNEL-002 pre-repair definitions FII-23–FII-26. Effective on merge; no successor repair or execution claimed.
 
+## Fork II pre-repair execution and recomputation
+
+See the [2026-09-23 Fork II pre-repair recomputation standing note](docs/current-standing/FORK_II_PRE_REPAIR_RECOMPUTATION_20260923.md): FII-23–FII-26 executed against the byte-identical predecessor and produced `0/4 PASS`, `4/4 FAIL`; a separate recomputation record reproduced the four-fixture result and is admitted with a field-level/terminology reconciliation. No repair has been performed. The next Fork II gate is to define and preserve the control population before repair.
+
 ## Current-state routing clarification
 
 `CURRENT_STANDING.md` and the v0.8 register above are the current program-standing route for this coordinate.
