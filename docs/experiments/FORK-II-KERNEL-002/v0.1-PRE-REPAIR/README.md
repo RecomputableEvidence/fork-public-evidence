@@ -37,4 +37,10 @@ Ordered gate 2 has now been executed against the byte-identical predecessor: FII
 
 The reconciliation does not change the fixture result. It records one erroneous FII-24 recomputed canonical-payload field in the supplied receipt and narrows the repository's supported relationship to a separate recomputation record using the same predecessor implementation rather than inferring a stronger independence class from the source label.
 
-**Current next gate:** ordered gate 3 — define and preserve the control population before any repair.
+## Frozen control population — 2026-09-23
+
+Ordered gate 3 is now defined and byte-frozen under [`controls/v0.1-FROZEN/`](controls/v0.1-FROZEN/). The population contains 13 controls: one profile-identity positive control, four dependency-binding controls, and eight temporal controls. The freeze explicitly defines dependency-record byte encoding and per-record digest validation, exact positive and negative binding controls, half-open fixed-interval semantics, missing/malformed evaluation-time handling, reversed/malformed interval handling, and UNKNOWN/null behavior.
+
+The control freeze does not execute the controls, alter any FII-23–FII-26 oracle, or modify predecessor/successor implementation bytes. `CONTROL_FREEZE_RECORD.json` records `controls_executed=false`, `repair_performed=false`, and `oracle_mutation_permitted=false`.
+
+**Current next gate:** ordered gate 4 — repair only the successor against the already frozen FII-01–FII-26 evidence and the 13-control population, then execute the combined population with targeted fault reintroductions. No repair is claimed at this coordinate.
