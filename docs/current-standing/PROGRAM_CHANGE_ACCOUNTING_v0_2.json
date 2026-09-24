@@ -1,0 +1,35 @@
+{
+  "schema_id": "FORK_PROGRAM_CHANGE_ACCOUNTING_v0_2",
+  "standing_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_9.json",
+  "coverage_base_commit": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+  "predecessor_accounting": {
+    "path": "docs/current-standing/PROGRAM_CHANGE_ACCOUNTING_v0_1.json",
+    "git_blob_sha": "74d0f9558aed9403958d8a9b5987a536e2b964f9",
+    "coverage_base_commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+    "verified_through_commit": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+    "verification_basis": {
+      "workflow": "Current Standing Structural Check",
+      "run_id": 35947755206,
+      "head_sha": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+      "conclusion": "success"
+    },
+    "closure_rule": "Before active v0.2 accounting is evaluated, the checker recomputes every recognized first-parent transition from the predecessor base through verified_through_commit and requires exact equality with the preserved v0.1 transition set."
+  },
+  "recognized_path_prefixes": [
+    "admissions/",
+    "docs/experiments/",
+    "registries/",
+    "receipts/",
+    "schemas/",
+    "tools/"
+  ],
+  "transitions": [],
+  "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Empty active transitions mean this representational routing successor changes no path inside the declared recognized research-object scope; they do not erase or replace the preserved predecessor accounting.",
+  "non_claims": [
+    "ACCOUNTING_SUCCESSOR != HISTORICAL_LEDGER_REWRITE",
+    "ACCOUNTED_FOR != SEMANTICALLY_COMPLETE",
+    "NO_POST_BASE_RECOGNIZED_TRANSITION != NO_REPOSITORY_CHANGE",
+    "ROUTING_UPDATE != RESEARCH_OBJECT_UPDATE",
+    "CI_SUCCESS != SEMANTIC_ADEQUACY"
+  ]
+}
