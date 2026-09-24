@@ -1,0 +1,205 @@
+{
+  "record_id": "FORK-OPEN-CANDIDATE-STANDING-SNAPSHOT-20260924-v0.1",
+  "observed_at": "2026-09-24T23:47:00Z",
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "repository_main_commit": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+  "repository_main_event": "PR #178 merged — Run 005 external adjudication dispatch opened",
+  "source_scope": "GitHub open pull-request state plus later repository records used only to classify representational standing",
+  "open_count": 18,
+  "classification_semantics": {
+    "ACTIVE_GATE_BLOCKED": "The PR still corresponds to a current unresolved gate, but the gate is blocked and no later record satisfies it.",
+    "EVIDENCE_ONLY_RECONCILIATION": "The PR preserves or explains evidence without modifying the underlying research object or promoting standing.",
+    "EXTERIOR_REVIEW_PENDING": "The candidate's declared next evidence-bearing gate remains an exterior recomputation or review return.",
+    "EXTERIOR_RECOMPUTATION_UNRESOLVED": "Exterior recomputation remains required; no later repository record is represented here as satisfying that gate.",
+    "EXTERIOR_DEPENDENCY_HOLD": "The candidate is intentionally held until a separately produced external record exists.",
+    "HISTORICAL_COORDINATE_SNAPSHOT": "The PR is itself a dated coordinate record rather than an active merge queue.",
+    "HISTORICAL_HOLD_CLOSED_OBJECT": "Later admitted repository evidence closes the object as historical evidence; the older open PR is retained as a historical coordinate, not a current modification target.",
+    "HISTORICAL_HOLD_RECONCILIATION_OPEN": "Later repository reconciliation prevents the original PR description from being treated as current standing; unresolved reconciliation remains visible.",
+    "INTENTIONALLY_UNRESOLVED": "No automatic continuation, merge, admission, or closure is inferred from open status.",
+    "PROOF_PACKAGING_REVIEW_UNRESOLVED": "Bounded source evidence has a separate admission, but proof packaging remains unresolved and the original PR is not selected for direct merge.",
+    "SUPERSEDED_BUT_PRESERVED": "A later correction/review lineage exists; the older PR remains preserved but is not the active merge target."
+  },
+  "candidates": [
+    {
+      "pr": 65,
+      "head": "479de5f929cb37377ccba5ef93f7a4f7b93e1120",
+      "draft": true,
+      "classification": "PROOF_PACKAGING_REVIEW_UNRESOLVED",
+      "basis": "PR #123 admitted the bounded recomputation return as source evidence on preservation/clean-continuance-v0.1; direct merge of #65 was not selected and proof packaging remains not admitted.",
+      "later_record": "PR #123",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 84,
+      "head": "46fcd2c2580abd86ffbe215e6c387fee2bcb1b39",
+      "draft": true,
+      "classification": "SUPERSEDED_BUT_PRESERVED",
+      "basis": "The later PROOF-005 v0.2 correction lineage preserves the historical #84/#86 review record while using separately named successors.",
+      "later_record": "PR #124 and successors",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 86,
+      "head": "f72ca3fad82bee068527fe63eaf1c8eba87dd698",
+      "draft": true,
+      "classification": "SUPERSEDED_BUT_PRESERVED",
+      "basis": "The later PROOF-005 v0.2 correction lineage preserves the historical #84/#86 review record while using separately named successors.",
+      "later_record": "PR #124 and successors",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 100,
+      "head": "cdb757a97c2e554cf3df822e4764ac51122ca8eb",
+      "draft": true,
+      "classification": "PROOF_PACKAGING_REVIEW_UNRESOLVED",
+      "basis": "PR #123 admitted the bounded deterministic-simulation recomputation return as source evidence on preservation/clean-continuance-v0.1; direct merge of #100 was not selected, live adapters remain closed, and proof packaging remains not admitted.",
+      "later_record": "PR #123",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 110,
+      "head": "c6cd61270bac4938878df06f0085089c8f61b9dc",
+      "draft": true,
+      "classification": "EXTERIOR_RECOMPUTATION_UNRESOLVED",
+      "basis": "The PR requires exterior recomputation before any separate merge decision; later review-queue material gives #110/#111 no pilot, production, or proof standing.",
+      "later_record": "PR #121",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 111,
+      "head": "042f3e1a46d60abe5b5a52d432aa0b47d2606939",
+      "draft": true,
+      "classification": "EXTERIOR_RECOMPUTATION_UNRESOLVED",
+      "basis": "The PR requires exterior recomputation and separate admission/deployment authorization before any real shadow deployment; later review-queue material gives #110/#111 no pilot, production, or proof standing.",
+      "later_record": "PR #121",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 112,
+      "head": "052a7dcf7febb2d213c3a94dae4c89d2bab4dceb",
+      "draft": true,
+      "classification": "HISTORICAL_COORDINATE_SNAPSHOT",
+      "basis": "The PR declares itself a temporal snapshot rather than a merge queue and explicitly gives open status, CI, review, mergeability, dependency, and chronology no standing effect.",
+      "later_record": null,
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 124,
+      "head": "4ce0413e70fc9355c1319d7e25b5157497faa90c",
+      "draft": false,
+      "classification": "SUPERSEDED_BUT_PRESERVED",
+      "basis": "PR #125 preserved a conforming-with-qualifications exterior return but required correction before merge; PR #126 is the bounded correction successor.",
+      "later_record": "PR #125 / PR #126",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 126,
+      "head": "a8b528be8acaa5b69bc928450001a56b4b8335e3",
+      "draft": false,
+      "classification": "SUPERSEDED_BUT_PRESERVED",
+      "basis": "PR #127 preserved the v0.2.1 exterior return and residuals; direct merge was not selected and PR #128 became the bounded successor.",
+      "later_record": "PR #127 / PR #128",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 128,
+      "head": "9e3cdd2fb6d67f9abd6233ce673341bd817d6338",
+      "draft": false,
+      "classification": "SUPERSEDED_BUT_PRESERVED",
+      "basis": "PR #131 preserved the completed executable v0.2.2 exterior recomputation and retained F3 as a bounded correction candidate; direct merge of #128 was not selected and PR #132 is the successor.",
+      "later_record": "PR #131 / PR #132",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 132,
+      "head": "92fd0719c5244b58bec71302491d971cc7e691de",
+      "draft": false,
+      "classification": "EXTERIOR_REVIEW_PENDING",
+      "basis": "The bounded F3 successor requires exact-head review, freeze, exterior delta recomputation, preserved return, and a separate merge/admission disposition; the PR expressly prohibits merge before that return.",
+      "later_record": null,
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 133,
+      "head": "53db708a9f6b45b8c0210fe8c830bd671f3a9b7f",
+      "draft": false,
+      "classification": "EXTERIOR_DEPENDENCY_HOLD",
+      "basis": "The frozen FORAY reciprocal-comparison candidate states that blind correspondence remains gated on independently produced external records and claims preservation/public retrieval only.",
+      "later_record": null,
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 135,
+      "head": "0280a9f32f45074ef29625f9c31ea178685a6ddf",
+      "draft": true,
+      "classification": "INTENTIONALLY_UNRESOLVED",
+      "basis": "The candidate outward-charter record is explicitly non-self-admitting and warns against merge merely because it is structurally valid or mergeable.",
+      "later_record": null,
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 152,
+      "head": "db8b02280ef88e002db6c8ffc3e9e139e4c5925b",
+      "draft": true,
+      "classification": "HISTORICAL_HOLD_CLOSED_OBJECT",
+      "basis": "PR #154 later admitted FREEZE-002 as CLOSED_HISTORICAL_EVIDENCE and prohibits further modification, reseal, or pressure under that object identity.",
+      "later_record": "PR #154",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 153,
+      "head": "57119a3acb270e394461cb70f4dd31a735fa0356",
+      "draft": true,
+      "classification": "HISTORICAL_HOLD_CLOSED_OBJECT",
+      "basis": "PR #154 later admitted FREEZE-002 as CLOSED_HISTORICAL_EVIDENCE and prohibits further modification, reseal, or pressure under that object identity.",
+      "later_record": "PR #154",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 162,
+      "head": "ca28599b7ca411060e1fc3667ef97596244ed9bb",
+      "draft": false,
+      "classification": "HISTORICAL_HOLD_RECONCILIATION_OPEN",
+      "basis": "Merged PR #167 preserved mismatched receipt/manifest/population findings and states that #162 remains open and unmerged, without package admission or freeze qualification. PR #168 is an evidence-only follow-up.",
+      "later_record": "PR #167 / PR #168",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 165,
+      "head": "e3eabe49a7aa4eb9ec3fa451e16bae671fada19b",
+      "draft": false,
+      "classification": "ACTIVE_GATE_BLOCKED",
+      "basis": "v0.8 records Mistral HTTP 429 rate-limited and OpenAI HTTP 429 credit-balance-exhausted as access observations only; receiver registry and run order remain unfrozen and no corpus execution is established.",
+      "later_record": "FORK_CURRENT_WORK_REGISTER_v0_8",
+      "standing_effect_from_open_status": "NONE"
+    },
+    {
+      "pr": 168,
+      "head": "0165314b15b2dc835a8653dd9afd406260ff7d42",
+      "draft": false,
+      "classification": "EVIDENCE_ONLY_RECONCILIATION",
+      "basis": "The PR records the verified LF-to-CRLF receipt-digest relationship and scoped source-search outcome while preserving #167 and #162 unchanged; it claims no reseal, MEASURE, holdout opening, or automatic successor.",
+      "later_record": null,
+      "standing_effect_from_open_status": "NONE"
+    }
+  ],
+  "cross_branch_admission_notes": [
+    {
+      "prs": [65, 100],
+      "record": "PR #123",
+      "branch": "preservation/clean-continuance-v0.1",
+      "effect": "BOUNDED_SOURCE_EVIDENCE_ADMITTED",
+      "explicit_non_effect": "PROOF_PACKAGING_NOT_ADMITTED__DIRECT_MERGE_NOT_SELECTED"
+    }
+  ],
+  "snapshot_non_claims": [
+    "OPEN != CURRENT_STANDING",
+    "OPEN != REVIEW_PENDING",
+    "MERGEABLE != MERGE_AUTHORIZED",
+    "EXTERIOR_RETURN_PRESERVED != PROOF_PACKAGING_ADMITTED",
+    "SOURCE_EVIDENCE_ADMITTED_ON_PRESERVATION != MAIN_BRANCH_PROOF_ADMISSION",
+    "This snapshot does not close, merge, retarget, rebase, admit, reject, or modify any source PR.",
+    "The snapshot is bounded to the stated observation time and does not claim later GitHub state.",
+    "No off-repository result is imported into repository standing."
+  ]
+}
