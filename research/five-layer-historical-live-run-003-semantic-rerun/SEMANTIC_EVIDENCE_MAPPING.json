@@ -1,0 +1,190 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "mapping_stage": "SEPARATE_FROM_DETECTOR_EVALUATION",
+  "selection_provenance": "DETECTOR_CONDITIONED_EVIDENCE_RETRIEVAL_EXPLICITLY_DECLARED",
+  "historical_target_sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+  "records": [
+    {
+      "fixture_id": "M11",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 1551,
+          "line_end": 1552,
+          "sha256_utf8_exact_range": "bac862447ecf2fb67d3720a1e2dd919ccb6afe87cbcffbdf558be37eea55db7e",
+          "role": "D_X_SEPARATION"
+        }
+      ],
+      "analysis": "Target explicitly prohibits promoting absent execution evidence or static presence into EXECUTED/PASSED standing."
+    },
+    {
+      "fixture_id": "M12",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 1569,
+          "line_end": 1585,
+          "sha256_utf8_exact_range": "e3bebd9f4d5ac95d5c12651de02be467c0c1010a871a960b73d7c9ef051a5049",
+          "role": "NON_BINARY_BOUNDARY_STATE_SPACE"
+        },
+        {
+          "line_start": 3980,
+          "line_end": 4005,
+          "sha256_utf8_exact_range": "7c0ed18e69c35b30930a06981d036c3d409aae1514516bd7466816e2bddc67ac",
+          "role": "DOWNSTREAM_SCHEMA"
+        }
+      ],
+      "analysis": "Earlier boundary states include BLOCKED_UPSTREAM and UNMEASURABLE. Schema 3 omits those states from global_conservation_status and uses boolean surface_satisfaction; no separately bound Schema-3 field carries those two distinctions."
+    },
+    {
+      "fixture_id": "M13",
+      "mapping_status": "PARTIAL",
+      "evidence_ranges": [
+        {
+          "line_start": 1576,
+          "line_end": 1585,
+          "sha256_utf8_exact_range": "40706945fdc22d09284ba7be928bfa2b808401aaa8d3c8642df6928cc43a7b9f",
+          "role": "UNCERTAINTY_STATES"
+        },
+        {
+          "line_start": 4000,
+          "line_end": 4005,
+          "sha256_utf8_exact_range": "5884a06c62847727c94b83edafafd0a55e84c6f494c799da1abc287f6a88ecd2",
+          "role": "BOOLEAN_FIELD"
+        },
+        {
+          "line_start": 4020,
+          "line_end": 4022,
+          "sha256_utf8_exact_range": "4dc4f6417f1f1a53f6474145ca6aebaf505affc1f05268b61f5cbe78900c5a6a",
+          "role": "DOWNSTREAM_VIOLATED_RULE"
+        }
+      ],
+      "analysis": "The architecture preserves uncertainty states, a boolean surface field, and false->VIOLATED for OPERATIONAL_BINDING, but the target does not preserve an uncertainty->false mapping bridge."
+    },
+    {
+      "fixture_id": "M14",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 3681,
+          "line_end": 3693,
+          "sha256_utf8_exact_range": "1f3f3246869bdad87355db8765dcb49da6cfbbc87fa273e0d19c5e60355eb87d",
+          "role": "STRUCTURED_PROPOSITION_VECTOR"
+        },
+        {
+          "line_start": 3723,
+          "line_end": 3735,
+          "sha256_utf8_exact_range": "1a8180282ca9408f661bf47e53f74931fef6f82455e667da395fe15ee6583526",
+          "role": "SET_OPERATOR_USE"
+        }
+      ],
+      "analysis": "Structured role/proposition vectors are operands of subset/intersection/empty-set operators. No explicit set denotation or operator/partial-order semantics was identified in the bounded target before use.",
+      "bounded_absence_review": {
+        "queries": [
+          "partial order",
+          "partial-order",
+          "set denotation",
+          "operator semantics"
+        ],
+        "matches": 0,
+        "scope": "HISTORICAL-LIVE-TARGET-001"
+      }
+    },
+    {
+      "fixture_id": "M15",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 3698,
+          "line_end": 3721,
+          "sha256_utf8_exact_range": "c9cb0574577a037feee7c57dc8f4374abcc84501f36f3e5c7faed8707547669f",
+          "role": "NATIVE_RETROSPECTIVE_SEPARATION"
+        }
+      ],
+      "analysis": "Retrospective analysis is explicitly prohibited from mutating or substituting native historical standing."
+    },
+    {
+      "fixture_id": "M16",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 1551,
+          "line_end": 1553,
+          "sha256_utf8_exact_range": "4904cee3d8d3536df136eab11d5faddf4c48879b3338d7791774cc51b3c1a5f9",
+          "role": "PRESENCE_EXECUTION_SEPARATION"
+        }
+      ],
+      "analysis": "Static presence and execution evidence are explicitly separated."
+    },
+    {
+      "fixture_id": "M17",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 1567,
+          "line_end": 1594,
+          "sha256_utf8_exact_range": "ef3863d0036d9f81475da3b6149737aa1a9e951bb2de42f1c46edae06bcc504b",
+          "role": "NON_VIOLATION_NOT_CONSERVATION"
+        },
+        {
+          "line_start": 3773,
+          "line_end": 3779,
+          "sha256_utf8_exact_range": "b93ff7fd2b9e28740726a98dd851d516fb03ced6dbecb6cc73a9982faf1e191f",
+          "role": "POSITIVE_CONSERVATION_REQUIREMENT"
+        }
+      ],
+      "analysis": "Omission is not violation and conservation requires satisfaction of all obligated surface projections."
+    },
+    {
+      "fixture_id": "M18",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 1569,
+          "line_end": 1585,
+          "sha256_utf8_exact_range": "e3bebd9f4d5ac95d5c12651de02be467c0c1010a871a960b73d7c9ef051a5049",
+          "role": "GOVERNING_STATE_SPACE"
+        },
+        {
+          "line_start": 3980,
+          "line_end": 4005,
+          "sha256_utf8_exact_range": "7c0ed18e69c35b30930a06981d036c3d409aae1514516bd7466816e2bddc67ac",
+          "role": "CONCRETE_SCHEMA_STATE_SPACE"
+        }
+      ],
+      "analysis": "The governing concept includes BLOCKED_UPSTREAM and UNMEASURABLE, while Schema 3 cannot represent them in its global status enum and provides only boolean surface satisfaction at the surface decision seam."
+    },
+    {
+      "fixture_id": "M19",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 3918,
+          "line_end": 3962,
+          "sha256_utf8_exact_range": "3cf31d03bf387b5030fb98b85e0e92f7a7d50fb38b4db78d22a1a0f1661cac80",
+          "role": "ROLE_DISTINCT_IDENTIFIERS_AND_CONTEXTS"
+        }
+      ],
+      "analysis": "Native context, retrospective context, and migration edge are explicitly separated within the migration record."
+    },
+    {
+      "fixture_id": "M20",
+      "mapping_status": "ESTABLISHED",
+      "evidence_ranges": [
+        {
+          "line_start": 1491,
+          "line_end": 1496,
+          "sha256_utf8_exact_range": "deeb918c859190ef1a15e43bcead629a6af70521b6df6d198d9a11292acc75bb",
+          "role": "MULTIDIMENSIONAL_RETENTION"
+        },
+        {
+          "line_start": 3756,
+          "line_end": 3779,
+          "sha256_utf8_exact_range": "28a4a19148713a0494ba93a0ea4fca70dd98ff600caee4fa71fe1d6c62042d4c",
+          "role": "MULTI_SURFACE_CONSERVATION"
+        }
+      ],
+      "analysis": "Retention/conservation is defined across multiple dimensions and surfaces rather than execution alone."
+    }
+  ]
+}

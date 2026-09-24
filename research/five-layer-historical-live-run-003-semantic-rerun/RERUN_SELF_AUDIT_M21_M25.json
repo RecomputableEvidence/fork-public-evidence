@@ -1,0 +1,37 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "records": [
+    {
+      "fixture_id": "M21",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "All rerun source bindings use computed target/synthesis SHA-256 values or repository commit/blob identities; no illustrative receipt is presented as empirical."
+    },
+    {
+      "fixture_id": "M22",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Evidence retrieval is explicitly detector-conditioned and recorded as such in SEMANTIC_EVIDENCE_MAPPING.json; no blind/unconditioned discovery claim is made.",
+      "epistemic_independence": "NOT_ESTABLISHED"
+    },
+    {
+      "fixture_id": "M23",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "The unresolved M13 evidentiary bridge routes to EVALUATION_ABSTAINED rather than false/non-trigger."
+    },
+    {
+      "fixture_id": "M24",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Every non-trigger is explicitly scoped to the evaluated historical target and is not promoted to global absence."
+    },
+    {
+      "fixture_id": "M25",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Mapping and detector evaluation are separate records; partial mapping for M13 routes to abstention.",
+      "epistemic_independence": "NOT_ESTABLISHED"
+    }
+  ],
+  "summary": {
+    "scoped_non_trigger": 5
+  },
+  "independent_certification_claimed": false,
+  "semantic_correctness_on_arbitrary_inputs_claimed": false
+}

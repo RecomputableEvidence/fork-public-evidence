@@ -1,0 +1,22 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001-FREEZE-001",
+  "disposition": "RIGOROUS_SEMANTIC_RERUN_COMPLETE__STAGE3_NOT_PERFORMED",
+  "packaging_recomputation_freeze_precedes_rerun": true,
+  "packaging_recomputation_freeze_head": "f8ba8c41aee2c95012a859d1ac12a0a9a6e8e910",
+  "historical_target_sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+  "ruleset_repository_blob": "83243130e9ad758d1abcd31824fdf44023f95382",
+  "semantic_summary": {
+    "triggered": 3,
+    "evaluation_abstained": 1,
+    "criteria_not_satisfied_in_evaluated_scope": 6,
+    "unique_triggered_seams": 2
+  },
+  "self_audit_m21_m25": {
+    "scoped_non_trigger": 5,
+    "independent_certification_claimed": false
+  },
+  "run001_mutated": false,
+  "packaging_recomputation_mutated": false,
+  "stage3_adjudication_count": 0,
+  "next_gate": "EXTERNAL_ADJUDICATION_OF_TRIGGERED_M12_M14_M18_OR_SYNTHETIC_ADVERSARIAL_LANE_AS_SEPARATE_OBJECT"
+}
