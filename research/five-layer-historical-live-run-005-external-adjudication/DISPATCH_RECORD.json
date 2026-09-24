@@ -1,0 +1,46 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-005-EXTERNAL-ADJUDICATION-001",
+  "state": "EXTERNAL_ADJUDICATION_DISPATCH_PREPARED_NOT_RETURNED",
+  "main_predecessor_commit": "54e8d4cd9a5993459dac4c64fc05d77cacfc0f71",
+  "predecessors": [
+    "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+    "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-RECOMPUTATION-001",
+    "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001"
+  ],
+  "adjudication_population": {
+    "unique_candidate_seams": 2,
+    "SEAM-A": {
+      "detectors": ["M12", "M18"],
+      "description": "surface-state representation compression / concept-schema state mismatch"
+    },
+    "SEAM-B": {
+      "detectors": ["M14"],
+      "description": "structured-role set-operator semantics"
+    }
+  },
+  "phase_a": {
+    "basename": "FIVE-LAYER-HISTORICAL-LIVE-RUN-005-EXTERNAL-ADJUDICATION-PHASE-A.zip",
+    "bytes": 65510,
+    "sha256": "f13033e9ec256a5272426bc415b32299af3345368c38d1feb42ec182ebed7fb4",
+    "repository_binary_bytes_present": false,
+    "prior_run003_synthesis_mapping_results_withheld": true
+  },
+  "phase_b": {
+    "basename": "FIVE-LAYER-HISTORICAL-LIVE-RUN-005-EXTERNAL-ADJUDICATION-PHASE-B-REFERENCE.zip",
+    "bytes": 9467,
+    "sha256": "280fd13d7dcc9fdcc49a84bbcad53c3ed3cd0a1e1feafb9d3311bdd0a953b4a2",
+    "repository_binary_bytes_present": false,
+    "release_condition": "AFTER_PHASE_A_RESPONSE_COMMITMENT"
+  },
+  "historical_target": {
+    "bytes": 262318,
+    "sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+    "lines": 4026
+  },
+  "blind_discovery_claimed": false,
+  "external_adjudication_completed": false,
+  "stage3_adjudication_count_added": 0,
+  "synthetic_lane_opened": false,
+  "synthetic_lane_authorized": false,
+  "next_gate": "EXTERNAL_ADJUDICATION_RETURN_PRESERVED_BEFORE_SYNTHETIC_LANE"
+}
