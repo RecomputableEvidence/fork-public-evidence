@@ -1,0 +1,12 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001",
+  "predecessor_recomputation": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-RECOMPUTATION-001",
+  "purpose": "State the previously under-specified evidence-range byte serialization contract without changing Run 003 evidence ranges, hashes, detector outcomes, or Stage 3 standing.",
+  "bounded_change": [
+    "explicit evidence-range serialization contract"
+  ],
+  "detector_outcome_change": "NONE",
+  "mapping_change": "NONE",
+  "historical_target_change": "NONE",
+  "stage3_effect": "NONE"
+}
