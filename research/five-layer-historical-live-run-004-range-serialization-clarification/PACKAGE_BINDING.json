@@ -1,0 +1,9 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001",
+  "generated_package_basename": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001.zip",
+  "generated_package_bytes": 4852,
+  "generated_package_sha256": "94d37daaae71c4c12b428c662bea085cbc2f71268fb58294665c6a5cbc688055",
+  "repository_binary_bytes_present": false,
+  "binding_effect": "IDENTIFIES_EXACT_GENERATED_RUN004_CLARIFICATION_PACKAGE",
+  "repository_text_population_present": true
+}
