@@ -1,0 +1,22 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "run_class": "PROSPECTIVE_RULED_SEMANTIC_RERUN_OVER_FROZEN_HISTORICAL_TARGET",
+  "opened_at_utc": "2026-09-24T00:23:19+00:00",
+  "predecessor_historical_run": "FIVE-LAYER-HISTORICAL-LIVE-RUN-001",
+  "packaging_repair": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR",
+  "packaging_recomputation": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-RECOMPUTATION-001",
+  "packaging_recomputation_freeze_head": "f8ba8c41aee2c95012a859d1ac12a0a9a6e8e910",
+  "tested_packaging_subject_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+  "semantic_rerun_performed_after_packaging_recomputation_freeze": true,
+  "historical_target_mutated": false,
+  "run001_results_mutated": false,
+  "stage3_adjudication_authorized": false,
+  "analyst_exposure": "DEPENDENT_EXPOSED_ANALYST",
+  "non_claims": [
+    "Not blind discovery",
+    "Not independent human adjudication",
+    "Not independent implementation",
+    "No framework-validity or prevalence effect",
+    "No retroactive correction of Run 001"
+  ]
+}

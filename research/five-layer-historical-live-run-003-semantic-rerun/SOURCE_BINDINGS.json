@@ -1,0 +1,35 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "historical_target": {
+    "path": "HISTORICAL-LIVE-TARGET-001.txt",
+    "byte_count": 262318,
+    "sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+    "lines": 4026
+  },
+  "lens_shift_synthesis": {
+    "path": "RECURSIVE_LENS_SHIFT_SYNTHESIS.md",
+    "byte_count": 8812,
+    "sha256": "1a19e2290e4ca53c14479da9b0ee0c483ab02fbd92536ca4d999663b6f9e49bc"
+  },
+  "prior_mapping_reference": {
+    "path": "STAGE2A_ONTOLOGY_MAPPING.json",
+    "sha256": "6e067dc949b684ff6edadc95cc3c63fc0dc49d51a015d9537490206d2052e1d1",
+    "standing": "REFERENCE_ONLY_NOT_RESULT_INHERITANCE"
+  },
+  "formal_detector_specification": {
+    "repository_path": "research/five-layer-historical-live-run-002-packaging-repair/DETECTOR_SPECIFICATIONS_M11_M25.json",
+    "git_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+    "git_blob_sha1": "83243130e9ad758d1abcd31824fdf44023f95382",
+    "application": "PROSPECTIVE_ONLY"
+  },
+  "stage1a_offset_convention": {
+    "repository_path": "research/five-layer-historical-live-run-002-packaging-repair/STAGE1A_OFFSET_CONVENTION.md",
+    "git_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+    "git_blob_sha1": "ffa439f2d2bd52d4f830e8b1e87f9e9e1da16ba1"
+  },
+  "revised_self_audit_standing": {
+    "repository_path": "research/five-layer-historical-live-run-002-packaging-repair/REVISED_M21_M25_SELF_AUDIT_STANDING.json",
+    "git_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+    "git_blob_sha1": "a961398015b7903a17f39342c087d17d467e1407"
+  }
+}

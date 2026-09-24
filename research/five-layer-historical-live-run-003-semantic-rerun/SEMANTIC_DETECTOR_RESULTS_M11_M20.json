@@ -1,0 +1,69 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "ruleset": "FIVE_LAYER_DETECTOR_SPECIFICATIONS_v0_1",
+  "results": [
+    {
+      "fixture_id": "M11",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Target explicitly preserves specification/static presence versus execution evidence; no D->X promotion is observed.",
+      "delta_from_run001": "EVALUATION_ABSTAINED -> SCOPED_NON_TRIGGER",
+      "delta_reason": "Formal successor M11 rule explicitly authorizes scoped non-trigger when D/X are preserved as separate; lines 1551-1552 provide positive separation evidence."
+    },
+    {
+      "fixture_id": "M12",
+      "result": "TRIGGERED",
+      "basis": "Non-binary boundary states BLOCKED_UPSTREAM and UNMEASURABLE are relevant upstream states; Schema 3 omits them and reduces each surface to boolean surface_satisfaction without a separately bound Schema-3 field carrying those distinctions.",
+      "unique_seam": "SURFACE_STATE_REPRESENTATION_COMPRESSION"
+    },
+    {
+      "fixture_id": "M13",
+      "result": "EVALUATION_ABSTAINED",
+      "basis": "Uncertainty states and false->VIOLATED routing both exist, but the required uncertainty->false mapping bridge is not preserved."
+    },
+    {
+      "fixture_id": "M14",
+      "result": "TRIGGERED",
+      "basis": "Structured proposition vectors are subjected to subset/intersection/empty-set operators without explicit bounded operator semantics identified before use.",
+      "unique_seam": "STRUCTURED_ROLE_SET_OPERATOR_SEMANTICS"
+    },
+    {
+      "fixture_id": "M15",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Native and retrospective semantic states are explicitly separated and non-retroactivity is stated."
+    },
+    {
+      "fixture_id": "M16",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Static presence/implementation evidence is not treated as execution evidence."
+    },
+    {
+      "fixture_id": "M17",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Weaker omission/non-violation states are not promoted to affirmative conservation; conservation has positive conjunctive requirements."
+    },
+    {
+      "fixture_id": "M18",
+      "result": "TRIGGERED",
+      "basis": "Concrete Schema 3 cannot represent governing BLOCKED_UPSTREAM and UNMEASURABLE states and has no explicit compatibility mapping for them.",
+      "unique_seam": "SURFACE_STATE_REPRESENTATION_COMPRESSION"
+    },
+    {
+      "fixture_id": "M19",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Native and retrospective roles use distinct contextual fields and a separately represented migration edge."
+    },
+    {
+      "fixture_id": "M20",
+      "result": "CRITERIA_NOT_SATISFIED_IN_EVALUATED_SCOPE",
+      "basis": "Boundary conservation is multi-dimensional and multi-surface; no execution-only equivalence claim is observed."
+    }
+  ],
+  "summary": {
+    "triggered": 3,
+    "evaluation_abstained": 1,
+    "criteria_not_satisfied_in_evaluated_scope": 6,
+    "unique_triggered_seams": 2
+  },
+  "run001_result_mutation": "NONE",
+  "stage3_effect": "NONE"
+}
