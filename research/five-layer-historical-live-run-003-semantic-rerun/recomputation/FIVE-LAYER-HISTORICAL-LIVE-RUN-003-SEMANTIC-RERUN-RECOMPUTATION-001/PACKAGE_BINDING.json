@@ -1,0 +1,16 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-RECOMPUTATION-001",
+  "generated_package_basename": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-RECOMPUTATION-001.zip",
+  "generated_package_bytes": 13398,
+  "generated_package_sha256": "4319300f6df26dc14e65ad65d27d4c17aa21743567ddef1a1fae6de50f0040af",
+  "repository_binary_bytes_present": false,
+  "binding_effect": "IDENTIFIES_EXACT_GENERATED_RECOMPUTATION_FREEZE_PACKAGE",
+  "raw_transcript": {
+    "basename": "RUN003_RECOMPUTATION_TRANSCRIPT_001.txt",
+    "bytes": 48614,
+    "lines": 666,
+    "sha256": "dcfae5caf91584bc0154dbca3877263d9a7c640fbbc8228668eaa7322e4b5bd7",
+    "present_inside_bound_package": true,
+    "repository_copy_claimed": false
+  }
+}

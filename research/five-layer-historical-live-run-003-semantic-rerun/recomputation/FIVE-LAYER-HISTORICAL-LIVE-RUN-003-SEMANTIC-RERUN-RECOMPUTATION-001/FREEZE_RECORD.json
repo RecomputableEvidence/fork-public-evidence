@@ -1,0 +1,15 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-RECOMPUTATION-001-FREEZE-001",
+  "disposition": "SEMANTIC_RERUN_RECOMPUTATION_PASS_WITH_RANGE_SERIALIZATION_UNDERSPECIFICATION_PRESERVED",
+  "subject_commit": "1cd66122b9de9dec589f9f59ea7feb233db6083f",
+  "raw_transcript_preserved": true,
+  "range_hashes_final": {
+    "pass": 17,
+    "fail": 0
+  },
+  "initial_range_hash_attempt_preserved": true,
+  "false_positive_shell_output_preserved": true,
+  "run003_mutated": false,
+  "stage3_effect": "NONE",
+  "next_gate": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001"
+}

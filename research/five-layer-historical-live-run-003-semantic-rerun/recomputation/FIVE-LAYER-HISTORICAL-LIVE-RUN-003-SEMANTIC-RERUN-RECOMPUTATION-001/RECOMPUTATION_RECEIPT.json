@@ -1,0 +1,88 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-RECOMPUTATION-001",
+  "subject_object": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "subject_commit": "1cd66122b9de9dec589f9f59ea7feb233db6083f",
+  "predecessor_packaging_freeze_commit": "f8ba8c41aee2c95012a859d1ac12a0a9a6e8e910",
+  "disposition": "SEMANTIC_RERUN_RECOMPUTATION_PASS_WITH_RANGE_SERIALIZATION_UNDERSPECIFICATION_PRESERVED",
+  "package_integrity": {
+    "declared_artifacts": 8,
+    "passed": 8,
+    "failed": 0
+  },
+  "repository_subject_bindings": {
+    "commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+    "passed": 3,
+    "failed": 0,
+    "raw_cat_file_exports_reproduced_declared_git_blob_ids": true
+  },
+  "external_source_bindings": {
+    "HISTORICAL-LIVE-TARGET-001.txt": {
+      "bytes": 262318,
+      "sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+      "lines": 4026,
+      "result": "PASS"
+    },
+    "RECURSIVE_LENS_SHIFT_SYNTHESIS.md": {
+      "bytes": 8812,
+      "sha256": "1a19e2290e4ca53c14479da9b0ee0c483ab02fbd92536ca4d999663b6f9e49bc",
+      "result": "PASS"
+    }
+  },
+  "range_hash_recomputation": {
+    "declared_range_count": 17,
+    "attempt_001": {
+      "serialization": "selected_lines_joined_with_LF_without_terminal_LF",
+      "passed": 0,
+      "failed": 17,
+      "disposition": "EXPECTED_REJECTION_OF_UNDERSPECIFIED_RECOMPUTATION_CONVENTION"
+    },
+    "procedural_negative_evidence": [
+      "An unconditional PASS string was printed after the thrown failure; it is preserved as false-positive shell output and is not treated as a successful result.",
+      "A separately-entered PowerShell else token produced a syntax/command error before the corrected combined conditional was executed."
+    ],
+    "diagnostic_recovery": {
+      "offset_adjustment_required": false,
+      "uniform_matching_serialization": "LF_FINAL_UTF8_NO_BOM",
+      "all_declared_ranges_matched": true
+    },
+    "final_canonical_recomputation": {
+      "serialization": {
+        "line_numbering": "one_based",
+        "bounds": "inclusive",
+        "source_decoding": "UTF-8",
+        "bom": "excluded",
+        "interline_separator": "LF",
+        "terminal_separator": "LF",
+        "hashed_representation": "selected_lines_joined_with_LF_plus_final_LF"
+      },
+      "passed": 17,
+      "failed": 0,
+      "result": "PASS"
+    }
+  },
+  "semantic_effect": {
+    "run003_detector_results_changed": false,
+    "run003_evidence_ranges_changed": false,
+    "stage3_effect": "NONE",
+    "historical_rewrite": false
+  },
+  "finding": {
+    "class": "RECOMPUTATION_CONTRACT_UNDERSPECIFICATION",
+    "description": "The frozen evidence-range hashes were reproducible at the declared line bounds, but the terminal-LF serialization rule was not explicit enough in the frozen Run 003 mapping."
+  },
+  "source_transcript": {
+    "file": "RUN003_RECOMPUTATION_TRANSCRIPT_001.txt",
+    "bytes": 48614,
+    "lines": 666,
+    "sha256": "dcfae5caf91584bc0154dbca3877263d9a7c640fbbc8228668eaa7322e4b5bd7",
+    "preserved_in_bound_generated_package": true,
+    "repository_copy_claimed": false
+  },
+  "non_claims": [
+    "This recomputation does not constitute formal Stage 3 adjudication.",
+    "This recomputation does not establish blind discovery, independent human standing, or independent implementation standing.",
+    "The recovered serialization convention does not retroactively rewrite Run 003.",
+    "The user's locally generated SEMANTIC_EVIDENCE_MAPPING_WITH_RANGE_SERIALIZATION_v0_1.json is not claimed byte-preserved here because its full bytes were not supplied."
+  ],
+  "next_gate": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001"
+}
