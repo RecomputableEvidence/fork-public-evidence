@@ -1,15 +1,26 @@
 {
-  "record_id": "FORK-CURRENT-STATE-ROUTING-20260923-002",
+  "record_id": "FORK-CURRENT-STATE-ROUTING-20260924-003",
   "schema_version": "v0.1",
-  "as_of_date": "2026-09-23",
+  "as_of_date": "2026-09-24",
+  "current_repository_coordinate": {
+    "branch": "main",
+    "commit": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+    "through_pr": 178
+  },
   "current_program_standing": {
-    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json",
-    "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_8",
-    "snapshot_date": "2026-09-23",
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_9.json",
+    "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_9",
+    "snapshot_date": "2026-09-24",
     "csh_object_id": "cross_system_claim_handoff_v0_1",
     "expected_research_state": "BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED",
     "expected_gate": "BLOCKED_RECEIVER_RETIRED",
     "expected_continue_frozen_baseline": false
+  },
+  "previous_program_standing": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json",
+    "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_8",
+    "snapshot_date": "2026-09-23",
+    "classification": "PRESERVED_PREDECESSOR_NOT_CURRENT_ROUTE"
   },
   "historical_snapshots": [
     {
@@ -26,11 +37,28 @@
     "retroactive_completion": false,
     "replacement": false
   },
-  "routing_rule": "A historical snapshot may differ from later state. A surface claiming current standing must agree with its declared current source on shared fields and must not present historical state as current.",
+  "open_candidate_snapshot": {
+    "path": "docs/current-standing/OPEN_CANDIDATE_STANDING_SNAPSHOT_20260924_v0_1.json",
+    "observed_at": "2026-09-24T23:47:00Z",
+    "open_count": 18,
+    "source_pr_effect": "NONE"
+  },
+  "five_layer_run_005": {
+    "id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-005-EXTERNAL-ADJUDICATION-001",
+    "status": "EXTERNAL_ADJUDICATION_DISPATCH_PREPARED_NOT_RETURNED",
+    "dispatch_pr": 178,
+    "external_result_repository_preserved": false,
+    "external_result_repository_admitted": false,
+    "synthetic_lane_opened": false
+  },
+  "routing_rule": "A historical snapshot or original PR description may differ from later state. A surface claiming current standing must agree with the declared current source on shared fields and must not present historical, unmerged, off-repository, or cross-branch state as current by inheritance.",
   "non_claims": [
     "Routing agreement does not validate the underlying research result.",
-    "The successor candidate is not frozen or executed by this routing record.",
-    "Historical snapshots remain unchanged."
+    "The CSH successor candidate is not promoted by this routing record.",
+    "The 18-entry open-candidate snapshot modifies no source PR and gives open status no standing effect.",
+    "PR #123 preservation-branch source-evidence admission for #65/#100 is not represented as main-branch proof-packaging admission.",
+    "No off-repository Run 005 return is represented as preserved or admitted.",
+    "Historical snapshots and predecessor registers remain unchanged."
   ],
   "superseded_routing_copy": "docs/observations/FORK-REPRESENTATIONAL-LATENCY-OBSERVATION-001/v0.1/sources/main/docs/state/CURRENT_STATE_ROUTING_v0_1.json"
 }
