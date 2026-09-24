@@ -1,0 +1,35 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PARENT-COMPILATION-BINDING-001",
+  "original_name": "thread_commentary_compiled_2026-09-23.txt",
+  "original_byte_count": 334735,
+  "original_line_count": 5317,
+  "original_sha256": "c9ba196efa8709279d8967716ec690bbc5f3112ab5d38e67683768ebe1f62bbf",
+  "encoding": "utf-8",
+  "transport": {
+    "compression": "gzip level 9, mtime=0, empty filename",
+    "compressed_byte_count": 75370,
+    "compressed_sha256": "8c9a6d3d1c0886cce5f0a8639be860ebde44d79c77326ff888024b9ab4be9939",
+    "encoding": "RFC 4648 base64 ASCII split into nine ordered repository-resident part files; concatenate with no inserted separators, base64-decode, then gunzip",
+    "base64_char_count": 100496,
+    "parts": [
+      {"path": "parent.gzip.base64.parts/part-001.b64", "byte_count": 12560, "sha256": "0bf73f1c1e29ba1af1364bf7cd5b1fe08c0ac5e1fd60712604b23d0610b2af4b"},
+      {"path": "parent.gzip.base64.parts/part-002.b64", "byte_count": 12560, "sha256": "c4a82651b17f0adae5fa70de8ac71fc1f00b5ffc49d11f2c245e762a79bbf9b9"},
+      {"path": "parent.gzip.base64.parts/part-003.b64", "byte_count": 12560, "sha256": "c59668f016a15a45db38d5edee36cc1fd6c6820114e66dd05bc4e9ab1e63ac43"},
+      {"path": "parent.gzip.base64.parts/part-004.b64", "byte_count": 12560, "sha256": "5d42f632b83aea5150a67f0de91eef6188fa9ad3c61fae650080098f9aa9ef61"},
+      {"path": "parent.gzip.base64.parts/part-005.b64", "byte_count": 12560, "sha256": "5a7d52135fcb2f9ac7899b375d934adf7a52c98eca3ae8317b489c9ae49aeeb6"},
+      {"path": "parent.gzip.base64.parts/part-006.b64", "byte_count": 12560, "sha256": "626077dd5d331c7886fe3ef4c0af8d712f66cd74d52e859e4559a3121f2a7be3"},
+      {"path": "parent.gzip.base64.parts/part-007.b64", "byte_count": 12560, "sha256": "66dd32da0de3f9ee07b47a75c658d3360526ccd5f2b8ed7e7c80d521579a2cba"},
+      {"path": "parent.gzip.base64.parts/part-008.b64", "byte_count": 12560, "sha256": "d6f8c8968877f877e53a34f5d3f4c89384b3086cba055e6884a62932af309b8e"},
+      {"path": "parent.gzip.base64.parts/part-009.b64", "byte_count": 16, "sha256": "5d70b9eac1627277d4b689373024e8d3012a602577e9762f433ff31c23da4b25"}
+    ]
+  },
+  "run001_target_prefix": {
+    "line_range": [1, 4026],
+    "byte_count": 262318,
+    "sha256": "a35124bb73fb3ac81bc01e66c60a68fe875f912f377f9aa02ef617d066f33583",
+    "next_excluded_source_marker": "SOURCE 10: Pasted markdown(20260923-131442).md",
+    "next_excluded_source_marker_line": 4028
+  },
+  "verification_rule": "Verify every ordered part hash/size; concatenate the nine ASCII part bytes with no separators; RFC-4648 Base64-decode; verify gzip byte count/hash; gunzip; verify original parent byte count/hash/line count; then verify lines 1-4026 hash to the Run 001 target and line 4028 contains the declared Source 10 marker.",
+  "historical_effect": "NONE"
+}

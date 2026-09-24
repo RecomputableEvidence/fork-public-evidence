@@ -1,0 +1,27 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-002-PACKAGING-REPAIR-RECOMPUTATION-001-SOURCE-BINDINGS",
+  "subject_commit": "243ece21674dd58602787edc88eed43cda6eb59c",
+  "subject_tree": "996a3bb87152818305bb0966fb48a0845e84df94",
+  "pull_request": 174,
+  "base_commit": "81816bc4daaf0db665ed32b467e1516ae13bc0a6",
+  "subject_files": {
+    "DETECTOR_SPECIFICATIONS_M11_M25.json": {
+      "git_blob_sha": "83243130e9ad758d1abcd31824fdf44023f95382"
+    },
+    "PARENT_COMPILATION_BINDING.json": {
+      "git_blob_sha": "bdf266ea449c449fedea3df098f80420d4db1697"
+    },
+    "STAGE1A_OFFSET_CONVENTION.md": {
+      "git_blob_sha": "ffa439f2d2bd52d4f830e8b1e87f9e9e1da16ba1"
+    },
+    "REVISED_M21_M25_SELF_AUDIT_STANDING.json": {
+      "git_blob_sha": "a961398015b7903a17f39342c087d17d467e1407"
+    }
+  },
+  "local_execution_evidence": {
+    "transport": "USER_PROVIDED_POWERSHELL_TRANSCRIPT_AND_SCREENSHOTS_IN_CHAT",
+    "repository_copy_present": false,
+    "reason": "The freeze records the observed recomputation results and attempt history; the raw chat transcript/screenshots are not asserted to be repository-resident."
+  },
+  "semantic_rerun_performed": false
+}

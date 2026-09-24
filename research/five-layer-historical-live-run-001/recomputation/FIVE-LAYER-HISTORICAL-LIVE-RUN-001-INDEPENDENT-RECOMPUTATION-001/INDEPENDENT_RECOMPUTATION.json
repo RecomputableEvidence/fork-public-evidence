@@ -1,0 +1,62 @@
+{
+  "package_sha256": "3ec4e66730fd8b6c3ef99803e298285aa959ad3d1b4f2a51813438f1f563cba0",
+  "mechanical_recomputation": {
+    "hash_manifest": "ALL_ENTRIES_VERIFIED",
+    "json_parse": "ALL_JSON_VALID",
+    "target_bytes": 262318,
+    "target_lines": 4026,
+    "synthesis_bytes": 8812,
+    "stage1a": {
+      "blocks": 45,
+      "headings": 12,
+      "prose_paragraphs": 28,
+      "list_items": 5,
+      "exact_reconstruction": true
+    },
+    "stage1b": {
+      "selected": 9,
+      "excluded": 36,
+      "selected_findings": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09"
+      ],
+      "exact_rule_reproduction": true
+    },
+    "stage2b": {
+      "triggered": 3,
+      "evaluation_abstained": 2,
+      "scoped_non_trigger": 5
+    },
+    "stage3": {
+      "formal_adjudicated_count": 0
+    }
+  },
+  "semantic_reassessment": {
+    "M11": "EVALUATION_ABSTAINED",
+    "M12": "TRIGGERED_WITH_SCOPE_CAVEAT",
+    "M13": "EVALUATION_ABSTAINED",
+    "M14": "TRIGGERED_STRONG",
+    "M15": "SCOPED_NON_TRIGGER_CONSISTENT",
+    "M16": "SCOPED_NON_TRIGGER_CONSISTENT",
+    "M17": "SCOPED_NON_TRIGGER_CONSISTENT",
+    "M18": "TRIGGERED_SAME_UNDERLYING_SEAM_AS_M12",
+    "M19": "SCOPED_NON_TRIGGER_CONSISTENT",
+    "M20": "SCOPED_NON_TRIGGER_CONSISTENT"
+  },
+  "unique_triggered_seams": 2,
+  "additional_observations": [
+    "F07 extends beyond subset ordering: ROLE_REINTERPRETED also applies set intersection/empty-set semantics to structured proposition vectors without an explicit denotation.",
+    "F08 is strengthened by the final global status enum omitting earlier explicit BLOCKED_UPSTREAM and UNMEASURABLE states.",
+    "M11-M25 formal criteria are not included, so semantic detector outcomes are not fully independently reproducible from the package alone.",
+    "The full parent compilation is absent, so its declared hash/size and the Source-10 line-4028 cutoff cannot be independently verified.",
+    "Stage1A end offsets include terminal LF while verbatim_text omits it; the offset convention should be documented.",
+    "M22/M25 self-audit results are not independently certifiable without their formal criteria; declared conditioning/procedural separation do not establish epistemic independence."
+  ]
+}
