@@ -1,0 +1,21 @@
+{
+  "object_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001",
+  "contract_id": "EVIDENCE_RANGE_HASH_SERIALIZATION_v0_1",
+  "algorithm": "SHA-256",
+  "line_numbering": "one_based",
+  "bounds": "inclusive",
+  "source_decoding": "UTF-8",
+  "bom": "excluded",
+  "interline_separator": "LF",
+  "terminal_separator": "LF",
+  "hashed_representation": "selected_lines_joined_with_LF_plus_final_LF",
+  "canonical_procedure": [
+    "Select lines line_start through line_end inclusive.",
+    "Join selected decoded lines with LF (0x0A).",
+    "Append one terminal LF (0x0A).",
+    "Encode the resulting text as UTF-8 without BOM.",
+    "Compute SHA-256 over those bytes."
+  ],
+  "applicability": "Prospective clarification for recomputing Run 003 evidence-range hashes and successor runs that explicitly bind this contract.",
+  "retroactive_effect": "NONE"
+}

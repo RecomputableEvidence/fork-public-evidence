@@ -1,0 +1,27 @@
+{
+  "record_id": "RUN003_RANGE_HASH_BINDING_UNCHANGED_001",
+  "subject_mapping_object": "FIVE-LAYER-HISTORICAL-LIVE-RUN-003-SEMANTIC-RERUN-001",
+  "range_count": 17,
+  "range_hashes_changed": false,
+  "ranges_changed": false,
+  "serialization_contract": "EVIDENCE_RANGE_HASH_SERIALIZATION_v0_1",
+  "ranges": [
+    {"fixture_id":"M11","role":"D_X_SEPARATION","line_start":1551,"line_end":1552,"sha256":"bac862447ecf2fb67d3720a1e2dd919ccb6afe87cbcffbdf558be37eea55db7e"},
+    {"fixture_id":"M12","role":"NON_BINARY_BOUNDARY_STATE_SPACE","line_start":1569,"line_end":1585,"sha256":"e3bebd9f4d5ac95d5c12651de02be467c0c1010a871a960b73d7c9ef051a5049"},
+    {"fixture_id":"M12","role":"DOWNSTREAM_SCHEMA","line_start":3980,"line_end":4005,"sha256":"7c0ed18e69c35b30930a06981d036c3d409aae1514516bd7466816e2bddc67ac"},
+    {"fixture_id":"M13","role":"UNCERTAINTY_STATES","line_start":1576,"line_end":1585,"sha256":"40706945fdc22d09284ba7be928bfa2b808401aaa8d3c8642df6928cc43a7b9f"},
+    {"fixture_id":"M13","role":"BOOLEAN_FIELD","line_start":4000,"line_end":4005,"sha256":"5884a06c62847727c94b83edafafd0a55e84c6f494c799da1abc287f6a88ecd2"},
+    {"fixture_id":"M13","role":"DOWNSTREAM_VIOLATED_RULE","line_start":4020,"line_end":4022,"sha256":"4dc4f6417f1f1a53f6474145ca6aebaf505affc1f05268b61f5cbe78900c5a6a"},
+    {"fixture_id":"M14","role":"STRUCTURED_PROPOSITION_VECTOR","line_start":3681,"line_end":3693,"sha256":"1f3f3246869bdad87355db8765dcb49da6cfbbc87fa273e0d19c5e60355eb87d"},
+    {"fixture_id":"M14","role":"SET_OPERATOR_USE","line_start":3723,"line_end":3735,"sha256":"1a8180282ca9408f661bf47e53f74931fef6f82455e667da395fe15ee6583526"},
+    {"fixture_id":"M15","role":"NATIVE_RETROSPECTIVE_SEPARATION","line_start":3698,"line_end":3721,"sha256":"c9cb0574577a037feee7c57dc8f4374abcc84501f36f3e5c7faed8707547669f"},
+    {"fixture_id":"M16","role":"PRESENCE_EXECUTION_SEPARATION","line_start":1551,"line_end":1553,"sha256":"4904cee3d8d3536df136eab11d5faddf4c48879b3338d7791774cc51b3c1a5f9"},
+    {"fixture_id":"M17","role":"NON_VIOLATION_NOT_CONSERVATION","line_start":1567,"line_end":1594,"sha256":"ef3863d0036d9f81475da3b6149737aa1a9e951bb2de42f1c46edae06bcc504b"},
+    {"fixture_id":"M17","role":"POSITIVE_CONSERVATION_REQUIREMENT","line_start":3773,"line_end":3779,"sha256":"b93ff7fd2b9e28740726a98dd851d516fb03ced6dbecb6cc73a9982faf1e191f"},
+    {"fixture_id":"M18","role":"GOVERNING_STATE_SPACE","line_start":1569,"line_end":1585,"sha256":"e3bebd9f4d5ac95d5c12651de02be467c0c1010a871a960b73d7c9ef051a5049"},
+    {"fixture_id":"M18","role":"CONCRETE_SCHEMA_STATE_SPACE","line_start":3980,"line_end":4005,"sha256":"7c0ed18e69c35b30930a06981d036c3d409aae1514516bd7466816e2bddc67ac"},
+    {"fixture_id":"M19","role":"ROLE_DISTINCT_IDENTIFIERS_AND_CONTEXTS","line_start":3918,"line_end":3962,"sha256":"3cf31d03bf387b5030fb98b85e0e92f7a7d50fb38b4db78d22a1a0f1661cac80"},
+    {"fixture_id":"M20","role":"MULTIDIMENSIONAL_RETENTION","line_start":1491,"line_end":1496,"sha256":"deeb918c859190ef1a15e43bcead629a6af70521b6df6d198d9a11292acc75bb"},
+    {"fixture_id":"M20","role":"MULTI_SURFACE_CONSERVATION","line_start":3756,"line_end":3779,"sha256":"28a4a19148713a0494ba93a0ea4fca70dd98ff600caee4fa71fe1d6c62042d4c"}
+  ]
+}
