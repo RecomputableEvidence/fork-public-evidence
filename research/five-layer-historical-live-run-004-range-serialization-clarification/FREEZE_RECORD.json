@@ -1,0 +1,10 @@
+{
+  "record_id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-004-RANGE-SERIALIZATION-CLARIFICATION-001-FREEZE-001",
+  "disposition": "PROSPECTIVE_RANGE_SERIALIZATION_CLARIFICATION_FROZEN",
+  "substantive_change_count": 1,
+  "range_count_bound": 17,
+  "range_hashes_changed": false,
+  "detector_results_changed": false,
+  "stage3_effect": "NONE",
+  "next_gate": "MERGE_RETARGET_STACK_THEN_EXTERNAL_ADJUDICATION"
+}
