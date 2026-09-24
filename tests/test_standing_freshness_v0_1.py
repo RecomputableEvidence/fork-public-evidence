@@ -1,4 +1,4 @@
-"""Adversarial regressions for lost/reverted admissions and false accounting."""
+"""Adversarial regressions for lost/reverted admissions, false accounting, and base-reset loss."""
 import copy
 import importlib.util
 import subprocess
@@ -59,6 +59,21 @@ def test_scope_is_explicit(history):
     assert freshness.recognized_transitions(root, base) == set()
 
 
+def test_exact_closing_ref_excludes_later_transition(history):
+    root, base, p = history
+    p.write_text('"first"\n')
+    git(root, "add", ".")
+    git(root, "commit", "-m", "first")
+    closing = git(root, "rev-parse", "HEAD")
+    p.write_text('"second"\n')
+    git(root, "add", ".")
+    git(root, "commit", "-m", "second")
+    closed = freshness.recognized_transitions_between(root, base, closing)
+    current = freshness.recognized_transitions(root, base)
+    assert len(closed) == 1
+    assert len(current) == 2
+
+
 def test_missing_base_fails(history):
     root, _, _ = history
     with pytest.raises(subprocess.CalledProcessError):
@@ -77,27 +92,46 @@ def test_current_specimen_and_standing_verify():
     assert result["status"] == "PASS", result["errors"]
 
 
-def test_missing_accounting_is_not_silently_accepted(monkeypatch):
+def test_missing_active_accounting_is_not_silently_accepted(monkeypatch):
     monkeypatch.setattr(freshness, "recognized_transitions", lambda *_: {("admissions/new.json", None, "a" * 40)})
     result = freshness.evaluate(ROOT)
-    assert any("Unaccounted recognized transition" in e for e in result["errors"])
+    assert any("Unaccounted active recognized transition" in e for e in result["errors"])
+
+
+def test_predecessor_accounting_must_close_before_base_move(monkeypatch):
+    real_between = freshness.recognized_transitions_between
+    predecessor = freshness.load(ROOT / "docs/current-standing/PROGRAM_CHANGE_ACCOUNTING_v0_2.json")["predecessor_accounting"]
+    def mutated(root, base, end):
+        result = real_between(root, base, end)
+        if base == predecessor["coverage_base_commit"] and end == predecessor["verified_through_commit"]:
+            result = set(result)
+            result.add(("admissions/unrecorded.json", None, "f" * 40))
+        return result
+    monkeypatch.setattr(freshness, "recognized_transitions_between", mutated)
+    result = freshness.evaluate(ROOT)
+    assert any("Unaccounted predecessor recognized transition" in e for e in result["errors"])
 
 
 @pytest.mark.parametrize("change,expected", [
     ("manifest", "manifest binding differs"),
-    ("promote", "bounded successor state was promoted"),
+    ("promote", "successor state was promoted"),
     ("route", "does not name the current standing"),
+    ("run005", "Run 005 repository boundary was promoted"),
 ])
 def test_binding_and_promotion_failures(monkeypatch, change, expected):
     real_load = freshness.load
     def mutated(path):
         value = copy.deepcopy(real_load(path))
-        if path.name == "FORK_CURRENT_WORK_REGISTER_v0_8.json":
+        if path.name == "FORK_CURRENT_WORK_REGISTER_v0_9.json":
             if change == "manifest":
                 value["observation"]["manifest_sha256"] = "0" * 64
             if change == "promote":
-                value["delta_objects"][1]["receiver_registry_frozen"] = True
-        if path.name == "PROGRAM_CHANGE_ACCOUNTING_v0_1.json" and change == "route":
+                successor = next(x for x in value["delta_objects"] if x["id"] == "CSH-S001-v0.1")
+                successor["receiver_registry_frozen"] = True
+            if change == "run005":
+                run005 = next(x for x in value["delta_objects"] if x["id"] == "FIVE-LAYER-HISTORICAL-LIVE-RUN-005-EXTERNAL-ADJUDICATION-001")
+                run005["external_result_repository_admitted"] = True
+        if path.name == "PROGRAM_CHANGE_ACCOUNTING_v0_2.json" and change == "route":
             value["standing_register"] = "old.json"
         return value
     monkeypatch.setattr(freshness, "load", mutated)
