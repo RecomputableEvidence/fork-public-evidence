@@ -1,0 +1,46 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG1_ARTIFACT_IDENTITY_ADMISSION",
+  "attempt_id": "CAPTURE_001_AG1_ARTIFACT_IDENTITY_ATTEMPT_002",
+  "status": "AG1_IDENTITY_REQUIREMENTS_SATISFIED_FOR_CAPTURED_BYTES",
+  "capture_id": "CAPTURE_001",
+  "capture_state": "OPENED_IDENTITY_BOUND",
+  "parent_attempt": "CAPTURE_001_AG1_ARTIFACT_IDENTITY_ATTEMPT_001",
+  "observed_at_utc": "2026-09-25T04:49:30.302837Z",
+  "acquisition": {
+    "method": "conversation_upload",
+    "observed_filename": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "exact_bytes_acquired": true,
+    "binary_executed": false,
+    "archive_extracted": false,
+    "repository_binary_embedding": false,
+    "note": "Exact uploaded bytes were read only to determine byte length and SHA-256. The binary bytes themselves are not embedded in this Git repository receipt."
+  },
+  "locally_observed_identity": {
+    "byte_length": 6275652,
+    "sha256": "5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739"
+  },
+  "prior_locator_metadata": {
+    "source": "https://api.github.com/repos/googleworkspace/cli/releases/tags/v0.22.1",
+    "asset_id": 381438738,
+    "reported_filename": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "reported_byte_length": 6275652,
+    "reported_sha256": "5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739"
+  },
+  "identity_comparison": {
+    "filename_match": true,
+    "byte_length_match": true,
+    "sha256_match": true,
+    "result": "MATCH_TO_PRIOR_LOCATOR_METADATA"
+  },
+  "ag1_disposition": "ARTIFACT_IDENTITY_ADMITTED_FOR_CAPTURE_001",
+  "non_claims": [
+    "ARTIFACT_IDENTITY_ADMITTED_FOR_CAPTURE_001 != RELEASE_TO_ARTIFACT_RELATION_EVALUATED",
+    "DIGEST_MATCH != ATTESTATION_VERIFIED",
+    "DIGEST_MATCH != SOFTWARE_SAFE",
+    "DIGEST_MATCH != DEPLOYMENT_AUTHORIZED",
+    "AG1_PASSED != AG2_AUTHORIZED"
+  ],
+  "next_gate": "AG2_SOURCE_OBSERVATION_ADMISSION",
+  "next_gate_state": "UNOPENED"
+}
