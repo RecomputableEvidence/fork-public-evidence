@@ -1,0 +1,23 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "artifact": "AG0_CONCEPTUAL_FREEZE_v0_1.md",
+  "freeze_status": "FROZEN_FOR_THIS_VERSION",
+  "freeze_scope": "CONCEPTUAL_AND_EXECUTION_GOVERNANCE_MODEL_ONLY",
+  "base_coordinate": "main@56b4e064fa061417a82b7017f56d0dd98f225aa5",
+  "artifact_byte_length": 14959,
+  "artifact_sha256": "f45c957552f504bb3bdad9de9fed1644d982042506e0c72519e8a6d1fc5a5249",
+  "source_review_001": "AVAILABLE_NOT_PRESERVED",
+  "assertion_decomposition": "UNOPENED",
+  "r0_r3_reproduction": "UNOPENED",
+  "repair": "UNAUTHORIZED",
+  "elg_admission": "UNOPENED",
+  "research_promotion": "UNAUTHORIZED",
+  "non_claims": [
+    "FREEZE_DOES_NOT_ESTABLISH_OPERATIONAL_VALIDITY",
+    "FREEZE_DOES_NOT_CONFIRM_ANY_EXTERIOR_TECHNICAL_ASSERTION",
+    "FREEZE_DOES_NOT_PRESERVE_SOURCE_REVIEW_001",
+    "FREEZE_DOES_NOT_AUTHORIZE_REPAIR",
+    "FREEZE_DOES_NOT_AUTHORIZE_ELG_ADMISSION",
+    "FREEZE_DOES_NOT_PROMOTE_RESEARCH_HYPOTHESIS"
+  ]
+}
