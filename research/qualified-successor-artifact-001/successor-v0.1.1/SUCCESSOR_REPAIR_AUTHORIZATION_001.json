@@ -1,0 +1,44 @@
+{
+  "artifact_id": "QSA-001-v0.1.1-SUCCESSOR-REPAIR-AUTHORIZATION-001",
+  "authorized_repairs": [
+    {
+      "authorization": "Independently enforce valid_from <= event_time <= valid_until and non-revoked/non-suspended status at submission, inspection, and adoption.",
+      "id": "QSA-RC-001",
+      "surface": "TEMPORAL_QUALIFICATION_ENFORCEMENT"
+    },
+    {
+      "authorization": "Generalize the reference state/adoption model sufficiently to represent more than two canonical states and reject adoption from a non-current stale parent.",
+      "id": "QSA-RC-002",
+      "surface": "GENERALIZED_CANONICAL_CHAIN_AND_STALE_PARENT_HANDLING"
+    },
+    {
+      "authorization": "Add test-only fixture-signing capability using explicitly segregated adversarial test keys so validly signed but relationally inconsistent fixtures can pressure parent, build-mark, qualification, and related gates.",
+      "id": "QSA-RC-003",
+      "surface": "DEEP_INVARIANT_PRESSURE_FIXTURE_SIGNING"
+    }
+  ],
+  "explicit_non_authorizations": [
+    "NO_CHANGE_TO_QSA_CONCEPTUAL_KERNEL",
+    "NO_REWRITE_OF_V0_1_REFERENCE",
+    "NO_REWRITE_OF_PRIOR_PRESSURE_RESULTS",
+    "NO_CHANGE_TO_SIGNATURE_VALIDITY_SEMANTICS",
+    "NO_CHANGE_TO_NON_INHERITANCE_PRINCIPLES",
+    "NO_BOOTSTRAP_AUTHORIZATION",
+    "NO_PRODUCTION_READINESS_CLAIM",
+    "NO_REAL_WORLD_GOVERNANCE_FIT_CLAIM"
+  ],
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "predecessor_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "pressure_return_commit": "8c641e27d89f0513b00af1d0349d6cf6af3f7a5b",
+  "standing": "AUTHORIZED_NARROW_SUCCESSOR_REPAIR",
+  "successor_branch": "research/qsa-001-v0.1.1-successor",
+  "successor_requirements": [
+    "PRESERVE_V0_1_BYTES_UNCHANGED",
+    "ADD_SUCCESSOR_AS_SEPARATE_PATH",
+    "RUN_BASELINE_REGRESSION",
+    "RUN_A1_THROUGH_A12_REGRESSION",
+    "RUN_FOCUSED_REPAIR_PROBES_A4R_A5R_A6R1_A6R2_A6R3_A7R",
+    "PRESERVE_ANY_FAILURE_BEFORE_REPAIRING_AGAIN",
+    "WITHHOLD_BOOTSTRAP_UNTIL_SUCCESSOR_DISPOSITION"
+  ]
+}
