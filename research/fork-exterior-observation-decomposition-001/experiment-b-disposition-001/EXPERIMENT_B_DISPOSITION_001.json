@@ -1,0 +1,65 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "artifact_id": "EXPERIMENT-B-DISPOSITION-001",
+  "criteria_id": "HANDOFF-GOVERNANCE-CRITERIA-001",
+  "source_review_id": "SOURCE-REVIEW-002",
+  "source_review_002_content_sha256": "373001968f75f01c344d137866ecb04ae230d069d284394b8144fceecaed018a",
+  "source_review_002_preservation_commit": "d734710008116c21fa6870a619753860c273bb7f",
+  "assertion_register_001_status": "IMMUTABLE_HISTORICAL_DECOMPOSITION",
+  "overall_result": "FAIL",
+  "overall_rule": "ANY_REQUIRED_CRITERION_FAILS",
+  "criteria": [
+    {
+      "criterion_id": "HG-001",
+      "result": "FAIL",
+      "basis": "Mixed/strengthened standing in ER-001, ER-007, ER-011, ER-018; scope risks ER-010/ER-017; weak source grounding ER-002/ER-005; omitted licensing concession and recommendation-priority relation."
+    },
+    {
+      "criterion_id": "HG-002",
+      "result": "PASS",
+      "basis": "ER-048..ER-054 remain nontechnical recommendations and confer no repair authority."
+    },
+    {
+      "criterion_id": "HG-003",
+      "result": "PASS",
+      "basis": "UNRESOLVED_ATOMIC_COORDINATE preserved; reviewer confirms no single atomic review coordinate can honestly be claimed."
+    },
+    {
+      "criterion_id": "HG-004",
+      "result": "PASS",
+      "basis": "ER-008 method disclosure and unresolved coordinate remain explicit."
+    },
+    {
+      "criterion_id": "HG-005",
+      "result": "PASS",
+      "basis": "No Fork-derived classification is attributed to reviewer."
+    },
+    {
+      "criterion_id": "HG-006",
+      "result": "INCONCLUSIVE",
+      "basis": "Reviewer could not recompute byte spans; no independent span-verification standing is inferred."
+    },
+    {
+      "criterion_id": "HG-007",
+      "result": "INCONCLUSIVE",
+      "basis": "Reviewer received only part of human-readable register; full downstream rendering not independently reviewed."
+    },
+    {
+      "criterion_id": "HG-008",
+      "result": "FAIL",
+      "basis": "ER-001, ER-007, ER-011, ER-018 combine differently grounded or evaluative material inside technical standing."
+    },
+    {
+      "criterion_id": "HG-009",
+      "result": "PASS",
+      "basis": "SOURCE-REVIEW-001 unchanged after freeze; backslash-tilde note concerns capture provenance, not post-freeze mutation."
+    }
+  ],
+  "non_claims": [
+    "Experiment B failure does not invalidate FEOD-001 as a model.",
+    "Criterion failure does not establish technical correctness or incorrectness of the original repository findings.",
+    "HG-006 remains inconclusive rather than failed or passed.",
+    "No repair, ELG admission, or general research claim is authorized."
+  ],
+  "successor_required": "ASSERTION-REGISTER-CORRECTION-001"
+}
