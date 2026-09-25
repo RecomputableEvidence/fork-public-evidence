@@ -1,0 +1,74 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG1_ARTIFACT_IDENTITY_ADMISSION",
+  "attempt_id": "AG1_ATTEMPT_001",
+  "capture_id": "CAPTURE_001",
+  "capture_state": "OPENED_INCOMPLETE",
+  "repository_parent_commit": "883e4aad6667b06a9e4d2eb6a5d23f435afcfe68",
+  "locator_observation_interval_utc": {
+    "start": "2026-09-25T04:40:52.181313969Z",
+    "end": "2026-09-25T04:40:57.825558504Z"
+  },
+  "locator_source": {
+    "kind": "GITHUB_RELEASE_API",
+    "url": "https://api.github.com/repos/googleworkspace/cli/releases/tags/v0.22.1",
+    "purpose": "LOCATE_SELECTED_FIXTURE_ONLY",
+    "relation_standing_admitted": false
+  },
+  "selected_fixture": {
+    "repository": "googleworkspace/cli",
+    "release_tag": "v0.22.1",
+    "artifact_name": "google-workspace-cli-x86_64-pc-windows-msvc.zip"
+  },
+  "locator_observation": {
+    "release_id": 301345178,
+    "release_tag": "v0.22.1",
+    "release_target_commitish_reported": "45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+    "asset_id": 381438738,
+    "asset_name": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "asset_content_type": "application/zip",
+    "asset_state_reported": "uploaded",
+    "asset_size_reported_bytes": 6275652,
+    "asset_digest_reported_by_github_api": "sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739",
+    "browser_download_url": "https://github.com/googleworkspace/cli/releases/download/v0.22.1/google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "asset_created_at_reported": "2026-03-25T17:37:33Z",
+    "asset_updated_at_reported": "2026-03-25T17:37:34Z"
+  },
+  "acquisition_attempts": [
+    {
+      "method": "container_download_from_browser_download_url",
+      "result": "FAILED",
+      "reason": "BINARY_DOWNLOAD_NOT_ACQUIRED_BY_AVAILABLE_DOWNLOAD_PATH"
+    },
+    {
+      "method": "direct_container_curl",
+      "result": "FAILED",
+      "reason": "EXECUTION_ENVIRONMENT_DNS_NETWORK_UNAVAILABLE"
+    },
+    {
+      "method": "github_connector_binary_fetch",
+      "result": "UNAVAILABLE",
+      "reason": "CONNECTOR_FETCH_CONTRACT_REJECTS_NON_UTF8_BINARY_RESPONSES"
+    }
+  ],
+  "artifact_bytes": {
+    "acquired": false,
+    "frozen_copy_present": false,
+    "observed_local_byte_length": null,
+    "computed_sha256": null
+  },
+  "ag1_result": "ARTIFACT_IDENTITY_NOT_ADMITTED",
+  "ag1_reason": "EXACT_ARTIFACT_BYTES_NOT_ACQUIRED",
+  "reported_metadata_is_not_promoted_to_computed_identity": true,
+  "boundaries": [
+    "REPORTED_ASSET_DIGEST != LOCALLY_COMPUTED_ARTIFACT_DIGEST",
+    "ASSET_METADATA_OBSERVED != ARTIFACT_BYTES_ACQUIRED",
+    "PUBLIC_DOWNLOAD_URL_PRESENT != DOWNLOAD_SUCCEEDED",
+    "ACQUISITION_FAILURE != TARGET_ARTIFACT_FAILURE",
+    "AG1_ATTEMPTED != AG1_PASSED",
+    "CAPTURE_001_OPENED != CAPTURE_001_COMPLETE",
+    "AG1_RESULT != AG2_AUTHORIZATION"
+  ],
+  "relation_edges_evaluated": [],
+  "ag2_state": "UNOPENED"
+}

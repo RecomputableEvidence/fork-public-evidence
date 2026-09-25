@@ -1,0 +1,102 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG7_DEMONSTRATION_VIEW_SELECTION",
+  "phase": "PRESELECTION_FREEZE",
+  "status": "AG7_SELECTION_INPUTS_FROZEN_SELECTION_NOT_YET_PERFORMED",
+  "authorized_by_user": true,
+  "parent_ag6_commit": "97674a8501c16d7c662a6a3256c4bc4d4434d6ac",
+  "purpose": {
+    "purpose_id": "AG7-P001",
+    "statement": "For an independent evidence reviewer, present the minimum admitted derivation set sufficient to inspect the two orthogonal AG6 findings and the two explicit non-derivable bridges, while retaining all other admitted derivations and without promoting standing or authority.",
+    "audience_class": "INDEPENDENT_EVIDENCE_REVIEWER",
+    "decision_or_action_use": "NONE"
+  },
+  "source_derivation_object": "AG6_DERIVATION_ADMISSION.json",
+  "source_derivation_ruleset": "FORK-RRD-001-AG6-DERIVE-v0.1",
+  "selection_ruleset": {
+    "ruleset_id": "FORK-RRD-001-AG7-SELECT-v0.1",
+    "mandatory_derivation_ids": [
+      "AG6-D01",
+      "AG6-D02",
+      "AG6-D03",
+      "AG6-D06",
+      "AG6-D07",
+      "AG6-D08",
+      "AG6-D09",
+      "AG6-D10"
+    ],
+    "eligibility_rule": "A candidate view is eligible for purpose AG7-P001 iff its included_derivation_ids contain every mandatory_derivation_id. Eligibility does not alter the standing of the candidate or any underlying derivation.",
+    "selection_rule": "Among eligible candidates, select the candidate with the smallest presentation_element_count. If tied, select the lexicographically smallest view_id. This is a purpose-bound presentation rule, not an evidentiary ranking.",
+    "retention_rule": "Every candidate remains retained and addressable after selection. Non-selection does not imply rejection, invalidity, supersession, or evidentiary inferiority.",
+    "mutation_rule": "Selection may add a selection relation only. It may not modify AG6 derivation objects or candidate definitions.",
+    "promotion_rule": "Selection and presentation prominence do not change edge result classes, derivation standing, authority standing, or action authorization."
+  },
+  "candidate_views": [
+    {
+      "view_id": "AG7-V01-FULL-DERIVATION",
+      "description": "Full AG6 derivation representation.",
+      "included_derivation_ids": [
+        "AG6-D01",
+        "AG6-D02",
+        "AG6-D03",
+        "AG6-D04",
+        "AG6-D05",
+        "AG6-D06",
+        "AG6-D07",
+        "AG6-D08",
+        "AG6-D09",
+        "AG6-D10"
+      ],
+      "presentation_element_count": 10,
+      "standing": "CANDIDATE_VIEW_ONLY"
+    },
+    {
+      "view_id": "AG7-V02-TWO-AXIS-BOUNDARY",
+      "description": "Purpose-bounded representation of identity/representation, resolution/standing, graph non-rewrite, non-derivable continuity and supersession, and no standing strengthening.",
+      "included_derivation_ids": [
+        "AG6-D01",
+        "AG6-D02",
+        "AG6-D03",
+        "AG6-D06",
+        "AG6-D07",
+        "AG6-D08",
+        "AG6-D09",
+        "AG6-D10"
+      ],
+      "presentation_element_count": 8,
+      "standing": "CANDIDATE_VIEW_ONLY"
+    },
+    {
+      "view_id": "AG7-V03-MISSINGNESS-AND-BRIDGES",
+      "description": "Focused representation of repeated missingness, supplemental-surface addition, and non-derivable continuity/supersession bridges.",
+      "included_derivation_ids": [
+        "AG6-D04",
+        "AG6-D05",
+        "AG6-D08",
+        "AG6-D09"
+      ],
+      "presentation_element_count": 4,
+      "standing": "CANDIDATE_VIEW_ONLY"
+    }
+  ],
+  "preselection_state": {
+    "selection_performed": false,
+    "selected_view_id": null,
+    "eligible_view_ids": null,
+    "nonselected_view_disposition": "UNASSIGNED_UNTIL_SELECTION_EXECUTION"
+  },
+  "invariants": [
+    "DERIVED_VIEW_EXISTS != VIEW_ELIGIBLE_FOR_SELECTION",
+    "VIEW_ELIGIBLE_FOR_SELECTION != VIEW_SELECTED_FOR_PURPOSE_P",
+    "VIEW_SELECTED_FOR_PURPOSE_P != OTHER_ELIGIBLE_VIEWS_INVALIDATED",
+    "VIEW_SELECTED_FOR_PURPOSE_P != EVIDENTIARY_PROMOTION",
+    "PRESENTATIONAL_PROMINENCE != EVIDENTIARY_PROMOTION",
+    "NOT_SELECTED != REJECTED",
+    "INELIGIBLE_FOR_PURPOSE_P != EVIDENTIARILY_INVALID",
+    "SELECTED_VIEW != CANONICAL_VIEW",
+    "VIEW_SELECTED_FOR_PURPOSE_P != AUTHORIZED_ACTION",
+    "SELECTION_RECORD_ADDED != PRIOR_DERIVATION_GRAPH_REWRITTEN"
+  ],
+  "next_operation": "AG7_SELECTION_EXECUTION",
+  "next_operation_status": "UNOPENED_AT_THIS_FREEZE"
+}

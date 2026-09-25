@@ -1,0 +1,120 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG3_RELATION_EDGE_PREDECLARATION_INSTANTIATION",
+  "status": "AG3_INSTANTIATED_UNEVALUATED",
+  "capture_id": "CAPTURE_001",
+  "parent_ag2_commit": "ec44b448679c71cfd2b00fc58d3e90445b4ffd16",
+  "purpose": "Instantiate the nine relation-edge classes frozen at AG0 against objects and observations admitted through AG2, without assigning standing.",
+  "global_boundary": {
+    "evaluation_performed": false,
+    "standing_assigned": false,
+    "ag4_opened": false,
+    "rule": "EDGE_OBJECT_EXISTS != EDGE_STANDING_EXISTS"
+  },
+  "edge_objects": [
+    {
+      "edge_id": "AG3-E01",
+      "edge_type": "ARTIFACT_TO_RELEASE_OBJECT",
+      "source_object": "CAPTURE_001_ARTIFACT[sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739]",
+      "target_object": "GITHUB_RELEASE_OBJECT[id:301345178,tag:v0.22.1]",
+      "candidate_evidence_refs": ["AG1_ARTIFACT_IDENTITY", "AG2-SO-001", "AG2-SO-002"],
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E02",
+      "edge_type": "ARTIFACT_TO_PUBLISHED_DIGEST",
+      "source_object": "CAPTURE_001_ARTIFACT[sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739]",
+      "target_object": "PUBLISHED_DIGEST_ASSERTION_OBJECT[checksum_asset_id:381438739]",
+      "candidate_evidence_refs": ["AG1_ARTIFACT_IDENTITY", "AG2-SO-001", "AG2-SO-003"],
+      "evidence_availability_note": "Checksum asset metadata was observed, but the checksum-file content containing the assertion was not captured at AG2.",
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E03",
+      "edge_type": "ARTIFACT_TO_ATTESTATION_SUBJECT",
+      "source_object": "CAPTURE_001_ARTIFACT[sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739]",
+      "target_object": "ATTESTATION_SUBJECT_OBJECT[UNBOUND_AT_AG2]",
+      "candidate_evidence_refs": ["AG1_ARTIFACT_IDENTITY", "AG2-SO-001", "AG2-SO-006", "AG2-SO-010"],
+      "evidence_availability_note": "No attestation bundle or decoded predicate was captured at AG2.",
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E04",
+      "edge_type": "ATTESTATION_TO_SOURCE_REPOSITORY",
+      "source_object": "ATTESTATION_OBJECT[UNBOUND_AT_AG2]",
+      "target_object": "SOURCE_REPOSITORY[googleworkspace/cli]",
+      "candidate_evidence_refs": ["AG2-SO-001", "AG2-SO-006", "AG2-SO-010"],
+      "evidence_availability_note": "No attestation bundle or decoded predicate was captured at AG2.",
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E05",
+      "edge_type": "ATTESTATION_TO_SOURCE_COMMIT",
+      "source_object": "ATTESTATION_OBJECT[UNBOUND_AT_AG2]",
+      "target_object": "SOURCE_COMMIT[45ca45bfd418db07b02995e8510dd18ac45cb3a6]",
+      "candidate_evidence_refs": ["AG2-SO-004", "AG2-SO-005", "AG2-SO-006", "AG2-SO-007", "AG2-SO-010"],
+      "evidence_availability_note": "No attestation bundle or decoded predicate was captured at AG2.",
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E06",
+      "edge_type": "SOURCE_COMMIT_TO_WORKFLOW_REFERENCE",
+      "source_object": "SOURCE_COMMIT[45ca45bfd418db07b02995e8510dd18ac45cb3a6]",
+      "target_object": "WORKFLOW_REFERENCE[.github/workflows/release.yml]",
+      "candidate_evidence_refs": ["AG2-SO-004", "AG2-SO-005", "AG2-SO-006", "AG2-SO-007", "AG2-SO-008", "AG2-SO-009"],
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E07",
+      "edge_type": "CLAIMED_ISSUER_TO_ISSUER_AUTHORITY",
+      "source_object": "CLAIMED_ISSUER_OBJECT[UNBOUND_AT_AG2]",
+      "target_object": "ISSUER_AUTHORITY_RELATION[UNBOUND_AT_AG2]",
+      "candidate_evidence_refs": ["AG2-SO-001", "AG2-SO-006", "AG2-SO-007", "AG2-SO-010"],
+      "evidence_availability_note": "AG2 did not capture an attestation predicate or an independent authority instrument sufficient to bind this relation.",
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E08",
+      "edge_type": "RELATION_TO_TEMPORAL_APPLICABILITY",
+      "source_object": "RELATION_EDGE_SET[AG3-E01..AG3-E07]",
+      "target_object": "CAPTURE_001_TEMPORAL_COORDINATE[AG2_OBSERVATION_WINDOW]",
+      "candidate_evidence_refs": ["AG2-SO-001", "AG2-SO-002", "AG2-SO-003", "AG2-SO-004", "AG2-SO-005", "AG2-SO-006", "AG2-SO-007", "AG2-SO-008", "AG2-SO-009", "AG2-SO-010"],
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    },
+    {
+      "edge_id": "AG3-E09",
+      "edge_type": "RELATION_TO_SUPERSESSION_STATE",
+      "source_object": "RELATION_EDGE_SET[AG3-E01..AG3-E08]",
+      "target_object": "SUPERSESSION_STATE_AT_CAPTURE_001",
+      "candidate_evidence_refs": ["AG2-SO-001", "AG2-SO-004", "AG2-SO-005", "AG2-SO-007"],
+      "evaluation_status": "NOT_EVALUATED",
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "AG4"
+    }
+  ],
+  "invariants": [
+    "EDGE_PREDECLARED != EDGE_SUPPORTED",
+    "EDGE_OBJECT_INSTANTIATED != EDGE_STANDING_ASSIGNED",
+    "CANDIDATE_EVIDENCE_BOUND != EVIDENCE_SUFFICIENT",
+    "MISSING_SOURCE_SURFACE != EDGE_CONTRADICTED",
+    "AG3_COMPLETE != AG4_AUTHORIZED"
+  ],
+  "next_gate": "AG4_DIMENSIONAL_EVALUATION",
+  "next_gate_status": "UNOPENED"
+}

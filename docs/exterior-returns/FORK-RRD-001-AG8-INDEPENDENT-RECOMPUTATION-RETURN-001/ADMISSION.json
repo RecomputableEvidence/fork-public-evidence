@@ -1,0 +1,139 @@
+{
+  "return_object_id": "FORK-RRD-001-AG8-INDEPENDENT-RECOMPUTATION-RETURN-001",
+  "object_type": "EXTERIOR_INDEPENDENT_RECOMPUTATION_RETURN",
+  "status": "REPOSITORY_ADMITTED_EXTERIOR_RETURN",
+  "authorization": "EXPLICIT_USER_AUTHORIZATION",
+  "source_closed_object": {
+    "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+    "closure_commit": "a560de8e1e34ff8ec10da6c4b6ec1fe3f91e5160",
+    "closure_parent": "27fc31e307307164ec3c8026473ce7ce0d007c17",
+    "closed_object_standing": "CLOSED_HISTORICAL_EVIDENCE",
+    "boundary": "EXTERIOR_RETURN_ADMISSION != CLOSED_OBJECT_REOPENED"
+  },
+  "source_archive": {
+    "name": "returns.zip",
+    "byte_length": 6038,
+    "sha256": "645df4be1a4e1d6a4a286fc63085f76adcfd0bf5306cd71e426a4197b9a5ff02",
+    "preservation": "EMBEDDED_AS_EXACT_SOURCE_ARCHIVE_BYTES"
+  },
+  "successful_return": {
+    "directory_id": "RETURN-20260925-002411",
+    "receipt": {
+      "name": "FORK-RRD-001-AG8-INDEPENDENT-RECOMPUTATION-RECEIPT.json",
+      "byte_length": 22257,
+      "sha256": "470bc0b590ca26cfbd9dd359c188b772d8e5865e06b2ee25cc42ab5ff0ce7476"
+    },
+    "console": {
+      "name": "FORK-RRD-001-AG8-INDEPENDENT-RECOMPUTATION-CONSOLE.txt",
+      "byte_length": 730,
+      "sha256": "4a5a963b954ae63af2eed81e9c0bee210a2d55e1e462d6c4aaba821ac05c100e",
+      "encoding_observed": "UTF-16"
+    },
+    "manifest": {
+      "name": "RETURN_SHA256SUMS.txt",
+      "byte_length": 347,
+      "sha256": "4a191b756ca433e5f2fa8963580e936d30d46e56d37d02a08c486834b7ff84bd"
+    },
+    "implementation": "FORK-RRD-001-AG8-INDEPENDENT-RECOMPUTE-v0.1",
+    "generated_utc": "2026-09-25T07:24:12.988212+00:00",
+    "environment": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+      "git": "git version 2.52.0.windows.1"
+    },
+    "summary": {
+      "checks_total": 55,
+      "checks_passed": 55,
+      "checks_failed": 0,
+      "overall_match": true
+    },
+    "computed": {
+      "primary_surfaces": 10,
+      "primary_projection_matches": 10,
+      "primary_projection_changes": 0,
+      "supplemental_surfaces": 1,
+      "artifact_identity_tuple_match": true,
+      "capture_001_distribution": {
+        "SUPPORTED": 3,
+        "CONTRADICTED": 0,
+        "UNRESOLVED": 0,
+        "INSUFFICIENT_EVIDENCE": 6,
+        "NOT_EVALUATED": 0,
+        "OUT_OF_SCOPE": 0
+      },
+      "capture_002_distribution": {
+        "SUPPORTED": 3,
+        "CONTRADICTED": 0,
+        "UNRESOLVED": 0,
+        "INSUFFICIENT_EVIDENCE": 6,
+        "NOT_EVALUATED": 0,
+        "OUT_OF_SCOPE": 0
+      },
+      "edge_class_status_changes": 0,
+      "eligible_view_ids": [
+        "AG7-V01-FULL-DERIVATION",
+        "AG7-V02-TWO-AXIS-BOUNDARY"
+      ],
+      "selected_view_id": "AG7-V02-TWO-AXIS-BOUNDARY",
+      "ag8_status": "AG8_COMPLETE_OBJECT_CLOSED",
+      "ag8_closed_object_standing": "CLOSED_HISTORICAL_EVIDENCE",
+      "general_system_property": "NOT_ESTABLISHED"
+    },
+    "scope": {
+      "fresh_external_observation": false,
+      "artifact_reacquired_or_rehashed": false,
+      "target_executed": false,
+      "runtime_control_performed": false
+    },
+    "receipt_boundary": "OVERALL_MATCH != GENERAL_VERIFICATION; RECOMPUTATION_OF_FROZEN_RECORD != FRESH_EXTERNAL_VERIFICATION"
+  },
+  "source_script_binding": {
+    "name": "recompute_fork_rrd_001_ag8_v0_1.py",
+    "byte_length": 16341,
+    "sha256": "7b9450521e01edcab7b4e192060110e1f39ecb516c072c6769b9398ff5033696",
+    "return_manifest_declared_sha256": "7b9450521e01edcab7b4e192060110e1f39ecb516c072c6769b9398ff5033696",
+    "source_package_sha256_match": true,
+    "script_bytes_embedded_in_return_archive": false,
+    "boundary": "RETURN_MANIFEST_SCRIPT_IDENTITY = SOURCE_PACKAGE_SCRIPT_IDENTITY; SCRIPT_HASH_BOUND != SCRIPT_BYTES_EMBEDDED_IN_RETURN"
+  },
+  "procedural_chronology": {
+    "archive_failed_return_directory": "RETURN-20260925-001906",
+    "archive_failed_return_directory_state": "EMPTY_DIRECTORY_PRESERVED_IN_SOURCE_ARCHIVE",
+    "successful_return_directory": "RETURN-20260925-002411",
+    "operator_transcript_context": "Earlier local run failed before recomputation due placeholder/non-Git repository path handling; the successful rerun followed creation of a fresh Git clone.",
+    "failed_attempt_transcript_embedded_in_source_archive": false,
+    "standing": "PROCEDURAL_FAILURE_BEFORE_RECOMPUTATION_THEN_SUCCESSFUL_RECOMPUTATION"
+  },
+  "identifier_reconciliation": {
+    "receipt_internal_id": "FORK-RRD-001-AG8-INDEPENDENT-RECOMPUTATION-ATTEMPT-001",
+    "procedural_success_ordinal": "SECOND_OPERATOR_RUN_SEQUENCE_AFTER_EARLIER_PROCEDURAL_FAILURE",
+    "classification": "IDENTIFIER_ORDINAL_MISMATCH_ONLY",
+    "boundary": "IDENTIFIER_ORDINAL_MISMATCH != RECOMPUTATION_RESULT_MISMATCH",
+    "receipt_modified": false
+  },
+  "admitted_result": {
+    "checks_total": 55,
+    "checks_passed": 55,
+    "checks_failed": 0,
+    "overall_match": true,
+    "standing": "INDEPENDENT_RECOMPUTATION_MATCH_REPOSITORY_ADMITTED",
+    "closure_coordinate_match": true
+  },
+  "nonclaims": [
+    "No fresh external verification was performed by the recomputation.",
+    "The target artifact was not reacquired or rehashed.",
+    "The target was not executed.",
+    "No runtime control was performed.",
+    "The return does not establish a general system property.",
+    "The return does not change edge standing, authority standing, or action authorization.",
+    "Admission of this exterior return does not reopen or mutate the closed AG8 object."
+  ],
+  "invariants": [
+    "RECOMPUTATION_OF_FROZEN_RECORD != FRESH_EXTERNAL_VERIFICATION",
+    "INDEPENDENT_RECOMPUTATION_MATCH != GENERAL_SYSTEM_VALIDATION",
+    "INDEPENDENT_RECOMPUTATION_MATCH != NEW_EDGE_STANDING",
+    "INDEPENDENT_RECOMPUTATION_MATCH != AUTHORITY_CHANGE",
+    "EXTERIOR_RETURN_ADMISSION != CLOSED_OBJECT_REOPENED",
+    "IDENTIFIER_ORDINAL_MISMATCH != RECOMPUTATION_RESULT_MISMATCH"
+  ]
+}

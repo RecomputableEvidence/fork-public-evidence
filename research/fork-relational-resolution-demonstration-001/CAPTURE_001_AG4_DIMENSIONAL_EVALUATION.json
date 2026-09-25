@@ -1,0 +1,192 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG4_DIMENSIONAL_EVALUATION_ADMISSION",
+  "status": "AG4_COMPLETE",
+  "capture_id": "CAPTURE_001",
+  "parent_ag3_commit": "874947205b9cd1dac5f3268d9d6f25e1a97be7c1",
+  "evidence_boundary": {
+    "artifact_identity": "AG1 admitted exact artifact identity",
+    "source_observation_set": "AG2 admitted CAPTURE_001 source observations",
+    "relation_edge_set": "AG3 instantiated nine predeclared relation-edge objects",
+    "new_external_observations_permitted_during_ag4": false
+  },
+  "ruleset": {
+    "ruleset_id": "FORK-RRD-001-AG4-EVAL-v0.1",
+    "allowed_statuses": [
+      "SUPPORTED",
+      "CONTRADICTED",
+      "UNRESOLVED",
+      "INSUFFICIENT_EVIDENCE",
+      "NOT_EVALUATED",
+      "OUT_OF_SCOPE"
+    ],
+    "status_semantics": {
+      "SUPPORTED": "The bounded admitted evidence directly supports the proposition represented by the edge at the named capture coordinate, without requiring an unadmitted bridge.",
+      "CONTRADICTED": "The bounded admitted evidence directly conflicts with the proposition represented by the edge.",
+      "UNRESOLVED": "The bounded admitted evidence contains relevant ambiguity or conflict that prevents either support or contradiction.",
+      "INSUFFICIENT_EVIDENCE": "A required endpoint, source surface, or proposition-level evidence is absent from the admitted evidence boundary; absence is not contradiction.",
+      "NOT_EVALUATED": "The edge was not evaluated under this AG4 execution.",
+      "OUT_OF_SCOPE": "The proposition lies outside the AG0-bounded question."
+    },
+    "global_rules": [
+      "SOURCE_OBSERVED != RELATION_ESTABLISHED",
+      "MISSING_EVIDENCE != EVIDENCE_OF_ABSENCE",
+      "DIGEST_MATCH != ATTESTATION_VERIFIED",
+      "WORKFLOW_RUN_SUCCESS != ARTIFACT_PROVENANCE_ESTABLISHED",
+      "SUPPORTED_UNDER_BOUND_EVIDENCE != UNIVERSALLY_TRUE",
+      "CONTRADICTED_UNDER_BOUND_EVIDENCE != UNIVERSALLY_FALSE",
+      "LATER_STATE != EARLIER_STATE"
+    ]
+  },
+  "evaluations": [
+    {
+      "edge_id": "AG3-E01",
+      "edge_type": "ARTIFACT_TO_RELEASE_OBJECT",
+      "status": "SUPPORTED",
+      "scope_qualifier": "SUPPORTED_FOR_CAPTURE_001_RELEASE_ASSOCIATION_ONLY",
+      "evidence_refs": ["AG1_ARTIFACT_IDENTITY", "AG2-SO-001", "AG2-SO-002"],
+      "basis": "AG1 bound the exact uploaded artifact by filename, byte length, and locally computed SHA-256. AG2 observed release object 301345178 for tag v0.22.1, whose release body listed the selected filename, and GitHub release-asset object 381438738 reported the same filename, byte length, and SHA-256. No additional provenance or authorization meaning is imported.",
+      "non_claims": [
+        "This does not establish build provenance.",
+        "This does not establish attestation validity.",
+        "This does not establish organizational approval or deployment authorization."
+      ]
+    },
+    {
+      "edge_id": "AG3-E02",
+      "edge_type": "ARTIFACT_TO_PUBLISHED_DIGEST",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "scope_qualifier": "CHECKSUM_ASSERTION_OBJECT_CONTENT_NOT_CAPTURED",
+      "evidence_refs": ["AG1_ARTIFACT_IDENTITY", "AG2-SO-001", "AG2-SO-003"],
+      "basis": "AG2 observed the checksum asset metadata and release linkage, but did not capture the 115-byte checksum-file content. The GitHub-reported digest of the checksum-file object identifies that checksum file itself and is not substituted for the checksum assertion contained inside it.",
+      "non_claims": [
+        "The published checksum assertion is not contradicted.",
+        "The source-reported digest field for release asset 381438738 is not silently promoted into the separately instantiated checksum-assertion edge."
+      ]
+    },
+    {
+      "edge_id": "AG3-E03",
+      "edge_type": "ARTIFACT_TO_ATTESTATION_SUBJECT",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "scope_qualifier": "ATTESTATION_SUBJECT_UNBOUND",
+      "evidence_refs": ["AG1_ARTIFACT_IDENTITY", "AG2-SO-001", "AG2-SO-006", "AG2-SO-010"],
+      "basis": "The release body stated that release artifacts have GitHub Artifact Attestations and the observed workflow text contained an attest-build-provenance step, but AG2 captured no attestation bundle or decoded predicate binding the exact CAPTURE_001 artifact digest as an attestation subject.",
+      "non_claims": [
+        "Attestation existence is not contradicted.",
+        "Workflow attestation configuration is not equivalent to a captured attestation subject binding."
+      ]
+    },
+    {
+      "edge_id": "AG3-E04",
+      "edge_type": "ATTESTATION_TO_SOURCE_REPOSITORY",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "scope_qualifier": "ATTESTATION_OBJECT_UNBOUND",
+      "evidence_refs": ["AG2-SO-001", "AG2-SO-006", "AG2-SO-010"],
+      "basis": "No attestation bundle or decoded predicate was admitted. The repository hosting the release and workflow is observed as googleworkspace/cli, but that observation cannot substitute for an attestation-to-repository claim that was not captured.",
+      "non_claims": [
+        "The repository relation is not contradicted.",
+        "Repository adjacency does not establish attestation provenance."
+      ]
+    },
+    {
+      "edge_id": "AG3-E05",
+      "edge_type": "ATTESTATION_TO_SOURCE_COMMIT",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "scope_qualifier": "ATTESTATION_OBJECT_UNBOUND",
+      "evidence_refs": ["AG2-SO-004", "AG2-SO-005", "AG2-SO-006", "AG2-SO-007", "AG2-SO-010"],
+      "basis": "AG2 observed tag v0.22.1, source commit 45ca45bfd418db07b02995e8510dd18ac45cb3a6, the release workflow at that commit, and a successful release run at that head SHA. No captured attestation predicate binds an attestation object to that commit.",
+      "non_claims": [
+        "The commit relation is not contradicted.",
+        "A successful release run at the commit does not itself establish an attestation-to-commit edge."
+      ]
+    },
+    {
+      "edge_id": "AG3-E06",
+      "edge_type": "SOURCE_COMMIT_TO_WORKFLOW_REFERENCE",
+      "status": "SUPPORTED",
+      "scope_qualifier": "SUPPORTED_FOR_NAMED_WORKFLOW_REFERENCE_AT_BOUND_COMMIT",
+      "evidence_refs": ["AG2-SO-004", "AG2-SO-005", "AG2-SO-006", "AG2-SO-007", "AG2-SO-008", "AG2-SO-009"],
+      "basis": "AG2 observed tag v0.22.1 resolving to commit 45ca45bfd418db07b02995e8510dd18ac45cb3a6, observed .github/workflows/release.yml at that exact commit, and observed release workflow run 23554953556 reporting the same workflow path and head SHA. This supports the bounded commit-to-workflow-reference relation only.",
+      "non_claims": [
+        "This does not establish that the workflow produced the exact public release artifact.",
+        "This does not establish attestation validity or signer authority."
+      ]
+    },
+    {
+      "edge_id": "AG3-E07",
+      "edge_type": "CLAIMED_ISSUER_TO_ISSUER_AUTHORITY",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "scope_qualifier": "CLAIMED_ISSUER_AND_AUTHORITY_INSTRUMENT_UNBOUND",
+      "evidence_refs": ["AG2-SO-001", "AG2-SO-006", "AG2-SO-007", "AG2-SO-010"],
+      "basis": "AG2 did not capture an attestation predicate identifying a claimed issuer in the edge's required sense, and no independent authority instrument was admitted that could establish the issuer's authority for the represented claim.",
+      "non_claims": [
+        "No claim is made that the observed GitHub Actions actor lacked authority.",
+        "Actor identity, workflow permission, and issuer authority remain distinct."
+      ]
+    },
+    {
+      "edge_id": "AG3-E08",
+      "edge_type": "RELATION_TO_TEMPORAL_APPLICABILITY",
+      "status": "SUPPORTED",
+      "scope_qualifier": "SUPPORTED_FOR_CAPTURE_001_RECORD_COORDINATE_BINDING_ONLY",
+      "evidence_refs": ["AG0_TEMPORAL_CAPTURE_RULE", "AG2_OBSERVATION_WINDOW", "AG3_RELATION_EDGE_SET"],
+      "basis": "AG0 required status to remain coordinate-bound, AG2 established the CAPTURE_001 observation window, and AG3 bound the evaluated edge set to CAPTURE_001. AG4 therefore supports only that the standing assigned in this evaluation is applicable to the named CAPTURE_001 evidence/record coordinate. It does not establish persistence before or after that coordinate.",
+      "non_claims": [
+        "No external relation is asserted to have remained continuously valid across an unobserved interval.",
+        "Current standing is not inherited backward or forward in time."
+      ]
+    },
+    {
+      "edge_id": "AG3-E09",
+      "edge_type": "RELATION_TO_SUPERSESSION_STATE",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "scope_qualifier": "NO_BOUND_SUPERSESSION_SOURCE_ADMITTED",
+      "evidence_refs": ["AG2-SO-001", "AG2-SO-004", "AG2-SO-005", "AG2-SO-007"],
+      "basis": "The AG2 source set contains release, tag, commit, and workflow-run observations but no independently bounded source establishing whether any evaluated relation had been superseded at CAPTURE_001. Release immutability and absence of an observed supersession event are not treated as proof of non-supersession.",
+      "non_claims": [
+        "No supersession is established.",
+        "No non-supersession is established."
+      ]
+    }
+  ],
+  "summary_counts": {
+    "SUPPORTED": 3,
+    "CONTRADICTED": 0,
+    "UNRESOLVED": 0,
+    "INSUFFICIENT_EVIDENCE": 6,
+    "NOT_EVALUATED": 0,
+    "OUT_OF_SCOPE": 0
+  },
+  "ag4_disposition": {
+    "admitted": [
+      "nine bounded AG4 edge evaluations",
+      "three SUPPORTED statuses with explicit scope qualifiers",
+      "six INSUFFICIENT_EVIDENCE statuses with explicit missingness bases",
+      "evaluation ruleset FORK-RRD-001-AG4-EVAL-v0.1",
+      "CAPTURE_001 coordinate binding for all AG4 results"
+    ],
+    "not_admitted": [
+      "global VERIFIED status",
+      "artifact safety",
+      "artifact correctness",
+      "attestation validity",
+      "issuer authority",
+      "deployment authorization",
+      "runtime permission",
+      "provenance beyond the supported edge scopes",
+      "supersession or non-supersession standing beyond admitted evidence",
+      "derived view",
+      "view selection",
+      "external action"
+    ]
+  },
+  "invariants": [
+    "SUPPORTED_UNDER_BOUND_EVIDENCE != UNIVERSALLY_TRUE",
+    "INSUFFICIENT_EVIDENCE != CONTRADICTED",
+    "MISSING_EVIDENCE != EVIDENCE_OF_ABSENCE",
+    "EDGE_SUPPORTED != ARTIFACT_CERTIFIED",
+    "AG4_COMPLETE != AG5_AUTHORIZED"
+  ],
+  "next_gate": "AG5_RECOMPUTATION_ADMISSION",
+  "next_gate_status": "UNOPENED"
+}

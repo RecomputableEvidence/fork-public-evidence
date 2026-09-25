@@ -1,0 +1,151 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "capture_id": "CAPTURE_002",
+  "operation": "RELATION_EDGE_INSTANTIATION",
+  "status": "CAPTURE_002_RELATION_EDGE_SET_INSTANTIATED_UNEVALUATED",
+  "parent_capture_002_commit": "d5cd35cdd0c3ca39c7a103701735e60e5eeeafa0",
+  "source_predeclaration": "CAPTURE_001_AG3_RELATION_EDGE_OBJECTS.json",
+  "purpose": "Instantiate the same nine relation-edge classes frozen at AG0 against CAPTURE_002 objects and observations, without assigning substantive relation standing.",
+  "global_boundary": {
+    "evaluation_performed": false,
+    "substantive_status_assigned": false,
+    "standing_assigned": false,
+    "ag6_opened": false,
+    "rule": "EDGE_OBJECT_EXISTS != EDGE_STANDING_EXISTS"
+  },
+  "edge_objects": [
+    {
+      "edge_id": "C2-E01",
+      "source_predeclared_edge_id": "AG3-E01",
+      "edge_type": "ARTIFACT_TO_RELEASE_OBJECT",
+      "source_object": "CAPTURE_002_ARTIFACT[sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739]",
+      "target_object": "GITHUB_RELEASE_OBJECT[id:301345178,tag:v0.22.1]",
+      "candidate_evidence_refs": ["CAPTURE_001_ARTIFACT_IDENTITY_CARRIED_FORWARD", "C2-SO-001", "C2-SO-002"],
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E02",
+      "source_predeclared_edge_id": "AG3-E02",
+      "edge_type": "ARTIFACT_TO_PUBLISHED_DIGEST",
+      "source_object": "CAPTURE_002_ARTIFACT[sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739]",
+      "target_object": "PUBLISHED_DIGEST_ASSERTION_OBJECT[checksum_asset_id:381438739]",
+      "candidate_evidence_refs": ["CAPTURE_001_ARTIFACT_IDENTITY_CARRIED_FORWARD", "C2-SO-001", "C2-SO-003"],
+      "evidence_availability_note": "Checksum asset metadata was re-observed, but the 115-byte checksum assertion content was not captured in CAPTURE_002.",
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E03",
+      "source_predeclared_edge_id": "AG3-E03",
+      "edge_type": "ARTIFACT_TO_ATTESTATION_SUBJECT",
+      "source_object": "CAPTURE_002_ARTIFACT[sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739]",
+      "target_object": "ATTESTATION_SUBJECT_OBJECT[UNBOUND_AT_CAPTURE_002]",
+      "candidate_evidence_refs": ["CAPTURE_001_ARTIFACT_IDENTITY_CARRIED_FORWARD", "C2-SO-001", "C2-SO-006", "C2-SO-010"],
+      "evidence_availability_note": "No attestation bundle or decoded predicate was captured in CAPTURE_002.",
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E04",
+      "source_predeclared_edge_id": "AG3-E04",
+      "edge_type": "ATTESTATION_TO_SOURCE_REPOSITORY",
+      "source_object": "ATTESTATION_OBJECT[UNBOUND_AT_CAPTURE_002]",
+      "target_object": "SOURCE_REPOSITORY[googleworkspace/cli]",
+      "candidate_evidence_refs": ["C2-SO-001", "C2-SO-006", "C2-SO-010"],
+      "evidence_availability_note": "No attestation bundle or decoded predicate was captured in CAPTURE_002.",
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E05",
+      "source_predeclared_edge_id": "AG3-E05",
+      "edge_type": "ATTESTATION_TO_SOURCE_COMMIT",
+      "source_object": "ATTESTATION_OBJECT[UNBOUND_AT_CAPTURE_002]",
+      "target_object": "SOURCE_COMMIT[45ca45bfd418db07b02995e8510dd18ac45cb3a6]",
+      "candidate_evidence_refs": ["C2-SO-004", "C2-SO-005", "C2-SO-006", "C2-SO-007", "C2-SO-010"],
+      "evidence_availability_note": "No attestation bundle or decoded predicate was captured in CAPTURE_002.",
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E06",
+      "source_predeclared_edge_id": "AG3-E06",
+      "edge_type": "SOURCE_COMMIT_TO_WORKFLOW_REFERENCE",
+      "source_object": "SOURCE_COMMIT[45ca45bfd418db07b02995e8510dd18ac45cb3a6]",
+      "target_object": "WORKFLOW_REFERENCE[.github/workflows/release.yml]",
+      "candidate_evidence_refs": ["C2-SO-004", "C2-SO-005", "C2-SO-006", "C2-SO-007", "C2-SO-008", "C2-SO-009"],
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E07",
+      "source_predeclared_edge_id": "AG3-E07",
+      "edge_type": "CLAIMED_ISSUER_TO_ISSUER_AUTHORITY",
+      "source_object": "CLAIMED_ISSUER_OBJECT[UNBOUND_AT_CAPTURE_002]",
+      "target_object": "ISSUER_AUTHORITY_RELATION[UNBOUND_AT_CAPTURE_002]",
+      "candidate_evidence_refs": ["C2-SO-001", "C2-SO-006", "C2-SO-007", "C2-SO-010"],
+      "evidence_availability_note": "CAPTURE_002 did not capture an attestation predicate or an independent authority instrument sufficient to bind this relation.",
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E08",
+      "source_predeclared_edge_id": "AG3-E08",
+      "edge_type": "RELATION_TO_TEMPORAL_APPLICABILITY",
+      "source_object": "RELATION_EDGE_SET[C2-E01..C2-E07]",
+      "target_object": "CAPTURE_002_TEMPORAL_COORDINATE[2026-09-25T05:52:25Z..2026-09-25T05:54:48Z]",
+      "candidate_evidence_refs": ["C2-SO-001", "C2-SO-002", "C2-SO-003", "C2-SO-004", "C2-SO-005", "C2-SO-006", "C2-SO-007", "C2-SO-008", "C2-SO-009", "C2-SO-010"],
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    },
+    {
+      "edge_id": "C2-E09",
+      "source_predeclared_edge_id": "AG3-E09",
+      "edge_type": "RELATION_TO_SUPERSESSION_STATE",
+      "source_object": "RELATION_EDGE_SET[C2-E01..C2-E08]",
+      "target_object": "SUPERSESSION_STATE_AT_CAPTURE_002",
+      "candidate_evidence_refs": ["C2-SO-001", "C2-SO-004", "C2-SO-005", "C2-SO-007", "C2-SUP-001"],
+      "supplemental_evidence_note": "C2-SUP-001 records that a later release exists, but remains separately labeled and does not itself establish supersession of any relation around v0.22.1.",
+      "evaluation_state": "NOT_EVALUATED",
+      "result_status": null,
+      "standing": "UNASSIGNED",
+      "evaluation_gate": "CAPTURE_002_DIMENSIONAL_EVALUATION"
+    }
+  ],
+  "cross_capture_constraints": [
+    "SAME_EDGE_CLASS != SAME_EDGE_STANDING",
+    "FIELD_EQUALITY != STANDING_EQUALITY",
+    "CAPTURE_002_EDGE_OBJECT != CAPTURE_001_EDGE_OBJECT",
+    "G1_DOES_NOT_REWRITE_G0",
+    "SUPPLEMENTAL_OBSERVATION != RETROACTIVE_CAPTURE_001_SURFACE"
+  ],
+  "invariants": [
+    "EDGE_PREDECLARED != EDGE_SUPPORTED",
+    "EDGE_OBJECT_INSTANTIATED != EDGE_STANDING_ASSIGNED",
+    "CANDIDATE_EVIDENCE_BOUND != EVIDENCE_SUFFICIENT",
+    "MISSING_SOURCE_SURFACE != EDGE_CONTRADICTED",
+    "RESULT_STATUS_NULL != RESULT_STATUS_ASSIGNED",
+    "CAPTURE_002_EDGE_SET_INSTANTIATED != CAPTURE_002_EVALUATION_AUTHORIZED",
+    "CAPTURE_002_EDGE_SET_INSTANTIATED != AG6_AUTHORIZED"
+  ],
+  "next_transition": "CAPTURE_002_DIMENSIONAL_EVALUATION",
+  "next_transition_status": "UNOPENED",
+  "ag6_status": "UNOPENED"
+}
