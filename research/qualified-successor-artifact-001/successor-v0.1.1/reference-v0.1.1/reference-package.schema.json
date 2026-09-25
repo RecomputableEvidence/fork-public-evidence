@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"QSA-001 v0.1.1 successor reference package",
+  "type":"object",
+  "required":["type","manifest","constitution","trusted_keys","actor_bindings","genesis","states","qualifications","p_seed","p0","p1","p2","p3"],
+  "properties":{
+    "type":{"const":"QSA:REFERENCE_PACKAGE:v1"},
+    "manifest":{"type":"object","required":["artifact_id","profile","predecessor_reference_commit","canonicalization","canonical_chain","current_state_hash","p_seed","p0","p1","p2","p3"]},
+    "constitution":{"type":"object","required":["type","artifact_id","constitution_id","protected_invariants","change_classes","acceptance_authority_policy","qualification_policy","inspection_policy","pressure_policy"]},
+    "trusted_keys":{"type":"object","required":["type","artifact_id","keys","nonclaim"],"properties":{"keys":{"type":"array","minItems":6}}},
+    "actor_bindings":{"type":"object","required":["type","artifact_id","bindings","nonclaim"]},
+    "genesis":{"$ref":"#/$defs/signed"},
+    "states":{"type":"array","minItems":2,"items":{"$ref":"#/$defs/state"}},
+    "qualifications":{"type":"array","minItems":2,"items":{"$ref":"#/$defs/qualification"}},
+    "p_seed":{"$ref":"#/$defs/transition"},
+    "p0":{"type":"object","required":["commitment","proposal_mark","inspection"]},
+    "p1":{"type":"object","required":["proposal","inspection","observation"]},
+    "p2":{"$ref":"#/$defs/transition"},
+    "p3":{"type":"object","required":["proposal","inspection"]}
+  },
+  "additionalProperties":false,
+  "$defs":{
+    "signature":{"type":"object","required":["algorithm","domain","key_id","value"],"properties":{"algorithm":{"const":"Ed25519"},"domain":{"type":"string","pattern":"^QSA:"},"key_id":{"type":"string"},"value":{"type":"string"}},"additionalProperties":false},
+    "signed":{"type":"object","required":["type","artifact_id","signature"],"properties":{"type":{"type":"string","pattern":"^QSA:"},"artifact_id":{"type":"string"},"signature":{"$ref":"#/$defs/signature"}},"additionalProperties":true},
+    "state":{"allOf":[{"$ref":"#/$defs/signed"}],"type":"object","required":["state_id","parent_state_hash","content","state_hash"],"properties":{"type":{"const":"QSA:STATE:v1"},"parent_state_hash":{"type":["string","null"]},"state_hash":{"type":"string","pattern":"^sha256:[0-9a-f]{64}$"}}},
+    "qualification":{"allOf":[{"$ref":"#/$defs/signed"}],"type":"object","required":["qualification_id","subject_key_id","change_class","policy_id","valid_from","valid_until","status","evidence"],"properties":{"type":{"const":"QSA:QUALIFICATION:v1"},"status":{"enum":["VALID","EXPIRED","REVOKED","SUSPENDED","UNVERIFIABLE","NOT_APPLICABLE","UNKNOWN"]}}},
+    "transition":{"type":"object","required":["proposal","inspection","adoption","build_mark"],"properties":{"proposal":{"$ref":"#/$defs/signed"},"inspection":{"$ref":"#/$defs/signed"},"adoption":{"$ref":"#/$defs/signed"},"build_mark":{"$ref":"#/$defs/signed"}},"additionalProperties":false}
+  }
+}
