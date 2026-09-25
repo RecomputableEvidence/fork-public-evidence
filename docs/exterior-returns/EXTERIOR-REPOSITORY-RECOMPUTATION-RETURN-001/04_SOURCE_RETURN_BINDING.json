@@ -1,0 +1,37 @@
+{
+    "object_id":  "EXTERIOR-REPOSITORY-RECOMPUTATION-RETURN-001",
+    "binding_version":  "v0.1",
+    "repository_coordinate":  "f43b49dc42eb8df6ca3355f19e7b7b385a6b01bf",
+    "capture_attempts":  [
+                             {
+                                 "file":  "01_EXTERIOR_RECOMPUTATION_RETURN_CAPTURE_ATTEMPT_001.md",
+                                 "sha256":  "e177314e41c782a4f9cb45602a6b622301ca58e5ad8fc0a7f34327e14391714f",
+                                 "standing":  "FAILED_LOCAL_CAPTURE_PRESERVED",
+                                 "note":  "Clipboard contained PowerShell capture commands rather than exterior return."
+                             },
+                             {
+                                 "file":  "02_EXTERIOR_RECOMPUTATION_RETURN_CAPTURE_ATTEMPT_002.md",
+                                 "sha256":  "7ea2d91f6e4e9d6e42fcd1058ff36c8e8e6ed3f95de0774c4f91bbcf3913c15b",
+                                 "standing":  "FAILED_LOCAL_CAPTURE_PRESERVED",
+                                 "note":  "Clipboard again contained PowerShell commands rather than exterior return."
+                             },
+                             {
+                                 "file":  "03_EXTERIOR_RECOMPUTATION_RETURN_CAPTURE_ATTEMPT_003.md",
+                                 "sha256":  "aaaed8bd51b985ceb71a65c35a3bdd80567eeb959a2ef752a596b42d43c777e9",
+                                 "standing":  "FULL_SOURCE_RETURN_CANDIDATE",
+                                 "encoding":  "UTF-8_NO_BOM",
+                                 "utf8_validation":  "PASS",
+                                 "note":  "Literal reconstruction from the preserved conversation text."
+                             }
+                         ],
+    "selected_source_candidate":  "03_EXTERIOR_RECOMPUTATION_RETURN_CAPTURE_ATTEMPT_003.md",
+    "selected_source_sha256":  "aaaed8bd51b985ceb71a65c35a3bdd80567eeb959a2ef752a596b42d43c777e9",
+    "boundaries":  [
+                       "CAPTURE_ATTEMPT != SOURCE_RETURN",
+                       "SOURCE_RETURN_CANDIDATE != ADMITTED_RETURN",
+                       "PRESERVATION != INTERPRETATION",
+                       "RECONCILIATION != REMEDIATION"
+                   ],
+    "remediation_authority":  "NONE",
+    "standing_change":  "NONE"
+}
