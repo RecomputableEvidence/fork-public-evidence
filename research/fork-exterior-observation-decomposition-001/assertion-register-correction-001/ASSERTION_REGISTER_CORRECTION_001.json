@@ -1,0 +1,197 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "artifact_id": "ASSERTION-REGISTER-CORRECTION-001",
+  "standing": "ADDITIVE_SUCCESSOR_CORRECTION_AWAITING_REVIEWER_RECHECK",
+  "predecessor_assertion_register": "ASSERTION-REGISTER-001",
+  "predecessor_commit": "6b1c06920d2b4183fda6bf01218a9a605154473a",
+  "reviewer_fidelity_return_id": "SOURCE-REVIEW-002",
+  "reviewer_fidelity_return_content_sha256": "373001968f75f01c344d137866ecb04ae230d069d284394b8144fceecaed018a",
+  "experiment_b_disposition": "FAIL",
+  "experiment_b_disposition_commit": "8d23c3f1b1c09b74b55ed0bf4ea89de8df558d31",
+  "technical_reproduction": "UNOPENED",
+  "corrections": [
+    {
+      "correction_id": "C-001",
+      "targets": ["ER-001"],
+      "source_review_002_span": "2875:3051",
+      "action": "SPLIT",
+      "successors": [
+        {
+          "id": "ER-001-S1",
+          "class": "EXTERIOR_INFERENCE",
+          "technical_eligible": false,
+          "text": "single-author",
+          "standing_note": "Reviewer inference from copyright notice and visible commit author; no stronger authorship standing."
+        },
+        {
+          "id": "ER-001-S2",
+          "class": "REPOSITORY_METADATA_ASSERTION",
+          "technical_eligible": true,
+          "text": "copyright Ryan Feller",
+          "standing_note": "Separately testable against cited copyright surface."
+        }
+      ]
+    },
+    {
+      "correction_id": "C-002",
+      "targets": ["ER-005"],
+      "source_review_002_span": "3697:3810",
+      "action": "SPLIT_AND_SCOPE",
+      "successors": [
+        {
+          "id": "ER-005-S1",
+          "class": "REPOSITORY_METADATA_ASSERTION",
+          "technical_eligible": true,
+          "text": "18 open PRs",
+          "standing_note": "Source confidence bounded to rendered page chrome at review time."
+        },
+        {
+          "id": "ER-005-S2",
+          "class": "EXTERIOR_CHARACTERIZATION",
+          "technical_eligible": false,
+          "text": "against itself",
+          "standing_note": "Reviewer characterization; not a GitHub-native concept."
+        }
+      ]
+    },
+    {
+      "correction_id": "C-003",
+      "targets": ["ER-007"],
+      "source_review_002_span": "2780:2864",
+      "action": "SPLIT",
+      "successors": [
+        {
+          "id": "ER-007-S1",
+          "class": "IMPLEMENTATION_INVENTORY_ASSERTION",
+          "technical_eligible": true,
+          "text": "repository ships Python checkers, JSON schemas, synthetic fixtures, and a PowerShell verifier"
+        },
+        {
+          "id": "ER-007-S2",
+          "class": "EXTERIOR_EVALUATION",
+          "technical_eligible": false,
+          "text": "a very large volume of governance prose"
+        }
+      ]
+    },
+    {
+      "correction_id": "C-004",
+      "targets": ["ER-011"],
+      "source_review_002_span": "2632:2769",
+      "action": "SPLIT",
+      "successors": [
+        {
+          "id": "ER-011-S1",
+          "class": "REPRESENTATION_STATE_ASSERTION",
+          "technical_eligible": true,
+          "text": "CURRENT_STANDING states the CSH baseline is blocked and no corpus execution has occurred"
+        },
+        {
+          "id": "ER-011-S2",
+          "class": "EXTERIOR_EVALUATION",
+          "technical_eligible": false,
+          "text": "candid"
+        }
+      ]
+    },
+    {
+      "correction_id": "C-005",
+      "targets": ["ER-018"],
+      "source_review_002_span": "2231:2424",
+      "action": "SPLIT",
+      "successors": [
+        {
+          "id": "ER-018-S1",
+          "class": "EXTERIOR_EVALUATION",
+          "technical_eligible": false,
+          "text": "clean"
+        },
+        {
+          "id": "ER-018-S2",
+          "class": "SOURCE_ATTRIBUTED_REPRESENTATION_ASSERTION",
+          "technical_eligible": true,
+          "text": "script header comment represents verifier as PS 5.1-compatible",
+          "standing_note": "Attribution only; runtime compatibility not established."
+        },
+        {
+          "id": "ER-018-S3",
+          "class": "IMPLEMENTATION_BEHAVIOR_ASSERTION",
+          "technical_eligible": true,
+          "text": "fails loudly on non-JSON output",
+          "standing_note": "Reviewer basis limited to static code inspection; runtime not executed."
+        }
+      ]
+    },
+    {
+      "correction_id": "C-006",
+      "targets": ["ER-010"],
+      "source_review_002_span": "3190:3263",
+      "action": "AUGMENT_SCOPE",
+      "evaluation_scope": "SURFACES_THE_REVIEWER_READ",
+      "source_wording_preserved": true
+    },
+    {
+      "correction_id": "C-007",
+      "targets": ["ER-017"],
+      "source_review_002_span": "3467:3565",
+      "action": "AUGMENT_BASIS",
+      "reviewer_basis": "DOCUMENTATION_AND_ONE_INSPECTED_SCRIPT",
+      "universal_checker_inspection": "NOT_CLAIMED"
+    },
+    {
+      "correction_id": "C-008",
+      "targets": ["ER-002"],
+      "source_review_002_span": "3603:3696",
+      "action": "AUGMENT_SOURCE_CONFIDENCE",
+      "reviewer_basis": "RENDERED_PAGE_TIMESTAMP",
+      "source_confidence": "LOW",
+      "repository_metadata_inspection_by_reviewer": "NOT_CLAIMED"
+    },
+    {
+      "correction_id": "C-009",
+      "targets": [],
+      "source_review_002_span": "4316:4405",
+      "action": "ADD_OMITTED_PROPOSITION",
+      "successors": [
+        {
+          "id": "ER-057",
+          "class": "EXTERIOR_EVALUATION",
+          "technical_eligible": false,
+          "text": "That's a legitimate choice for a disclosure repo",
+          "standing_note": "Qualifies licensing criticism; does not authorize or endorse licensing model."
+        }
+      ]
+    },
+    {
+      "correction_id": "C-010",
+      "targets": ["ER-048", "ER-049", "ER-050", "ER-051", "ER-052", "ER-053", "ER-054"],
+      "source_review_002_span": "4739:4864",
+      "action": "ADD_OMITTED_RELATION",
+      "successors": [
+        {
+          "id": "ER-058",
+          "class": "REVIEWER_PRIORITY_RELATION",
+          "technical_eligible": false,
+          "text": "in priority order",
+          "standing_note": "Reviewer ranking only; not Fork priority or repair authorization."
+        }
+      ]
+    }
+  ],
+  "already_preserved_requested_content": ["ER-030", "ER-036", "ER-045", "ER-047", "ER-026", "ER-040"],
+  "reviewer_confirmed_faithful": ["ER-006", "ER-008", "ER-009", "ER-012", "ER-019", "ER-037", "ER-055", "ER-056", "ER-051", "ER-052", "ER-053"],
+  "source_representation_note": {
+    "source_review_002_span": "708:763",
+    "reviewer_reports_authored_form": "~60",
+    "canonical_source_review_001_form": "\\~60",
+    "authored_byte_identity": "NOT_INDEPENDENTLY_ESTABLISHED",
+    "source_review_001_status": "IMMUTABLE_UNCHANGED"
+  },
+  "non_claims": [
+    "This correction does not rewrite ASSERTION-REGISTER-001.",
+    "Successor correction does not establish technical truth of corrected assertions.",
+    "Reviewer recheck is required before fidelity closure.",
+    "R0-R3 technical reproduction remains unopened.",
+    "No repository repair, ELG admission, or research promotion is authorized."
+  ]
+}
