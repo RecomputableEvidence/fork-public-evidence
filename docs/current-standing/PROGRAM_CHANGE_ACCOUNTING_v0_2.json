@@ -23,13 +23,22 @@
     "schemas/",
     "tools/"
   ],
-  "transitions": [],
-  "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Empty active transitions mean this representational routing successor changes no path inside the declared recognized research-object scope; they do not erase or replace the preserved predecessor accounting.",
+  "transitions": [
+    {
+      "path": "tools/check_line_endings.py",
+      "before_git_blob": "dad8906f4977c939823bc70ebec0132e00f15ff7",
+      "after_git_blob": "3ad15c048511bb4c53387746023f9625d09afb08",
+      "disposition": "INCORPORATED",
+      "reason": "Bounded PR #183 CI preservation repair: keep the frozen AG5 historical receipt byte-identical while permitting its non-LF bytes only under an exact path-and-SHA-256 lock; repository-native exterior-return manifest metadata is normalized separately.",
+      "standing_reference": "docs/current-standing/PR183_CI_PRESERVATION_REPAIR_001.md"
+    }
+  ],
+  "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",
   "non_claims": [
     "ACCOUNTING_SUCCESSOR != HISTORICAL_LEDGER_REWRITE",
     "ACCOUNTED_FOR != SEMANTICALLY_COMPLETE",
-    "NO_POST_BASE_RECOGNIZED_TRANSITION != NO_REPOSITORY_CHANGE",
-    "ROUTING_UPDATE != RESEARCH_OBJECT_UPDATE",
+    "RECOGNIZED_TOOL_TRANSITION != RESEARCH_RESULT_CHANGE",
+    "CI_PRESERVATION_REPAIR != CLOSED_OBJECT_REOPENED",
     "CI_SUCCESS != SEMANTIC_ADEQUACY"
   ]
 }
