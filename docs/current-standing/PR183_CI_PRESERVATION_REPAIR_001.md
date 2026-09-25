@@ -18,6 +18,8 @@ A byte change fails the checker rather than broadening the exception.
 
 Separately, the repository-native inspection copy `SOURCE_RETURN_SHA256SUMS.txt` is normalized to LF. The original successful return manifest bytes remain preserved inside the exact source-return archive.
 
+A subsequent Windows proof-surface run exposed Git's own text-normalization warning for the same historical receipt. The exact path is therefore also marked `-text` in `.gitattributes`, matching the existing repository pattern for exact supplied historical evidence bytes. This prevents Git from attempting line-ending canonicalization on that preserved object; the SHA-256 lock in `tools/check_line_endings.py` remains the fail-closed identity guard.
+
 This record accounts for the recognized tool transition required by `PROGRAM_CHANGE_ACCOUNTING_v0_2.json`. It does not change the closed demonstration or its admitted results.
 
 ```text
@@ -26,6 +28,9 @@ TOOL_TRANSITION_ACCOUNTED
 
 PRESERVATION_EXCEPTION
 != UNBOUNDED_EXEMPTION
+
+GIT_TEXT_CANONICALIZATION
+!= HISTORICAL_BYTE_PRESERVATION
 
 CI_REPAIR
 != EDGE_STANDING_CHANGE
