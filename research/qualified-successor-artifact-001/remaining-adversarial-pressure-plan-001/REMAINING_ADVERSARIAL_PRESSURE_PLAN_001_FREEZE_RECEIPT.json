@@ -1,0 +1,20 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "artifact_id": "QSA-001-v0.1-REMAINING-ADVERSARIAL-PRESSURE-PLAN-001-FREEZE-RECEIPT",
+  "standing": "PRESERVATION_RECEIPT",
+  "parent_commit": "bdb3e25ca1aa413bea35728b0825510ab3346326",
+  "target_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "target_reference_tree": "e865f17a749e5b8f931b0ca5145a0fc71b9dbde9",
+  "plan_markdown_blob_sha": "855174b5c62e0d9d656336e1ebc58fd6e8f78801",
+  "plan_markdown_sha256": "e6472d361a47a0fc05395f4855f396d1a05ced5cb42155c7157d908150944458",
+  "plan_markdown_bytes": 3925,
+  "plan_json_blob_sha": "0309298c53430a1c39e0c79e1787ec1be198a226",
+  "plan_json_sha256": "43370fca01bebdf0e9744619f9821b61aa8ce601319cbcc24ac102a24fccca96",
+  "plan_json_bytes": 2202,
+  "freeze_effect": {
+    "expected_outcomes": "FROZEN_BEFORE_EXECUTION",
+    "reference_implementation": "UNCHANGED",
+    "repair_authority": "NONE",
+    "bootstrap": "NOT_OPENED"
+  }
+}

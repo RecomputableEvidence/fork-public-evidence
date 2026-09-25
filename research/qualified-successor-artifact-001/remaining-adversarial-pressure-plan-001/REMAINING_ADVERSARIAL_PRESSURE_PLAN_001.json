@@ -1,0 +1,37 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "artifact_id": "QSA-001-v0.1-REMAINING-ADVERSARIAL-PRESSURE-PLAN-001",
+  "standing": "FROZEN_BEFORE_EXECUTION",
+  "target_branch": "research/qsa-001-v0.1-freeze-reference",
+  "target_conceptual_freeze_commit": "704b1da5d999d6130dacd6691c768fe6904e970f",
+  "target_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "target_reference_tree": "e865f17a749e5b8f931b0ca5145a0fc71b9dbde9",
+  "target_mutability": "NONE",
+  "baseline_rewrite": "PROHIBITED",
+  "pre_execution_repair": "PROHIBITED",
+  "force_update": "PROHIBITED",
+  "isolation_rule": "EACH_PROBE_USES_FRESH_DERIVATIVE_OF_EXACT_REFERENCE",
+  "probes": {
+    "A3": {"expected":"MUST_REJECT","surface":"DOMAIN_SEPARATION_REPLAY"},
+    "A4": {"expected":"MUST_REJECT","surface":"PARENT_STATE_HASH_MUTATION"},
+    "A5": {"expected":"MUST_REJECT","surface":"SUCCESSOR_STATE_ALTERATION_WITHOUT_BUILD_MARK_UPDATE"},
+    "A6": {"expected":"MUST_REJECT_UNDER_DECLARED_POLICY","surface":"QUALIFICATION_EXPIRY_OR_REVOCATION"},
+    "A7": {"expected":"MUST_REJECT","surface":"STALE_PARENT_ADOPTION"},
+    "A8": {"expected":"MUST_REJECT_OR_ELEVATED_ROUTE_REQUIRED","surface":"CHANGE_CLASS_ESCALATION"},
+    "A9": {"expected":"MUST_REJECT","surface":"INSPECTION_BINDING_REMOVAL_OR_BREAK"},
+    "A10": {"expected":"MUST_NOT_REPORT_FULL_ACTOR_OR_AUTHORITY_BINDING_PASS","surface":"ACTOR_OR_AUTHORITY_BINDING_MUTATION_WITH_SIGNATURE_VALIDITY_SEPARATE"}
+  },
+  "a10_boundary": {
+    "signature_valid": "POSSIBLE",
+    "actor_identity_binding": "FAIL_OR_UNVERIFIABLE",
+    "actor_authority_binding": "FAIL_OR_UNVERIFIABLE"
+  },
+  "failure_rule": "PRESERVE_FIRST_NO_REPAIR_AUTHORITY",
+  "post_execution_return": "QSA-001-v0.1-REMAINING-ADVERSARIAL-PRESSURE-RETURN-001",
+  "post_execution_disposition": "QSA-001-v0.1-REFERENCE-PRESSURE-DISPOSITION-001",
+  "nonclaims": [
+    "Freezing this plan does not establish that any probe will match its expected result.",
+    "A probe mismatch does not authorize modification of the frozen reference implementation.",
+    "This plan does not establish production readiness, formal security, semantic truth, universal authority, or governance wisdom."
+  ]
+}
