@@ -1,0 +1,19 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "artifact_id": "SOURCE-REVIEW-001-FREEZE-RECEIPT",
+  "standing": "SOURCE_REVIEW_PRESERVED_AND_FROZEN",
+  "source_review_id": "SOURCE-REVIEW-001",
+  "source_content_sha256": "6bdde2c51003e024c24ae67cb605785d7a3a92a56be626f2fa431493e7723f98",
+  "source_content_byte_length": 5991,
+  "source_path": "research/fork-exterior-observation-decomposition-001/source-review-001/SOURCE_REVIEW_001.md",
+  "source_git_blob_sha": "e9e467215f79ccfdd7ee0a9149818c7b81b78a3c",
+  "source_metadata_path": "research/fork-exterior-observation-decomposition-001/source-review-001/SOURCE_REVIEW_001.json",
+  "source_metadata_git_blob_sha": "cfbec42fce4975809bffd5c1e7d37393026b0ebe",
+  "preservation_commit": "273bca9fe9e74d3b2c8e8f310eb2305ccfcf9af7",
+  "preservation_tree": "afc81e9367d0e3a4395da8cb38f8c3dec9271e35",
+  "conceptual_predecessor_commit": "8d17c7c69fb7113342bba8265bfdcb05f28d94e2",
+  "review_observed_coordinate": "UNRESOLVED_ATOMIC_COORDINATE",
+  "runtime_execution": "NOT_PERFORMED",
+  "assertion_decomposition": "NOT_BEGUN_AT_SOURCE_FREEZE",
+  "invariant": "SOURCE_REVIEW_PRESERVED != TECHNICAL_FINDINGS_CONFIRMED"
+}

@@ -1,0 +1,82 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "artifact_id": "HANDOFF-GOVERNANCE-CRITERIA-001",
+  "standing": "FROZEN_BEFORE_ASSERTION_DECOMPOSITION",
+  "predecessor_source_review_id": "SOURCE-REVIEW-001",
+  "predecessor_source_review_commit": "273bca9fe9e74d3b2c8e8f310eb2305ccfcf9af7",
+  "predecessor_source_content_sha256": "6bdde2c51003e024c24ae67cb605785d7a3a92a56be626f2fa431493e7723f98",
+  "criteria_origin": "FEOD-001_AG0_CONCEPTUAL_FREEZE_v0_1",
+  "evaluator": {
+    "role": "FEOD_OPERATOR_WITH_AI_ASSISTED_DECOMPOSITION",
+    "relation_to_source_authorship": "NOT_ESTABLISHED",
+    "relation_to_feod_construction": "PARTICIPATES_IN_FEOD_OPERATIONALIZATION",
+    "independence_scalar": "NOT_ASSERTED"
+  },
+  "required_canonical_records": [
+    "SOURCE-REVIEW-001",
+    "ASSERTION-REGISTER-001"
+  ],
+  "required_downstream_representations": [
+    "ASSERTION-REGISTER-001 human-readable rendering"
+  ],
+  "criteria": [
+    {
+      "criterion_id": "HG-001",
+      "name": "QUALIFIER_PRESERVATION",
+      "failure_condition": "A material source condition, uncertainty statement, limitation, or qualifier is silently dropped, strengthened, or weakened during decomposition."
+    },
+    {
+      "criterion_id": "HG-002",
+      "name": "RECOMMENDATION_NONPROMOTION",
+      "failure_condition": "A source recommendation acquires technical-confirmation standing, repair-authority standing, or is represented as an adopted Fork action without a separate bridge."
+    },
+    {
+      "criterion_id": "HG-003",
+      "name": "COORDINATE_RELATION_SEPARATION",
+      "failure_condition": "The review-observed coordinate and a later evaluation-target coordinate are conflated, or an unresolved review coordinate is silently replaced by a pinned evaluation coordinate."
+    },
+    {
+      "criterion_id": "HG-004",
+      "name": "UNRESOLVED_STANDING_PRESERVATION",
+      "failure_condition": "An unresolved coordinate, unverified technical standing, or source limitation is omitted from a required downstream representation."
+    },
+    {
+      "criterion_id": "HG-005",
+      "name": "CLASSIFICATION_ATTRIBUTION_BOUNDARY",
+      "failure_condition": "A Fork-derived classification, taxonomy, or boundary label is attributed to the reviewer without source support."
+    },
+    {
+      "criterion_id": "HG-006",
+      "name": "SOURCE_MAPPING_RECOMPUTABILITY",
+      "failure_condition": "A source-derived assertion lacks a recomputable byte-span mapping to frozen SOURCE-REVIEW-001 or materially misstates the mapped passage."
+    },
+    {
+      "criterion_id": "HG-007",
+      "name": "DOWNSTREAM_STANDING_PRESERVATION",
+      "failure_condition": "A required downstream summary or rendering materially changes the standing recorded in the canonical assertion register."
+    },
+    {
+      "criterion_id": "HG-008",
+      "name": "TECHNICAL_NONTECHNICAL_SCOPE_SEPARATION",
+      "failure_condition": "A nontechnical evaluation or recommendation is forced into technical reproduction standing without a separately decomposed technical proposition."
+    },
+    {
+      "criterion_id": "HG-009",
+      "name": "SOURCE_IMMUTABILITY",
+      "failure_condition": "The canonical SOURCE-REVIEW-001 payload is altered after freeze rather than superseded by a separately identified successor source event."
+    }
+  ],
+  "completion_rule": "Evaluate every required criterion against the canonical records and required downstream rendering after ASSERTION-REGISTER-001 is instantiated.",
+  "overall_result_rule": {
+    "FAIL": "ANY_REQUIRED_CRITERION_FAILS",
+    "PASS": "ALL_REQUIRED_CRITERIA_PASS",
+    "INCONCLUSIVE": "NO_REQUIRED_CRITERION_FAILS_AND_AT_LEAST_ONE_REQUIRED_CRITERION_IS_INCONCLUSIVE_OR_UNEVALUATED"
+  },
+  "current_experiment_b_result": "UNOPENED",
+  "non_claims": [
+    "Criteria freeze does not establish Experiment B success.",
+    "Procedure completion does not establish Experiment B success.",
+    "Experiment A result does not determine Experiment B result."
+  ],
+  "freeze_status": "FROZEN"
+}
