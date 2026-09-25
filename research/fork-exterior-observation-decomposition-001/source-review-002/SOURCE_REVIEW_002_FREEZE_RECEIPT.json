@@ -1,0 +1,14 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "receipt_id": "SOURCE-REVIEW-002-FREEZE-RECEIPT",
+  "source_review_id": "SOURCE-REVIEW-002",
+  "predecessor_branch_head": "6b1c06920d2b4183fda6bf01218a9a605154473a",
+  "content_path": "research/fork-exterior-observation-decomposition-001/source-review-002/SOURCE_REVIEW_002.md",
+  "content_byte_length": 5267,
+  "content_sha256": "373001968f75f01c344d137866ecb04ae230d069d284394b8144fceecaed018a",
+  "content_git_blob_sha": "d1cbfeb0c511227ac09fd15ae7b9262cacda081b",
+  "freeze_status": "FROZEN",
+  "rewrite_policy": "APPEND_ONLY_SUCCESSOR_ONLY",
+  "source_review_001_status": "UNCHANGED",
+  "assertion_register_001_status": "UNCHANGED_HISTORICAL_DECOMPOSITION"
+}

@@ -1,0 +1,40 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "artifact_id": "SOURCE-REVIEW-002",
+  "artifact_role": "REVIEWER_FIDELITY_RETURN_001",
+  "standing": "PRESERVED_SUCCESSOR_EXTERIOR_RETURN",
+  "responds_to": [
+    "SOURCE-REVIEW-001",
+    "ASSERTION-REGISTER-001",
+    "HANDOFF-GOVERNANCE-CRITERIA-001"
+  ],
+  "content_byte_length": 5267,
+  "content_sha256": "373001968f75f01c344d137866ecb04ae230d069d284394b8144fceecaed018a",
+  "git_blob_sha": "d1cbfeb0c511227ac09fd15ae7b9262cacda081b",
+  "source_representation": "CANONICAL_ASSISTANT_VISIBLE_MESSAGE_CAPTURE",
+  "media_type": "text/markdown; charset=utf-8",
+  "encoding": "UTF-8",
+  "normalization_status": "NO_NORMALIZATION_AFTER_CAPTURE",
+  "trailing_newline": false,
+  "review_observed_coordinate": "UNRESOLVED_ATOMIC_COORDINATE",
+  "runtime_execution": "NOT_PERFORMED_IN_ORIGINAL_REVIEW",
+  "fidelity_return_scope": "PARTIAL_REGISTER_VISIBILITY",
+  "reviewer_register_visibility": {
+    "seen": ["ER-001..ER-019", "ER-037", "ER-051..ER-056"],
+    "not_received": ["ER-020..ER-036", "ER-038..ER-050"]
+  },
+  "hg006_reviewer_status": "UNEVALUATED_BY_REVIEWER",
+  "source_representation_note": {
+    "reviewer_reports_authored_form": "~60",
+    "canonical_source_review_001_form": "\\~60",
+    "reviewer_attribution": "LIKELY_CLIENT_SIDE_ESCAPE_IN_VISIBLE_MESSAGE_TEXT",
+    "authored_byte_identity": "NOT_INDEPENDENTLY_ESTABLISHED",
+    "source_review_001_rewrite": "PROHIBITED"
+  },
+  "non_claims": [
+    "This successor return does not rewrite SOURCE-REVIEW-001.",
+    "The reviewer's statement about authored bytes is preserved as reviewer testimony, not independently established byte identity.",
+    "Reviewer fidelity findings do not establish technical correctness of the original repository findings.",
+    "Partial visibility of the assertion register does not imply disposition of unseen rows."
+  ]
+}
