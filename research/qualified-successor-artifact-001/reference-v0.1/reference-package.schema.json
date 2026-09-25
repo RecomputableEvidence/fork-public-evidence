@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QSA-001 v0.1 four-outcome reference package",
+  "type": "object",
+  "required": ["type", "manifest", "constitution", "trusted_keys", "actor_bindings", "genesis", "states", "qualifications", "p0", "p1", "p2", "p3"],
+  "properties": {
+    "type": {"const": "QSA:REFERENCE_PACKAGE:v1"},
+    "manifest": {"type": "object", "required": ["artifact_id", "profile", "canonicalization", "current_state_hash", "p0", "p1", "p2", "p3"]},
+    "constitution": {"type": "object", "required": ["type", "artifact_id", "constitution_id", "protected_invariants", "change_classes", "acceptance_authority_policy", "qualification_policy", "inspection_policy"], "properties": {"type": {"const": "QSA:CONSTITUTION:v1"}}},
+    "trusted_keys": {"type": "object", "required": ["type", "artifact_id", "keys", "nonclaim"], "properties": {"type": {"const": "QSA:TRUSTED_KEYS:v1"}, "keys": {"type": "array", "minItems": 5}}},
+    "actor_bindings": {"type": "object", "required": ["type", "artifact_id", "bindings", "nonclaim"], "properties": {"type": {"const": "QSA:ACTOR_BINDINGS:v1"}}},
+    "genesis": {"$ref": "#/$defs/signed"},
+    "states": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/state"}},
+    "qualifications": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/qualification"}},
+    "p0": {"type": "object", "required": ["commitment", "proposal_mark", "inspection"], "properties": {"commitment": {"$ref": "#/$defs/commitment"}, "proposal_mark": {"$ref": "#/$defs/proposalMark"}, "inspection": {"$ref": "#/$defs/inspection"}}, "additionalProperties": false},
+    "p1": {"type": "object", "required": ["proposal", "inspection", "observation"], "properties": {"proposal": {"$ref": "#/$defs/proposal"}, "inspection": {"$ref": "#/$defs/inspection"}, "observation": {"$ref": "#/$defs/observation"}}, "additionalProperties": false},
+    "p2": {"type": "object", "required": ["proposal", "inspection", "adoption", "build_mark"], "properties": {"proposal": {"$ref": "#/$defs/proposal"}, "inspection": {"$ref": "#/$defs/inspection"}, "adoption": {"$ref": "#/$defs/adoption"}, "build_mark": {"$ref": "#/$defs/buildMark"}}, "additionalProperties": false},
+    "p3": {"type": "object", "required": ["proposal", "inspection"], "properties": {"proposal": {"$ref": "#/$defs/proposal"}, "inspection": {"$ref": "#/$defs/inspection"}}, "additionalProperties": false}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "signature": {
+      "type": "object",
+      "required": ["algorithm", "domain", "key_id", "value"],
+      "properties": {"algorithm": {"const": "Ed25519"}, "domain": {"type": "string", "pattern": "^QSA:"}, "key_id": {"type": "string"}, "value": {"type": "string"}},
+      "additionalProperties": false
+    },
+    "signed": {
+      "type": "object",
+      "required": ["type", "artifact_id", "signature"],
+      "properties": {"type": {"type": "string", "pattern": "^QSA:"}, "artifact_id": {"type": "string"}, "signature": {"$ref": "#/$defs/signature"}},
+      "additionalProperties": true
+    },
+    "state": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["state_id", "parent_state_hash", "content", "state_hash"],
+      "properties": {"type": {"const": "QSA:STATE:v1"}, "state_id": {"type": "string"}, "parent_state_hash": {"type": ["string", "null"]}, "content": {"type": "object"}, "state_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}}
+    },
+    "qualification": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["qualification_id", "subject_key_id", "change_class", "policy_id", "valid_from", "valid_until", "status", "evidence"],
+      "properties": {"type": {"const": "QSA:QUALIFICATION:v1"}, "change_class": {"enum": ["EDITORIAL", "STRUCTURAL", "PROTECTED_OPERATIONAL", "CONSTITUTIONAL"]}, "status": {"enum": ["VALID", "EXPIRED", "REVOKED", "SUSPENDED", "UNVERIFIABLE", "NOT_APPLICABLE", "UNKNOWN"]}}
+    },
+    "proposal": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["proposal_id", "parent_state_hash", "builder_key_id", "declared_change_class", "qualification_receipt_hash", "proposal_intent", "expected_effect", "proposed_patch", "submitted_at"],
+      "properties": {"type": {"const": "QSA:PROPOSAL:v1"}, "declared_change_class": {"enum": ["EDITORIAL", "STRUCTURAL", "PROTECTED_OPERATIONAL", "CONSTITUTIONAL"]}}
+    },
+    "proposalMark": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["proposal_id", "builder_key_id", "parent_state_hash", "proposal_payload_hash", "qualification_receipt_hash", "submitted_at"],
+      "properties": {"type": {"const": "QSA:PROPOSAL_MARK:v1"}}
+    },
+    "commitment": {
+      "type": "object",
+      "required": ["type", "artifact_id", "proposal_id", "builder_key_id", "parent_state_hash", "proposal_payload_hash", "proposal_mark_hash", "qualification_receipt_hash", "inspection_receipt_hash", "submitted_at", "disposition", "full_payload_retention"],
+      "properties": {"type": {"const": "QSA:PROPOSAL_COMMITMENT:v1"}, "disposition": {"const": "P0_METADATA_ONLY"}, "full_payload_retention": {"const": "NOT_RETAINED_BY_POLICY"}}
+    },
+    "inspection": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["inspection_id", "proposal_id", "proposal_hash", "inspector_key_id", "qualification_status_at_submission", "qualification_status_at_inspection", "declared_change_class", "verified_change_class", "checks", "disposition", "inspected_at"],
+      "properties": {"type": {"const": "QSA:INSPECTION:v1"}}
+    },
+    "observation": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["observation_id", "proposal_id", "standing", "text", "observed_at"],
+      "properties": {"type": {"const": "QSA:OBSERVATION:v1"}, "standing": {"const": "MATERIAL_OBSERVATION"}}
+    },
+    "adoption": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["adoption_id", "proposal_id", "proposal_hash", "inspection_receipt_hash", "parent_state_hash", "successor_state_hash", "authority_key_id", "authority_policy_id", "qualification_status_at_adoption", "adopted_at"],
+      "properties": {"type": {"const": "QSA:ADOPTION:v1"}}
+    },
+    "buildMark": {
+      "allOf": [{"$ref": "#/$defs/signed"}],
+      "type": "object",
+      "required": ["build_mark_id", "builder_key_id", "parent_state_hash", "proposal_hash", "qualification_receipt_hash", "inspection_receipt_hash", "adoption_receipt_hash", "successor_state_hash", "marked_at"],
+      "properties": {"type": {"const": "QSA:BUILD_MARK:v1"}}
+    }
+  }
+}

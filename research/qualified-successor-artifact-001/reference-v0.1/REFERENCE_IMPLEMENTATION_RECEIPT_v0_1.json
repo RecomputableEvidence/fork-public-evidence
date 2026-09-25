@@ -1,0 +1,104 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "reference_id": "QSA-001-v0.1-FOUR-OUTCOME-REFERENCE",
+  "standing": "REFERENCE_IMPLEMENTATION_LOCALLY_VERIFIED",
+  "conceptual_freeze_commit": "704b1da5d999d6130dacd6691c768fe6904e970f",
+  "verification_environment": {
+    "python": "3.13.5",
+    "cryptography": "46.0.4",
+    "jsonschema": "4.26.0"
+  },
+  "files": {
+    "README.md": {
+      "bytes": 1311,
+      "sha256": "6357c2ff0b5ad7bb6d41ae242fed688e012a8dd758fb09ca23e09b16086b0173"
+    },
+    "requirements.txt": {
+      "bytes": 40,
+      "sha256": "68c5e880c1718ca22e716265977d0a49510459f152efccfdff3cfe8e86955cc5"
+    },
+    "qsa_verify.py": {
+      "bytes": 12427,
+      "sha256": "1d0dd8372a9aa2d4cd58abdd75702243df928763c07d2faaabad3a9235e2ce4d"
+    },
+    "reference-package.schema.json": {
+      "bytes": 6751,
+      "sha256": "cdf346ed2158f344689ad1a053251187d7578190419da2e4f6e9f08681c79533"
+    },
+    "verification-receipt.expected.json": {
+      "bytes": 1245,
+      "sha256": "8febd97eee5c802c683d9104b54fb5ef628d6326fbe65bdba772e0a01b4a09bf"
+    },
+    "reference-package/INDEX.json": {
+      "bytes": 334,
+      "sha256": "abd1525191cbf7c660aa663b83241ea5a6a70b558f29a829b5157a622c0ebabf"
+    },
+    "reference-package/actor_bindings.json": {
+      "bytes": 688,
+      "sha256": "04af2a6c07cf3b17c06a590438667121ee7ddc210a402b59a4ac5debb3cbc43e"
+    },
+    "reference-package/constitution.json": {
+      "bytes": 1079,
+      "sha256": "c5788225b1bb641580803de0a433c296557371cb3a8c7ab59e1f49a8d75214d3"
+    },
+    "reference-package/genesis.json": {
+      "bytes": 978,
+      "sha256": "2152991a7d789bf1b0527fcf86f44300aea35d1e04cd79e937defab834fac601"
+    },
+    "reference-package/manifest.json": {
+      "bytes": 1409,
+      "sha256": "18f1bcac2d02e6f46a1cdf0f2f3a2582d0330b79b6e6fa4a4d4213743284ba6c"
+    },
+    "reference-package/p0.json": {
+      "bytes": 2339,
+      "sha256": "1a48cb66ab97ad67fb36cfb84c32a0efe0ef056f894c6dbb8f5180ad05d0c689"
+    },
+    "reference-package/p1.json": {
+      "bytes": 2375,
+      "sha256": "25394fd0daff6c7e6e771509cf6fd75c7ce97d2f47ac7fd8478e2610136284ea"
+    },
+    "reference-package/p2.json": {
+      "bytes": 3718,
+      "sha256": "5f68ab7f06fdc53def7b0add6ede32ce972ec435d1c642c7381e897a7f554adc"
+    },
+    "reference-package/p3.json": {
+      "bytes": 1885,
+      "sha256": "6eeef54e3113a17a495bede9985ed5effee3a50bfa172cf2cc13e000c7f98da7"
+    },
+    "reference-package/qualifications.json": {
+      "bytes": 1346,
+      "sha256": "b7faaf4263f4ae5a816d2c7d222a2092ef7c123c999a6eef4e7f17c0eb12a71a"
+    },
+    "reference-package/states.json": {
+      "bytes": 1069,
+      "sha256": "5ef792827b7e60d9137ac4234c144bd705b45eb0c0440f48db68aa7b5aaae49c"
+    },
+    "reference-package/trusted_keys.json": {
+      "bytes": 933,
+      "sha256": "7c796a49fa49ce9670e5e025c1e3026e96ebbe06fd7735696bbafb7965d59095"
+    }
+  },
+  "reference_trace": [
+    "GENESIS",
+    "P0_METADATA_ONLY",
+    "P1_OBSERVATION_PRESERVED",
+    "P2_SUCCESSOR_IMPLEMENTED",
+    "STATE_001",
+    "P3_REJECTED_ROUTE_INVALID"
+  ],
+  "verification_result": "PASS",
+  "deterministic_receipt_comparison": "PASS",
+  "tamper_probe": {
+    "mutation": "P2 proposal_intent modified after signing",
+    "expected_result": "FAIL",
+    "observed_result": "FAIL",
+    "observed_reason": "signature verification failed: p2-proposal"
+  },
+  "nonclaims": [
+    "Local reference verification does not establish production readiness.",
+    "Reference test keys do not establish external identity or universal authority.",
+    "Verification PASS does not establish semantic truth, moral legitimacy, policy wisdom, legal compliance, or any empirical Fork hypothesis."
+  ],
+  "package_representation": "COMPONENT_DIRECTORY_RECONSTRUCTED_BY_INDEX",
+  "package_index": "reference-package/INDEX.json"
+}
