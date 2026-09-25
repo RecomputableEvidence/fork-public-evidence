@@ -1,0 +1,60 @@
+{
+  "object_id": "FORK-EVIDENCE-LENS-GALLERY-001-POPULATION-002-PREDECLARATION-PARITY-RECEIPT-001",
+  "object_type": "PREDECLARATION_NORMATIVE_PARITY_RECEIPT",
+  "status": "PARITY_PASS",
+  "normative_projection_version": 1,
+  "repository": "RecomputableEvidence/fork-public-evidence",
+  "preservation_target_ref": "refs/heads/main",
+  "pre_preservation_main": "56b4e064fa061417a82b7017f56d0dd98f225aa5",
+  "source_population_base_coordinate": "main@56b4e064fa061417a82b7017f56d0dd98f225aa5",
+  "artifacts": {
+    "markdown": {
+      "path": "docs/evidence-lens-gallery/populations/002/PREDECLARATION.md",
+      "sha256": "fd832dcd6349e0039da974bd2370f176d2b9a44698508d56dfa8a79950958ac7"
+    },
+    "json": {
+      "path": "docs/evidence-lens-gallery/populations/002/PREDECLARATION.json",
+      "sha256": "8d5ac27a9086c061fc2e2851a4fbfec273c879c1f6f834480cff8839cdcec7a2"
+    }
+  },
+  "normative_projection": {
+    "manifestation_id_lexicographic_markdown": [
+      "UTF8_BYTEWISE_ASCENDING"
+    ],
+    "manifestation_id_lexicographic_json_non_claim": [
+      "UTF8_BYTEWISE_ASCENDING"
+    ],
+    "manifestation_id_lexicographic_json_ordering_semantics": "UTF8_BYTEWISE_ASCENDING OVER_PREASSIGNED_MANIFESTATION_ID",
+    "comparator_parity": "PASS",
+    "active_ascii_comparator_occurrences": 0,
+    "enumeration_guard_markdown": "CLOSED",
+    "enumeration_guard_json": "CLOSED",
+    "population_002_entries": "ZERO_AT_PREDECLARATION",
+    "normative_parity": "PASS"
+  },
+  "correction_relation": {
+    "superseded": "ASCII_BYTEWISE_ASCENDING",
+    "current_normative_comparator": "UTF8_BYTEWISE_ASCENDING",
+    "scope": "MANIFESTATION_ID_LEXICOGRAPHIC"
+  },
+  "continuation_gate": {
+    "event_selection": "NOT_BEGUN",
+    "candidate_enumeration": "CLOSED_UNTIL_THIS_EXACT_PREDECLARATION_PAIR_IS_PRESERVED_ON_MAIN",
+    "population_002_admission": "NOT_ESTABLISHED_BY_THIS_RECEIPT"
+  },
+  "checks": {
+    "md_comparators_all_utf8": true,
+    "json_nonclaim_comparator_utf8": true,
+    "json_ordering_comparator_utf8": true,
+    "active_ascii_literal_md_zero": true,
+    "active_ascii_literal_json_zero": true,
+    "markdown_enumeration_guard_closed": true,
+    "json_enumeration_guard_closed": true,
+    "population_002_entries_zero": true
+  },
+  "non_claims": [
+    "PARITY_PASS != POPULATION_002_ADMITTED",
+    "PREDECLARATION_PRESERVED != EVENT_SELECTED",
+    "ENUMERATION_AUTHORIZED != CANDIDATE_FIT_ESTABLISHED"
+  ]
+}
