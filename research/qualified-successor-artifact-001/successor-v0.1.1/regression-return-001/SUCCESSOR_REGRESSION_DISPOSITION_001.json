@@ -1,0 +1,61 @@
+{
+  "artifact_id": "QSA-001-v0.1.1-SUCCESSOR-REGRESSION-DISPOSITION-001",
+  "baseline": "PASS",
+  "bootstrap": "WITHHELD_PENDING_EXTERIOR_RECOMPUTATION_AND_SUCCESSOR_DISPOSITION",
+  "exterior_recomputation": "UNOPENED",
+  "formal_security": "NOT_ESTABLISHED",
+  "matrix": {
+    "A1_A12": "EXECUTED_WITH_DECLARED_EXPECTATIONS_MATCHED",
+    "all_expectations_matched": true,
+    "focused": [
+      "A4-R",
+      "A5-R",
+      "A6-R1",
+      "A6-R2",
+      "A6-R3",
+      "A7-R"
+    ]
+  },
+  "nonclaims": [
+    "Local closure candidates do not establish universal QSA validity.",
+    "Passing the matrix does not establish semantic truth, external identity, universal authority, governance wisdom, legal compliance, or any empirical Fork hypothesis."
+  ],
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "predecessor_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "production_readiness": "NOT_ESTABLISHED",
+  "repair_authority_beyond_v0_1_1": "NONE_FROM_THIS_DISPOSITION",
+  "repair_authorization_commit": "fde54f7631891b753c904f8a3231b5473f9e423e",
+  "repair_candidate_dispositions": [
+    {
+      "bounded_interpretation": "Temporal qualification intervals are independently enforced at submission, inspection, and adoption in this successor reference.",
+      "evidence": [
+        "A6-R1",
+        "A6-R2",
+        "A6-R3"
+      ],
+      "id": "QSA-RC-001",
+      "standing": "CLOSED_IN_LOCAL_SUCCESSOR_REFERENCE_CANDIDATE"
+    },
+    {
+      "bounded_interpretation": "The successor fixture represents a three-state canonical chain and rejects a validly signed transition whose parent is stale relative to its declared successor.",
+      "evidence": [
+        "A7-R"
+      ],
+      "id": "QSA-RC-002",
+      "standing": "CLOSED_IN_LOCAL_SUCCESSOR_REFERENCE_CANDIDATE"
+    },
+    {
+      "bounded_interpretation": "The test harness re-signs controlled negative fixtures so deeper relational checks can be reached after cryptographic validity remains intact.",
+      "evidence": [
+        "A4-R",
+        "A5-R",
+        "A7-R"
+      ],
+      "id": "QSA-RC-003",
+      "standing": "OPERATIONALIZED_IN_LOCAL_TEST_HARNESS"
+    }
+  ],
+  "standing": "LOCAL_SUCCESSOR_REGRESSION_MATRIX_EXECUTED_WITH_ALL_DECLARED_EXPECTATIONS_MATCHED",
+  "successor_implementation_commit": "143fd4fc6fad105e808fae169b4454a89eb3c789",
+  "successor_implementation_tree": "5f81f2e6eb78d255af23cb17cfa5b36f8b8cb293"
+}

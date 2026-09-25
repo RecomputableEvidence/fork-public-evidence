@@ -1,0 +1,145 @@
+{
+  "all_expectations_matched": true,
+  "artifact_id": "QSA-001-v0.1.1-SUCCESSOR-REGRESSION-RETURN-001",
+  "nonclaims": [
+    "Regression success does not establish production readiness or formal security.",
+    "Test-only deterministic private keys are reference-fixture material and confer no external identity or authority.",
+    "Passing the declared matrix does not establish semantic truth, governance wisdom, or empirical Fork hypotheses."
+  ],
+  "reference_profile": "QSA-001-v0.1.1-SUCCESSOR-REFERENCE",
+  "results": [
+    {
+      "actual": "PASS",
+      "error": null,
+      "expectation_match": true,
+      "expected": "PASS",
+      "probe_id": "BASELINE"
+    },
+    {
+      "actual": "REJECT",
+      "error": "signature verification failed: p2-proposal",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A1"
+    },
+    {
+      "actual": "REJECT",
+      "error": "signature verification failed: p_seed-proposal",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A2"
+    },
+    {
+      "actual": "REJECT",
+      "error": "domain/type mismatch: p2-adoption",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A3"
+    },
+    {
+      "actual": "REJECT",
+      "error": "signature verification failed: state:002",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A4"
+    },
+    {
+      "actual": "REJECT",
+      "error": "signature verification failed: state:002",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A5"
+    },
+    {
+      "actual": "REJECT",
+      "error": "signature verification failed: qualification:structural:001",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A6"
+    },
+    {
+      "actual": "REJECT",
+      "error": "signature verification failed: p2-proposal",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A7"
+    },
+    {
+      "actual": "PASS",
+      "error": null,
+      "expectation_match": true,
+      "expected": "PASS",
+      "probe_id": "A8"
+    },
+    {
+      "actual": "REJECT",
+      "error": "schema failure: ['p2']: 'inspection' is a required property",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A9"
+    },
+    {
+      "actual": "REJECT",
+      "error": "genesis actor-binding mismatch",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A10"
+    },
+    {
+      "actual": "REJECT",
+      "error": "duplicate JSON object key: artifact_id",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A11"
+    },
+    {
+      "actual": "REJECT",
+      "error": "QSA-CANONICAL-JSON-001 prohibits floating-point numbers",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A12"
+    },
+    {
+      "actual": "REJECT",
+      "error": "canonical chain parent mismatch at index 2",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A4-R"
+    },
+    {
+      "actual": "REJECT",
+      "error": "p2 successor relation mismatch",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A5-R"
+    },
+    {
+      "actual": "REJECT",
+      "error": "qualification interval invalid at p2:submission",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A6-R1"
+    },
+    {
+      "actual": "REJECT",
+      "error": "qualification interval invalid at p2:inspection",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A6-R2"
+    },
+    {
+      "actual": "REJECT",
+      "error": "qualification interval invalid at p2:adoption",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A6-R3"
+    },
+    {
+      "actual": "REJECT",
+      "error": "stale parent not currently adoptable: p2",
+      "expectation_match": true,
+      "expected": "REJECT",
+      "probe_id": "A7-R"
+    }
+  ]
+}

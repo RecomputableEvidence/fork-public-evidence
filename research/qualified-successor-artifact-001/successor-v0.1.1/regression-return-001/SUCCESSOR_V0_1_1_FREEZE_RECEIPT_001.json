@@ -1,0 +1,42 @@
+{
+  "artifact_id": "QSA-001-v0.1.1-SUCCESSOR-FREEZE-RECEIPT-001",
+  "branch": "research/qsa-001-v0.1.1-successor",
+  "execution_artifacts": {
+    "EXECUTION_ENVIRONMENT_001.json": {
+      "bytes": 549,
+      "sha256": "597e31b30d335d2c93cef41cc7b613455212988fe4a8dee7de8e054315bcc9be"
+    },
+    "SUCCESSOR_REGRESSION_DISPOSITION_001.json": {
+      "bytes": 2415,
+      "sha256": "d9ae79ec71b58751d5f834ee24b4a672d1628ec453610c4bad394dae8be7ca38"
+    },
+    "SUCCESSOR_REGRESSION_RETURN_001.json": {
+      "bytes": 3986,
+      "sha256": "05defbce7b55f9e940f06f7da6de87b68c627d3f0678571b7a7064991df62051"
+    },
+    "SUCCESSOR_REGRESSION_RETURN_001.md": {
+      "bytes": 1027,
+      "sha256": "c0071274f53de23151ae7a810114b3bc1a01f7cd8dc5dd03d757cafdfbe32b9a"
+    }
+  },
+  "freeze_effect": {
+    "bootstrap": "WITHHELD",
+    "exterior_recomputation": "UNOPENED",
+    "formal_security": "NOT_ESTABLISHED",
+    "new_repair_authority": "NONE",
+    "predecessor_v0_1": "UNCHANGED",
+    "production_readiness": "NOT_ESTABLISHED",
+    "successor_v0_1_1": "LOCALLY_VERIFIED_AND_REGRESSION_EXECUTED"
+  },
+  "implementation_primary_hashes": {
+    "qsa_pressure.py": "d920d3fec46d2c22bf20dd613d1b713c6a27ae3dbd39b178f3a90afdad6bf5b0",
+    "qsa_verify.py": "94ac4d5d7a8838f8ad5566b7a4bdb60f4b5e76b255572d3b47157f780a86b11d",
+    "reference-package.schema.json": "f5366308eda6419da234c631605d494606739b1e6a85a26697a1057ccdc018d5"
+  },
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "predecessor_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "repair_authorization_commit": "fde54f7631891b753c904f8a3231b5473f9e423e",
+  "standing": "LOCAL_SUCCESSOR_REFERENCE_AND_REGRESSION_PRESERVATION_RECEIPT",
+  "successor_implementation_commit": "143fd4fc6fad105e808fae169b4454a89eb3c789",
+  "successor_implementation_tree": "5f81f2e6eb78d255af23cb17cfa5b36f8b8cb293"
+}
