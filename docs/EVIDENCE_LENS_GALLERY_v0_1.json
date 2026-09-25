@@ -1,0 +1,251 @@
+{
+  "object_id": "FORK-EVIDENCE-LENS-GALLERY-001",
+  "version": "v0.1",
+  "status": "DESIGN_FREEZE",
+  "classification": "DERIVED_INSPECTION_SURFACE",
+  "repository_base_coordinate": "main@c2ae0ee435857c08cb074fc28e8302045572f50d",
+  "design_document": "docs/EVIDENCE_LENS_GALLERY_v0_1.md",
+  "governing_invariant": {
+    "lens_may_change": "WHAT_IS_EASY_TO_SEE",
+    "lens_must_not_change": "WHAT_THE_EVIDENCE_ESTABLISHES"
+  },
+  "population_state": "ZERO_ENTRIES_AT_FREEZE",
+  "declared_lenses": [
+    {
+      "lens_id": "FAILURE_MANIFESTATION",
+      "description": "Projects events where something failed or behaved unexpectedly"
+    },
+    {
+      "lens_id": "RECOMPUTATION",
+      "description": "Projects events involving recomputation attempts, divergences, or confirmations"
+    },
+    {
+      "lens_id": "BOUNDARY_DISCOVERY",
+      "description": "Projects events where a previously implicit distinction became operationally visible"
+    },
+    {
+      "lens_id": "REPAIR_SUCCESSOR",
+      "description": "Projects events involving repair paths, successor objects, or recovery sequences"
+    },
+    {
+      "lens_id": "ENVIRONMENTAL_DIVERGENCE",
+      "description": "Projects events where behavior diverged across environments, platforms, or serialization conventions"
+    },
+    {
+      "lens_id": "AUTHORITY_STANDING",
+      "description": "Projects events involving authority discontinuities, standing transitions, or standing-presence-versus-authority boundaries"
+    },
+    {
+      "lens_id": "NEGATIVE_RESULT",
+      "description": "Projects events that produced no scorable result, a null result, or an intentional stop"
+    },
+    {
+      "lens_id": "UNRESOLVED_STANDING",
+      "description": "Projects events whose standing remains unresolved, withheld, or pending"
+    }
+  ],
+  "entry_cardinality": {
+    "gallery_entry_unit": "SOURCE_EVENT \u00d7 OBSERVABLE_MANIFESTATION",
+    "rule": "ONE_ENTRY MAY_HAVE MULTIPLE_LENS_MEMBERSHIPS",
+    "new_lens_membership_is_not": "NEW_GALLERY_ENTRY",
+    "multiple_entries_for_same_source_event": "PERMITTED_ONLY_IF DISTINCT_OBSERVABLE_MANIFESTATIONS_EXIST"
+  },
+  "entry_schema": {
+    "required_fields": [
+      {
+        "field": "gallery_entry_id",
+        "meaning": "Stable gallery identifier"
+      },
+      {
+        "field": "source_object_id",
+        "meaning": "Native preserved artifact or run identifier"
+      },
+      {
+        "field": "source_coordinate",
+        "meaning": "Immutable commit hash + path + Git blob + SHA-256 where available"
+      },
+      {
+        "field": "source_artifact_paths",
+        "meaning": "Hash-bound source paths into preserved records"
+      },
+      {
+        "field": "observation_type",
+        "meaning": "Category of observable event"
+      },
+      {
+        "field": "observable_manifestation",
+        "meaning": "Exactly what failed or behaved unexpectedly"
+      },
+      {
+        "field": "detection_path",
+        "meaning": "Test, reviewer, recomputation, environment, exterior return, etc."
+      },
+      {
+        "field": "preconditions",
+        "meaning": "Bounded conditions under which the manifestation appeared"
+      },
+      {
+        "field": "preserved_evidence",
+        "meaning": "Hash-bound source paths"
+      },
+      {
+        "field": "initial_standing",
+        "meaning": "WITHHOLD / FAILED / unresolved / repaired, etc."
+      },
+      {
+        "field": "subsequent_disposition",
+        "meaning": "What happened after detection"
+      },
+      {
+        "field": "successor_or_repair_refs",
+        "meaning": "Separate object references where applicable"
+      },
+      {
+        "field": "standing_observed_at_commit",
+        "meaning": "Commit at which current_standing was observed"
+      },
+      {
+        "field": "standing_source_path",
+        "meaning": "Path to the source artifact from which standing was read"
+      },
+      {
+        "field": "standing_source_identity",
+        "meaning": "Git blob or SHA-256 of the source artifact at the standing observation commit"
+      },
+      {
+        "field": "current_standing",
+        "meaning": "Historical only; unresolved; reproduced; etc."
+      },
+      {
+        "field": "lens_memberships",
+        "meaning": "List of lens identifiers through which this entry is projected"
+      },
+      {
+        "field": "non_claims",
+        "meaning": "What the failure does not establish"
+      }
+    ],
+    "optional_fields": [
+      {
+        "field": "boundary_made_observable",
+        "meaning": "Observed distinction that became operationally visible; not a universal principle",
+        "subfields": {
+          "observed_event": "Exact description of what was observed",
+          "boundary_statement": "The distinction that became visible",
+          "statement_origin": "SOURCE_EXPLICIT | EXTERIOR_RETURN_EXPLICIT | GALLERY_DERIVED",
+          "support_refs": "Hash-bound source paths supporting the boundary statement"
+        },
+        "boundary": {
+          "GALLERY_DERIVED_BOUNDARY": "!= SOURCE_ASSERTED_BOUNDARY",
+          "GALLERY_DERIVED_BOUNDARY_also": "!= EXTERIOR_RETURN_ASSERTED_BOUNDARY"
+        }
+      }
+    ]
+  },
+  "routing_rules": {
+    "source_integrity": "Gallery entries reference source artifacts through hash-bound paths and immutable commit coordinates; they do not contain copies",
+    "source_binding": {
+      "source_binding": "IMMUTABLE_COMMIT + PATH + GIT_BLOB + SHA256_WHERE_AVAILABLE",
+      "branch_name": "OPTIONAL_DESCRIPTIVE_CONTEXT",
+      "branch_name_alone_is_not": "SOURCE_COORDINATE"
+    },
+    "non_duplication": {
+      "entry_unit": "ONE_SOURCE_EVENT \u00d7 ONE_OBSERVABLE_MANIFESTATION",
+      "multiple_lens_memberships_on_one_entry_is_not": "MULTIPLE_ENTRIES",
+      "multiple_entries_for_same_source_event_require": "DISTINCT_OBSERVABLE_MANIFESTATIONS"
+    },
+    "chronology_preservation": "Source chronology remains authoritative; gallery ordering is display convenience only",
+    "standing_preservation": "Lens membership does not promote standing",
+    "temporal_standing_binding": {
+      "formula": "CURRENT_STANDING + STANDING_OBSERVED_AT_COMMIT + STANDING_SOURCE_PATH + STANDING_SOURCE_IDENTITY = TEMPORALLY_BOUND_STANDING_OBSERVATION",
+      "distinctions": [
+        "IMMUTABLE_SOURCE_EVENT != IMMUTABLE_STANDING",
+        "STANDING_AT_FREEZE != STANDING_AT_INSPECTION",
+        "SILENT_STANDING_DRIFT != PRESERVED_STANDING_OBSERVATION"
+      ],
+      "drift_policy": "If the standing source artifact has changed identity since the standing observation commit, the gallery entry records a standing-source drift; that drift is itself a preserved observation, not a silent correction"
+    },
+    "source_staleness_vs_routing_staleness": {
+      "immutable_source_binding": "REMAINS_VALID",
+      "current_route": "MAY_BECOME_STALE",
+      "distinction": "HISTORICAL_PATH_NO_LONGER_CURRENT != HISTORICAL_SOURCE_BINDING_INVALID",
+      "source_staleness_is_not": "ROUTING_STALENESS",
+      "routing_staleness_policy": "If a source artifact has been moved, renamed, or deleted from its historical path in a later commit, the gallery entry records a routing staleness; that routing staleness is itself a preserved observation, not a silent correction. The immutable binding to the historical commit, path, Git blob, and SHA-256 remains valid regardless of current repository layout.",
+      "optional_route_fields": [
+        {
+          "field": "current_route_status",
+          "meaning": "CURRENT / MOVED / DELETED / UNRESOLVED"
+        },
+        {
+          "field": "current_route_observed_at_commit",
+          "meaning": "Commit at which the current route was last checked"
+        },
+        {
+          "field": "current_route_path",
+          "meaning": "Path at the current route observation commit, if resolvable"
+        }
+      ]
+    }
+  },
+  "non_promotion_boundary": {
+    "gallery_membership_does_not": [
+      "validate, freeze, qualify, authorize, or strengthen an underlying artifact",
+      "establish a taxonomic class",
+      "establish that a scientifically valid failure class exists",
+      "establish that a recurrence is explained",
+      "establish a general system property",
+      "create derivation, equivalence, endorsement, or standing inheritance",
+      "convert a preserved observation into a proven principle",
+      "authorize downstream reliance"
+    ],
+    "separation_of_observation_from_aggregation": [
+      "COMMON_LENS_MEMBERSHIP != ESTABLISHED_TAXONOMIC_CLASS",
+      "RECURRENCE_VISIBLE != RECURRENCE_EXPLAINED",
+      "MULTIPLE_INSTANCES != GENERAL_SYSTEM_PROPERTY"
+    ],
+    "research_object_boundary": {
+      "rule": "Later experiments studying recurrence, prevalence, or causal patterns must become separately opened research objects using Gallery records as their bounded corpus; the Gallery itself remains descriptive",
+      "corpus_separation": [
+        "GALLERY_CORPUS != UNDERLYING_SOURCE_CORPUS",
+        "DERIVED_REPRESENTATION_STUDY != SOURCE_ARTIFACT_STUDY",
+        "An experiment using only Gallery entries studies the derived representation; an experiment making claims about the underlying failures should bind both the selected Gallery population and the native source artifacts behind it"
+      ]
+    }
+  },
+  "population_prerequisites": [
+    "Preserve this design/freeze document unchanged",
+    "Select source artifacts by their existing preserved immutable commit coordinates only",
+    "Create gallery entries that reference, not copy, source artifacts",
+    "Bind each entry's source coordinate to an immutable commit hash, path, Git blob, and SHA-256 where available",
+    "Declare lens memberships per entry",
+    "Record boundary_made_observable with statement_origin and support_refs where applicable",
+    "Bind current_standing to standing_observed_at_commit, standing_source_path, and standing_source_identity",
+    "Do not promote standing for any referenced artifact",
+    "Preserve every non-claim declared in this document"
+  ],
+  "non_claims": [
+    "EVIDENCE_LENS_GALLERY != SOURCE_ARTIFACT",
+    "GALLERY_ENTRY_UNIT = SOURCE_EVENT \u00d7 OBSERVABLE_MANIFESTATION",
+    "NEW_LENS_MEMBERSHIP != NEW_GALLERY_ENTRY",
+    "LENS_MEMBERSHIP != STANDING_PROMOTION",
+    "LENS_LABEL != TAXONOMIC_CLASS",
+    "DERIVED_VIEW != HISTORICAL_REWRITE",
+    "SOURCE_BINDING = IMMUTABLE_COMMIT + PATH + GIT_BLOB + SHA256_WHERE_AVAILABLE",
+    "BRANCH_NAME_ALONE != SOURCE_COORDINATE",
+    "IMMUTABLE_SOURCE_EVENT != IMMUTABLE_STANDING",
+    "STANDING_AT_FREEZE != STANDING_AT_INSPECTION",
+    "GALLERY_DERIVED_BOUNDARY != SOURCE_ASSERTED_BOUNDARY",
+    "RECURRENCE_VISIBLE != RECURRENCE_EXPLAINED",
+    "COMMON_LENS_MEMBERSHIP != ESTABLISHED_FAILURE_CLASS",
+    "MULTIPLE_INSTANCES != GENERAL_SYSTEM_PROPERTY",
+    "BOUNDARY_MADE_OBSERVABLE != UNIVERSAL_PRINCIPLE",
+    "ORGANIZATION != SANITIZATION",
+    "GALLERY_CORPUS != UNDERLYING_SOURCE_CORPUS",
+    "GALLERY_AS_POPULATION != GALLERY_AS_INFERENTIAL_SURFACE",
+    "DERIVED_REPRESENTATION_STUDY != SOURCE_ARTIFACT_STUDY",
+    "DESIGN_FROZEN != POPULATION_BEGUN",
+    "IMMUTABLE_SOURCE_BINDING != STALE_BINDING",
+    "HISTORICAL_PATH_NO_LONGER_CURRENT != HISTORICAL_SOURCE_BINDING_INVALID",
+    "SOURCE_STALENESS != ROUTING_STALENESS"
+  ]
+}
