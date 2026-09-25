@@ -1,0 +1,97 @@
+{
+  "return_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+  "object_type": "EXTERIOR_INDEPENDENT_RECOMPUTATION_AND_CORRECTION_RETURN",
+  "status": "REPOSITORY_ADMISSION_CANDIDATE__EFFECTIVE_ON_MERGE",
+  "authorization": "EXPLICIT_USER_AUTHORIZATION",
+  "source_closed_object": {
+    "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+    "closed_object_standing": "CLOSED_HISTORICAL_EVIDENCE",
+    "closure_commit": "a560de8e1e34ff8ec10da6c4b6ec1fe3f91e5160",
+    "boundary": "EXTERIOR_RETURN_ADMISSION != CLOSED_OBJECT_REOPENED"
+  },
+  "subject_git_object": {
+    "commit": "883e4aad6667b06a9e4d2eb6a5d23f435afcfe68",
+    "tree": "0643660d9657b00b3d1c531d9e4aa0a0777bd04a",
+    "direct_parent": "f43b49dc42eb8df6ca3355f19e7b7b385a6b01bf",
+    "message": "Instantiate relational resolution demonstration at AG0",
+    "github_exposed_utc": "2026-09-25T04:24:15Z",
+    "github_verification": "unsigned",
+    "ag0_path": "research/fork-relational-resolution-demonstration-001/AG0_QUESTION_FREEZE.md",
+    "ag0_git_blob": "741cbb4224c83cc42a25063f04d0e5ca100fa128"
+  },
+  "source_return": {
+    "name": "SOURCE_RETURN.md",
+    "source_upload_name": "Independent Recomputation Report.md",
+    "byte_length": 10608,
+    "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc",
+    "encoding": "UTF-8",
+    "bom": false,
+    "line_endings": "LF",
+    "final_lf": true,
+    "preservation": "EXACT_UPLOADED_BYTES",
+    "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df"
+  },
+  "reported_structural_findings": {
+    "commit_sha1_recomputed_two_methods": true,
+    "object_type": "commit",
+    "object_size_bytes": 322,
+    "tree_sha1_recomputed_match": true,
+    "parent_child_binding_confirmed": true,
+    "git_fsck_full_strict_errors": 0,
+    "standing_label_structurally_present": true
+  },
+  "append_only_corrections": [
+    {
+      "correction_id": "TEMPORAL_DERIVATION_CORRECTION_001",
+      "target": "SOURCE_DOCUMENT_DERIVED_TIMESTAMP_CLAIM_DESCRIBED_BY_SOURCE_RETURN",
+      "raw_git_timestamp": "1790310255 -0700",
+      "source_document_claimed_local_time": "2026-09-24 18:30:55 PDT",
+      "corrected_local_time": "2026-09-24 21:24:15 PDT",
+      "corrected_utc": "2026-09-25T04:24:15Z",
+      "disposition": "ADMITTED_APPEND_ONLY_ON_MERGE"
+    },
+    {
+      "correction_id": "ELAPSED_TIME_CORRECTION_001",
+      "target": "SOURCE_DOCUMENT_PARENT_TO_CHILD_ELAPSED_CLAIM_DESCRIBED_BY_SOURCE_RETURN",
+      "parent_utc": "2026-09-25T00:56:45Z",
+      "child_utc": "2026-09-25T04:24:15Z",
+      "source_document_claimed_elapsed": "00:34:10",
+      "corrected_elapsed": "03:27:30",
+      "corrected_elapsed_seconds": 12450,
+      "disposition": "ADMITTED_APPEND_ONLY_ON_MERGE"
+    }
+  ],
+  "mutable_ref_observation": {
+    "historical_base": "f43b49dc42eb8df6ca3355f19e7b7b385a6b01bf",
+    "observed_main": "734bf2cc1981a52d8b9d0c0b9eeb2aece6253f52",
+    "interpretation": "MUTABLE_BRANCH_REF != IMMUTABLE_FREEZE_COORDINATE"
+  },
+  "semantic_boundary": {
+    "standing_label": "INSTANTIATED_AT_QUESTION_FREEZE_ONLY",
+    "structural_presence": true,
+    "semantic_authority_from_git": "NOT_ESTABLISHED",
+    "standing_change": "NONE",
+    "ag0_rewrite_authorized": false,
+    "closed_object_reopen_authorized": false
+  },
+  "source_document_identity": {
+    "status": "NOT_SEPARATELY_PRESERVED_IN_THIS_RETURN",
+    "effect": "CORRECTIONS_BIND_ONLY_TO_THE_CLAIMS_QUOTED_AND_DESCRIBED_BY_SOURCE_RETURN"
+  },
+  "non_claims": [
+    "RECOMPUTATION_MATCH != GENERAL_VALIDATION",
+    "STANDING_LABEL_PRESENT != SEMANTIC_AUTHORITY_ESTABLISHED",
+    "AUTHOR_TIMESTAMP_PRESENT != TRUSTED_TIME_ATTESTATION",
+    "SIGNED_OBJECT != TRUSTED_TIME_ATTESTATION",
+    "CORRECTION_ADMISSION != AG0_REWRITE",
+    "EXTERIOR_RETURN_ADMISSION != CLOSED_OBJECT_REOPENED",
+    "MUTABLE_REF_MOVEMENT != HISTORICAL_OBJECT_LOSS"
+  ],
+  "preservation_transport": {
+    "rejected_unreferenced_blob": "f6369a07021d5a53e0a9ff09b8b44228cbdcdc97",
+    "rejected_blob_branch_reachable": false,
+    "rejected_blob_disposition": "REJECTED_SOURCE_TRANSPORT_ATTEMPT",
+    "accepted_exact_source_git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+    "boundary": "UNREFERENCED_GIT_OBJECT != BRANCH_HISTORY"
+  }
+}
