@@ -1,0 +1,112 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG8_OBJECT_CLOSURE",
+  "status": "AG8_COMPLETE_OBJECT_CLOSED",
+  "authorized_by_user": true,
+  "parent_ag7_commit": "27fc31e307307164ec3c8026473ce7ce0d007c17",
+  "closure_branch": "research/fork-relational-resolution-demonstration-001-ag8",
+  "closure_basis": {
+    "ag0_stop_condition": "The object must stop after bounded representation and admitted derivation/view-selection work and must not cross into external control.",
+    "stop_condition_satisfied": true,
+    "ag7_complete_before_closure": true,
+    "external_action_performed_by_object": false,
+    "runtime_control_performed_by_object": false,
+    "target_execution_performed_by_object": false
+  },
+  "closed_gate_sequence": [
+    "AG0_QUESTION_FREEZE",
+    "AG1_ARTIFACT_IDENTITY_ADMISSION",
+    "AG2_SOURCE_OBSERVATION_ADMISSION",
+    "AG3_RELATION_EDGE_PREDECLARATION_INSTANTIATION",
+    "AG4_DIMENSIONAL_EVALUATION_ADMISSION",
+    "AG5_RECOMPUTATION_ADMISSION",
+    "AG6_DERIVATION_ADMISSION",
+    "AG7_DEMONSTRATION_VIEW_SELECTION",
+    "AG8_OBJECT_CLOSURE"
+  ],
+  "admitted_bounded_results": [
+    {
+      "result_id": "AG8-R01",
+      "label": "PRESERVATION_WITHOUT_STASIS",
+      "standing": "SUPPORTED_WITHIN_DEFINED_FIXTURE",
+      "statement": "The artifact identity reference remained fixed in the record while the evidence portfolio gained a second temporal coordinate, additional bounded observations, another evaluation and recomputation, cross-coordinate comparison, a supplemental surface, and an admitted derivation layer without rewriting the earlier graph coordinate.",
+      "boundary": "IDENTITY_REFERENCE_STABILITY_AND_RECORD_GROWTH != ARTIFACT_REACQUISITION_AT_CAPTURE_002"
+    },
+    {
+      "result_id": "AG8-R02",
+      "label": "ENRICHMENT_WITHOUT_PROMOTION",
+      "standing": "SUPPORTED_WITHIN_DEFINED_FIXTURE",
+      "statement": "The later record graph acquired greater temporal and comparative resolution while all nine homologous edge result classes remained unchanged and no authority relation was added or strengthened merely from the richer representation.",
+      "boundary": "RICHER_REPRESENTATION != EDGE_STANDING_CHANGE_OR_AUTHORITY_INHERITANCE"
+    },
+    {
+      "result_id": "AG8-R03",
+      "label": "SELECTION_WITHOUT_ERASURE",
+      "standing": "SUPPORTED_WITHIN_AG7_FIXTURE",
+      "statement": "A purpose-bound derived view was deterministically selected while a nonselected eligible view and an ineligible view remained retained and addressable; no prior derivation object was rewritten, invalidated, rejected, or superseded by selection alone.",
+      "boundary": "SELECTION != MUTATION_OR_SUPERSESSION"
+    },
+    {
+      "result_id": "AG8-R04",
+      "label": "PROMINENCE_WITHOUT_PROMOTION",
+      "standing": "SUPPORTED_WITHIN_AG7_FIXTURE",
+      "statement": "The selected view acquired purpose-bound presentation prominence without becoming canonical, changing edge result classes, changing derivation standing, changing authority relations, or authorizing external action.",
+      "boundary": "PRESENTATIONAL_PROMINENCE != EVIDENTIARY_PROMOTION_OR_ACTION_AUTHORITY"
+    }
+  ],
+  "admitted_negative_results": [
+    {
+      "result_id": "AG8-N01",
+      "label": "CONTINUOUS_PERSISTENCE_BRIDGE",
+      "standing": "NOT_DERIVABLE_FROM_ADMITTED_INPUTS",
+      "statement": "No admitted object establishes continuous persistence of any external relation throughout the unobserved interval between CAPTURE_001 and CAPTURE_002."
+    },
+    {
+      "result_id": "AG8-N02",
+      "label": "SUPERSESSION_BRIDGE",
+      "standing": "NOT_DERIVABLE_FROM_ADMITTED_INPUTS",
+      "statement": "The later release observation does not establish either supersession or non-supersession of the bounded relations around the selected v0.22.1 fixture."
+    }
+  ],
+  "scope_boundary": {
+    "empirical_result": "ESTABLISHED_WITHIN_DEFINED_FIXTURE",
+    "architectural_pattern": "SUPPORTED_CANDIDATE_ABSTRACTION",
+    "general_system_property": "NOT_ESTABLISHED",
+    "generalization_claim_admitted": false,
+    "external_authority_claim_admitted": false,
+    "certification_claim_admitted": false
+  },
+  "closure_nonclaims": [
+    "The object does not establish universal validity across artifact classes, governance environments, or future systems.",
+    "The object does not establish artifact safety, correctness, trustworthiness, deployment suitability, attestation validity, issuer authority, or runtime permission.",
+    "CAPTURE_002 artifact identity was carried forward from the admitted CAPTURE_001 identity; it was not independently reacquired and rehashed at CAPTURE_002.",
+    "Repeated result classes at two coordinates do not establish interval continuity.",
+    "A selected demonstration view is not a canonical view and does not invalidate retained alternatives.",
+    "No external action is authorized by closure."
+  ],
+  "closed_object_policy": {
+    "standing": "CLOSED_HISTORICAL_EVIDENCE",
+    "further_mutation_under_same_object_id": "NOT_AUTHORIZED_BY_AG8",
+    "additional_capture_under_same_closed_object": "NOT_AUTHORIZED_BY_AG8",
+    "additional_derivation_or_selection_under_same_closed_object": "NOT_AUTHORIZED_BY_AG8",
+    "future_work_requirement": "SEPARATELY_NAMED_AND_SEPARATELY_AUTHORIZED_SUCCESSOR_OR_NEW_RESEARCH_OBJECT",
+    "historical_records_remain_primary": true
+  },
+  "preserved_invariants": [
+    "ARTIFACT_IDENTITY != EVIDENCE_PORTFOLIO_AROUND_ARTIFACT",
+    "G1_DOES_NOT_REWRITE_G0",
+    "RICHER_REPRESENTATION != EDGE_STANDING_CHANGE",
+    "DERIVATION != INHERITANCE",
+    "REPEATED_RESULT_CLASS != CONTINUOUS_RELATION_PERSISTENCE",
+    "LATER_RELEASE_EXISTS != PRIOR_RELATION_SUPERSEDED",
+    "SELECTION != MUTATION",
+    "SELECTION != SUPERSESSION",
+    "SELECTED_FOR_PURPOSE_P != CANONICAL",
+    "NOT_SELECTED != REJECTED",
+    "PRESENTATIONAL_PROMINENCE != EVIDENTIARY_PROMOTION",
+    "VIEW_SELECTED_FOR_PURPOSE_P != AUTHORIZED_ACTION",
+    "CLOSURE != GENERALIZATION"
+  ],
+  "next_gate": null,
+  "next_gate_status": "NONE_OBJECT_CLOSED"
+}
