@@ -1,0 +1,23 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "run_id": "EXTERIOR-HANDOFF-RUN-002",
+  "artifact_id": "SOURCE-REVIEW-004-FREEZE-RECEIPT",
+  "standing": "PRESERVATION_RECEIPT",
+  "branch": "research/feod-001-exterior-handoff-run-002",
+  "parent_commit": "2f9a08fdcc6836a31d3ffa433cf0e7d6753d5183",
+  "source_path": "research/fork-exterior-observation-decomposition-001/exterior-handoff-run-002/source-review-004/SOURCE_REVIEW_004.md",
+  "source_git_blob_sha": "26928c3c00deb8b210e36e0744db2320c892ed53",
+  "source_content_sha256": "7021961866b48023677495f95641a92e2bcbc6d60e7331879e6f62e008daf491",
+  "source_byte_length": 1694,
+  "metadata_path": "research/fork-exterior-observation-decomposition-001/exterior-handoff-run-002/source-review-004/SOURCE_REVIEW_004.json",
+  "metadata_git_blob_sha": "95d2bfb2127bc26febab425462546b67535b30a3",
+  "metadata_content_sha256": "519c6c1095f1b65a356507292019ef79295e7feaac78c830f363d4a8caed3237",
+  "freeze_effect": {
+    "source_review_003": "UNCHANGED_HISTORICAL_SOURCE",
+    "source_review_004": "PRESERVED_AND_FROZEN",
+    "assertion_decomposition": "NOT_BEGUN",
+    "handoff_governance_evaluation": "NOT_BEGUN",
+    "technical_reproduction": "UNOPENED",
+    "repair": "UNAUTHORIZED"
+  }
+}

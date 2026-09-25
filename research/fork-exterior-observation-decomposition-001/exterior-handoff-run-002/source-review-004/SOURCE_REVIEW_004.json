@@ -1,0 +1,52 @@
+{
+  "object_id": "FORK-EXTERIOR-OBSERVATION-DECOMPOSITION-001",
+  "run_id": "EXTERIOR-HANDOFF-RUN-002",
+  "artifact_id": "SOURCE-REVIEW-004",
+  "artifact_role": "REVIEWER_SCOPE_CLARIFICATION_001",
+  "standing": "PRESERVED_AND_FROZEN",
+  "responds_to": "SOURCE-REVIEW-003",
+  "predecessor_commit": "2f9a08fdcc6836a31d3ffa433cf0e7d6753d5183",
+  "content_byte_length": 1694,
+  "content_sha256": "7021961866b48023677495f95641a92e2bcbc6d60e7331879e6f62e008daf491",
+  "git_blob_sha": "26928c3c00deb8b210e36e0744db2320c892ed53",
+  "source_representation": "CANONICAL_USER_PROVIDED_CHAT_TEXT_CAPTURE",
+  "media_type": "text/markdown; charset=utf-8",
+  "encoding": "UTF-8",
+  "normalization_status": "NO_NORMALIZATION_AFTER_CAPTURE",
+  "trailing_newline": false,
+  "reviewer_identity": "NOT_ESTABLISHED",
+  "clarification_relations": [
+    {
+      "topic": "checker_sample_scope",
+      "relation": "NARROWS_AND_DISAMBIGUATES",
+      "clarified_standing": "ONE_CHECKER_FULLY_READ; NEIGHBORING_NAMING_STRUCTURE_SKIMMED; GENERALIZATION_TO_ALL_210_NOT_CLAIMED"
+    },
+    {
+      "topic": "public_engagement_signal",
+      "relation": "NARROWS",
+      "clarified_standing": "NO_VISIBLE_PUBLIC_GITHUB_ENGAGEMENT_SIGNAL; PRIVATE_OR_OFF_PLATFORM_OBSERVATION_UNKNOWN"
+    },
+    {
+      "topic": "hypothesis_falsifiability",
+      "relation": "CORRECTS_CHARACTERIZATION",
+      "clarified_standing": "UNTESTED_IN_REPO; UNFALSIFIABLE_BY_DESIGN_NOT_CLAIMED"
+    },
+    {
+      "topic": "evaluation_vs_technical_finding",
+      "relation": "CONFIRMS_SEPARATION",
+      "clarified_standing": "LEXICAL_NOT_SEMANTIC_IS_REVIEWER_TECHNICAL_FINDING_BOUNDED_TO_INSPECTED_CODE_AND_DOCS; SCAFFOLDING_WITHOUT_GROUND_TRUTH_IS_EVALUATIVE_FRAMING"
+    }
+  ],
+  "assertion_decomposition": "NOT_BEGUN",
+  "handoff_governance_evaluation": "NOT_BEGUN",
+  "technical_reproduction": "UNOPENED",
+  "repair": "UNAUTHORIZED",
+  "elg_admission": "UNOPENED",
+  "research_promotion": "UNAUTHORIZED",
+  "non_claims": [
+    "SOURCE-REVIEW-004 does not rewrite SOURCE-REVIEW-003.",
+    "Later clarification does not establish that the original stronger wording never occurred.",
+    "Clarification of intended scope does not establish technical truth of the clarified claims.",
+    "No assertion decomposition, technical reproduction, repair, ELG admission, or research promotion is authorized by this preservation step."
+  ]
+}
