@@ -1,0 +1,296 @@
+{
+  "object_id": "FORK-EVIDENCE-LENS-GALLERY-001-POPULATION-001",
+  "object_type": "ELG_BOUNDED_CALIBRATION_POPULATION",
+  "status": "POPULATION_CANDIDATE__EFFECTIVE_ON_MERGE",
+  "predecessor_design_freeze": {
+    "object_id": "FORK-EVIDENCE-LENS-GALLERY-001",
+    "design_freeze_merge_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2",
+    "design_markdown_path": "docs/EVIDENCE_LENS_GALLERY_v0_1.md",
+    "design_markdown_git_blob": "481c6aa8c3c8acd5acdc9accac47641964e453d8",
+    "design_json_path": "docs/EVIDENCE_LENS_GALLERY_v0_1.json",
+    "design_json_git_blob": "273a5bd6fd30d95fffa76ab5e321de6f2775a2d2",
+    "standing_inheritance": "NONE"
+  },
+  "lens_shift": {
+    "statement": "FIRST_POPULATION != SHOWCASE",
+    "operationalization": "FIRST_POPULATION = CALIBRATION_OF_POPULATION_MECHANICS",
+    "selection_rationale": "Use one already-admitted exterior return with two distinct, precisely bounded manifestations to exercise source binding, entry cardinality, multi-lens membership, temporal standing binding, derived-boundary attribution, and non-promotion before attempting a broader historical population.",
+    "non_claims": [
+      "CALIBRATION_SELECTION != REPRESENTATIVE_SAMPLE",
+      "FIRST_ENTRY_ORDER != IMPORTANCE_ORDER",
+      "FIRST_POPULATION != FAILURE_TAXONOMY",
+      "EASE_OF_BINDING != EVIDENTIARY_PRIORITY"
+    ]
+  },
+  "population_scope": {
+    "source_events": 1,
+    "gallery_entries": 2,
+    "source_event_id": "AG0_EXTERIOR_RECOMPUTATION_RETURN_001",
+    "source_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+    "reason_for_two_entries": "The frozen cardinality rule permits multiple entries for one source event only when distinct observable manifestations exist; the timestamp-conversion error and elapsed-time error are preserved as distinct manifestations."
+  },
+  "declared_lenses_used": [
+    "FAILURE_MANIFESTATION",
+    "RECOMPUTATION",
+    "BOUNDARY_DISCOVERY"
+  ],
+  "source_binding": {
+    "source_event_commit": "c2ae0ee435857c08cb074fc28e8302045572f50d",
+    "source_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+    "artifacts": [
+      {
+        "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+        "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+        "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+      },
+      {
+        "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+        "git_blob": "254c4bdce5fe79375a3981ae5fd1ba00edb4ab24",
+        "sha256": "61d7983ef5fd6782542793a1f015648b82f0ca6a3637d0a63fd61e94e4d0c4f1"
+      },
+      {
+        "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+        "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+        "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+      }
+    ]
+  },
+  "standing_observation_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2",
+  "entries": [
+    {
+      "gallery_entry_id": "ELG-ENTRY-0001",
+      "population_object_id": "FORK-EVIDENCE-LENS-GALLERY-001-POPULATION-001",
+      "source_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+      "source_event_id": "AG0_EXTERIOR_RECOMPUTATION_RETURN_001",
+      "source_coordinate": {
+        "source_event_commit": "c2ae0ee435857c08cb074fc28e8302045572f50d",
+        "source_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+        "artifacts": [
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+            "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+            "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+          },
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+            "git_blob": "254c4bdce5fe79375a3981ae5fd1ba00edb4ab24",
+            "sha256": "61d7983ef5fd6782542793a1f015648b82f0ca6a3637d0a63fd61e94e4d0c4f1"
+          },
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+            "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+            "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+          }
+        ]
+      },
+      "source_artifact_paths": [
+        "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+        "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+        "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md"
+      ],
+      "observation_type": "DERIVED_TEMPORAL_CLAIM_ERROR",
+      "observable_manifestation": {
+        "raw_git_timestamp": "1790310255 -0700",
+        "source_document_claimed_local_time": "2026-09-24 18:30:55 PDT",
+        "corrected_local_time": "2026-09-24 21:24:15 PDT",
+        "corrected_utc": "2026-09-25T04:24:15Z",
+        "bounded_description": "Independent recomputation confirmed the underlying Git object structure while identifying the source document's local-time conversion as erroneous."
+      },
+      "detection_path": "EXTERIOR_INDEPENDENT_RECOMPUTATION",
+      "preconditions": [
+        "Fresh clone used by exterior recomputation return",
+        "Subject commit 883e4aad6667b06a9e4d2eb6a5d23f435afcfe68",
+        "Correction admitted append-only by PR #184 merge"
+      ],
+      "preserved_evidence": [
+        {
+          "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+          "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+          "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+        },
+        {
+          "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+          "git_blob": "254c4bdce5fe79375a3981ae5fd1ba00edb4ab24",
+          "sha256": "61d7983ef5fd6782542793a1f015648b82f0ca6a3637d0a63fd61e94e4d0c4f1"
+        },
+        {
+          "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+          "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+          "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+        }
+      ],
+      "initial_standing": "EXTERIOR_RETURN_REPORTED_ERROR__NOT_YET_REPOSITORY_ADMITTED",
+      "subsequent_disposition": "ADMITTED_APPEND_ONLY_ON_PR_184_MERGE",
+      "successor_or_repair_refs": [],
+      "standing_observed_at_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2",
+      "standing_source_path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+      "standing_source_identity": {
+        "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+        "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+      },
+      "current_standing": "ADMITTED_APPEND_ONLY_CORRECTION__HISTORICAL_AG0_UNCHANGED__SEMANTIC_STANDING_CHANGE_NONE",
+      "lens_memberships": [
+        "FAILURE_MANIFESTATION",
+        "RECOMPUTATION",
+        "BOUNDARY_DISCOVERY"
+      ],
+      "non_claims": [
+        "GALLERY_ENTRY != SOURCE_ARTIFACT",
+        "LENS_MEMBERSHIP != STANDING_PROMOTION",
+        "CORRECTION_ADMISSION != AG0_REWRITE",
+        "EXTERIOR_RETURN_ADMISSION != CLOSED_OBJECT_REOPENED",
+        "RECOMPUTATION_MATCH != GENERAL_VALIDATION",
+        "STANDING_LABEL_PRESENT != SEMANTIC_AUTHORITY_ESTABLISHED",
+        "GALLERY_DERIVED_BOUNDARY != SOURCE_ASSERTED_BOUNDARY",
+        "FIRST_POPULATION_MEMBERSHIP != REPRESENTATIVENESS"
+      ],
+      "boundary_made_observable": {
+        "observed_event": "The raw Git timestamp and Git object identity remained structurally recomputable while the source document's human-readable local-time conversion was wrong.",
+        "boundary_statement": "STRUCTURAL_TIMESTAMP_PRESENCE != CORRECT_TEMPORAL_DERIVATION",
+        "statement_origin": "GALLERY_DERIVED",
+        "support_refs": [
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+            "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+            "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+          },
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+            "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+            "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+          }
+        ]
+      },
+      "current_route_status": "CURRENT",
+      "current_route_observed_at_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2",
+      "current_route_path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md"
+    },
+    {
+      "gallery_entry_id": "ELG-ENTRY-0002",
+      "population_object_id": "FORK-EVIDENCE-LENS-GALLERY-001-POPULATION-001",
+      "source_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+      "source_event_id": "AG0_EXTERIOR_RECOMPUTATION_RETURN_001",
+      "source_coordinate": {
+        "source_event_commit": "c2ae0ee435857c08cb074fc28e8302045572f50d",
+        "source_object_id": "FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001",
+        "artifacts": [
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+            "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+            "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+          },
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+            "git_blob": "254c4bdce5fe79375a3981ae5fd1ba00edb4ab24",
+            "sha256": "61d7983ef5fd6782542793a1f015648b82f0ca6a3637d0a63fd61e94e4d0c4f1"
+          },
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+            "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+            "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+          }
+        ]
+      },
+      "source_artifact_paths": [
+        "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+        "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+        "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md"
+      ],
+      "observation_type": "DERIVED_ELAPSED_TIME_ERROR",
+      "observable_manifestation": {
+        "source_document_claimed_elapsed": "00:34:10",
+        "corrected_elapsed": "03:27:30",
+        "corrected_elapsed_seconds": 12450,
+        "parent_utc": "2026-09-25T00:56:45Z",
+        "child_utc": "2026-09-25T04:24:15Z",
+        "bounded_description": "The source document's elapsed-time result was internally consistent with its incorrect temporal conversion but was not the correct parent-to-child elapsed interval."
+      },
+      "detection_path": "EXTERIOR_INDEPENDENT_RECOMPUTATION",
+      "preconditions": [
+        "Fresh clone used by exterior recomputation return",
+        "Parent and child Git timestamps inspected independently",
+        "Correction admitted append-only by PR #184 merge"
+      ],
+      "preserved_evidence": [
+        {
+          "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+          "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+          "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+        },
+        {
+          "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/ADMISSION.json",
+          "git_blob": "254c4bdce5fe79375a3981ae5fd1ba00edb4ab24",
+          "sha256": "61d7983ef5fd6782542793a1f015648b82f0ca6a3637d0a63fd61e94e4d0c4f1"
+        },
+        {
+          "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+          "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+          "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+        }
+      ],
+      "initial_standing": "EXTERIOR_RETURN_REPORTED_ERROR__NOT_YET_REPOSITORY_ADMITTED",
+      "subsequent_disposition": "ADMITTED_APPEND_ONLY_ON_PR_184_MERGE",
+      "successor_or_repair_refs": [],
+      "standing_observed_at_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2",
+      "standing_source_path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+      "standing_source_identity": {
+        "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+        "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+      },
+      "current_standing": "ADMITTED_APPEND_ONLY_CORRECTION__HISTORICAL_AG0_UNCHANGED__SEMANTIC_STANDING_CHANGE_NONE",
+      "lens_memberships": [
+        "FAILURE_MANIFESTATION",
+        "RECOMPUTATION",
+        "BOUNDARY_DISCOVERY"
+      ],
+      "non_claims": [
+        "GALLERY_ENTRY != SOURCE_ARTIFACT",
+        "LENS_MEMBERSHIP != STANDING_PROMOTION",
+        "CORRECTION_ADMISSION != AG0_REWRITE",
+        "EXTERIOR_RETURN_ADMISSION != CLOSED_OBJECT_REOPENED",
+        "RECOMPUTATION_MATCH != GENERAL_VALIDATION",
+        "STANDING_LABEL_PRESENT != SEMANTIC_AUTHORITY_ESTABLISHED",
+        "GALLERY_DERIVED_BOUNDARY != SOURCE_ASSERTED_BOUNDARY",
+        "FIRST_POPULATION_MEMBERSHIP != REPRESENTATIVENESS"
+      ],
+      "boundary_made_observable": {
+        "observed_event": "The elapsed-time arithmetic followed an incorrect temporal input and therefore produced the wrong interval despite internal arithmetic consistency.",
+        "boundary_statement": "ARITHMETIC_CONSISTENCY_WITH_INCORRECT_INPUT != CORRECT_DERIVED_RESULT",
+        "statement_origin": "GALLERY_DERIVED",
+        "support_refs": [
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/SOURCE_RETURN.md",
+            "git_blob": "da221713c9270cf548f567ef728de17d0cfdf0df",
+            "sha256": "4f428025fd41038bb66c9cdb491292ae10a6a35dcd8fbda82b1f9d6c679269bc"
+          },
+          {
+            "path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md",
+            "git_blob": "11fac298615ced1d3ad5d3e8bd36f307adb33817",
+            "sha256": "93e1b27988d51d087e61e040462d85ed7981a9de84d6e2b996695aacfcc16e34"
+          }
+        ]
+      },
+      "current_route_status": "CURRENT",
+      "current_route_observed_at_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2",
+      "current_route_path": "docs/exterior-returns/FORK-RRD-001-AG0-GIT-OBJECT-INDEPENDENT-RECOMPUTATION-RETURN-001/RECONCILIATION.md"
+    }
+  ],
+  "population_effect_on_merge": {
+    "gallery_population_count": 2,
+    "source_events_referenced": 1,
+    "source_artifacts_copied": 0,
+    "historical_source_artifacts_modified": 0,
+    "source_standing_changes": 0,
+    "gallery_membership_promotions": 0,
+    "design_freeze_modified": false
+  },
+  "non_claims": [
+    "POPULATION_001 != COMPLETE_FAILURE_POPULATION",
+    "POPULATION_001 != REPRESENTATIVE_SAMPLE",
+    "ENTRY_COUNT != FAILURE_FREQUENCY",
+    "COMMON_LENS_MEMBERSHIP != ESTABLISHED_TAXONOMIC_CLASS",
+    "GALLERY_DERIVED_BOUNDARY != SOURCE_ASSERTED_BOUNDARY",
+    "GALLERY_CORPUS != UNDERLYING_SOURCE_CORPUS",
+    "POPULATION_ADMISSION != SOURCE_STANDING_CHANGE"
+  ]
+}
