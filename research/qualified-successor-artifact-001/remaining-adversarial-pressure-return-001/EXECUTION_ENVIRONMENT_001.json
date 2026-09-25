@@ -1,0 +1,10 @@
+{
+  "cryptography": "46.0.4",
+  "environment_receipt_hash": "sha256:dace79ca7a31d20a5883cfa2c12fdd9f142bc56e92b4db6246642c3161c5917d",
+  "executable": "/opt/pyvenv/bin/python",
+  "jsonschema": "4.26.0",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "reference_tree_hash": "e865f17a749e5b8f931b0ca5145a0fc71b9dbde9"
+}

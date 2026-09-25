@@ -1,0 +1,47 @@
+{
+  "artifact_id": "QSA-001-v0.1-REFERENCE-PRESSURE-DISPOSITION-001",
+  "baseline_integrity": "UNCHANGED",
+  "bootstrap": "WITHHOLD_PENDING_SUCCESSOR_OR_EXPLICIT_ACCEPTANCE_OF_BOUNDED_GAPS",
+  "not_established": [
+    "PRODUCTION_READINESS",
+    "FORMAL_SECURITY",
+    "UNIVERSAL_AUTHORITY",
+    "SEMANTIC_TRUTH",
+    "REAL_WORLD_GOVERNANCE_FIT",
+    "ANY_EMPIRICAL_FORK_HYPOTHESIS"
+  ],
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "repair_authority": "NONE_FROM_THIS_DISPOSITION",
+  "results": {
+    "A10": "MATCH_SIGNATURES_REMAIN_VALID_WHILE_ACTOR_BINDING_RELATION_FAILS",
+    "A3": "MATCH_DIRECT_DOMAIN_SEPARATION_REJECTION",
+    "A4": "REJECTED_AT_SIGNATURE_LAYER; DIRECT_PARENT_RELATION_FAIL_OBSERVED",
+    "A5": "REJECTED_AT_SIGNATURE_LAYER; DIRECT_SUCCESSOR_BUILD_MARK_HASH_RELATION_FAIL_OBSERVED",
+    "A6": "BOUNDED_GAP_TEMPORAL_VALIDITY_INTERVAL_NOT_INDEPENDENTLY_ENFORCED",
+    "A7": "BOUNDED_GAP_REFERENCE_SCHEMA_MAX_TWO_STATES_PREVENTS_DIRECT_STALE_PARENT_PRESSURE",
+    "A8": "MATCH_EMBEDDED_P3_CHANGE_CLASS_ESCALATION_REJECTION",
+    "A9": "MATCH_SCHEMA_INSPECTION_PREREQUISITE_REJECTION"
+  },
+  "source_return": "QSA-001-v0.1-REMAINING-ADVERSARIAL-PRESSURE-RETURN-001",
+  "standing": "FULL_DECLARED_PRESSURE_MATRIX_EXECUTED_WITH_BOUNDED_FAILURES_PRESERVED",
+  "successor_repair_candidates": [
+    {
+      "id": "QSA-RC-001",
+      "observation": "valid_from/valid_until is represented but v0.1 verifier does not independently compare interval against adoption time; static signed status and hash bindings dominate.",
+      "surface": "TEMPORAL_QUALIFICATION_ENFORCEMENT"
+    },
+    {
+      "id": "QSA-RC-002",
+      "observation": "reference schema fixes canonical states to exactly two; direct multi-successor stale-parent pressure cannot be represented in the v0.1 reference fixture.",
+      "surface": "GENERALIZED_CANONICAL_CHAIN_AND_STALE_PARENT_HANDLING"
+    },
+    {
+      "id": "QSA-RC-003",
+      "observation": "A4/A5 mutations are correctly rejected at signature verification before downstream relation checks; future pressure fixtures need controlled re-signing if downstream parent/build-mark logic is to be isolated independently.",
+      "surface": "DEEP_INVARIANT_PRESSURE_FIXTURE_SIGNING"
+    }
+  ],
+  "target_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "target_reference_tree": "e865f17a749e5b8f931b0ca5145a0fc71b9dbde9",
+  "test_plan_commit": "b1be477d1d6ae12ea17c0b7e849aaddb1dd6d55d"
+}
