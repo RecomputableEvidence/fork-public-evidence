@@ -1,0 +1,265 @@
+{
+  "object_id": "FORK-EVIDENCE-LENS-GALLERY-001-POPULATION-002-PREDECLARATION",
+  "object_type": "ELG_POPULATION_PREDECLARATION",
+  "status": "PREDECLARATION__SELECTION_RULE_AND_PROCEDURE_FROZEN_BEFORE_EVENT_SELECTION",
+  "predecessor_design_freeze": {
+    "object_id": "FORK-EVIDENCE-LENS-GALLERY-001",
+    "design_freeze_merge_commit": "5ee76df67f25ff6be03f025cf6795088b9c4aef2"
+  },
+  "predecessor_calibration_population": {
+    "object_id": "FORK-EVIDENCE-LENS-GALLERY-001-POPULATION-001",
+    "population_merge_commit": "56b4e064fa061417a82b7017f56d0dd98f225aa5"
+  },
+  "repository_base_coordinate": "main@56b4e064fa061417a82b7017f56d0dd98f225aa5",
+  "purpose": {
+    "question": "Does the Gallery machinery remain coherent when evidence comes from different objects, different failure trajectories, and different standing states?",
+    "population_001_question": "Can one cleanly bound source event be represented correctly through the frozen Gallery machinery?",
+    "distinction": "HETEROGENEITY != SCALE"
+  },
+  "lens_shift": {
+    "first_population": "FIRST_POPULATION != SHOWCASE; FIRST_POPULATION = CALIBRATION_OF_POPULATION_MECHANICS",
+    "second_population": "SECOND_POPULATION != HISTORICAL_SWEEP; SECOND_POPULATION = HETEROGENEITY_PRESSURE_TEST"
+  },
+  "what_population_002_tests": [
+    {
+      "dimension": "CROSS_OBJECT_SOURCE_BINDING",
+      "description": "Binding to at least two distinct source objects, each with its own immutable commit coordinate, Git blobs, and SHA-256 identities"
+    },
+    {
+      "dimension": "CROSS_TRAJECTORY_COHERENCE",
+      "description": "Manifestations from different trajectories, testing whether multiple lens memberships across entries from different objects remain non-contradictory"
+    },
+    {
+      "dimension": "STANDING_HETEROGENEITY",
+      "description": "At least one entry whose source event has an unresolved, withheld, pending, or incomplete standing trajectory"
+    }
+  ],
+  "recursive_eligibility_boundary": {
+    "observation": "Population 001 construction produced a preserved procedural failure (commit b9ad3c5, __dummy__ branch write, unreferenced commits, additive correction)",
+    "rule": "GALLERY_PROCESS_FAILURE MAY_BECOME FUTURE_SOURCE_EVENT",
+    "boundary": [
+      "FAILURE_OCCURRED != GALLERY_ENTRY_CREATED",
+      "GALLERY_ELIGIBILITY != GALLERY_ADMISSION",
+      "ELG_INSPECTING_ELG_CONSTRUCTION != ELG_SELF_AUTHORIZATION"
+    ],
+    "constraint": "A failure in the Gallery's own construction must pass through the same predeclared selection rule, source binding, entry cardinality, temporal standing binding, and non-promotion boundary as any other source event"
+  },
+  "ordered_gates": [
+    "Admit this predeclaration; selection rule and procedure frozen before any event is evaluated against the Population 002 selection procedure",
+    "Enumerate and select events under the frozen selection procedure; enumerate, record, evaluate, and select by predeclared ordering rule; preserve qualifying but unselected candidates with ordering reason",
+    "Construct gallery entries with immutable source binding, lens memberships, boundary attribution, and temporal standing binding",
+    "Preserve the population package including candidate enumeration; source artifacts referenced not copied; design freeze not modified",
+    "Admit the population with STANDING_INHERITANCE = NONE and DESIGN_FREEZE_MODIFIED = FALSE"
+  ],
+  "population_prerequisites": [
+    "Preserve this predeclaration unchanged",
+    "Enumerate all preserved source events reachable from main@56b4e064fa061417a82b7017f56d0dd98f225aa5 satisfying frozen ELG source-binding requirements",
+    "Record each candidate before evaluating Population 002 fit",
+    "Evaluate each candidate only against source-object identity, observable-manifestation distinctness, standing state, and source-binding completeness",
+    "Select the first qualifying combination under the predeclared ordering rule",
+    "Preserve qualifying but unselected candidates with ordering reason",
+    "Reject any selection influenced by a declared non-criterion",
+    "Create gallery entries that reference, not copy, source artifacts",
+    "Bind each entry's source coordinate to immutable commit hash, path, Git blob, and SHA-256 where available",
+    "Declare lens memberships per entry",
+    "Record boundary_made_observable with statement_origin and support_refs where applicable",
+    "Bind current_standing to standing_observed_at_commit, standing_source_path, and standing_source_identity",
+    "Do not promote standing for any referenced artifact",
+    "Preserve every non-claim declared in the design freeze and in this predeclaration"
+  ],
+  "non_claims": [
+    "POPULATION_002 != COMPLETE_FAILURE_POPULATION",
+    "POPULATION_002 != REPRESENTATIVE_SAMPLE",
+    "POPULATION_002 != HISTORICAL_SWEEP",
+    "POPULATION_002 != FAILURE_TAXONOMY",
+    "HETEROGENEITY_TEST != COMPLETENESS_TEST",
+    "CROSS_OBJECT_COHERENCE != CROSS_OBJECT_COMPLETENESS",
+    "UNRESOLVED_PATH_REPRESENTED != UNRESOLVED_PATH_RESOLVED",
+    "ENTRY_COUNT != FAILURE_FREQUENCY",
+    "COMMON_LENS_MEMBERSHIP != ESTABLISHED_TAXONOMIC_CLASS",
+    "GALLERY_DERIVED_BOUNDARY != SOURCE_ASSERTED_BOUNDARY",
+    "POPULATION_ADMISSION != SOURCE_STANDING_CHANGE",
+    "PREDECLARATION != POPULATION",
+    "SELECTION_CRITERIA != SELECTION_PROCEDURE",
+    "QUALIFYING_EVENT_SET != SELECTED_EVENT_SET",
+    "PREDECLARATION_FREEZE != FIRST_AWARENESS_OF_ALL_POSSIBLE_EVENTS",
+    "KNOWN_EVENT != SELECTED_EVENT",
+    "GENERAL_ELIGIBILITY != POPULATION_002_ELIGIBILITY_DETERMINATION",
+    "QUALIFYING_BUT_UNSELECTED != REJECTED_AS_INVALID",
+    "NOT_SELECTED != LOW_SIGNIFICANCE",
+    "EARLIER_ORDER != GREATER_IMPORTANCE",
+    "ILLUSTRATIVE_EXAMPLE != SELECTION_HINT",
+    "EXAMPLE_MATCH != ELIGIBILITY_PRIORITY",
+    "CANDIDATE_ORDER = IMMUTABLE_SOURCE_COMMIT_ASCENDING THEN SOURCE_PATH_LEXICOGRAPHIC THEN MANIFESTATION_ID_LEXICOGRAPHIC",
+    "IMMUTABLE_SOURCE_COMMIT_ASCENDING = LOWERCASE_HEX_BYTEWISE_ASCENDING",
+    "SOURCE_PATH_LEXICOGRAPHIC = UTF8_BYTEWISE_ASCENDING",
+    "MANIFESTATION_ID_LEXICOGRAPHIC = UTF8_BYTEWISE_ASCENDING",
+    "SELECTED_EVENT_SET = SMALLEST_CARDINALITY_QUALIFYING_SET THEN LEXICOGRAPHICALLY_EARLIEST_VECTOR_OF_CANDIDATE_ORDER_INDICES",
+    "POPULATION_001_SOURCE_EVENT = ENUMERATED_FOR_AUDIT = INELIGIBLE_FOR_POPULATION_002_SELECTION",
+    "IF_NO_QUALIFYING_SET_EXISTS_WITHOUT_IT = NO_QUALIFYING_SET",
+    "CANDIDATE_ENUMERATION_FAILURE != CANDIDATE_INELIGIBILITY",
+    "CURRENT_STANDING_REGISTER != CANDIDATE_EVENT_SURFACE",
+    "QUALIFICATION \u2192 FIXED_CANDIDATE_UNIVERSE \u2192 FIXED_TOTAL_ORDER \u2192 FIXED_SUBSET_ORDER \u2192 UNIQUE_SELECTED_SET",
+    "CANDIDATE_SELECTION_UNIT = SOURCE_EVENT \u00d7 OBSERVABLE_MANIFESTATION",
+    "CANDIDATE_UNIVERSE = EVERY_DISTINCT_SOURCE_EVENT \u00d7 OBSERVABLE_MANIFESTATION",
+    "CANONICAL_SOURCE_BINDING = BINDING_EXPLICITLY_DECLARED_BY_PRESERVED_RECORD_FOR_THAT_MANIFESTATION",
+    "IF_NO_UNIQUE_CANONICAL_BINDING_EXISTS = CANDIDATE_ENUMERATION_FAILURE NOT_CANDIDATE_INELIGIBILITY",
+    "GENERATED_MANIFESTATION_ID != SOURCE_ASSERTED_IDENTIFIER",
+    "MANIFESTATION_ORDER_KEY = CANONICAL_SOURCE_PATH + SOURCE_LOCAL_RECORD_OFFSET_OR_EXPLICIT_FINDING_ID",
+    "SAME_REPOSITORY + SAME_PREDECLARATION \u2192 SAME_CANDIDATE_DECOMPOSITION \u2192 SAME_BINDING_PER_CANDIDATE \u2192 SAME_ORDER \u2192 SAME_SELECTED_SET",
+    "CANDIDATE_EXISTS IFF SOURCE_EVENT_HAS_EXPLICIT_PRESERVED_IDENTIFIER AND_MANIFESTATION_HAS_UNIQUE_ADDRESSABLE_PRESERVED_RECORD AND_FROZEN_SOURCE_BINDING_REQUIREMENTS_ARE_SATISFIED",
+    "EXPLICIT_MANIFESTATION_ID = OPTIONAL",
+    "IF_NO_UNIQUE_PRESERVED_RECORD_BOUNDARY = CANDIDATE_ENUMERATION_FAILURE NOT_CANDIDATE_INELIGIBILITY",
+    "SOURCE_LOCAL_RECORD_OFFSET = ZERO_BASED_BYTE_OFFSET OF_FIRST_BYTE OF_THE_UNIQUE_ADDRESSABLE_MANIFESTATION_RECORD IN_CANONICAL_GIT_BLOB_BYTES",
+    "BYTE_OFFSET != LINE_NUMBER",
+    "BYTE_OFFSET != CHARACTER_OFFSET",
+    "BYTE_OFFSET != DISPLAY_POSITION"
+  ],
+  "instantiation_state": {
+    "predeclaration": "FROZEN",
+    "event_selection": "NOT_BEGUN",
+    "selection_rule": "FROZEN",
+    "selection_procedure": "FROZEN",
+    "selection_non_criteria": "FROZEN",
+    "recursive_eligibility_boundary": "FROZEN",
+    "population_002_entries": "ZERO_AT_PREDECLARATION"
+  },
+  "predeclared_selection_rule": {
+    "sequencing_claim": "No event is selected or evaluated against the Population 002 selection procedure before this predeclaration is preserved",
+    "sequencing_distinctions": [
+      "PREDECLARATION_FREEZE PRECEDES POPULATION_002_SELECTION",
+      "PREDECLARATION_FREEZE != FIRST_AWARENESS_OF_ALL_POSSIBLE_EVENTS",
+      "KNOWN_EVENT != SELECTED_EVENT",
+      "GENERAL_ELIGIBILITY != POPULATION_002_ELIGIBILITY_DETERMINATION"
+    ],
+    "note": "Fork already knows its own history. The predeclaration freeze does not require or claim ignorance of preserved events. It requires that the selection procedure be frozen before any event is evaluated against it."
+  },
+  "selection_procedure": {
+    "distinction": "SELECTION_CRITERIA != SELECTION_PROCEDURE",
+    "candidate_universe": {
+      "candidate_selection_unit": "SOURCE_EVENT \u00d7 OBSERVABLE_MANIFESTATION",
+      "definition": "EVERY_DISTINCT_SOURCE_EVENT \u00d7 OBSERVABLE_MANIFESTATION WHERE_SOURCE_EVENT_HAS_EXPLICIT_PRESERVED_IDENTIFIER AND_MANIFESTATION_HAS_UNIQUE_ADDRESSABLE_PRESERVED_RECORD IN_THE_TREE_OR_ANCESTRY_OF main@56b4e064fa061417a82b7017f56d0dd98f225aa5 AND_SATISFYING_THE_FROZEN_SOURCE_BINDING_FIELDS",
+      "enumerated_surfaces": [
+        {
+          "surface": "docs/exterior-returns/",
+          "rule": "each exterior return directory is a candidate source event; each distinct correction, finding, or observed manifestation within that return is a distinct candidate manifestation"
+        },
+        {
+          "surface": "admissions/",
+          "rule": "each admission directory with a preserved object/event identifier is a candidate source event; each distinct preserved finding, discrepancy, or uncovered surface is a distinct candidate manifestation"
+        },
+        {
+          "surface": "research/",
+          "rule": "each research object directory with preserved stage records is a candidate source event; each distinct preserved stage, attempt, or dimensional evaluation is a distinct candidate manifestation"
+        },
+        {
+          "surface": "docs/observations/",
+          "rule": "each observation directory with a preserved event identifier is a candidate source event; each distinct preserved observation is a distinct candidate manifestation"
+        },
+        {
+          "surface": "docs/experiments/",
+          "rule": "each experiment directory with preserved run/procedural records is a candidate source event; each distinct run, attempt, or procedural record is a distinct candidate manifestation"
+        },
+        {
+          "surface": "docs/current-standing/",
+          "rule": "NOT a candidate event surface; routing surfaces only"
+        }
+      ],
+      "constraint": "A candidate exists iff the source event has an explicit preserved identifier AND the manifestation has a unique addressable preserved record within the canonical source artifact AND the frozen source-binding requirements are satisfied",
+      "distinctions": [
+        "CANDIDATE_ENUMERATION_FAILURE != CANDIDATE_INELIGIBILITY",
+        "CURRENT_STANDING_REGISTER != CANDIDATE_EVENT_SURFACE"
+      ],
+      "canonical_source_binding_rule": {
+        "rule": "CANONICAL_SOURCE_BINDING = THE_IMMUTABLE_COMMIT + PATH + GIT_BLOB + SHA256 EXPLICITLY_DECLARED_BY_THE_PRESERVED_RECORD FOR_THAT_MANIFESTATION",
+        "if_multiple_bindings_exist": "USE_THE_BINDING_EXPLICITLY_IDENTIFIED_AS_PRIMARY_OR_CANONICAL_BY_THE_SOURCE_RECORD",
+        "if_no_unique_canonical_binding_exists": "CANDIDATE_ENUMERATION_FAILURE NOT_CANDIDATE_INELIGIBILITY",
+        "note": "If a preserved record declares multiple bindings without identifying one as primary, the candidate cannot be ordered until the source record is separately reconciled"
+      },
+      "manifestation_id_assignment_rule": {
+        "rule": "MANIFESTATION_ID = EXPLICIT_SOURCE_MANIFESTATION_ID WHERE_ONE_EXISTS; IF_NONE_EXISTS = ASSIGN ELG-CANDIDATE-MANIFESTATION-ID BY_FROZEN_DETERMINISTIC_RULE",
+        "generated_id_format": "ELG-CANDIDATE- + CANONICAL_SOURCE_PATH + : + SOURCE_LOCAL_RECORD_OFFSET",
+        "source_local_record_offset_definition": "ZERO_BASED_BYTE_OFFSET OF_FIRST_BYTE OF_THE_UNIQUE_ADDRESSABLE_MANIFESTATION_RECORD IN_CANONICAL_GIT_BLOB_BYTES, or the explicit finding/correction identifier declared by the source record if one exists; if neither is available, the candidate is an enumeration failure",
+        "manifestation_order_key": "CANONICAL_SOURCE_PATH + SOURCE_LOCAL_RECORD_OFFSET_OR_EXPLICIT_FINDING_ID",
+        "distinction": "GENERATED_MANIFESTATION_ID != SOURCE_ASSERTED_IDENTIFIER",
+        "byte_offset_precision": {
+          "definition": "ZERO_BASED_BYTE_OFFSET OF_FIRST_BYTE OF_THE_UNIQUE_ADDRESSABLE_MANIFESTATION_RECORD IN_CANONICAL_GIT_BLOB_BYTES",
+          "distinctions": [
+            "BYTE_OFFSET != LINE_NUMBER",
+            "BYTE_OFFSET != CHARACTER_OFFSET",
+            "BYTE_OFFSET != DISPLAY_POSITION"
+          ],
+          "note": "Measured against raw bytes of the canonical Git blob, not against any rendered, decoded, or display representation"
+        }
+      },
+      "reproducibility_guarantee": "SAME_REPOSITORY + SAME_PREDECLARATION \u2192 SAME_CANDIDATE_DECOMPOSITION \u2192 SAME_BINDING_PER_CANDIDATE \u2192 SAME_ORDER \u2192 SAME_SELECTED_SET",
+      "identity_vs_addressability": {
+        "source_event": "MUST_HAVE_EXPLICIT_PRESERVED_EVENT_OR_OBJECT_IDENTIFIER",
+        "observable_manifestation": "MUST_HAVE_UNIQUE_PRESERVED_RECORD_BOUNDARY WITHIN_CANONICAL_SOURCE_ARTIFACT",
+        "explicit_manifestation_id": "OPTIONAL",
+        "if_explicit_manifestation_id_absent": "GENERATED_ELG_CANDIDATE_ID_PERMITTED",
+        "if_no_unique_preserved_record_boundary": "CANDIDATE_ENUMERATION_FAILURE NOT_CANDIDATE_INELIGIBILITY",
+        "candidate_exists_iff": [
+          "SOURCE_EVENT_HAS_EXPLICIT_PRESERVED_IDENTIFIER",
+          "AND_MANIFESTATION_HAS_UNIQUE_ADDRESSABLE_PRESERVED_RECORD_IN_CANONICAL_SOURCE_ARTIFACT",
+          "AND_FROZEN_SOURCE_BINDING_REQUIREMENTS_ARE_SATISFIED"
+        ]
+      }
+    },
+    "steps": [
+      {
+        "step": 1,
+        "action": "Enumerate all source-event \u00d7 observable-manifestation pairs in the candidate universe reachable from main@56b4e064fa061417a82b7017f56d0dd98f225aa5; record each with source-object identifier, manifestation identifier (explicit or generated), canonical source binding (commit + path + Git blob + SHA-256), and standing state"
+      },
+      {
+        "step": 2,
+        "action": "Record each candidate before evaluating Population 002 fit; candidate enumeration preserved as part of population package"
+      },
+      {
+        "step": 3,
+        "action": "Evaluate each candidate only against: source-object identity, observable-manifestation distinctness, standing state, source-binding completeness"
+      },
+      {
+        "step": 4,
+        "action": "Population 001 source event is enumerated for audit and is ineligible for Population 002 selection; if no qualifying set exists without it, there is no qualifying set"
+      },
+      {
+        "step": 5,
+        "action": "Select qualifying combination under byte-exact ordering rule and combination selection rule"
+      },
+      {
+        "step": 6,
+        "action": "Preserve qualifying but unselected candidates with ordering reason"
+      }
+    ],
+    "population_001_reuse_edge": {
+      "rule": "POPULATION_001_SOURCE_EVENT = ENUMERATED_FOR_AUDIT = INELIGIBLE_FOR_POPULATION_002_SELECTION",
+      "fallback": "IF_NO_QUALIFYING_SET_EXISTS_WITHOUT_IT = NO_QUALIFYING_SET",
+      "note": "Population 001 source event is included in candidate enumeration for audit completeness. It is excluded from selection. No fallback to Population 001 reuse."
+    },
+    "ordering_semantics": {
+      "IMMUTABLE_SOURCE_COMMIT_ASCENDING": "LOWERCASE_HEX_BYTEWISE_ASCENDING",
+      "SOURCE_PATH_LEXICOGRAPHIC": "UTF8_BYTEWISE_ASCENDING OVER_REPOSITORY_CANONICAL_PATH",
+      "MANIFESTATION_ID_LEXICOGRAPHIC": "UTF8_BYTEWISE_ASCENDING OVER_PREASSIGNED_MANIFESTATION_ID",
+      "note": "Eliminates ambiguity from case handling, locale, Unicode collation, normalization, decoded-character ordering, or display ordering; manifestation identifiers are encoded as UTF-8 and compared byte-by-byte in ascending order"
+    },
+    "combination_selection_rule": {
+      "rule": "SELECTED_EVENT_SET = SMALLEST_CARDINALITY_QUALIFYING_SET THEN LEXICOGRAPHICALLY_EARLIEST_VECTOR_OF_CANDIDATE_ORDER_INDICES",
+      "procedure": "First, all qualifying event sets are identified. Among qualifying sets, the smallest cardinality set is preferred. If multiple qualifying sets share the smallest cardinality, the set whose sorted vector of candidate order indices is lexicographically earliest is selected.",
+      "example": "If candidates A,B,C,D are ordered as [1,2,3,4] and qualifying pairs exist at {A,C}=[1,3], {A,D}=[1,4], and {B,C}=[2,3], then {A,C}=[1,3] is selected because [1,3] is lexicographically earlier. No qualifying triple can outrank any qualifying pair.",
+      "guarantee": "QUALIFICATION \u2192 FIXED_CANDIDATE_UNIVERSE \u2192 FIXED_TOTAL_ORDER \u2192 FIXED_SUBSET_ORDER \u2192 UNIQUE_SELECTED_SET"
+    },
+    "unselected_boundary": [
+      "QUALIFYING_BUT_UNSELECTED != REJECTED_AS_INVALID",
+      "NOT_SELECTED != LOW_SIGNIFICANCE",
+      "EARLIER_ORDER != GREATER_IMPORTANCE"
+    ]
+  },
+  "example_boundary": {
+    "distinctions": [
+      "ILLUSTRATIVE_EXAMPLE != SELECTION_HINT",
+      "EXAMPLE_MATCH != ELIGIBILITY_PRIORITY"
+    ],
+    "note": "Concrete examples of manifestation types are illustrative only and must not be treated as selection cues."
+  }
+}
