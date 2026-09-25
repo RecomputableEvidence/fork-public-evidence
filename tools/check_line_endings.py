@@ -3,7 +3,8 @@
 Fork Line Ending Checker v0.1
 
 Purpose:
-    Fail when governed text artifacts contain CRLF or bare CR line endings.
+    Fail when governed text artifacts contain CRLF or bare CR line endings,
+    except for explicitly hash-locked historical byte-preservation objects.
 
 Exit codes:
     0 = no line-ending defects found
@@ -13,6 +14,7 @@ Exit codes:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import subprocess
 import sys
 from pathlib import Path
@@ -61,6 +63,11 @@ SKIP_DIR_PARTS = {
     "node_modules",
     "dist",
     "build",
+}
+
+HASH_LOCKED_LINE_ENDING_EXCEPTIONS = {
+    "research/fork-relational-resolution-demonstration-001/AG5_LOCAL_RECOMPUTATION_RECEIPT_ATTEMPT_002.json":
+        "884fcfacc980e91127ed8e67eba99eb84fc78043ce1c32bbd70cdcae9f96cfcc",
 }
 
 
@@ -113,13 +120,35 @@ def has_nul_byte(data: bytes) -> bool:
     return b"\x00" in data
 
 
-def scan_file(path: Path) -> list[str]:
+def relative_repo_path(root: Path, path: Path) -> str | None:
+    try:
+        return path.resolve().relative_to(root).as_posix()
+    except ValueError:
+        return None
+
+
+def scan_file(root: Path, path: Path) -> list[str]:
     defects: list[str] = []
 
     try:
         data = path.read_bytes()
     except Exception as exc:
         return [f"LINE_ENDING_READ_ERROR: {path}: {exc}"]
+
+    relative_path = relative_repo_path(root, path)
+    expected_sha256 = (
+        HASH_LOCKED_LINE_ENDING_EXCEPTIONS.get(relative_path)
+        if relative_path is not None
+        else None
+    )
+    if expected_sha256 is not None:
+        actual_sha256 = hashlib.sha256(data).hexdigest()
+        if actual_sha256 != expected_sha256:
+            return [
+                "LINE_ENDING_PRESERVATION_HASH_MISMATCH: "
+                f"{path}: expected {expected_sha256}, got {actual_sha256}"
+            ]
+        return []
 
     if has_nul_byte(data):
         return []
@@ -149,14 +178,14 @@ def run(paths: list[Path] | None) -> int:
             continue
         if not is_governed_text_path(path):
             continue
-        defects.extend(scan_file(path))
+        defects.extend(scan_file(root, path))
 
     if defects:
         for defect in defects:
             print(defect, file=sys.stderr)
         return 1
 
-    print("LINE_ENDING_PASS: governed text artifacts use LF")
+    print("LINE_ENDING_PASS: governed text artifacts use LF or exact hash-locked preservation exceptions")
     return 0
 
 

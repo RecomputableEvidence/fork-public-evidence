@@ -1,0 +1,95 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG7_DEMONSTRATION_VIEW_SELECTION",
+  "phase": "POST_SELECTION_VERIFICATION",
+  "status": "AG7_SELECTION_VERIFIED",
+  "ag6_parent_commit": "97674a8501c16d7c662a6a3256c4bc4d4434d6ac",
+  "preselection_freeze_commit": "b68fcdad1706bfe5dac70b6419b6274a8fcfa94d",
+  "selection_execution_commit": "8e180329e8ed5f883d515cb9a01078592314f5f6",
+  "source_object_identity_checks": {
+    "AG6_DERIVATION_ADMISSION.json": {
+      "expected_git_blob_sha": "210620b7b0855dbc640a2763c782ae85e8bc6326",
+      "observed_git_blob_sha_on_ag7_branch": "210620b7b0855dbc640a2763c782ae85e8bc6326",
+      "match": true
+    },
+    "AG7_VIEW_SELECTION_FREEZE.json": {
+      "git_blob_sha_at_preselection_freeze": "18ef578ed737a143455158deae51b819e3b25abe",
+      "git_blob_sha_after_selection_execution": "18ef578ed737a143455158deae51b819e3b25abe",
+      "match": true
+    },
+    "AG7_VIEW_SELECTION_RESULT.json": {
+      "git_blob_sha": "62f5f4ec40043047ee6026fdbd02ee1bfc0ca5d6"
+    }
+  },
+  "repository_delta_verification": {
+    "base": "97674a8501c16d7c662a6a3256c4bc4d4434d6ac",
+    "selection_execution_head": "8e180329e8ed5f883d515cb9a01078592314f5f6",
+    "ahead_by": 2,
+    "behind_by": 0,
+    "files_added": [
+      "research/fork-relational-resolution-demonstration-001/AG7_VIEW_SELECTION_FREEZE.json",
+      "research/fork-relational-resolution-demonstration-001/AG7_VIEW_SELECTION_RESULT.json"
+    ],
+    "preexisting_files_modified": 0,
+    "preexisting_files_deleted": 0,
+    "ag6_derivation_graph_rewritten": false
+  },
+  "deterministic_selection_recomputation": {
+    "ruleset_id": "FORK-RRD-001-AG7-SELECT-v0.1",
+    "mandatory_derivation_ids": [
+      "AG6-D01",
+      "AG6-D02",
+      "AG6-D03",
+      "AG6-D06",
+      "AG6-D07",
+      "AG6-D08",
+      "AG6-D09",
+      "AG6-D10"
+    ],
+    "recomputed_eligible_view_ids": [
+      "AG7-V01-FULL-DERIVATION",
+      "AG7-V02-TWO-AXIS-BOUNDARY"
+    ],
+    "recomputed_ineligible_view_ids": [
+      "AG7-V03-MISSINGNESS-AND-BRIDGES"
+    ],
+    "eligible_presentation_element_counts": {
+      "AG7-V01-FULL-DERIVATION": 10,
+      "AG7-V02-TWO-AXIS-BOUNDARY": 8
+    },
+    "recomputed_selected_view_id": "AG7-V02-TWO-AXIS-BOUNDARY",
+    "recorded_selected_view_id": "AG7-V02-TWO-AXIS-BOUNDARY",
+    "selection_match": true
+  },
+  "retention_and_nonpromotion_checks": {
+    "nonselected_eligible_view_retained": true,
+    "ineligible_view_retained": true,
+    "selected_view_marked_canonical": false,
+    "nonselected_view_marked_rejected": false,
+    "nonselected_view_marked_invalidated": false,
+    "nonselected_view_marked_superseded": false,
+    "edge_result_class_change_admitted": false,
+    "derivation_standing_change_admitted": false,
+    "authority_change_admitted": false,
+    "external_action_authorized": false
+  },
+  "bounded_empirical_result": "Within the frozen AG7 fixture, a purpose-bound view selection was deterministically reproduced while the AG6 derivation object and preselection candidate definitions remained byte-identical, all nonselected candidates remained retained and addressable, and no evidentiary promotion, authority change, invalidation, supersession, or external action was admitted.",
+  "standing": {
+    "selection_without_erasure": "SUPPORTED_WITHIN_AG7_FIXTURE",
+    "prominence_without_promotion": "SUPPORTED_WITHIN_AG7_FIXTURE",
+    "general_system_property": "NOT_ESTABLISHED"
+  },
+  "invariants": [
+    "SELECTION != MUTATION",
+    "SELECTION != SUPERSESSION",
+    "SELECTED_FOR_PURPOSE_P != CANONICAL",
+    "NOT_SELECTED != REJECTED",
+    "PRESENTATIONAL_PROMINENCE != EVIDENTIARY_PROMOTION",
+    "VIEW_SELECTED_FOR_PURPOSE_P != OTHER_ELIGIBLE_VIEWS_INVALIDATED",
+    "SELECTION_RECORD_ADDED != PRIOR_DERIVATION_GRAPH_REWRITTEN",
+    "VIEW_SELECTED_FOR_PURPOSE_P != AUTHORIZED_ACTION"
+  ],
+  "gate_disposition": "AG7_COMPLETE",
+  "next_gate": "AG8_OBJECT_CLOSURE",
+  "next_gate_status": "UNOPENED"
+}

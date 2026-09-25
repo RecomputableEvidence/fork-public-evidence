@@ -1,0 +1,104 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "capture_id": "CAPTURE_002",
+  "operation": "RECOMPUTATION_ADMISSION",
+  "status": "CAPTURE_002_RECOMPUTATION_ADMITTED",
+  "authorized_by_user": true,
+  "parent_evaluation_commit": "ce469ad9b44db0d2f35d5e1558807b3127a6ce9f",
+  "recomputation_attempt_id": "CAPTURE_002_INDEPENDENT_RECOMPUTATION_ATTEMPT_001",
+  "recomputation_ruleset_id": "FORK-RRD-001-AG4-EVAL-v0.1",
+  "source_return_identities": [
+    {
+      "name": "recompute_capture_002_v0_1.py",
+      "byte_length": 27550,
+      "sha256": "81cd57750f50b902b133442275e254c7708ef4910be70ade406c86137f9cf285"
+    },
+    {
+      "name": "CAPTURE_002_INDEPENDENT_RECOMPUTATION_RECEIPT_ATTEMPT_001.json",
+      "byte_length": 14142,
+      "sha256": "6a9cc27ac3b29c1425acbfec122cdeb621de1d98c841ae5986e55bf39d12235e"
+    },
+    {
+      "name": "CAPTURE_002_INDEPENDENT_RECOMPUTATION_CONSOLE_ATTEMPT_001.txt",
+      "byte_length": 3596,
+      "sha256": "14cfe6b3a0b500ba751bb0f3190a1cf478c0c38fedef103096455bc1fbb787bd"
+    }
+  ],
+  "supplemental_local_packet_archive": {
+    "name": "capture-002-required-packet.zip",
+    "byte_length": 18714,
+    "sha256": "7a52274a02f394f5428c64f504437b5b2f508a67d3501ec9dd25fe1da473b197",
+    "standing": "SUPPLEMENTAL_MATERIALIZATION_NOT_REQUIRED_FOR_ADMISSION"
+  },
+  "verified_recomputation_result": {
+    "repository_coordinate_match": true,
+    "packet_bytes_match_git": true,
+    "artifact_identity_carry_forward_match": true,
+    "frozen_ruleset_match": true,
+    "all_nine_edge_statuses_match": true,
+    "summary_counts_match": true,
+    "edge_class_status_changes": 0,
+    "cross_capture_record_match": true,
+    "overall_match": true
+  },
+  "recomputed_edge_results": {
+    "C2-E01": "SUPPORTED",
+    "C2-E02": "INSUFFICIENT_EVIDENCE",
+    "C2-E03": "INSUFFICIENT_EVIDENCE",
+    "C2-E04": "INSUFFICIENT_EVIDENCE",
+    "C2-E05": "INSUFFICIENT_EVIDENCE",
+    "C2-E06": "SUPPORTED",
+    "C2-E07": "INSUFFICIENT_EVIDENCE",
+    "C2-E08": "SUPPORTED",
+    "C2-E09": "INSUFFICIENT_EVIDENCE"
+  },
+  "summary_counts": {
+    "SUPPORTED": 3,
+    "CONTRADICTED": 0,
+    "UNRESOLVED": 0,
+    "INSUFFICIENT_EVIDENCE": 6,
+    "NOT_EVALUATED": 0,
+    "OUT_OF_SCOPE": 0
+  },
+  "cross_capture_result": {
+    "edge_class_status_changes": 0,
+    "standing": "SAME_PER_EDGE_RESULT_CLASSES_AT_TWO_SEPARATE_CAPTURE_COORDINATES"
+  },
+  "source_return_preservation": {
+    "raw_source_return_bytes_duplicated_in_this_commit": false,
+    "preservation_method": "SOURCE_RETURN_IDENTITIES_HASH_BOUND_IN_ADMISSION_RECORD",
+    "boundary": "HASH_BOUND_SOURCE_IDENTITY != EMBEDDED_SOURCE_BYTES"
+  },
+  "admitted": [
+    "CAPTURE_002 independent recomputation attempt 001 as a complete overall match",
+    "exact SHA-256 identities and byte lengths of the three returned recomputation files",
+    "nine reproduced CAPTURE_002 edge result classes",
+    "3 SUPPORTED / 6 INSUFFICIENT_EVIDENCE distribution",
+    "zero cross-capture edge-class status changes",
+    "recomputation under unchanged ruleset FORK-RRD-001-AG4-EVAL-v0.1"
+  ],
+  "not_admitted": [
+    "global verification",
+    "continuous relation persistence between CAPTURE_001 and CAPTURE_002",
+    "artifact safety or correctness",
+    "attestation validity",
+    "issuer authority",
+    "deployment or runtime authority",
+    "supersession or non-supersession beyond admitted evidence",
+    "derived longitudinal view",
+    "view selection",
+    "external action",
+    "AG6 authorization"
+  ],
+  "invariants": [
+    "LOCAL_RECOMPUTATION_MATCH != GLOBAL_VERIFICATION",
+    "RECOMPUTATION_ADMITTED != EDGE_STANDING_STRENGTHENED",
+    "SAME_EDGE_CLASS_RESULT != CONTINUOUS_RELATION_PERSISTENCE",
+    "SAME_STATUS != SAME_EVIDENCE_COORDINATE",
+    "LATER_RELEASE_EXISTS != PRIOR_RELATION_SUPERSEDED",
+    "CAPTURE_002_DOES_NOT_REWRITE_CAPTURE_001",
+    "CAPTURE_002_RECOMPUTATION_ADMITTED != AG6_AUTHORIZED"
+  ],
+  "next_transition": "AG6_DERIVATION_ADMISSION",
+  "next_transition_status": "UNOPENED"
+}

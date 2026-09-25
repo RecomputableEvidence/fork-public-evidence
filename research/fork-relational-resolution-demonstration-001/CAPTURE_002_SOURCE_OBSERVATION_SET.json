@@ -1,0 +1,234 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "capture_id": "CAPTURE_002",
+  "operation": "LONGITUDINAL_SOURCE_OBSERVATION",
+  "status": "CAPTURE_002_SOURCE_OBSERVATION_SET_ADMITTED_UNEVALUATED",
+  "opened_from_ag5_commit": "c2fc1f4f8ede096be26d0dbf147d64022faac291",
+  "observation_window_utc": {
+    "start": "2026-09-25T05:52:25Z",
+    "end": "2026-09-25T05:54:48Z"
+  },
+  "artifact_identity_carried_forward": {
+    "source_capture": "CAPTURE_001",
+    "filename": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "byte_length": 6275652,
+    "sha256": "5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739",
+    "rehashed_during_capture_002": false,
+    "standing": "IDENTITY_CARRIED_FORWARD_NOT_RECOMPUTED",
+    "boundary": "CARRIED_FORWARD_IDENTITY != NEW_ARTIFACT_ACQUISITION"
+  },
+  "primary_comparability_rule": {
+    "basis": "Use the same field projections preserved in CAPTURE_001 AG2 where possible. Newly noticed or newly queried surfaces are not imported into the primary longitudinal comparison unless they were also present in CAPTURE_001 or separately admitted as a comparability amendment.",
+    "rule": "NEWLY_OBSERVED_FIELD_OR_SURFACE != RETROACTIVE_CAPTURE_001_OBSERVATION"
+  },
+  "source_observations": [
+    {
+      "observation_id": "C2-SO-001",
+      "surface": "release_metadata",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/releases/tags/v0.22.1",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "release_id": 301345178,
+        "tag_name": "v0.22.1",
+        "release_name": "0.22.1",
+        "target_commitish": "45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+        "draft": false,
+        "prerelease": false,
+        "immutable": true,
+        "created_at": "2026-03-25T17:31:07Z",
+        "published_at": "2026-03-25T17:37:35Z",
+        "updated_at": "2026-03-25T17:37:36Z"
+      },
+      "release_body_observation": {
+        "target_asset_listed": true,
+        "target_checksum_link_listed": true,
+        "attestation_statement_observed": "The release body states that artifacts in the release have attestations generated with GitHub Artifact Attestations and provides gh attestation verify usage."
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS"
+    },
+    {
+      "observation_id": "C2-SO-002",
+      "surface": "target_release_asset_metadata",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/releases/assets/381438738",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "asset_id": 381438738,
+        "name": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+        "content_type": "application/zip",
+        "state": "uploaded",
+        "size": 6275652,
+        "digest": "sha256:5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739",
+        "created_at": "2026-03-25T17:37:33Z",
+        "updated_at": "2026-03-25T17:37:34Z",
+        "browser_download_url": "https://github.com/googleworkspace/cli/releases/download/v0.22.1/google-workspace-cli-x86_64-pc-windows-msvc.zip"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS",
+      "excluded_mutable_field_note": "download_count was visible in the fresh API response but was not part of the CAPTURE_001 preserved field projection, so it is not used in the primary longitudinal comparison."
+    },
+    {
+      "observation_id": "C2-SO-003",
+      "surface": "checksum_asset_metadata",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/releases/assets/381438739",
+      "capture_status": "METADATA_OBSERVED_CONTENT_NOT_CAPTURED",
+      "observed_fields": {
+        "asset_id": 381438739,
+        "name": "google-workspace-cli-x86_64-pc-windows-msvc.zip.sha256",
+        "content_type": "application/octet-stream",
+        "state": "uploaded",
+        "size": 115,
+        "asset_file_digest": "sha256:36bf177d920055ed9923821303f23e4ac089b40b765686a0b8a56a826469b8b9",
+        "created_at": "2026-03-25T17:37:33Z",
+        "updated_at": "2026-03-25T17:37:34Z",
+        "browser_download_url": "https://github.com/googleworkspace/cli/releases/download/v0.22.1/google-workspace-cli-x86_64-pc-windows-msvc.zip.sha256"
+      },
+      "limitation": "The checksum assertion file content was not captured in CAPTURE_002. The GitHub-reported digest identifies the checksum-file object, not the checksum assertion inside that file.",
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS_AND_MISSINGNESS"
+    },
+    {
+      "observation_id": "C2-SO-004",
+      "surface": "tag_ref",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/git/ref/tags/v0.22.1",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "ref": "refs/tags/v0.22.1",
+        "object_type": "commit",
+        "object_sha": "45ca45bfd418db07b02995e8510dd18ac45cb3a6"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS"
+    },
+    {
+      "observation_id": "C2-SO-005",
+      "surface": "source_commit",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/commits/45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "sha": "45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+        "message": "chore: release versions (#624)"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS",
+      "projection_boundary": "Additional current API fields, including commit-signature verification metadata, are not imported into the primary longitudinal comparison because CAPTURE_001 did not preserve them."
+    },
+    {
+      "observation_id": "C2-SO-006",
+      "surface": "release_workflow_at_source_commit",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/contents/.github/workflows/release.yml?ref=45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "path": ".github/workflows/release.yml",
+        "workflow_name": "Release",
+        "tag_push_trigger_present": true,
+        "local_build_job_attestations_write_permission_present": true,
+        "local_build_job_id_token_write_permission_present": true,
+        "attest_step_action": "actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661",
+        "attest_step_subject_path": "target/distrib/*${{ join(matrix.targets, ', ') }}*",
+        "host_release_target_expression": "${{ github.sha }}",
+        "host_release_command_observed": "gh release create ... --target $RELEASE_COMMIT ... artifacts/*"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS",
+      "boundary": "Workflow text at a content-addressed source commit is an observed source surface; it does not itself establish production of the exact public ZIP."
+    },
+    {
+      "observation_id": "C2-SO-007",
+      "surface": "release_workflow_run",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/actions/runs/23554953556",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "run_id": 23554953556,
+        "name": "Release",
+        "head_branch": "v0.22.1",
+        "head_sha": "45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+        "workflow_path": ".github/workflows/release.yml",
+        "run_number": 1185,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-03-25T17:31:30Z",
+        "updated_at": "2026-03-25T17:39:39Z"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS"
+    },
+    {
+      "observation_id": "C2-SO-008",
+      "surface": "target_platform_workflow_job",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/actions/runs/23554953556/jobs",
+      "capture_status": "OBSERVED",
+      "observed_fields": {
+        "job_id": 68579090437,
+        "name": "build-local-artifacts (x86_64-pc-windows-msvc)",
+        "head_sha": "45ca45bfd418db07b02995e8510dd18ac45cb3a6",
+        "status": "completed",
+        "conclusion": "success",
+        "runner_label": "windows-2022"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS"
+    },
+    {
+      "observation_id": "C2-SO-009",
+      "surface": "target_platform_intermediate_workflow_artifact",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/actions/runs/23554953556/artifacts",
+      "capture_status": "OBSERVED_EXPIRED",
+      "observed_fields": {
+        "artifact_id": 6107415008,
+        "name": "artifacts-build-local-x86_64-pc-windows-msvc",
+        "size_in_bytes": 6258431,
+        "digest": "sha256:86f5e9cb80b3b6a3b07685eff96fc98e7b921a3deb93c234095501ce99398988",
+        "expired": true,
+        "head_branch": "v0.22.1",
+        "head_sha": "45ca45bfd418db07b02995e8510dd18ac45cb3a6"
+      },
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_FIELDS",
+      "boundary": "Intermediate workflow artifact metadata is not asserted to be byte-identical to the public release ZIP."
+    },
+    {
+      "observation_id": "C2-SO-010",
+      "surface": "attestation_bundle",
+      "capture_status": "NOT_CAPTURED",
+      "observed_fields": {
+        "release_body_attestation_claim_present": true,
+        "release_body_attestation_page": "https://github.com/googleworkspace/cli/attestations"
+      },
+      "limitation": "Fresh attempts to access the repository attestations API were rejected by the available GitHub connector as an unsupported endpoint; no attestation bundle bytes or decoded predicate were captured.",
+      "primary_field_projection_comparison_to_capture_001": "MATCH_ON_PRESERVED_MISSINGNESS"
+    }
+  ],
+  "supplemental_observations_not_used_for_primary_longitudinal_comparison": [
+    {
+      "observation_id": "C2-SUP-001",
+      "surface": "repository_latest_release",
+      "source_url": "https://api.github.com/repos/googleworkspace/cli/releases/latest",
+      "capture_status": "OBSERVED_NOT_COMPARABLE_TO_CAPTURE_001",
+      "observed_fields": {
+        "release_id": 303852979,
+        "tag_name": "v0.22.5",
+        "target_commitish": "705fb0ecac6f4249679958f6325b809b63fdde17",
+        "published_at": "2026-03-31T18:53:24Z",
+        "immutable": true
+      },
+      "boundary": "A later release exists, but CAPTURE_001 did not preserve the latest-release endpoint. This observation therefore cannot be used as a primary CAPTURE_001-to-CAPTURE_002 delta and does not by itself establish supersession of any v0.22.1 relation."
+    }
+  ],
+  "primary_longitudinal_field_result": {
+    "comparable_source_surfaces": 10,
+    "matched_on_preserved_field_projection": 10,
+    "changed_on_preserved_field_projection": 0,
+    "interpretation": "OBSERVED_FIELD_STABILITY_ONLY",
+    "non_claims": [
+      "FIELD_STABILITY != RELATION_STANDING_STABILITY",
+      "FIELD_STABILITY != NON_SUPERSESSION_ESTABLISHED",
+      "SAME_SOURCE_FIELDS != SAME_WORLD_STATE",
+      "LATEST_RELEASE_EXISTS != V0_22_1_RELATION_SUPERSEDED"
+    ]
+  },
+  "evaluation_state": "NOT_EVALUATED",
+  "relation_edge_state": "NOT_INSTANTIATED_FOR_CAPTURE_002",
+  "next_transition": "CAPTURE_002_RELATION_EDGE_INSTANTIATION",
+  "next_transition_status": "UNOPENED",
+  "invariants": [
+    "CAPTURE_002_OPEN != AG6_OPEN",
+    "SOURCE_OBSERVED != RELATION_ESTABLISHED",
+    "FIELD_EQUALITY != STANDING_EQUALITY",
+    "ARTIFACT_IDENTITY_CARRIED_FORWARD != ARTIFACT_REACQUIRED",
+    "G1_DOES_NOT_REWRITE_G0",
+    "CAPTURE_002_SOURCE_OBSERVATION_COMPLETE != CAPTURE_002_EDGE_EVALUATION_AUTHORIZED"
+  ]
+}

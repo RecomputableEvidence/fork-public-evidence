@@ -1,0 +1,222 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "operation": "LOCAL_AG4_RECOMPUTATION_FOR_AG5_CANDIDATE",
+  "attempt_id": "AG5_LOCAL_RECOMPUTATION_ATTEMPT_002",
+  "standing": "LOCAL_RECOMPUTATION_RESULT_ONLY_NOT_REPOSITORY_ADMITTED",
+  "recomputed_at_utc": "2026-09-25T05:28:12.240935+00:00",
+  "implementation": {
+    "ruleset_id": "FORK-RRD-001-AG4-EVAL-v0.1",
+    "implementation_id": "LOCAL-AG4-RECOMPUTE-v0.2",
+    "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "ag4_result_file_opened_only_after_status_derivation": true,
+    "full_worktree_checkout_required": false
+  },
+  "repository_coordinate": {
+    "expected_ag4_commit": "9a28abf10539175e19a5eaa58e049ab7a46d4f50",
+    "observed_ag4_commit": "9a28abf10539175e19a5eaa58e049ab7a46d4f50",
+    "expected_ag3_parent": "874947205b9cd1dac5f3268d9d6f25e1a97be7c1",
+    "observed_ag3_parent": "874947205b9cd1dac5f3268d9d6f25e1a97be7c1",
+    "match": true
+  },
+  "artifact_recomputation": {
+    "filename": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "observed_byte_length": 6275652,
+    "observed_sha256": "5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739",
+    "expected_filename_from_ag1": "google-workspace-cli-x86_64-pc-windows-msvc.zip",
+    "expected_byte_length_from_ag1": 6275652,
+    "expected_sha256_from_ag1": "5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739",
+    "match": true
+  },
+  "packet_file_identities": [
+    {
+      "path": "research/fork-relational-resolution-demonstration-001/AG0_QUESTION_FREEZE.md",
+      "byte_length": 8849,
+      "sha256": "ba616788101515c2f4f5ceb88c4bc9e3174316ea96f1bb8115de62fdb5a2c9db",
+      "repository_git_blob_sha": "741cbb4224c83cc42a25063f04d0e5ca100fa128",
+      "local_reconstructed_git_blob_sha": "741cbb4224c83cc42a25063f04d0e5ca100fa128",
+      "match": true
+    },
+    {
+      "path": "research/fork-relational-resolution-demonstration-001/CAPTURE_001_AG1_ARTIFACT_IDENTITY_ATTEMPT_002.json",
+      "byte_length": 1974,
+      "sha256": "149c654fa63f8489e2a85c999cba6a99b14ce54819f93d15f3f49bc0ba4e3ced",
+      "repository_git_blob_sha": "62c4983b3a1742c070dbecc602c66a82630d4da8",
+      "local_reconstructed_git_blob_sha": "62c4983b3a1742c070dbecc602c66a82630d4da8",
+      "match": true
+    },
+    {
+      "path": "research/fork-relational-resolution-demonstration-001/CAPTURE_001_AG2_SOURCE_OBSERVATION_SET.json",
+      "byte_length": 10333,
+      "sha256": "c15c2cc9e2105558d595a267bd14cbfaac6334e204568b6f8370cfd6cc5e7e3d",
+      "repository_git_blob_sha": "6f71c6d97cd8254137521e33df908dd9730ea92d",
+      "local_reconstructed_git_blob_sha": "6f71c6d97cd8254137521e33df908dd9730ea92d",
+      "match": true
+    },
+    {
+      "path": "research/fork-relational-resolution-demonstration-001/CAPTURE_001_AG3_RELATION_EDGE_OBJECTS.json",
+      "byte_length": 5763,
+      "sha256": "2a90e9d320c0bc06a8ad824c3489a37def2e6be75a9dd66e48ba13dcca66ac82",
+      "repository_git_blob_sha": "96b01c6361001648b029ea2ed2fd72d8ecbe70b4",
+      "local_reconstructed_git_blob_sha": "96b01c6361001648b029ea2ed2fd72d8ecbe70b4",
+      "match": true
+    },
+    {
+      "path": "research/fork-relational-resolution-demonstration-001/CAPTURE_001_AG4_DIMENSIONAL_EVALUATION.json",
+      "byte_length": 10451,
+      "sha256": "df6967303c77c3e4a0782ae8d4f9dea16a36d338b3b8650ac3b8cc9f7f557913",
+      "repository_git_blob_sha": "3d7234538b8b9cd2c5e794f7d08a5e366ca4b2b7",
+      "local_reconstructed_git_blob_sha": "3d7234538b8b9cd2c5e794f7d08a5e366ca4b2b7",
+      "match": true
+    }
+  ],
+  "packet_bytes_match_git": true,
+  "recomputed_evaluations": [
+    {
+      "edge_id": "AG3-E01",
+      "edge_type": "ARTIFACT_TO_RELEASE_OBJECT",
+      "status": "SUPPORTED",
+      "recomputation_basis": "Locally recomputed artifact identity matches the AG2 release-asset filename, byte length, and SHA-256, and the release observation lists the target asset."
+    },
+    {
+      "edge_id": "AG3-E02",
+      "edge_type": "ARTIFACT_TO_PUBLISHED_DIGEST",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "recomputation_basis": "Checksum asset metadata was observed but its proposition-level 115-byte checksum assertion content was not captured."
+    },
+    {
+      "edge_id": "AG3-E03",
+      "edge_type": "ARTIFACT_TO_ATTESTATION_SUBJECT",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "recomputation_basis": "No captured attestation bundle or decoded predicate exists in the AG2 evidence boundary sufficient to bind the required endpoint."
+    },
+    {
+      "edge_id": "AG3-E04",
+      "edge_type": "ATTESTATION_TO_SOURCE_REPOSITORY",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "recomputation_basis": "No captured attestation bundle or decoded predicate exists in the AG2 evidence boundary sufficient to bind the required endpoint."
+    },
+    {
+      "edge_id": "AG3-E05",
+      "edge_type": "ATTESTATION_TO_SOURCE_COMMIT",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "recomputation_basis": "No captured attestation bundle or decoded predicate exists in the AG2 evidence boundary sufficient to bind the required endpoint."
+    },
+    {
+      "edge_id": "AG3-E06",
+      "edge_type": "SOURCE_COMMIT_TO_WORKFLOW_REFERENCE",
+      "status": "SUPPORTED",
+      "recomputation_basis": "Tag ref, source commit, workflow text coordinate, workflow run, and target-platform job resolve consistently to the named commit/workflow reference."
+    },
+    {
+      "edge_id": "AG3-E07",
+      "edge_type": "CLAIMED_ISSUER_TO_ISSUER_AUTHORITY",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "recomputation_basis": "No captured attestation bundle or decoded predicate exists in the AG2 evidence boundary sufficient to bind the required endpoint."
+    },
+    {
+      "edge_id": "AG3-E08",
+      "edge_type": "RELATION_TO_TEMPORAL_APPLICABILITY",
+      "status": "SUPPORTED",
+      "recomputation_basis": "AG0 requires coordinate-bound status; AG1–AG3 are bound to CAPTURE_001; AG2 supplies the observation window; and the complete AG3 edge set is routed to AG4."
+    },
+    {
+      "edge_id": "AG3-E09",
+      "edge_type": "RELATION_TO_SUPERSESSION_STATE",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "recomputation_basis": "No independently bounded supersession source is present in the admitted AG2 observation set."
+    }
+  ],
+  "comparison_to_recorded_ag4": [
+    {
+      "edge_id": "AG3-E01",
+      "edge_type": "ARTIFACT_TO_RELEASE_OBJECT",
+      "recomputed_status": "SUPPORTED",
+      "recorded_ag4_status": "SUPPORTED",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E02",
+      "edge_type": "ARTIFACT_TO_PUBLISHED_DIGEST",
+      "recomputed_status": "INSUFFICIENT_EVIDENCE",
+      "recorded_ag4_status": "INSUFFICIENT_EVIDENCE",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E03",
+      "edge_type": "ARTIFACT_TO_ATTESTATION_SUBJECT",
+      "recomputed_status": "INSUFFICIENT_EVIDENCE",
+      "recorded_ag4_status": "INSUFFICIENT_EVIDENCE",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E04",
+      "edge_type": "ATTESTATION_TO_SOURCE_REPOSITORY",
+      "recomputed_status": "INSUFFICIENT_EVIDENCE",
+      "recorded_ag4_status": "INSUFFICIENT_EVIDENCE",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E05",
+      "edge_type": "ATTESTATION_TO_SOURCE_COMMIT",
+      "recomputed_status": "INSUFFICIENT_EVIDENCE",
+      "recorded_ag4_status": "INSUFFICIENT_EVIDENCE",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E06",
+      "edge_type": "SOURCE_COMMIT_TO_WORKFLOW_REFERENCE",
+      "recomputed_status": "SUPPORTED",
+      "recorded_ag4_status": "SUPPORTED",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E07",
+      "edge_type": "CLAIMED_ISSUER_TO_ISSUER_AUTHORITY",
+      "recomputed_status": "INSUFFICIENT_EVIDENCE",
+      "recorded_ag4_status": "INSUFFICIENT_EVIDENCE",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E08",
+      "edge_type": "RELATION_TO_TEMPORAL_APPLICABILITY",
+      "recomputed_status": "SUPPORTED",
+      "recorded_ag4_status": "SUPPORTED",
+      "match": true
+    },
+    {
+      "edge_id": "AG3-E09",
+      "edge_type": "RELATION_TO_SUPERSESSION_STATE",
+      "recomputed_status": "INSUFFICIENT_EVIDENCE",
+      "recorded_ag4_status": "INSUFFICIENT_EVIDENCE",
+      "match": true
+    }
+  ],
+  "recomputed_summary_counts": {
+    "SUPPORTED": 3,
+    "CONTRADICTED": 0,
+    "UNRESOLVED": 0,
+    "INSUFFICIENT_EVIDENCE": 6,
+    "NOT_EVALUATED": 0,
+    "OUT_OF_SCOPE": 0
+  },
+  "recorded_ag4_summary_counts": {
+    "SUPPORTED": 3,
+    "CONTRADICTED": 0,
+    "UNRESOLVED": 0,
+    "INSUFFICIENT_EVIDENCE": 6,
+    "NOT_EVALUATED": 0,
+    "OUT_OF_SCOPE": 0
+  },
+  "summary_counts_match": true,
+  "all_edge_statuses_match": true,
+  "overall_match": true,
+  "boundaries": [
+    "LOCAL_RECOMPUTATION_MATCH != AG5_REPOSITORY_ADMISSION",
+    "STATUS_REPRODUCED != GLOBAL_VERIFICATION",
+    "SUPPORTED_UNDER_BOUND_EVIDENCE != UNIVERSALLY_TRUE",
+    "INSUFFICIENT_EVIDENCE != CONTRADICTED",
+    "RECOMPUTED_ARTIFACT_IDENTITY != SOFTWARE_SAFETY",
+    "ATTEMPT_001_PROCEDURAL_FAILURE != AG4_STATUS_MISMATCH"
+  ]
+}

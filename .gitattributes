@@ -53,3 +53,6 @@ tools/check_release_package.py text eol=lf
 
 # Exact supplied Fork II historical evidence bytes
 admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/** -text
+
+# Exact historical FORK-RRD-001 recomputation receipt bytes
+research/fork-relational-resolution-demonstration-001/AG5_LOCAL_RECOMPUTATION_RECEIPT_ATTEMPT_002.json -text

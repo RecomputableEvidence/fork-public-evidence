@@ -1,0 +1,207 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG6_DERIVATION_ADMISSION",
+  "status": "AG6_COMPLETE",
+  "authorized_by_user": true,
+  "parent_authorized_coordinate": "fc29b11dbe2a339f0ef81507e387d4c2f7877c41",
+  "purpose": "Admit bounded derivations over the separately admitted CAPTURE_001 and CAPTURE_002 records without adding external observations, changing edge standing, selecting a preferred demonstration view, or authorizing external action.",
+  "lens_shift": {
+    "surface_reading": "Two captures returned the same per-edge result classes.",
+    "deeper_derivation_object": "The derivation surface is the relation between two coordinate-bound graph states: what can be derived from repeated standing, repeated missingness, a second observation coordinate, and one separately labeled supplemental observation without interpolating continuity or inheriting authority.",
+    "boundary": "REPEATED_RESULT_CLASS != CONTINUOUS_RELATION_PERSISTENCE"
+  },
+  "input_boundary": {
+    "ag0_question_freeze": "AG0_QUESTION_FREEZE.md",
+    "capture_001_source_observations": "CAPTURE_001_AG2_SOURCE_OBSERVATION_SET.json",
+    "capture_001_evaluation": "CAPTURE_001_AG4_DIMENSIONAL_EVALUATION.json",
+    "capture_001_recomputation_admission": "AG5_RECOMPUTATION_ADMISSION.md",
+    "capture_002_source_observations": "CAPTURE_002_SOURCE_OBSERVATION_SET.json",
+    "capture_002_evaluation": "CAPTURE_002_DIMENSIONAL_EVALUATION.json",
+    "capture_002_recomputation_admission": "CAPTURE_002_RECOMPUTATION_ADMISSION.json",
+    "new_external_observation_performed_at_ag6": false,
+    "edge_re_evaluation_performed_at_ag6": false
+  },
+  "derivation_ruleset": {
+    "ruleset_id": "FORK-RRD-001-AG6-DERIVE-v0.1",
+    "rules": [
+      "Derive only from objects already admitted before AG6.",
+      "Compare homologous edge classes only where CAPTURE_001 and CAPTURE_002 used the same frozen evaluation ruleset.",
+      "Do not interpolate relation standing across the unobserved interval between capture coordinates.",
+      "Treat CAPTURE_002 artifact identity as a carried-forward reference to the CAPTURE_001 admitted identity, not as a new byte reacquisition or rehash.",
+      "Repeated missingness in the capture record is not evidence that the external object or proposition is absent.",
+      "A supplemental observation introduced only at CAPTURE_002 remains separately labeled and is not retroactively imported into CAPTURE_001.",
+      "A derivation may describe deltas, invariances, and unresolved bridges but may not strengthen the standing of any underlying edge.",
+      "A derivation object is not a selected or privileged demonstration view.",
+      "A derived representation does not authorize external action."
+    ]
+  },
+  "capture_coordinates": {
+    "capture_001_observation_window_utc": {
+      "start": "2026-09-25T04:55:51Z",
+      "end": "2026-09-25T04:57:52Z"
+    },
+    "capture_002_observation_window_utc": {
+      "start": "2026-09-25T05:52:25Z",
+      "end": "2026-09-25T05:54:48Z"
+    },
+    "coordinate_relation": "TEMPORALLY_DISTINCT_CAPTURE_RECORDS"
+  },
+  "derived_objects": [
+    {
+      "derivation_id": "AG6-D01",
+      "type": "ARTIFACT_IDENTITY_REFERENCE_ACROSS_CAPTURES",
+      "state": "DERIVED_BOUNDED",
+      "statement": "CAPTURE_002 carries forward the same filename, byte length, and SHA-256 identity tuple admitted for CAPTURE_001.",
+      "basis": [
+        "CAPTURE_001 artifact identity: google-workspace-cli-x86_64-pc-windows-msvc.zip / 6275652 bytes / sha256 5e33f26556df86411959e0f07cd51caa87b4eaa413b14a385c9efd828b5b1739",
+        "CAPTURE_002 artifact_identity_carried_forward matches that tuple",
+        "CAPTURE_002 recomputation independently reproduced the carry-forward match"
+      ],
+      "boundary": "IDENTITY_REFERENCE_CARRIED_FORWARD != ARTIFACT_BYTES_REACQUIRED_AT_CAPTURE_002"
+    },
+    {
+      "derivation_id": "AG6-D02",
+      "type": "PRIMARY_SOURCE_FIELD_PROJECTION_DELTA",
+      "state": "DERIVED_BOUNDED",
+      "statement": "Across the ten source surfaces made comparable by the CAPTURE_001-preserved field projection, CAPTURE_002 recorded ten matches and zero changed preserved-field projections.",
+      "metrics": {
+        "comparable_source_surfaces": 10,
+        "matched_on_preserved_field_projection": 10,
+        "changed_on_preserved_field_projection": 0
+      },
+      "boundary": "SOURCE_FIELD_PROJECTION_STABILITY != EXTERNAL_WORLD_STATE_IDENTITY"
+    },
+    {
+      "derivation_id": "AG6-D03",
+      "type": "EDGE_RESULT_CLASS_DELTA",
+      "state": "DERIVED_BOUNDED",
+      "statement": "All nine homologous edge classes have the same bounded result class at CAPTURE_001 and CAPTURE_002 under FORK-RRD-001-AG4-EVAL-v0.1.",
+      "metrics": {
+        "homologous_edge_classes": 9,
+        "edge_class_status_changes": 0,
+        "capture_001_distribution": {
+          "SUPPORTED": 3,
+          "CONTRADICTED": 0,
+          "UNRESOLVED": 0,
+          "INSUFFICIENT_EVIDENCE": 6,
+          "NOT_EVALUATED": 0,
+          "OUT_OF_SCOPE": 0
+        },
+        "capture_002_distribution": {
+          "SUPPORTED": 3,
+          "CONTRADICTED": 0,
+          "UNRESOLVED": 0,
+          "INSUFFICIENT_EVIDENCE": 6,
+          "NOT_EVALUATED": 0,
+          "OUT_OF_SCOPE": 0
+        }
+      },
+      "boundary": "SAME_EDGE_CLASS_RESULT != CONTINUOUS_RELATION_PERSISTENCE"
+    },
+    {
+      "derivation_id": "AG6-D04",
+      "type": "REPEATED_CAPTURE_MISSINGNESS",
+      "state": "DERIVED_BOUNDED",
+      "statement": "Both capture records preserve the same two material missingness conditions relevant to evaluated edges: checksum assertion content was not captured and an attestation bundle/decoded predicate was not captured.",
+      "effects": [
+        "ARTIFACT_TO_PUBLISHED_DIGEST remains INSUFFICIENT_EVIDENCE at both coordinates",
+        "attestation-dependent edge classes remain INSUFFICIENT_EVIDENCE at both coordinates"
+      ],
+      "boundary": "REPEATED_MISSINGNESS_IN_CAPTURE_RECORD != EXTERNAL_ABSENCE"
+    },
+    {
+      "derivation_id": "AG6-D05",
+      "type": "SUPPLEMENTAL_SURFACE_ADDITION",
+      "state": "DERIVED_BOUNDED",
+      "statement": "CAPTURE_002 contains one separately labeled supplemental observation that CAPTURE_001 did not preserve: the repository latest-release endpoint reported v0.22.5.",
+      "comparison_role": "EXCLUDED_FROM_PRIMARY_CAPTURE_001_TO_CAPTURE_002_FIELD_PROJECTION_COMPARISON",
+      "boundary": "NEW_C2_SURFACE != RETROACTIVE_C1_OBSERVATION"
+    },
+    {
+      "derivation_id": "AG6-D06",
+      "type": "RECORD_GRAPH_RESOLUTION_DELTA",
+      "state": "DERIVED_BOUNDED",
+      "statement": "The evidence record has greater temporal resolution after CAPTURE_002 because it contains a second independently bounded observation/evaluation coordinate and an additional separately labeled supplemental surface, while preserving CAPTURE_001 unchanged.",
+      "boundary": "INCREASED_RECORD_RESOLUTION != INCREASED_EDGE_AUTHORITY"
+    },
+    {
+      "derivation_id": "AG6-D07",
+      "type": "GRAPH_NONIDENTITY_WITHOUT_REWRITE",
+      "state": "DERIVED_BOUNDED",
+      "statement": "The CAPTURE_002 record graph is not identical to the CAPTURE_001 record graph because it is bound to a different observation coordinate and includes a separately labeled supplemental observation, even though the primary preserved-field projections and per-edge result classes are stable.",
+      "boundary": "G1_DIFFERS_FROM_G0_AS_RECORD_GRAPH AND G1_DOES_NOT_REWRITE_G0"
+    },
+    {
+      "derivation_id": "AG6-D08",
+      "type": "CONTINUOUS_PERSISTENCE_BRIDGE",
+      "state": "NOT_DERIVABLE_FROM_ADMITTED_INPUTS",
+      "statement": "No admitted object supplies a bridge establishing that any external relation continuously persisted throughout the interval between CAPTURE_001 and CAPTURE_002.",
+      "boundary": "TWO_SUPPORTED_COORDINATES != INTERVAL_CONTINUITY"
+    },
+    {
+      "derivation_id": "AG6-D09",
+      "type": "SUPERSESSION_BRIDGE",
+      "state": "NOT_DERIVABLE_FROM_ADMITTED_INPUTS",
+      "statement": "The later v0.22.5 release observation does not establish either supersession or non-supersession of the bounded relations around v0.22.1; the corresponding edge remains INSUFFICIENT_EVIDENCE at CAPTURE_002.",
+      "boundary": "LATER_RELEASE_EXISTS != PRIOR_RELATION_SUPERSEDED"
+    },
+    {
+      "derivation_id": "AG6-D10",
+      "type": "EDGE_STANDING_STRENGTH_DELTA",
+      "state": "DERIVED_BOUNDED",
+      "statement": "No homologous edge class acquired a stronger result category between the two admitted coordinates; the derivation layer therefore adds temporal and comparative resolution without strengthening underlying edge standing.",
+      "metrics": {
+        "edge_class_status_changes": 0,
+        "edge_classes_strengthened": 0
+      },
+      "boundary": "DERIVATION_ADMITTED != EDGE_STANDING_STRENGTHENED"
+    }
+  ],
+  "derived_representation_dimensions_available_for_later_view_selection": [
+    "artifact identity reference continuity",
+    "primary source-field projection delta",
+    "per-edge result-class delta",
+    "repeated capture missingness",
+    "supplemental-surface addition",
+    "record-graph temporal resolution delta",
+    "non-derivable interval continuity",
+    "non-derivable supersession bridge"
+  ],
+  "view_selection_state": "UNOPENED",
+  "ag6_disposition": {
+    "admitted": [
+      "derivation ruleset FORK-RRD-001-AG6-DERIVE-v0.1",
+      "ten bounded derivation objects AG6-D01 through AG6-D10",
+      "comparison of two distinct admitted capture coordinates",
+      "zero observed homologous edge-class status changes",
+      "greater record-level temporal resolution without edge-standing strengthening",
+      "explicit non-derivability of interval continuity and supersession bridges from the admitted inputs"
+    ],
+    "not_admitted": [
+      "a preferred or selected demonstration view",
+      "continuous persistence of any external relation between capture coordinates",
+      "artifact byte reacquisition at CAPTURE_002",
+      "global verification",
+      "artifact safety or correctness",
+      "attestation validity",
+      "issuer authority",
+      "supersession or non-supersession beyond the bounded edge results",
+      "deployment or runtime authority",
+      "external action",
+      "AG7 authorization"
+    ]
+  },
+  "invariants": [
+    "DERIVATION != INHERITANCE",
+    "DERIVATION_ADMISSION != VIEW_SELECTION",
+    "SAME_STATUS != SAME_EVIDENCE_COORDINATE",
+    "SAME_EDGE_CLASS_RESULT != CONTINUOUS_RELATION_PERSISTENCE",
+    "REPEATED_MISSINGNESS != EVIDENCE_OF_ABSENCE",
+    "INCREASED_RECORD_RESOLUTION != INCREASED_EDGE_AUTHORITY",
+    "G1_DOES_NOT_REWRITE_G0",
+    "AUTHORIZED_DERIVATION != AUTHORIZED_ACTION",
+    "AG6_COMPLETE != AG7_AUTHORIZED"
+  ],
+  "next_gate": "AG7_DEMONSTRATION_VIEW_SELECTION",
+  "next_gate_status": "UNOPENED"
+}

@@ -1,0 +1,99 @@
+{
+  "object_id": "FORK-RELATIONAL-RESOLUTION-DEMONSTRATION-001",
+  "gate": "AG7_DEMONSTRATION_VIEW_SELECTION",
+  "phase": "SELECTION_EXECUTION",
+  "status": "AG7_VIEW_SELECTED_FOR_FROZEN_PURPOSE",
+  "preselection_freeze_commit": "b68fcdad1706bfe5dac70b6419b6274a8fcfa94d",
+  "purpose_id": "AG7-P001",
+  "selection_ruleset_id": "FORK-RRD-001-AG7-SELECT-v0.1",
+  "eligibility_evaluation": [
+    {
+      "view_id": "AG7-V01-FULL-DERIVATION",
+      "contains_all_mandatory_derivations": true,
+      "eligible_for_AG7_P001": true,
+      "presentation_element_count": 10
+    },
+    {
+      "view_id": "AG7-V02-TWO-AXIS-BOUNDARY",
+      "contains_all_mandatory_derivations": true,
+      "eligible_for_AG7_P001": true,
+      "presentation_element_count": 8
+    },
+    {
+      "view_id": "AG7-V03-MISSINGNESS-AND-BRIDGES",
+      "contains_all_mandatory_derivations": false,
+      "missing_mandatory_derivation_ids": [
+        "AG6-D01",
+        "AG6-D02",
+        "AG6-D03",
+        "AG6-D06",
+        "AG6-D07",
+        "AG6-D10"
+      ],
+      "eligible_for_AG7_P001": false,
+      "presentation_element_count": 4,
+      "boundary": "INELIGIBLE_FOR_PURPOSE_P != EVIDENTIARILY_INVALID"
+    }
+  ],
+  "eligible_view_ids": [
+    "AG7-V01-FULL-DERIVATION",
+    "AG7-V02-TWO-AXIS-BOUNDARY"
+  ],
+  "selected_view": {
+    "view_id": "AG7-V02-TWO-AXIS-BOUNDARY",
+    "selection_basis": "Eligible candidate with the smallest presentation_element_count under the frozen purpose-bound selection rule.",
+    "included_derivation_ids": [
+      "AG6-D01",
+      "AG6-D02",
+      "AG6-D03",
+      "AG6-D06",
+      "AG6-D07",
+      "AG6-D08",
+      "AG6-D09",
+      "AG6-D10"
+    ],
+    "standing": "SELECTED_FOR_AG7_P001_PRESENTATION_ONLY",
+    "canonical": false,
+    "evidentiary_promotion": false,
+    "authority_change": false,
+    "action_authorized": false
+  },
+  "nonselected_candidates": [
+    {
+      "view_id": "AG7-V01-FULL-DERIVATION",
+      "eligibility": "ELIGIBLE_NOT_SELECTED",
+      "retention": "RETAINED_AND_ADDRESSABLE",
+      "rejected": false,
+      "invalidated": false,
+      "superseded": false
+    },
+    {
+      "view_id": "AG7-V03-MISSINGNESS-AND-BRIDGES",
+      "eligibility": "INELIGIBLE_FOR_AG7_P001",
+      "retention": "RETAINED_AND_ADDRESSABLE",
+      "rejected": false,
+      "invalidated": false,
+      "superseded": false
+    }
+  ],
+  "selection_effect": {
+    "new_relation_created": "AG7-P001_SELECTS_AG7-V02-TWO-AXIS-BOUNDARY",
+    "ag6_derivation_objects_modified": false,
+    "candidate_view_definitions_modified": false,
+    "edge_result_classes_modified": false,
+    "derivation_standing_modified": false,
+    "authority_relation_modified": false,
+    "external_action_authorized": false
+  },
+  "bounded_result": "A derived representation was selected for the frozen purpose while a nonselected eligible representation and an ineligible representation remained retained and addressable, with no admitted evidentiary promotion, invalidation, supersession, or authority change.",
+  "invariants": [
+    "SELECTED_FOR_PURPOSE_P != CANONICAL",
+    "NOT_SELECTED != REJECTED",
+    "VIEW_SELECTED_FOR_PURPOSE_P != OTHER_ELIGIBLE_VIEWS_INVALIDATED",
+    "PRESENTATIONAL_PROMINENCE != EVIDENTIARY_PROMOTION",
+    "SELECTION_RECORD_ADDED != PRIOR_DERIVATION_GRAPH_REWRITTEN",
+    "VIEW_SELECTED_FOR_PURPOSE_P != AUTHORIZED_ACTION"
+  ],
+  "next_operation": "AG7_POST_SELECTION_VERIFICATION",
+  "next_operation_status": "UNOPENED_AT_THIS_RECORD"
+}
