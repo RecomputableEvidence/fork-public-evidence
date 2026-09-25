@@ -1,0 +1,39 @@
+{
+  "created_at_utc": "2026-09-25T21:28:22Z",
+  "finding": {
+    "basis": [
+      "The selected source-return candidate is locally preserved and SHA-256 bound.",
+      "The binding describes the selected candidate as a literal reconstruction from preserved conversation text.",
+      "The observed binding does not itself carry a mechanically checkable source-origin relation back to the claimed exterior source."
+    ],
+    "proposition": "EXTERIOR_RETURN_PRESERVED != EXTERIOR_RETURN_ORIGIN_BOUND",
+    "state": "OBSERVED_AND_FROZEN"
+  },
+  "nonclaims": [
+    "The preserved return is false.",
+    "The preserved return was fabricated.",
+    "The preserved return was tampered.",
+    "The preserved return was selectively curated.",
+    "The attributed actor identity is false.",
+    "Actor independence is absent.",
+    "No source-controlled exterior artifact exists.",
+    "The return's substantive findings are incorrect."
+  ],
+  "object_id": "EXTERIOR-RETURN-ORIGIN-BINDING-GAP-001",
+  "observed_binding": "docs/exterior-returns/EXTERIOR-REPOSITORY-RECOMPUTATION-RETURN-001/04_SOURCE_RETURN_BINDING.json",
+  "observed_object": "docs/exterior-returns/EXTERIOR-REPOSITORY-RECOMPUTATION-RETURN-001/",
+  "observed_repository_coordinate": "27a243badd1e7645cd47d8ddf1e293865aa18e8f",
+  "predecessor_modified": false,
+  "preservation_boundaries": [
+    "OCCURRENCE != PRESERVATION",
+    "PRESERVATION != ORIGIN_BINDING",
+    "ORIGIN_BINDING != ACTOR_IDENTITY_ESTABLISHED",
+    "ACTOR_IDENTITY_ESTABLISHED != ACTOR_INDEPENDENCE_ESTABLISHED",
+    "PRESERVATION != ADMISSION",
+    "RECONCILIATION != REMEDIATION"
+  ],
+  "record_type": "FROZEN_FINDING",
+  "remediation_authority": "NONE",
+  "standing_effect": "NONE",
+  "successor_authority": "NONE"
+}
