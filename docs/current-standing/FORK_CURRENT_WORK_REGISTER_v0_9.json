@@ -1,0 +1,182 @@
+{
+  "schema_id": "FORK_CURRENT_WORK_REGISTER_v0_9",
+  "snapshot_date": "2026-09-24",
+  "snapshot_observed_at": "2026-09-24T23:47:00Z",
+  "snapshot_base_commit": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+  "snapshot_base_tree": "f74c83a71bcd6eab25427aeb9e52bbc7dc931386",
+  "snapshot_through_pr": 178,
+  "standing": "CURRENT_PROGRAM_STATE_SUCCESSOR_OVERLAY",
+  "record_form": "PREDECESSOR_PLUS_DELTA",
+  "predecessor_register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json",
+  "predecessor_binding": {
+    "path": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.json",
+    "git_blob_sha": "0b610c91b100c26c3b7cbad7cfd4ca7d97b45169",
+    "standing": "PRESERVED_UNCHANGED_PREDECESSOR"
+  },
+  "observation": {
+    "path": "docs/observations/FORK-REPRESENTATIONAL-LATENCY-OBSERVATION-001/v0.1/OBSERVATION.json",
+    "preservation_commit": "55fb18508824a4a4efe6651dc01326506686f200",
+    "sha256": "86fc27660f7a2f9ba1224270cab783b3b764f310eeac536bcabf045826ac8c9c",
+    "manifest_sha256": "c7219101c9b481c6c25c63535338045dd7bdc3d0674588e47d6d9e9766095c42",
+    "standing": "CARRIED_FORWARD_WITHOUT_REINTERPRETING_OBSERVATION_BYTES"
+  },
+  "delta_description": "Representational synchronization from the v0.8 PR #164 horizon through merged main at PR #178. Preserve intervening admissions, negative results, reconciliations, and unresolved gates without modifying research-object bytes or importing off-repository returns.",
+  "delta_object_count": 5,
+  "delta_objects": [
+    {
+      "id": "cross_system_claim_handoff_v0_1",
+      "research_state": "BASELINE_BLOCKED_RECEIVER_PLATFORM_RETIRED",
+      "gate": "BLOCKED_RECEIVER_RETIRED",
+      "continue_frozen_baseline": false,
+      "standing_basis": "Carried from v0.8; no later merged repository record reopens or retroactively completes the predecessor baseline."
+    },
+    {
+      "id": "CSH-S001-v0.1",
+      "material_state": "MEASUREMENT_CODING_EXECUTION_RECORD_FROZEN__PACKETS_HASH_BOUND",
+      "research_state": "PRE_EXECUTION_HOSTED_ACCESS_BLOCKED",
+      "gate": "BLOCKED_HOSTED_ACCESS_NOT_ESTABLISHED",
+      "receiver_registry_frozen": false,
+      "run_order_frozen": false,
+      "corpus_execution_established": false,
+      "remaining_blockers": [
+        "G06",
+        "G07",
+        "G08",
+        "G11"
+      ],
+      "next_gate": "Successful neutral hosted access under the zero-spend constraint, then receiver registry and exact run-order freeze before corpus-bearing execution.",
+      "standing_basis": "Carried from v0.8. PR #165 remains open and unmerged; recorded 429 responses are access observations only.",
+      "sources": [
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_GATE_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "e5611eab7fd5d942b0f50c8e307706a5ca620154",
+          "sha256": "4138f527765b526a2845ac68b0217917c8a7db70c420dc35fa1ee3753c83c885"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/SEMANTIC_MEASUREMENT_FREEZE_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "4a318e985108af76f064af8eb914c0db065549f1",
+          "sha256": "30cf7ffb494f97d177b1399f9b0300af5f07d35bc05e1b9e0398c939c278c6b3"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_RECORD_FREEZE_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "555204730b7839d68a56243c6dc12a851a7b47a2",
+          "sha256": "456b6c5c011807951bfdc9abce0a3dbc52532cb5c53f9b2882fe51b2b9cb5019"
+        },
+        {
+          "path": "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PACKET_BINDING_v0_1.json",
+          "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+          "git_blob_sha": "e327874693faee6d02774c73e56c90ea6b2005fc",
+          "sha256": "f4ec48838689a471cfaff6cb7746f4b766810a6e1ece8a7e42e49f722b4c06a7"
+        }
+      ]
+    },
+    {
+      "id": "LS-MDRC-002-CONSTRUCTION-FREEZE-001",
+      "research_state": "ORIGINAL_PR_OPEN_UNMERGED__RECONCILIATION_PRESERVED",
+      "gate": "FREEZE_IDENTITY_NOT_ESTABLISHED_FROM_ORIGINAL_COMMITTED_PACKAGE",
+      "source_pr": 162,
+      "reconciliation_pr": 167,
+      "open_followup_pr": 168,
+      "standing_basis": "PR #167 preserved receipt-digest, manifest-binding, and population discrepancies without changing or admitting the original package. PR #168 is evidence-only follow-up context.",
+      "next_gate": "Historical-byte recovery or a separately named successor under its own review; no automatic successor is inferred."
+    },
+    {
+      "id": "FORK-II-KERNEL-002-v0.1",
+      "research_state": "BOUNDED_RESEARCH_RELEASE_ADMITTED",
+      "gate": "RELEASE_ADMITTED_WITH_DECLARED_NON_CLAIMS",
+      "release_admission_pr": 173,
+      "standing_reference": "docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md",
+      "standing_basis": "PR #173 admitted the hash/length-bound repaired package after separately preserved pre-repair failure, control freeze, repair, combined execution, and recomputation. Release admission does not establish general correctness, production readiness, deployment authority, or stronger independence."
+    },
+    {
+      "id": "FIVE-LAYER-HISTORICAL-LIVE-RUN-005-EXTERNAL-ADJUDICATION-001",
+      "research_state": "EXTERNAL_ADJUDICATION_DISPATCH_PREPARED_NOT_RETURNED",
+      "gate": "AWAIT_PRESERVED_EXTERNAL_PHASE_A_RETURN",
+      "dispatch_pr": 178,
+      "external_result_repository_preserved": false,
+      "external_result_repository_admitted": false,
+      "stage_3_adjudication_delta": 0,
+      "synthetic_lane_opened": false,
+      "standing_basis": "PR #178 merged a two-phase source-first adjudication dispatch for preselected seams M12/M18 and M14. No external result is claimed at the repository coordinate.",
+      "next_gate": "Preserve the external Phase A return as a separate repository object before any Phase B reconciliation effect or synthetic-lane opening."
+    }
+  ],
+  "admission_accounting": [
+    {
+      "pr": 161,
+      "commit": "d9e17deefec2b844e5f5b82c84986e085e077d58",
+      "disposition": "INCORPORATED",
+      "basis": "Already incorporated by predecessor v0.7; retained so the CSH ancestry remains mechanically checkable."
+    },
+    {
+      "pr": 163,
+      "commit": "fd839efbaa11bb5c7ae0b063bbe5ec46181c836d",
+      "disposition": "INCORPORATED",
+      "basis": "CSH-S001 preregistration, measurement interpretation and implementation."
+    },
+    {
+      "pr": 164,
+      "commit": "4e80ee7f33ac890c4101d741cf3da93522d2fd33",
+      "disposition": "INCORPORATED",
+      "basis": "v0.8 CSH-S001 source coordinate; four hosted/run-order gates remained unsatisfied."
+    }
+  ],
+  "post_predecessor_repository_events": [
+    {
+      "pr": 167,
+      "disposition": "INCORPORATED_RECONCILIATION",
+      "summary": "PR #162 freeze discrepancies preserved without original-package modification or freeze qualification."
+    },
+    {
+      "prs": [169, 170, 171, 172, 173],
+      "disposition": "INCORPORATED_FORK_II_SEQUENCE",
+      "summary": "Historical v0.1.1 admission and KERNEL-002 opening; pre-repair 0/4 failure and recomputation; pre-repair controls; successor-only repair and combined execution; bounded v0.1 release admission."
+    },
+    {
+      "prs": [174, 175, 176, 177, 178],
+      "disposition": "INCORPORATED_FIVE_LAYER_SEQUENCE",
+      "summary": "Run 001 repair/recomputation sequence through Run 003 failure-first recomputation, Run 004 serialization clarification, and Run 005 external-adjudication dispatch."
+    }
+  ],
+  "open_candidate_snapshot": {
+    "path": "docs/current-standing/OPEN_CANDIDATE_STANDING_SNAPSHOT_20260924_v0_1.json",
+    "observed_at": "2026-09-24T23:47:00Z",
+    "open_count": 18,
+    "standing": "DATED_REPRESENTATIONAL_SNAPSHOT_NO_SOURCE_PR_EFFECT"
+  },
+  "cross_branch_admission_notes": [
+    {
+      "prs": [65, 100],
+      "record": "PR #123",
+      "branch": "preservation/clean-continuance-v0.1",
+      "effect": "BOUNDED_SOURCE_EVIDENCE_ADMITTED",
+      "main_branch_effect": "NONE",
+      "proof_packaging": "NOT_ADMITTED"
+    }
+  ],
+  "coverage": {
+    "predecessor_horizon": "v0.8 represented admitted CSH evidence through PR #164 while CURRENT_STANDING.md separately carried later Fork II notes.",
+    "successor_horizon": "Repository representational synchronization through exact main commit 115992d750f0e893d07b61dbb6d584c87dc64d5d / PR #178.",
+    "accounting": "docs/current-standing/PROGRAM_CHANGE_ACCOUNTING_v0_2.json",
+    "boundary": "Coverage identifies declared routing/accounting through the exact coordinate; it is not semantic completeness."
+  },
+  "governing_non_inheritance": [
+    "PRESERVATION != SYNCHRONIZATION",
+    "PRESERVED != CURRENTLY_INTERPRETED",
+    "CURRENTLY_INTERPRETED != CURRENTLY_REPRESENTATIVE",
+    "OPEN != CURRENT_STANDING",
+    "SOURCE_EVIDENCE_ADMITTED != PROOF_PACKAGING_ADMITTED",
+    "OFF_REPOSITORY_RETURN != REPOSITORY_STANDING",
+    "ACCOUNTED_FOR != SEMANTICALLY_COMPLETE"
+  ],
+  "snapshot_non_claims": [
+    "No predecessor register, frozen method, closed object, scoring rule, source evidence, experimental output, recomputation result, admission decision, or historical record is rewritten by this register.",
+    "No source PR is closed, merged, rebased, retargeted, admitted, rejected, or otherwise modified by classification in the open-candidate snapshot.",
+    "No off-repository external adjudication return is incorporated into Run 005 standing.",
+    "No general correctness, truth, compliance, legal sufficiency, production readiness, deployment authority, institutional approval, or global independence is established.",
+    "Passing freshness and routing checks establish declared structural accounting only, not semantic completeness."
+  ]
+}
