@@ -4,7 +4,7 @@
 
 Status: `AG5_COMPLETE`
 
-Parent AG4 commit: `9a28abf10539175e19a5eaa58e049ab7a46d4f50`
+Current AG5 parent-chain root: AG4 commit `9a28abf10539175e19a5eaa58e049ab7a46d4f50`
 
 Authorization received: `AUTHORIZED_ADMISSION_VERIFIED`
 
@@ -24,22 +24,34 @@ ATTEMPT_002_COMPLETE_MATCH
 != GLOBAL_VERIFICATION
 ```
 
-## 2. Verified return identity
+## 2. Verified return identities
 
-The exact uploaded Attempt 002 return objects were independently hashed before admission:
+The received source objects were independently hashed before admission:
 
-- `AG5_LOCAL_RECOMPUTATION_CONSOLE_ATTEMPT_002.txt`
+- Attempt 001 source transcript raw bytes:
+  - SHA-256 `bbe430a05d65697f90c9ca14b7b458cc8923bd4ada1b26a2f087331d965abd0f`
+  - preserved recoverably as deterministic gzip bytes `AG5_LOCAL_RECOMPUTATION_ATTEMPT_001_SOURCE_TRANSCRIPT.txt.gz`
+  - gzip SHA-256 `89887793e8d456bc20da4e705a1c586be26ec666726953588c7d359c400771c6`
+- Attempt 002 console raw bytes:
   - SHA-256 `cf02c937ac80e0c2bcc4669ce47879179f0cfcbf45c1cac87235c659422d9eec`
-- `AG5_LOCAL_RECOMPUTATION_RECEIPT_ATTEMPT_002.json`
+  - preserved recoverably as deterministic gzip bytes `AG5_LOCAL_RECOMPUTATION_CONSOLE_ATTEMPT_002.txt.gz`
+  - gzip SHA-256 `58f9b7dca217a2ad6e44c39e5b398f2ff9661431269b55c15836fbbb4e1fa5aa`
+- Attempt 002 receipt bytes:
   - SHA-256 `884fcfacc980e91127ed8e67eba99eb84fc78043ce1c32bbd70cdcae9f96cfcc`
-- `recompute_ag4_v0_2.py`
+  - embedded directly as `AG5_LOCAL_RECOMPUTATION_RECEIPT_ATTEMPT_002.json`
+- Attempt 002 implementation source raw bytes:
   - SHA-256 `a8d395a5dafc87230469bf956eed89d38dddf5202a48ac23fd231a8c209468ad`
+  - preserved recoverably as deterministic gzip bytes `recompute_ag4_v0_2.py.gz`
+  - gzip SHA-256 `cc3ebe8e49a230a093c1151f1d43c5cbaf097dbd9c4ce7a72995de914f7f773c`
 
-The console and receipt bytes are embedded in this AG5 repository record. The implementation source was independently received and hash-verified before admission; its exact source-byte identity is admitted by the SHA-256 above, but the `.py` bytes are not embedded in this commit.
+For the gzip-preserved objects:
 
 ```text
-IMPLEMENTATION_IDENTITY_ADMITTED
-!= IMPLEMENTATION_BYTES_EMBEDDED
+RAW_SOURCE_BYTES
+!= STORED_GZIP_BYTES
+
+DECOMPRESS(STORED_GZIP_BYTES)
+= ADMITTED_RAW_SOURCE_BYTES
 ```
 
 ## 3. Recomputed coordinate and packet identity
@@ -70,9 +82,9 @@ The nine recomputed statuses matched the nine recorded AG4 statuses exactly.
 
 Admitted:
 
-- Attempt 001 as preserved procedural failure evidence;
-- Attempt 002 return identity;
-- Attempt 002 implementation identity;
+- Attempt 001 as preserved negative procedural evidence;
+- Attempt 002 console, receipt, and implementation identities;
+- recoverable preservation of the exact Attempt 001 transcript, Attempt 002 console, and Attempt 002 implementation source;
 - repository-coordinate recomputation match;
 - selectively materialized packet-byte identity match to Git;
 - target artifact identity recomputation match;
