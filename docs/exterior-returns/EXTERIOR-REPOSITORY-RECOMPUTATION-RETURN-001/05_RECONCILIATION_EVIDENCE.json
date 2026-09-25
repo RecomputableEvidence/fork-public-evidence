@@ -1,0 +1,39 @@
+{
+    "object_id":  "EXTERIOR-REPOSITORY-RECOMPUTATION-RETURN-001",
+    "reconciliation_version":  "v0.1",
+    "reviewed_repository_coordinate":  "f43b49dc42eb8df6ca3355f19e7b7b385a6b01bf",
+    "source_return":  {
+                          "file":  "03_EXTERIOR_RECOMPUTATION_RETURN_CAPTURE_ATTEMPT_003.md",
+                          "sha256":  "aaaed8bd51b985ceb71a65c35a3bdd80567eeb959a2ef752a596b42d43c777e9",
+                          "standing":  "FULL_SOURCE_RETURN_CANDIDATE"
+                      },
+    "finding_001":  {
+                        "subject":  "research/standards/README.md",
+                        "checksum_manifest":  "CHECKSUMS_SHA256.txt",
+                        "declared_sha256":  "f134c55f5fd927a2c9564352eafed4e58b2145f7432bd18b5b3bb79b8e3ddc9c",
+                        "actual_sha256":  "c69ce9f411313ec5738b4b99d21d385a2498a3519182a38489e1bbe04ee158b2",
+                        "reproduced_state":  "DECLARED_DIGEST_MISMATCH_REPRODUCED",
+                        "disposition":  "UNASSIGNED",
+                        "remediation_authority":  "NONE"
+                    },
+    "finding_002":  {
+                        "subject":  "admissions/FORK-STACKED-CADENCE-BOUNDED-R\u0026D-001/v0.1.5-QUALIFIED-FREEZE/README.md",
+                        "candidate_marker":  "CANDIDATE_PENDING_PR_CHECKS_AND_MAIN_MERGE",
+                        "candidate_marker_present":  true,
+                        "later_merge_commit":  "e77a515fd05197ff8aa5716d96db577510d07661",
+                        "later_merge_subject":  "Admit Stacked Cadence v0.1.5 qualified freeze (#151)",
+                        "later_merge_reachable_from_reviewed_coordinate":  true,
+                        "reproduced_state":  "HISTORICAL_CANDIDATE_TEXT_PRESENT_AFTER_LATER_MERGE_EVENT",
+                        "current_standing_contradiction":  "NOT_ESTABLISHED_BY_THIS_RECONCILIATION",
+                        "disposition":  "UNASSIGNED",
+                        "remediation_authority":  "NONE"
+                    },
+    "boundaries":  [
+                       "OBSERVATION_REPRODUCED != DISPOSITION_ASSIGNED",
+                       "DIGEST_MISMATCH_REPRODUCED != HISTORICAL_FILE_REWRITE_AUTHORIZED",
+                       "HISTORICAL_CANDIDATE_TEXT != CURRENT_STANDING",
+                       "LATER_MERGE_EVENT != AUTHORITY_TO_MUTATE_PRE_MERGE_BYTES",
+                       "RECONCILIATION != REMEDIATION"
+                   ],
+    "standing_change":  "NONE"
+}
