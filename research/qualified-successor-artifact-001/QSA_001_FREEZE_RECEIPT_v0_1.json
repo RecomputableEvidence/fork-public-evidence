@@ -1,0 +1,30 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "short_name": "QSA-001",
+  "version": "0.1",
+  "standing": "CONCEPTUAL_ARCHITECTURE_FROZEN_FOR_V0_1",
+  "spec_path": "research/qualified-successor-artifact-001/QSA_001_SPEC_v0_1.md",
+  "spec_byte_length": 11870,
+  "spec_sha256": "660c42507fdc7d5b59e64fdb0531c4f343fb963dd29b9685e19d45ea04cf5269",
+  "signature_key_binding_repair": {
+    "signature_valid_means": [
+      "SIGNED_PAYLOAD_UNALTERED",
+      "SIGNATURE_VERIFIES_UNDER_DECLARED_PUBLIC_KEY"
+    ],
+    "does_not_establish": [
+      "EXTERNAL_IDENTITY",
+      "UNIVERSAL_AUTHORITY",
+      "SEMANTIC_TRUTH",
+      "LEGAL_OR_MORAL_LEGITIMACY"
+    ],
+    "actor_binding": "SEPARATE_EVIDENCE_RELATION",
+    "authority_binding": "SEPARATE_POLICY_RELATION"
+  },
+  "reference_implementation": "AUTHORIZED_AFTER_THIS_FREEZE_AS_SEPARATE_SUCCESSOR_COMMIT",
+  "explicit_nonclaims": [
+    "This freeze does not validate a reference implementation.",
+    "This freeze does not make QSA production-ready.",
+    "This freeze does not establish universal authority, semantic truth, or empirical validity.",
+    "Pre-QSA material is not retroactively represented as QSA-governed history."
+  ]
+}
