@@ -1,0 +1,35 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "artifact_id": "QSA-001-v0.1-INDEPENDENT-RECOMPUTATION-RETURN-001",
+  "artifact_role": "EXTERIOR_INDEPENDENT_RECOMPUTATION_AND_ADVERSARIAL_RETURN",
+  "standing": "PRESERVED_AND_FROZEN",
+  "reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "conceptual_freeze_commit": "704b1da5d999d6130dacd6691c768fe6904e970f",
+  "main_observed_by_reviewer": "56b4e06...",
+  "source_representation": "CANONICAL_USER_PROVIDED_CHAT_TRANSCRIPT_CAPTURE",
+  "source_blob_sha": "b5e88daa89f0cffa3a86eda6f3202c9ec3263734",
+  "source_byte_length": 5306,
+  "source_sha256": "c2f2745bc5f98d391095de54d97daca439e4be944fa7e9539b2ea86f06d693b0",
+  "encoding": "UTF-8",
+  "normalization_status": "NO_NORMALIZATION_AFTER_CAPTURE",
+  "trailing_newline": false,
+  "screenshot_attachment_present": true,
+  "screenshot_used_as_canonical_payload": false,
+  "reviewer_identity": "NOT_ESTABLISHED_IN_RETURN",
+  "reviewer_reported_execution": {
+    "fresh_git_checkout": true,
+    "fresh_virtual_environment": true,
+    "committed_receipt_trusted_as_basis": false,
+    "baseline_command": "qsa_verify.py --compare-expected",
+    "baseline_result": "PASS",
+    "named_checks_reported_green": 21,
+    "adversarial_probes_reported_executed": 4
+  },
+  "non_claims": [
+    "Preservation establishes what the reviewer reported, not independent truth of every statement in the return.",
+    "The return does not establish production readiness.",
+    "The return does not establish that QSA governance is meaningful or suitable for real-world governance.",
+    "The return does not establish semantic truth, moral legitimacy, policy wisdom, universal authority, legal compliance, or any empirical Fork hypothesis.",
+    "The screenshot is contextual corroboration only and is not the canonical source payload."
+  ]
+}

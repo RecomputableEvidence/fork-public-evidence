@@ -1,0 +1,60 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "artifact_id": "QSA-001-v0.1-INDEPENDENT-RECOMPUTATION-DISPOSITION-001",
+  "source_return": "QSA-001-v0.1-INDEPENDENT-RECOMPUTATION-RETURN-001",
+  "target_reference_commit": "d18119105481d194298148a31715303c77a244bc",
+  "standing": "BOUNDED_EXTERIOR_RECOMPUTATION_RETURN_PRESERVED",
+  "baseline": {
+    "reviewer_reported_result": "PASS",
+    "named_checks_reported": 21,
+    "fresh_checkout_reported": true,
+    "fresh_environment_reported": true
+  },
+  "adversarial_returns": [
+    {
+      "id": "SIGNED_PROPOSAL_MUTATION",
+      "target": "p2.json proposal_intent",
+      "expected": "REJECT",
+      "reviewer_reported": "REJECT",
+      "reason": "signature verification failed: p2-proposal"
+    },
+    {
+      "id": "A2_PUBLIC_KEY_SUBSTITUTION",
+      "target": "trusted_keys.json builder key",
+      "expected": "REJECT",
+      "reviewer_reported": "REJECT",
+      "reason": "signature verification failed: p0-mark"
+    },
+    {
+      "id": "A11_DUPLICATE_JSON_KEY",
+      "target": "manifest.json artifact_id duplicate",
+      "expected": "REJECT",
+      "reviewer_reported": "REJECT",
+      "reason": "duplicate JSON object key: artifact_id"
+    },
+    {
+      "id": "A12_FLOAT_INJECTION",
+      "target": "manifest.json",
+      "expected": "REJECT",
+      "reviewer_reported": "REJECT",
+      "reason": "QSA-CANONICAL-JSON-001 prohibits floating-point numbers"
+    }
+  ],
+  "bounded_interpretation": [
+    "The exterior return reports successful independent recomputation of the reference implementation's bounded mechanical checks.",
+    "The exterior return reports four adversarial mutations rejected for the expected mechanical reasons.",
+    "The return distinguishes those mechanical findings from higher-order judgments about QSA governance or real-world suitability."
+  ],
+  "not_established": [
+    "PRODUCTION_READINESS",
+    "REAL_WORLD_GOVERNANCE_FIT",
+    "QSA_CONCEPTUAL_VALUE",
+    "SEMANTIC_TRUTH",
+    "MORAL_LEGITIMACY",
+    "POLICY_WISDOM",
+    "UNIVERSAL_AUTHORITY",
+    "LEGAL_COMPLIANCE",
+    "ANY_EMPIRICAL_FORK_HYPOTHESIS"
+  ],
+  "next_change_authority": "NONE_FROM_THIS_FREEZE"
+}

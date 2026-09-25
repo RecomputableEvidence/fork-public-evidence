@@ -1,0 +1,26 @@
+{
+  "object_id": "QUALIFIED-SUCCESSOR-ARTIFACT-001",
+  "artifact_id": "QSA-001-v0.1-INDEPENDENT-RECOMPUTATION-RETURN-001-FREEZE-RECEIPT",
+  "standing": "PRESERVATION_RECEIPT",
+  "branch": "research/qsa-001-v0.1-freeze-reference",
+  "parent_commit": "d18119105481d194298148a31715303c77a244bc",
+  "source_path": "research/qualified-successor-artifact-001/independent-recomputation-return-001/INDEPENDENT_RECOMPUTATION_RETURN_001.md",
+  "source_blob_sha": "b5e88daa89f0cffa3a86eda6f3202c9ec3263734",
+  "source_sha256": "c2f2745bc5f98d391095de54d97daca439e4be944fa7e9539b2ea86f06d693b0",
+  "source_byte_length": 5306,
+  "metadata_path": "research/qualified-successor-artifact-001/independent-recomputation-return-001/INDEPENDENT_RECOMPUTATION_RETURN_001.json",
+  "metadata_blob_sha": "ca2af933bbf162be7affa1c5fa4f12b8459086e9",
+  "metadata_sha256": "daa88f589979197ba5f6afe57dc994ba71921d33e6a3bbaf4c3952e187b9f24f",
+  "disposition_path": "research/qualified-successor-artifact-001/independent-recomputation-return-001/INDEPENDENT_RECOMPUTATION_DISPOSITION_001.json",
+  "disposition_blob_sha": "9d6f0e5c3d1f6ece8a14b1c226b653eecc9c1001",
+  "disposition_sha256": "281d4718102cc77340eb022e9eff4fbe51d36db51b1f8f3032ceae45fbb1e54b",
+  "freeze_effect": {
+    "source_return": "PRESERVED_AND_FROZEN",
+    "bounded_disposition": "PRESERVED",
+    "reference_implementation": "UNCHANGED",
+    "conceptual_spec": "UNCHANGED",
+    "bootstrap": "NOT_OPENED",
+    "production_readiness": "NOT_ESTABLISHED",
+    "change_authority": "NONE"
+  }
+}
