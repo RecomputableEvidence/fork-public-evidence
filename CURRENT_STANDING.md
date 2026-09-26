@@ -4,6 +4,17 @@ For the repository-wide current program state, begin here:
 
 Current standing: [v0.9](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_9.md) / [JSON](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_9.json). Representational synchronization is bounded through exact `main` commit `115992d750f0e893d07b61dbb6d584c87dc64d5d` (PR #178). The preserved predecessor [v0.8](docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_8.md) remains unchanged at its own PR #164 horizon.
 
+For **Fork II specifically**, the authoritative Fork II orientation subroute is [`FORK_II_CURRENT_STANDING_001`](docs/current-standing/FORK_II_CURRENT_STANDING_001_20260926.md) / [JSON](docs/current-standing/FORK_II_CURRENT_STANDING_001_20260926.json), observed at `main@27a243badd1e7645cd47d8ddf1e293865aa18e8f`. It is additive to v0.9 and has `NONE` standing effect on the objects it indexes. It does not replace the repository-wide v0.9 program register.
+
+```text
+AUTHORITATIVE_FORK_II_ORIENTATION
+!= GLOBAL_PROGRAM_REGISTER_REPLACEMENT
+
+ORIENTATION
+!= RE-ADJUDICATION
+!= STANDING_PROMOTION
+```
+
 The current route preserves the CSH boundary from v0.8: CSH baseline remains blocked; `CSH-S001-v0.1` measurement/coding and execution-record semantics remain frozen, exact packets remain bound, hosted access remains blocked, receiver registry and run order remain unfrozen, and corpus execution is not established. PR #165 remains open context rather than admitted successor execution.
 
 ## Open-candidate snapshot
@@ -36,6 +47,12 @@ See the [2026-09-23 Fork II post-repair execution standing note](docs/current-st
 
 See the [2026-09-23 Fork II bounded release-admission standing note](docs/current-standing/FORK_II_RELEASE_ADMISSION_20260923.md): after the admitted gate-4 successor-only repair, a separate recomputation of the same supplied implementation reproduced the bounded result and generated raw output byte-identical to the bundled raw record. On merge of the release-admission PR, the hash/length-bound repaired package is admitted as `FORK-II-KERNEL-002 v0.1` bounded research release. Exact recomputed raw bytes and Attempt 001 negative evidence are preserved at the admission coordinate; no second repository copy of the full repaired ZIP is claimed there. This is not general correctness, production readiness, deployment authority, or a stronger independence claim.
 
+## Fork II bounded-world hypothesis closure and successor
+
+The [Fork II orientation subroute](docs/current-standing/FORK_II_CURRENT_STANDING_001_20260926.md) records the original handoff hypothesis as `SUPPORTED_IN_BOUNDED_MECHANISTIC_PILOT__CLOSED`, while explicitly preserving `EXTERNAL_BEHAVIORAL_VALIDATION = NOT_ESTABLISHED`. Run 001 remains a failed predecessor; Run 002 supplies bounded deterministic support; the ten-artefact simulation remains bounded pressure evidence with no standing effect.
+
+The separately named [`FORK_ORIGINAL_HYPOTHESIS_EXTERNAL_BEHAVIORAL_SUCCESSOR_001`](research/fork-original-hypothesis/FORK_ORIGINAL_HYPOTHESIS_EXTERNAL_BEHAVIORAL_SUCCESSOR_001/OPENING_RECORD.md) is `OPENED_NOT_EXECUTED` with `STANDING_INHERITANCE = NONE`. Its opening record authorizes no empirical execution.
+
 ## Five-Layer historical/live sequence through Run 005
 
 The merged sequence through PR #178 is represented in v0.9 without strengthening its individual records. Run 003 preserves the initial failed `0/17` range-hash recomputation, the misleading unconditional shell `PASS`, the serialization diagnosis, and the recovered `17/17` recomputation under the explicit LF-final UTF-8/no-BOM convention. Run 004 records the serialization clarification separately.
@@ -44,13 +61,14 @@ Run 005 is currently `EXTERNAL_ADJUDICATION_DISPATCH_PREPARED_NOT_RETURNED`. PR 
 
 ## Current-state routing clarification
 
-`CURRENT_STANDING.md` and the v0.9 register above are the current program-standing route for this coordinate.
+`CURRENT_STANDING.md` and the v0.9 register above remain the repository-wide current program-standing route at the v0.9 coordinate. `FORK_II_CURRENT_STANDING_001` is the later authoritative Fork II orientation subroute; it is additive and does not replace or rewrite v0.9.
 
 Earlier proof-surface state files, generated summaries, and embedded README status blocks retain their own historical coordinates. They do **not** become current merely because they remain present in the repository.
 
 For machine-readable routing, see:
 
-- [`docs/state/CURRENT_STATE_ROUTING_v0_1.json`](docs/state/CURRENT_STATE_ROUTING_v0_1.json)
+- [`docs/state/CURRENT_STATE_ROUTING_v0_2.json`](docs/state/CURRENT_STATE_ROUTING_v0_2.json) — current additive routing successor with the Fork II subroute.
+- [`docs/state/CURRENT_STATE_ROUTING_v0_1.json`](docs/state/CURRENT_STATE_ROUTING_v0_1.json) — preserved predecessor routing record.
 
 The July proof-state snapshot remains preserved unchanged. Its historical `not_started` CSH state must not be read as superseding the later September execution/reconciliation record.
 

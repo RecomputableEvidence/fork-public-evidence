@@ -1,0 +1,165 @@
+{
+  "object_id": "FORK_II_CURRENT_STANDING_001",
+  "version": "0.1",
+  "as_of": "2026-09-26",
+  "main_coordinate": "27a243badd1e7645cd47d8ddf1e293865aa18e8f",
+  "classification": "AUTHORITATIVE_ORIENTATION_SURFACE__EFFECTIVE_ON_ADMISSION",
+  "standing_effect": "NONE_ON_UNDERLYING_OBJECTS",
+  "predecessor_orientation": {
+    "register": "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_9.md",
+    "coordinate": "115992d750f0e893d07b61dbb6d584c87dc64d5d",
+    "relationship": "ADDITIVE_SYNCHRONIZATION_NOT_REWRITE"
+  },
+  "exists": [
+    {
+      "object": "FORK-II-KERNEL-001 v0.1.1",
+      "standing": "CLOSED_HISTORICAL_EVIDENCE",
+      "note": "ten exact supplied sources and four uncovered surfaces preserved; original 22/22 baseline and 12/12 mutant scope retained"
+    },
+    {
+      "object": "FORK-II-KERNEL-002 v0.1",
+      "standing": "BOUNDED_RESEARCH_RELEASE_ADMITTED",
+      "note": "post-repair release admitted after separately preserved pre-repair failure, control freeze, successor-only repair, combined execution, and separate recomputation"
+    },
+    {
+      "object": "FORK_ORIGINAL_HYPOTHESIS_PAIRED_PILOT_001",
+      "standing": "PRESERVED_FAILED_INSTRUMENT_RUN",
+      "note": "10->1 unsupported inheritance; 0->1 false withholding; preregistered guardrail failed"
+    },
+    {
+      "object": "FORK_ORIGINAL_HYPOTHESIS_PAIRED_PILOT_002",
+      "standing": "SUPPORTED_IN_BOUNDED_MECHANISTIC_PILOT",
+      "note": "10->0 unsupported inheritance; 0->0 false withholding; deterministic receiver"
+    },
+    {
+      "object": "FORK_2_BOUNDED_WORLD_10_ARTIFACT_SIMULATION_v0_1",
+      "standing": "SUPPORTED_WITH_OPEN_SEAMS__NO_STANDING_EFFECT",
+      "note": "36/36 assertions; five deliberate cross-lineage attacks rejected; local simulation only"
+    },
+    {
+      "object": "FORK-EVIDENCE-LENS-GALLERY-001 Population 001",
+      "standing": "REPOSITORY_ADMITTED_CALIBRATION_POPULATION",
+      "note": "two entries from one admitted exterior-return source event; source standing unchanged"
+    },
+    {
+      "object": "FORK-EVIDENCE-LENS-GALLERY-001 Population 002",
+      "standing": "PREDECLARATION_FROZEN__EVENT_SELECTION_NOT_BEGUN",
+      "note": "selection rule/procedure frozen; zero entries at predeclaration"
+    },
+    {
+      "object": "PR #189 Fork 2 executable semantic kernel v0.1",
+      "standing": "OPEN_CANDIDATE_NOT_ADMITTED",
+      "note": "R3/R5/R7a/R7b implemented; R1/R2/R4/R6/R8 withheld; full predecessor recomputation unavailable from PR alone"
+    },
+    {
+      "object": "PR #190 Fork 2 temporal routing spine v0.1",
+      "standing": "OPEN_DRAFT_STACKED_ON_PR189",
+      "note": "five-phase prototype; P-001 through P-005 preserved as open seams"
+    }
+  ],
+  "executed": [
+    {
+      "object": "FORK-II-KERNEL-002 v0.1 combined execution",
+      "result": "39/39 combined; 22/22 predecessor baseline; 26/26 FII fixtures; 13/13 frozen controls; 12/12 predecessor mutants detected; 8/8 targeted successor faults detected"
+    },
+    {
+      "object": "FORK-II-KERNEL-002 separate recomputation",
+      "result": "46/46 manifest-listed records and 22/22 predecessor fixture hashes verified; bounded execution result reproduced using same supplied implementation"
+    },
+    {
+      "object": "Original hypothesis Run 001",
+      "result": "guardrail failure preserved"
+    },
+    {
+      "object": "Original hypothesis Run 002",
+      "result": "bounded mechanistic success"
+    },
+    {
+      "object": "Ten-artefact local simulation",
+      "result": "36/36 assertions; five deliberate cross-lineage attacks rejected; no repository/standing effect"
+    }
+  ],
+  "survived": [
+    "Run 001 failure remains visible after Run 002 success.",
+    "Original hypothesis satisfies its primary criterion and false-withholding guardrail only in Run 002's bounded deterministic pilot.",
+    "KERNEL-002 v0.1 retains bounded release standing after separate same-implementation recomputation.",
+    "Identity, authority state, claim standing, and temporal routing remain separable in the ten-artefact pressure surface.",
+    "ELG Population 001 demonstrates Gallery mechanics without source-standing promotion."
+  ],
+  "fractured": [
+    {
+      "surface": "Original hypothesis Run 001",
+      "fracture": "false-withholding guardrail failed after receiver proposition-resolution defects",
+      "status": "PRESERVED_NOT_REWRITTEN"
+    },
+    {
+      "surface": "Five-Layer Run 003 recomputation",
+      "fracture": "initial 0/17 evidence-range hashes under plausible serialization; later 17/17 after final-LF byte contract was identified",
+      "status": "PRESERVED_REPRESENTATION_CONTRACT_FAILURE"
+    },
+    {
+      "surface": "SPT-001 validator implementation",
+      "fracture": "symlink check ordering, global byte-scan conflation, test-fixture normalization, and unbound VERIFIED status label",
+      "status": "RESIDUAL_REPAIRS_IDENTIFIED"
+    },
+    {
+      "surface": "Lens Shift Oracle B handoff",
+      "fracture": "internal selection information included in independent-rater archive",
+      "status": "PACKAGE_LEVEL_BLINDING_RISK_ONLY"
+    },
+    {
+      "surface": "HISD-001 historical transition",
+      "fracture": "promised pre-inspection freeze cannot be established from surviving record",
+      "status": "HISTORICAL_GAP_PRESERVED"
+    }
+  ],
+  "unresolved": [
+    "External behavioral validation of the original hypothesis using isolated language-model or human receivers.",
+    "PR #189 withheld relations R1, R2, R4, R6, R8.",
+    "PR #190 seams P-001 unresolved outbound; P-002 successor relation; P-003 determination external; P-004 basis verification external; P-005 history completeness external.",
+    "ELG Population 002 candidate enumeration/event selection has not begun.",
+    "PR #189 authority origin is declared/bounded but not externally authenticated.",
+    "PR #189 alone does not provide full predecessor-package recomputation."
+  ],
+  "intentionally_unopened_or_protected": [
+    {
+      "lane": "Five-Layer Run 005 external adjudication",
+      "state": "EXTERNAL_ADJUDICATION_DISPATCH_PREPARED_NOT_RETURNED",
+      "protection": "no reconciliation effect; synthetic M21-M25 lane unopened"
+    },
+    {
+      "lane": "David McKibbin HISD-001 historical-identity exercise",
+      "state": "AWAIT_EXTERNAL_RETURN / PRESERVE_GAP",
+      "protection": "do not reconstruct missing August freeze or infer package continuity"
+    },
+    {
+      "lane": "Steven/John revised IAST package",
+      "state": "AWAIT_REVISED_CONSOLIDATED_PACKAGE",
+      "protection": "no preemptive review result or standing change"
+    },
+    {
+      "lane": "ELG Population 002",
+      "state": "EVENT_SELECTION_NOT_BEGUN",
+      "protection": "this orientation record does not enumerate/select Gallery events"
+    }
+  ],
+  "bounded_world_closure": {
+    "hypothesis": "Explicit handoff-state artifacts reduce unsupported inheritance in bounded AI-assisted handoffs.",
+    "disposition": "SUPPORTED_IN_BOUNDED_MECHANISTIC_PILOT__CLOSED",
+    "external_behavioral_validation": "NOT_ESTABLISHED"
+  },
+  "next_successor": {
+    "object_id": "FORK_ORIGINAL_HYPOTHESIS_EXTERNAL_BEHAVIORAL_SUCCESSOR_001",
+    "state": "OPENED_NOT_EXECUTED",
+    "basis": "explicit missing test named by paired Pilot 002: preserve fixture/rubric; substitute isolated language-model or human receivers; freeze outputs before adjudication",
+    "standing_inheritance": "NONE"
+  },
+  "non_claims": [
+    "ORIENTATION != RE_ADJUDICATION",
+    "INDEX_ENTRY != STANDING_PROMOTION",
+    "OPEN_PR != ADMITTED_ARCHITECTURE",
+    "LOCAL_SIMULATION != EXTERNAL_EMPIRICAL_VALIDATION",
+    "EXTERNAL_LANE_PROTECTED != EXTERNAL_LANE_RESOLVED",
+    "CURRENT_STANDING != TRUTH_OR_AUTHORIZATION"
+  ]
+}
