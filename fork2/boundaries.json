@@ -1,0 +1,36 @@
+{
+  "object_id": "FORK_2_PR189_FIRST_CLASS_BOUNDARY_v0_1",
+  "scope": "TECHNICAL_CANDIDATE_AUTHORITY_ORIGIN_AND_PREDECESSOR_RECOMPUTATION",
+  "subject_pr": 189,
+  "subject_head_at_preservation": "b2266610d4a67cd31639037f6a5715de69b1b396",
+  "canonical_boundary_text": "TECHNICAL CANDIDATE = CLEAN\n\nAUTHORITY ORIGIN\n= DECLARED\n= BOUNDED\n= NOT EXTERNALLY AUTHENTICATED\n\nFULL PREDECESSOR RECOMPUTATION\n= NOT AVAILABLE FROM PR #189 ALONE",
+  "technical_candidate": {
+    "standing": "CLEAN",
+    "basis": [
+      "19 targeted Fork 2 tests independently reported passing at subject head",
+      "all six embedded bound-record SHA-256 identities independently reported matching provenance.json",
+      "all GitHub workflow suites completed successfully at subject head"
+    ]
+  },
+  "authority_origin": {
+    "declared": true,
+    "bounded": true,
+    "externally_authenticated": false,
+    "repository_reference": "fork2/provenance.json#authorization",
+    "boundary": "RECORDED_AUTHORITY_REFERENCE != EXTERNALLY_VERIFIED_GOVERNANCE_AUTHORITY"
+  },
+  "full_predecessor_recomputation": {
+    "available_from_pr_189_alone": false,
+    "reason": "The predecessor package ZIP bytes are not embedded in PR #189; the PR preserves package identities and derived standing records only.",
+    "repository_reference": "fork2/provenance.json#repository_presence",
+    "boundary": "EMBEDDED_STANDING_RECORDS != EMBEDDED_FULL_SOURCE_PACKAGES"
+  },
+  "standing_effect": "NONE",
+  "implementation_effect": "NONE",
+  "non_claims": [
+    "TECHNICAL_CANDIDATE_CLEAN != EXTERNALLY_AUTHENTICATED_AUTHORITY",
+    "BOUND_RECORD_IDENTITY_VERIFIED != FULL_PREDECESSOR_PACKAGE_RECOMPUTATION",
+    "BOUNDARY_PRESERVATION != RELATION_PROMOTION",
+    "BOUNDARY_PRESERVATION != ARCHITECTURE_FREEZE_EXPANSION"
+  ]
+}
