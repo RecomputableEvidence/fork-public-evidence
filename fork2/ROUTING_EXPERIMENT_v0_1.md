@@ -27,15 +27,17 @@ The route asks only what may happen next. It does not try to encode everything k
 The prototype uses a deliberately small disposition set:
 
 - `UNDETERMINED`
-- `CLEAR`
+- `OUTBOUND_ELIGIBLE`
 - `REMEDIATION_REQUIRED`
 - `UNRESOLVED`
 - `ARCHIVE_ONLY`
 - `DISCARD_ONLY`
 
+`OUTBOUND_ELIGIBLE` replaces the earlier experimental label `CLEAR` because it states only an operational routing permission and does not imply truth, approval, correctness, adequacy, or authority.
+
 `REMEDIATION_REQUIRED` and `UNRESOLVED` route to `RESOLVE`.
 
-`CLEAR`, `ARCHIVE_ONLY`, and `DISCARD_ONLY` route to `OUTBOUND`.
+`OUTBOUND_ELIGIBLE`, `ARCHIVE_ONLY`, and `DISCARD_ONLY` route to `OUTBOUND`.
 
 ## Findings and operations remain open
 
@@ -86,6 +88,7 @@ REVISED != ACCEPTABLE
 REPAIRED != AUTHORIZED
 SEALED != TRUE
 OUTBOUND != APPROVED
+OUTBOUND_ELIGIBLE != TRUE
 ```
 
 ## Current transition conditions
@@ -103,7 +106,7 @@ DETERMINE + {REMEDIATION_REQUIRED, UNRESOLVED}
 RESOLVE
 → DETERMINE + explicit disposition
 
-DETERMINE + {CLEAR, ARCHIVE_ONLY, DISCARD_ONLY}
+DETERMINE + {OUTBOUND_ELIGIBLE, ARCHIVE_ONLY, DISCARD_ONLY}
 → OUTBOUND
 
 OUTBOUND
