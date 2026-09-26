@@ -47,6 +47,13 @@ def check_r5_no_retroactive_reinterpretation(
     transition: TransitionRecord,
     projection: TransitionProjection,
 ) -> List[Violation]:
+    """Enforce R5 without evaluating rule correctness or rule-bound results.
+
+    The projection carries an asserted later-rule context so the historical
+    transition's bound rule is not mechanically inert. This check does not
+    establish temporal ordering between rules and does not implement R4.
+    """
+
     violations: List[Violation] = []
 
     if projection.transition_id != transition.transition_id:
@@ -60,13 +67,23 @@ def check_r5_no_retroactive_reinterpretation(
         )
         return violations
 
+    if projection.later_rule_id == transition.bound_rule_id:
+        violations.append(
+            Violation(
+                relation_id="R5",
+                code="LATER_RULE_CONTEXT_NOT_DISTINCT",
+                subject_id=transition.transition_id,
+                detail="An R5 later-rule projection must identify a rule context distinct from the historical transition's bound rule.",
+            )
+        )
+
     if projection.projected_result != transition.preserved_result:
         violations.append(
             Violation(
                 relation_id="R5",
                 code="HISTORICAL_RESULT_REWRITE",
                 subject_id=transition.transition_id,
-                detail="A later projection may not rewrite the preserved historical result.",
+                detail="A later-rule projection may not rewrite the preserved historical result.",
             )
         )
 
@@ -76,7 +93,7 @@ def check_r5_no_retroactive_reinterpretation(
                 relation_id="R5",
                 code="HISTORICAL_DISPOSITION_REWRITE",
                 subject_id=transition.transition_id,
-                detail="A later projection may not rewrite the preserved historical disposition.",
+                detail="A later-rule projection may not rewrite the preserved historical disposition.",
             )
         )
 
@@ -87,35 +104,56 @@ def check_attempt_routing(
     attempt: AttemptRecord,
     routing: RoutingState,
 ) -> List[Violation]:
-    """Enforce R7a/R7b only.
+    """Enforce the two conjuncts of R7a/R7b only.
 
-    Qualification semantics themselves remain outside this first kernel. The
-    check is intentionally narrower: a candidate already recorded as FAILED or
-    UNRESOLVED must not appear in the default qualified-state route.
+    Qualification semantics themselves remain outside this first kernel.
+    FAILED and UNRESOLVED attempts must remain addressable and must not appear
+    in the default qualified-state route.
     """
 
-    if attempt.candidate_state_id not in routing.default_qualified_state_ids:
-        return []
+    violations: List[Violation] = []
 
     if attempt.result == AttemptResult.FAILED:
-        return [
-            Violation(
-                relation_id="R7a",
-                code="FAILED_ATTEMPT_IN_DEFAULT_QUALIFIED_ROUTE",
-                subject_id=attempt.attempt_id,
-                detail="A preserved failed attempt may remain addressable but may not enter the default qualified-state route.",
+        if not attempt.addressable:
+            violations.append(
+                Violation(
+                    relation_id="R7a",
+                    code="FAILED_ATTEMPT_NOT_ADDRESSABLE",
+                    subject_id=attempt.attempt_id,
+                    detail="A preserved failed attempt must remain addressable.",
+                )
             )
-        ]
+        if attempt.candidate_state_id in routing.default_qualified_state_ids:
+            violations.append(
+                Violation(
+                    relation_id="R7a",
+                    code="FAILED_ATTEMPT_IN_DEFAULT_QUALIFIED_ROUTE",
+                    subject_id=attempt.attempt_id,
+                    detail="A preserved failed attempt may not enter the default qualified-state route.",
+                )
+            )
+        return violations
 
     if attempt.result == AttemptResult.UNRESOLVED:
-        return [
-            Violation(
-                relation_id="R7b",
-                code="UNRESOLVED_ATTEMPT_IN_DEFAULT_QUALIFIED_ROUTE",
-                subject_id=attempt.attempt_id,
-                detail="A preserved unresolved attempt may remain addressable but may not enter the default qualified-state route.",
+        if not attempt.addressable:
+            violations.append(
+                Violation(
+                    relation_id="R7b",
+                    code="UNRESOLVED_ATTEMPT_NOT_ADDRESSABLE",
+                    subject_id=attempt.attempt_id,
+                    detail="A preserved unresolved attempt must remain addressable.",
+                )
             )
-        ]
+        if attempt.candidate_state_id in routing.default_qualified_state_ids:
+            violations.append(
+                Violation(
+                    relation_id="R7b",
+                    code="UNRESOLVED_ATTEMPT_IN_DEFAULT_QUALIFIED_ROUTE",
+                    subject_id=attempt.attempt_id,
+                    detail="A preserved unresolved attempt may not enter the default qualified-state route.",
+                )
+            )
+        return violations
 
     return []
 
