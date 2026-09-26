@@ -9,9 +9,13 @@ Historical repository state remains preserved. This directory is a prospective s
 The first kernel implements only the four relations already frozen through the completed Fork 2 eligibility → decision → authorization sequence:
 
 - **R3 — selection does not expand standing.** Selecting a state does not by itself expand that state's epistemic standing.
-- **R5 — later rules do not rewrite historical transition results.** A later rule version does not retroactively rewrite a preserved result/disposition bound to an earlier transition.
+- **R5 — later rules do not rewrite historical transition results.** A later-rule projection carries an explicit later-rule context and may not rewrite a preserved result/disposition bound to the historical transition's earlier rule.
 - **R7a — failed attempts remain addressable without entering the default qualified route.**
 - **R7b — unresolved attempts remain addressable without entering the default qualified route.**
+
+R7a/R7b are conjunctive in the executable kernel: FAILED/UNRESOLVED attempts must remain addressable **and** must remain outside the default qualified route.
+
+R5 does not evaluate rule correctness, compare evaluation semantics, or establish rule chronology. `later_rule_id` is projection provenance used to keep the later-rule dimension explicit; exact rule-bound evaluation remains R4 and remains withheld.
 
 The kernel deliberately does **not** enforce the five relations that remain withheld pending more evidence:
 
@@ -22,6 +26,20 @@ The kernel deliberately does **not** enforce the five relations that remain with
 - R8 — a failed attempt carries sufficient bindings for reconstruction without author memory.
 
 Those withheld relations are represented in `status.json`; they are not silently promoted into code.
+
+## Standing provenance
+
+`status.json` no longer asks a reviewer to accept relation standing as an unbound assertion. `provenance.json` binds every R1–R8 standing entry to the exact predecessor package identities, decision-return hash, authorization record identity, and operative/withheld source registers that produced the current standing.
+
+The canonical standing records needed to traverse eligibility → decision → authorization are copied under `fork2/provenance/` with their original SHA-256 identities bound in `provenance.json`. The predecessor package ZIP bytes themselves are **not** embedded in this PR. Therefore:
+
+```text
+EMBEDDED STANDING RECORDS
+!=
+EMBEDDED FULL SOURCE PACKAGES
+```
+
+The provenance surface establishes standing-origin identity and traversal. Full predecessor package recomputation still requires the separately preserved bound source packages.
 
 ## Why this exists
 
@@ -39,10 +57,13 @@ WITHHELD RELATION
 
 ## Files
 
+- `__init__.py` — package marker.
 - `model.py` — immutable record types used by the kernel.
 - `kernel.py` — executable checks for R3, R5, R7a, and R7b.
-- `status.json` — frozen/withheld relation standing.
-- `../tests/test_fork2_kernel_v0_1.py` — positive and hostile tests.
+- `status.json` — frozen/withheld relation standing and exact enforcement map.
+- `provenance.json` — machine-readable predecessor/decision/authorization origin binding.
+- `provenance/` — exact standing-record copies used by that origin binding.
+- `../tests/test_fork2_kernel_v0_1.py` — positive, hostile, aggregation, standing-map, and provenance tests.
 
 ## Current boundary
 
