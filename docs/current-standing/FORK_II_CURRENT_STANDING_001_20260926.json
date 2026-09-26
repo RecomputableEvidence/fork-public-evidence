@@ -32,8 +32,19 @@
       "note": "10->0 unsupported inheritance; 0->0 false withholding; deterministic receiver"
     },
     {
+      "object": "FORK-II-BOUNDED-WORLD-CLOSURE-PACKAGE-RECOMPUTATION-RETURN-001",
+      "standing": "SEPARATE_PACKAGE_RECOMPUTATION_RETURN__PRESERVED",
+      "subject_archive_sha256": "1bba9be907ce5e2d6ba4ec5f801ccf189d73439ffc54b0921428eb68cc6efb20",
+      "evidence_role": "DOCUMENTARY_PACKAGE_RECOMPUTATION",
+      "experiment_reproduction": "NOT_ESTABLISHED_FROM_SUBJECT_ARCHIVE",
+      "note": "8/8 package hashes matched; ZIP integrity PASS; 7/7 ordered artifacts present; Run 001 and Run 002 arithmetic/guardrails recalculated; underlying experiment bytes absent"
+    },
+    {
       "object": "FORK_2_BOUNDED_WORLD_10_ARTIFACT_SIMULATION_v0_1",
       "standing": "SUPPORTED_WITH_OPEN_SEAMS__NO_STANDING_EFFECT",
+      "status": "SUPPORTED_WITH_OPEN_SEAMS",
+      "evidence_role": "BOUNDED_PRESSURE_ONLY",
+      "standing_effect": "NONE",
       "note": "36/36 assertions; five deliberate cross-lineage attacks rejected; local simulation only"
     },
     {
@@ -75,6 +86,10 @@
       "result": "bounded mechanistic success"
     },
     {
+      "object": "Bounded-world closure package recomputation return 001",
+      "result": "subject archive 1bba9be9...: ZIP PASS; 8/8 internal checksum entries matched; 7/7 ordered artifacts present; current-standing JSON valid; Run 001 joint disposition recalculated FAIL; Run 002 joint disposition recalculated PASS; no underlying experiment rerun"
+    },
+    {
       "object": "Ten-artefact local simulation",
       "result": "36/36 assertions; five deliberate cross-lineage attacks rejected; no repository/standing effect"
     }
@@ -82,6 +97,7 @@
   "survived": [
     "Run 001 failure remains visible after Run 002 success.",
     "Original hypothesis satisfies its primary criterion and false-withholding guardrail only in Run 002's bounded deterministic pilot.",
+    "The exact closure archive at SHA-256 1bba9be9... survived separate documentary package recomputation for internal integrity, arithmetic, artifact presence, and cross-document consistency; this does not establish experiment reproduction.",
     "KERNEL-002 v0.1 retains bounded release standing after separate same-implementation recomputation.",
     "Identity, authority state, claim standing, and temporal routing remain separable in the ten-artefact pressure surface.",
     "ELG Population 001 demonstrates Gallery mechanics without source-standing promotion."
@@ -115,6 +131,7 @@
   ],
   "unresolved": [
     "External behavioral validation of the original hypothesis using isolated language-model or human receivers.",
+    "Underlying pilot execution reproduction is not established from the audited closure archive; fixture identity, preregistration timing, and Run 002 repair-scope exclusivity remain external content-addressed claims at that archive boundary.",
     "PR #189 withheld relations R1, R2, R4, R6, R8.",
     "PR #190 seams P-001 unresolved outbound; P-002 successor relation; P-003 determination external; P-004 basis verification external; P-005 history completeness external.",
     "ELG Population 002 candidate enumeration/event selection has not begun.",
@@ -146,11 +163,19 @@
   "bounded_world_closure": {
     "hypothesis": "Explicit handoff-state artifacts reduce unsupported inheritance in bounded AI-assisted handoffs.",
     "disposition": "SUPPORTED_IN_BOUNDED_MECHANISTIC_PILOT__CLOSED",
-    "external_behavioral_validation": "NOT_ESTABLISHED"
+    "external_behavioral_validation": "NOT_ESTABLISHED",
+    "package_recomputation": {
+      "return_object": "FORK-II-BOUNDED-WORLD-CLOSURE-PACKAGE-RECOMPUTATION-RETURN-001",
+      "subject_archive_sha256": "1bba9be907ce5e2d6ba4ec5f801ccf189d73439ffc54b0921428eb68cc6efb20",
+      "documentary_package_recomputation": "ESTABLISHED",
+      "underlying_experiment_reproduction": "NOT_ESTABLISHED_FROM_SUBJECT_ARCHIVE",
+      "post_audit_repository_state_inherits_subject_archive_hash": false
+    }
   },
   "next_successor": {
     "object_id": "FORK_ORIGINAL_HYPOTHESIS_EXTERNAL_BEHAVIORAL_SUCCESSOR_001",
     "state": "OPENED_NOT_EXECUTED",
+    "validation_execution": "NOT_BEGUN",
     "basis": "explicit missing test named by paired Pilot 002: preserve fixture/rubric; substitute isolated language-model or human receivers; freeze outputs before adjudication",
     "standing_inheritance": "NONE"
   },
@@ -159,6 +184,9 @@
     "INDEX_ENTRY != STANDING_PROMOTION",
     "OPEN_PR != ADMITTED_ARCHITECTURE",
     "LOCAL_SIMULATION != EXTERNAL_EMPIRICAL_VALIDATION",
+    "PACKAGE_RECOMPUTATION != EXPERIMENT_REPRODUCTION",
+    "INTERNAL_CHECKSUM_CONSISTENCY != INDEPENDENT_AUTHENTICITY_PROOF",
+    "AUDITED_ARCHIVE_BYTES != POST_AUDIT_REPOSITORY_STATE",
     "EXTERNAL_LANE_PROTECTED != EXTERNAL_LANE_RESOLVED",
     "CURRENT_STANDING != TRUTH_OR_AUTHORIZATION"
   ]
