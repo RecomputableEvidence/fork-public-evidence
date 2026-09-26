@@ -41,6 +41,24 @@ EMBEDDED FULL SOURCE PACKAGES
 
 The provenance surface establishes standing-origin identity and traversal. Full predecessor package recomputation still requires the separately preserved bound source packages.
 
+## First-class boundary
+
+`boundaries.json` preserves the current PR #189 technical/authority/recomputation boundary as an explicit machine-readable object:
+
+```text
+TECHNICAL CANDIDATE = CLEAN
+
+AUTHORITY ORIGIN
+= DECLARED
+= BOUNDED
+= NOT EXTERNALLY AUTHENTICATED
+
+FULL PREDECESSOR RECOMPUTATION
+= NOT AVAILABLE FROM PR #189 ALONE
+```
+
+This boundary has `standing_effect = NONE` and `implementation_effect = NONE`. It does not reopen or promote any relation. It records that the technical candidate is clean while authority authentication and full predecessor-package recomputation remain outside what PR #189 itself establishes.
+
 ## Why this exists
 
 Fork's historical implementation concentrated on preserving recomputable evidence of bounded workflow handoffs. Fork 2 keeps that history but moves the executable center one level lower: preserving and checking which semantic consequences may legitimately survive a transition.
@@ -62,8 +80,9 @@ WITHHELD RELATION
 - `kernel.py` — executable checks for R3, R5, R7a, and R7b.
 - `status.json` — frozen/withheld relation standing and exact enforcement map.
 - `provenance.json` — machine-readable predecessor/decision/authorization origin binding.
+- `boundaries.json` — first-class technical/authority/recomputation boundary for PR #189.
 - `provenance/` — exact standing-record copies used by that origin binding.
-- `../tests/test_fork2_kernel_v0_1.py` — positive, hostile, aggregation, standing-map, and provenance tests.
+- `../tests/test_fork2_kernel_v0_1.py` — positive, hostile, aggregation, standing-map, provenance, and boundary tests.
 
 ## Current boundary
 
