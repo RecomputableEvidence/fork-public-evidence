@@ -1,0 +1,109 @@
+{
+  "object_id": "FORK_2_KERNEL_RELATION_PROVENANCE_v0_1",
+  "scope": "RELATION_STANDING_ORIGIN_BINDING_ONLY",
+  "repository_base": "main@27a243badd1e7645cd47d8ddf1e293865aa18e8f",
+  "source_packages": {
+    "eligibility_review": {
+      "package": "FORK_2_ARCHITECTURE_FREEZE_ELIGIBILITY_REVIEW_v0_1.zip",
+      "sha256": "9a823de0a5b80aef0a43b24ead1b0bc2bf346b4c68845f060fc40bf77038a3b8"
+    },
+    "r7b_successor_pressure": {
+      "package": "FORK_2_R7B_ELIGIBILITY_SUCCESSOR_PRESSURE_v0_1.zip",
+      "sha256": "5a3b7c6bf01366b4c8cde68498fe206112d333df7cba1a85e601d777833dbe5c"
+    },
+    "freeze_decision_instrument": {
+      "package": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_DECISION_v0_1.zip",
+      "sha256": "f3d530ed35f83d758c925e201b30303ff704677e3326fc86b953c75310c1f5b0"
+    },
+    "freeze_decision_validator_repair": {
+      "package": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_DECISION_v0_1_1.zip",
+      "sha256": "4b8017ee37ac3f5ef09817aba2083677dbc99c9650a0b937e89f943cbeaf51d8"
+    },
+    "freeze_authorization": {
+      "package": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_AUTHORIZATION_v0_1.zip",
+      "sha256": "6354af7d7c393c9f2efb42b8a8372bf72589b9d4e37540c8da529215c00d70dd"
+    }
+  },
+  "bound_records": {
+    "eligibility_return_sha256": "d6814c6f149f5f6d1c0e0c5b925500e3b6709c76f1b20ce583bd6008f6db8c35",
+    "r7b_corrected_register_sha256": "2754c656c684e7f86e811f316d241ae6d6601297ae55d33a273ece439dd4e1a0",
+    "decision_return_sha256": "5173e98b625ef60508699e44c0047e2028e1727578a127ca18e8038cf70383c9",
+    "authorization_record_sha256": "f7519d1e6903fd824b640f954c4568c249e5f452d84d5dd87a7b2a36125d46cd",
+    "operative_freeze_register_sha256": "2b0b15f0439eef7fce52fb25d3224b38c8475c71d9b77501849b5f02a1f4b20f",
+    "withheld_relation_register_sha256": "c564f43c62c2a7add2eaf1a4fc8f7062ac3ea6c95f18e77f57dac7753d03ffd0"
+  },
+  "authorization": {
+    "authorization_id": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_AUTHORIZATION_20260926",
+    "authorization_statement": "Authorized",
+    "authority_reference": "USER_SELF_DECLARED_APPLICABLE_FORK_GOVERNANCE_AUTHORITY_20260926_CHAT_STATEMENT",
+    "authority_external_verification": "NOT_ESTABLISHED",
+    "operative_effect": "AUTHORIZE_AND_ADMIT_EXACT_FREEZE_RELATION_DISPOSITIONS_ONLY"
+  },
+  "relations": {
+    "R1": {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "standing_source": "withheld_relation_register"
+    },
+    "R2": {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "standing_source": "withheld_relation_register"
+    },
+    "R3": {
+      "decision_disposition": "FREEZE_RELATION",
+      "operative_standing": "FROZEN",
+      "standing_source": "operative_freeze_register"
+    },
+    "R4": {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "standing_source": "withheld_relation_register"
+    },
+    "R5": {
+      "decision_disposition": "FREEZE_RELATION",
+      "operative_standing": "FROZEN",
+      "standing_source": "operative_freeze_register"
+    },
+    "R6": {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "standing_source": "withheld_relation_register"
+    },
+    "R7a": {
+      "decision_disposition": "FREEZE_RELATION",
+      "operative_standing": "FROZEN",
+      "standing_source": "operative_freeze_register"
+    },
+    "R7b": {
+      "decision_disposition": "FREEZE_RELATION",
+      "operative_standing": "FROZEN",
+      "standing_source": "operative_freeze_register",
+      "eligibility_successor": "r7b_successor_pressure"
+    },
+    "R8": {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "standing_source": "withheld_relation_register"
+    }
+  },
+  "repository_presence": {
+    "source_package_bytes_embedded": false,
+    "bound_record_bytes_embedded": true,
+    "bound_record_paths": {
+      "eligibility_return": "fork2/provenance/eligibility_return_20260926.md",
+      "r7b_corrected_register": "fork2/provenance/r7b_corrected_register.json",
+      "decision_return": "fork2/provenance/decision_return_20260926.json",
+      "authorization_record": "fork2/provenance/authorization_record_20260926.json",
+      "operative_freeze_register": "fork2/provenance/operative_freeze_register_v0_1.json",
+      "withheld_relation_register": "fork2/provenance/withheld_relation_register_v0_1.json"
+    },
+    "effect": "STANDING_ORIGIN_TRAVERSABLE_FROM_EMBEDDED_RECORDS; FULL_PREDECESSOR_PACKAGE_RECOMPUTATION_REQUIRES_BOUND_SOURCE_PACKAGES"
+  },
+  "non_claims": [
+    "EMBEDDED_STANDING_RECORDS != EMBEDDED_FULL_SOURCE_PACKAGES",
+    "SOURCE_HASH_IDENTITY != FULL_SOURCE_PACKAGE_RECOMPUTATION",
+    "RECORDED_AUTHORITY_REFERENCE != EXTERNALLY_VERIFIED_GOVERNANCE_AUTHORITY",
+    "RELATION_STANDING_BINDING != NEW_RELATION_EVIDENCE"
+  ]
+}
