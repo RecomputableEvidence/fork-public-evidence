@@ -22,7 +22,7 @@ class RoutePhase(str, Enum):
 
 class RouteDisposition(str, Enum):
     UNDETERMINED = "UNDETERMINED"
-    CLEAR = "CLEAR"
+    OUTBOUND_ELIGIBLE = "OUTBOUND_ELIGIBLE"
     REMEDIATION_REQUIRED = "REMEDIATION_REQUIRED"
     UNRESOLVED = "UNRESOLVED"
     ARCHIVE_ONLY = "ARCHIVE_ONLY"
@@ -72,7 +72,7 @@ _RESOLUTION_DISPOSITIONS = {
 }
 
 _OUTBOUND_DISPOSITIONS = {
-    RouteDisposition.CLEAR,
+    RouteDisposition.OUTBOUND_ELIGIBLE,
     RouteDisposition.ARCHIVE_ONLY,
     RouteDisposition.DISCARD_ONLY,
 }
@@ -230,7 +230,7 @@ def validate_routing_transition(
                 RoutingViolation(
                     "OUTBOUND_WITH_NONTERMINAL_DISPOSITION",
                     current.subject_id,
-                    "Outbound requires CLEAR, ARCHIVE_ONLY, or DISCARD_ONLY disposition.",
+                    "Outbound requires OUTBOUND_ELIGIBLE, ARCHIVE_ONLY, or DISCARD_ONLY disposition.",
                 )
             )
 
