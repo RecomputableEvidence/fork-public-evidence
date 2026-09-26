@@ -1,0 +1,159 @@
+{
+  "receipt_id": "LS-MDRC-002-CONSTRUCTION-RECEIPT-v0.1",
+  "record_type": "construction_receipt",
+  "role": "CONSTRUCT",
+  "generated_at_utc": "2026-09-22T02:30:00Z",
+  "repository_url": "https://github.com/RecomputableEvidence/fork-public-evidence/",
+  "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "commit_state": "detached HEAD",
+  "git_status": "nothing to commit, working tree clean",
+  "pr_associated": "PR #160 — Post-execution reconciliation: retirement evidence, adjudication, v0.6 standing, migration proposal",
+  "source_specification": {
+    "document": "LS-MDRC-002 prompt §1–§24",
+    "version": "as provided by requester",
+    "binding": "prompt text; no repository artifact"
+  },
+  "environment": {
+    "platform": "win32",
+    "shell": "powershell.exe",
+    "python_version_used": "system Python 3.x",
+    "git_available": true
+  },
+  "created_files": [
+    "README.md",
+    "schemas/LS_MDRM_STATE_DICTIONARY.json",
+    "schemas/LS_MDRM_TRANSITION_MANUAL.json",
+    "schemas/LS_MDRM_BRANCH_PROTOCOL.json",
+    "schemas/LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json",
+    "schemas/LS_MDRM_CLAIM_STATUS_ONTOLOGY.json",
+    "schemas/LS_MDRM_UNCERTAINTY_SCHEMA.json",
+    "schemas/LS_MDRM_ENTROPY_SCHEMA.json",
+    "schemas/LS_MDRM_CONTROL_VECTOR.json",
+    "schemas/LS_MDRM_EVALUATION_MANUAL.json",
+    "schemas/LS_MDRM_PROTOCOL_COMPLIANCE_CHECKER.json",
+    "schemas/LS_MDRM_TRAJECTORY_SCHEMA.json",
+    "fixtures/development/DEV-001-minimal-valid-trajectory.json",
+    "fixtures/development/DEV-002-branch-lifecycle-bsr.json",
+    "fixtures/calibration/CAL-001-tension-a-preservation-vs-executability.json",
+    "fixtures/calibration/CAL-002-tension-c-heterogeneous-receiver-exposure.json",
+    "fixtures/holdout/HOLDOUT_MANIFEST.json",
+    "fixtures/negative-controls/NC-1-brainstorming.json",
+    "fixtures/negative-controls/NC-2-through-NC-7-definitions.json",
+    "fixtures/sentinels/SEN-001-disguised-restatement.json",
+    "fixtures/sentinels/SEN-002-elegant-abstraction-no-evidence.json",
+    "fixtures/sentinels/SEN-003-unlicensed-epr-violation.json",
+    "ls_mdrc_002_structural_tests.py",
+    "RECOMPUTATION_INSTRUCTIONS.md",
+    "SHA256SUMS",
+    "receipts/construction/CONSTRUCTION_RECEIPT.json",
+    "receipts/testing/TEST_RECEIPT.json"
+  ],
+  "sha256sums_path": "SHA256SUMS",
+  "test_population": {
+    "total_tests": 222,
+    "categories": [
+      "T01: Required schema file presence (11)",
+      "T02: Required fixture presence (10)",
+      "T03: Schema JSON parseability (11)",
+      "T04: Fixture JSON parseability (10)",
+      "T05: Bound commit in schemas (11)",
+      "T06: PCC-01 branch selected in eligible (9)",
+      "T07: PCC-02 eligible subset of raw (9)",
+      "T08: PCC-03 rejection codes (11)",
+      "T09: PCC-04 BSR calculation (9)",
+      "T10: PCC-05 claim status valid (15)",
+      "T11: PCC-06 EPR detection (8)",
+      "T12: PCC-07 evidence binding (15)",
+      "T13: PCC-09 entropy components (64)",
+      "T14: PCC-11 uncertainty records (12)",
+      "T15: PCC-12 holdout lifecycle (3)",
+      "T16: Negative control expected results (2)",
+      "T17: Sentinel expected results (3)",
+      "T18-T22: Adversarial mutations (5)"
+    ]
+  },
+  "orientation_paths_inspected": [
+    "README.md",
+    "CURRENT_STANDING.md (not read directly, current-standing register used)",
+    "docs/current-standing/FORK_CURRENT_WORK_REGISTER_v0_6.md",
+    "docs/experiments/cross-system-claim-handoff-v0.1/ (full inventory)",
+    "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json",
+    "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+    "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-004-PROPOSAL/README.md"
+  ],
+  "csh_artifacts_modified": false,
+  "csh_artifacts_modification_check": "No files under docs/experiments/cross-system-claim-handoff-v0.1/ were created, modified, or deleted by this construction.",
+  "unresolved_ambiguities": [
+    {
+      "ambiguity_id": "AMB-001",
+      "description": "The specification §6 defines anchored ordinal scoring for P, G, C, F, R on a 0–4 scale but does not specify whether the scale is linear, logarithmic, or otherwise. The narrowest faithful interpretation is a uniform ordinal scale with equal intervals for scoring purposes only.",
+      "interpretation_chosen": "Uniform ordinal scale 0–4. No mathematical operations beyond comparison and recording are required by the spec."
+    },
+    {
+      "ambiguity_id": "AMB-002",
+      "description": "The specification §11 defines H_n components but does not specify a quantitative mapping from diagnostic scores to entropy values. The narrowest interpretation is a definitional mapping: H_s ~ A/4; H_g ~ (4-G)/4; H_r ~ (4-P)/4; H_c ~ X/4.",
+      "interpretation_chosen": "Definitional ordinal mapping as stated above. Preserved in LS_MDRM_ENTROPY_SCHEMA.json measurement_note. This is a construct definition, not an empirical calibration."
+    },
+    {
+      "ambiguity_id": "AMB-003",
+      "description": "The specification §9 defines a partial order for EPR detection (UNRESOLVED < PROPOSED < HYPOTHESIZED < COUNTERFACTUAL < DERIVED < OBSERVED) but does not specify whether COUNTERFACTUAL should rank above or below HYPOTHESIZED in all interpretations. The placement of COUNTERFACTUAL between HYPOTHESIZED and DERIVED is a narrowly faithful interpretation: counterfactuals make a committed claim about unrealized conditions, which is epistemically stronger than a hypothesis.",
+      "interpretation_chosen": "COUNTERFACTUAL placed between HYPOTHESIZED and DERIVED in the partial order. Preserved in LS_MDRM_CLAIM_STATUS_ONTOLOGY.json."
+    },
+    {
+      "ambiguity_id": "AMB-004",
+      "description": "The specification §14 calls for holdout fixture files to be present but sealed. The files HO-001, HO-002, HO-003 are described in the manifest but their full trajectory content is not created (the manifest records their sealed state). This is the narrowest faithful interpretation: 'committed but must not be opened' applies to a manifest reference.",
+      "interpretation_chosen": "Holdout fixture files represented as sealed manifest entries in HOLDOUT_MANIFEST.json. Full trajectory content not created until OPENED authorization is granted. This is the minimum sufficient architecture for the sealed lifecycle."
+    },
+    {
+      "ambiguity_id": "AMB-005",
+      "description": "The specification §8 requires rejection reasons for every rejected raw candidate but does not specify whether a BSR of 0.0 (all rejected) is a protocol violation or a legitimate outcome. The narrowest interpretation is that BSR=0.0 is a legitimate outcome recording instrument sensitivity.",
+      "interpretation_chosen": "BSR=0.0 is a legitimate outcome. Negative controls and sentinels are expected to produce BSR=0.0. This is explicitly documented in LS_MDRM_BRANCH_PROTOCOL.json."
+    }
+  ],
+  "implementation_decisions": [
+    {
+      "decision_id": "ID-001",
+      "description": "NC-2 through NC-7 are defined as a definitions manifest rather than fully instantiated trajectory records. This is the minimum sufficient architecture. Full instantiation can occur in a successor pass without requiring construction-phase invention of trajectory content for controls that exist to test the checker, not the substantive model.",
+      "rationale": "§19 calls for 'negative controls' not 'fully instantiated trajectory records for all controls'. NC-1 is fully instantiated. NC-2 through NC-7 are defined. This meets the requirement without inventing trajectory content beyond what is necessary."
+    },
+    {
+      "decision_id": "ID-002",
+      "description": "Entropy values use a normalized ordinal scale 0.0–1.0 derived from diagnostic dimension scores. This is not an empirical calibration.",
+      "rationale": "The spec requires entropy to be recorded and tracked; it does not require a specific quantitative formula. The definitional mapping is the narrowest faithful implementation."
+    },
+    {
+      "decision_id": "ID-003",
+      "description": "The experiment directory is docs/experiments/lens-shift-mdrc-002/ following the existing CSH convention docs/experiments/cross-system-claim-handoff-v0.1/.",
+      "rationale": "Repository convention is clear. No other location was indicated."
+    },
+    {
+      "decision_id": "ID-004",
+      "description": "The NC-2-through-NC-7-definitions.json file was initially missing an expected_result field. On first test run this caused T16 to fail. The field was added (not a scoring rule change; a structural field presence fix). The original test failure is documented in this receipt.",
+      "rationale": "This is a construction defect fix, not a substantive rubric change. The test suite correctly detected the omission. The fix added the required structural field; it did not change any scoring rule or fixture content."
+    }
+  ],
+  "test_outcomes_at_construction": {
+    "first_run": {
+      "total": 222,
+      "passed": 221,
+      "failed": 1,
+      "failure": "T16-NC-2-through-NC-7-definitions.json: missing expected_result field",
+      "disposition": "TEST_FAIL"
+    },
+    "second_run_after_structural_fix": {
+      "total": 222,
+      "passed": 222,
+      "failed": 0,
+      "disposition": "TEST_PASS_BOUNDED"
+    }
+  },
+  "explicit_non_claims": [
+    "LS-MDRC-002 does not establish that Lens Shift is valid, optimal, scientifically proven, or superior to other analytic methods.",
+    "Construction does not confer scientific authority on the LS-MDRM candidate.",
+    "TEST_PASS_BOUNDED does not mean the instrument is correct; it means the construction package is structurally consistent.",
+    "This construction is performed by IBM Bob (an AI system); implementation does not constitute scientific endorsement.",
+    "The bound commit (2dab684fc904f43ca0d35d1c1bbc500e92156ec4) does not authorize any institutional reliance on CSH experiment results.",
+    "The naturalistic calibration fixtures do not establish the correct Lens Shift conclusion about the Fork/CSH tensions.",
+    "Repository adjacency does not create derivation, equivalence, endorsement, or standing inheritance."
+  ]
+}

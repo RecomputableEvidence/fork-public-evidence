@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_UNCERTAINTY_SCHEMA",
+  "title": "LS-MDRM Uncertainty Schema",
+  "description": "Schema for decomposed uncertainty records at each state and transition.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "type": "object",
+  "required": ["uncertainty_record_id", "state_n", "sources"],
+  "properties": {
+    "uncertainty_record_id": { "type": "string" },
+    "state_n": { "type": "integer" },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/uncertainty_source" },
+      "minItems": 1,
+      "description": "At least one source must be recorded for every material state. Absence of uncertainty must itself be documented."
+    },
+    "aggregate_U_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4,
+      "description": "The U score from S_n^diag. Must be consistent with individual source entries."
+    }
+  },
+  "definitions": {
+    "uncertainty_source": {
+      "type": "object",
+      "required": ["source_id", "type", "description", "localization_status", "effect_on_claims"],
+      "properties": {
+        "source_id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "evidence_gap",
+            "inference_gap",
+            "corpus_version_ambiguity",
+            "environmental_dependency",
+            "operator_discretion",
+            "model_behavior_variability",
+            "scoring_discretion",
+            "boundary_ambiguity",
+            "construct_separation_concern",
+            "other"
+          ]
+        },
+        "description": { "type": "string" },
+        "localization_status": {
+          "type": "string",
+          "enum": ["fully_localized", "partially_localized", "not_localized"],
+          "description": "Whether the uncertainty has been bounded to a specific claim, evidence item, or inference step."
+        },
+        "effect_on_claims": {
+          "type": "string",
+          "description": "How this source of uncertainty affects which claims in the current state."
+        },
+        "mitigation": {
+          "type": ["string", "null"],
+          "description": "Any documented mitigation, or null if none."
+        }
+      }
+    }
+  }
+}

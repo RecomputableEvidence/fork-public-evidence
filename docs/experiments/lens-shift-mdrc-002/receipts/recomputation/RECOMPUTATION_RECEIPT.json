@@ -1,0 +1,188 @@
+{
+  "receipt_id": "LS-MDRC-002-RECOMPUTATION-RECEIPT-v0.1",
+  "record_type": "recomputation_receipt",
+  "role": "RECOMPUTE",
+  "generated_at_utc": "2026-09-22T02:35:00Z",
+  "recomputation_context": "Same Bob session as construction and test. Per specification §22: 'prefer a fresh Bob context.' This recomputation is performed within the same session, which is a limitation. Results classified accordingly.",
+  "inputs_used": [
+    "Frozen LS-MDRC-002 package: docs/experiments/lens-shift-mdrc-002/",
+    "Normative specification: LS-MDRC-002 prompt §1–§24",
+    "Source repository at bound commit: 2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+    "Raw test evidence: receipts/testing/TEST_RECEIPT.json",
+    "Recomputation instructions: RECOMPUTATION_INSTRUCTIONS.md"
+  ],
+  "repository_coordinate_verification": {
+    "claimed_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+    "verified_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+    "git_status": "HEAD detached at 2dab684, untracked files (lens-shift-mdrc-002/) present",
+    "match": true,
+    "classification": "MECHANICALLY_REPRODUCED"
+  },
+  "claimed_results": [
+    {
+      "claim_id": "RC-01",
+      "claim": "All 11 required schema files are present",
+      "verification": "T01 categories: 11/11 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-02",
+      "claim": "All required fixture files are present",
+      "verification": "T02 categories: 10/10 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-03",
+      "claim": "All schema files are valid JSON",
+      "verification": "T03: 11/11 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-04",
+      "claim": "All fixture files are valid JSON",
+      "verification": "T04: 10/10 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-05",
+      "claim": "Bound commit 2dab684fc904f43ca0d35d1c1bbc500e92156ec4 is present in all schema files",
+      "verification": "T05 + independent PowerShell check: ALL VERIFIED",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-06",
+      "claim": "Branch lifecycle invariants hold: selected in eligible, eligible subset of raw",
+      "verification": "T06/T07 + independent PowerShell check: ALL PASS",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-07",
+      "claim": "All excluded raw candidates have valid rejection codes",
+      "verification": "T08: 11/11 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-08",
+      "claim": "BSR values are correctly computed for all branch records",
+      "verification": "T09: 9/9 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED",
+      "note": "DEV-002 BSR=0.333 is within 0.001 tolerance of 1/3."
+    },
+    {
+      "claim_id": "RC-09",
+      "claim": "All claim statuses are from the valid set",
+      "verification": "T10: 15/15 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-10",
+      "claim": "EPR values are correctly computed for all fixtures",
+      "verification": "T11 + independent PowerShell check: ALL VERIFIED. SEN-003 EPR=1.0 (1 unlicensed promotion out of 1 transition) confirmed.",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-11",
+      "claim": "All evidence bindings have required fields",
+      "verification": "T12: 15/15 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-12",
+      "claim": "All four entropy components present in every entropy record",
+      "verification": "T13: 64/64 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-13",
+      "claim": "At least one uncertainty source per material state",
+      "verification": "T14: 12/12 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-14",
+      "claim": "All holdout fixtures are SEALED; opened_at and consumed_at are null",
+      "verification": "T15 + independent PowerShell check: ALL SEALED, both null fields confirmed",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-15",
+      "claim": "Negative controls and sentinels have non-qualifying expected results",
+      "verification": "T16/T17: 5/5 PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-16",
+      "claim": "Adversarial mutation T18 (selected not in eligible) triggers PCC-01",
+      "verification": "T18: PASS on re-run. In-memory mutation confirmed detectable.",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-17",
+      "claim": "Adversarial mutation T19 (unlicensed HYPOTHESIZED→OBSERVED) triggers PCC-06",
+      "verification": "T19: PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-18",
+      "claim": "Adversarial mutation T20 (wrong commit) triggers PCC-08",
+      "verification": "T20: PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-19",
+      "claim": "Adversarial mutation T21 (raw candidate removed) causes detectable hash change",
+      "verification": "T21: PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-20",
+      "claim": "Adversarial mutation T22 (CONSUMED→SEALED) triggers PCC-12",
+      "verification": "T22: PASS on re-run",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-21",
+      "claim": "SHA256SUMS hash values match independently computed hashes for spot-checked files",
+      "verification": "PowerShell spot-check on 4 files: ALL MATCH",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-22",
+      "claim": "CSH artifacts were not modified",
+      "verification": "git status shows only untracked files (lens-shift-mdrc-002/); no modified or staged files in CSH paths",
+      "classification": "MECHANICALLY_REPRODUCED"
+    },
+    {
+      "claim_id": "RC-23",
+      "claim": "First test run produced 1 failure (missing expected_result in NC-2-through-NC-7-definitions.json)",
+      "verification": "CONSTRUCTION_RECEIPT.json documents this event. Cannot replay first run from current package state (fix already applied).",
+      "classification": "SEMANTICALLY_MATCHED",
+      "note": "The defect and fix are documented. The original failure cannot be mechanically reproduced from the corrected package; only the documentation of it survives."
+    },
+    {
+      "claim_id": "RC-24",
+      "claim": "Entropy delta values are correctly computed: delta_H_j = H_j(n) - H_j(n-1)",
+      "verification": "Spot-checked DEV-001: delta_H_s=-0.25 (0.00-0.25=-0.25 ✓), delta_H_g=-0.50 (0.00-0.50=-0.50 ✓). All spot checks consistent.",
+      "classification": "MECHANICALLY_REPRODUCED"
+    }
+  ],
+  "summary": {
+    "total_claimed_results": 24,
+    "MECHANICALLY_REPRODUCED": 23,
+    "SEMANTICALLY_MATCHED": 1,
+    "PARTIAL": 0,
+    "MISMATCH": 0,
+    "AMBIGUOUS": 0,
+    "ENVIRONMENT_DEPENDENT": 0,
+    "NOT_TESTED": 0
+  },
+  "overall_disposition": "RECOMPUTED_MATCH",
+  "session_limitation": "This recomputation was performed in the same Bob session as construction and testing. The specification §22 prefers a fresh context. Results classified as MECHANICALLY_REPRODUCED reflect that the automated test suite produces identical outputs from the frozen package; they do not constitute fully independent context verification.",
+  "non_claims": [
+    "RECOMPUTED_MATCH does not constitute independent scientific validation of Lens Shift.",
+    "A second context obtaining the same structural test results is mechanical re-traversal, not independent experimental confirmation.",
+    "This receipt does not establish that the LS-MDRM rubric correctly discriminates Lens Shift in all cases.",
+    "Recomputation success does not authorize institutional reliance on any claim made in the fixture trajectories.",
+    "The SEMANTICALLY_MATCHED classification for RC-23 (first-run failure) does not erase the documented defect event."
+  ]
+}

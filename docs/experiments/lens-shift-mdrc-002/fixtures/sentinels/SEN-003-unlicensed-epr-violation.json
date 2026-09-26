@@ -1,0 +1,152 @@
+{
+  "fixture_id": "SEN-003",
+  "fixture_type": "sentinel",
+  "title": "Unlicensed epistemic promotion — HYPOTHESIZED to OBSERVED without evidence",
+  "description": "A trajectory where a claim transitions from HYPOTHESIZED to OBSERVED without any new evidence being added. Tests EPR detection (PCC-06). This is the canonical EPR violation fixture.",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "lifecycle": "open",
+  "sentinel_class": "EPR_violation",
+  "expected_instrument_behavior": "EPR > 0; PCC-06 triggers; disposition PROTOCOL_NONCONFORMANT. Event must be preserved, not silently repaired.",
+  "trajectory_id": "SEN-003-TRJ-001",
+  "fixture_type_canonical": "sentinel",
+  "fixture_id_canonical": "SEN-003",
+  "bound_repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "rubric_version": "v0.1",
+  "states": [
+    {
+      "state_n": 0,
+      "description": "It is hypothesized that receiver migration would preserve comparability with the original experiment.",
+      "core": { "P": 3, "G": 2, "C": 3, "F": 3, "R": 0 },
+      "diagnostic": { "B": 1, "A": 2, "U": 2, "K": 3, "X": 2, "V": 0 }
+    },
+    {
+      "state_n": 1,
+      "description_claimed": "It is OBSERVED that receiver migration preserves comparability.",
+      "description_evaluated": "No new evidence was added between state 0 and state 1. The claim was relabeled from HYPOTHESIZED to OBSERVED without evidence binding.",
+      "core": { "P": 3, "G": 2, "C": 1, "F": 2, "R": 1 },
+      "diagnostic": { "B": 1, "A": 2, "U": 3, "K": 3, "X": 2, "V": 0 }
+    }
+  ],
+  "transitions": [
+    {
+      "from_state_n": 0,
+      "to_state_n": 1,
+      "transition_labels": ["RESTATE"],
+      "tau_n_description": "No predecessor tension drives new evidence; the transition is a relabeling.",
+      "tau_in_consequences_S_n": false
+    }
+  ],
+  "branch_records": [
+    {
+      "state_n": 0,
+      "raw_candidates": [
+        {
+          "candidate_id": "SEN-003-BC-01",
+          "summary": "Relabel the hypothesis as observed without new evidence.",
+          "transition_labels": ["RESTATE"]
+        }
+      ],
+      "eligible_candidates": [],
+      "selected_candidate": "SEN-003-BC-01",
+      "BSR": 0.0,
+      "rejections": [
+        {
+          "candidate_id": "SEN-003-BC-01",
+          "rejection_codes": ["B-8", "B-3"],
+          "rationale": "Unlicensed promotion from HYPOTHESIZED to OBSERVED without evidence. B-8: unacknowledged epistemic promotion. B-3: semantic restatement with status upgrade."
+        }
+      ]
+    }
+  ],
+  "claim_ledger": [
+    {
+      "entry_id": "SEN-003-CL-01",
+      "state_n": 0,
+      "claim_text": "Receiver migration would preserve comparability with the original experiment.",
+      "claim_status": "HYPOTHESIZED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "From CSH-AMEND-004 proposal which is PREPARED_NOT_AUTHORIZED_NOT_ACTIVATED.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/amendments/CSH-AMEND-004-PROPOSAL/CSH_AMEND_004_RECEIVER_MIGRATION_PROPOSAL_v0_1.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "comparability_limits section",
+        "observed_or_inferred": "inferred",
+        "counterevidence": "Comparability is explicitly stated as a limitation in the proposal."
+      },
+      "limitations": "Comparability is HYPOTHESIZED; not demonstrated.",
+      "uncertainty": "Significant; backend deployment differences acknowledged in proposal."
+    },
+    {
+      "entry_id": "SEN-003-CL-02",
+      "state_n": 1,
+      "claim_text": "Receiver migration DOES preserve comparability with the original experiment.",
+      "claim_status": "OBSERVED",
+      "prior_claim_status": "HYPOTHESIZED",
+      "promotion_licensed": false,
+      "promotion_license_rule": null,
+      "EPR_contribution": true,
+      "inference_path": "NO new evidence added. Promotion is unlicensed.",
+      "evidence_binding": {
+        "artifact_id_or_path": "none",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "none — no new evidence binding",
+        "observed_or_inferred": "inferred",
+        "counterevidence": "Comparability cannot be OBSERVED because migration has not occurred."
+      },
+      "limitations": "UNLICENSED PROMOTION. This is the EPR violation. Must be preserved, not corrected.",
+      "uncertainty": "The entire claim is ungrounded at this status level."
+    }
+  ],
+  "entropy_records": [
+    {
+      "entropy_record_id": "SEN-003-ENT-0",
+      "state_n": 0,
+      "H_s": 0.50, "H_g": 0.50, "H_r": 0.25, "H_c": 0.50,
+      "delta_H_s": null, "delta_H_g": null, "delta_H_r": null, "delta_H_c": null,
+      "local_recovery_notes": null, "recovery_requires": null
+    },
+    {
+      "entropy_record_id": "SEN-003-ENT-1",
+      "state_n": 1,
+      "H_s": 0.25, "H_g": 0.50, "H_r": 0.25, "H_c": 0.50,
+      "delta_H_s": -0.25, "delta_H_g": 0.00, "delta_H_r": 0.00, "delta_H_c": 0.00,
+      "local_recovery_notes": "H_s appears to decrease (apparent semantic clarity from confident assertion). This is instrument-confounding: H_s decrease is not legitimate if produced by unlicensed promotion.",
+      "recovery_requires": null
+    }
+  ],
+  "uncertainty_records": [
+    {
+      "uncertainty_record_id": "SEN-003-UNC-1",
+      "state_n": 1,
+      "sources": [
+        {
+          "source_id": "SEN-003-UNC-1-SRC-1",
+          "type": "evidence_gap",
+          "description": "No new evidence was added; the promotion is entirely without grounding.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "SEN-003-CL-02 is an unlicensed OBSERVED claim.",
+          "mitigation": "Cannot be mitigated without new evidence. Event must remain in record."
+        }
+      ],
+      "aggregate_U_score": 3
+    }
+  ],
+  "EPR": {
+    "N_unlicensed_promotions": 1,
+    "N_status_transitions_assessed": 1,
+    "EPR_value": 1.0
+  },
+  "BSR_by_state": [
+    { "state_n": 0, "BSR": 0.0 }
+  ],
+  "expected_result": {
+    "instrument_classification": "NOT_qualifying_as_recursive_Lens_Shift",
+    "expected_EPR": 1.0,
+    "expected_rules_triggered": ["PCC-06"],
+    "disposition": "PROTOCOL_NONCONFORMANT",
+    "note": "EPR=1.0. If instrument passes this without flagging PCC-06, it cannot detect unlicensed epistemic promotion. The violation must be preserved in the evidence record."
+  }
+}
