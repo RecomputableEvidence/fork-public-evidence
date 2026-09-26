@@ -1,0 +1,53 @@
+{
+  "authorization_id": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_AUTHORIZATION_20260926",
+  "decision_return_sha256": "5173e98b625ef60508699e44c0047e2028e1727578a127ca18e8038cf70383c9",
+  "frozen_relation_count": 4,
+  "frozen_relations": [
+    {
+      "decision_disposition": "FREEZE_RELATION",
+      "decision_reason": "Eligibility disposition CANDIDATE with material_gap = null. SELECTION_NO_STANDING_EFFECT_SEL_LIVE was independently mutation-tripped by ORIG-003 in the reviewed run. No open gap recorded against this relation.",
+      "exact_wording": "Within the Fork 2 routing model, selecting a state does not by itself expand that state's epistemic standing.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "FROZEN",
+      "relation_id": "R3",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "FREEZE_RELATION",
+      "decision_reason": "Eligibility disposition CANDIDATE with material_gap = null. NO_RETROACTIVE_REINTERPRETATION was independently mutation-tripped by ORIG-005. No open gap recorded against this relation.",
+      "exact_wording": "A later rule version does not retroactively rewrite the preserved result/disposition of a historical Fork 2 transition bound to an earlier rule.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "FROZEN",
+      "relation_id": "R5",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "FREEZE_RELATION",
+      "decision_reason": "Eligibility disposition CANDIDATE with material_gap = null. Both cited checks (LEDGER_A_EXACT_POPULATION, LEDGER_B_RESULT_A1) were independently mutation-tripped (ORIG-004, AFG-003, ORIG-005). No open gap recorded against this relation.",
+      "exact_wording": "A preserved failed attempt remains addressable without entering the default qualified-state route.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "FROZEN",
+      "relation_id": "R7a",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "FREEZE_RELATION",
+      "decision_reason": "Eligibility disposition CANDIDATE as of the R7b-only re-review (20260926). The original material_gap that held R7b at NEEDS_MORE_PRESSURE (fabricated citation A2_UNRESOLVED_RESULT_BINDING; A2_UNRESOLVED_DISPOSITION and CONTEXT_FREE_UNRESOLVED_RECONSTRUCTION never independently tripped) is closed: the successor package supplied dedicated hostile fixtures for both (R7B-001, R7B-002), independently rerun and confirmed REJECTED at exactly the required checks, plus the corrected citation A2_EVAL_RESULT_BINDING. All three named R7b checks are now individually mutation-confirmed. R1-R7a and R8 were not reopened by this successor cycle.",
+      "exact_wording": "A preserved unresolved attempt remains addressable without entering the default qualified-state route.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "FROZEN",
+      "relation_id": "R7b",
+      "universal_ontology_effect": "NONE"
+    }
+  ],
+  "future_revision_rule": "SUCCESSOR_RECORD_REQUIRED",
+  "historical_wording_mutability": "IMMUTABLE_AS_THIS_FREEZE_RECORD",
+  "implementation_topology": "UNFROZEN",
+  "register_id": "FORK_2_OPERATIVE_RELATION_FREEZE_REGISTER_v0_1",
+  "scope": "FORK_2_ARCHITECTURAL_RELATIONS_ONLY",
+  "universal_lineage_ontology": "NOT_CLAIMED"
+}
