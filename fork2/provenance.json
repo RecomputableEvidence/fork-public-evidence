@@ -2,6 +2,7 @@
   "object_id": "FORK_2_KERNEL_RELATION_PROVENANCE_v0_1",
   "scope": "RELATION_STANDING_ORIGIN_BINDING_ONLY",
   "repository_base": "main@27a243badd1e7645cd47d8ddf1e293865aa18e8f",
+  "first_class_boundary": "fork2/boundaries.json",
   "source_packages": {
     "eligibility_review": {
       "package": "FORK_2_ARCHITECTURE_FREEZE_ELIGIBILITY_REVIEW_v0_1.zip",
