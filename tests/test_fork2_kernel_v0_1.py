@@ -247,3 +247,31 @@ def test_provenance_relation_standing_matches_status_and_bound_records():
     for key, rel_path in presence["bound_record_paths"].items():
         digest = hashlib.sha256((repo / rel_path).read_bytes()).hexdigest()
         assert digest == provenance["bound_records"][f"{key}_sha256"]
+
+
+def test_first_class_boundary_is_exact_and_non_promoting():
+    base = Path(__file__).parents[1] / "fork2"
+    status = json.loads((base / "status.json").read_text())
+    provenance = json.loads((base / "provenance.json").read_text())
+    boundary = json.loads((base / "boundaries.json").read_text())
+
+    expected_text = (
+        "TECHNICAL CANDIDATE = CLEAN\n\n"
+        "AUTHORITY ORIGIN\n"
+        "= DECLARED\n"
+        "= BOUNDED\n"
+        "= NOT EXTERNALLY AUTHENTICATED\n\n"
+        "FULL PREDECESSOR RECOMPUTATION\n"
+        "= NOT AVAILABLE FROM PR #189 ALONE"
+    )
+
+    assert status["first_class_boundary"] == "fork2/boundaries.json"
+    assert provenance["first_class_boundary"] == "fork2/boundaries.json"
+    assert boundary["canonical_boundary_text"] == expected_text
+    assert boundary["technical_candidate"]["standing"] == "CLEAN"
+    assert boundary["authority_origin"]["declared"] is True
+    assert boundary["authority_origin"]["bounded"] is True
+    assert boundary["authority_origin"]["externally_authenticated"] is False
+    assert boundary["full_predecessor_recomputation"]["available_from_pr_189_alone"] is False
+    assert boundary["standing_effect"] == "NONE"
+    assert boundary["implementation_effect"] == "NONE"
