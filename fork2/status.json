@@ -5,6 +5,7 @@
   "implementation_topology": "UNFROZEN",
   "universal_lineage_ontology": "NOT_CLAIMED",
   "relation_provenance": "fork2/provenance.json",
+  "first_class_boundary": "fork2/boundaries.json",
   "relations": [
     {
       "relation_id": "R1",
