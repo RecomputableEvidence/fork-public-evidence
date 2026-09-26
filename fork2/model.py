@@ -31,14 +31,18 @@ class TransitionRecord:
 
 @dataclass(frozen=True)
 class TransitionProjection:
-    """A later representation of one historical transition.
+    """A later-rule representation of one historical transition.
 
-    Fork 2 v0.1 does not claim that the bound rule itself is correct or sufficient.
-    It only checks that a later projection does not rewrite the already-preserved
-    result/disposition of the historical transition.
+    ``later_rule_id`` records the rule-context identity asserted for the later
+    projection. Fork 2 v0.1 does not evaluate that rule, establish chronology,
+    or determine whether the rule itself is correct or sufficient. R5 checks
+    only that a projection represented as later-rule context is distinct from
+    the transition's bound rule and does not rewrite the preserved historical
+    result/disposition.
     """
 
     transition_id: str
+    later_rule_id: str
     projected_result: AttemptResult
     projected_disposition: AttemptResult
 
