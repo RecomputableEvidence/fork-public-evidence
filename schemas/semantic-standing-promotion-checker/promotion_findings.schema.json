@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.com/schemas/semantic-standing-promotion-checker/promotion_findings.schema.json",
+  "title": "FORK Semantic Standing Promotion Checker - Findings",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["checker", "candidate_status", "source_sha256", "overall_disposition", "findings"],
+  "properties": {
+    "checker": {"const": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001"},
+    "candidate_status": {"const": "NOT_EMPIRICALLY_QUALIFIED"},
+    "source_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "overall_disposition": {"enum": ["PASS", "WITHHOLD", "INDETERMINATE"]},
+    "reason": {"type": "string"},
+    "boundaries": {"type": "array", "items": {"type": "string"}},
+    "findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    }
+  },
+  "$defs": {
+    "promotion_class": {
+      "enum": [
+        "ESTABLISHMENT_PROMOTION",
+        "CANONICALITY_PROMOTION",
+        "VALIDATION_PROMOTION",
+        "GENERALIZATION_PROMOTION",
+        "AUTHORITY_PROMOTION",
+        "CROSS_OBJECT_PROMOTION",
+        "TEMPORAL_PROMOTION",
+        "MATURITY_PROMOTION",
+        "CONSEQUENCE_PROMOTION"
+      ]
+    },
+    "gate": {
+      "type": "object",
+      "required": ["gate", "pass"],
+      "properties": {
+        "gate": {"type": "string"},
+        "pass": {"type": "boolean"},
+        "details": {}
+      },
+      "additionalProperties": false
+    },
+    "finding": {
+      "type": "object",
+      "required": ["assertion_id", "disposition"],
+      "properties": {
+        "assertion_id": {"type": "string"},
+        "disposition": {"enum": ["PASS", "WITHHOLD", "INDETERMINATE"]},
+        "support": {"enum": ["SUPPORTED_WITHIN_DECLARED_TRANSITION", "SUPPORTED_WITHIN_DECLARED_ENVELOPE"]},
+        "promotion_class": {"$ref": "#/$defs/promotion_class"},
+        "reason": {"type": "string"},
+        "matched_transition_id": {"type": "string"},
+        "matched_transition_ids": {"type": "array", "items": {"type": "string"}},
+        "gates": {"type": "array", "items": {"$ref": "#/$defs/gate"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "object_id": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001",
+  "corpus_status": "CANDIDATE_MANIFEST__SOURCE_BYTES_NOT_YET_FROZEN_AS_EMPIRICAL_CORPUS",
+  "specimens": [
+    {
+      "id": "S01",
+      "description": "Coherent candidate formulation with explicit NOT_CANONICAL bounds",
+      "expected_disposition": "PASS"
+    },
+    {
+      "id": "S02",
+      "description": "Constitutional-floor promotion",
+      "expected_disposition": "WITHHOLD",
+      "expected_class": "CANONICALITY_PROMOTION"
+    },
+    {
+      "id": "S03",
+      "description": "Stacked Cadence cross-object validation promotion",
+      "expected_disposition": "WITHHOLD",
+      "expected_class": "CROSS_OBJECT_PROMOTION"
+    },
+    {
+      "id": "S04",
+      "description": "Historically completed G01-G09 gate asserted as pending",
+      "expected_disposition": "WITHHOLD",
+      "expected_class": "TEMPORAL_PROMOTION"
+    },
+    {
+      "id": "S05",
+      "description": "Legitimate authorized state transition",
+      "expected_disposition": "PASS"
+    },
+    {
+      "id": "S06",
+      "description": "Negative-control text accurately summarizing its own standing",
+      "expected_disposition": "PASS"
+    }
+  ],
+  "nonclaim": "Manifest creation does not establish corpus execution or checker qualification."
+}
