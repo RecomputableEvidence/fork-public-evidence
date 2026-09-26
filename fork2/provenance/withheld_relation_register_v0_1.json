@@ -1,0 +1,60 @@
+{
+  "authorization_id": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_AUTHORIZATION_20260926",
+  "decision_return_sha256": "5173e98b625ef60508699e44c0047e2028e1727578a127ca18e8038cf70383c9",
+  "register_id": "FORK_2_WITHHELD_RELATION_REGISTER_v0_1",
+  "standing": "NOT_FROZEN_NEEDS_MORE_EVIDENCE",
+  "standing_inheritance_from_frozen_relations": "NONE",
+  "withheld_relation_count": 5,
+  "withheld_relations": [
+    {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "decision_reason": "Eligibility disposition is CANDIDATE, but the register's own material_gap is unresolved: only LOCAL_STANDING_S2 of the three cited checks (S0, S1, S2) was independently mutation-tripped in the eligibility run; S0 and S1 are directly-exercised only. No successor pressure package has closed this gap the way the R7b successor did. Withholding freeze until dedicated hostile fixtures individually confirm S0 and S1.",
+      "exact_wording": "Within the Fork 2 state model, lineage membership alone does not supply epistemic standing to a claim; claim standing requires an explicit local basis.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "relation_id": "R1",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "decision_reason": "Same unresolved pattern as R1: SELECTION_IS_QUALIFIED_SEL_HISTORICAL_RV1 passes but was never independently mutation-tripped in the eligibility run; only SEL_LIVE was hostilely mutated (AFG-002). Material gap remains open pending a dedicated fixture for the historical selection record.",
+      "exact_wording": "Within the Fork 2 routing model, selection may route only to an already qualified state; selection does not create qualification.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "relation_id": "R2",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "decision_reason": "Material gap remains: only 2 of 15 cited checks (T1_EVAL_VALUE_BINDING, A1_EVAL_THRESHOLD_BINDING) were individually mutation-tripped (RB-EVAL-001/002); the other 13 field/operator/threshold/result bindings across T1/A1/T2 are directly-exercised only. Freezing now would extend beyond what was actually pressured.",
+      "exact_wording": "A Fork 2 transition result is evaluated against the exact rule version bound to that transition, not against an unbound or later rule.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "relation_id": "R4",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "decision_reason": "Material gap remains: only RULE_CHANGE_NOT_SELF_VALIDATING was independently mutation-tripped (ORIG-002); RULE_CHANGE_CURRENT_RULE_ID and RULE_CHANGE_CANDIDATE_RULE_ID are directly-exercised only. Withholding freeze pending dedicated fixtures for those two checks.",
+      "exact_wording": "Within the Fork 2 rule-change model, a candidate rule may not serve as the governing rule for its own adoption transition.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "relation_id": "R6",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "decision_disposition": "NEEDS_MORE_EVIDENCE",
+      "decision_reason": "Material gap remains: CONTEXT_FREE_FAILED_RECONSTRUCTION passes but was not independently mutation-tripped in the eligibility run (only LEDGER_B_POINTER_A1 and LEDGER_B_ATTEMPT_DIGEST_A1 were confirmed). Withholding freeze pending a dedicated hostile fixture for the reconstruction check itself.",
+      "exact_wording": "A preserved failed Fork 2 attempt must carry sufficient declared bindings for its result to be reconstructed without author memory.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "operative_standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "relation_id": "R8",
+      "universal_ontology_effect": "NONE"
+    }
+  ]
+}
