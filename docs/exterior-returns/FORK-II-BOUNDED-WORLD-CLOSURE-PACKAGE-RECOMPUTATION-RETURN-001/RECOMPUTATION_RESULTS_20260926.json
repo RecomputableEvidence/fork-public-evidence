@@ -1,0 +1,96 @@
+{
+  "package_checksum_entries": 8,
+  "package_checksums_all_ok": true,
+  "checksums": [
+    {
+      "file": "README.md",
+      "expected": "d7fce3ce91573d65cb1e7abcbf5f708ab6106c23a9028f5a3f58ecfc7a497e74",
+      "actual": "d7fce3ce91573d65cb1e7abcbf5f708ab6106c23a9028f5a3f58ecfc7a497e74",
+      "ok": true
+    },
+    {
+      "file": "docs/current-standing/FORK_II_CURRENT_STANDING_001_20260926.json",
+      "expected": "e46137c554c7cf82800ba9830dffd9b3363167acb686a9760dc565b8967aa942",
+      "actual": "e46137c554c7cf82800ba9830dffd9b3363167acb686a9760dc565b8967aa942",
+      "ok": true
+    },
+    {
+      "file": "docs/current-standing/FORK_II_CURRENT_STANDING_001_20260926.md",
+      "expected": "390774dc4745e9e0fe5dbec9fe876d7cc6ff703986640eb8462e753ca274e03b",
+      "actual": "390774dc4745e9e0fe5dbec9fe876d7cc6ff703986640eb8462e753ca274e03b",
+      "ok": true
+    },
+    {
+      "file": "docs/evidence-lens-gallery/routing/FORK_II_FAILURE_ROUTING_CANDIDATES_20260926.md",
+      "expected": "2a97760a4be96c8bf0e22975e7ae0a1ced388cfcfe228179d49a37421d49e6be",
+      "actual": "2a97760a4be96c8bf0e22975e7ae0a1ced388cfcfe228179d49a37421d49e6be",
+      "ok": true
+    },
+    {
+      "file": "docs/public/FORK_CASE_SURFACE_BOUNDED_HANDOFF_001.md",
+      "expected": "bbc2fdadf8e905173c7c100a1cab28affc981dfb6efec3208025cac2a00ac322",
+      "actual": "bbc2fdadf8e905173c7c100a1cab28affc981dfb6efec3208025cac2a00ac322",
+      "ok": true
+    },
+    {
+      "file": "research/fork-original-hypothesis/BOUNDED_WORLD_HYPOTHESIS_CLOSURE_001.md",
+      "expected": "9432894ac8653b74bad191485ed522bb3b227662e656878cb18cd26d00b22c06",
+      "actual": "9432894ac8653b74bad191485ed522bb3b227662e656878cb18cd26d00b22c06",
+      "ok": true
+    },
+    {
+      "file": "research/fork-original-hypothesis/FORK_ORIGINAL_HYPOTHESIS_EXTERNAL_BEHAVIORAL_SUCCESSOR_001/NON_PROMOTION_BOUNDARY.md",
+      "expected": "7599190a8a1cd1c7d348c3578f74c4541f8b5c536fb250350b39916c89a70654",
+      "actual": "7599190a8a1cd1c7d348c3578f74c4541f8b5c536fb250350b39916c89a70654",
+      "ok": true
+    },
+    {
+      "file": "research/fork-original-hypothesis/FORK_ORIGINAL_HYPOTHESIS_EXTERNAL_BEHAVIORAL_SUCCESSOR_001/OPENING_RECORD.md",
+      "expected": "d0053c1bb6a3f47e7e3b73c9f11a224651ed3c9cacc1e3e823c0cd21e9b4c1c1",
+      "actual": "d0053c1bb6a3f47e7e3b73c9f11a224651ed3c9cacc1e3e823c0cd21e9b4c1c1",
+      "ok": true
+    }
+  ],
+  "ordered_artifacts_all_present": true,
+  "standing_json_valid": true,
+  "standing_object_id": "FORK_II_CURRENT_STANDING_001",
+  "run_001_recomputed": {
+    "unsupported_H0": 10,
+    "unsupported_H1": 1,
+    "absolute_reduction": 9,
+    "relative_reduction": 0.9,
+    "primary_criterion_U_H1_lt_U_H0": true,
+    "false_withholding_H0": 0,
+    "false_withholding_H1": 1,
+    "false_withholding_change_H1_minus_H0": 1,
+    "guardrail_H1_le_H0": false,
+    "joint_success": false
+  },
+  "run_002_recomputed": {
+    "unsupported_H0": 10,
+    "unsupported_H1": 0,
+    "absolute_reduction": 10,
+    "relative_reduction": 1.0,
+    "primary_criterion_U_H1_lt_U_H0": true,
+    "false_withholding_H0": 0,
+    "false_withholding_H1": 0,
+    "false_withholding_change_H1_minus_H0": 0,
+    "guardrail_H1_le_H0": true,
+    "joint_success": true
+  },
+  "embedded_reference_hashes": {
+    "fixture-population": {
+      "sha256": "f187f612473fdd6340f9cef3e7525fb21d532229cddc78279884b8b59a53583e",
+      "matching_local_file": null
+    },
+    "Run 001 preregistered specification": {
+      "sha256": "dc0ab5c4b0676c43afe31e9c7c87fff3134b24bcf378e7095fab1de080090b54",
+      "matching_local_file": null
+    },
+    "Run 002 repair declaration": {
+      "sha256": "3b551c26433dca0d9b3ec876c69f2ed67b27e5193b0d85bdb9af32a91017f4a9",
+      "matching_local_file": null
+    }
+  },
+  "embedded_reference_hash_bytes_present_locally": false
+}
