@@ -1,0 +1,56 @@
+{
+  "record_id": "CSH-S001-PREFLIGHT-OBSERVATION-PR165-20260923-001",
+  "record_type": "neutral_hosted_receiver_access_observation",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "observed_at_utc": "2026-09-23T04:17:13Z",
+  "github_actions": {
+    "workflow": "CSH-S001 Readiness",
+    "run_id": 35817709084,
+    "job_id": 107042703532,
+    "pull_request": 165,
+    "head_commit": "224b689b585411a1f36421402728883486a008d8",
+    "artifact_id": 10732082451,
+    "artifact_digest": "sha256:e559d957d5769b3869c641807e632d2e10ddc4766d01f9bfeff92d928ca05f81"
+  },
+  "prompt_boundary": {
+    "neutral_prompt": true,
+    "contains_csh_corpus": false,
+    "contains_treatment": false,
+    "contains_classifier_material": false
+  },
+  "observations": [
+    {
+      "provider": "mistral",
+      "endpoint": "https://api.mistral.ai/v1/chat/completions",
+      "requested_model": "mistral-small-latest",
+      "credential_environment_variable": "MISTRAL_API_KEY",
+      "http_status": 429,
+      "provider_error_type": "rate_limited",
+      "provider_error_code": "1300",
+      "provider_message": "Rate limit exceeded",
+      "status": "ACCESS_REACHED_PROVIDER_RATE_LIMIT",
+      "receiver_freeze_eligible": false
+    },
+    {
+      "provider": "openai",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "requested_model": "gpt-5.6-luna",
+      "credential_environment_variable": "OPENAI_API_KEY",
+      "http_status": 429,
+      "provider_error_type": "insufficient_quota",
+      "provider_error_code": "credit_balance_exhausted",
+      "provider_message": "No credits remaining; credits would be required to continue using the API.",
+      "status": "ZERO_SPEND_INELIGIBLE_CREDIT_BALANCE_EXHAUSTED",
+      "receiver_freeze_eligible": false
+    }
+  ],
+  "disposition": "NO_HOSTED_RECEIVER_FROZEN_FROM_PR165_PREFLIGHT",
+  "next_gate": "Retain Mistral as a candidate only if a later neutral preflight passes without researcher expenditure; replace OpenAI candidate under the zero-spend constraint unless granted credits become available without purchase. Preflight a second zero-cost provider before receiver freeze.",
+  "non_claims": [
+    "HTTP 429 responses are not CSH content results.",
+    "Mistral rate limiting does not establish permanent unavailability or invalid credentials.",
+    "OpenAI credit exhaustion does not establish model failure or invalidate OpenAI as a provider generally.",
+    "No CSH corpus-bearing request was sent in this observation.",
+    "No payment or credit purchase is required by this record."
+  ]
+}

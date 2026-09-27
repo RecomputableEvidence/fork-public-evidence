@@ -1,0 +1,62 @@
+{
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "schema_version": "v0.2",
+  "registry_status": "CANDIDATE_REQUIRES_NEUTRAL_ACCESS_PREFLIGHT",
+  "supersedes_candidate": "RECEIVER_REGISTRY_CANDIDATE_v0_1.json",
+  "supersession_reason": "Pre-freeze candidate revision after actual repository-secret availability and zero-spend access constraints were surfaced. No receiver registry had been frozen and no CSH corpus-bearing hosted execution occurred under v0.1 candidate identities.",
+  "receiver_classes": [
+    {
+      "receiver_class_id": "hosted_receiver_a",
+      "receiver_type": "llm",
+      "provider": "Mistral",
+      "endpoint": "https://api.mistral.ai/v1/chat/completions",
+      "model": "mistral-small-latest",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 2048,
+        "stream": false,
+        "response_format": {"type": "json_object"},
+        "tools": "omitted",
+        "retrieval": "disabled",
+        "conversation_history": "none"
+      },
+      "credential_environment_variable": "MISTRAL_API_KEY",
+      "preflight_status": "PENDING"
+    },
+    {
+      "receiver_class_id": "hosted_receiver_b",
+      "receiver_type": "llm",
+      "provider": "OpenAI",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-5.6-luna",
+      "parameters": {
+        "max_completion_tokens": 2048,
+        "stream": false,
+        "response_format": {"type": "json_object"},
+        "reasoning_effort": "low",
+        "tools": "omitted",
+        "retrieval": "disabled",
+        "conversation_history": "none"
+      },
+      "credential_environment_variable": "OPENAI_API_KEY",
+      "preflight_status": "PENDING"
+    },
+    {
+      "receiver_class_id": "deterministic_reference",
+      "receiver_type": "deterministic",
+      "provider": "local",
+      "model": "successor-versioned deterministic boundary-preservation receiver",
+      "replicate_policy": "ONE_EXECUTION_PER_SCENARIO_CONDITION",
+      "behavioral_diversity_claim": false,
+      "preflight_status": "LOCAL_IMPLEMENTATION_PENDING_VERSION_BINDING"
+    }
+  ],
+  "preflight_rule": "Hosted identities, endpoint compatibility, requested parameters, response format, quota/entitlement availability, and returned model identity must be confirmed using a neutral non-corpus prompt before registry freeze. Failure requires candidate revision before freeze; no silent receiver substitution.",
+  "zero_spend_constraint": "Do not purchase credits or add a payment method solely to satisfy CSH-S001. A candidate that requires new researcher expenditure is ineligible for this successor unless separately authorized before freeze.",
+  "non_claims": [
+    "Repository-secret presence is not evidence of valid credentials, usable quota, free credits, model entitlement, or successful provider access.",
+    "A successful neutral preflight is not a CSH result.",
+    "A failed access preflight is not an adverse CSH hypothesis result.",
+    "Receiver feasibility does not establish cross-organizational generality."
+  ]
+}
