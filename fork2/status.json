@@ -1,0 +1,72 @@
+{
+  "object_id": "FORK_2_KERNEL_STATUS_v0_1_1",
+  "predecessor_status_object_id": "FORK_2_KERNEL_STATUS_v0_1",
+  "repository_base": "main@27a243badd1e7645cd47d8ddf1e293865aa18e8f",
+  "implementation_topology": "UNFROZEN",
+  "universal_lineage_ontology": "NOT_CLAIMED",
+  "relation_provenance": "fork2/provenance.json",
+  "first_class_boundary": "fork2/boundaries.json",
+  "relations": [
+    {
+      "relation_id": "R1",
+      "standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "kernel_enforcement": "NONE",
+      "standing_source": "fork2/provenance.json#relations.R1"
+    },
+    {
+      "relation_id": "R2",
+      "standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "kernel_enforcement": "NONE",
+      "standing_source": "fork2/provenance.json#relations.R2"
+    },
+    {
+      "relation_id": "R3",
+      "standing": "FROZEN",
+      "kernel_enforcement": "check_r3_selection_no_standing_expansion",
+      "standing_source": "fork2/provenance.json#relations.R3"
+    },
+    {
+      "relation_id": "R4",
+      "standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "kernel_enforcement": "NONE",
+      "standing_source": "fork2/provenance.json#relations.R4"
+    },
+    {
+      "relation_id": "R5",
+      "standing": "FROZEN",
+      "kernel_enforcement": "check_r5_no_retroactive_reinterpretation",
+      "standing_source": "fork2/provenance.json#relations.R5"
+    },
+    {
+      "relation_id": "R6",
+      "standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "kernel_enforcement": "NONE",
+      "standing_source": "fork2/provenance.json#relations.R6"
+    },
+    {
+      "relation_id": "R7a",
+      "standing": "FROZEN",
+      "kernel_enforcement": "check_attempt_routing",
+      "standing_source": "fork2/provenance.json#relations.R7a"
+    },
+    {
+      "relation_id": "R7b",
+      "standing": "FROZEN",
+      "kernel_enforcement": "check_attempt_routing",
+      "standing_source": "fork2/provenance.json#relations.R7b"
+    },
+    {
+      "relation_id": "R8",
+      "standing": "WITHHELD_PENDING_MORE_EVIDENCE",
+      "kernel_enforcement": "NONE",
+      "standing_source": "fork2/provenance.json#relations.R8"
+    }
+  ],
+  "non_inheritance": [
+    "FROZEN_RELATION != FROZEN_IMPLEMENTATION_TOPOLOGY",
+    "WITHHELD_RELATION != REJECTED_RELATION",
+    "EXECUTABLE_CHECK != UNIVERSAL_LINEAGE_LAW",
+    "HISTORICAL_FORK != ERASED_OR_REWRITTEN",
+    "SOURCE_HASH_IDENTITY != SOURCE_CONTENT_REPRODUCTION"
+  ]
+}

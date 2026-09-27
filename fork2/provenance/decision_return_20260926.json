@@ -1,0 +1,90 @@
+{
+  "decision_record_id": "FORK_2_RELATION_LEVEL_ARCHITECTURE_FREEZE_DECISION_RETURN_20260926",
+  "instrument_zip_sha256": "f3d530ed35f83d758c925e201b30303ff704677e3326fc86b953c75310c1f5b0",
+  "authorization_state": "AUTHORIZATION_REFERENCE_BOUND",
+  "authority_reference": "USER_SELF_DECLARED_APPLICABLE_FORK_GOVERNANCE_AUTHORITY_20260926_CHAT_STATEMENT",
+  "relations": [
+    {
+      "relation_id": "R1",
+      "candidate_wording": "Within the Fork 2 state model, lineage membership alone does not supply epistemic standing to a claim; claim standing requires an explicit local basis.",
+      "disposition": "NEEDS_MORE_EVIDENCE",
+      "reason": "Eligibility disposition is CANDIDATE, but the register's own material_gap is unresolved: only LOCAL_STANDING_S2 of the three cited checks (S0, S1, S2) was independently mutation-tripped in the eligibility run; S0 and S1 are directly-exercised only. No successor pressure package has closed this gap the way the R7b successor did. Withholding freeze until dedicated hostile fixtures individually confirm S0 and S1.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R2",
+      "candidate_wording": "Within the Fork 2 routing model, selection may route only to an already qualified state; selection does not create qualification.",
+      "disposition": "NEEDS_MORE_EVIDENCE",
+      "reason": "Same unresolved pattern as R1: SELECTION_IS_QUALIFIED_SEL_HISTORICAL_RV1 passes but was never independently mutation-tripped in the eligibility run; only SEL_LIVE was hostilely mutated (AFG-002). Material gap remains open pending a dedicated fixture for the historical selection record.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R3",
+      "candidate_wording": "Within the Fork 2 routing model, selecting a state does not by itself expand that state's epistemic standing.",
+      "disposition": "FREEZE_RELATION",
+      "reason": "Eligibility disposition CANDIDATE with material_gap = null. SELECTION_NO_STANDING_EFFECT_SEL_LIVE was independently mutation-tripped by ORIG-003 in the reviewed run. No open gap recorded against this relation.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R4",
+      "candidate_wording": "A Fork 2 transition result is evaluated against the exact rule version bound to that transition, not against an unbound or later rule.",
+      "disposition": "NEEDS_MORE_EVIDENCE",
+      "reason": "Material gap remains: only 2 of 15 cited checks (T1_EVAL_VALUE_BINDING, A1_EVAL_THRESHOLD_BINDING) were individually mutation-tripped (RB-EVAL-001/002); the other 13 field/operator/threshold/result bindings across T1/A1/T2 are directly-exercised only. Freezing now would extend beyond what was actually pressured.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R5",
+      "candidate_wording": "A later rule version does not retroactively rewrite the preserved result/disposition of a historical Fork 2 transition bound to an earlier rule.",
+      "disposition": "FREEZE_RELATION",
+      "reason": "Eligibility disposition CANDIDATE with material_gap = null. NO_RETROACTIVE_REINTERPRETATION was independently mutation-tripped by ORIG-005. No open gap recorded against this relation.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R6",
+      "candidate_wording": "Within the Fork 2 rule-change model, a candidate rule may not serve as the governing rule for its own adoption transition.",
+      "disposition": "NEEDS_MORE_EVIDENCE",
+      "reason": "Material gap remains: only RULE_CHANGE_NOT_SELF_VALIDATING was independently mutation-tripped (ORIG-002); RULE_CHANGE_CURRENT_RULE_ID and RULE_CHANGE_CANDIDATE_RULE_ID are directly-exercised only. Withholding freeze pending dedicated fixtures for those two checks.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R7a",
+      "candidate_wording": "A preserved failed attempt remains addressable without entering the default qualified-state route.",
+      "disposition": "FREEZE_RELATION",
+      "reason": "Eligibility disposition CANDIDATE with material_gap = null. Both cited checks (LEDGER_A_EXACT_POPULATION, LEDGER_B_RESULT_A1) were independently mutation-tripped (ORIG-004, AFG-003, ORIG-005). No open gap recorded against this relation.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R7b",
+      "candidate_wording": "A preserved unresolved attempt remains addressable without entering the default qualified-state route.",
+      "disposition": "FREEZE_RELATION",
+      "reason": "Eligibility disposition CANDIDATE as of the R7b-only re-review (20260926). The original material_gap that held R7b at NEEDS_MORE_PRESSURE (fabricated citation A2_UNRESOLVED_RESULT_BINDING; A2_UNRESOLVED_DISPOSITION and CONTEXT_FREE_UNRESOLVED_RECONSTRUCTION never independently tripped) is closed: the successor package supplied dedicated hostile fixtures for both (R7B-001, R7B-002), independently rerun and confirmed REJECTED at exactly the required checks, plus the corrected citation A2_EVAL_RESULT_BINDING. All three named R7b checks are now individually mutation-confirmed. R1-R7a and R8 were not reopened by this successor cycle.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    },
+    {
+      "relation_id": "R8",
+      "candidate_wording": "A preserved failed Fork 2 attempt must carry sufficient declared bindings for its result to be reconstructed without author memory.",
+      "disposition": "NEEDS_MORE_EVIDENCE",
+      "reason": "Material gap remains: CONTEXT_FREE_FAILED_RECONSTRUCTION passes but was not independently mutation-tripped in the eligibility run (only LEDGER_B_POINTER_A1 and LEDGER_B_ATTEMPT_DIGEST_A1 were confirmed). Withholding freeze pending a dedicated hostile fixture for the reconstruction check itself.",
+      "generalization_boundary_retained": true,
+      "implementation_topology_effect": "NONE",
+      "universal_ontology_effect": "NONE"
+    }
+  ],
+  "aggregate": "PARTIAL_RELATION_FREEZE"
+}

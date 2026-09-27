@@ -1,0 +1,38 @@
+{
+  "citation_correction": {
+    "correct": "A2_EVAL_RESULT_BINDING",
+    "incorrect": "A2_UNRESOLVED_RESULT_BINDING",
+    "standing_effect": "REPRESENTATIONAL_CORRECTION_ONLY"
+  },
+  "corrected_check_citations": [
+    "A2_EVAL_RESULT_BINDING",
+    "A2_UNRESOLVED_DISPOSITION",
+    "UNRESOLVED_NOT_IN_QUALIFIED_ROUTE",
+    "CONTEXT_FREE_UNRESOLVED_RECONSTRUCTION"
+  ],
+  "new_hostile_fixtures": [
+    {
+      "expected": "REJECT",
+      "fixture_id": "R7B-001_UNRESOLVED_DISPOSITION_ESCALATION",
+      "mutation": "Change A2_UNRESOLVED disposition from PRESERVED_UNRESOLVED to QUALIFIED and keep Ledger B disposition synchronized so the fixture is not merely a stale-reference mismatch.",
+      "target_check": "A2_UNRESOLVED_DISPOSITION"
+    },
+    {
+      "expected": "REJECT",
+      "fixture_id": "R7B-002_CONTEXT_FREE_RECONSTRUCTION_BINDING_BREAK",
+      "mutation": "Corrupt only Ledger B's candidate_sha256 for A2_UNRESOLVED, leaving the canonical candidate, transition, rule, and evaluation unchanged.",
+      "target_check": "CONTEXT_FREE_UNRESOLVED_RECONSTRUCTION"
+    }
+  ],
+  "non_claims": [
+    "This successor does not reopen R1-R7a or R8.",
+    "This successor does not grant architecture freeze.",
+    "This successor does not freeze dual-ledger topology.",
+    "The citation correction is not new empirical evidence."
+  ],
+  "object_id": "R7B_ELIGIBILITY_SUCCESSOR_REGISTER_v0_1",
+  "predecessor_review_disposition": "NEEDS_MORE_PRESSURE",
+  "predecessor_review_return_file": "ARCHITECTURE_FREEZE_ELIGIBILITY_REVIEW_v0_1_RETURN_INDEPENDENT_20260926.md",
+  "relation": "UNRESOLVED_ATTEMPT != DEFAULT_QUALIFIED_ROUTING",
+  "relation_id": "R7b"
+}
