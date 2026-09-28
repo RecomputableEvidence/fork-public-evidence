@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_EVALUATION_MANUAL",
+  "title": "LS-MDRM Evaluation Manual",
+  "description": "Defines evaluation separation, blind evaluator packet structure, adjudication rules, and disposition codes.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "role_separation": {
+    "description": "Where possible, the following roles must be separated. Artifacts must permit another fresh context to perform each without hidden reasoning.",
+    "roles": {
+      "generator": "Produces the trajectory, branch candidates, and state scores.",
+      "registrar": "Records raw artifacts, hashes, and evidence bindings without modification.",
+      "evaluator": "Applies the rubric to produced artifacts, blind to generator's self-evaluation and desired result.",
+      "adjudicator": "Reviews evaluator outputs, issues dispositions, and flags protocol violations."
+    },
+    "minimum_requirement": "Even in a single-operator context, artifacts must be structured so that each role's function can be replicated by an independent reader using only the frozen package."
+  },
+  "blind_evaluator_packet_structure": {
+    "description": "A blind evaluator packet contains only what is needed to apply the rubric. It must not contain the items in omit_list.",
+    "must_contain": [
+      "trajectory_record with state scores and branch records",
+      "evidence_claim_ledger",
+      "entropy_records",
+      "claim_status_assignments",
+      "branch_lifecycle_records (raw, eligible, selected, rejections)",
+      "uncertainty_records",
+      "fixture_type and fixture_id (but not the expected result)"
+    ],
+    "omit_list": [
+      "desired_result",
+      "expected_direction",
+      "generator_self_evaluation",
+      "unnecessary_operator_identity",
+      "hypothesis_preference",
+      "prior_evaluator_scores"
+    ]
+  },
+  "evaluation_dimensions": {
+    "schema_validity": "Does the trajectory record conform to the machine-readable schemas?",
+    "branch_lifecycle_closure": "Is B_n^selected in B_n^eligible for every transition?",
+    "raw_branch_preservation": "Is B_n^raw fully preserved for every transition?",
+    "rejection_code_completeness": "Does every excluded raw candidate have at least one rejection code?",
+    "claim_status_completeness": "Does every material claim have an assigned status?",
+    "EPR_value": "What is the EPR? Are all promotions licensed?",
+    "evidence_binding_completeness": "Does every evidence binding include artifact_id, repository_commit, exact_location?",
+    "entropy_completeness": "Are all four H components recorded and non-collapsed?",
+    "uncertainty_completeness": "Is at least one uncertainty source documented per material state?",
+    "negative_control_discrimination": "Are negative controls classified differently from productive transitions?",
+    "sentinel_fixture_results": "How do sentinel fixtures score?",
+    "holdout_lifecycle": "Did any holdout transition from OPENED back to SEALED?",
+    "protocol_compliance": "Are protocol violations recorded with their own dispositions?"
+  },
+  "disposition_codes": {
+    "CONSTRUCTED_AND_STRUCTURALLY_CLOSED": "All required artifacts present; schema-valid; no known structural gaps.",
+    "CONSTRUCTED_WITH_AMBIGUITIES": "Required artifacts present; one or more interpretation ambiguities documented and preserved.",
+    "TEST_PASS_BOUNDED": "All automated structural tests pass within documented scope.",
+    "TEST_FAIL": "One or more automated structural tests fail.",
+    "PROTOCOL_NONCONFORMANT": "Protocol violation recorded; not erasable by semantic quality.",
+    "RECOMPUTED_MATCH": "Result independently recovered from frozen evidence; mechanically reproducible.",
+    "RECOMPUTED_PARTIAL": "Partial recovery; some elements match, others cannot be resolved.",
+    "RECOMPUTATION_MISMATCH": "Frozen evidence does not produce the claimed result.",
+    "HOLDOUT_FAILURE": "Holdout fixture produced unexpected result; recorded in evidence, instrument not modified.",
+    "MEASUREMENT_AMBIGUITY": "Scoring rule or rubric element does not deterministically resolve for this input.",
+    "SUCCESSOR_REQUIRED": "Defects found that require a separately versioned successor instrument; original preserved."
+  },
+  "adjudication_rules": [
+    "A protocol violation cannot be erased by a high-quality semantic result.",
+    "A failed holdout must be recorded and preserved; the instrument must not be modified to pass it retroactively.",
+    "If a test fails and requires repair, close the failed attempt, preserve it, and create a separately versioned successor.",
+    "Inability to recompute is not converted into a substantive failure of Lens Shift.",
+    "Measurement ambiguity is a finding about the instrument, not about Lens Shift."
+  ]
+}

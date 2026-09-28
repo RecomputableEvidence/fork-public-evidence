@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_BRANCH_PROTOCOL",
+  "title": "LS-MDRM Branch Protocol",
+  "description": "Defines branch lifecycle, eligibility rules, rejection codes, and BSR calculation.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "branch_lifecycle": {
+    "stages": ["raw", "eligible", "selected"],
+    "definitions": {
+      "raw": "B_n^raw — all generated successor candidates before filtering. Must be fully preserved.",
+      "eligible": "B_n^eligible — candidates satisfying frozen ancestry, evidence, boundary, epistemic-status, and transformation rules. Subset of raw.",
+      "selected": "B_n^selected — the branch actually traversed. Must be a member of B_n^eligible."
+    },
+    "invariants": [
+      "B_n^selected in B_n^eligible",
+      "B_n^eligible subset_of B_n^raw",
+      "Every raw candidate not in eligible must have at least one rejection code recorded.",
+      "The raw set must never be retrospectively modified to remove unproductive candidates."
+    ]
+  },
+  "rejection_codes": {
+    "B-1": {
+      "label": "no_predecessor_tension",
+      "description": "The candidate does not arise from any tension present in the predecessor state.",
+      "detection": "tau_n not in Consequences(S_n)"
+    },
+    "B-2": {
+      "label": "evidence_absent_or_inadmissible",
+      "description": "The candidate requires evidence that is absent, unbound, or not admissible under the frozen corpus.",
+      "detection": "G_score < 2 and no path to correction exists without modifying the corpus binding."
+    },
+    "B-3": {
+      "label": "semantic_restatement",
+      "description": "The candidate is semantically equivalent to the predecessor or another raw candidate.",
+      "detection": "R >= 3 and C <= 1 at the candidate state."
+    },
+    "B-4": {
+      "label": "duplicate",
+      "description": "The candidate is byte-for-byte or semantically identical to another raw candidate in the same generation.",
+      "detection": "Hash collision or semantic equivalence check."
+    },
+    "B-5": {
+      "label": "abstraction_complexity_limit",
+      "description": "The candidate exceeds the abstraction or complexity ceiling defined in the instrument.",
+      "detection": "A >= 4 or X >= 4 at the candidate state."
+    },
+    "B-6": {
+      "label": "transformation_rule_failure",
+      "description": "The candidate does not conform to any transition in the transition vocabulary.",
+      "detection": "No transition label from the vocabulary applies; or JUMP/RESTATE/STALL applies."
+    },
+    "B-7": {
+      "label": "resource_infeasibility",
+      "description": "The candidate requires resources (computation, evidence, corpus access) not available in the current fixture context.",
+      "detection": "Resource requirement documented; availability check fails."
+    },
+    "B-8": {
+      "label": "unacknowledged_epistemic_promotion",
+      "description": "The candidate promotes a claim to a stronger status without evidence or rule support.",
+      "detection": "EPR > 0 for this candidate; promotion not annotated with justification."
+    },
+    "B-9": {
+      "label": "corpus_object_boundary_violation",
+      "description": "The candidate crosses a declared corpus or object boundary without explicit admission.",
+      "detection": "Evidence or claims reference artifacts outside the bound corpus version or outside declared object scope."
+    }
+  },
+  "BSR_definition": {
+    "formula": "BSR = |B_n^eligible| / |B_n^raw|",
+    "description": "Branch Selection Ratio. Records the fraction of raw candidates that passed eligibility filtering.",
+    "notes": [
+      "BSR = 1.0 means all raw candidates were eligible. High BSR is not inherently good; it may indicate weak filtering.",
+      "BSR = 0.0 means no candidate was eligible. This is a legitimate outcome. Do not modify filtering rules to avoid BSR = 0.",
+      "BSR must be computed and recorded for every transition node."
+    ]
+  },
+  "schema_for_branch_record": {
+    "type": "object",
+    "required": ["state_n", "raw_candidates", "eligible_candidates", "selected_candidate", "BSR", "rejections"],
+    "properties": {
+      "state_n": { "type": "integer" },
+      "raw_candidates": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/branch_candidate" }
+      },
+      "eligible_candidates": {
+        "type": "array",
+        "items": { "type": "string", "description": "candidate_id of eligible candidates" }
+      },
+      "selected_candidate": { "type": "string", "description": "candidate_id of selected branch" },
+      "BSR": { "type": "number", "minimum": 0, "maximum": 1 },
+      "rejections": {
+        "type": "array",
+        "items": { "$ref": "#/definitions/rejection_record" }
+      }
+    }
+  },
+  "definitions": {
+    "branch_candidate": {
+      "type": "object",
+      "required": ["candidate_id", "summary", "transition_labels"],
+      "properties": {
+        "candidate_id": { "type": "string" },
+        "summary": { "type": "string" },
+        "transition_labels": { "type": "array", "items": { "type": "string" } },
+        "preliminary_scores": { "$ref": "LS_MDRM_STATE_DICTIONARY.json" }
+      }
+    },
+    "rejection_record": {
+      "type": "object",
+      "required": ["candidate_id", "rejection_codes", "rationale"],
+      "properties": {
+        "candidate_id": { "type": "string" },
+        "rejection_codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["B-1", "B-2", "B-3", "B-4", "B-5", "B-6", "B-7", "B-8", "B-9"]
+          },
+          "minItems": 1
+        },
+        "rationale": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_TRAJECTORY_SCHEMA",
+  "title": "LS-MDRM Trajectory Schema",
+  "description": "Machine-readable schema for a complete Lens Shift trajectory record, including all states, transitions, branch records, claim ledger, entropy, and uncertainty.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "type": "object",
+  "required": [
+    "trajectory_id",
+    "fixture_type",
+    "fixture_id",
+    "bound_repository_commit",
+    "states",
+    "transitions",
+    "branch_records",
+    "claim_ledger",
+    "entropy_records",
+    "uncertainty_records",
+    "EPR",
+    "BSR_by_state"
+  ],
+  "properties": {
+    "trajectory_id": { "type": "string" },
+    "fixture_type": {
+      "type": "string",
+      "enum": ["development", "calibration", "holdout", "negative_control", "sentinel", "naturalistic"]
+    },
+    "fixture_id": { "type": "string" },
+    "bound_repository_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "description": "Must equal 2dab684fc904f43ca0d35d1c1bbc500e92156ec4 unless explicitly admitted."
+    },
+    "rubric_version": { "type": "string", "description": "Version of the state dictionary and evaluation manual used." },
+    "states": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/state_record" },
+      "minItems": 1
+    },
+    "transitions": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/transition_record" }
+    },
+    "branch_records": {
+      "type": "array",
+      "items": { "$ref": "LS_MDRM_BRANCH_PROTOCOL.json#/schema_for_branch_record" }
+    },
+    "claim_ledger": {
+      "type": "array",
+      "items": { "$ref": "LS_MDRM_EVIDENCE_CLAIM_LEDGER_SCHEMA.json#/definitions/ledger_entry" }
+    },
+    "entropy_records": {
+      "type": "array",
+      "items": { "$ref": "LS_MDRM_ENTROPY_SCHEMA.json" }
+    },
+    "uncertainty_records": {
+      "type": "array",
+      "items": { "$ref": "LS_MDRM_UNCERTAINTY_SCHEMA.json" }
+    },
+    "EPR": {
+      "type": "object",
+      "required": ["N_unlicensed_promotions", "N_status_transitions_assessed", "EPR_value"],
+      "properties": {
+        "N_unlicensed_promotions": { "type": "integer", "minimum": 0 },
+        "N_status_transitions_assessed": { "type": "integer", "minimum": 0 },
+        "EPR_value": { "type": "number", "minimum": 0.0 }
+      }
+    },
+    "BSR_by_state": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["state_n", "BSR"],
+        "properties": {
+          "state_n": { "type": "integer" },
+          "BSR": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "state_record": {
+      "type": "object",
+      "required": ["state_n", "core", "diagnostic"],
+      "properties": {
+        "state_n": { "type": "integer" },
+        "core": {
+          "type": "object",
+          "required": ["P", "G", "C", "F", "R"],
+          "properties": {
+            "P": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "G": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "C": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "F": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "R": { "type": "integer", "minimum": 0, "maximum": 4 }
+          }
+        },
+        "diagnostic": {
+          "type": "object",
+          "required": ["B", "A", "U", "K", "X", "V"],
+          "properties": {
+            "B": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "A": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "U": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "K": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "X": { "type": "integer", "minimum": 0, "maximum": 4 },
+            "V": { "type": "integer", "minimum": 0, "maximum": 4 }
+          }
+        }
+      }
+    },
+    "transition_record": {
+      "type": "object",
+      "required": ["from_state_n", "to_state_n", "transition_labels", "tau_n_description"],
+      "properties": {
+        "from_state_n": { "type": "integer" },
+        "to_state_n": { "type": "integer" },
+        "transition_labels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["EXPAND","NARROW","ABSTRACT","GROUND","INVERT","BRANCH","REVISE","OPERATIONALIZE","COMPRESS","JUMP","RESTATE","STALL"]
+          },
+          "minItems": 1
+        },
+        "tau_n_description": {
+          "type": "string",
+          "description": "What tension in S_n caused this transition."
+        },
+        "tau_in_consequences_S_n": {
+          "type": "boolean",
+          "description": "Whether tau_n is established as being in Consequences(S_n)."
+        }
+      }
+    }
+  }
+}

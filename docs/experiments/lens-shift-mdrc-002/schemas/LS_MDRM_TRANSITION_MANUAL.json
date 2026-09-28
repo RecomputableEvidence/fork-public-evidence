@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_TRANSITION_MANUAL",
+  "title": "LS-MDRM Transition Manual",
+  "description": "Defines the transition vocabulary, transformation rules, and conditions for valid recursive Lens Shift transitions.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "transition_vocabulary": {
+    "productive": [
+      {
+        "label": "EXPAND",
+        "definition": "The successor state broadens scope, adds new dimensions, or introduces additional causal candidates relative to the predecessor.",
+        "requires": ["predecessor_tension_present", "scope_change_documented"]
+      },
+      {
+        "label": "NARROW",
+        "definition": "The successor state restricts scope, removes candidates, or sharpens discriminability.",
+        "requires": ["predecessor_tension_present", "scope_change_documented"]
+      },
+      {
+        "label": "ABSTRACT",
+        "definition": "The successor state moves to a higher level of generality, retaining causal linkage to predecessor.",
+        "requires": ["predecessor_linkage_preserved", "abstraction_distance_documented"]
+      },
+      {
+        "label": "GROUND",
+        "definition": "The successor state adds, strengthens, or revises evidence binding for a prior claim.",
+        "requires": ["evidence_path_documented", "corpus_version_bound"]
+      },
+      {
+        "label": "INVERT",
+        "definition": "The successor state reverses a prior causal or inferential direction, retaining predecessor acknowledgment.",
+        "requires": ["predecessor_tension_present", "inversion_rationale_documented"]
+      },
+      {
+        "label": "BRANCH",
+        "definition": "The successor state forks from a predecessor, producing a candidate set under the branch lifecycle protocol.",
+        "requires": ["raw_branch_set_preserved", "eligible_branch_set_documented", "rejection_reasons_recorded"]
+      },
+      {
+        "label": "REVISE",
+        "definition": "The successor state corrects a prior erroneous claim with explicit acknowledgment.",
+        "requires": ["prior_claim_identified", "revision_rationale_documented"]
+      },
+      {
+        "label": "OPERATIONALIZE",
+        "definition": "The successor state converts an abstract hypothesis into a specific, testable claim.",
+        "requires": ["hypothesis_traced_to_predecessor", "operationalization_criterion_stated"]
+      },
+      {
+        "label": "COMPRESS",
+        "definition": "The successor state reduces complexity burden without losing material content.",
+        "requires": ["predecessor_complexity_assessed", "content_preservation_documented"]
+      }
+    ],
+    "failure_degeneration": [
+      {
+        "label": "JUMP",
+        "definition": "The successor state introduces a new topic or claim without traceable predecessor ancestry.",
+        "detection": "P < 2 at successor state and no branch record exists."
+      },
+      {
+        "label": "RESTATE",
+        "definition": "The successor state is semantically equivalent to the predecessor.",
+        "detection": "R >= 3 at successor state and C <= 1."
+      },
+      {
+        "label": "STALL",
+        "definition": "No transition occurs; the state is copied without meaningful change.",
+        "detection": "Transition operator absent or empty; state n+1 identical to state n."
+      }
+    ]
+  },
+  "multi_label_rule": "A single transition may carry multiple labels. All applicable labels must be recorded. Do not force a transition into a single category if multiple apply.",
+  "successor_qualification_rule": "A successor state may be intelligent or relevant without qualifying as recursive Lens Shift. Traceable predecessor ancestry is required. P >= 3 is the minimum for a transition to qualify as recursive.",
+  "recursive_transition_formula": {
+    "description": "S_{n+1} = R(S_n, tau_n, B_n^raw, B_n^eligible, B_n^selected, E_n; Z, Theta)",
+    "constraints": [
+      "tau_n must be in Consequences(S_n): the transition must follow from predecessor tensions, not from arbitrary selection.",
+      "B_n^selected must be in B_n^eligible, which must be a subset of B_n^raw.",
+      "E_n must be bound to a corpus version at the bound commit."
+    ]
+  }
+}

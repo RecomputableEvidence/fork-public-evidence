@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_ENTROPY_SCHEMA",
+  "title": "LS-MDRM Entropy Schema",
+  "description": "Schema for recording and tracking the four-component entropy vector H_n = [H_s, H_g, H_r, H_c]_n across transitions.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "type": "object",
+  "required": ["entropy_record_id", "state_n", "H_s", "H_g", "H_r", "H_c"],
+  "properties": {
+    "entropy_record_id": { "type": "string" },
+    "state_n": { "type": "integer", "minimum": 0 },
+    "H_s": {
+      "description": "Semantic entropy. Degree of semantic ambiguity or instability at this state.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "H_g": {
+      "description": "Grounding entropy. Degree of evidence-binding weakness or absence at this state.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "H_r": {
+      "description": "Recursive entropy. Degree of ancestry-chain weakness or rupture at this state.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "H_c": {
+      "description": "Complexity entropy. Degree of evaluability difficulty at this state.",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "delta_H_s": {
+      "type": ["number", "null"],
+      "description": "H_s(n) - H_s(n-1). Null for n=0."
+    },
+    "delta_H_g": {
+      "type": ["number", "null"],
+      "description": "H_g(n) - H_g(n-1). Null for n=0."
+    },
+    "delta_H_r": {
+      "type": ["number", "null"],
+      "description": "H_r(n) - H_r(n-1). Null for n=0."
+    },
+    "delta_H_c": {
+      "type": ["number", "null"],
+      "description": "H_c(n) - H_c(n-1). Null for n=0."
+    },
+    "local_recovery_notes": {
+      "type": ["string", "null"],
+      "description": "If H_n > H_{n-1} followed by H_{n+k} < H_n, record that trajectory here. Local recovery does not reset ancestry. Null if not applicable."
+    },
+    "recovery_requires": {
+      "type": ["string", "null"],
+      "description": "If recovery is claimed, states the conditions required: preserved recursive linkage and grounding. Null if no recovery asserted."
+    }
+  },
+  "measurement_note": "Entropy values use a normalized ordinal scale 0.0–1.0 derived from the diagnostic dimension scores. H_s ~ A/4; H_g ~ (4-G)/4; H_r ~ (4-P)/4; H_c ~ X/4. These mappings are definitional, not empirically calibrated. Do not collapse into a single scalar.",
+  "anti_collapse_rule": "H_n must never be collapsed into one binary entropy result. All four components must be recorded independently."
+}

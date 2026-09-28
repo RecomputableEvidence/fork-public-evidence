@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_CONTROL_VECTOR",
+  "title": "LS-MDRM Control Vector",
+  "description": "Defines negative controls, expected behavior, and instrument calibration anchors.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "controls": [
+    {
+      "control_id": "NC-1",
+      "label": "ordinary_brainstorming",
+      "description": "A sequence of ideas generated without predecessor tension, transformation rules, or evidence binding.",
+      "expected_scores": {
+        "P": "0–1", "G": "0–1", "C": "2–4", "F": "0–1", "R": "1–2"
+      },
+      "expected_transition_labels": ["JUMP"],
+      "expected_branch_violation": "B-1 (no predecessor tension) on all candidates",
+      "instrument_should": "Classify as JUMP / not qualifying as recursive Lens Shift.",
+      "failure_mode_if_misclassified": "Instrument cannot distinguish generative output from recursive epistemic work."
+    },
+    {
+      "control_id": "NC-2",
+      "label": "paraphrase_expansion",
+      "description": "A sequence where each step restates the prior step in different words without new causal content.",
+      "expected_scores": {
+        "P": "2–3", "G": "1–2", "C": "0–1", "F": "0–1", "R": "3–4"
+      },
+      "expected_transition_labels": ["RESTATE"],
+      "expected_branch_violation": "B-3 (semantic restatement) on all candidates",
+      "instrument_should": "Classify as RESTATE / not qualifying as recursive Lens Shift.",
+      "failure_mode_if_misclassified": "Instrument classifies paraphrase as productive transition."
+    },
+    {
+      "control_id": "NC-3",
+      "label": "random_selection_without_eligibility",
+      "description": "Branch selected from raw set without running eligibility filter.",
+      "expected_protocol_violation": "selected_candidate not in eligible_candidates",
+      "instrument_should": "Flag protocol violation: B_n^selected not in B_n^eligible.",
+      "failure_mode_if_misclassified": "Instrument fails to enforce branch lifecycle invariant."
+    },
+    {
+      "control_id": "NC-4",
+      "label": "evidence_free_abstraction",
+      "description": "Abstraction that ascends multiple inferential levels without grounding in any corpus artifact.",
+      "expected_scores": {
+        "P": "1–2", "G": "0", "C": "3–4", "F": "0–1", "A": "4"
+      },
+      "expected_transition_labels": ["ABSTRACT"],
+      "expected_branch_violation": "B-2 (evidence absent) and B-5 (abstraction limit)",
+      "instrument_should": "Classify as ineligible due to B-2; G=0 is disqualifying.",
+      "failure_mode_if_misclassified": "Instrument promotes evidence-free abstraction as Lens Shift."
+    },
+    {
+      "control_id": "NC-5",
+      "label": "forced_linear_operator_sequence",
+      "description": "Transitions applied in a fixed predetermined sequence regardless of predecessor state tensions.",
+      "expected_branch_violation": "B-1 on candidates not arising from predecessor tensions",
+      "instrument_should": "Detect that tau_n not in Consequences(S_n) for at least some transitions.",
+      "failure_mode_if_misclassified": "Instrument passes operator-imposed sequence as legitimate recursive transitions."
+    },
+    {
+      "control_id": "NC-6",
+      "label": "over_compression",
+      "description": "A compression step that removes material content while asserting equivalence.",
+      "expected_scores": {
+        "C": "0", "R": "2–3", "X": "0"
+      },
+      "expected_transition_labels": ["COMPRESS", "RESTATE"],
+      "instrument_should": "Detect content loss; COMPRESS requires content_preservation_documented.",
+      "failure_mode_if_misclassified": "Instrument accepts lossy compression as legitimate COMPRESS."
+    },
+    {
+      "control_id": "NC-7",
+      "label": "adversarially_misleading_evidence_corpus",
+      "description": "A corpus in which evidence items are present but systematically misrepresent their referents.",
+      "expected_behavior": "G scores may appear high (evidence cited) while claims are unsupported.",
+      "instrument_should": "Require exact_location and counterevidence fields; corpus version binding should expose the mismatch.",
+      "failure_mode_if_misclassified": "Instrument accepts evidence citation as evidence grounding without location verification."
+    }
+  ],
+  "rubric_modification_prohibition": "Do not modify the rubric because a negative control performs unexpectedly well. An unexpected result is evidence about the instrument, not a reason to repair the instrument."
+}

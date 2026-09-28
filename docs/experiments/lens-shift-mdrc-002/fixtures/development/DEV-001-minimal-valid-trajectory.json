@@ -1,0 +1,181 @@
+{
+  "fixture_id": "DEV-001",
+  "fixture_type": "development",
+  "title": "Minimal valid two-state recursive trajectory",
+  "description": "A minimal synthetic trajectory with two states and one transition. Demonstrates a valid GROUND operation. Used to verify that the instrument accepts a well-formed recursive transition.",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "purpose": "Verify schema acceptance of a minimal valid trajectory; establish baseline instrument behavior.",
+  "lifecycle": "open",
+  "trajectory_id": "DEV-001-TRJ-001",
+  "fixture_type_canonical": "development",
+  "fixture_id_canonical": "DEV-001",
+  "bound_repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "rubric_version": "v0.1",
+  "states": [
+    {
+      "state_n": 0,
+      "description": "Initial hypothesis: the CSH experiment is blocked because the serving platform retired.",
+      "core": { "P": 4, "G": 3, "C": 3, "F": 3, "R": 0 },
+      "diagnostic": { "B": 0, "A": 1, "U": 1, "K": 3, "X": 1, "V": 0 }
+    },
+    {
+      "state_n": 1,
+      "description": "Grounded successor: HTTP 410 responses are bound to exact artifacts, establishing the platform retirement as OBSERVED rather than HYPOTHESIZED.",
+      "core": { "P": 4, "G": 4, "C": 2, "F": 4, "R": 0 },
+      "diagnostic": { "B": 0, "A": 0, "U": 0, "K": 3, "X": 1, "V": 1 }
+    }
+  ],
+  "transitions": [
+    {
+      "from_state_n": 0,
+      "to_state_n": 1,
+      "transition_labels": ["GROUND"],
+      "tau_n_description": "State 0 hypothesizes platform retirement; this is a tension because it is ungrounded. Grounding reduces H_g.",
+      "tau_in_consequences_S_n": true
+    }
+  ],
+  "branch_records": [
+    {
+      "state_n": 0,
+      "raw_candidates": [
+        {
+          "candidate_id": "DEV-001-BC-01",
+          "summary": "Ground the platform retirement claim by binding HTTP 410 evidence to PAIR001_POST_EXECUTION_ADJUDICATION.",
+          "transition_labels": ["GROUND"]
+        },
+        {
+          "candidate_id": "DEV-001-BC-02",
+          "summary": "Expand to cover all 108 units as platform-retired without individual execution.",
+          "transition_labels": ["EXPAND"]
+        }
+      ],
+      "eligible_candidates": ["DEV-001-BC-01"],
+      "selected_candidate": "DEV-001-BC-01",
+      "BSR": 0.5,
+      "rejections": [
+        {
+          "candidate_id": "DEV-001-BC-02",
+          "rejection_codes": ["B-8"],
+          "rationale": "Expanding all 108 units to platform-retired without execution would promote UNRESOLVED adjudication to DERIVED without authorization. EPR violation."
+        }
+      ]
+    }
+  ],
+  "claim_ledger": [
+    {
+      "entry_id": "DEV-001-CL-01",
+      "state_n": 0,
+      "claim_text": "The CSH baseline execution is blocked because the serving platform retired.",
+      "claim_status": "HYPOTHESIZED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "direct assertion from initial state setup",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "gate_decision.decision = BLOCKED_RECEIVER_RETIRED",
+        "observed_or_inferred": "inferred",
+        "counterevidence": null
+      },
+      "limitations": "Hypothesis requires grounding in direct evidence before OBSERVED status.",
+      "uncertainty": "Platform retirement is documented but claim is not yet bound to exact evidence location."
+    },
+    {
+      "entry_id": "DEV-001-CL-02",
+      "state_n": 1,
+      "claim_text": "Both repetition runs returned HTTP 410, confirming the platform retirement.",
+      "claim_status": "OBSERVED",
+      "prior_claim_status": "HYPOTHESIZED",
+      "promotion_licensed": true,
+      "promotion_license_rule": "New evidence binding added: raw-provider-response.json artifacts with SHA-256 eb684b77... confirming HTTP 410 body verbatim.",
+      "EPR_contribution": false,
+      "inference_path": "Direct observation of HTTP response artifacts bound to exact paths and commit.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/receipts/repeats/pair-001/CSH-RUN-001-RPT-20260921171515-R01/raw-provider-response.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "http_status=410, body.error.code=github_models_retirement_brownout",
+        "observed_or_inferred": "observed",
+        "counterevidence": "The error body text says 'temporarily unavailable' which conflicts with the retirement notice; this discrepancy is documented in FORK_CURRENT_WORK_REGISTER_v0_6.md."
+      },
+      "limitations": "HTTP 410 confirms endpoint unavailability; does not independently confirm permanent retirement.",
+      "uncertainty": "Minor: 'temporarily unavailable' wording in HTTP 410 body vs. documented retirement notice."
+    }
+  ],
+  "entropy_records": [
+    {
+      "entropy_record_id": "DEV-001-ENT-0",
+      "state_n": 0,
+      "H_s": 0.25,
+      "H_g": 0.50,
+      "H_r": 0.00,
+      "H_c": 0.25,
+      "delta_H_s": null,
+      "delta_H_g": null,
+      "delta_H_r": null,
+      "delta_H_c": null,
+      "local_recovery_notes": null,
+      "recovery_requires": null
+    },
+    {
+      "entropy_record_id": "DEV-001-ENT-1",
+      "state_n": 1,
+      "H_s": 0.00,
+      "H_g": 0.00,
+      "H_r": 0.00,
+      "H_c": 0.25,
+      "delta_H_s": -0.25,
+      "delta_H_g": -0.50,
+      "delta_H_r": 0.00,
+      "delta_H_c": 0.00,
+      "local_recovery_notes": null,
+      "recovery_requires": null
+    }
+  ],
+  "uncertainty_records": [
+    {
+      "uncertainty_record_id": "DEV-001-UNC-0",
+      "state_n": 0,
+      "sources": [
+        {
+          "source_id": "DEV-001-UNC-0-SRC-1",
+          "type": "evidence_gap",
+          "description": "Platform retirement is not yet directly bound to exact evidence; claim is HYPOTHESIZED.",
+          "localization_status": "partially_localized",
+          "effect_on_claims": "DEV-001-CL-01 cannot be scored OBSERVED until evidence binding is added.",
+          "mitigation": "Resolved in state_n=1 by GROUND transition."
+        }
+      ],
+      "aggregate_U_score": 1
+    },
+    {
+      "uncertainty_record_id": "DEV-001-UNC-1",
+      "state_n": 1,
+      "sources": [
+        {
+          "source_id": "DEV-001-UNC-1-SRC-1",
+          "type": "other",
+          "description": "Minor wording discrepancy: HTTP 410 body says 'temporarily unavailable'; GitHub changelog says retired.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "Does not affect OBSERVED status of HTTP 410 receipt; affects interpretation of permanence.",
+          "mitigation": "Documented as counterevidence in ledger entry DEV-001-CL-02."
+        }
+      ],
+      "aggregate_U_score": 0
+    }
+  ],
+  "EPR": {
+    "N_unlicensed_promotions": 0,
+    "N_status_transitions_assessed": 1,
+    "EPR_value": 0.0
+  },
+  "BSR_by_state": [
+    { "state_n": 0, "BSR": 0.5 }
+  ],
+  "expected_result": {
+    "instrument_classification": "qualifying_recursive_transition",
+    "disposition": "CONSTRUCTED_AND_STRUCTURALLY_CLOSED",
+    "note": "This fixture should produce schema-valid output and pass all PCC rules."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "fixture_id": "NC-2-through-NC-7",
+  "fixture_type": "negative_control",
+  "title": "Negative controls NC-2 through NC-7 summary manifest",
+  "description": "Summary definitions for remaining negative controls. Full trajectory records may be instantiated from these definitions.",
+  "expected_result": {
+    "instrument_classification": "NOT_qualifying_as_recursive_Lens_Shift",
+    "note": "This is a definitions manifest. Individual controls (NC-2 through NC-7) each define non-qualifying or protocol-nonconformant expected behavior when instantiated as full trajectory records."
+  },
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "lifecycle": "open",
+  "controls": [
+    {
+      "control_id": "NC-2",
+      "label": "paraphrase_expansion",
+      "title": "Paraphrase expansion — should be RESTATE throughout",
+      "states_summary": "S0: 'Platform retired.' S1: 'GitHub Models is no longer available.' S2: 'The serving endpoint has been decommissioned.'",
+      "expected_transition_labels": ["RESTATE", "RESTATE"],
+      "expected_P_range": "2–3 (ancestor referenced but no new content)",
+      "expected_R_range": "3–4 (high redundancy)",
+      "expected_C_range": "0–1 (no causal novelty)",
+      "expected_branch_violations": "B-3 on all candidates",
+      "expected_BSR": "0.0 (all candidates rejected as restatements)",
+      "instrument_failure_condition": "If instrument classifies paraphrase as productive transition, it cannot distinguish restatement from recursive epistemic work."
+    },
+    {
+      "control_id": "NC-3",
+      "label": "random_selection_without_eligibility",
+      "title": "Branch selected outside eligible set — should trigger PCC-01",
+      "description": "A branch record where selected_candidate is a raw candidate that did not pass eligibility. Tests PCC-01.",
+      "injected_violation": "selected_candidate = 'NC-3-BC-02' but eligible_candidates = ['NC-3-BC-01']",
+      "expected_rule_triggered": "PCC-01 BRANCH_SELECTED_NOT_IN_ELIGIBLE",
+      "expected_disposition": "PROTOCOL_NONCONFORMANT",
+      "instrument_failure_condition": "If instrument does not flag this, branch lifecycle invariant is not enforced."
+    },
+    {
+      "control_id": "NC-4",
+      "label": "evidence_free_abstraction",
+      "title": "Evidence-free abstraction — should be rejected with B-2 and B-5",
+      "states_summary": "S0: 'The CSH experiment is blocked.' S1 (abstraction): 'All institutional AI workflows face irreproducibility challenges across time horizons.' (No evidence binding; A=4)",
+      "expected_transition_labels": ["ABSTRACT"],
+      "expected_A_at_S1": 4,
+      "expected_G_at_S1": 0,
+      "expected_branch_violations": "B-2 (evidence absent) and B-5 (abstraction limit)",
+      "expected_disposition": "PROTOCOL_NONCONFORMANT for the successor state if evaluated",
+      "instrument_failure_condition": "If instrument accepts evidence-free abstraction as qualifying Lens Shift, it cannot enforce the grounding requirement."
+    },
+    {
+      "control_id": "NC-5",
+      "label": "forced_linear_operator_sequence",
+      "title": "Forced operator sequence — tau_n not in Consequences(S_n)",
+      "description": "Operator applies EXPAND→NARROW→ABSTRACT→GROUND in sequence regardless of predecessor tensions.",
+      "expected_violations": "B-1 on candidates where tau_n not in Consequences(S_n); tau_in_consequences_S_n = false",
+      "expected_disposition": "Some transitions fail PCC-01/B-1; partial-PROTOCOL_NONCONFORMANT",
+      "instrument_failure_condition": "If instrument passes all forced-sequence transitions, it cannot distinguish protocol-driven from operator-imposed transitions."
+    },
+    {
+      "control_id": "NC-6",
+      "label": "over_compression",
+      "title": "Over-compression — content lost without documentation",
+      "description": "A COMPRESS step that removes two material claims and asserts the result is equivalent. content_preservation_documented=false.",
+      "expected_transition_labels": ["COMPRESS", "RESTATE"],
+      "expected_violations": "COMPRESS requires content_preservation_documented; absence triggers protocol violation",
+      "expected_disposition": "PROTOCOL_NONCONFORMANT",
+      "instrument_failure_condition": "If instrument accepts undocumented compression as valid COMPRESS, it cannot detect content loss."
+    },
+    {
+      "control_id": "NC-7",
+      "label": "adversarially_misleading_evidence_corpus",
+      "title": "Misleading evidence corpus — citations present but referents misrepresented",
+      "description": "Evidence binding fields are present but exact_location points to a field in the artifact that says the opposite of the claim.",
+      "example_injection": "Claim: 'The experiment is complete.' Evidence: PAIR001_POST_EXECUTION_ADJUDICATION_20260921.json, exact_location: 'gate_decision.continue_frozen_baseline = false' (which actually means NOT complete).",
+      "expected_behavior": "Instrument must require evaluator to verify that exact_location content supports the claim, not just that a location is cited.",
+      "instrument_failure_condition": "If instrument accepts any citation as sufficient grounding, it cannot detect corpus misrepresentation."
+    }
+  ]
+}

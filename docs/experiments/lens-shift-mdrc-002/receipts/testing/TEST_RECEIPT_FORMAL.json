@@ -1,0 +1,115 @@
+{
+  "receipt_id": "LS-MDRC-002-TEST-RECEIPT-FORMAL-v0.1",
+  "record_type": "test_receipt_formal",
+  "role": "TEST",
+  "generated_at_utc": "2026-09-22T02:31:00Z",
+  "frozen_package_binding": {
+    "package_root": "docs/experiments/lens-shift-mdrc-002/",
+    "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+    "sha256sums_file": "SHA256SUMS",
+    "sha256sums_verified": true
+  },
+  "test_command": "python ls_mdrc_002_structural_tests.py --package-root .",
+  "automated_test_receipt": "receipts/testing/TEST_RECEIPT.json",
+  "test_summary": {
+    "total": 222,
+    "passed": 222,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "overall_disposition": "TEST_PASS_BOUNDED"
+  },
+  "test_categories_run": {
+    "T01_schema_file_presence": { "tests": 11, "passed": 11, "failed": 0 },
+    "T02_fixture_file_presence": { "tests": 10, "passed": 10, "failed": 0 },
+    "T03_schema_json_parseability": { "tests": 11, "passed": 11, "failed": 0 },
+    "T04_fixture_json_parseability": { "tests": 10, "passed": 10, "failed": 0 },
+    "T05_bound_commit_in_schemas": { "tests": 11, "passed": 11, "failed": 0 },
+    "T06_PCC01_branch_selected_in_eligible": { "tests": 9, "passed": 9, "failed": 0 },
+    "T07_PCC02_eligible_subset_of_raw": { "tests": 9, "passed": 9, "failed": 0 },
+    "T08_PCC03_rejection_codes": { "tests": 11, "passed": 11, "failed": 0 },
+    "T09_PCC04_bsr_calculation": { "tests": 9, "passed": 9, "failed": 0 },
+    "T10_PCC05_claim_status_valid": { "tests": 15, "passed": 15, "failed": 0 },
+    "T11_PCC06_epr_detection": { "tests": 8, "passed": 8, "failed": 0 },
+    "T12_PCC07_evidence_binding": { "tests": 15, "passed": 15, "failed": 0 },
+    "T13_PCC09_entropy_components": { "tests": 64, "passed": 64, "failed": 0 },
+    "T14_PCC11_uncertainty_records": { "tests": 12, "passed": 12, "failed": 0 },
+    "T15_PCC12_holdout_lifecycle": { "tests": 3, "passed": 3, "failed": 0 },
+    "T16_negative_control_expected_results": { "tests": 2, "passed": 2, "failed": 0 },
+    "T17_sentinel_expected_results": { "tests": 3, "passed": 3, "failed": 0 },
+    "T18_T22_adversarial_mutations": { "tests": 5, "passed": 5, "failed": 0 }
+  },
+  "adversarial_mutations_tested": [
+    {
+      "mutation_id": "T18",
+      "description": "Branch selected not in eligible set",
+      "pcc_rule": "PCC-01",
+      "expected_violation": "BRANCH_SELECTED_NOT_IN_ELIGIBLE",
+      "result": "PASS — violation detected correctly"
+    },
+    {
+      "mutation_id": "T19",
+      "description": "HYPOTHESIZED→OBSERVED promotion without license",
+      "pcc_rule": "PCC-06",
+      "expected_violation": "UNLICENSED_EPISTEMIC_PROMOTION",
+      "result": "PASS — violation detected correctly"
+    },
+    {
+      "mutation_id": "T20",
+      "description": "Wrong repository commit in evidence binding",
+      "pcc_rule": "PCC-08",
+      "expected_violation": "REPOSITORY_COORDINATE_MISMATCH",
+      "result": "PASS — violation detected correctly"
+    },
+    {
+      "mutation_id": "T21",
+      "description": "Raw branch candidate removed (hash change)",
+      "pcc_rule": "PCC-13",
+      "expected_violation": "RAW_BRANCH_MODIFIED",
+      "result": "PASS — hash change detectable"
+    },
+    {
+      "mutation_id": "T22",
+      "description": "CONSUMED→SEALED holdout lifecycle violation",
+      "pcc_rule": "PCC-12",
+      "expected_violation": "HOLDOUT_LIFECYCLE_VIOLATION",
+      "result": "PASS — violation detected correctly"
+    }
+  ],
+  "notable_events": [
+    {
+      "event": "First test run produced 221/222 (1 failure: T16-NC-2-through-NC-7-definitions.json missing expected_result field)",
+      "disposition": "Structural field omission in a definitions manifest. Field added. This is documented in CONSTRUCTION_RECEIPT.json implementation decisions ID-004.",
+      "original_failure_preserved": true,
+      "package_modified": true,
+      "package_modification_scope": "added expected_result field to NC-2-through-NC-7-definitions.json; no scoring rules, schemas, or substantive fixture content changed"
+    }
+  ],
+  "not_tested": [
+    "PCC-14 (scoring rule mutation after fixture output) — requires multi-session process verification; not automatable in single-pass structural test",
+    "PCC-15 (evaluator contamination) — requires manual review of blind evaluator packet construction process",
+    "Substantive Lens Shift correctness of any fixture trajectory",
+    "Holdout fixture content (HO-001, HO-002, HO-003 are SEALED and must not be opened)",
+    "Stop codes (not defined in specification §12 beyond degeneration labels)",
+    "Malformed artifact injection (beyond in-memory mutation tests)"
+  ],
+  "unexpected_results": [
+    {
+      "item": "DEV-002 BSR recorded as 0.333 but computed as 0.3333...",
+      "resolution": "Within 0.001 tolerance; T09 passed. BSR recorded value is acceptable rounding."
+    }
+  ],
+  "limitations": [
+    "JSON Schema $ref cross-validation not implemented; schema coherence verified by parse only.",
+    "Adversarial mutations are in-memory; they do not modify the frozen package files.",
+    "The test suite runs in the same Python process that constructed the package; not a fully independent context.",
+    "222 tests cover structural integrity only; substantive rubric correctness requires human or designated evaluator review."
+  ],
+  "successor_required": false,
+  "successor_notes": "No defects found that require a separately versioned successor instrument. The first-run failure was a structural field omission (not a rubric defect) and has been corrected and documented.",
+  "non_claims": [
+    "TEST_PASS_BOUNDED does not establish that Lens Shift is validated or scientifically proven.",
+    "Passing structural tests does not authorize any institutional reliance.",
+    "This receipt is not independent scientific validation of the LS-MDRM candidate.",
+    "The test suite is bounded by the scope of the PCC rules; it does not cover all possible protocol violations."
+  ]
+}

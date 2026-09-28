@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_STATE_DICTIONARY",
+  "title": "LS-MDRM State Dictionary",
+  "description": "Defines the full state model S_n = S_n^core + S_n^diag, scoring rules, and construct semantics.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "type": "object",
+  "required": ["state_n", "core", "diagnostic"],
+  "properties": {
+    "state_n": {
+      "type": "integer",
+      "description": "Transition index n, starting at 0 for the initial state.",
+      "minimum": 0
+    },
+    "core": {
+      "type": "object",
+      "description": "S_n^core = [P, G, C, F, R]_n — anchored ordinal scoring. Do not collapse into a single quality score.",
+      "required": ["P", "G", "C", "F", "R"],
+      "properties": {
+        "P": {
+          "description": "Recursive linkage. Degree to which the current state traces back to predecessor states through legitimate ancestry chains.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "No traceable predecessor; orphan state.",
+            "1": "Weak linkage; predecessor referenced but ancestry chain not established.",
+            "2": "Partial linkage; predecessor established but transformation rule absent or weak.",
+            "3": "Strong linkage; predecessor established and transformation rule present.",
+            "4": "Full recursive linkage; complete ancestry chain with transformation rule and evidence binding."
+          }
+        },
+        "G": {
+          "description": "Empirical grounding. Degree to which claims in the current state are supported by admissible evidence.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "No evidence binding; assertion only.",
+            "1": "Evidence cited but not bound to corpus version or location.",
+            "2": "Evidence bound to corpus version; location not exact.",
+            "3": "Evidence bound to exact location and corpus version.",
+            "4": "Evidence bound to exact location, corpus version, and transformation rule; counterevidence acknowledged."
+          }
+        },
+        "C": {
+          "description": "Causal novelty. Degree to which the transition introduces a non-trivially new causal or inferential step not present in predecessors.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "Restatement or paraphrase; no new causal content.",
+            "1": "Minor rephrasing with marginal novelty.",
+            "2": "Partial novelty; some new causal element but significant overlap with predecessor.",
+            "3": "Substantial novelty; new causal element clearly distinct from predecessor.",
+            "4": "Full causal novelty; new inferential step with no predecessor overlap."
+          }
+        },
+        "F": {
+          "description": "Discriminability / falsifiability. Degree to which the current state makes claims that can be distinguished from their negations under available or specifiable evidence.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "Unfalsifiable in principle; no distinguishing criterion possible.",
+            "1": "Weak discriminability; criterion implicit or vague.",
+            "2": "Partial discriminability; criterion stated but not operationalized.",
+            "3": "Strong discriminability; criterion stated and operationalized.",
+            "4": "Full discriminability; falsifier specified with evidence path and domain."
+          }
+        },
+        "R": {
+          "description": "Semantic redundancy. Degree to which the current state is semantically equivalent to one or more predecessors or contemporaneous states.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_notes": "INVERTED scale: 0 = no redundancy (best); 4 = full restatement (worst). Higher R degrades transition quality.",
+          "scoring_levels": {
+            "0": "No semantic overlap with predecessor or contemporaneous states.",
+            "1": "Minimal overlap; surface similarity only.",
+            "2": "Moderate overlap; shared framing with distinct content.",
+            "3": "High overlap; effectively the same proposition in different phrasing.",
+            "4": "Full restatement; semantic equivalent of a predecessor claim."
+          }
+        }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "description": "S_n^diag = [B, A, U, K, X, V]_n — diagnostic dimensions. Independence among these is NOT presumed. Construct-separation failure must remain observable.",
+      "required": ["B", "A", "U", "K", "X", "V"],
+      "properties": {
+        "B": {
+          "description": "Boundary displacement. Degree to which the current state has shifted the claimed scope boundary relative to its predecessor.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "No boundary change.",
+            "1": "Minor boundary adjustment, acknowledged.",
+            "2": "Moderate boundary shift, partially acknowledged.",
+            "3": "Significant boundary shift, weakly acknowledged.",
+            "4": "Major boundary displacement, unacknowledged."
+          }
+        },
+        "A": {
+          "description": "Abstraction distance. Degree of distance between the current state's claims and the grounding evidence.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "Directly grounded; abstraction layer minimal.",
+            "1": "One inferential step from evidence.",
+            "2": "Two inferential steps; each individually bounded.",
+            "3": "Three or more steps; some unbounded.",
+            "4": "Evidence-free abstraction; no path back to ground."
+          }
+        },
+        "U": {
+          "description": "Uncertainty localization. Degree to which sources of uncertainty are explicitly identified and bounded.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_notes": "INVERTED scale: 0 = fully localized (best); 4 = uncertainty ignored (worst).",
+          "scoring_levels": {
+            "0": "All material uncertainty explicitly identified and bounded.",
+            "1": "Most uncertainty localized; minor gaps.",
+            "2": "Partial localization; significant gaps present.",
+            "3": "Uncertainty mentioned but not localized.",
+            "4": "No uncertainty acknowledgment."
+          }
+        },
+        "K": {
+          "description": "Consequentiality. Degree of downstream institutional or epistemic consequence carried by the current state's claims.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "No downstream consequence; purely exploratory.",
+            "1": "Minor consequence; bounded to local inference.",
+            "2": "Moderate consequence; affects subsequent branching.",
+            "3": "High consequence; affects interpretation of the whole trajectory.",
+            "4": "Critical consequence; grounds primary conclusions."
+          }
+        },
+        "X": {
+          "description": "Complexity burden. Degree of cognitive or computational complexity required to evaluate the current state.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "Minimal complexity; single well-defined proposition.",
+            "1": "Low complexity; few propositions, each evaluable independently.",
+            "2": "Moderate complexity; requires holding multiple simultaneous claims.",
+            "3": "High complexity; nested dependencies or opaque structure.",
+            "4": "Excessive complexity; structurally resistant to evaluation."
+          }
+        },
+        "V": {
+          "description": "Corrective revision. Degree to which the current state corrects, retracts, or revises a prior erroneous claim.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "scoring_levels": {
+            "0": "No revision; continuation of prior state.",
+            "1": "Minor clarification; no material retraction.",
+            "2": "Partial revision; one claim revised with acknowledgment.",
+            "3": "Substantial revision; multiple prior claims corrected.",
+            "4": "Full retraction; prior state superseded with preserved record."
+          }
+        }
+      }
+    }
+  }
+}

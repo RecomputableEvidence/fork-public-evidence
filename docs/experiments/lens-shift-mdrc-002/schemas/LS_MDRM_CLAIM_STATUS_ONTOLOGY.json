@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "LS_MDRM_CLAIM_STATUS_ONTOLOGY",
+  "title": "LS-MDRM Claim Status Ontology",
+  "description": "Defines valid epistemic statuses, transition rules, EPR computation, and promotion-detection requirements.",
+  "version": "v0.1",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "statuses": {
+    "OBSERVED": {
+      "definition": "The proposition is directly supported by recorded, bound evidence without additional inference.",
+      "example": "HTTP 410 was returned by both repetition runs.",
+      "may_be_promoted_from": [],
+      "promotion_notes": "OBSERVED is not a promotion target from any weaker status; it requires fresh evidence binding, not re-labeling."
+    },
+    "DERIVED": {
+      "definition": "The proposition follows from one or more OBSERVED propositions through a stated transformation rule.",
+      "example": "The platform is retired (derived from HTTP 410 + retirement notice + chronology).",
+      "may_be_promoted_from": [],
+      "promotion_notes": "Derivation requires an explicit transformation rule. Implicit derivation is not licensed."
+    },
+    "HYPOTHESIZED": {
+      "definition": "The proposition is a candidate explanation or prediction not yet supported by direct evidence.",
+      "example": "A migration to an equivalent receiver would preserve experimental comparability.",
+      "may_be_promoted_from": [],
+      "promotion_notes": "Hypotheses require operationalization before promotion to OBSERVED or DERIVED."
+    },
+    "COUNTERFACTUAL": {
+      "definition": "The proposition describes what would have occurred under conditions that did not obtain.",
+      "example": "If the platform had not retired, PAIR-001 would have been completed.",
+      "may_be_promoted_from": [],
+      "promotion_notes": "Counterfactuals may not be promoted to OBSERVED or DERIVED without new conditions."
+    },
+    "PROPOSED": {
+      "definition": "The proposition is put forward for consideration but has not been authorized or executed.",
+      "example": "CSH-AMEND-004 is PREPARED_NOT_AUTHORIZED_NOT_ACTIVATED.",
+      "may_be_promoted_from": [],
+      "promotion_notes": "Proposals require explicit authorization before promotion to OBSERVED or DERIVED."
+    },
+    "UNRESOLVED": {
+      "definition": "The proposition's epistemic status cannot be determined with currently available evidence.",
+      "example": "Whether the 106 unattempted units receive terminal dispositions due to retirement is UNRESOLVED.",
+      "may_be_promoted_from": [],
+      "promotion_notes": "Resolution requires new evidence or explicit protocol authorization, not assertion."
+    }
+  },
+  "ordering_note": "These statuses are NOT quality rankings. OBSERVED is not 'better' than HYPOTHESIZED; they carry different epistemic commitments. Do not use status as a proxy for confidence.",
+  "EPR_definition": {
+    "formula": "EPR = N_unlicensed_promotions / N_status_transitions_assessed",
+    "description": "Epistemic Promotion Rate. Tracks unlicensed strengthening of claim status across transitions.",
+    "EPR_zero_requirement": "Claims supporting primary conclusions require EPR = 0. An unlicensed promotion is not repaired by subsequent correction; the event and its disposition must remain in the record.",
+    "unlicensed_promotion_definition": "A promotion is unlicensed if: (a) a claim changes to a stronger status; and (b) no explicit transformation rule, new evidence binding, or authorization record justifies the change.",
+    "stronger_status_partial_order": {
+      "description": "For EPR purposes, the following partial order applies. A promotion is 'stronger' if it moves in the direction indicated.",
+      "order": "UNRESOLVED < PROPOSED < HYPOTHESIZED < COUNTERFACTUAL < DERIVED < OBSERVED",
+      "notes": [
+        "This order is used only for EPR detection, not for evaluating claim quality.",
+        "COUNTERFACTUAL to OBSERVED is always unlicensed without new observational evidence.",
+        "HYPOTHESIZED to DERIVED requires an explicit transformation rule binding."
+      ]
+    }
+  },
+  "protocol_rules": [
+    "Every material claim must have an explicitly assigned status in the ledger.",
+    "Status omission is a protocol violation.",
+    "An unlicensed promotion discovered post-hoc must be preserved with its disposition, not silently corrected.",
+    "Claim status may be revised downward (weakened) if new evidence requires it, without EPR penalty, provided the revision is documented."
+  ]
+}

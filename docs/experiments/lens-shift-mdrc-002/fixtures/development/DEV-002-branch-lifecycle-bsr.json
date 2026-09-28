@@ -1,0 +1,177 @@
+{
+  "fixture_id": "DEV-002",
+  "fixture_type": "development",
+  "title": "Multi-branch EXPAND transition with BSR < 1.0",
+  "description": "A development fixture showing a three-raw-candidate branch event where only one candidate is eligible. Tests branch lifecycle closure, rejection code recording, and BSR < 1.0.",
+  "bound_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "purpose": "Verify that branch lifecycle enforcement works correctly and that BSR is computed accurately.",
+  "lifecycle": "open",
+  "trajectory_id": "DEV-002-TRJ-001",
+  "fixture_type_canonical": "development",
+  "fixture_id_canonical": "DEV-002",
+  "bound_repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+  "rubric_version": "v0.1",
+  "states": [
+    {
+      "state_n": 0,
+      "description": "Tension: 106 unattempted CSH units exist and neither have evidence nor a protocol provision for terminal disposition.",
+      "core": { "P": 4, "G": 4, "C": 3, "F": 3, "R": 0 },
+      "diagnostic": { "B": 0, "A": 1, "U": 1, "K": 4, "X": 2, "V": 0 }
+    },
+    {
+      "state_n": 1,
+      "description": "Selected successor: Characterize the 106 units as UNRESOLVED pending explicit protocol authority.",
+      "core": { "P": 4, "G": 4, "C": 3, "F": 4, "R": 0 },
+      "diagnostic": { "B": 0, "A": 1, "U": 0, "K": 4, "X": 1, "V": 0 }
+    }
+  ],
+  "transitions": [
+    {
+      "from_state_n": 0,
+      "to_state_n": 1,
+      "transition_labels": ["NARROW", "OPERATIONALIZE"],
+      "tau_n_description": "Predecessor tension: 106 units have no terminal disposition; an UNRESOLVED designation is the consequence of missing protocol authority.",
+      "tau_in_consequences_S_n": true
+    }
+  ],
+  "branch_records": [
+    {
+      "state_n": 0,
+      "raw_candidates": [
+        {
+          "candidate_id": "DEV-002-BC-01",
+          "summary": "Designate all 106 unattempted units as BLOCKED_BY_PLATFORM_RETIREMENT with no further evidence.",
+          "transition_labels": ["NARROW"]
+        },
+        {
+          "candidate_id": "DEV-002-BC-02",
+          "summary": "Retain all 106 units as UNRESOLVED pending protocol authorization for terminal disposition.",
+          "transition_labels": ["NARROW", "OPERATIONALIZE"]
+        },
+        {
+          "candidate_id": "DEV-002-BC-03",
+          "summary": "Declare experiment complete because platform retirement constitutes force majeure.",
+          "transition_labels": ["COMPRESS"]
+        }
+      ],
+      "eligible_candidates": ["DEV-002-BC-02"],
+      "selected_candidate": "DEV-002-BC-02",
+      "BSR": 0.333,
+      "rejections": [
+        {
+          "candidate_id": "DEV-002-BC-01",
+          "rejection_codes": ["B-8"],
+          "rationale": "Promoting UNRESOLVED units to BLOCKED without individual execution or protocol authorization is an unlicensed epistemic promotion."
+        },
+        {
+          "candidate_id": "DEV-002-BC-03",
+          "rejection_codes": ["B-8", "B-2"],
+          "rationale": "Force majeure declaration is an unlicensed promotion and has no evidence binding in the frozen corpus; no authority record exists."
+        }
+      ]
+    }
+  ],
+  "claim_ledger": [
+    {
+      "entry_id": "DEV-002-CL-01",
+      "state_n": 0,
+      "claim_text": "106 CSH units have no terminal experimental disposition.",
+      "claim_status": "OBSERVED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "Direct reading of BASELINE_POPULATION_ACCOUNTING_20260921.json: units_not_executed.count=106.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "units_not_executed.count = 106",
+        "observed_or_inferred": "observed",
+        "counterevidence": null
+      },
+      "limitations": "Accounting is per the reconciliation record; audit of run-order ordinals 3-108 not independently performed here.",
+      "uncertainty": "Count depends on the run order defined in RUN_ORDER_v0_1.json; not re-verified here."
+    },
+    {
+      "entry_id": "DEV-002-CL-02",
+      "state_n": 1,
+      "claim_text": "The 106 unattempted units are UNRESOLVED pending explicit protocol authority for terminal disposition.",
+      "claim_status": "UNRESOLVED",
+      "prior_claim_status": null,
+      "promotion_licensed": null,
+      "promotion_license_rule": null,
+      "EPR_contribution": false,
+      "inference_path": "Platform retirement ≠ terminal experimental result; no amendment provision exists for blanket disposition.",
+      "evidence_binding": {
+        "artifact_id_or_path": "docs/experiments/cross-system-claim-handoff-v0.1/execution-state/post-execution-reconciliation-20260921/BASELINE_POPULATION_ACCOUNTING_20260921.json",
+        "repository_commit": "2dab684fc904f43ca0d35d1c1bbc500e92156ec4",
+        "exact_location": "unresolved_adjudication_question.current_status = UNRESOLVED",
+        "observed_or_inferred": "observed",
+        "counterevidence": null
+      },
+      "limitations": "Resolution requires CSH-AMEND-004 authorization or equivalent protocol action.",
+      "uncertainty": "Protocol authority for terminal disposition of unattempted units is explicitly unresolved."
+    }
+  ],
+  "entropy_records": [
+    {
+      "entropy_record_id": "DEV-002-ENT-0",
+      "state_n": 0,
+      "H_s": 0.25, "H_g": 0.00, "H_r": 0.00, "H_c": 0.50,
+      "delta_H_s": null, "delta_H_g": null, "delta_H_r": null, "delta_H_c": null,
+      "local_recovery_notes": null, "recovery_requires": null
+    },
+    {
+      "entropy_record_id": "DEV-002-ENT-1",
+      "state_n": 1,
+      "H_s": 0.00, "H_g": 0.00, "H_r": 0.00, "H_c": 0.25,
+      "delta_H_s": -0.25, "delta_H_g": 0.00, "delta_H_r": 0.00, "delta_H_c": -0.25,
+      "local_recovery_notes": null, "recovery_requires": null
+    }
+  ],
+  "uncertainty_records": [
+    {
+      "uncertainty_record_id": "DEV-002-UNC-0",
+      "state_n": 0,
+      "sources": [
+        {
+          "source_id": "DEV-002-UNC-0-SRC-1",
+          "type": "boundary_ambiguity",
+          "description": "The protocol scope for terminal dispositions of unattempted units is ambiguous.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "Affects DEV-002-CL-01 interpretation and all downstream branching.",
+          "mitigation": "Addressed in state_n=1 by assigning UNRESOLVED status explicitly."
+        }
+      ],
+      "aggregate_U_score": 1
+    },
+    {
+      "uncertainty_record_id": "DEV-002-UNC-1",
+      "state_n": 1,
+      "sources": [
+        {
+          "source_id": "DEV-002-UNC-1-SRC-1",
+          "type": "boundary_ambiguity",
+          "description": "UNRESOLVED status acknowledged; resolution path is CSH-AMEND-004 authorization which is PREPARED_NOT_AUTHORIZED_NOT_ACTIVATED.",
+          "localization_status": "fully_localized",
+          "effect_on_claims": "DEV-002-CL-02 remains UNRESOLVED until amendment is authorized.",
+          "mitigation": null
+        }
+      ],
+      "aggregate_U_score": 0
+    }
+  ],
+  "EPR": {
+    "N_unlicensed_promotions": 0,
+    "N_status_transitions_assessed": 0,
+    "EPR_value": 0.0
+  },
+  "BSR_by_state": [
+    { "state_n": 0, "BSR": 0.333 }
+  ],
+  "expected_result": {
+    "instrument_classification": "qualifying_recursive_transition",
+    "disposition": "CONSTRUCTED_AND_STRUCTURALLY_CLOSED",
+    "note": "BSR < 1.0 and two rejected candidates with rejection codes. PCC-01 through PCC-16 should all pass."
+  }
+}
