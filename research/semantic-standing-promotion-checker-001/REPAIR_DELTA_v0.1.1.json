@@ -1,0 +1,26 @@
+{
+  "object_id": "FORK-SEMANTIC-STANDING-PROMOTION-CHECKER-001",
+  "repair_version": "v0.1.1-repair",
+  "predecessor_head_sha": "db8b02280ef88e002db6c8ffc3e9e139e4c5925b",
+  "predecessor_pressure_disposition": "MATERIAL_REPAIR_REQUIRED_BEFORE_FROZEN_SPEC_OR_EMPIRICAL_QUALIFICATION",
+  "scope": "repair only the frozen PR-001 through PR-011 pressure findings; no admission, qualification, canonicality, or production authority",
+  "repairs": [
+    {"finding": "PR-001", "repair": "standing-envelope support now requires VERIFIED state plus evidence bindings verified by evidence_id, role, artifact, subject identity, PRESENT status, and SHA-256 bytes"},
+    {"finding": "PR-002", "repair": "authorization, occurrence, and effectivity now separate asserted_status from verification_status and each requires its own evidence bindings"},
+    {"finding": "PR-003", "repair": "evidence matching now verifies evidence_id, role, artifact, SHA-256, exact subject identity, PRESENT status, and bytes"},
+    {"finding": "PR-004", "repair": "transition basis requires evidence bindings and basis-type-specific evidence roles; reference presence alone is insufficient"},
+    {"finding": "PR-005", "repair": "runtime strict-contract validation rejects undeclared or missing fields before evaluation"},
+    {"finding": "PR-006", "repair": "a predecessor state is temporal-promotion classified only after the superseding transition independently satisfies the full evidence/authority/effectivity/basis gate"},
+    {"finding": "PR-007", "repair": "normalized assertions now carry normalizer identity, method, DESCRIPTIVE_MAPPING_ONLY authority, and bounded coverage status"},
+    {"finding": "PR-008", "repair": "temporal anchors now carry source class and verification status; inferred, absent, ambiguous, or unverified anchors yield INDETERMINATE"},
+    {"finding": "PR-009", "repair": "scope and non-effects are typed coordinates over subject object, dimension, surface, and claim"},
+    {"finding": "PR-010", "repair": "per-assertion output uses typed semantic dispositions while retaining PASS/WITHHOLD/INDETERMINATE only as execution actions"},
+    {"finding": "PR-011", "repair": "regression population expanded from 6 to 22 tests, including the frozen oracle-reintroduction pressure paths"}
+  ],
+  "nonclaims": [
+    "REPAIR_IMPLEMENTED != REPAIR_QUALIFIED",
+    "REGRESSION_PASS != INDEPENDENT_PRESSURE_PASS",
+    "SUCCESSOR_BRANCH != REPOSITORY_ADMISSION",
+    "PREDECESSOR_NEGATIVE_RESULT_REMAINS_PRESERVED"
+  ]
+}
