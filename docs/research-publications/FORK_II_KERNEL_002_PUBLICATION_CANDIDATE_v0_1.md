@@ -31,6 +31,12 @@ The historical result supports **bounded execution, detection on enumerated muta
 
 The original admission explicitly does **not** claim that a second full repaired executable ZIP copy resides at the release-admission path. Hash description alone is not a substitute for possessing, checking, and depositing those exact bytes.
 
+## Dated recovery result — 2026-10-17
+
+The exact hash-bound executable ZIP was **not located** in this intake. A read-only archive scan inspected 419 nested ZIP members and 28,165 archive entries across nine distinct outer collection packages, plus the named executable path was absent from public `main` at the examined coordinate. No matching exact basename or SHA-256 was found within that bounded search. This does **not** show that the historical release never existed or is unrecoverable outside the searched collection.
+
+Consequently, a **software/code DOI deposit claiming the executable is complete is not ready**. A narrower, clearly typed documentary research record could instead cite the preserved admission receipts, without representing an absent executable as deposited or verified. The September record remains historically admitted within its actual claim ceiling. Later post-September research results exist in separate supplied archives and must be reconciled on their own merits rather than treated as inherited by this earlier candidate.
+
 ## Deposit-blocking checks
 
 | Check | Current intake status |
