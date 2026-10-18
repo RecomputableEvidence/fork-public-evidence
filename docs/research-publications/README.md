@@ -1,51 +1,35 @@
-# Research outputs — publication intake v0.1 (2026-10-17)
+# Fork research publication queue — scoped successor v0.2
 
-**Standing:** `NON_AUTHORITATIVE_INTAKE`; **effect on existing research objects:** `NONE`; **base examined:** `main@a420dfd74881f87c90007f1ad1b3a894d767cb26`.
+**Snapshot:** 2026-10-17. **Examined repository coordinate:** `main@a420dfd74881f87c90007f1ad1b3a894d767cb26`.  
+**Standing:** `SCOPED_NON_AUTHORITATIVE_PUBLICATION_INTAKE`. **Effect on prior research and current-standing files:** `NONE`. **Publication or DOI/ORCID action:** `NONE`.
 
-This is a new discovery and registration *work queue*, not a successor standing register, retrospective execution assertion, license grant, proof of independence, DOI deposit, ORCID update, or new public release of source archives. Continue to use [Current Standing](../../CURRENT_STANDING.md) and the [current-work register v0.9](../current-standing/FORK_CURRENT_WORK_REGISTER_v0_9.md) for the repository's historical-coordinate standing, and each object-specific receipt for the object itself.
+## Objective
 
-## Existing on-repository evidence suitable for first examination
+Make one **already admitted, bounded Fork outcome** citable and independently navigable before enlarging the release population. Publication progress is not measured by numbers of archived files or experiment family names. **First target:** [Fork II Kernel 002 v0.1 — evidence card](FORK_II_KERNEL_002_PUBLICATION_CANDIDATE_v0_1.md).
 
-| Research object | Repositories' bounded description | Source | Initial publication task |
-| --- | --- | --- | --- |
-| Fork II Kernel 002 v0.1 | Admitted bounded research release, same-implementation separate recomputation; does not demonstrate independent semantic implementation or production readiness | [Admission](../../admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/README.md) | Identify citable object and version; prepare frozen companion metadata |
-| Fork II original handoff hypothesis Pilot 002 | Bounded deterministic mechanistic support; Pilot 001 failed guardrail and stays preserved; external behavioral validation not established | [Fork II standing](../current-standing/FORK_II_CURRENT_STANDING_001_20260926.md) | Bind both pilot packets and explicit falsification conditions |
-| Lens Shift v0.1 Blind Epoch 003 | Bounded scope-qualified admission; does not demonstrate universal methodological validity or cryptographically attested blindness | [Epoch admission](../../admissions/LENS-SHIFT-v0.1/BLIND-EPOCH-003/README.md) | Prepare epoch-specific methods, limitations and run receipts |
-| UEM v0.1 Epoch 010 CRII | Bounded admitted epoch; receipt replay is not independent executor reconstruction from fixtures | [Epoch admission](../../admissions/UEM-v0.1/EPOCH-010-CRII/README.md) | Bind executable methods and distinct verification class |
+This queue contains **only direct Fork-core outputs**. It does not host a program-wide NGAST experiment catalog. The broad v0.1 draft intake is superseded **only as a proposed navigation scope**, not as a historical observation; its prior Git commits and the original local intake reports remain preserved outside the proposed PR file tree. No prior experiment is deleted from `main`.
 
-## Off-repository candidates requiring source recovery
+## In-scope, evidence-linked objects
 
-These entries come from prior research records and **were not rerun or rehashed for this intake**. They are not represented here as admitted on `main`, independently replicated, DOI-registered or ORCID-listed.
-
-| Candidate family | Preserved/reported characterization to recheck | Release prerequisite |
+| Target | Exact source and currently evidenced standing | Next decision-material action |
 | --- | --- | --- |
-| Shared World 001 | Two-epoch deterministic replay, negative-case probes | Exact archive, replay logs, participant/model identity boundary |
-| SIC v0.3.3 / EXAM-002 | Bounded fixture pressure and repaired divergence sequence | Frozen predecessor, repair chain and independent receipt |
-| Foundation–Fork Convergence 001 | Bounded convergence checks and recomputation | Frozen archive, dependency matrix, separation from unimplemented Workshop |
-| RUNS Forge | Bounded arm/identity/interruption trials, separate successor revisions | One record per executed run; causal envelope, controls, negative runs |
-| NGAST-LS-WEIGHTS-RUN-001 | Adapter run and reload/logit check reported; held-out winner not established | Checkpoint/adapter provenance, training licenses, held-out comparisons |
-| NGAST-EW005 | Controller output recorded, unadjudicated | Verifier result and raw record preserving the unadjudicated state |
-| Temporal-standing research | Papers plus different bounded technical demonstrations | Split conceptual claim from distinct datasets, tests and software |
+| **First:** Fork II Kernel 002 v0.1 | [Bounded release admission](../../admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/README.md): 39/39 combined, 12/12 predecessor mutants, 8/8 targeted successor faults; separate recomputation used same supplied implementation | Recover/read and verify the exact **56,826-byte release ZIP** against `77b7e769…33c3108`; verify attribution/rights, select discrete deposit object, search existing DOI, obtain release clearance |
+| **Next:** Fork handoff hypothesis Pilot 002 | [Fork II standing](../current-standing/FORK_II_CURRENT_STANDING_001_20260926.md): bounded mechanistic support; Pilot 001 failed guardrail; no external behavioral validation | Bind frozen Pilot 001/002 packages, failures, scoring criteria and protocol in one reproducible companion before release |
 
-See the [machine-readable intake](REGISTRY_v0_1.json). `PRIOR_RESEARCH_RECORD_NOT_RECHECKED_AGAINST_PACKAGE_HERE` is explicitly a source-recovery cue, not confirmation of current publication qualification.
+Machine-readable [two-object queue](REGISTRY_v0_2.json). This is **not** a representation of all experimental work or all Fork-relevant source already in the repository. Consult [Current Standing](../../CURRENT_STANDING.md) and object-specific admission records for historical standing.
 
-## Publication steps
+## Scope firewall
 
-1. **Reconcile identity**: exact object ID/version, author/contributor roles, original and successor boundaries, scientific question, unit of observation, source and license.
-2. **Locate immutable bytes**: raw outputs, controls, tests, hashes, verifier scripts, failed predecessors, negative probes, and independent returns when available.
-3. **Recompute the specific claim**: record the environment, verifier independence class, direct result and residual gaps; a source package alone is not a passed examination.
-4. **Select the publication object**: paper, report, software release, or dataset; do not apply a whole-repository paper citation to an unrelated experiment.
-5. **Examine disclosure rights**: confidential/third-party data, participant consent, model/provider terms, security-sensitive material, contributor attribution, and selected open-source license.
-6. **Release separately**: publish an exact tagged, frozen object or separately deposited dataset; record the live DOI, date, released manifest and retrieval verification.
-7. **Connect ORCID**: add/import the exact work and verify identifier, title, version and attribution on the public record; no automatic registration is presumed.
+**Fork core** means an exact research object directly testing or implementing Fork's out-of-band evidence preservation, bounded handoff, claim-state and authority/temporal provenance mechanisms, supported by an identified source and version. **External NGAST / independent research** includes Shared World, RUNS Forge, LexiFORM, RPR, SEMARM, Lens Shift training, Workshop, and FractureEngine as independent lineages. Such work may be cross-referenced *by typed evidence relation* if it materially informs Fork, but does not enter this queue, inherit Fork release admission, or become a Fork product simply by conceptual overlap.
 
-See [registration procedure](ORCID_DOI_WORKFLOW_v0_1.md).
+Existing Lens Shift and UEM material already admitted elsewhere on the Fork repository stays at its original locations and source standing; this new narrow navigation does not remove or de-admit it. Likewise, the current Fork standing register is not rewritten.
 
-## Publication-status vocabulary
+**FractureEngine** is explicitly **deferred, outside the Fork publication queue**. No additional work is implied until a distinct objective warrants revisiting it.
 
-- `EXISTS` / `EXECUTED` / `FROZEN` / `RECOMPUTED` / `INDEPENDENTLY_REPLICATED` / `REPOSITORY_ADMITTED` / `PUBLICLY_RELEASED` / `DOI_REGISTERED` / `ORCID_LISTED` are independent, object-specific propositions.
-- A narrower success remains valuable without upgrading a wider hypothesis.
-- `NOT_FOUND_IN_THIS_EXAMINATION` is not proof of absence anywhere.
-- No existing historical record or negative result is modified by this index.
+## DOI and ORCID
 
-**Research identity:** [Ryan Feller — ORCID 0009-0000-7863-5792](https://orcid.org/0009-0000-7863-5792). A linked identifier denotes attribution only; it does not imply that the works in this queue have been deposited.
+This queue contains zero issued DOIs and zero verified new ORCID Work records. Do not infer that a GitHub release or code citation equals a DOI. Follow the [deposit and registration workflow](ORCID_DOI_WORKFLOW_v0_1.md) and resolve the existing article-oriented `CITATION.cff` before publishing software metadata via GitHub/Zenodo. Preserve actual historical failure and verification-class boundaries; no blanket independence or production claims.
+
+## Exit criterion
+
+Advance from candidate to deposit-ready **only when** the exact release object bytes, scope-true metadata, author/contributor and license permissions, negative predecessors, verification class, disclosure review, and existing-identifier search are all checked and recorded. A draft PR and its links do not authorize a release.
