@@ -15,6 +15,10 @@ The current-standing layer is an interpretation and routing surface. Inclusion t
 
 Start here: [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md)
 
+## Research-output registration and DOI/ORCID intake
+
+The [2026-10-17 research-output publication intake](docs/research-publications/README.md) indexes already recorded, bounded experiments and identifies off-repository candidates awaiting source recovery. It is a non-authoritative publication work queue, **not** a standing promotion, new empirical validation, DOI deposit, ORCID update, or release authorization. See also the [DOI/ORCID registration procedure](docs/research-publications/ORCID_DOI_WORKFLOW_v0_1.md). The historical current-standing route above remains authoritative within its stated coordinate.
+
 ## Research Status
 
 Fork's current evidence supports an engineering pattern and a motivated hypothesis, not a proven general systems theory.
