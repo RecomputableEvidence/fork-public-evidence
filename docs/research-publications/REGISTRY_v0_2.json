@@ -1,0 +1,73 @@
+{
+  "schema": "fork-core-publication-queue-v0.2",
+  "created": "2026-10-17",
+  "scope": "FORK_CORE_ONLY",
+  "examined_main_commit": "a420dfd74881f87c90007f1ad1b3a894d767cb26",
+  "predecessor_draft_registry": "docs/research-publications/REGISTRY_v0_1.json (withdrawn from proposed PR tree; still preserved by PR commit history)",
+  "evidence_effect": "NONE",
+  "registration_effect": "NONE",
+  "inclusion_test": "Directly concerns Fork evidence/handoff mechanism AND an exact version/result is bounded by on-repository source. Cross-program relevance alone is insufficient.",
+  "records": [
+    {
+      "object_id": "FORK-II-KERNEL-002-v0.1",
+      "program": "FORK_CORE",
+      "source_path": "admissions/FORK-II-KERNEL-002/v0.1-BOUNDED-RELEASE-ADMISSION/README.md",
+      "status": "BOUNDED_RESEARCH_RELEASE_RECORDED_ON_MAIN",
+      "verification_class": "SEPARATE_EXECUTION_SAME_SUPPLIED_IMPLEMENTATION",
+      "publication_candidate": "FIRST",
+      "source_review": "REPO_RECEIPT_READ_NOT_REEXECUTED_THIS_INTAKE",
+      "software_package": {
+        "basename": "FORK-II-KERNEL-002-EXECUTABLE-PROBE-v0.1-POST-REPAIR-20260923.zip",
+        "bytes": 56826,
+        "sha256": "77b7e7691c6f683b43482019e3f90cb6366a21524714255b67a6da3cf33c3108",
+        "full_zip_second_copy_claimed_on_main": false
+      },
+      "publication_gate": {
+        "package_bytes_verified_for_new_deposit": false,
+        "contributor_and_license_reviewed": false,
+        "existing_doi_checked": false,
+        "external_release_approved": false,
+        "doi_issued": false,
+        "orcid_work_confirmed": false
+      },
+      "doi": null,
+      "orcid_work_id": null
+    },
+    {
+      "object_id": "FORK-ORIGINAL-HYPOTHESIS-PILOT-002",
+      "program": "FORK_CORE",
+      "source_path": "docs/current-standing/FORK_II_CURRENT_STANDING_001_20260926.md",
+      "status": "SUPPORTED_IN_BOUNDED_MECHANISTIC_PILOT__CLOSED",
+      "verification_class": "DETERMINISTIC_MECHANISTIC_PILOT_EXTERNAL_BEHAVIORAL_NOT_ESTABLISHED",
+      "publication_candidate": "FOLLOW_ON_AFTER_FROZEN_PACKET_LINKAGE",
+      "source_review": "REPO_ORIENTATION_READ_NOT_RERUN_THIS_INTAKE",
+      "negative_predecessor": "Pilot 001 failed false-withholding guardrail; remains preserved",
+      "publication_gate": {
+        "both_pilot_packets_bound_for_new_deposit": false,
+        "contributor_and_license_reviewed": false,
+        "existing_doi_checked": false,
+        "external_release_approved": false,
+        "doi_issued": false,
+        "orcid_work_confirmed": false
+      },
+      "doi": null,
+      "orcid_work_id": null
+    }
+  ],
+  "excluded_from_this_queue": [
+    "FractureEngine",
+    "Shared World",
+    "LexiFORM",
+    "RUNS Forge",
+    "Workshop / Temporal Operations",
+    "SEMARM G1",
+    "Model training / CAIRN",
+    "Lens Shift as standalone method",
+    "UEM as standalone experiment",
+    "RPR",
+    "SIC/pressure as independent research family",
+    "Foundation/Convergence as independent research family"
+  ],
+  "separation_rule": "Excluded-from-queue means no Fork-core citation or standing inheritance; it is not a judgment about scientific value and does not alter any existing repository artifacts.",
+  "registration_identity": "https://orcid.org/0009-0000-7863-5792"
+}
