@@ -17,7 +17,7 @@ Start here: [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.m
 
 ## Research-output registration and DOI/ORCID intake
 
-The [2026-10-17 research-output publication intake](docs/research-publications/README.md) indexes already recorded, bounded experiments and identifies off-repository candidates awaiting source recovery. It is a non-authoritative publication work queue, **not** a standing promotion, new empirical validation, DOI deposit, ORCID update, or release authorization. See also the [DOI/ORCID registration procedure](docs/research-publications/ORCID_DOI_WORKFLOW_v0_1.md). The historical current-standing route above remains authoritative within its stated coordinate.
+The [Fork-core publication queue](docs/research-publications/README.md) identifies the first **bounded, already repository-admitted Fork outcome** for an evidence-backed citable release. It deliberately excludes independent NGAST research families such as FractureEngine, Shared World, LexiFORM, RUNS Forge and model training: conceptual adjacency grants no Fork standing. The queue is a draft intake, not a new execution, public archive release, DOI/ORCID registration, or standing promotion. Follow the [deposit and registration workflow](docs/research-publications/ORCID_DOI_WORKFLOW_v0_1.md) only after the exact object-specific release gates.
 
 ## Research Status
 
