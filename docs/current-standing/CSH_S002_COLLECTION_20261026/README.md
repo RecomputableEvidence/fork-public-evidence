@@ -54,3 +54,10 @@ manifest reproduction because Path ordering is case-insensitive on Windows.
 The repair sorts relative POSIX path strings explicitly. Original raw evidence,
 coding contents and parser outcomes are unchanged; the manifest's generator hash
 is updated. The original failed CI run remains preserved in GitHub Actions.
+
+The next CI run exposed a separate first-parent accounting mismatch on GitHub's
+synthetic PR merge: it collapses the new tool's introduction and repair into one
+transition. Ledger-dependent jobs now check the exact PR head (or event SHA for
+non-PR runs), preserving the real two-transition history. These jobs validate
+the branch, not synthetic merge integration. Other merge-based checks retain
+their default checkout. Local branch accounting remains PASS.

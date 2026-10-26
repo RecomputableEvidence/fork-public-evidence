@@ -20,6 +20,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          # First-parent accounting must inspect the PR head, not a synthetic merge.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
       - name: Configure Git line endings
