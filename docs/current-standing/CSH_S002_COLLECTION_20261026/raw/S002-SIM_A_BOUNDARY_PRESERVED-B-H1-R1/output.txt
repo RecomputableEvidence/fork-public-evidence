@@ -1,0 +1,43 @@
+```json
+{
+  "packet_type": "csh_s001_transfer_record",
+  "schema_version": "s001-v0.1",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+  "handoff_id": "CSH-S001-HANDOFF-SIM_A_BOUNDARY_PRESERVED-v0.1",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "expected_relationship": "PRESERVED",
+  "transfer_claims": [
+    {
+      "claim_id": "CLAIM_A1",
+      "text": "The bounded structural checker passed for the supplied fixture set.",
+      "upstream_claim_id": "CLAIM_A1",
+      "relationship_to_upstream": "PRESERVED",
+      "transformation_applied": "faithful restatement"
+    }
+  ],
+  "non_claims": [
+    "The result does not establish truth.",
+    "The result does not certify compliance.",
+    "The result does not transfer authority."
+  ],
+  "prohibited_inferences": [
+    "broaden checker pass into truth",
+    "broaden checker pass into compliance",
+    "inherit institutional authority"
+  ],
+  "authority_references": [],
+  "evidence_references": [
+    "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_A_BOUNDARY_PRESERVED.json"
+  ],
+  "unresolved_references": [],
+  "unresolved_state": [],
+  "permitted_narrowing": [
+    "faithful restatement"
+  ],
+  "required_local_revalidation": [
+    "Revalidate any downstream assertion that is not textually identical to an emitted claim.",
+    "Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency."
+  ]
+}
+```

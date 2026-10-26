@@ -1,0 +1,26 @@
+{
+  "record_type": "downstream_transfer_record",
+  "schema_version": "s001-v0.1",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+  "relationship": "PRESERVED",
+  "transferred_claims": [
+    {
+      "claim_id": "CLAIM_D1",
+      "text": "The artifact preserves a policy reference asserted by the source workflow."
+    }
+  ],
+  "non_claims": [
+    "Policy reference presence does not establish applicability.",
+    "Policy reference presence does not establish compliance.",
+    "No authority is transferred."
+  ],
+  "unresolved_references": [],
+  "transfer_limits": [
+    "Do not assert policy applicability.",
+    "Do not assert compliance.",
+    "Do not expand the claim without a new boundary contract.",
+    "Do not inherit authority."
+  ],
+  "handoff_state": null
+}

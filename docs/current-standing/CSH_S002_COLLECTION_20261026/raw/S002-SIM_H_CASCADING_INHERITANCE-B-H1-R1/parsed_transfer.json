@@ -1,0 +1,49 @@
+{
+  "transfer_record_type": "csh_s001_downstream_transfer_record",
+  "schema_version": "s001-v0.1",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+  "handoff_id": "CSH-S001-HANDOFF-SIM_H_CASCADING_INHERITANCE-v0.1",
+  "pressure_class": "multi_hop_inheritance",
+  "transferred_claims": [
+    {
+      "claim_id": "CLAIM_H1",
+      "text": "System A emitted a bounded recommendation with unresolved institutional review.",
+      "upstream_claim_id": "CLAIM_H1",
+      "relationship_to_upstream": "PRESERVED"
+    }
+  ],
+  "non_claims": [
+    "System A did not authorize execution.",
+    "System B must revalidate local authority.",
+    "Downstream systems must not inherit approval."
+  ],
+  "unresolved_state": [
+    "LOCAL_AUTHORITY_REVIEW"
+  ],
+  "authority_references": [],
+  "evidence_references": [
+    "docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json"
+  ],
+  "permitted_narrowing": [
+    "faithful restatement",
+    "valid narrowing"
+  ],
+  "prohibited_inferences": [
+    "convert recommendation into approval",
+    "inherit authorization across hops",
+    "collapse unresolved local review",
+    "aggregate into positive institutional determination"
+  ],
+  "required_local_revalidation": [
+    "Revalidate any downstream assertion that is not textually identical to an emitted claim.",
+    "Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.",
+    "Resolve every unresolved_state entry with independent local evidence before representing it as resolved."
+  ],
+  "record_status": {
+    "approval": "NOT_GRANTED",
+    "authorization": "NOT_GRANTED",
+    "local_authority_review": "UNRESOLVED",
+    "note": "This transfer record conveys the upstream recommendation only. It does not constitute approval, authorization, or an institutional determination, and no authority is inherited across hops."
+  }
+}

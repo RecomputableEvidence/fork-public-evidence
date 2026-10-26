@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:04:30.611702+00:00",
+  "actual_usd": "0.00057",
+  "errors": [],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_cffa86cd-eb05-450f-8fe2-9d5e9367797d",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "single_json_fence",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "c282e5652e6c044e48ea82dea644db70c15581ccd80cf95091dfa634bc427170",
+  "response.bin_sha256": "30f416cb4db1f1dff44e6adbc05f06038d8ad5585f3301ea5a563f6a77bdfb68",
+  "output.txt_sha256": "4453a7aaabb299b76f4242aa45b5904d60b2f59770ca6290aa9ebbefd10bac0f",
+  "parsed_transfer.json_sha256": "20de265d86e1d3976654b9f4b0abf5a7c4289df6568a6683e60c9937068ebc5a",
+  "completed_at_utc": "2026-10-26T19:04:35.308149+00:00"
+}

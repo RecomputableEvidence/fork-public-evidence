@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H0-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:04:35.334034+00:00",
+  "actual_usd": "0.00023",
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_status": "completed",
+  "response_id": "resp_3c1648ec-350e-4ca9-98fc-a7b1e80dee62",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "bare_json",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "9e084ede5595158b28aa23dfa1dc46fd8567e1a83b0141144a7134d38160bd45",
+  "response.bin_sha256": "ad20310d856a52f4bff25f7c72d79c6b12051e2cdbcbadd126aba18f9f9c5396",
+  "output.txt_sha256": "2e5366ccba54b23444755e9a5c03b870c18054121fd7429f5f01fe94cde4f054",
+  "parsed_transfer.json_sha256": "f6828acc9234f2e1985eca20ee4944792878bb5c534b8ca3683ad6a817b57551",
+  "completed_at_utc": "2026-10-26T19:04:43.342297+00:00"
+}

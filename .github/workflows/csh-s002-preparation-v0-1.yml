@@ -20,8 +20,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -r requirements-proof-surface.txt -r requirements-perplexity-agent.txt
-      - run: python -m pytest tests/test_csh_s002_preparation_v0_1.py tests/test_csh_s002_execution_v0_1.py tests/test_csh_s002_parser_v0_2.py tests/test_csh_s002_continuation_v0_2.py -q
+      - run: python -m pytest tests/test_csh_s002_preparation_v0_1.py tests/test_csh_s002_execution_v0_1.py tests/test_csh_s002_parser_v0_2.py tests/test_csh_s002_continuation_v0_2.py tests/test_csh_s002_coding_v0_1.py -q
       - run: python tools/prepare_csh_s002_v0_1.py --output-dir s002-offline-plan
+      - run: python tools/prepare_csh_s002_coding_v0_1.py
       - run: python tools/continue_csh_s002_v0_2.py
       - run: python tools/run_csh_s002_v0_1.py
       - run: python scripts/check_standing_freshness_v0_1.py --json

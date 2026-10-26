@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:03:45.632948+00:00",
+  "actual_usd": "0.00034",
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_status": "completed",
+  "response_id": "resp_790eecf4-09f7-4eab-92ed-98e3964665bc",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "bare_json",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "359aefae4308cdffe55f402f0bc045594e710c388a392ca02f8ff00b9216a892",
+  "response.bin_sha256": "2beb2097ea9eba0e2d331d1226462292b78775cd203ab21e3884c9cee056c42c",
+  "output.txt_sha256": "8586338445110e1251a7ca48e53cbd06993a019738b7b9f5dffff7dd0dd1ce56",
+  "parsed_transfer.json_sha256": "3532586f526359c6039d100ba3a8e02dc0caa8390dc7a63effaad9b41991d2f4",
+  "completed_at_utc": "2026-10-26T19:03:51.071387+00:00"
+}
