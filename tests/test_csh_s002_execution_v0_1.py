@@ -30,7 +30,7 @@ def isolated(tmp_path, monkeypatch):
 
 
 def client_for(handler):
-    import httpx
+    httpx = pytest.importorskip('httpx')
     perplexity = pytest.importorskip('perplexity')
     return perplexity.Perplexity(api_key='synthetic-secret', max_retries=0,
         http_client=httpx.Client(transport=httpx.MockTransport(handler), trust_env=False))
@@ -68,7 +68,7 @@ def test_source_tamper_blocks(tmp_path, monkeypatch):
 
 
 def test_full_mock_campaign_and_no_repeat(isolated, tmp_path):
-    import httpx
+    httpx = pytest.importorskip('httpx')
     calls = []
     out = tmp_path / 'results'
     def handle(req):
@@ -97,7 +97,7 @@ def test_full_mock_campaign_and_no_repeat(isolated, tmp_path):
 
 @pytest.mark.parametrize('status', [401, 402, 429, 500])
 def test_http_failures_never_retry(isolated, tmp_path, status):
-    import httpx
+    httpx = pytest.importorskip('httpx')
     calls = []
     def handle(req):
         calls.append(req); return httpx.Response(status, json={'error': 'synthetic'})
@@ -134,7 +134,7 @@ def test_answer_object_required(text):
 
 
 def test_overrun_stops_and_charges_actual(isolated, tmp_path):
-    import httpx
+    httpx = pytest.importorskip('httpx')
     calls = []
     def handle(req):
         calls.append(req)
@@ -193,7 +193,7 @@ def test_s002_coding_schema_and_paired_analysis_compatibility():
 
 @pytest.mark.parametrize('failure', ['timeout', 'incomplete', 'malformed', 'missing_cost'])
 def test_uncertain_or_invalid_outcomes_stop(isolated, tmp_path, failure):
-    import httpx
+    httpx = pytest.importorskip('httpx')
     calls = []
     def handle(req):
         calls.append(req)

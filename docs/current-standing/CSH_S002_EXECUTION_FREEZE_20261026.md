@@ -82,3 +82,16 @@ neutral preflight or corpus campaign to obtain a preferred result.
 An interrupted process may leave only its durable ledger/reservation and partial
 unit files; treat these as authoritative unknown outcomes. Handoff summaries are
 written during normal progress and completion, and are not a crash-recovery tool.
+
+## Hosted optional-dependency correction
+
+At commit 9b78b0031afa2d26f33ffe7e692ef129feb0e916, dedicated execution jobs
+passed on Linux and Windows, but the generic Linux proof job reported 13 failed,
+811 passed, 3 skipped: new mock-transport tests imported optional httpx before
+checking availability. Job 121742600324 preserves that failure. The tests now
+explicitly skip unavailable optional transport dependencies, consistent with
+the existing optional SDK suite. Dedicated CI still installs the pinned SDK and
+runs every execution test. Runner, freeze and all request bytes are unchanged.
+
+Post-correction targeted verification: 53 passed with SDK installed; in a fresh
+proof-only virtual environment, 38 passed and 15 optional transport tests skipped.
