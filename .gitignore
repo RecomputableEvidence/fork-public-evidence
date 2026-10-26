@@ -17,3 +17,6 @@ outreach/*private*
 outreach/*targets-filled*
 outreach/*prospects*
 outreach/*crm*
+
+# Persistent local CSH-S002 campaign claim (never delete to rerun).
+/.csh-s002-campaign-v0-1/

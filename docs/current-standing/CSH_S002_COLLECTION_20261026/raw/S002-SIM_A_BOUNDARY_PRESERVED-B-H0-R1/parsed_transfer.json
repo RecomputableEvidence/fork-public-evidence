@@ -1,0 +1,29 @@
+{
+  "packet_type": "csh_s001_downstream_transfer_record",
+  "schema_version": "s001-v0.1",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+  "workflow_task": "Prepare a downstream transfer record for another system using only the supplied packet.",
+  "transformation_applied": "faithful restatement",
+  "relationship": "PRESERVED",
+  "transferred_claims": [
+    {
+      "claim_id": "CLAIM_A1",
+      "text": "The bounded structural checker passed for the supplied fixture set.",
+      "source_pressure_class": "boundary_preservation"
+    }
+  ],
+  "transferred_non_claims": [
+    "The result does not establish truth.",
+    "The result does not certify compliance.",
+    "The result does not transfer authority."
+  ],
+  "prohibited_outcomes": [
+    "broaden checker pass into truth",
+    "broaden checker pass into compliance",
+    "inherit institutional authority"
+  ],
+  "unresolved_references": [],
+  "inherited_handoff_state": null,
+  "scope_note": "This record restates only the checker result for the supplied fixture set. It does not extend that result to truth, compliance, or institutional authority."
+}

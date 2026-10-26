@@ -1,0 +1,46 @@
+```json
+{
+  "record_type": "downstream_transfer_record",
+  "schema_version": "s001-v0.1",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+  "source_packet_type": "csh_s001_receiver_prompt_packet",
+  "source_artifact_schema_version": "v0.1",
+  "pressure_class": "unresolved_reference",
+  "transfer_date": "2026-10-26",
+  "expected_relationship": "PRESERVED",
+  "transferred_claims": [
+    {
+      "claim_id": "CLAIM_F1",
+      "text": "The source record references evidence object EVID_F1.",
+      "scope": "reference-presence only",
+      "support_status": "not established"
+    }
+  ],
+  "unresolved_references": [
+    {
+      "reference_id": "EVID_F1",
+      "status": "UNRESOLVED",
+      "retrieved": false,
+      "sufficiency_assessed": false
+    }
+  ],
+  "non_claims": [
+    "The referenced object was not retrieved in this handoff.",
+    "Reference presence is not evidence sufficiency.",
+    "The unresolved reference must remain unresolved."
+  ],
+  "permitted_transformations_applied": [
+    "preserve unresolved status",
+    "narrow to reference-presence only"
+  ],
+  "prohibited_outcomes_observed": [
+    "treat EVID_F1 as retrieved: not performed",
+    "treat EVID_F1 as sufficient support: not performed",
+    "resolve without resolution evidence: not performed"
+  ],
+  "handoff_state_artifact": null,
+  "handoff_state_note": "No handoff_state_artifact was supplied in the packet; none was created.",
+  "external_retrieval_performed": false
+}
+```

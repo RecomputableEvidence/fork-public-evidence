@@ -1,0 +1,17 @@
+{
+  "status": "HUMAN_CODING_REQUIRED",
+  "freeze_sha256": "95857e56d8cf563fb313a439e85dfb40c4d9ae298dce9aee6c12e811a01b77c2",
+  "instructions": "Follow bound CODING_HANDOFF.md. Preserve raw output. Never substitute model self-labels for reviewed coding.",
+  "units": [
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/response.bin",
+        "sha256": "7be6a1b3aaeb86f790410fe4c0822a27e74febf49e4a1d70cfa26b243a1c22ae"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    }
+  ]
+}

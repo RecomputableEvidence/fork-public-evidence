@@ -1,0 +1,16 @@
+{
+  "source_archive": "csh-s002-corpus-20261026-105606.zip",
+  "source_archive_sha256": "5f92f2a074e272564705f7d59de612dc1b83233c21f16d8d2c228556a03c7b05",
+  "source": "User-supplied Windows execution archive; members preserved byte-for-byte with path separators normalized.",
+  "files": {
+    "analysis-pending.json": "94322512fea60ab996661ef9d121957e5bf88429b858b3fd03a7db3af580db98",
+    "coding-handoff.json": "8baa5d68860a906503e3daa19dc0c92a0d6c830dde4a25a9dad3e9528d1029a9",
+    "FREEZE.json": "95857e56d8cf563fb313a439e85dfb40c4d9ae298dce9aee6c12e811a01b77c2",
+    "ledger.json": "8ce3d5bf24396be6e7fdd2893dbb7a5a214ef71c73aa44847a974ad4a987d389",
+    "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/intended_request.json": "eb096ab0cb68058edc24a307bbb48c0a2a1fd5caddd91514cade7ddb94d938de",
+    "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/output.txt": "b2dc897c185191cb25a89b3a8385082caf67c823fac1c6134d582eb8fe0f2b59",
+    "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/receipt.json": "4dfceb37f9343754b00750a242fcd71ed9726e9a4cde5f27e9d3244d9a82db30",
+    "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/request.json": "eb096ab0cb68058edc24a307bbb48c0a2a1fd5caddd91514cade7ddb94d938de",
+    "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/response.bin": "7be6a1b3aaeb86f790410fe4c0822a27e74febf49e4a1d70cfa26b243a1c22ae"
+  }
+}

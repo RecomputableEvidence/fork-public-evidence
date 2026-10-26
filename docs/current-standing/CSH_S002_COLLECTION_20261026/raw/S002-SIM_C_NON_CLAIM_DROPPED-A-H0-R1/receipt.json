@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H0-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:03:25.181131+00:00",
+  "actual_usd": "0.0002",
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_status": "completed",
+  "response_id": "resp_e2bd4ff7-11f5-4615-b340-2538ab20332c",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "bare_json",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "67b3c9050a0ad62768e1a92414a4c7e5c0169dde7bc976967ec182cf57ac2f0e",
+  "response.bin_sha256": "53c7840f1578bd483f3f66dda07086180ea7dc8f954adf7ee27f060b7fe4ce65",
+  "output.txt_sha256": "6edaab9dc9550671ad841bd71b7736f41eabb3200ca730b0c467cb0270bcc0d1",
+  "parsed_transfer.json_sha256": "9e58f04e04c2c138ec2839c1a90887691e35238f8135666d8bce4f7a459f7e7e",
+  "completed_at_utc": "2026-10-26T19:03:28.926651+00:00"
+}

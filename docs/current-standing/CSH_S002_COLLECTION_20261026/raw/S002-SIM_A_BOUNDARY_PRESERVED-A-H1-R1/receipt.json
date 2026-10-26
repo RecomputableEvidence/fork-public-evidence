@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H1-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:04:07.623106+00:00",
+  "actual_usd": "0.00033",
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_status": "completed",
+  "response_id": "resp_1fc29dc6-70ba-4ff2-b6e6-1d3581a46090",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "bare_json",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "59315ce806459d8202bdf215fc2beb4efe475bd9b831158180ea47acf6c21a38",
+  "response.bin_sha256": "70caa088ba773ef0ead82690a35b8691d740ac6dd530e3b03d581af514f6ff2f",
+  "output.txt_sha256": "c3a7c9a077139ad52186bdc4334ac945100e202598e3006be78ab9c97a334475",
+  "parsed_transfer.json_sha256": "fe0100987a4ffb7d8b4a90a5b10a97960cf41c7562177d40188e77bcfccdb9f1",
+  "completed_at_utc": "2026-10-26T19:04:13.532971+00:00"
+}

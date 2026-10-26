@@ -1,0 +1,20 @@
+{
+  "provider": "groq",
+  "requested_model": "openai/gpt-oss-120b",
+  "permitted_returned_models": [
+    "openai/gpt-oss-120b"
+  ],
+  "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+  "started_at_utc": "2026-10-26T16:25:26.910755+00:00",
+  "request_sha256": "27e8dc6cd9c3d4bf17252839bd2151ffa7bc473b63b526531e581aa34fb2017c",
+  "contains_csh_corpus": false,
+  "request_attempted": true,
+  "identity_scope": "exact returned string match; not provider/model attestation",
+  "status": "HTTP_ERROR",
+  "http_status": 403,
+  "response_sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c",
+  "errors": [
+    "http_status"
+  ],
+  "completed_at_utc": "2026-10-26T16:25:27.184971+00:00"
+}

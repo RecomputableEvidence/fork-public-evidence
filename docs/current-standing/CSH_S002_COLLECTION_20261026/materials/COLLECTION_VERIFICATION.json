@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED_COLLECTION",
+  "planned_units": 24,
+  "unique_requests_captured": 24,
+  "new_continuation_requests": 23,
+  "carried_units": 1,
+  "parser_accepted": 23,
+  "parser_rejected": 1,
+  "all_http_200_and_completed": true,
+  "recorded_file_hashes_verified": 94,
+  "preserved_archive_members": 156,
+  "known_corpus_cost_usd": "0.01182",
+  "including_neutral_reported_usd": "0.01185",
+  "gross_reserved_usd": "0.78",
+  "unknown_cost_requests": 0,
+  "campaign_ledger_status": "STOPPED",
+  "research_scores_assigned": 0,
+  "boundary": "Collection is complete; grammar acceptance and semantic coding are separate. Returned identities are strings, not model attestations."
+}

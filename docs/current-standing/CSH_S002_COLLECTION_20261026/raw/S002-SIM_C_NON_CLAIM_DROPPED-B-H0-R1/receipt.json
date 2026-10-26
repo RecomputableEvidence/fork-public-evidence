@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H0-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:04:16.899060+00:00",
+  "actual_usd": "0.00047",
+  "errors": [],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_8e509955-a7fe-462f-b4f5-ca907e631d90",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "single_json_fence",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "308978470bdc7eaf556d375cfc932894e2ed165db7fb5751f377565f312144cd",
+  "response.bin_sha256": "bd38e2c429eacb4bff404831fecfcc1600a0de65b5b9bf13f5393eaea5fc2d52",
+  "output.txt_sha256": "69d7212d922faa61155586cdb1af6ac13646ff73dde82ce68d5d5b1099120931",
+  "parsed_transfer.json_sha256": "2a3065dc42163660f252f5cb16a746f9fc8406b8b7f4c0e4ee5dea9e873fe15f",
+  "completed_at_utc": "2026-10-26T19:04:20.892634+00:00"
+}

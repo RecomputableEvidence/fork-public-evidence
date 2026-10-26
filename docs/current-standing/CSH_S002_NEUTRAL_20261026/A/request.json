@@ -1,0 +1,1 @@
+{"input":"Return JSON only: {\"preflight\":\"ok\"}","max_output_tokens":2048,"max_steps":1,"model":"openai/gpt-6-luna","store":false,"stream":false,"tool_choice":"none","tools":[]}

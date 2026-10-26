@@ -1,0 +1,27 @@
+{
+  "coding_id": "C007",
+  "status": "PENDING_HUMAN_CODING",
+  "normalization_run_id": null,
+  "coder_id": null,
+  "coding_timestamp_utc": null,
+  "output_sha256": "ea6c798b7a0fba6b17f9e33e78e50ba2e0195fba2960bd6b70745c83e849d27c",
+  "raw_response_sha256": "bfb7671cef4f326b6b5df92a85304f785adcc3e0a5ae5976c6c96f4fae03e587",
+  "source_sha256": "3a7e21f0b79fe90cffbd99f40e990d2e390b215d768662e1659cfa4992a488e7",
+  "task_state": null,
+  "claim_segmentation": null,
+  "normalized_output": {
+    "downstream_claims": null,
+    "preserved_non_claims": null,
+    "reference_resolutions": null,
+    "authority_inherited": null,
+    "evidence_promotions": null,
+    "verification_upgrades": null,
+    "aggregate_state": null
+  },
+  "boundary_contracts": null,
+  "semantic_label_evidence_spans": null,
+  "non_claim_survival_mappings": null,
+  "uncertainty": null,
+  "residual_unblinding": null,
+  "reviewer_notes": null
+}
