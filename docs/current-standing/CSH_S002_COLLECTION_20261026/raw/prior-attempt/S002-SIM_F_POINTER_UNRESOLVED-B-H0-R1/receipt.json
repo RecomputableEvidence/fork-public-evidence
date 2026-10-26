@@ -1,0 +1,19 @@
+{
+  "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1",
+  "status": "FAIL",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T17:56:09.072490+00:00",
+  "actual_usd": "0.00059",
+  "errors": [
+    "transfer_json_object"
+  ],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_23f49d53-bc28-4291-a0d5-3580ff0f8440",
+  "returned_tool_choice": "auto",
+  "http_status": 200,
+  "request.json_sha256": "eb096ab0cb68058edc24a307bbb48c0a2a1fd5caddd91514cade7ddb94d938de",
+  "response.bin_sha256": "7be6a1b3aaeb86f790410fe4c0822a27e74febf49e4a1d70cfa26b243a1c22ae",
+  "output.txt_sha256": "b2dc897c185191cb25a89b3a8385082caf67c823fac1c6134d582eb8fe0f2b59",
+  "completed_at_utc": "2026-10-26T17:56:15.241719+00:00"
+}

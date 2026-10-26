@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H1-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:03:08.028272+00:00",
+  "actual_usd": "0.00089",
+  "errors": [],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_d0ee0836-9f12-4b7b-b756-b6a066d3e741",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "single_json_fence",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "a17d68a67c7fb1e875b18bd1c5f7a671f34e86ff3c0c12aaeb1e3f5d1a9f94a2",
+  "response.bin_sha256": "545b128decf22ea5982bc77f55df00464b33ebd22f350ccd5d3bad0e00a38acc",
+  "output.txt_sha256": "f392d2d30861d88e51246a310bff41c6f3a0c70b76b3038432ced64c5c3c4502",
+  "parsed_transfer.json_sha256": "a15fc4bb25548782827113bed8030cae2fdfcf031e654976d882d2d1a90b482b",
+  "completed_at_utc": "2026-10-26T19:03:13.969255+00:00"
+}

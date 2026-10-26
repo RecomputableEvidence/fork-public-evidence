@@ -1,0 +1,247 @@
+{
+  "status": "HUMAN_CODING_REQUIRED",
+  "freeze_sha256": "31674682367761a325e1f03e94c65015a466ee01ce757f5289c6eb8ec8bd9ec3",
+  "instructions": "Follow bound CODING_HANDOFF.md. Preserve raw output. Never substitute model self-labels for reviewed coding.",
+  "units": [
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/response.bin",
+        "sha256": "7be6a1b3aaeb86f790410fe4c0822a27e74febf49e4a1d70cfa26b243a1c22ae"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_F_POINTER_UNRESOLVED-B-H1-R1/response.bin",
+        "sha256": "8ad7586f6d5ce86cd52b3e15a5d70b35e3d03b7b92df2c6761eb6bdce70a9851"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_A_BOUNDARY_PRESERVED-B-H1-R1/response.bin",
+        "sha256": "887da2a72c1f651c2819af40209daf47b82ef5f96babc77b7bba116e57547318"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_A_BOUNDARY_PRESERVED-B-H0-R1/response.bin",
+        "sha256": "f295fc394e8640124804a28c6682fdb286b862bd3c0989f8a68a8edbfb930a1b"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_H_CASCADING_INHERITANCE-B-H0-R1/response.bin",
+        "sha256": "9bde3f54130f8e576b7224213985ae29cfff8ef5273b67d4a779fc8fd59e3a9a"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_H_CASCADING_INHERITANCE-B-H1-R1/response.bin",
+        "sha256": "545b128decf22ea5982bc77f55df00464b33ebd22f350ccd5d3bad0e00a38acc"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H1-R1/response.bin",
+        "sha256": "ffcffb4dba9245712d2e7c39784b1e55f68385229c3234045cac966766a80f25"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H0-R1/response.bin",
+        "sha256": "a4ff959a5d7768e0ee7edae95ddd163beb81c4196eecabd3f6214686039d82c8"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_C_NON_CLAIM_DROPPED-A-H0-R1/response.bin",
+        "sha256": "53c7840f1578bd483f3f66dda07086180ea7dc8f954adf7ee27f060b7fe4ce65"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_C_NON_CLAIM_DROPPED-A-H1-R1/response.bin",
+        "sha256": "9c7558d5ecb817690c8f9ad37db945ba3e263347602f63feadaf709343148e29"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1/response.bin",
+        "sha256": "2beb2097ea9eba0e2d331d1226462292b78775cd203ab21e3884c9cee056c42c"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_B_BOUNDARY_NARROWED-A-H0-R1/response.bin",
+        "sha256": "e6530a89e206f562497c3d294d7d62c10ccb69dd76ff4ead9d55d4e6160f5b1d"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_H_CASCADING_INHERITANCE-A-H0-R1/response.bin",
+        "sha256": "9480c824215a7ec6a5b9b39ad4f61174b66535b8c56a005542531c1eb71fe107"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_H_CASCADING_INHERITANCE-A-H1-R1/response.bin",
+        "sha256": "9c4cdd6bfd456c1d09a58ee376fc0138acbee6d5eec096930be78d0108e5fe4e"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_A_BOUNDARY_PRESERVED-A-H1-R1/response.bin",
+        "sha256": "70caa088ba773ef0ead82690a35b8691d740ac6dd530e3b03d581af514f6ff2f"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_A_BOUNDARY_PRESERVED-A-H0-R1/response.bin",
+        "sha256": "0d10593f09f670354806d4d98c6c606cacbd6b24882a212d904c22c5b8696928"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_C_NON_CLAIM_DROPPED-B-H0-R1/response.bin",
+        "sha256": "bd38e2c429eacb4bff404831fecfcc1600a0de65b5b9bf13f5393eaea5fc2d52"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_C_NON_CLAIM_DROPPED-B-H1-R1/response.bin",
+        "sha256": "785665b8d154aa5c643b4345c53c677e94eebfd39df587e54453ae843e484cee"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H1-R1/response.bin",
+        "sha256": "b2e3b1ce559ffc98a81e5ff1abf5fd000303cd64ee910dded3a9903e7d2c7a5a"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1/response.bin",
+        "sha256": "30f416cb4db1f1dff44e6adbc05f06038d8ad5585f3301ea5a563f6a77bdfb68"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_F_POINTER_UNRESOLVED-A-H0-R1/response.bin",
+        "sha256": "ad20310d856a52f4bff25f7c72d79c6b12051e2cdbcbadd126aba18f9f9c5396"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_F_POINTER_UNRESOLVED-A-H1-R1/response.bin",
+        "sha256": "26a794fb210b861177230d5cdc06df1630ff88e0ebfacb55bbd5b6685c62dc08"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H1-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_B_BOUNDARY_NARROWED-B-H1-R1/response.bin",
+        "sha256": "bfb7671cef4f326b6b5df92a85304f785adcc3e0a5ae5976c6c96f4fae03e587"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H0-R1",
+      "raw_output_binding": {
+        "path": "S002-SIM_B_BOUNDARY_NARROWED-B-H0-R1/response.bin",
+        "sha256": "fb9195b330ea63477c82675a961da97fa7400f9d9047feccaf5929fea65a1978"
+      },
+      "normalized_output": null,
+      "reviewer": null,
+      "adjudication": null
+    }
+  ]
+}

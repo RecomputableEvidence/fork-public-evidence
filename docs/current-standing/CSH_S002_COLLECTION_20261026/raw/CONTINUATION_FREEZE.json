@@ -1,0 +1,126 @@
+{
+  "version": "CSH-S002-CONTINUATION-v0.2",
+  "status": "FROZEN_FOR_ONE_CONTINUATION",
+  "original_freeze_sha256": "95857e56d8cf563fb313a439e85dfb40c4d9ae298dce9aee6c12e811a01b77c2",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "prior_attempts": 1,
+  "new_request_limit": 23,
+  "automatic_retries": 0,
+  "budget": {
+    "campaign_usd": "1.00",
+    "starting_gross_committed_usd": "0.09",
+    "per_request_reserved_usd": "0.03",
+    "remaining_reserved_usd": "0.69",
+    "planned_final_gross_usd": "0.78",
+    "prior_total_reported_usd": "0.00062"
+  },
+  "remaining_units": [
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H1-R1",
+      "request_sha256": "f1dee116a2b7f5591a8ad354a9dad3ca26e081b3a376eea5d8fa6d021acd3acb"
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H1-R1",
+      "request_sha256": "407c418fa87e59cbb164ad6039317df389c785fbfbe3669c70307920466d5386"
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H0-R1",
+      "request_sha256": "0bcb3911cd0d760ecbe578745869d7294b8463b990f0e4503453c9d20e562b00"
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H0-R1",
+      "request_sha256": "e31d58e175a34ac873a707f36af5af447e767523d82c72e130faa0b7d38b90ef"
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H1-R1",
+      "request_sha256": "a17d68a67c7fb1e875b18bd1c5f7a671f34e86ff3c0c12aaeb1e3f5d1a9f94a2"
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H1-R1",
+      "request_sha256": "f3a8a5ab127389820537c6ed6790c6ee801012753867d11e47494beb8b8e5a79"
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H0-R1",
+      "request_sha256": "43891baedc425a8493671ba207d14773240c91836a41e60fe4899e1289658f6e"
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H0-R1",
+      "request_sha256": "67b3c9050a0ad62768e1a92414a4c7e5c0169dde7bc976967ec182cf57ac2f0e"
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H1-R1",
+      "request_sha256": "3573f6c9eb59bba7c08ee5cdc1e85ea1bf4b48ced23727fd8aeb7d624b6bbc3d"
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1",
+      "request_sha256": "359aefae4308cdffe55f402f0bc045594e710c388a392ca02f8ff00b9216a892"
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H0-R1",
+      "request_sha256": "6908146979c16ef42cda727642dd4be3db88a25bd66ef9a8643dc02905dcfba6"
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H0-R1",
+      "request_sha256": "5e41d76f8fde5899012427975efcfdb49cc02f8fae10360fd8747f5b83cb91bc"
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H1-R1",
+      "request_sha256": "a9bebf6380864d4b5097b2255a1b82f035c63de6498d56130054b80774e1f083"
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H1-R1",
+      "request_sha256": "59315ce806459d8202bdf215fc2beb4efe475bd9b831158180ea47acf6c21a38"
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H0-R1",
+      "request_sha256": "cb62ff50fb3fb515f659b1602b5942e9fbc9a6e32a17c947200c766d24c3887d"
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H0-R1",
+      "request_sha256": "308978470bdc7eaf556d375cfc932894e2ed165db7fb5751f377565f312144cd"
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H1-R1",
+      "request_sha256": "5f6cded1927cbe946cb03f169b9fafb847f03927018d753c35d73b0286cd8aa6"
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H1-R1",
+      "request_sha256": "b95cde8df1ae9c708613ce2bc12fdd013b34ea7b0c40b8b42937018744517931"
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1",
+      "request_sha256": "c282e5652e6c044e48ea82dea644db70c15581ccd80cf95091dfa634bc427170"
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H0-R1",
+      "request_sha256": "9e084ede5595158b28aa23dfa1dc46fd8567e1a83b0141144a7134d38160bd45"
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H1-R1",
+      "request_sha256": "8851d9be397e1a4d92df556ccac7000f9944f2524288c4f11fc349c1a3011215"
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H1-R1",
+      "request_sha256": "80f0501e73d377daeae5f56edc79577fc9b3e46f7af1c5c3b2114e5c87f5ab0f"
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H0-R1",
+      "request_sha256": "ef6722eab04946eecdf686fe9e72254a8c2a5a4c38d33c4fb9560c238d592507"
+    }
+  ],
+  "repository_bindings": {
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/FREEZE.json": "95857e56d8cf563fb313a439e85dfb40c4d9ae298dce9aee6c12e811a01b77c2",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/PRESERVATION_MANIFEST.json": "6381228fbae5c92b635fe8711a1ce8719adfe4d7468bafc92029e405329ea8b4",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/intended_request.json": "eb096ab0cb68058edc24a307bbb48c0a2a1fd5caddd91514cade7ddb94d938de",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/output.txt": "b2dc897c185191cb25a89b3a8385082caf67c823fac1c6134d582eb8fe0f2b59",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/receipt.json": "4dfceb37f9343754b00750a242fcd71ed9726e9a4cde5f27e9d3244d9a82db30",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/request.json": "eb096ab0cb68058edc24a307bbb48c0a2a1fd5caddd91514cade7ddb94d938de",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1/response.bin": "7be6a1b3aaeb86f790410fe4c0822a27e74febf49e4a1d70cfa26b243a1c22ae",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/analysis-pending.json": "94322512fea60ab996661ef9d121957e5bf88429b858b3fd03a7db3af580db98",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/coding-handoff.json": "8baa5d68860a906503e3daa19dc0c92a0d6c830dde4a25a9dad3e9528d1029a9",
+    "docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/ledger.json": "8ce3d5bf24396be6e7fdd2893dbb7a5a214ef71c73aa44847a974ad4a987d389",
+    "docs/experiments/cross-system-claim-handoff-successor-002-v0.1/CONTINUATION_v0_2.md": "5fb7004cf60fcfd4ac45c9ecb952e26e1955bbea8877b762867a99ad227427c7",
+    "tools/continue_csh_s002_v0_2.py": "e109409e5a7b27b55061ffc8437d557e49f57c794eec4beecc82f4a085e98a75",
+    "tools/parse_csh_s002_response_v0_2.py": "5821b9473787b94e3d39aaf74fbed621e5db5436ccbfea5d14d1579e509fc3f2"
+  }
+}

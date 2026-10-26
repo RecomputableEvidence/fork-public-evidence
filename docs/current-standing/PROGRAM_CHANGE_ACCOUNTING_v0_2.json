@@ -351,6 +351,14 @@
       "disposition": "IN_FLIGHT",
       "reason": "Frozen v0.2 continuation admits only 23 unattempted units, carries prior response and budget, preserves original failure; no new hosted results or semantic promotion.",
       "standing_reference": "docs/current-standing/CSH_S002_CONTINUATION_20261026.md"
+    },
+    {
+      "path": "tools/prepare_csh_s002_coding_v0_1.py",
+      "before_git_blob": null,
+      "after_git_blob": "ab114fd4673ef96450fa535e69f9a0972df6ca73",
+      "disposition": "IN_FLIGHT",
+      "reason": "Atomic collection-preservation successor includes portable manifest ordering; failed candidate history retained on PR197. No semantic scores or raw-evidence changes.",
+      "standing_reference": "docs/current-standing/CSH_S002_COLLECTION_20261026/README.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",

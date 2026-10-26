@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H0-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:03:56.172174+00:00",
+  "actual_usd": "0.00022",
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_status": "completed",
+  "response_id": "resp_27279840-a26c-4c4f-980f-86aa02f24ae3",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "bare_json",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "5e41d76f8fde5899012427975efcfdb49cc02f8fae10360fd8747f5b83cb91bc",
+  "response.bin_sha256": "9480c824215a7ec6a5b9b39ad4f61174b66535b8c56a005542531c1eb71fe107",
+  "output.txt_sha256": "fc0fde67257d1b0660f768f53974d1e9172cd6b44cdd0979c14f47bd1faa42da",
+  "parsed_transfer.json_sha256": "069f9c8ac62723e26c6f510c69b7b50cded20ce01ed472b9acbd095007f7cbc8",
+  "completed_at_utc": "2026-10-26T19:04:01.093225+00:00"
+}

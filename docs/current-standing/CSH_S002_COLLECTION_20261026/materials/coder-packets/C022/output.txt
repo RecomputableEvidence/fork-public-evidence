@@ -1,0 +1,41 @@
+```json
+{
+  "packet_type": "csh_s001_downstream_transfer_record",
+  "schema_version": "s001-v0.1",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+  "pressure_class": "multi_hop_inheritance",
+  "source_claim": {
+    "claim_id": "CLAIM_H1",
+    "source_text": "System A emitted a bounded recommendation with unresolved institutional review.",
+    "transferred_text": "System A emitted a bounded recommendation with unresolved institutional review.",
+    "transformation": "faithful restatement"
+  },
+  "carried_non_claims": [
+    "System A did not authorize execution.",
+    "System B must revalidate local authority.",
+    "Downstream systems must not inherit approval."
+  ],
+  "expected_relationship": "PRESERVED",
+  "unresolved_references": [
+    {
+      "reference_id": "LOCAL_AUTHORITY_REVIEW",
+      "status": "unresolved",
+      "note": "Remains open and must be resolved locally by the receiving system. This record does not resolve it."
+    }
+  ],
+  "handoff_state_inherited": null,
+  "authorization_status": {
+    "execution_authorized": false,
+    "approval_conveyed": false,
+    "authorization_inherited_across_hops": false
+  },
+  "prohibited_outcomes_avoided": [
+    "recommendation not converted into approval",
+    "no authorization inherited across hops",
+    "unresolved local review not collapsed",
+    "no aggregation into a positive institutional determination"
+  ],
+  "receiver_instruction": "Treat CLAIM_H1 as a bounded recommendation only. Revalidate local authority and complete LOCAL_AUTHORITY_REVIEW before any action."
+}
+```
