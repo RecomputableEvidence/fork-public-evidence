@@ -1,0 +1,18 @@
+{
+  "receiver": "A",
+  "requested_model": "openai/gpt-6-luna",
+  "candidate_sha256": "bad1a48d7cdb22aceb7dd0fe40234cd96e274e476a6e9dabe14c8f7658a3e319",
+  "started_at_utc": "2026-10-26T17:31:08.895940+00:00",
+  "reserved_usd": "0.03",
+  "status": "PASS",
+  "contains_csh_corpus": false,
+  "http_status": 200,
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_id": "resp_1643b517-c2b4-4d1c-a483-9408e0b4808f",
+  "response_status": "completed",
+  "actual_usd": "0.00001",
+  "request.json_sha256": "454061669f5cd292e458cafaf0a1c44f2a96fede3bf6b8548038b5f7bec817b8",
+  "response.bin_sha256": "9b74062c68078bfe781588554dac71b7fab4981257e6618ff8008a3deeb20a3c",
+  "completed_at_utc": "2026-10-26T17:31:12.039620+00:00"
+}

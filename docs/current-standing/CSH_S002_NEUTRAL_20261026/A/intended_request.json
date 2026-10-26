@@ -1,0 +1,10 @@
+{
+  "model": "openai/gpt-6-luna",
+  "input": "Return JSON only: {\"preflight\":\"ok\"}",
+  "max_output_tokens": 2048,
+  "tools": [],
+  "tool_choice": "none",
+  "max_steps": 1,
+  "stream": false,
+  "store": false
+}
