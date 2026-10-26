@@ -359,6 +359,14 @@
       "disposition": "IN_FLIGHT",
       "reason": "Verify preserved complete collection and generate unscored human coding materials offline; retain final parser rejection and all predecessor evidence.",
       "standing_reference": "docs/current-standing/CSH_S002_COLLECTION_20261026/README.md"
+    },
+    {
+      "path": "tools/prepare_csh_s002_coding_v0_1.py",
+      "before_git_blob": "6d09e118a312c8bb5c15f0862eefdc93f3f8a068",
+      "after_git_blob": "ab114fd4673ef96450fa535e69f9a0972df6ca73",
+      "disposition": "IN_FLIGHT",
+      "reason": "Canonical POSIX string ordering makes the generated materials manifest byte-identical across Windows and Linux; no raw evidence or coding changes.",
+      "standing_reference": "docs/current-standing/CSH_S002_COLLECTION_20261026/README.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",

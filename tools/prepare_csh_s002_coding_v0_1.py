@@ -178,7 +178,7 @@ def prepare(out, collection=COLLECTION):
         key.append({'coding_id':code,**row,'primary_grammar_eligible':row['parser_status']=='PASS',
                     'note':'Final unit may receive separate exploratory examination; never silently include it in the frozen-grammar primary population.' if row['parser_status']=='FAIL' else None})
     save(out / 'coordinator' / 'CODING_KEY.json', key)
-    bindings={p.relative_to(out).as_posix():prep.digest(p.read_bytes()) for p in sorted(out.rglob('*')) if p.is_file()}
+    bindings={p.relative_to(out).as_posix():prep.digest(p.read_bytes()) for p in sorted(out.rglob('*'), key=lambda p: p.relative_to(out).as_posix()) if p.is_file()}
     save(out / 'MATERIALS_MANIFEST.json', {'generator':'tools/prepare_csh_s002_coding_v0_1.py',
           'generator_sha256':prep.digest(Path(__file__).read_bytes()),
           'source_manifest_sha256':prep.digest((collection / 'PRESERVATION_MANIFEST.json').read_bytes()),

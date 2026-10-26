@@ -48,3 +48,9 @@ disagreements, adjudication, and classified outcomes remain outstanding.
 - No hosted API requests were made for this preservation or offline examination.
 
 Remote CI is tracked on PR #197; local success alone does not establish its result.
+
+The first remote Windows preparation run on commit 350ae13 failed byte-level
+manifest reproduction because Path ordering is case-insensitive on Windows.
+The repair sorts relative POSIX path strings explicitly. Original raw evidence,
+coding contents and parser outcomes are unchanged; the manifest's generator hash
+is updated. The original failed CI run remains preserved in GitHub Actions.

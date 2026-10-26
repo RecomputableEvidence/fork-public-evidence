@@ -1,6 +1,6 @@
 {
   "generator": "tools/prepare_csh_s002_coding_v0_1.py",
-  "generator_sha256": "ca9731860285b9c2ed38eab0d485c15843d1b0d2bf230c1b72546dce93b37f63",
+  "generator_sha256": "d55833e899ae5ef2bf1640847c30dd091c4817aaae613377b6a46160f66b8e55",
   "source_manifest_sha256": "00c40c8fe4298728b1c7996d4aa06c72bfa0af5bf728a3b3d138352c143c78d6",
   "files": {
     "COLLECTION_VERIFICATION.json": "962e7ab06d4363b6d1c30d32f56dbce46d4fb057e32b47801fe2c9027aeb41dd",
