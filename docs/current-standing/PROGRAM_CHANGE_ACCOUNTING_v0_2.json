@@ -71,6 +71,30 @@
       "disposition": "IN_FLIGHT",
       "reason": "Optional Perplexity web-grounded answer capability; no CSH receiver replacement or execution-standing promotion.",
       "standing_reference": "docs/current-standing/PERPLEXITY_AGENT_INTEGRATION_20261026.md"
+    },
+    {
+      "path": "tools/prepare_csh_s002_v0_1.py",
+      "before_git_blob": null,
+      "after_git_blob": "27a1a931358b442b9600d3dcf3feaa0d9706321e",
+      "disposition": "IN_FLIGHT",
+      "reason": "Affordable Perplexity CSH-S002 pilot candidate and offline/neutral preparation; no corpus execution or predecessor promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_PREPARATION_20261026.md"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-successor-002-v0.1/CANDIDATE_v0_1.json",
+      "before_git_blob": null,
+      "after_git_blob": "16677621b56884d6ec32828dde35de9ec4309f0e",
+      "disposition": "IN_FLIGHT",
+      "reason": "Affordable Perplexity CSH-S002 pilot candidate and offline/neutral preparation; no corpus execution or predecessor promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_PREPARATION_20261026.md"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-successor-002-v0.1/PREREGISTRATION_v0_1.md",
+      "before_git_blob": null,
+      "after_git_blob": "c71b6d701ab04ddcb03e6246f15a9a2e675b4509",
+      "disposition": "IN_FLIGHT",
+      "reason": "Affordable Perplexity CSH-S002 pilot candidate and offline/neutral preparation; no corpus execution or predecessor promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_PREPARATION_20261026.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",

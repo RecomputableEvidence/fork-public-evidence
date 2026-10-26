@@ -1,0 +1,1 @@
+{"model":"deepseek-flash","messages":[{"role":"user","content":"Return JSON only: {\"preflight\":\"ok\"}"}],"temperature":0,"top_p":1,"max_tokens":64,"stream":false,"response_format":{"type":"json_object"},"reasoning_effort":"low"}
