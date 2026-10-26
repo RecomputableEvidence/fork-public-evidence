@@ -319,6 +319,14 @@
       "disposition": "IN_FLIGHT",
       "reason": "Frozen S002 corpus runner and exact request package, with local budget admission and preserved neutral evidence; no corpus result or semantic standing promotion.",
       "standing_reference": "docs/current-standing/CSH_S002_EXECUTION_FREEZE_20261026.md"
+    },
+    {
+      "path": "tools/parse_csh_s002_response_v0_2.py",
+      "before_git_blob": null,
+      "after_git_blob": "82ec3032c819fe17726a2ba9a4bd04394d1a187d",
+      "disposition": "IN_FLIGHT",
+      "reason": "Offline parser successor accepts one enclosing JSON code fence, preserving stopped attempt and original strict parser; no execution resumption or semantic promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_PARSER_REPAIR_20261026.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",

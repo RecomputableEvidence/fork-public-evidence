@@ -63,3 +63,7 @@ docs/experiments/cross-system-claim-handoff-successor-002-v0.1/execution-v0.1/re
 
 # Preserve predecessor raw access-attempt bytes on Windows as well.
 docs/current-standing/CSH_S001_ACCESS_ATTEMPT_20261026/** -text
+
+# Exact stopped CSH-S002 corpus evidence
+docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/** -text
+docs/current-standing/CSH_S002_PARSER_REVIEW_20261026/** -text
