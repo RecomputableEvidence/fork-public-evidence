@@ -31,6 +31,38 @@
       "disposition": "INCORPORATED",
       "reason": "Bounded PR #183 CI preservation repair: keep the frozen AG5 historical receipt byte-identical while permitting its non-LF bytes only under an exact path-and-SHA-256 lock; repository-native exterior-return manifest metadata is normalized separately.",
       "standing_reference": "docs/current-standing/PR183_CI_PRESERVATION_REPAIR_001.md"
+    },
+    {
+      "path": "schemas/longitudinal_reconstruction_day0_packet_manifest_v0_2.schema.json",
+      "before_git_blob": null,
+      "after_git_blob": "82d68605fdb599608adcd84d786342abcbbf2f00",
+      "disposition": "IN_FLIGHT",
+      "reason": "Day-0 v0.2 structural-validation successor under local verification; preserves the original packet and frozen validator. No CSH execution or research-standing promotion.",
+      "standing_reference": "docs/current-standing/DAY0_SCHEMA_V0_2_REPAIR_20261026.md"
+    },
+    {
+      "path": "tools/validate_json_schema_bundle_v0_2.py",
+      "before_git_blob": null,
+      "after_git_blob": "4b74c13aeef9eb638d01847b32d940ddaeba2e60",
+      "disposition": "IN_FLIGHT",
+      "reason": "Day-0 v0.2 structural-validation successor under local verification; preserves the original packet and frozen validator. No CSH execution or research-standing promotion.",
+      "standing_reference": "docs/current-standing/DAY0_SCHEMA_V0_2_REPAIR_20261026.md"
+    },
+    {
+      "path": "tools/preflight_csh_s001_receivers_v0_2.py",
+      "before_git_blob": null,
+      "after_git_blob": "e7ef8256b760d9ef84e82fa7a2fc782bced142dd",
+      "disposition": "IN_FLIGHT",
+      "reason": "Offline CSH successor validation: explicit response acceptance and actual packet bytes; no hosted execution or standing promotion.",
+      "standing_reference": "docs/current-standing/CSH_SUCCESSOR_HARDENING_20261026.md"
+    },
+    {
+      "path": "tools/check_csh_s001_packet_binding_v0_2.py",
+      "before_git_blob": null,
+      "after_git_blob": "c57421c71e5203f1d28eff88ee55191d6563d5bd",
+      "disposition": "IN_FLIGHT",
+      "reason": "Offline CSH successor validation: explicit response acceptance and actual packet bytes; no hosted execution or standing promotion.",
+      "standing_reference": "docs/current-standing/CSH_SUCCESSOR_HARDENING_20261026.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",

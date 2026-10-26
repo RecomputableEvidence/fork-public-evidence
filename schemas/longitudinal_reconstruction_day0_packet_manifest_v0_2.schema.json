@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://recomputableevidence.example/schemas/longitudinal_reconstruction_day0_packet_manifest_v0_2.schema.json",
+  "title": "Fork Day-0 Manifest v0.2 ? stronger structural constraints",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "manifest_schema_version",
+    "trial_id",
+    "packet_id",
+    "created_at_fixed_fixture_time",
+    "generated_from_base_commit",
+    "canonicalization_method",
+    "artifact_hashes",
+    "expected_reconstruction_hash",
+    "environment_manifest_hash",
+    "non_authority_boundary_statement_hash",
+    "non_authority_statement"
+  ],
+  "properties": {
+    "manifest_schema_version": {
+      "const": "0.2"
+    },
+    "trial_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "packet_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "created_at_fixed_fixture_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generated_from_base_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "canonicalization_method": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "artifact_hashes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "role",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "expected_reconstruction_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "environment_manifest_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "non_authority_boundary_statement_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "non_authority_statement": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  },
+  "description": "Successor structural schema. Does not establish file integrity, artifact completeness, semantic truth, or authority."
+}

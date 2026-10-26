@@ -21,6 +21,7 @@ def history(tmp_path):
     git(tmp_path, "init")
     git(tmp_path, "config", "user.name", "Test")
     git(tmp_path, "config", "user.email", "test@example.invalid")
+    git(tmp_path, "config", "core.autocrlf", "false")
     (tmp_path / "docs/experiments").mkdir(parents=True)
     p = tmp_path / "docs/experiments/state.json"
     p.write_text('"original"\n')

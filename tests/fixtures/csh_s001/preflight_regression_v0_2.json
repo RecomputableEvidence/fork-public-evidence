@@ -1,0 +1,328 @@
+[
+  {
+    "id": "expected",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "PASS"
+  },
+  {
+    "id": "wrong_content",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "expected_content"
+  },
+  {
+    "id": "nonstring_content",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": null
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "content_string"
+  },
+  {
+    "id": "malformed_content",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "content_json"
+  },
+  {
+    "id": "wrong_role",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "user",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "assistant_role"
+  },
+  {
+    "id": "refusal",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}",
+            "refusal": "No"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "non_text_response"
+  },
+  {
+    "id": "tool_call",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}",
+            "tool_calls": [
+              {}
+            ]
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "non_text_response"
+  },
+  {
+    "id": "truncated",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "length",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "completion_status"
+  },
+  {
+    "id": "missing_finish",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": null,
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "completion_status"
+  },
+  {
+    "id": "tool_finish",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "completion_status"
+  },
+  {
+    "id": "prefixed_model",
+    "response": {
+      "model": "$PREFIXED_MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "model_identity"
+  },
+  {
+    "id": "wrong_model",
+    "response": {
+      "model": "unapproved-model",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "model_identity"
+  },
+  {
+    "id": "missing_model",
+    "response": {
+      "model": null,
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "model_identity"
+  },
+  {
+    "id": "object_model",
+    "response": {
+      "model": {},
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "model_identity"
+  },
+  {
+    "id": "empty_choices",
+    "response": {
+      "model": "$MODEL",
+      "choices": []
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "single_choice_object"
+  },
+  {
+    "id": "object_choices",
+    "response": {
+      "model": "$MODEL",
+      "choices": {}
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "single_choice_object"
+  },
+  {
+    "id": "scalar_choice",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        1
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "single_choice_object"
+  },
+  {
+    "id": "multiple_choices",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        },
+        {
+          "finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "{\"preflight\":\"ok\"}"
+          }
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "single_choice_object"
+  },
+  {
+    "id": "array_response",
+    "response": [],
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "response_object"
+  },
+  {
+    "id": "null_response",
+    "response": null,
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "response_object"
+  },
+  {
+    "id": "scalar_response",
+    "response": 42,
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "response_object"
+  },
+  {
+    "id": "array_message",
+    "response": {
+      "model": "$MODEL",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "message": []
+        }
+      ]
+    },
+    "expected_status": "RESPONSE_INCOMPATIBLE",
+    "expected_error": "message_object"
+  }
+]
