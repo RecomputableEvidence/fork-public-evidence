@@ -327,6 +327,30 @@
       "disposition": "IN_FLIGHT",
       "reason": "Offline parser successor accepts one enclosing JSON code fence, preserving stopped attempt and original strict parser; no execution resumption or semantic promotion.",
       "standing_reference": "docs/current-standing/CSH_S002_PARSER_REPAIR_20261026.md"
+    },
+    {
+      "path": "tools/continue_csh_s002_v0_2.py",
+      "before_git_blob": null,
+      "after_git_blob": "3dabe2623e49eaa1c29a3f9f9a7bcd16c3eb716f",
+      "disposition": "IN_FLIGHT",
+      "reason": "Frozen v0.2 continuation admits only 23 unattempted units, carries prior response and budget, preserves original failure; no new hosted results or semantic promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_CONTINUATION_20261026.md"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-successor-002-v0.1/CONTINUATION_FREEZE_v0_2.json",
+      "before_git_blob": null,
+      "after_git_blob": "0f3ce008db900306d199ab77fee9bb9e5f67e4d9",
+      "disposition": "IN_FLIGHT",
+      "reason": "Frozen v0.2 continuation admits only 23 unattempted units, carries prior response and budget, preserves original failure; no new hosted results or semantic promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_CONTINUATION_20261026.md"
+    },
+    {
+      "path": "docs/experiments/cross-system-claim-handoff-successor-002-v0.1/CONTINUATION_v0_2.md",
+      "before_git_blob": null,
+      "after_git_blob": "6963ed2a16895e1478bbf3e3932dcec652eb1299",
+      "disposition": "IN_FLIGHT",
+      "reason": "Frozen v0.2 continuation admits only 23 unattempted units, carries prior response and budget, preserves original failure; no new hosted results or semantic promotion.",
+      "standing_reference": "docs/current-standing/CSH_S002_CONTINUATION_20261026.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",
