@@ -70,7 +70,9 @@ jobs:
         run: python tools/preflight_csh_s001_receivers_v0_1.py --json --allow-missing-credentials
 
   hosted-preflight-observation:
-    if: ${{ github.event_name == 'pull_request' }}
+    # Retained for history; PRs must not send provider requests.
+    # Successor live preflight requires explicit --live outside offline CI.
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

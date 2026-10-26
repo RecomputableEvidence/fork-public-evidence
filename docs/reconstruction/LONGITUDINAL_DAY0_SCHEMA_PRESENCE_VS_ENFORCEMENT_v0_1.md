@@ -1,5 +1,26 @@
 # Longitudinal Day-0 Schema Presence vs Schema Enforcement v0.1
 
+<!-- DAY0_CURRENT_INTEGRATED_STATUS -->
+## Current integrated verification status
+
+The integrated proof-surface workflow mechanically validates the Day-0 packet
+manifest and temporal replay receipt against their respective JSON Schemas using
+`tools/validate_json_schema_bundle_v0_1.py`.
+
+The original Day-0 packet checker remains a separate custom checker for required
+fields, artifact hashes, manifest bindings, and boundary-language presence.
+Running that checker alone does not perform JSON Schema validation.
+
+The earlier sections below describe the original checker's scope. Their statements
+that schema enforcement is not implemented apply to that checker, not to the
+subsequently integrated schema-validation workflow documented at the end.
+
+This coverage does not establish that every nested evidence record or receipt has
+an individually enforced schema. Schema conformance also does not establish
+semantic truth, evidence sufficiency, or authority.
+
+<!-- END_DAY0_CURRENT_INTEGRATED_STATUS -->
+
 Status: Checker-scope clarification.
 Scope: Longitudinal Reconstruction Day-0 packet.
 

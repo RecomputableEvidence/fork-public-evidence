@@ -1,0 +1,100 @@
+{
+  "kind": "offline_mock_and_temporary_file_observation",
+  "hosted_requests": 0,
+  "predecessor_source_sha256": {
+    "tools/preflight_csh_s001_receivers_v0_1.py": "74f3885b654afee5c235e2a244671e40764945214866dff01fb8efd7ae5e1688",
+    "tools/check_csh_s001_packet_binding_v0_1.py": "510215f6fec7dc7763225848a3a05ceed09054d10cbee8423024f2e358b07cad"
+  },
+  "preflight_observations": [
+    {
+      "provider": "groq",
+      "case": "expected",
+      "response_utf8": "{\"model\": \"openai/gpt-oss-120b\", \"choices\": [{\"finish_reason\": \"stop\", \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"preflight\\\":\\\"ok\\\"}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "groq",
+      "case": "wrong_content",
+      "response_utf8": "{\"model\": \"openai/gpt-oss-120b\", \"choices\": [{\"finish_reason\": \"stop\", \"message\": {\"role\": \"assistant\", \"content\": \"{}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "groq",
+      "case": "length_finish",
+      "response_utf8": "{\"model\": \"openai/gpt-oss-120b\", \"choices\": [{\"finish_reason\": \"length\", \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"preflight\\\":\\\"ok\\\"}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "groq",
+      "case": "substring_identity",
+      "response_utf8": "{\"model\": \"not-openai/gpt-oss-120b\", \"choices\": [{\"finish_reason\": \"stop\", \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"preflight\\\":\\\"ok\\\"}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "groq",
+      "case": "missing_output",
+      "response_utf8": "{\"model\": \"openai/gpt-oss-120b\"}",
+      "observed_predecessor_status": "RESPONSE_INCOMPATIBLE"
+    },
+    {
+      "provider": "groq",
+      "case": "array_response",
+      "response_utf8": "[]",
+      "observed_predecessor_status": "UNCAUGHT_AttributeError"
+    },
+    {
+      "provider": "groq",
+      "case": "bad_json",
+      "response_utf8": "not-json",
+      "observed_predecessor_status": "RESPONSE_NOT_JSON"
+    },
+    {
+      "provider": "deepseek",
+      "case": "expected",
+      "response_utf8": "{\"model\": \"deepseek-flash\", \"choices\": [{\"finish_reason\": \"stop\", \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"preflight\\\":\\\"ok\\\"}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "deepseek",
+      "case": "wrong_content",
+      "response_utf8": "{\"model\": \"deepseek-flash\", \"choices\": [{\"finish_reason\": \"stop\", \"message\": {\"role\": \"assistant\", \"content\": \"{}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "deepseek",
+      "case": "length_finish",
+      "response_utf8": "{\"model\": \"deepseek-flash\", \"choices\": [{\"finish_reason\": \"length\", \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"preflight\\\":\\\"ok\\\"}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "deepseek",
+      "case": "substring_identity",
+      "response_utf8": "{\"model\": \"not-deepseek-flash\", \"choices\": [{\"finish_reason\": \"stop\", \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"preflight\\\":\\\"ok\\\"}\"}}]}",
+      "observed_predecessor_status": "PASS"
+    },
+    {
+      "provider": "deepseek",
+      "case": "missing_output",
+      "response_utf8": "{\"model\": \"deepseek-flash\"}",
+      "observed_predecessor_status": "RESPONSE_INCOMPATIBLE"
+    },
+    {
+      "provider": "deepseek",
+      "case": "array_response",
+      "response_utf8": "[]",
+      "observed_predecessor_status": "UNCAUGHT_AttributeError"
+    },
+    {
+      "provider": "deepseek",
+      "case": "bad_json",
+      "response_utf8": "not-json",
+      "observed_predecessor_status": "RESPONSE_NOT_JSON"
+    }
+  ],
+  "packet_tamper_observation": {
+    "mutation": "append one ASCII space to first projection; leave declared hashes unchanged",
+    "predecessor_failed_checks": 0,
+    "successor_status": "FAIL"
+  },
+  "boundary": "No provider behavior or CSH hypothesis tested; candidate acceptance contract is stricter than predecessor."
+}
