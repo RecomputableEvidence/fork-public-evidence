@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H1-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:04:49.435459+00:00",
+  "actual_usd": "0.0008",
+  "errors": [],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_83a76677-bb95-4cfd-9512-a854b31ce8ef",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "single_json_fence",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "80f0501e73d377daeae5f56edc79577fc9b3e46f7af1c5c3b2114e5c87f5ab0f",
+  "response.bin_sha256": "bfb7671cef4f326b6b5df92a85304f785adcc3e0a5ae5976c6c96f4fae03e587",
+  "output.txt_sha256": "ea6c798b7a0fba6b17f9e33e78e50ba2e0195fba2960bd6b70745c83e849d27c",
+  "parsed_transfer.json_sha256": "6c59578478f1915ef2fdfea7ecf47abbd9eb29a2f5f61451397e755b3583c868",
+  "completed_at_utc": "2026-10-26T19:04:54.948226+00:00"
+}

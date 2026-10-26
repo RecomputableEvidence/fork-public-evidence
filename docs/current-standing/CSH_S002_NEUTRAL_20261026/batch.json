@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "receiver": "A",
+      "requested_model": "openai/gpt-6-luna",
+      "candidate_sha256": "bad1a48d7cdb22aceb7dd0fe40234cd96e274e476a6e9dabe14c8f7658a3e319",
+      "started_at_utc": "2026-10-26T17:31:08.895940+00:00",
+      "reserved_usd": "0.03",
+      "status": "PASS",
+      "contains_csh_corpus": false,
+      "http_status": 200,
+      "errors": [],
+      "returned_model": "openai/gpt-6-luna",
+      "response_id": "resp_1643b517-c2b4-4d1c-a483-9408e0b4808f",
+      "response_status": "completed",
+      "actual_usd": "0.00001",
+      "request.json_sha256": "454061669f5cd292e458cafaf0a1c44f2a96fede3bf6b8548038b5f7bec817b8",
+      "response.bin_sha256": "9b74062c68078bfe781588554dac71b7fab4981257e6618ff8008a3deeb20a3c",
+      "completed_at_utc": "2026-10-26T17:31:12.039620+00:00"
+    },
+    {
+      "receiver": "B",
+      "requested_model": "anthropic/claude-haiku-5-5",
+      "candidate_sha256": "bad1a48d7cdb22aceb7dd0fe40234cd96e274e476a6e9dabe14c8f7658a3e319",
+      "started_at_utc": "2026-10-26T17:31:12.043596+00:00",
+      "reserved_usd": "0.03",
+      "status": "PASS",
+      "contains_csh_corpus": false,
+      "http_status": 200,
+      "errors": [],
+      "returned_model": "anthropic/claude-haiku-5-5",
+      "response_id": "resp_3c6103e3-f6c1-482c-b2e3-01c191f523e8",
+      "response_status": "completed",
+      "actual_usd": "0.00002",
+      "request.json_sha256": "6d30e466d571bd64c1519e9f37ad97c834dafc78a4313cfafc762ec56fecd715",
+      "response.bin_sha256": "0ea2021271c300786a97c680fdced59174e396b04124e6c8240ed52aaeac009a",
+      "completed_at_utc": "2026-10-26T17:31:13.490038+00:00"
+    }
+  ],
+  "corpus_execution_enabled": false
+}

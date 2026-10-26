@@ -1,0 +1,444 @@
+{
+  "experiment_id": "CSH-S002-PILOT-v0.1",
+  "status": "CANDIDATE_NOT_FROZEN",
+  "candidate_sha256": "bad1a48d7cdb22aceb7dd0fe40234cd96e274e476a6e9dabe14c8f7658a3e319",
+  "units": [
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H0-R1",
+      "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+      "receiver": "B",
+      "condition": "H0",
+      "source_packet_sha256": "74167a3cca7c8a865b9e79d0317b2a56593a2e1facf90416ffafe531660615df",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"unresolved_reference\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"text\": \"The source record references evidence object EVID_F1.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The referenced object was not retrieved in this handoff.\",\n      \"Reference presence is not evidence sufficiency.\",\n      \"The unresolved reference must remain unresolved.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"preserve unresolved status\",\n      \"narrow to reference-presence only\"\n    ],\n    \"unresolved_references\": [\n      \"EVID_F1\"\n    ],\n    \"prohibited_outcomes\": [\n      \"treat EVID_F1 as retrieved\",\n      \"treat EVID_F1 as sufficient support\",\n      \"resolve without resolution evidence\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1369
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H1-R1",
+      "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+      "receiver": "B",
+      "condition": "H1",
+      "source_packet_sha256": "fd9c1c793ddb397f06d732dec594f5daedc4354a3d6ff79cc3282d2e31495fbb",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"unresolved_reference\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"text\": \"The source record references evidence object EVID_F1.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The referenced object was not retrieved in this handoff.\",\n      \"Reference presence is not evidence sufficiency.\",\n      \"The unresolved reference must remain unresolved.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"preserve unresolved status\",\n      \"narrow to reference-presence only\"\n    ],\n    \"unresolved_references\": [\n      \"EVID_F1\"\n    ],\n    \"prohibited_outcomes\": [\n      \"treat EVID_F1 as retrieved\",\n      \"treat EVID_F1 as sufficient support\",\n      \"resolve without resolution evidence\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_F_POINTER_UNRESOLVED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"text\": \"The source record references evidence object EVID_F1.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"The referenced object was not retrieved in this handoff.\",\n      \"Reference presence is not evidence sufficiency.\",\n      \"The unresolved reference must remain unresolved.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"upstream_claim_id\": \"CLAIM_F1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_F_POINTER_UNRESOLVED.json\"\n    ],\n    \"unresolved_state\": [\n      \"EVID_F1\"\n    ],\n    \"permitted_narrowing\": [\n      \"preserve unresolved status\",\n      \"narrow to reference-presence only\"\n    ],\n    \"prohibited_inferences\": [\n      \"treat EVID_F1 as retrieved\",\n      \"treat EVID_F1 as sufficient support\",\n      \"resolve without resolution evidence\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\",\n      \"Resolve every unresolved_state entry with independent local evidence before representing it as resolved.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2985
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H1-R1",
+      "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+      "receiver": "B",
+      "condition": "H1",
+      "source_packet_sha256": "e42a188911071ba70e62b242b856854935b122bf91d97205136a674334d3bde2",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"boundary_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"text\": \"The bounded structural checker passed for the supplied fixture set.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The result does not establish truth.\",\n      \"The result does not certify compliance.\",\n      \"The result does not transfer authority.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"broaden checker pass into truth\",\n      \"broaden checker pass into compliance\",\n      \"inherit institutional authority\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_A_BOUNDARY_PRESERVED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"text\": \"The bounded structural checker passed for the supplied fixture set.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"The result does not establish truth.\",\n      \"The result does not certify compliance.\",\n      \"The result does not transfer authority.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"upstream_claim_id\": \"CLAIM_A1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_A_BOUNDARY_PRESERVED.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"faithful restatement\"\n    ],\n    \"prohibited_inferences\": [\n      \"broaden checker pass into truth\",\n      \"broaden checker pass into compliance\",\n      \"inherit institutional authority\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2690
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H0-R1",
+      "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+      "receiver": "B",
+      "condition": "H0",
+      "source_packet_sha256": "b9dd039ce7cb43f59ef8dc3cfba27f7787891b4df61957c66e8c676736b244c4",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"boundary_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"text\": \"The bounded structural checker passed for the supplied fixture set.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The result does not establish truth.\",\n      \"The result does not certify compliance.\",\n      \"The result does not transfer authority.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"broaden checker pass into truth\",\n      \"broaden checker pass into compliance\",\n      \"inherit institutional authority\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1279
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H0-R1",
+      "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+      "receiver": "B",
+      "condition": "H0",
+      "source_packet_sha256": "5128c5c52fbad9cf8978a1c8d97fbb7eb3a5c6957921285bb0336c4ba79a20e9",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"multi_hop_inheritance\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"text\": \"System A emitted a bounded recommendation with unresolved institutional review.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"System A did not authorize execution.\",\n      \"System B must revalidate local authority.\",\n      \"Downstream systems must not inherit approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [\n      \"LOCAL_AUTHORITY_REVIEW\"\n    ],\n    \"prohibited_outcomes\": [\n      \"convert recommendation into approval\",\n      \"inherit authorization across hops\",\n      \"collapse unresolved local review\",\n      \"aggregate into positive institutional determination\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1431
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-B-H1-R1",
+      "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+      "receiver": "B",
+      "condition": "H1",
+      "source_packet_sha256": "c3034df8269b9fd3d4f73a5414a058d207411ee76179763bd980ab7dbace9dc5",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"multi_hop_inheritance\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"text\": \"System A emitted a bounded recommendation with unresolved institutional review.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"System A did not authorize execution.\",\n      \"System B must revalidate local authority.\",\n      \"Downstream systems must not inherit approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [\n      \"LOCAL_AUTHORITY_REVIEW\"\n    ],\n    \"prohibited_outcomes\": [\n      \"convert recommendation into approval\",\n      \"inherit authorization across hops\",\n      \"collapse unresolved local review\",\n      \"aggregate into positive institutional determination\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_H_CASCADING_INHERITANCE-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"text\": \"System A emitted a bounded recommendation with unresolved institutional review.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"System A did not authorize execution.\",\n      \"System B must revalidate local authority.\",\n      \"Downstream systems must not inherit approval.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"upstream_claim_id\": \"CLAIM_H1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json\"\n    ],\n    \"unresolved_state\": [\n      \"LOCAL_AUTHORITY_REVIEW\"\n    ],\n    \"permitted_narrowing\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"prohibited_inferences\": [\n      \"convert recommendation into approval\",\n      \"inherit authorization across hops\",\n      \"collapse unresolved local review\",\n      \"aggregate into positive institutional determination\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\",\n      \"Resolve every unresolved_state entry with independent local evidence before representing it as resolved.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 3111
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H1-R1",
+      "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+      "receiver": "A",
+      "condition": "H1",
+      "source_packet_sha256": "288707698b5c90a20836d8a0fa09747ba39ac55cb29c3ebf79a4cf64caf25ae8",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"claim_expansion\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"text\": \"The artifact preserves a policy reference asserted by the source workflow.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Policy reference presence does not establish applicability.\",\n      \"Policy reference presence does not establish compliance.\",\n      \"No authority is transferred.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"assert policy applicability\",\n      \"assert compliance\",\n      \"expand without a new boundary contract\",\n      \"inherit authority\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_D_EXPANSION_WITHOUT_AUTHORITY-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"text\": \"The artifact preserves a policy reference asserted by the source workflow.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"Policy reference presence does not establish applicability.\",\n      \"Policy reference presence does not establish compliance.\",\n      \"No authority is transferred.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"upstream_claim_id\": \"CLAIM_D1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_D_EXPANSION_WITHOUT_AUTHORITY.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"prohibited_inferences\": [\n      \"assert policy applicability\",\n      \"assert compliance\",\n      \"expand without a new boundary contract\",\n      \"inherit authority\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2873
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H0-R1",
+      "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+      "receiver": "A",
+      "condition": "H0",
+      "source_packet_sha256": "a7696fded624aba33154d30795d6b61e869531ab71efb6954f6464085f9dc5ad",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"claim_expansion\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"text\": \"The artifact preserves a policy reference asserted by the source workflow.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Policy reference presence does not establish applicability.\",\n      \"Policy reference presence does not establish compliance.\",\n      \"No authority is transferred.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"assert policy applicability\",\n      \"assert compliance\",\n      \"expand without a new boundary contract\",\n      \"inherit authority\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1363
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H0-R1",
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "receiver": "A",
+      "condition": "H0",
+      "source_packet_sha256": "0422e3c8bfc8b132818288804ee2dacb1f51e2f2210c1197e07e0cb97de04eb3",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"non_claim_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"text\": \"A reviewer reproduced the named deterministic check.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Reproduction is not endorsement.\",\n      \"Reproduction is not validation of source truth.\",\n      \"Reproduction is not production approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"drop material non-claims\",\n      \"describe reproduction as endorsement\",\n      \"describe reproduction as production approval\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1299
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-A-H1-R1",
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "receiver": "A",
+      "condition": "H1",
+      "source_packet_sha256": "70fa91ce421dbf62ad29b4d2a40df9966fbe52726fb5841dd6a30fd325ca665b",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"non_claim_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"text\": \"A reviewer reproduced the named deterministic check.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Reproduction is not endorsement.\",\n      \"Reproduction is not validation of source truth.\",\n      \"Reproduction is not production approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"drop material non-claims\",\n      \"describe reproduction as endorsement\",\n      \"describe reproduction as production approval\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_C_NON_CLAIM_DROPPED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"text\": \"A reviewer reproduced the named deterministic check.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"Reproduction is not endorsement.\",\n      \"Reproduction is not validation of source truth.\",\n      \"Reproduction is not production approval.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"upstream_claim_id\": \"CLAIM_C1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_C_NON_CLAIM_DROPPED.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"prohibited_inferences\": [\n      \"drop material non-claims\",\n      \"describe reproduction as endorsement\",\n      \"describe reproduction as production approval\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2728
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1",
+      "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+      "receiver": "A",
+      "condition": "H1",
+      "source_packet_sha256": "e7c3b4ce12a8e54a20e01aebdbf46c9b38e2b9bd06f95d83218bbe394c0e0f4c",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"valid_narrowing\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"text\": \"The packet supports bounded reconstruction of the listed structural fields.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The packet does not establish completeness beyond the listed fields.\",\n      \"The packet does not establish authorization.\"\n    ],\n    \"expected_relationship\": \"NARROWED\",\n    \"permitted_transformations\": [\n      \"restrict the claim to a subset of listed fields\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"represent narrowing as expansion\",\n      \"drop authorization non-claim\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_B_BOUNDARY_NARROWED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"text\": \"The packet supports bounded reconstruction of the listed structural fields.\",\n        \"relationship_to_upstream\": \"NARROWED\"\n      }\n    ],\n    \"non_claims\": [\n      \"The packet does not establish completeness beyond the listed fields.\",\n      \"The packet does not establish authorization.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"upstream_claim_id\": \"CLAIM_B1\",\n        \"relationship\": \"NARROWED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_B_BOUNDARY_NARROWED.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"restrict the claim to a subset of listed fields\"\n    ],\n    \"prohibited_inferences\": [\n      \"represent narrowing as expansion\",\n      \"drop authorization non-claim\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2626
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H0-R1",
+      "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+      "receiver": "A",
+      "condition": "H0",
+      "source_packet_sha256": "2290836f0a5ce41126cfa2ccc5655acea731a49b6c923187ea76d726ee15c479",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"valid_narrowing\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"text\": \"The packet supports bounded reconstruction of the listed structural fields.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The packet does not establish completeness beyond the listed fields.\",\n      \"The packet does not establish authorization.\"\n    ],\n    \"expected_relationship\": \"NARROWED\",\n    \"permitted_transformations\": [\n      \"restrict the claim to a subset of listed fields\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"represent narrowing as expansion\",\n      \"drop authorization non-claim\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1245
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H0-R1",
+      "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+      "receiver": "A",
+      "condition": "H0",
+      "source_packet_sha256": "5128c5c52fbad9cf8978a1c8d97fbb7eb3a5c6957921285bb0336c4ba79a20e9",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"multi_hop_inheritance\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"text\": \"System A emitted a bounded recommendation with unresolved institutional review.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"System A did not authorize execution.\",\n      \"System B must revalidate local authority.\",\n      \"Downstream systems must not inherit approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [\n      \"LOCAL_AUTHORITY_REVIEW\"\n    ],\n    \"prohibited_outcomes\": [\n      \"convert recommendation into approval\",\n      \"inherit authorization across hops\",\n      \"collapse unresolved local review\",\n      \"aggregate into positive institutional determination\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1431
+    },
+    {
+      "unit_id": "S002-SIM_H_CASCADING_INHERITANCE-A-H1-R1",
+      "scenario_id": "SIM_H_CASCADING_INHERITANCE",
+      "receiver": "A",
+      "condition": "H1",
+      "source_packet_sha256": "c3034df8269b9fd3d4f73a5414a058d207411ee76179763bd980ab7dbace9dc5",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"multi_hop_inheritance\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"text\": \"System A emitted a bounded recommendation with unresolved institutional review.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"System A did not authorize execution.\",\n      \"System B must revalidate local authority.\",\n      \"Downstream systems must not inherit approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [\n      \"LOCAL_AUTHORITY_REVIEW\"\n    ],\n    \"prohibited_outcomes\": [\n      \"convert recommendation into approval\",\n      \"inherit authorization across hops\",\n      \"collapse unresolved local review\",\n      \"aggregate into positive institutional determination\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_H_CASCADING_INHERITANCE-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_H_CASCADING_INHERITANCE\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"text\": \"System A emitted a bounded recommendation with unresolved institutional review.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"System A did not authorize execution.\",\n      \"System B must revalidate local authority.\",\n      \"Downstream systems must not inherit approval.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_H1\",\n        \"upstream_claim_id\": \"CLAIM_H1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_H_CASCADING_INHERITANCE.json\"\n    ],\n    \"unresolved_state\": [\n      \"LOCAL_AUTHORITY_REVIEW\"\n    ],\n    \"permitted_narrowing\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"prohibited_inferences\": [\n      \"convert recommendation into approval\",\n      \"inherit authorization across hops\",\n      \"collapse unresolved local review\",\n      \"aggregate into positive institutional determination\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\",\n      \"Resolve every unresolved_state entry with independent local evidence before representing it as resolved.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 3111
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H1-R1",
+      "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+      "receiver": "A",
+      "condition": "H1",
+      "source_packet_sha256": "e42a188911071ba70e62b242b856854935b122bf91d97205136a674334d3bde2",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"boundary_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"text\": \"The bounded structural checker passed for the supplied fixture set.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The result does not establish truth.\",\n      \"The result does not certify compliance.\",\n      \"The result does not transfer authority.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"broaden checker pass into truth\",\n      \"broaden checker pass into compliance\",\n      \"inherit institutional authority\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_A_BOUNDARY_PRESERVED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"text\": \"The bounded structural checker passed for the supplied fixture set.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"The result does not establish truth.\",\n      \"The result does not certify compliance.\",\n      \"The result does not transfer authority.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"upstream_claim_id\": \"CLAIM_A1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_A_BOUNDARY_PRESERVED.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"faithful restatement\"\n    ],\n    \"prohibited_inferences\": [\n      \"broaden checker pass into truth\",\n      \"broaden checker pass into compliance\",\n      \"inherit institutional authority\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2690
+    },
+    {
+      "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-A-H0-R1",
+      "scenario_id": "SIM_A_BOUNDARY_PRESERVED",
+      "receiver": "A",
+      "condition": "H0",
+      "source_packet_sha256": "b9dd039ce7cb43f59ef8dc3cfba27f7787891b4df61957c66e8c676736b244c4",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_A_BOUNDARY_PRESERVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"boundary_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_A1\",\n        \"text\": \"The bounded structural checker passed for the supplied fixture set.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The result does not establish truth.\",\n      \"The result does not certify compliance.\",\n      \"The result does not transfer authority.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"broaden checker pass into truth\",\n      \"broaden checker pass into compliance\",\n      \"inherit institutional authority\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1279
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H0-R1",
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "receiver": "B",
+      "condition": "H0",
+      "source_packet_sha256": "0422e3c8bfc8b132818288804ee2dacb1f51e2f2210c1197e07e0cb97de04eb3",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"non_claim_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"text\": \"A reviewer reproduced the named deterministic check.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Reproduction is not endorsement.\",\n      \"Reproduction is not validation of source truth.\",\n      \"Reproduction is not production approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"drop material non-claims\",\n      \"describe reproduction as endorsement\",\n      \"describe reproduction as production approval\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1299
+    },
+    {
+      "unit_id": "S002-SIM_C_NON_CLAIM_DROPPED-B-H1-R1",
+      "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+      "receiver": "B",
+      "condition": "H1",
+      "source_packet_sha256": "70fa91ce421dbf62ad29b4d2a40df9966fbe52726fb5841dd6a30fd325ca665b",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"non_claim_preservation\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"text\": \"A reviewer reproduced the named deterministic check.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Reproduction is not endorsement.\",\n      \"Reproduction is not validation of source truth.\",\n      \"Reproduction is not production approval.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"drop material non-claims\",\n      \"describe reproduction as endorsement\",\n      \"describe reproduction as production approval\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_C_NON_CLAIM_DROPPED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_C_NON_CLAIM_DROPPED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"text\": \"A reviewer reproduced the named deterministic check.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"Reproduction is not endorsement.\",\n      \"Reproduction is not validation of source truth.\",\n      \"Reproduction is not production approval.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_C1\",\n        \"upstream_claim_id\": \"CLAIM_C1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_C_NON_CLAIM_DROPPED.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"prohibited_inferences\": [\n      \"drop material non-claims\",\n      \"describe reproduction as endorsement\",\n      \"describe reproduction as production approval\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2728
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H1-R1",
+      "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+      "receiver": "B",
+      "condition": "H1",
+      "source_packet_sha256": "288707698b5c90a20836d8a0fa09747ba39ac55cb29c3ebf79a4cf64caf25ae8",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"claim_expansion\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"text\": \"The artifact preserves a policy reference asserted by the source workflow.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Policy reference presence does not establish applicability.\",\n      \"Policy reference presence does not establish compliance.\",\n      \"No authority is transferred.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"assert policy applicability\",\n      \"assert compliance\",\n      \"expand without a new boundary contract\",\n      \"inherit authority\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_D_EXPANSION_WITHOUT_AUTHORITY-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"text\": \"The artifact preserves a policy reference asserted by the source workflow.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"Policy reference presence does not establish applicability.\",\n      \"Policy reference presence does not establish compliance.\",\n      \"No authority is transferred.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"upstream_claim_id\": \"CLAIM_D1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_D_EXPANSION_WITHOUT_AUTHORITY.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"prohibited_inferences\": [\n      \"assert policy applicability\",\n      \"assert compliance\",\n      \"expand without a new boundary contract\",\n      \"inherit authority\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2873
+    },
+    {
+      "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1",
+      "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+      "receiver": "B",
+      "condition": "H0",
+      "source_packet_sha256": "a7696fded624aba33154d30795d6b61e869531ab71efb6954f6464085f9dc5ad",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_D_EXPANSION_WITHOUT_AUTHORITY\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"claim_expansion\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_D1\",\n        \"text\": \"The artifact preserves a policy reference asserted by the source workflow.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"Policy reference presence does not establish applicability.\",\n      \"Policy reference presence does not establish compliance.\",\n      \"No authority is transferred.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"faithful restatement\",\n      \"valid narrowing\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"assert policy applicability\",\n      \"assert compliance\",\n      \"expand without a new boundary contract\",\n      \"inherit authority\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1363
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H0-R1",
+      "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+      "receiver": "A",
+      "condition": "H0",
+      "source_packet_sha256": "74167a3cca7c8a865b9e79d0317b2a56593a2e1facf90416ffafe531660615df",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"unresolved_reference\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"text\": \"The source record references evidence object EVID_F1.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The referenced object was not retrieved in this handoff.\",\n      \"Reference presence is not evidence sufficiency.\",\n      \"The unresolved reference must remain unresolved.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"preserve unresolved status\",\n      \"narrow to reference-presence only\"\n    ],\n    \"unresolved_references\": [\n      \"EVID_F1\"\n    ],\n    \"prohibited_outcomes\": [\n      \"treat EVID_F1 as retrieved\",\n      \"treat EVID_F1 as sufficient support\",\n      \"resolve without resolution evidence\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1369
+    },
+    {
+      "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-A-H1-R1",
+      "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+      "receiver": "A",
+      "condition": "H1",
+      "source_packet_sha256": "fd9c1c793ddb397f06d732dec594f5daedc4354a3d6ff79cc3282d2e31495fbb",
+      "request": {
+        "model": "openai/gpt-6-luna",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"unresolved_reference\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"text\": \"The source record references evidence object EVID_F1.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The referenced object was not retrieved in this handoff.\",\n      \"Reference presence is not evidence sufficiency.\",\n      \"The unresolved reference must remain unresolved.\"\n    ],\n    \"expected_relationship\": \"PRESERVED\",\n    \"permitted_transformations\": [\n      \"preserve unresolved status\",\n      \"narrow to reference-presence only\"\n    ],\n    \"unresolved_references\": [\n      \"EVID_F1\"\n    ],\n    \"prohibited_outcomes\": [\n      \"treat EVID_F1 as retrieved\",\n      \"treat EVID_F1 as sufficient support\",\n      \"resolve without resolution evidence\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_F_POINTER_UNRESOLVED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_F_POINTER_UNRESOLVED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"text\": \"The source record references evidence object EVID_F1.\",\n        \"relationship_to_upstream\": \"PRESERVED\"\n      }\n    ],\n    \"non_claims\": [\n      \"The referenced object was not retrieved in this handoff.\",\n      \"Reference presence is not evidence sufficiency.\",\n      \"The unresolved reference must remain unresolved.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_F1\",\n        \"upstream_claim_id\": \"CLAIM_F1\",\n        \"relationship\": \"PRESERVED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_F_POINTER_UNRESOLVED.json\"\n    ],\n    \"unresolved_state\": [\n      \"EVID_F1\"\n    ],\n    \"permitted_narrowing\": [\n      \"preserve unresolved status\",\n      \"narrow to reference-presence only\"\n    ],\n    \"prohibited_inferences\": [\n      \"treat EVID_F1 as retrieved\",\n      \"treat EVID_F1 as sufficient support\",\n      \"resolve without resolution evidence\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\",\n      \"Resolve every unresolved_state entry with independent local evidence before representing it as resolved.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2985
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H1-R1",
+      "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+      "receiver": "B",
+      "condition": "H1",
+      "source_packet_sha256": "e7c3b4ce12a8e54a20e01aebdbf46c9b38e2b9bd06f95d83218bbe394c0e0f4c",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"valid_narrowing\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"text\": \"The packet supports bounded reconstruction of the listed structural fields.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The packet does not establish completeness beyond the listed fields.\",\n      \"The packet does not establish authorization.\"\n    ],\n    \"expected_relationship\": \"NARROWED\",\n    \"permitted_transformations\": [\n      \"restrict the claim to a subset of listed fields\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"represent narrowing as expansion\",\n      \"drop authorization non-claim\"\n    ]\n  },\n  \"handoff_state_artifact\": {\n    \"handoff_id\": \"CSH-S001-HANDOFF-SIM_B_BOUNDARY_NARROWED-v0.1\",\n    \"schema_version\": \"v0.1\",\n    \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n    \"emitted_claims\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"text\": \"The packet supports bounded reconstruction of the listed structural fields.\",\n        \"relationship_to_upstream\": \"NARROWED\"\n      }\n    ],\n    \"non_claims\": [\n      \"The packet does not establish completeness beyond the listed fields.\",\n      \"The packet does not establish authorization.\"\n    ],\n    \"upstream_relationships\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"upstream_claim_id\": \"CLAIM_B1\",\n        \"relationship\": \"NARROWED\"\n      }\n    ],\n    \"authority_references\": [],\n    \"evidence_references\": [\n      \"docs/experiments/cross-system-claim-handoff-v0.1/corpus/SIM_B_BOUNDARY_NARROWED.json\"\n    ],\n    \"unresolved_state\": [],\n    \"permitted_narrowing\": [\n      \"restrict the claim to a subset of listed fields\"\n    ],\n    \"prohibited_inferences\": [\n      \"represent narrowing as expansion\",\n      \"drop authorization non-claim\"\n    ],\n    \"required_local_revalidation\": [\n      \"Revalidate any downstream assertion that is not textually identical to an emitted claim.\",\n      \"Do not treat structural verification, source presence, or this handoff artifact as truth, compliance, approval, authority, or evidence sufficiency.\"\n    ]\n  }\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 2626
+    },
+    {
+      "unit_id": "S002-SIM_B_BOUNDARY_NARROWED-B-H0-R1",
+      "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+      "receiver": "B",
+      "condition": "H0",
+      "source_packet_sha256": "2290836f0a5ce41126cfa2ccc5655acea731a49b6c923187ea76d726ee15c479",
+      "request": {
+        "model": "anthropic/claude-haiku-5-5",
+        "input": "Perform the workflow_task using only the supplied packet. Do not retrieve external information. Return your transfer record as JSON.\n{\n  \"packet_type\": \"csh_s001_receiver_prompt_packet\",\n  \"schema_version\": \"s001-v0.1\",\n  \"experiment_id\": \"CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1\",\n  \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n  \"workflow_task\": \"Prepare a downstream transfer record for another system using only the supplied packet.\",\n  \"source_artifact\": {\n    \"scenario_id\": \"SIM_B_BOUNDARY_NARROWED\",\n    \"schema_version\": \"v0.1\",\n    \"pressure_class\": \"valid_narrowing\",\n    \"source_claims\": [\n      {\n        \"claim_id\": \"CLAIM_B1\",\n        \"text\": \"The packet supports bounded reconstruction of the listed structural fields.\"\n      }\n    ],\n    \"source_non_claims\": [\n      \"The packet does not establish completeness beyond the listed fields.\",\n      \"The packet does not establish authorization.\"\n    ],\n    \"expected_relationship\": \"NARROWED\",\n    \"permitted_transformations\": [\n      \"restrict the claim to a subset of listed fields\"\n    ],\n    \"unresolved_references\": [],\n    \"prohibited_outcomes\": [\n      \"represent narrowing as expansion\",\n      \"drop authorization non-claim\"\n    ]\n  },\n  \"handoff_state_artifact\": null\n}\n",
+        "max_output_tokens": 2048,
+        "tools": [],
+        "tool_choice": "none",
+        "max_steps": 1,
+        "stream": false,
+        "store": false
+      },
+      "input_utf8_bytes": 1245
+    }
+  ],
+  "hosted_units": 24,
+  "nominal_token_cost_usd": "0.0344910",
+  "estimate_basis": "Input UTF-8 bytes plus 2048-token overhead assumption, output cap, low-context published rates; excludes unreported overhead/cache charges and is not a billing guarantee.",
+  "reserved_corpus_allowance_usd": "0.72",
+  "corpus_execution_enabled": false
+}

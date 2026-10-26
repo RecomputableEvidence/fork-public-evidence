@@ -56,3 +56,19 @@ admissions/FORK-II-KERNEL-001/v0.1.1-CLOSED-HISTORICAL-EVIDENCE/sources/** -text
 
 # Exact historical FORK-RRD-001 recomputation receipt bytes
 research/fork-relational-resolution-demonstration-001/AG5_LOCAL_RECOMPUTATION_RECEIPT_ATTEMPT_002.json -text
+
+# Exact uploaded CSH-S002 neutral evidence and frozen wire requests
+docs/current-standing/CSH_S002_NEUTRAL_20261026/** -text
+docs/experiments/cross-system-claim-handoff-successor-002-v0.1/execution-v0.1/requests/** -text
+
+# Preserve predecessor raw access-attempt bytes on Windows as well.
+docs/current-standing/CSH_S001_ACCESS_ATTEMPT_20261026/** -text
+
+# Exact stopped CSH-S002 corpus evidence
+docs/current-standing/CSH_S002_STOPPED_ATTEMPT_20261026/** -text
+docs/current-standing/CSH_S002_PARSER_REVIEW_20261026/** -text
+
+# Exact uploaded CSH-S002 completed collection and raw coder excerpts
+docs/current-standing/CSH_S002_COLLECTION_20261026/raw/** -text
+docs/current-standing/CSH_S002_COLLECTION_20261026/materials/coder-packets/**/output.txt -text
+docs/current-standing/CSH_S002_COLLECTION_20261026/materials/final-response/output.txt -text

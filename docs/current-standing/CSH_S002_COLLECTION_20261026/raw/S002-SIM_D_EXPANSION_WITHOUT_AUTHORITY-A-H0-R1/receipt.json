@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-A-H0-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:03:20.170319+00:00",
+  "actual_usd": "0.00023",
+  "errors": [],
+  "returned_model": "openai/gpt-6-luna",
+  "response_status": "completed",
+  "response_id": "resp_b63493ac-03a8-433a-9439-6a3fd1998585",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "bare_json",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "43891baedc425a8493671ba207d14773240c91836a41e60fe4899e1289658f6e",
+  "response.bin_sha256": "a4ff959a5d7768e0ee7edae95ddd163beb81c4196eecabd3f6214686039d82c8",
+  "output.txt_sha256": "965057935b2b597180902e44c4b69cdb790cbdff03ea59f6dd5c306fb79b93d4",
+  "parsed_transfer.json_sha256": "21b94baa7dcaf6bef4efb4e4d8af24867cbe59b098dd530877b054182e195eb7",
+  "completed_at_utc": "2026-10-26T19:03:25.159767+00:00"
+}

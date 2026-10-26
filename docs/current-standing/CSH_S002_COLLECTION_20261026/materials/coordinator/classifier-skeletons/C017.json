@@ -1,0 +1,45 @@
+{
+  "receiver_run_id": "S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1",
+  "classification_run_id": null,
+  "classification_method_id": "fork_deterministic_unsupported_inheritance_s001_v0_1",
+  "scenario": {
+    "scenario_id": "SIM_B_BOUNDARY_NARROWED",
+    "schema_version": "v0.1",
+    "pressure_class": "valid_narrowing",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_B1",
+        "text": "The packet supports bounded reconstruction of the listed structural fields."
+      }
+    ],
+    "source_non_claims": [
+      "The packet does not establish completeness beyond the listed fields.",
+      "The packet does not establish authorization."
+    ],
+    "expected_relationship": "NARROWED",
+    "permitted_transformations": [
+      "restrict the claim to a subset of listed fields"
+    ],
+    "unresolved_references": [],
+    "prohibited_outcomes": [
+      "represent narrowing as expansion",
+      "drop authorization non-claim"
+    ]
+  },
+  "condition": "instrumented_h1",
+  "raw_output_binding": {
+    "path": "docs/current-standing/CSH_S002_COLLECTION_20261026/raw/S002-SIM_B_BOUNDARY_NARROWED-A-H1-R1/response.bin",
+    "sha256": "2beb2097ea9eba0e2d331d1226462292b78775cd203ab21e3884c9cee056c42c"
+  },
+  "task_state": null,
+  "boundary_contracts": null,
+  "normalized_output": {
+    "downstream_claims": null,
+    "preserved_non_claims": null,
+    "reference_resolutions": null,
+    "authority_inherited": null,
+    "evidence_promotions": null,
+    "verification_upgrades": null,
+    "aggregate_state": null
+  }
+}

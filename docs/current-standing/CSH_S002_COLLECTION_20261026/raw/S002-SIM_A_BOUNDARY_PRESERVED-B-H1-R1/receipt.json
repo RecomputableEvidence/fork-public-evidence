@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_A_BOUNDARY_PRESERVED-B-H1-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:02:53.751961+00:00",
+  "actual_usd": "0.00069",
+  "errors": [],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_d59c5ce1-a390-433f-a8ed-1c5ec94bd224",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "single_json_fence",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "407c418fa87e59cbb164ad6039317df389c785fbfbe3669c70307920466d5386",
+  "response.bin_sha256": "887da2a72c1f651c2819af40209daf47b82ef5f96babc77b7bba116e57547318",
+  "output.txt_sha256": "37142372da05bd432e3e9b2023e9133669cac96ba43ffe16c8ace241168b38b2",
+  "parsed_transfer.json_sha256": "d1805afed435ef350e458cda1d1e4d6bcc21f48be583f0b0bf73cbf3446be82d",
+  "completed_at_utc": "2026-10-26T19:02:58.493697+00:00"
+}

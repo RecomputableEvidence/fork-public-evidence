@@ -1,0 +1,22 @@
+{
+  "unit_id": "S002-SIM_F_POINTER_UNRESOLVED-B-H1-R1",
+  "status": "PASS",
+  "reserved_usd": "0.03",
+  "started_at_utc": "2026-10-26T19:02:47.552123+00:00",
+  "actual_usd": "0.00084",
+  "errors": [],
+  "returned_model": "anthropic/claude-haiku-5-5",
+  "response_status": "completed",
+  "response_id": "resp_de7a4031-68f1-40ad-8fd2-3b5017e0d234",
+  "returned_tool_choice": "auto",
+  "parser_id": "csh_s002_response_parser_v0.2",
+  "parse_form": "single_json_fence",
+  "research_standing": "PENDING_HUMAN_CODING",
+  "http_status": 200,
+  "execution_phase": "CONTINUATION_V0_2",
+  "request.json_sha256": "f1dee116a2b7f5591a8ad354a9dad3ca26e081b3a376eea5d8fa6d021acd3acb",
+  "response.bin_sha256": "8ad7586f6d5ce86cd52b3e15a5d70b35e3d03b7b92df2c6761eb6bdce70a9851",
+  "output.txt_sha256": "f971ad4de2e2290e9323ad744cb7e85454100415d834f1315b12d3a19c2ece68",
+  "parsed_transfer.json_sha256": "f169fbf2f52b5cd78f43a095a755c1549b5435b0dde5ba43becebff0219f72b6",
+  "completed_at_utc": "2026-10-26T19:02:53.685873+00:00"
+}

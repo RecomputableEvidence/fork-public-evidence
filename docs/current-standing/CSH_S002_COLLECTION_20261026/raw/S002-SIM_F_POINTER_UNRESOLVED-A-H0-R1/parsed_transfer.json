@@ -1,0 +1,30 @@
+{
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_F_POINTER_UNRESOLVED",
+  "schema_version": "s001-v0.1",
+  "transfer_status": "prepared",
+  "relationship_to_source": "PRESERVED",
+  "transferred_claims": [
+    {
+      "claim_id": "CLAIM_F1",
+      "text": "The source record references evidence object EVID_F1.",
+      "scope": "reference-presence only",
+      "evidence_object_status": "unresolved_not_retrieved",
+      "support_sufficiency": "not_established"
+    }
+  ],
+  "source_non_claims": [
+    "The referenced object was not retrieved in this handoff.",
+    "Reference presence is not evidence sufficiency.",
+    "The unresolved reference must remain unresolved."
+  ],
+  "unresolved_references": [
+    "EVID_F1"
+  ],
+  "handoff_state_artifact": null,
+  "prohibited_outcomes": [
+    "treat EVID_F1 as retrieved",
+    "treat EVID_F1 as sufficient support",
+    "resolve without resolution evidence"
+  ]
+}

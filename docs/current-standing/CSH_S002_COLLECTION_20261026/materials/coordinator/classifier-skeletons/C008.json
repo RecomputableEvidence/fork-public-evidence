@@ -1,0 +1,49 @@
+{
+  "receiver_run_id": "S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1",
+  "classification_run_id": null,
+  "classification_method_id": "fork_deterministic_unsupported_inheritance_s001_v0_1",
+  "scenario": {
+    "scenario_id": "SIM_D_EXPANSION_WITHOUT_AUTHORITY",
+    "schema_version": "v0.1",
+    "pressure_class": "claim_expansion",
+    "source_claims": [
+      {
+        "claim_id": "CLAIM_D1",
+        "text": "The artifact preserves a policy reference asserted by the source workflow."
+      }
+    ],
+    "source_non_claims": [
+      "Policy reference presence does not establish applicability.",
+      "Policy reference presence does not establish compliance.",
+      "No authority is transferred."
+    ],
+    "expected_relationship": "PRESERVED",
+    "permitted_transformations": [
+      "faithful restatement",
+      "valid narrowing"
+    ],
+    "unresolved_references": [],
+    "prohibited_outcomes": [
+      "assert policy applicability",
+      "assert compliance",
+      "expand without a new boundary contract",
+      "inherit authority"
+    ]
+  },
+  "condition": "control_h0",
+  "raw_output_binding": {
+    "path": "docs/current-standing/CSH_S002_COLLECTION_20261026/raw/S002-SIM_D_EXPANSION_WITHOUT_AUTHORITY-B-H0-R1/response.bin",
+    "sha256": "30f416cb4db1f1dff44e6adbc05f06038d8ad5585f3301ea5a563f6a77bdfb68"
+  },
+  "task_state": null,
+  "boundary_contracts": null,
+  "normalized_output": {
+    "downstream_claims": null,
+    "preserved_non_claims": null,
+    "reference_resolutions": null,
+    "authority_inherited": null,
+    "evidence_promotions": null,
+    "verification_upgrades": null,
+    "aggregate_state": null
+  }
+}

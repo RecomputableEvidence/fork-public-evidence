@@ -1,0 +1,54 @@
+{
+  "experiment_id": "CSH-S002-PILOT-v0.1",
+  "status": "CANDIDATE_NOT_FROZEN",
+  "platform": "Perplexity Agent API",
+  "endpoint": "https://api.perplexity.ai/v1/responses",
+  "endpoint_note": "Documented alias of /v1/agent used by official SDK 0.46.1",
+  "receivers": [
+    {
+      "id": "A",
+      "model": "openai/gpt-6-luna",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.5
+    },
+    {
+      "id": "B",
+      "model": "anthropic/claude-haiku-5-5",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.5
+    }
+  ],
+  "pricing_source": "https://docs.perplexity.ai/docs/agent-api/models",
+  "pricing_checked_date": "2026-10-26",
+  "pricing_scope": "Low-context rates, under 100k tokens; model access and effective billing not verified",
+  "replicates": 1,
+  "hosted_units": 24,
+  "max_output_tokens": 2048,
+  "request_settings": {
+    "tools": [],
+    "tool_choice": "none",
+    "max_steps": 1,
+    "stream": false,
+    "store": false
+  },
+  "order_seed": "CSH-S002-PILOT-20261026-v0.1",
+  "budget": {
+    "proposed_total_usd": "1.00",
+    "neutral_reservation_usd_per_request": "0.03",
+    "corpus_reservation_usd_per_request": "0.03",
+    "automatic_retries": 0,
+    "status": "PROPOSED_NOT_PROVIDER_ENFORCED",
+    "rule": "Reserve before every request; reconcile actual returned USD cost; stop on absent/nonfinite cost, cost above reservation, or insufficient remaining allowance. The in-flight request can exceed the estimate; this is not a provider-enforced billing cap."
+  },
+  "source_bindings": {
+    "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PREREGISTRATION_v0_1.md": "564882a3362022d1f2a8fa84f3b0b8ca313e1fc09c549854b4e9cccd832fa95e",
+    "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/MEASUREMENT_AND_CODING_SPEC_v0_1.md": "4145b676081d709f7d35c1ff7d14eda1df9e488ed8e40711dca44ea6622016ff",
+    "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/SEMANTIC_MEASUREMENT_FREEZE_v0_1.json": "30cf7ffb494f97d177b1399f9b0300af5f07d35bc05e1b9e0398c939c278c6b3",
+    "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/EXECUTION_RECORD_FREEZE_v0_1.json": "456b6c5c011807951bfdc9abce0a3dbc52532cb5c53f9b2882fe51b2b9cb5019",
+    "docs/experiments/cross-system-claim-handoff-successor-001-v0.1/PACKET_BINDING_v0_1.json": "f4ec48838689a471cfaff6cb7746f4b766810a6e1ece8a7e42e49f722b4c06a7",
+    "tools/build_csh_s001_packets_v0_1.py": "788946b95442f74500d1907f4dce21cc44677d33c2f5171b62e61643344a2f7e",
+    "tools/check_csh_s001_packet_binding_v0_2.py": "1be094afe1f5979cb6134569eb34dd8869e7be8f1879d160dde35dcbc52a4c54",
+    "tools/classify_unsupported_inheritance_s001_v0_1.py": "92428fd8b517c91c2407842f849375019def0cf89921d7881a0d4bc9856898c8",
+    "tools/analyze_csh_s001_v0_1.py": "eb07c2063bef18fa692cb4181f30b49d0ca651e50898dafb69d9d953360629c6"
+  }
+}

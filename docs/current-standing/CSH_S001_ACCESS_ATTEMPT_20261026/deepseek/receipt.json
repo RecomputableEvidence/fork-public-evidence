@@ -1,0 +1,20 @@
+{
+  "provider": "deepseek",
+  "requested_model": "deepseek-flash",
+  "permitted_returned_models": [
+    "deepseek-flash"
+  ],
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "started_at_utc": "2026-10-26T16:25:27.188594+00:00",
+  "request_sha256": "781c27845198fa9ae393b78b20674c1edb13a0767fd120008e08a52a2248fe40",
+  "contains_csh_corpus": false,
+  "request_attempted": true,
+  "identity_scope": "exact returned string match; not provider/model attestation",
+  "status": "HTTP_ERROR",
+  "http_status": 402,
+  "response_sha256": "0d16dcaa537f87b89f85c89a57e593b9aa2d55c7a0ac6b36b3e3ab06fc85233e",
+  "errors": [
+    "http_status"
+  ],
+  "completed_at_utc": "2026-10-26T16:25:27.946279+00:00"
+}

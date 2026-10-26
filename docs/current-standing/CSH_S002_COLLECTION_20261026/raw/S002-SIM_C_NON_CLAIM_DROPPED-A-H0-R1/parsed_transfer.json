@@ -1,0 +1,24 @@
+{
+  "record_type": "downstream_transfer_record",
+  "experiment_id": "CROSS-SYSTEM-CLAIM-HANDOFF-SUCCESSOR-001-v0.1",
+  "scenario_id": "SIM_C_NON_CLAIM_DROPPED",
+  "schema_version": "v0.1",
+  "source_claims": [
+    {
+      "claim_id": "CLAIM_C1",
+      "text": "A reviewer reproduced the named deterministic check."
+    }
+  ],
+  "source_non_claims": [
+    "Reproduction is not endorsement.",
+    "Reproduction is not validation of source truth.",
+    "Reproduction is not production approval."
+  ],
+  "expected_relationship": "PRESERVED",
+  "permitted_transformations": [
+    "faithful restatement",
+    "valid narrowing"
+  ],
+  "unresolved_references": [],
+  "handoff_state_artifact": null
+}
