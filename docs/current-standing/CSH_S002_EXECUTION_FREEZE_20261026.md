@@ -95,3 +95,10 @@ runs every execution test. Runner, freeze and all request bytes are unchanged.
 
 Post-correction targeted verification: 53 passed with SDK installed; in a fresh
 proof-only virtual environment, 38 passed and 15 optional transport tests skipped.
+
+The fresh proof-only full regression passed: 811 passed, 16 skipped in 75.61
+seconds. Hosted Windows PowerShell job 121744473364 then exposed an inherited
+raw-evidence checkout issue: Git line-ending conversion altered the preserved
+S001 Groq response.bin and failed diff-check. Its evidence directory is now
+explicitly -text in .gitattributes, matching the S002 evidence policy. Original
+response bytes remain unchanged; this is a checkout-preservation repair.
