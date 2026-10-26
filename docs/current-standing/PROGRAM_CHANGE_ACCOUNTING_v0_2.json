@@ -63,6 +63,14 @@
       "disposition": "IN_FLIGHT",
       "reason": "Offline CSH successor validation: explicit response acceptance and actual packet bytes; no hosted execution or standing promotion.",
       "standing_reference": "docs/current-standing/CSH_SUCCESSOR_HARDENING_20261026.md"
+    },
+    {
+      "path": "tools/perplexity_agent_answer_v0_1.py",
+      "before_git_blob": null,
+      "after_git_blob": "68b15aa7ba58b344a7566e45dc3ef842bbf7d6f8",
+      "disposition": "IN_FLIGHT",
+      "reason": "Optional Perplexity web-grounded answer capability; no CSH receiver replacement or execution-standing promotion.",
+      "standing_reference": "docs/current-standing/PERPLEXITY_AGENT_INTEGRATION_20261026.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",
