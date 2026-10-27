@@ -1,0 +1,345 @@
+{
+  "arm_records": [
+    {
+      "arm": "A",
+      "case_id": "CASE-001",
+      "deadline_utc": "2026-11-06T23:59:59Z",
+      "original_archive_path": "originals/ARM_A_NEUTRAL_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.44,
+      "question_verbatim": "In the officially published main-race classification of the 2026 Formula One Mexico City Grand Prix, Andrea Kimi Antonelli is P1.",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:23:27Z",
+      "topic": "Sport — 2026 Mexico City F1 Grand Prix"
+    },
+    {
+      "arm": "A",
+      "case_id": "CASE-002",
+      "deadline_utc": "2026-12-23T23:59:59Z",
+      "original_archive_path": "originals/ARM_A_NEUTRAL_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.5,
+      "question_verbatim": "Troy Jackson is the winning candidate in the official final count for the Maine United States Senate election conducted 3 November 2026.",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:23:27Z",
+      "topic": "Politics — 2026 Maine US Senate election"
+    },
+    {
+      "arm": "A",
+      "case_id": "CASE-003",
+      "deadline_utc": "2026-11-13T23:59:59Z",
+      "original_archive_path": "originals/ARM_A_NEUTRAL_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.52,
+      "question_verbatim": "Max Verstappen is classified first, second or third in the main race of the 2026 Formula One São Paulo Grand Prix.",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:23:27Z",
+      "topic": "Sport — 2026 São Paulo F1 Grand Prix"
+    },
+    {
+      "arm": "A",
+      "case_id": "CASE-004",
+      "deadline_utc": "2026-12-08T23:59:59Z",
+      "original_archive_path": "originals/ARM_A_NEUTRAL_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.27,
+      "question_verbatim": "The National Hurricane Center first names an Atlantic tropical or subtropical cyclone operationally between 2026-10-30T00:00:00Z and 2026-11-30T23:59:59Z inclusive.",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:23:27Z",
+      "topic": "Meteorology — new Atlantic named storm late 2026"
+    },
+    {
+      "arm": "A",
+      "case_id": "CASE-005",
+      "deadline_utc": "2026-12-18T23:59:59Z",
+      "original_archive_path": "originals/ARM_A_NEUTRAL_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.57,
+      "question_verbatim": "The BLS initial November 2026 CPI report displays the US all-items CPI-U unadjusted 12-month percentage change as at least 4.0%.",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:23:27Z",
+      "topic": "Economics — November 2026 US CPI inflation"
+    },
+    {
+      "arm": "A",
+      "case_id": "CASE-006",
+      "deadline_utc": "2026-12-24T23:59:59Z",
+      "original_archive_path": "originals/ARM_A_NEUTRAL_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.43,
+      "question_verbatim": "The Bank of England Monetary Policy Committee 17 December 2026 scheduled decision announces Bank Rate at or above 4.00% immediately following that decision.",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:23:27Z",
+      "topic": "Monetary policy — December 2026 Bank of England Bank Rate"
+    },
+    {
+      "arm": "B",
+      "case_id": "CASE-001",
+      "deadline_utc": "2026-11-17T23:59:59Z",
+      "original_archive_path": "originals/ARM_B_LENS_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.69,
+      "question_verbatim": "Will Apple report at least US$115.0 billion of fiscal 2026 fourth-quarter total company revenue in its initially issued earnings release?",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:51:26Z",
+      "topic": "Corporate earnings / consumer technology"
+    },
+    {
+      "arm": "B",
+      "case_id": "CASE-002",
+      "deadline_utc": "2027-01-10T23:59:59Z",
+      "original_archive_path": "originals/ARM_B_LENS_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.61,
+      "question_verbatim": "Will Troy Jackson be the officially determined winner of Maine’s November 3, 2026 U.S. Senate general election?",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:51:26Z",
+      "topic": "US state election / politics"
+    },
+    {
+      "arm": "B",
+      "case_id": "CASE-003",
+      "deadline_utc": "2026-11-23T23:59:59Z",
+      "original_archive_path": "originals/ARM_B_LENS_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.76,
+      "question_verbatim": "Will Kimi Antonelli finish in positions 1–3 in the classified 2026 Formula One São Paulo Grand Prix main race?",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:51:26Z",
+      "topic": "International motorsport"
+    },
+    {
+      "arm": "B",
+      "case_id": "CASE-004",
+      "deadline_utc": "2026-12-18T23:59:59Z",
+      "original_archive_path": "originals/ARM_B_LENS_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.44,
+      "question_verbatim": "Will the first BLS Employment Situation release for November 2026 report the seasonally adjusted U.S. headline unemployment rate (U-3) as 4.3% or higher?",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:51:26Z",
+      "topic": "US labor statistics"
+    },
+    {
+      "arm": "B",
+      "case_id": "CASE-005",
+      "deadline_utc": "2026-12-16T23:59:59Z",
+      "original_archive_path": "originals/ARM_B_LENS_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.48,
+      "question_verbatim": "Will the FOMC raise the federal funds target range at its December 9, 2026 scheduled decision relative to the target range effective immediately before that December decision?",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:51:26Z",
+      "topic": "Central-bank monetary policy"
+    },
+    {
+      "arm": "B",
+      "case_id": "CASE-006",
+      "deadline_utc": "2027-01-10T23:59:59Z",
+      "original_archive_path": "originals/ARM_B_LENS_RETURN_ORIGINAL.zip",
+      "p_yes_original": 0.57,
+      "question_verbatim": "Will Avengers: Doomsday earn at least US$250,000,000 in reported domestic (US/Canada) box office for Friday December 18 through Sunday December 20, 2026 inclusive?",
+      "record_status": "UNADMITTED_CANDIDATE",
+      "source_cutoff_utc": "2026-10-26T23:51:26Z",
+      "topic": "Cinema / entertainment market"
+    },
+    {
+      "arm": "C",
+      "original_archive_path": "originals/ARM_C_INFORMED_RETURN_ORIGINAL.zip",
+      "verbatim_data": {
+        "arm": "C_ORIGINAL_ANALYST_WITH_METHODS_EXPOSED_TO_EARLIER_FORECAST_WORK",
+        "dependence_cluster": "MACRO_ENERGY",
+        "event_date": "2026-10-29",
+        "id": "C26-01-ECB",
+        "method_status": "EXPLICIT_CONTEMPORANEOUS_WRITTEN_DELIBERATION_NOT_VALIDATED_CAUSAL_IMPROVEMENT",
+        "non_claims": [
+          "Forecast selection is not causally attributable to method in a controlled sense",
+          "No complete internal reasoning trace attested",
+          "Not a blinded independent arm",
+          "The source observation extracts are not full source-file archives",
+          "No claim outcome is already known or correct"
+        ],
+        "outcome_no": "Decision specifies any rate other than 2.50%.",
+        "outcome_yes": "ECB October 29 decision explicitly maintains deposit facility rate 2.50%.",
+        "p_no": 0.6,
+        "p_yes": 0.4,
+        "predecision_record_sha256": "c38185e5cb977386d0b035acb76f3b9b60a66e390f98718ede3d82338b905e1a",
+        "primary_forecast": "NO",
+        "probability_justification": "September hike, elevated inflation and energy risk create a material chance of another move. Hold remains credible because decisions are meeting-by-meeting and effects are uncertain; I do not have a preserved contemporaneous market-implied probability. A 40% hold assessment intentionally puts the no/hike alternative slightly ahead.",
+        "question_exact": "Will ECB leave the deposit facility interest rate unchanged at 2.50% at its 29 October 2026 monetary-policy decision?",
+        "recorded_utc": "2026-10-26T23:00:58Z",
+        "resolution_source_urls": [
+          "https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html",
+          "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.en.html"
+        ],
+        "resolvable_cutoff": "2026-10-29",
+        "source_record_sha256": "cbdc2b61ae86817a23e876eea11d2245df2900b82b06545b91dfb7f4b90ccdaa",
+        "standing": "NOT_ADMITTED_NOT_EXTERNALLY_TIME_WITNESSED"
+      }
+    },
+    {
+      "arm": "C",
+      "original_archive_path": "originals/ARM_C_INFORMED_RETURN_ORIGINAL.zip",
+      "verbatim_data": {
+        "arm": "C_ORIGINAL_ANALYST_WITH_METHODS_EXPOSED_TO_EARLIER_FORECAST_WORK",
+        "dependence_cluster": "US_ELECTION",
+        "event_date": "2026-11-03",
+        "id": "C26-02-HOUSE",
+        "method_status": "EXPLICIT_CONTEMPORANEOUS_WRITTEN_DELIBERATION_NOT_VALIDATED_CAUSAL_IMPROVEMENT",
+        "non_claims": [
+          "Forecast selection is not causally attributable to method in a controlled sense",
+          "No complete internal reasoning trace attested",
+          "Not a blinded independent arm",
+          "The source observation extracts are not full source-file archives",
+          "No claim outcome is already known or correct"
+        ],
+        "outcome_no": "Certified return count assigns fewer than 218; election cancellations or unresolved races at cutoff require indeterminate.",
+        "outcome_yes": "Certified November 3 House general-election returns eventually assign at least 218 elected voting-member seats to Democratic nominees.",
+        "p_no": 0.23,
+        "p_yes": 0.77,
+        "predecision_record_sha256": "4484ec162ed53265c8bdd4e0e082b0aca9834418026370c69a7b8e02b94128b2",
+        "primary_forecast": "YES",
+        "probability_justification": "Multiple independent-looking but partly overlapping models and a Reuters/Ipsos generic-ballot lead point toward a Democratic majority. The 79% model is a benchmark rather than fresh confirmation; discount slightly for correlated model inputs and geographically uneven polls. No Lens-only uplift claimed.",
+        "question_exact": "Will the Democratic Party win at least 218 of the 435 U.S. House seats contested in the 3 November 2026 general election?",
+        "recorded_utc": "2026-10-26T23:00:58Z",
+        "resolution_source_urls": [
+          "https://votes.decisiondeskhq.com/forecast/2026",
+          "https://www.reuters.com/world/us/trump-approval-rises-record-low-32-ahead-midterm-election-reuters-ipsos-poll-finds-2026-10-26/",
+          "https://clerk.house.gov/Members/ViewElectionInformation"
+        ],
+        "resolvable_cutoff": "2027-02-01",
+        "source_record_sha256": "bc0f07a089f92cd61badb62ed5c22de545da362c88d5bb42dff57193ba421d16",
+        "standing": "NOT_ADMITTED_NOT_EXTERNALLY_TIME_WITNESSED"
+      }
+    },
+    {
+      "arm": "C",
+      "original_archive_path": "originals/ARM_C_INFORMED_RETURN_ORIGINAL.zip",
+      "verbatim_data": {
+        "arm": "C_ORIGINAL_ANALYST_WITH_METHODS_EXPOSED_TO_EARLIER_FORECAST_WORK",
+        "dependence_cluster": "MACRO_ENERGY",
+        "event_date": "2026-11-05",
+        "id": "C26-03-BOE",
+        "method_status": "EXPLICIT_CONTEMPORANEOUS_WRITTEN_DELIBERATION_NOT_VALIDATED_CAUSAL_IMPROVEMENT",
+        "non_claims": [
+          "Forecast selection is not causally attributable to method in a controlled sense",
+          "No complete internal reasoning trace attested",
+          "Not a blinded independent arm",
+          "The source observation extracts are not full source-file archives",
+          "No claim outcome is already known or correct"
+        ],
+        "outcome_no": "Announcement specifies any other rate.",
+        "outcome_yes": "November 5 MPC release specifies Bank Rate 3.75%.",
+        "p_no": 0.42,
+        "p_yes": 0.58,
+        "predecision_record_sha256": "70a5cfc5bff5828fc90e2ef845996e783676fe9d0251f28d2ecd13a34033cbc3",
+        "primary_forecast": "YES",
+        "probability_justification": "The September 6–3 hold is stronger direct institutional evidence than the dissent, although three hike votes and energy-driven inflation may induce a majority to change. Rate hold is favored, not secure; shared macro-energy exposure with ECB is flagged.",
+        "question_exact": "Will the Bank of England Monetary Policy Committee maintain Bank Rate at 3.75% at its 5 November 2026 announcement?",
+        "recorded_utc": "2026-10-26T23:00:58Z",
+        "resolution_source_urls": [
+          "https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates",
+          "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026"
+        ],
+        "resolvable_cutoff": "2026-11-05",
+        "source_record_sha256": "71088ac04cd14af3a0106f91299b66da0ea3edcc956be2c6a20561d846b7d9fc",
+        "standing": "NOT_ADMITTED_NOT_EXTERNALLY_TIME_WITNESSED"
+      }
+    },
+    {
+      "arm": "C",
+      "original_archive_path": "originals/ARM_C_INFORMED_RETURN_ORIGINAL.zip",
+      "verbatim_data": {
+        "arm": "C_ORIGINAL_ANALYST_WITH_METHODS_EXPOSED_TO_EARLIER_FORECAST_WORK",
+        "dependence_cluster": "SPACE_LAUNCH",
+        "event_date": "2026-11-30",
+        "id": "C26-04-ROCKET",
+        "method_status": "EXPLICIT_CONTEMPORANEOUS_WRITTEN_DELIBERATION_NOT_VALIDATED_CAUSAL_IMPROVEMENT",
+        "non_claims": [
+          "Forecast selection is not causally attributable to method in a controlled sense",
+          "No complete internal reasoning trace attested",
+          "Not a blinded independent arm",
+          "The source observation extracts are not full source-file archives",
+          "No claim outcome is already known or correct"
+        ],
+        "outcome_no": "No verified liftoff by November 30 UTC; event subsequently occurring does not change cutoff classification.",
+        "outcome_yes": "Rocket Lab first-party completed-launch account identifies the mission as launched on or before November 30 UTC; a launch failure after liftoff still meets launched predicate.",
+        "p_no": 0.3,
+        "p_yes": 0.7,
+        "predecision_record_sha256": "c4b06a3a4e15e49a4f3a1cddbdc478898d8270b5fff2a690faa3492147b80e88",
+        "primary_forecast": "YES",
+        "probability_justification": "The issuer schedules a no-earlier-than November 4 launch. A November 30 cutoff allows buffer for routine scrubs but cannot exclude payload, weather, range or vehicle delays. A completed launch is not guaranteed by scheduling.",
+        "question_exact": "Will Rocket Lab launch the Electron mission “The Sea God Surveys” carrying the iQPS payload by 30 November 2026, UTC?",
+        "recorded_utc": "2026-10-26T23:00:58Z",
+        "resolution_source_urls": [
+          "https://rocketlabcorp.com/missions/launches/iqps-the-sea-god-surveys/",
+          "https://rocketlabcorp.com/missions/launches/"
+        ],
+        "resolvable_cutoff": "2026-11-30",
+        "source_record_sha256": "106a8bde9cc4ab45979ad638af11871f8665af353ec1175ed552397f052483a7",
+        "standing": "NOT_ADMITTED_NOT_EXTERNALLY_TIME_WITNESSED"
+      }
+    },
+    {
+      "arm": "C",
+      "original_archive_path": "originals/ARM_C_INFORMED_RETURN_ORIGINAL.zip",
+      "verbatim_data": {
+        "arm": "C_ORIGINAL_ANALYST_WITH_METHODS_EXPOSED_TO_EARLIER_FORECAST_WORK",
+        "dependence_cluster": "CORPORATE_RESULTS",
+        "event_date": "2026-12-15",
+        "id": "C26-05-NVDA",
+        "method_status": "EXPLICIT_CONTEMPORANEOUS_WRITTEN_DELIBERATION_NOT_VALIDATED_CAUSAL_IMPROVEMENT",
+        "non_claims": [
+          "Forecast selection is not causally attributable to method in a controlled sense",
+          "No complete internal reasoning trace attested",
+          "Not a blinded independent arm",
+          "The source observation extracts are not full source-file archives",
+          "No claim outcome is already known or correct"
+        ],
+        "outcome_no": "First announcement reports < $105.0 billion; missing announcement by cutoff indeterminate rather than automatic negative.",
+        "outcome_yes": "First NVIDIA fiscal Q3 2027 results announcement reports consolidated quarterly revenue >= $105.0 billion (as published; no later restatement substitution).",
+        "p_no": 0.24,
+        "p_yes": 0.76,
+        "predecision_record_sha256": "cb2cc2d63ca73f0441a07b3de7a65bcfc48b8e3ba85e31d31a6e367552b8b3e4",
+        "primary_forecast": "YES",
+        "probability_justification": "Management expects $108bn plus/minus 2%, making the chosen $105bn cutoff just beneath the low end of indicated guidance (~$105.84bn). Guidance and previous revenue provide strong directional evidence; shipment and reporting risks prevent near-certainty.",
+        "question_exact": "Will NVIDIA report at least US$105.0 billion in revenue for fiscal Q3 2027 in its first official earnings announcement for that quarter by 15 December 2026?",
+        "recorded_utc": "2026-10-26T23:00:58Z",
+        "resolution_source_urls": [
+          "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/",
+          "https://investor.nvidia.com/financial-info/financial-reports/default.aspx"
+        ],
+        "resolvable_cutoff": "2026-12-15",
+        "source_record_sha256": "dff8eb49389987e6c6ed0533818039c70ff56b34f46d9bbc79cd390085bd9fd3",
+        "standing": "NOT_ADMITTED_NOT_EXTERNALLY_TIME_WITNESSED"
+      }
+    },
+    {
+      "arm": "C",
+      "original_archive_path": "originals/ARM_C_INFORMED_RETURN_ORIGINAL.zip",
+      "verbatim_data": {
+        "arm": "C_ORIGINAL_ANALYST_WITH_METHODS_EXPOSED_TO_EARLIER_FORECAST_WORK",
+        "dependence_cluster": "G20_DIPLOMACY",
+        "event_date": "2026-12-20",
+        "id": "C26-06-G20",
+        "method_status": "EXPLICIT_CONTEMPORANEOUS_WRITTEN_DELIBERATION_NOT_VALIDATED_CAUSAL_IMPROVEMENT",
+        "non_claims": [
+          "Forecast selection is not causally attributable to method in a controlled sense",
+          "No complete internal reasoning trace attested",
+          "Not a blinded independent arm",
+          "The source observation extracts are not full source-file archives",
+          "No claim outcome is already known or correct"
+        ],
+        "outcome_no": "No qualifying official unanimous leaders declaration by deadline, including chair-only statement, partial signatures or documented dissent; lack of accessible official archive is unresolved.",
+        "outcome_yes": "Official contemporaneous G20 or presidency publication labels final 2026 Miami G20 Leaders Declaration as unanimously agreed/adopted by all members by deadline.",
+        "p_no": 0.67,
+        "p_yes": 0.33,
+        "predecision_record_sha256": "f170c5416c201136b044f2654516b698110e01cb73d3b3e3adaca32680ce5359",
+        "primary_forecast": "NO",
+        "probability_justification": "Prior G20 ministerial disagreement and explicit possibility of chair statements weigh against unanimous leaders language. The history of negotiating summit declarations prevents near-zero probability. This is a disputed diplomatic interpretation, not an evidence-integrity judgment.",
+        "question_exact": "By 20 December 2026, will an official G20/U.S. presidency source publish a 2026 leaders’ declaration identified as agreed by all G20 members (not merely a chair’s statement)?",
+        "recorded_utc": "2026-10-26T23:00:58Z",
+        "resolution_source_urls": [
+          "https://g20.org/",
+          "https://www.g20.utoronto.ca/2026/2026-road.html",
+          "https://www.reuters.com/world/china/some-g20-differences-remain-over-imbalances-sovereign-debt-us-treasury-official-2026-09-01/"
+        ],
+        "resolvable_cutoff": "2026-12-20",
+        "source_record_sha256": "06f9590519ca91e52e063dd818ab017c09f2552d68f93dbb4c088f21c0ed8c04",
+        "standing": "NOT_ADMITTED_NOT_EXTERNALLY_TIME_WITNESSED"
+      }
+    }
+  ],
+  "origin_note": "Fields copied from original return files, not a replacement for their source files.",
+  "schema": "FPCF-002-PUBLIC-FORECAST-INDEX-v0.1",
+  "standing": "CATALOGUE_OF_SUBMITTED_FORECASTS_NOT_ADMITTED"
+}
