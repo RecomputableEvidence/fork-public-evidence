@@ -63,6 +63,102 @@
       "disposition": "IN_FLIGHT",
       "reason": "Offline CSH successor validation: explicit response acceptance and actual packet bytes; no hosted execution or standing promotion.",
       "standing_reference": "docs/current-standing/CSH_SUCCESSOR_HARDENING_20261026.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/PUBLICATION_READBACK_v0_1.md",
+      "before_git_blob": null,
+      "after_git_blob": "184ec204e15d5ed0aed85921f0f90754eb153848",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 additive evidence-only publication index/readback, preserving candidate bounds, adversarial transport defect and correction; publication and accounting do not admit results.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/README.md",
+      "before_git_blob": null,
+      "after_git_blob": "83c0c9992a079732aa150020461dd3d3094f2e8c",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 additive evidence-only publication index/readback, preserving candidate bounds, adversarial transport defect and correction; publication and accounting do not admit results.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part01.txt",
+      "before_git_blob": null,
+      "after_git_blob": "dd709e4f47f6f81d4191906c5b0379191e272cef",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part02.txt",
+      "before_git_blob": null,
+      "after_git_blob": "19a8a51fc4fd76eef175818020c401c2df0f4c12",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part03.txt",
+      "before_git_blob": null,
+      "after_git_blob": "9ca3b756700cf8f74ab01b631ff7753733868090",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part04.txt",
+      "before_git_blob": null,
+      "after_git_blob": "f0239cddbbb24be9a300d70c043abbc9610dc785",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part05.txt",
+      "before_git_blob": null,
+      "after_git_blob": "6d95451ba6b1b945c618ed3363d51b2b798c9e11",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part06.txt",
+      "before_git_blob": null,
+      "after_git_blob": "8a5de91f8539cc5fe84ce5bf803c53ae23607275",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part07.txt",
+      "before_git_blob": null,
+      "after_git_blob": "3cc1b7f8c1b9208bc2257853b397138ef5242ad0",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part08.txt",
+      "before_git_blob": null,
+      "after_git_blob": "a5722eb6d51ac6409de60d4010b72d110c36f305",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part09.txt",
+      "before_git_blob": null,
+      "after_git_blob": "ddba5471333328c9f0b7438495596ec92e0ce65b",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
+    },
+    {
+      "path": "docs/experiments/FPCF-002/public-release/parts/archive.b64.part10.txt",
+      "before_git_blob": null,
+      "after_git_blob": "3937b01385cf99ee9e38ccf0b0b0dd111d1e446b",
+      "disposition": "IN_FLIGHT",
+      "reason": "PR #201 public FPCF-002 prospective archive, byte-preserving base64 segment of untouched original source bundle; this is a candidate evidence-publication surface, not prediction, chronology, method-efficacy, or institutional admission.",
+      "standing_reference": "docs/current-standing/FPCF_002_PUBLIC_ARCHIVE_CHANGE_ACCOUNTING_v0_1.md"
     }
   ],
   "boundary": "The v0.2 active transition population begins at the exact PR #178 main coordinate. Active accounting records recognized implementation transitions without promoting research-object standing, authority, or semantic completeness; it does not erase or replace the preserved predecessor accounting.",
