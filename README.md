@@ -15,6 +15,10 @@ The current-standing layer is an interpretation and routing surface. Inclusion t
 
 Start here: [`docs/REVIEWER_START_HERE_v0_1.md`](docs/REVIEWER_START_HERE_v0_1.md)
 
+## Research-output registration and DOI/ORCID intake
+
+The [Fork-core publication queue](docs/research-publications/README.md) identifies the first **bounded, already repository-admitted Fork outcome** for an evidence-backed citable release. It deliberately excludes independent NGAST research families such as FractureEngine, Shared World, LexiFORM, RUNS Forge and model training: conceptual adjacency grants no Fork standing. The queue is a draft intake, not a new execution, public archive release, DOI/ORCID registration, or standing promotion. Follow the [deposit and registration workflow](docs/research-publications/ORCID_DOI_WORKFLOW_v0_1.md) only after the exact object-specific release gates.
+
 ## Research Status
 
 Fork's current evidence supports an engineering pattern and a motivated hypothesis, not a proven general systems theory.
